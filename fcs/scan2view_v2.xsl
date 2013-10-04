@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" version="2.0" extension-element-prefixes="sru fcs utils xs">
+<xsl:import href="scan2view_v1.xsl"/>    
     <!-- xmlns="http://www.w3.org/1999/xhtml" 
 <purpose> generate a view for a values-list (index scan) </purpose>
 <params>

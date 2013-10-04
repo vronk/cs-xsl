@@ -65,13 +65,13 @@
 			<xsl:message>format:<xsl:value-of select="$format"/>
 			</xsl:message>-->
         <xsl:choose>
-            <xsl:when test="contains($format,'htmlpage')">
+            <xsl:when test="contains($format,'page')">
                 <xsl:call-template name="html"/>
             </xsl:when>
-            <xsl:when test="contains($format,'htmljspage')">
+            <xsl:when test="contains($format,'js')">
                 <xsl:call-template name="htmljs"/>
             </xsl:when>
-            <xsl:when test="contains($format,'htmlsimple')">
+            <xsl:when test="contains($format,'simple')">
                 <xsl:call-template name="htmlsimple"/>
             </xsl:when>
             <xsl:otherwise>

@@ -127,7 +127,7 @@
     <xd:doc>
         <xd:desc></xd:desc>
     </xd:doc>
-    <xsl:template match="sru:records" mode="list">
+    <xsl:template match="sru:records" mode="table">
         <table class="show">
             <thead>
                 <tr>
@@ -144,15 +144,15 @@
     <xd:doc>
         <xd:desc></xd:desc>
     </xd:doc>
-    <xsl:template match="sru:record" mode="list">
+    <xsl:template match="sru:record" mode="table">
         <xsl:variable name="curr_record" select="."/>
-        <xsl:variable name="fields">
+<!--        <xsl:variable name="fields">
             <div>
                 <xsl:apply-templates select="*" mode="record-data"/>
             </div>
-        </xsl:variable>
+        </xsl:variable>-->
         <xsl:call-template name="record-table-row">
-            <xsl:with-param name="fields" select="exsl:node-set($fields)"/>
+<!--            <xsl:with-param name="fields" select="exsl:node-set($fields)"/>-->
         </xsl:call-template>
     </xsl:template>
     
@@ -160,7 +160,7 @@
         <xd:desc></xd:desc>
     </xd:doc>
     <xsl:template name="record-table-row">
-        <xsl:param name="fields"/>
+<!--        <xsl:param name="fields"/>-->
 <!-- @field absolute_position compute records position over whole recordset, ie add `startRecord` (important when paging)
  -->
         <xsl:variable name="absolute_position">
@@ -220,7 +220,9 @@
         </tr>
         <tr>
             <td>
-                <xsl:copy-of select="exsl:node-set($fields)"/>
+                <div>
+                <xsl:apply-templates select="*" mode="record-data"/>
+                </div>
             </td>
         </tr>
     </xsl:template>

@@ -228,9 +228,10 @@
     </xsl:template>
     
     <xd:doc>
-        <xd:desc>
-            <xd:p>Inserts links for special TEI elements like named entities. XSL 1.0 port.
-                Advanced functionality is available with XSL 2.0 using features. See data2view_v2.xsl</xd:p>
+        <xd:desc>Common template to insert a TEI element as a span with an appropriate class.
+            <xd:p>XSL 1.0 port.</xd:p>
+            <xd:p>If there is a known way to link to more information the span is placed inside a link.</xd:p>    
+            <xd:p>Advanced functionality is available with XSL 2.0 using features. See data2view_v2.xsl</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="inline">

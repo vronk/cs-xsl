@@ -156,11 +156,11 @@
                 Examples would be: htmlsimpledetail or htmljslist
             </xd:p>
             <xd:p>
-                Defaults to 'htmlpagelist'.
+                Defaults to 'htmlpagetable'.
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="format" select="'htmlpagelist'"/>
+    <xsl:param name="format" select="'htmlpagetable'"/>
     <xd:doc>
         <xd:desc>The query sent by the client
             <xd:p>

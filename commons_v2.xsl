@@ -6,7 +6,6 @@
     xmlns:exsl="http://exslt.org/common"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     version="2.0">
-    <xsl:import href="commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling
             <xd:p>History:
@@ -124,8 +123,8 @@
         <xd:desc>Dummy that returns it's parameter as this is not needed in XSL 2.0</xd:desc>
         <xd:param name="node-set">This node-set is returned as is</xd:param>
     </xd:doc>
-    <xsl:function name="exsl:node-set">
-        <xsl:param name="node-set"/>
-        <xsl:value-of select="$node-set"/>
+    <xsl:function name="exsl:node-set" as="node()*">
+        <xsl:param name="node-set" as="node()*"/>
+        <xsl:sequence select="$node-set"/>
     </xsl:function>
 </xsl:stylesheet>
