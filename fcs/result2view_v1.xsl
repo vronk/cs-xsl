@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:sru="http://www.loc.gov/zing/srw/"
