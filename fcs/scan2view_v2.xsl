@@ -65,7 +65,7 @@
     <xsl:param name="filter" select="$scanClause-array[2]"/>
     <xsl:template name="continue-root">
         <div> <!-- class="cmds-ui-block  init-show" -->
-            <xsl:if test="$format = 'htmlpage' or $parts='header'">
+            <xsl:if test="contains($format, 'page') or $parts='header'">
                 <xsl:call-template name="header"/>
             </xsl:if>
             <div class="content">

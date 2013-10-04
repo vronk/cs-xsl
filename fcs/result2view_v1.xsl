@@ -65,24 +65,20 @@
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
             <div>
-<!--                <xsl:if test="contains($format, 'htmlpage')">-->
+                <xsl:if test="contains($format, 'page')">
                     <xsl:call-template name="header"/>
-<!--                </xsl:if>-->
-                <xsl:apply-templates select="sru:records" mode="list"/>
+                </xsl:if>
     <!-- switch mode depending on the $format-parameter -->        
-                <!--<xsl:choose> 
-                    <xsl:when test="contains($format,'htmltable')">
+                <xsl:choose> 
+                    <xsl:when test="contains($format,'table')">
                         <xsl:apply-templates select="records" mode="table"/>
                     </xsl:when>
-                    <xsl:when test="contains($format,'htmllist')">
+                    <xsl:when test="contains($format,'list')">
                         <xsl:apply-templates select="records" mode="list"/>
                     </xsl:when> 
-                    <xsl:when test="contains($format, 'htmlpagelist')">
-                        <xsl:apply-templates select="records" mode="list"/>
-                    </xsl:when>
                     <xsl:otherwise>mdset2view: unrecognized format: <xsl:value-of select="$format"/>
                     </xsl:otherwise>
-                </xsl:choose>-->
+                </xsl:choose>
             </div>
         </xsl:for-each>
     </xsl:template>
