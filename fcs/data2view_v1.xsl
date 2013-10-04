@@ -208,23 +208,13 @@
     
     <!-- ************************ -->
     <!-- named templates starting -->
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
-        <xd:desc>
-            <xd:p/>
+    <xd:doc>
+        <xd:desc>Template that is used to get the 
+            <xd:p>Note: You need to superseed this in your project's XSL customization!</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="getTitle">
-        <xsl:choose>
-            <xsl:when test=".//fcs:DataView[@type='title']">
-                <xsl:value-of select=".//fcs:DataView[@type='title']"/>
-            </xsl:when>
-            <xsl:when test=".//date/@value">
-                <xsl:value-of select=".//date/@value"/>
-            </xsl:when>
-            <xsl:when test=".//tei:persName">
-                <xsl:value-of select=".//tei:persName"/>
-            </xsl:when>
-        </xsl:choose>
+        <div class="cs-xsl-error">You need to superseed the getTitle template in your project's XSL customization!</div>
     </xsl:template>
     
     <xd:doc>
