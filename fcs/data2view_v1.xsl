@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
-    xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:sru="http://www.loc.gov/zing/srw/"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:exist="http://exist.sourceforge.net/NS/exist"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    xmlns:exsl="http://exslt.org/common"
-    version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
+<xsl:stylesheet xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
             <xd:p>History:
@@ -22,13 +11,10 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-
     <xsl:include href="data2view_cmd.xsl"/>
 <!--    <xsl:import href="../amc/dataset2view.xsl"/>-->
     <xsl:include href="data2view_tei.xsl"/>
 <!--    <xsl:include href="../stand_weiss.xsl"/>-->
-   
-   
     <xd:doc>
         <xd:desc>Default starting-point
             <xd:p>In mode record-data this this and all included style sheets define the transformation.</xd:p>
@@ -37,7 +23,6 @@
     <xsl:template match="sru:recordData" mode="record-data">
         <xsl:apply-templates select="*" mode="record-data"/>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>default fallback: display the xml-structure
             <xd:p/>
@@ -59,13 +44,13 @@
     </xsl:template>
 
  <!-- hide meta-information about the record from output-->
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
     </xd:doc>
     <xsl:template match="sru:recordSchema|sru:recordPacking" mode="record-data"/>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -73,7 +58,7 @@
     <xsl:template match="sru:recordIdentifier | sru:recordPosition" mode="record-data"/>
     
 <!-- kwic match -->
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -88,7 +73,7 @@
     
 
 <!-- FCS-wrap -->
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -104,7 +89,7 @@
         but we should make this generic (don't restrict by type, just continue processing the record-data) -->
         <xsl:apply-templates select=".//fcs:DataView" mode="record-data"/>
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -117,7 +102,7 @@
             </div>
         </xsl:if>
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -138,7 +123,7 @@
         <xsl:apply-templates></xsl:apply-templates>
     </xsl:template>
 -->
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -151,7 +136,7 @@
     
 
  <!-- handle generic metadata-fields -->
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -163,7 +148,7 @@
             <xsl:value-of select="."/>
         </span>; 
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -179,7 +164,7 @@
      <c type="left"></c><kw></kw><c type="right"></c>
      WATCHME: temporarily accepting both version (fcs and kwic namespacEe)
  -->
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -192,7 +177,7 @@
             <br/>
         </xsl:if>
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p/>
         </xd:desc>
@@ -209,18 +194,26 @@
     <!-- ************************ -->
     <!-- named templates starting -->
     <xd:doc>
-        <xd:desc>Template that is used to get the 
-            <xd:p>Note: You need to superseed this in your project's XSL customization!</xd:p>
+        <xd:desc>
+            <xd:p>get the title for the shown piece of data (i.e. normally the title of the shown resource fragment )</xd:p>
+            <xd:p>expected to be delivered in the input xml in fcs:DataView[@type='title'] (needs index=title in mappings and contains(x-dataview,'title')</xd:p>
+            <xd:p>Can be be overridden in your project's XSL customization!</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="getTitle">
-        <div class="cs-xsl-error">You need to superseed the getTitle template in your project's XSL customization!</div>
+        <xsl:choose>
+            <xsl:when test=".//fcs:DataView[@type='title']">
+                <xsl:value-of select=".//fcs:DataView[@type='title']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="cs-xsl-error">You need to superede the getTitle template in your project's XSL customization!</span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Common template to insert a TEI element as a span with an appropriate class.
             <xd:p>XSL 1.0 port.</xd:p>
-            <xd:p>If there is a known way to link to more information the span is placed inside a link.</xd:p>    
+            <xd:p>If there is a known way to link to more information the span is placed inside a link.</xd:p>
             <xd:p>Advanced functionality is available with XSL 2.0 using features. See data2view_v2.xsl</xd:p>
         </xd:desc>
     </xd:doc>
@@ -239,7 +232,7 @@
                         <xsl:text> </xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
-            </xsl:for-each>        
+            </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="class">
             <!-- This genereates CSS class attributes for HTML elements. As far as I know
@@ -270,33 +263,33 @@
             <xsl:if test="descendant-or-self::*/@*">
                 <div class="attributes" style="display:none;">
                     <table>
-                            <tr>
-                                <td colspan="2">
-                                    <xsl:call-template name="join-attributes-with-space">
-                                        <xsl:with-param name="nodes" select="exsl:node-set(descendant-or-self::*)"/>
-                                    </xsl:call-template>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <xsl:for-each select="descendant-or-self::*">
-                                        <xsl:if test="@*">
-                                            <table style="float:left">
-                                                <xsl:for-each select="@*">
-                                                    <tr>
-                                                        <td class="label">
-                                                            <xsl:value-of select="name()"/>
-                                                        </td>
-                                                        <td class="value">
-                                                            <xsl:value-of select="."/>
-                                                        </td>
-                                                    </tr>
-                                                </xsl:for-each>
-                                            </table>
-                                        </xsl:if>
-                                    </xsl:for-each>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td colspan="2">
+                                <xsl:call-template name="join-attributes-with-space">
+                                    <xsl:with-param name="nodes" select="exsl:node-set(descendant-or-self::*)"/>
+                                </xsl:call-template>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <xsl:for-each select="descendant-or-self::*">
+                                    <xsl:if test="@*">
+                                        <table style="float:left">
+                                            <xsl:for-each select="@*">
+                                                <tr>
+                                                    <td class="label">
+                                                        <xsl:value-of select="name()"/>
+                                                    </td>
+                                                    <td class="value">
+                                                        <xsl:value-of select="."/>
+                                                    </td>
+                                                </tr>
+                                            </xsl:for-each>
+                                        </table>
+                                    </xsl:if>
+                                </xsl:for-each>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </xsl:if>
@@ -306,8 +299,8 @@
     <xsl:template name="join-attributes-with-space">
         <xsl:param name="nodes"/>
         <xsl:for-each select="$nodes/@*">
-             <xsl:value-of select="."/>
-             <xsl:text> </xsl:text>
-        </xsl:for-each> 
+            <xsl:value-of select="."/>
+            <xsl:text> </xsl:text>
+        </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
