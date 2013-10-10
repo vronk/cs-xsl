@@ -10,8 +10,6 @@
     xmlns:exist="http://exist.sourceforge.net/NS/exist"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
-
-    <xsl:import href="data2view_v1.xsl"/>
     
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
@@ -32,6 +30,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="inline">
+        <xsl:param name="additional-style"/>
         <xsl:variable name="elem-link">
             <xsl:call-template name="elem-link"/>
         </xsl:variable>
@@ -73,20 +72,27 @@
                 <xsl:when test="not($elem-link='')">
                     <a href="{$elem-link}">
                         <span class="{$class}">
+                            <xsl:if test="$additional-style">
+                                <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="$additional-style"/></xsl:call-template></xsl:attribute>
+                            </xsl:if>
                             <xsl:copy-of select="$inline-content"/>
                         </span>
                     </a>
                 </xsl:when>
                 <xsl:otherwise>
                     <span class="{$class}">
+                        <xsl:attribute name="class"><xsl:value-of select="$class"/></xsl:attribute>
+                        <xsl:if test="$additional-style">
+                            <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="$additional-style"/></xsl:call-template></xsl:attribute>
+                        </xsl:if>
                         <xsl:copy-of select="$inline-content"/>
                     </span>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <span class="inline-wrap">
+        <div class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
-                <span class="attributes" style="display:none;">
+                <div class="attributes" style="display:none;">
                     <table>
                         <xsl:for-each-group select="descendant-or-self::*" group-by="name()">
                             <tr>
@@ -118,10 +124,10 @@
                             </tr>
                         </xsl:for-each-group>
                     </table>
-                </span>
+                </div>
             </xsl:if>
             <xsl:copy-of select="$inline-elem"/>
-        </span>
+        </div>
     </xsl:template>
     
     <!-- versioned going top-down (collecting the children of given element)

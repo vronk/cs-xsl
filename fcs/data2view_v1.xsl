@@ -266,9 +266,9 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <span class="inline-wrap">
+        <div class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
-                <span class="attributes" style="display:none;">
+                <div class="attributes" style="display:none;">
                     <table>
                             <tr>
                                 <td colspan="2">
@@ -298,10 +298,10 @@
                                 </td>
                             </tr>
                     </table>
-                </span>
+                </div>
             </xsl:if>
             <xsl:copy-of select="$inline-elem"/>
-        </span>
+        </div>
     </xsl:template>
     <xsl:template name="join-attributes-with-space">
         <xsl:param name="nodes"/>

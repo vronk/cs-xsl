@@ -112,6 +112,9 @@ the named templates are at the bottom.</xd:p>
     </xd:doc>
     <xsl:template match="div|tei:div" mode="record-data">
         <div>
+            <xsl:if test="@type">
+                <xsl:attribute name="class"><xsl:value-of select="concat('tei-type-', @type)"/></xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
@@ -122,10 +125,15 @@ the named templates are at the bottom.</xd:p>
     </xd:doc>
     <xsl:template match="p|tei:p" mode="record-data">
         <p>
+            <xsl:if test="@rend">
+                <xsl:attribute name="class"><xsl:call-template name="rend-without-color"><xsl:with-param name="rend-text" select="@rend"/></xsl:call-template></xsl:attribute>
+                <xsl:if test="substring-after(string(@rend), 'color(')">
+                    <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="@rend"/></xsl:call-template></xsl:attribute>
+                </xsl:if>
+            </xsl:if>
             <xsl:apply-templates mode="record-data"/>
         </p>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>tei:table elements are mapped to html:table elements
             <xd:p>Note: These elements are found eg. in the mecmua transkription.</xd:p>
@@ -168,8 +176,11 @@ the named templates are at the bottom.</xd:p>
     </xd:doc>
     <xsl:template match="hi|tei:hi" mode="record-data">
         <span>
-            <xsl:if test="./@rend">
-                <xsl:attribute name="class"><xsl:value-of select="./@rend"/></xsl:attribute>
+            <xsl:if test="@rend">
+                <xsl:attribute name="class"><xsl:call-template name="rend-without-color"><xsl:with-param name="rend-text" select="@rend"/></xsl:call-template></xsl:attribute>
+                <xsl:if test="substring-after(string(@rend), 'color(')">
+                    <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="@rend"/></xsl:call-template></xsl:attribute>
+                </xsl:if>
             </xsl:if>
             <xsl:apply-templates mode="record-data"/>
         </span>
@@ -322,7 +333,9 @@ the named templates are at the bottom.</xd:p>
         <xd:desc>tei:persName, tei:placeName etc. elements are mapped to spans optionally as link to more information.</xd:desc>
     </xd:doc>
     <xsl:template match="persName | placeName | name | tei:persName | tei:placeName | tei:name" mode="record-data">
-        <xsl:call-template name="inline"/>
+        <xsl:call-template name="inline">
+            <xsl:with-param name="additional-style" select="string(../@rend)"/>
+        </xsl:call-template>
     </xsl:template>
     <xd:doc>
         <xd:desc>tei:quote elements are mapped to spans optionally as link to more information.</xd:desc>
@@ -434,5 +447,33 @@ the named templates are at the bottom.</xd:p>
         </xsl:if>
          <xsl:call-template name="inline" />
         </span>-->
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Get the "argument" of color() used in @rend attributes and return it as html inline style attribute.
+            <xd:p>Note: assumes only one color().</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="rend-color-as-html-style">
+        <xsl:param name="rend-text"/>
+        <xsl:choose>
+            <xsl:when test="substring-after(string($rend-text), 'color(')">color: #<xsl:value-of select="substring-before(substring-after(string($rend-text), 'color('), ')')"/>;</xsl:when>
+            <xsl:otherwise>
+                <!-- there is nothing that could be returened, is there? -->
+            </xsl:otherwise>
+        </xsl:choose>        
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Get everything but the color() part in @rend attributes
+            <xd:p>Note: assumes only one color().</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="rend-without-color">
+        <xsl:param name="rend-text"/>
+        <xsl:choose>
+            <xsl:when test="substring-after(string($rend-text), 'color(')"><xsl:value-of select="substring-after(substring-before(string($rend-text), 'color('), ')')"/></xsl:when>
+            <xsl:otherwise><xsl:value-of select="string($rend-text)"/></xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
