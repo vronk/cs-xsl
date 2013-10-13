@@ -62,7 +62,7 @@
             </xsl:choose>-->
         </xsl:variable>
         <xsl:variable name="class">
-            <xsl:for-each select="distinct-values(descendant-or-self::*/name())">
+            <xsl:for-each select="distinct-values((descendant-or-self::*/name(), data(descendant-or-self::*/@type),  data(descendant-or-self::*/@subtype)))">
                 <xsl:value-of select="."/>
                 <xsl:text> </xsl:text>
             </xsl:for-each>
@@ -75,7 +75,7 @@
                             <xsl:if test="$additional-style">
                                 <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="$additional-style"/></xsl:call-template></xsl:attribute>
                             </xsl:if>
-                            <xsl:copy-of select="$inline-content"/>
+                            <xsl:sequence select="$inline-content"/>
                         </span>
                     </a>
                 </xsl:when>
@@ -85,7 +85,7 @@
                         <xsl:if test="$additional-style">
                             <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="$additional-style"/></xsl:call-template></xsl:attribute>
                         </xsl:if>
-                        <xsl:copy-of select="$inline-content"/>
+                        <xsl:sequence select="$inline-content"/>
                     </span>
                 </xsl:otherwise>
             </xsl:choose>
@@ -126,7 +126,7 @@
                     </table>
                 </div>
             </xsl:if>
-            <xsl:copy-of select="$inline-elem"/>
+            <xsl:sequence select="$inline-elem"/>
         </div>
     </xsl:template>
     
