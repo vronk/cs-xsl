@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
             <xd:p>History:
@@ -80,31 +79,43 @@
     </xd:doc>
     <xsl:template match="fcs:Resource" mode="record-data">
         
-        <!-- this is quite specialized only for the navigation-ResourceFragments! -->
+        <!-- this is quite specialized only for the navigation-ResourceFragments! 
+            nav links are created from specialized ResourceFragments[@type=prev|next].
+                    Handling via fcs:DataView was based on erroneous data, that provided
+                    the resourcefragments wrapped in fcs:DataView           -->
         <div class="navigation">
             <xsl:apply-templates select=".//fcs:ResourceFragment[@type][not(fcs:DataView)]" mode="record-data"/>
         </div>
-        
-        <!-- currently reduced to processing only DataView-kwic 
-        but we should make this generic (don't restrict by type, just continue processing the record-data) -->
         <xsl:apply-templates select=".//fcs:DataView" mode="record-data"/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>
-            <xd:p/>
+        <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView" mode="record-data">
-           <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
-        <xsl:if test="not((@type='full' and parent::*/fcs:DataView[@type='kwic']) or @type='title')">
+        <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
+        <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
             <div class="data-view {@type}">
                 <xsl:apply-templates mode="record-data"/>
             </div>
         </xsl:if>
     </xsl:template>
     <xd:doc>
-        <xd:desc>
-            <xd:p/>
+        <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="fcs:DataView[contains(@type, 'xmlescaped')]" mode="record-data">
+        <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
+        <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
+            <div class="data-view {@type}">
+                <textarea rows="25" cols="80">
+                    <xsl:apply-templates mode="record-data"/>
+                </textarea>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Handle DataViews that have a non-empty @ref by creating a div with appropriate classes
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView[@ref][not(@ref='')]" mode="record-data">
@@ -112,6 +123,13 @@
             <a href="{@ref}">
                 <xsl:value-of select="@type"/>
             </a>
+        </div>
+    </xsl:template>
+    <xsl:template match="fcs:DataView[@ref][contains(@type, facs)]" mode="record-data" priority="10">
+        <div class="data-view {@type}">
+            <xsl:call-template name="generateImg">
+                <xsl:with-param name="ref" select="@ref"/>
+            </xsl:call-template>
         </div>
     </xsl:template>
     
@@ -125,7 +143,7 @@
 -->
     <xd:doc>
         <xd:desc>
-            <xd:p/>
+            <xd:p>special handling for navigation fragments (@type=prev|next)</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:ResourceFragment[@type]" mode="record-data">
