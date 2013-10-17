@@ -125,14 +125,14 @@ sample data:
             <!--                        special handling for special index -->
             <xsl:choose>
                 <xsl:when test="$index = 'fcs.resource'">
-                    <xsl:value-of select="utils:formURL('explain', $format, encode-for-uri(sru:value), //x-dataview)"/>
+                    <xsl:value-of select="utils:formURL('explain', $format, encode-for-uri(sru:value), '')"/>
                 </xsl:when>
                 <!-- TODO: special handling for cmd.collection? -->
                 <!--<xsl:when test="$index = 'cmd.collection'">
                     <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
                 </xsl:when>-->
                 <xsl:otherwise>
-                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, encode-for-uri(concat('=&#34;', sru:value, '&#34;'))), //x-dataview)"/>
+                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, encode-for-uri(concat('=&#34;', sru:value, '&#34;'))), 'kwic,title')"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
