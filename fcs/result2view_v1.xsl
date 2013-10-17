@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:saxon="http://saxon.sf.net/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="saxon xs exsl diag sru fcs xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:saxon="http://saxon.sf.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="saxon xs exsl diag sru fcs xd">
     <xd:doc scope="stylesheet">
         <xd:desc>Generate html view of a sru-result-set  (eventually in various formats).
         <xd:p>History:
@@ -189,7 +188,20 @@
                     TODO: handle context 
                     <xsl:call-template name="getContext"/>-->
                 <div class="title">
-                    <xsl:call-template name="getTitle"/>
+                    <xsl:choose>
+                        <xsl:when test="$rec_uri">
+                            <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
+                            <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+                            <a href="{$rec_uri}&amp;x-format={$format}">
+                                <xsl:call-template name="getTitle"/>
+                            </a>                         
+                            <!--                        <span class="cmd cmd_save"/>-->
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <!-- FIXME: generic link somewhere anyhow! -->
+                            <xsl:call-template name="getTitle"/>
+                        </xsl:otherwise>
+                    </xsl:choose>                        
                 </div>
             </td>
         </tr>
