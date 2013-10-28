@@ -1,4 +1,14 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:tei="http://www.tei-c.org/ns/1.0"
+                xmlns:sru="http://www.loc.gov/zing/srw/"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:fcs="http://clarin.eu/fcs/1.0"
+                xmlns:exist="http://exist.sourceforge.net/NS/exist"
+                xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+                xmlns:exsl="http://exslt.org/common"
+                version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
             <xd:p>History:

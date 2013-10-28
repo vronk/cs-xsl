@@ -216,6 +216,7 @@
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
         <xsl:param name="q" select="$q"/>
+        <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
         <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
@@ -230,10 +231,17 @@
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_x-context">
-<!--            if action=explain, handle-q param as x-context-->
             <xsl:choose>
                 <xsl:when test="$action='explain'">
-                    <xsl:value-of select="concat('&amp;x-context=',$q)"/>
+<!--            if action=explain, handle-q param as x-context, delete me if nothing broke-->
+<!--                    <xsl:choose>
+                        <xsl:when test="$q != ''">
+                            <xsl:value-of select="concat('&amp;x-context=',$q)"/>
+                        </xsl:when>
+                        <xsl:when test="$x-context != ''">-->
+                            <xsl:value-of select="concat('&amp;x-context=',$x-context)"/>
+<!--                        </xsl:when>
+                    </xsl:choose>      -->        
                 </xsl:when>
                 <!--<xsl:when test="$x-context != '' ">
                     <xsl:value-of select="concat('&x-context=',$x-context)"/>
