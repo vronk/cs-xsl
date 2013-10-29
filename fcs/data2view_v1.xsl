@@ -37,6 +37,7 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
+    
     <xsl:template match="*" mode="record-data">
         <!--<xsl:variable name="overrides">
             <xsl:apply-imports/>
@@ -143,6 +144,22 @@
         </div>
     </xsl:template>
     
+    <xd:doc>
+        <xd:desc>Generic handler for image references passed by the facs data view
+        <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateImg">
+        <xsl:choose>
+            <xsl:when test="@ref">
+                <img src="@ref" alt="@ref"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
  <!-- better hide the fullview (the default view is too much)
         TODO: some more condensed view -->
 <!--    <xsl:template match="fcs:DataView[@type='full']" mode="record-data"/>-->
@@ -234,7 +251,7 @@
                 <xsl:value-of select=".//fcs:DataView[@type='title']"/>
             </xsl:when>
             <xsl:otherwise>
-                <span class="cs-xsl-error">You need to superede the getTitle template in your project's XSL customization!</span>
+                <span class="cs-xsl-error">You need to supersede the getTitle template in your project's XSL customization!</span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

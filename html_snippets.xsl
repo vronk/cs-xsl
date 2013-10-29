@@ -6,7 +6,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    version="1.0" exclude-result-prefixes="xs sru fcs">
+    version="1.0" exclude-result-prefixes="xs sru fcs xd">
     <xsl:import href="params.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>pieces of html wrapped in templates, to be reused by other stylesheets

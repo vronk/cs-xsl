@@ -5,11 +5,10 @@
     xmlns:aac="urn:general"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:sru="http://www.loc.gov/zing/srw/"
-    xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:exist="http://exist.sourceforge.net/NS/exist"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     version="1.0" 
-    exclude-result-prefixes="xsl aac tei sru html exist xd">
+    exclude-result-prefixes="xsl aac tei sru exist xd">
 
 <xd:doc scope="stylesheet">
     <xd:desc> 
@@ -24,6 +23,102 @@ the named templates are at the bottom.</xd:p>
     </xd:desc>
 </xd:doc>
     
+    <xd:doc>
+        <xd:desc>Put TEI content into a div</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:TEI" mode="record-data">
+        <div class="tei-TEI">
+            <xsl:if test="@xml:id">
+                <xsl:attribute name="class">
+                    <xsl:value-of select="concat('tei-TEI ', @xml:id)"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates mode="record-data"/>
+        </div>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Put TEI Header content into a div</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:teiHeader" mode="record-data">
+        <div class="tei-teiHeader">
+            <xsl:apply-templates mode="record-data"/>
+        </div>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Generate some generelly useful information contained in the TEI header</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:fileDesc" mode="record-data">
+            <h1><xsl:value-of select="tei:titleStmt/tei:title"/></h1>
+            <p class="tei-author">by <xsl:value-of select="tei:author"/></p>
+            <p class="tei-publicationStmt"><xsl:value-of select="tei:publicationStmt/tei:pubPlace"/>, <xsl:value-of select="tei:publicationStmt/tei:date"/></p>
+            <p class="tei-editionStmt">Edition: <xsl:value-of select="tei:editionStmt/tei:edition"/></p>
+            <p class="tei-sourceDesc">
+                <xsl:for-each select="tei:sourceDesc/tei:p">
+                    <p><xsl:value-of select="."/></p>
+                </xsl:for-each>
+            </p>
+            <xsl:choose>
+                <xsl:when test="tei:publicationStmt/tei:availability[@status='restricted']">
+                    <p class="tei-publicationStmt">All rights reserved!</p>
+                    <xsl:if test="tei:publicationStmt/tei:availability//tei:ref[@type='license']">
+                        <p class="tei-ref-license"><a href="{tei:publicationStmt/tei:availability//tei:ref[@type='license']/@target}">License</a></p>
+                    </xsl:if>
+                </xsl:when>            
+            </xsl:choose>      
+    </xsl:template>
+
+
+    <xd:doc>
+        <xd:desc>Ignore the text tag for TEI</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:TEI/tei:text" mode="record-data">
+        <xsl:apply-templates mode="record-data"/>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Put TEI body content into a div</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:body" mode="record-data">
+        <div class="tei-body">
+            <xsl:apply-templates mode="record-data"/>
+        </div>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>A head section is assumed to contain a number of headings
+        <xd:p>
+            To generate HTML headings from these we use another mode.
+        </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:head" mode="record-data">
+        <div class="tei-head">
+            <xsl:apply-templates mode="tei-body-headings"/>
+        </div>
+    </xsl:template>
+    
+    <xsl:template match='*' mode="tei-body-headings">
+        <h2>
+            <xsl:apply-templates mode="record-data"/>
+        </h2>
+    </xsl:template>
+    
+    <xsl:template match="tei:div[@type]" mode="record-data">
+        <div class="tei-div {@type}">
+            <h3><xsl:value-of select="@type"/></h3>
+            <xsl:apply-templates mode="record-data"/>
+        </div>
+    </xsl:template>
+    
+    <xsl:template match="tei:ref[contains(@target, '.JPG') or 
+                                 contains(@target, '.jpg') or
+                                 contains(@target, '.PNG') or
+                                 contains(@target, '.PNG')]" mode="record-data">
+<!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
+        <xsl:call-template name="generateImg"/>
+    </xsl:template>
     <xd:doc>
         <xd:desc>some special elements retained in data, due to missing correspondencies in tei 
             if it will get more, we should move to separate file</xd:desc>
@@ -134,6 +229,18 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </p>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>TEI ptr elements are mapped to "Click here" links
+        <xd:p>
+            Note: You most likely have to supply you're own logic by superseding this.
+        </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:ptr" mode="record-data">
+        <a href="{@target}">Click here!</a>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>tei:table elements are mapped to html:table elements
             <xd:p>Note: These elements are found eg. in the mecmua transkription.</xd:p>
