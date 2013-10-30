@@ -69,7 +69,172 @@ the named templates are at the bottom.</xd:p>
             </xsl:choose>      
     </xsl:template>
 
+    <xd:doc>
+        <xd:desc>A TEI biblStruct is mapped to a HTML div element</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:biblStruct" mode="record-data">
+        <div class="tei-biblStruct" id="{@xml:id}">            
+            <xsl:apply-templates mode="record-data"/>
+        </div>
+    </xsl:template>
 
+    <xd:doc>
+        <xd:desc>Presents monographs
+            <xd:p>
+                Convention used is:
+            </xd:p>
+            <xd:p>
+                Author, Author, ... : Title, Title, ...
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:monogr" mode="record-data">
+        <span class="tei-authors"><xsl:apply-templates mode="record-data" select="tei:author"/></span>: <span class="tei-titles"><xsl:apply-templates mode="record-data" select="tei:title"/></span>.<xsl:apply-templates mode="record-data" select="tei:imprint"/>
+    </xsl:template>
+
+    <xd:doc>
+        <xd:desc>Presents dependent publications
+            <xd:p>
+                Convention used is:
+            </xd:p>
+            <xd:p>
+                Author, Author, ... : Title, Title, ... in -> monogr
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:analytic" mode="record-data">
+        <span class="tei-authors"><xsl:apply-templates mode="record-data" select="tei:author"/></span>: <span class="tei-titles"><xsl:apply-templates mode="record-data" select="tei:title"/></span> in
+    </xsl:template>
+
+    <xd:doc>
+        <xd:desc>Return text and spacer if needed</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:author" mode="record-data">
+        <span class="tei-author"><xsl:value-of select="."/></span><xsl:if test="following-sibling::tei:author">, </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Return text and spacer if needed</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:title" mode="record-data">
+        <span class="tei-title"><xsl:value-of select="."/></span><xsl:if test="following-sibling::tei:title">, </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>TEI Imprint as imprint span</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:imprint" mode="record-data">
+        <span class="tei-imprint"><xsl:apply-templates mode="record-data"/></span>.
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>TEI pubPlace as pubPlace span</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:pubPlace" mode="record-data">
+        <span class="tei-pubPlace"><xsl:value-of select="."/></span>
+    </xsl:template>    
+    
+    <xsl:template match="tei:imprint/tei:date" mode="record-data">
+        <span class="tei-imprint-date"><xsl:value-of select="."/></span>
+        <xsl:if test="following-sibling::tei:idno|following-sibling::tei:biblScope">
+            <xsl:value-of select="'. '"/>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="tei:idno[@type='issn']" mode="record-data">
+        <xsl:if test=". != ''">
+            <span class="tei-idno-issn">ISSN: <xsl:value-of select="."/></span>
+            <xsl:if test="following-sibling::tei:biblScope">
+                <xsl:value-of select="', '"/>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="tei:biblScope" mode="record-data">
+        <xsl:if test=". != ''">
+            <span class="tei-biblScope"><xsl:value-of select="."/></span>
+            <xsl:if test="following-sibling::tei:biblScope">
+                <xsl:value-of select="', '"/>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="tei:biblScope[@type = 'vol']" mode="record-data">
+        <xsl:if test=". != ''">
+            <span class="tei-biblScope-vol">Volume: <xsl:value-of select="."/></span>
+            <xsl:if test="following-sibling::tei:biblScope">
+                <xsl:value-of select="', '"/>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="tei:biblScope[@type = 'issue']" mode="record-data">
+        <xsl:if test=". != ''">
+            <span class="tei-biblScope-issue">Issue: <xsl:value-of select="."/></span>
+            <xsl:if test="following-sibling::tei:biblScope">
+                <xsl:value-of select="', '"/>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="tei:biblScope[@type = 'pages']" mode="record-data">
+        <xsl:if test=". != ''">
+            <span class="tei-biblScope-pages"><xsl:value-of select="."/> pages</span>
+            <xsl:if test="following-sibling::tei:biblScope">
+                <xsl:value-of select="', '"/>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="tei:biblScope[@type = 'startPage']" mode="record-data">
+        <xsl:if test=". != ''">
+            <span class="tei-biblScope-startPage">p. <xsl:value-of select="."/></span>
+            <xsl:if test="following-sibling::tei:biblScope">
+                <xsl:value-of select="', '"/>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc></xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:series" mode="record-data">
+        <div class="cs-xsl-error">
+            TODO!
+        </div>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Notes in biblStruct are used to specify index terms</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:biblStruct/tei:note" mode="record-data">
+        <xsl:apply-templates mode="record-data"/>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Notes in biblStruct are used to specify index terms</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:biblStruct/tei:note/tei:index" mode="record-data">
+        <ul class="tei-index"><xsl:apply-templates mode="record-data"/></ul>
+    </xsl:template>
+    
+    <xsl:template match="tei:index/tei:term" mode="record-data">
+        <xsl:variable name="href">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="q" select="concat('vicavTaxonomy=', .)"></xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
+        <li>
+            <xsl:choose>
+                <xsl:when test="@type = 'vicavTaxonomy'">
+                    <a href="{$href}"><xsl:value-of select="."/></a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="."/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </li>
+    </xsl:template>
     <xd:doc>
         <xd:desc>Ignore the text tag for TEI</xd:desc>
     </xd:doc>
