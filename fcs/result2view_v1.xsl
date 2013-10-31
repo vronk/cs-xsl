@@ -192,7 +192,7 @@
                         <xsl:when test="$rec_uri">
                             <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
                             <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
-                            <a href="{$rec_uri}&amp;x-format={$format}">
+                            <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
                                 <xsl:call-template name="getTitle"/>
                             </a>                         
                             <!--                        <span class="cmd cmd_save"/>-->

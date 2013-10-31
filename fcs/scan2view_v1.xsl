@@ -212,6 +212,7 @@
                         <xsl:with-param name="action" >searchRetrieve</xsl:with-param>
                         <xsl:with-param name="format" select="$format"></xsl:with-param>
                         <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"></xsl:with-param>
+                        <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                     </xsl:call-template>
                 </xsl:otherwise>
             </xsl:choose>
@@ -219,7 +220,7 @@
         <xsl:variable name="link">
             <span>
 <!--                <xsl:value-of select="for $i in (1 to $depth) return '- '"/>-->
-                <a class="value-caller" href="{$href}">  <!--target="_blank"-->
+                <a class="search-caller" href="{$href}">  <!--target="_blank"-->
                     <xsl:choose>
                         <xsl:when test="sru:displayTerm != ''">
                             <xsl:value-of select="sru:displayTerm"/>
