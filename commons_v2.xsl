@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0">
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling
@@ -24,7 +23,9 @@
     </xsl:template>
     <xd:doc>
         <xd:desc>Convenience-wrapper to formURL-template
-            shall be usable to form consistently all urls within xsl </xd:desc>
+            shall be usable to form consistently all urls within xsl
+            <xd:p>Note: This function might get optimized away as it doesn't do anything in addition to the template as of now.</xd:p>
+        </xd:desc>
         <xd:param name="action">See <xd:ref name="formURL" type="template">formURL template</xd:ref>.</xd:param>
         <xd:param name="format">See <xd:ref name="formURL" type="template">formURL template</xd:ref>.</xd:param>
         <xd:param name="q">See <xd:ref name="formURL" type="template">formURL template</xd:ref>.</xd:param>
@@ -33,10 +34,12 @@
         <xsl:param name="action"/>
         <xsl:param name="format"/>
         <xsl:param name="q"/>
+        <xsl:param name="dataview"/>
         <xsl:call-template name="formURL">
             <xsl:with-param name="action" select="$action"/>
             <xsl:with-param name="format" select="$format"/>
             <xsl:with-param name="q" select="$q"/>
+            <xsl:with-param name="dataview" select="$dataview"/>
             <!-- CHECK: possibly necessary   <xsl:with-param name="repository" select="$repository" /> -->
         </xsl:call-template>
         <!-- XSL 2.0 implementation: 

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
+    xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:utils="http://aac.ac.at/content_repository/utils"
     xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    version="1.0">
+    xmlns:exsl="http://exslt.org/common"
+    version="1.0" exclude-result-prefixes="xsl utils sru xs fcs xd exsl">
     <xsl:import href="../commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc> generate a view for a values-list (index scan)
@@ -79,7 +81,16 @@
         </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="index" select="substring-before($scanClause,'=')"/>
+    <xsl:param name="index">
+        <xsl:choose>
+            <xsl:when test="substring-before($scanClause,'=')">
+                <xsl:value-of select="substring-before($scanClause,'=')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$scanClause"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
     <xd:doc>
         <xd:desc>The filter is defined as the part of the scanClause after the '='
             <xd:p>
@@ -201,6 +212,7 @@
                         <xsl:with-param name="action" >searchRetrieve</xsl:with-param>
                         <xsl:with-param name="format" select="$format"></xsl:with-param>
                         <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"></xsl:with-param>
+                        <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                     </xsl:call-template>
                 </xsl:otherwise>
             </xsl:choose>
@@ -208,8 +220,15 @@
         <xsl:variable name="link">
             <span>
 <!--                <xsl:value-of select="for $i in (1 to $depth) return '- '"/>-->
-                <a class="value-caller" href="{$href}">  <!--target="_blank"-->
-                    <xsl:value-of select="(sru:displayTerm | sru:value)[1]"/>
+                <a class="search-caller" href="{$href}">  <!--target="_blank"-->
+                    <xsl:choose>
+                        <xsl:when test="sru:displayTerm != ''">
+                            <xsl:value-of select="sru:displayTerm"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="sru:value"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </a>
             </span>
             <xsl:apply-templates select="sru:extraTermData/diagnostics"/>

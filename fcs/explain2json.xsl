@@ -1,39 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:zr="http://explain.z3950.org/dtd/2.0/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" exclude-result-prefixes="#all" version="2.0">
-    <!-- 
-<purpose> generate a json object of the explain </purpose>
-<params>
-<param name=""></param>
-</params>
-<result>
-     {explain:"$scanClause", count:"$countIndexes",
-      indexes: [{label:"label1", value:"value1", count:"#number"}, ...]            
-     }
-</result>
-<history>
-<change on="2012-05-02" type="created" by="vr">based on scan2view.xsl </change>
-<change on="2013-01-20" type="created" by="vr">based on scan2map.xsl </change>
-		
-</history>
-
-<sample >
-<explain xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/ file:/C:/Users/m/3lingua/corpus_shell/_repo2/corpus_shell/fcs/schemas/zeerex-2.0.xsd" authoritative="false" id="id1"><serverInfo protocol="SRU" version="1.2" transport="http"><host>TODO: config:param-value($config, "base-url")</host><port>80</port><database>cr</database></serverInfo><databaseInfo><title lang="en" primary="true">ICLTT Content Repository</title><description lang="en" primary="true"/><author/><contact/></databaseInfo><metaInfo><dateModified>TODO</dateModified></metaInfo><indexInfo><set identifier="isocat.org/datcat" name="isocat"><title>ISOcat data categories</title></set><set identifier="clarin.eu/fcs" name="fcs"><title>CLARIN - Federated Content Search</title></set>
-<!-/- <index search="true" scan="true" sort="false">
-            <title lang="en">Resource</title>
-            <map>
-                <name set="fcs">resource</name>
-            </map>
-        </index> -/->
-        <index search="true" scan="true" sort="false"><title lang="en">ana</title><map><name set="fcs">ana</name></map></index><index search="true" scan="true" sort="false"><title lang="en">birth-date</title><map><name set="fcs">birth-date</name></map></index> 
-</sample>
--->
-    <xsl:output indent="yes" method="text" media-type="application/json" encoding="UTF-8"/>
-    <xsl:param name="sort">x</xsl:param>
-    <!-- s=size|n=name|t=time|x=default -->
-    <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
+<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:zr="http://explain.z3950.org/dtd/2.0/"
+    xmlns:utils="http://aac.ac.at/content_repository/utils"
+    xmlns:sru="http://www.loc.gov/zing/srw/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fcs="http://clarin.eu/fcs/1.0"
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:exsl="http://exslt.org/common"
+    version="1.0">
+    <xd:doc scope="stylesheet">
+        <xd:desc> generate a json object of the explain
+            <xd:p>Output</xd:p>
+            <xd:pre>
+                {explain:"$scanClause", count:"$countIndexes",
+                indexes: [{label:"label1", value:"value1", count:"#number"}, ...]            
+                }
+            </xd:pre>
+            <xd:p>Sample Input</xd:p>
+            <xd:pre>
+                &lt;explain xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/ file:/C:/Users/m/3lingua/corpus_shell/_repo2/corpus_shell/fcs/schemas/zeerex-2.0.xsd" authoritative="false" id="id1">
+                    &lt;serverInfo protocol="SRU" version="1.2" transport="http">
+                        &lt;host>TODO: config:param-value($config, "base-url")&lt;/host>
+                        &lt;port>80&lt;/port>
+                        &lt;database>cr&lt;/database>
+                    &lt;/serverInfo>
+                    &lt;databaseInfo>
+                        &lt;title lang="en" primary="true">ICLTT Content Repository&lt;/title>
+                        &lt;description lang="en" primary="true"/>
+                        &lt;author/>
+                        &lt;contact/>
+                    &lt;/databaseInfo>
+                    &lt;metaInfo>
+                        &lt;dateModified>TODO&lt;/dateModified>
+                    &lt;/metaInfo>
+                    &lt;indexInfo>
+                        &lt;set identifier="isocat.org/datcat" name="isocat">
+                            &lt;title>ISOcat data categories&lt;/title>
+                        &lt;/set>
+                        &lt;set identifier="clarin.eu/fcs" name="fcs">
+                            &lt;title>CLARIN - Federated Content Search&lt;/title>
+                        &lt;/set>
+                        &lt;!-- &lt;index search="true" scan="true" sort="false">
+                            &lt;title lang="en">Resource&lt;/title>
+                            &lt;map>
+                            &lt;name set="fcs">resource&lt;/name>
+                            &lt;/map>
+                            &lt;/index> -->
+                        &lt;index search="true" scan="true" sort="false">
+                            &lt;title lang="en">ana&lt;/title>
+                            &lt;map>
+                                &lt;name set="fcs">ana&lt;/name>
+                            &lt;/map>
+                        &lt;/index>
+                        &lt;index search="true" scan="true" sort="false">
+                            &lt;title lang="en">birth-date&lt;/title>
+                            &lt;map>
+                                &lt;name set="fcs">birth-date&lt;/name>
+                            &lt;/map>
+                        &lt;/index>
+                    &lt;/indexInfo>
+                &lt;/explain>
+            </xd:pre>
+        </xd:desc>
+    </xd:doc>
+    <xsl:output indent="no" method="text" media-type="application/json" encoding="UTF-8"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-    <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
-    <xsl:param name="index" select="$scanClause"/>
+    <xd:doc>
+        <xd:desc>Sort output by
+            <xd:ul>
+                <xd:li>s=size</xd:li>
+                <xd:li>n=name</xd:li>
+                <xd:li>t=time</xd:li>
+                <xd:li>x=default</xd:li>
+            </xd:ul>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="sort">x</xsl:param>
     <xsl:template match="/">
         <xsl:variable name="countIndexes" select="count(//zr:indexInfo/zr:index)"/>
         <xsl:text>{"explain":"explain",</xsl:text>
@@ -47,15 +91,19 @@
         <xsl:text>}</xsl:text>
     </xsl:template>
     
-    <!-- 
-sample data:        
-        <sru:term>
-        <sru:value>cartesian</sru:value>
-        <sru:numberOfRecords>35645</sru:numberOfRecords>
-        <sru:displayTerm>Carthesian</sru:displayTerm>
-        <sru:extraTermData></sru:extraTermData>
-        </sru:term>
-    -->
+    <xd:doc>
+        <xd:desc> Generate JSON for one indexInfo Item
+            <xd:p>sample data:</xd:p>
+            <xd:pre>
+            &lt;sru:term>
+                &lt;sru:value>cartesian&lt;/sru:value>
+                &lt;sru:numberOfRecords>35645&lt;/sru:numberOfRecords>
+                &lt;sru:displayTerm>Carthesian&lt;/sru:displayTerm>
+                &lt;sru:extraTermData>&lt;/sru:extraTermData>
+            &lt;/sru:term>
+            </xd:pre>
+        </xd:desc>
+    </xd:doc>    
     <xsl:template match="zr:indexInfo">
         <xsl:text>
 "context_sets": {

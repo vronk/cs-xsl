@@ -1,59 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" version="2.0" extension-element-prefixes="sru fcs utils xs">
-<xsl:import href="scan2view_v1.xsl"/>    
-    <!-- xmlns="http://www.w3.org/1999/xhtml" 
-<purpose> generate a view for a values-list (index scan) </purpose>
-<params>
-<param name=""></param>
-</params>
-<history>
-	<change on="2012-02-06" type="created" by="vr">from values2view.xsl, from model2view.xsl</change>
-		
-</history>
-
-<sample >
-<sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/">
-<sru:version>1.2</sru:version>
-   <sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)">
-        <sru:term>
-        <sru:value>1903-01</sru:value>
-        <sru:numberOfRecords>30</sru:numberOfRecords>
-        </sru:term>
-        <sru:term>
-        <sru:value>1903-02</sru:value>
-        <sru:numberOfRecords>28</sru:numberOfRecords>
-        </sru:term>
-        <sru:term>
-        <sru:value>1903-03</sru:value>
-        <sru:numberOfRecords>31</sru:numberOfRecords>
-        </sru:term>
-   </sru:terms>
-   <sru:extraResponseData>
-        <fcs:countTerms>619</fcs:countTerms>
-    </sru:extraResponseData>
-    <sru:echoedScanRequest>
-        <sru:scanClause>diary-month</sru:scanClause>
-        <sru:maximumTerms>100</sru:maximumTerms>
-    </sru:echoedScanRequest>        
- <sru:scanResponse>
- 
-</sample>
--->
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" extension-element-prefixes="sru fcs utils xs xd">
+    <xsl:import href="scan2view_v1.xsl"/>
     <xsl:import href="../commons_v2.xsl"/>
+    <xd:doc>
+        <xd:desc>generate a view for a values-list (index scan) 
+    <xd:p>Note: This is called eg. from fsc:scan with mode "subsequence".</xd:p>
+            <xd:p>
+                <xd:pre>
+&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/"&gt;
+&lt;sru:version&gt;1.2&lt;/sru:version&gt;
+   &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)"&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-01&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;30&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-02&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;28&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-03&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;31&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+   &lt;/sru:terms&gt;
+   &lt;sru:extraResponseData&gt;
+        &lt;fcs:countTerms&gt;619&lt;/fcs:countTerms&gt;
+    &lt;/sru:extraResponseData&gt;
+    &lt;sru:echoedScanRequest&gt;
+        &lt;sru:scanClause&gt;diary-month&lt;/sru:scanClause&gt;
+        &lt;sru:maximumTerms&gt;100&lt;/sru:maximumTerms&gt;
+    &lt;/sru:echoedScanRequest&gt;        
+ &lt;/sru:scanResponse&gt;
+</xd:pre>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
     <xsl:output method="xhtml" indent="yes"/>
 
     <!-- <xsl:param name="size_lowerbound">0</xsl:param>
 <xsl:param name="max_depth">0</xsl:param>
 <xsl:param name="freq_limit">20</xsl:param>
 <xsl:param name="show">file</xsl:param> -->
-    <xsl:param name="sort">x</xsl:param>
     <!-- s=size|n=name|t=time|x=default -->
-    <xsl:param name="name_col_width">50%</xsl:param>
-    <xsl:param name="list-mode">table</xsl:param>
     <xsl:param name="parts">header</xsl:param> <!-- header -->
 
     <!-- <xsl:param name="mode" select="'htmldiv'" />     -->
-    <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
 
     <!--
 <xsl:param name="detail_uri_prefix"  select="'?q='"/> 
@@ -135,14 +125,14 @@ sample data:
             <!--                        special handling for special index -->
             <xsl:choose>
                 <xsl:when test="$index = 'fcs.resource'">
-                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
+                    <xsl:value-of select="utils:formURL('explain', $format, encode-for-uri(sru:value), '')"/>
                 </xsl:when>
                 <!-- TODO: special handling for cmd.collection? -->
                 <!--<xsl:when test="$index = 'cmd.collection'">
                     <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
                 </xsl:when>-->
                 <xsl:otherwise>
-                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>
+                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, encode-for-uri(concat('=&#34;', sru:value, '&#34;'))), 'kwic,title')"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -150,7 +140,7 @@ sample data:
             <span>
                 <xsl:value-of select="for $i in (1 to $depth) return '- '"/>
                 <a class="value-caller" href="{$href}">  <!--target="_blank"-->
-                    <xsl:value-of select="(sru:displayTerm, sru:value)[1]"/>
+                    <xsl:value-of select="if (normalize-space((sru:displayTerm, sru:value)[1]) eq '') then '----------' else (sru:displayTerm, sru:value)[1]"/>
                 </a>
             </span>
             <xsl:apply-templates select="sru:extraTermData/diagnostics"/>
@@ -162,14 +152,14 @@ sample data:
                         <xsl:value-of select="sru:numberOfRecords"/>
                     </td>
                     <td>
-                        <xsl:copy-of select="$link"/>
+                        <xsl:sequence select="$link"/>
                     </td>
                 </tr>
                 <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>
             </xsl:when>
             <xsl:otherwise>
                 <li>
-                    <xsl:copy-of select="$link"/>
+                    <xsl:sequence select="$link"/>
                     <span class="note"> |<xsl:value-of select="sru:numberOfRecords"/>|</span>
                     <ul>
                         <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>
