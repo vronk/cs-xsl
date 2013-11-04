@@ -44,7 +44,14 @@
   </xsl:template>
   
   <xsl:template name="generateImg">
-    <img src="http://corpus3.aac.ac.at/vicav/images/{@target}" alt="{@target}"/>
+    <xsl:choose>
+      <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/')">
+        <img src="{@target}" alt="{@target}"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <img src="http://corpus3.aac.ac.at/vicav/images/{@target}" alt="{@target}"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
 </xsl:stylesheet>
