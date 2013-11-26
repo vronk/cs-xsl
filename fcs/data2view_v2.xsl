@@ -90,9 +90,9 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <div class="inline-wrap">
+        <span class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
-                <div class="attributes" style="display:none;">
+                <span class="attributes" style="display:none;">
                     <table>
                         <xsl:for-each-group select="descendant-or-self::*" group-by="name()">
                             <tr>
@@ -124,10 +124,10 @@
                             </tr>
                         </xsl:for-each-group>
                     </table>
-                </div>
+                </span>
             </xsl:if>
             <xsl:sequence select="$inline-elem"/>
-        </div>
+        </span>
     </xsl:template>
     
     <!-- versioned going top-down (collecting the children of given element)
