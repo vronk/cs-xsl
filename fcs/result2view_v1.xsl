@@ -44,9 +44,7 @@
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
             <div>
-                <xsl:if test="contains($format, 'page')">
-                    <xsl:call-template name="header"/>
-                </xsl:if>
+                <xsl:call-template name="header"/>
     <!-- switch mode depending on the $format-parameter -->
                 <xsl:choose>
                     <xsl:when test="contains($format,'table')">
@@ -65,7 +63,12 @@
     </xsl:template>
     <xd:doc>
         <xd:desc>Generates a header for each of the &lt;div&gt; containers
-            <xd:ref name="continue-root" type="template">continue-root</xd:ref> creates.</xd:desc>
+            <xd:ref name="continue-root" type="template">continue-root</xd:ref> creates.
+        <xd:p>
+            Note that this generates a data-NumberOfRecords div. This is useful even if this
+            is just an HTML snippet.
+        </xd:p>
+        </xd:desc>
     </xd:doc>
     <xsl:template name="header">
         <div class="result-header" data-numberOfRecords="{$numberOfRecords}">
