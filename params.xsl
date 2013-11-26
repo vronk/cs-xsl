@@ -246,6 +246,31 @@
     <xsl:param name="mappings-file" select="''"/>
     
     <xd:doc>
+        <xd:desc>A file containing translation strings
+        <xd:p>
+            Example:
+            <xd:pre>
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;dict>
+    &lt;list xml:lang="en_US">
+        &lt;item key="positioning">Positioning&lt;/item>
+    &lt;/list>
+    &lt;list xml:lang="de_DE">
+        &lt;item key="typology">Typologie&lt;/item>
+    &lt;/list>
+&lt;/dict>               
+            </xd:pre>
+        </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="dict_file" select="'dict.xml'"/>
+    
+    <xd:doc>
+        <xd:desc>The language used for looking up translateable strings</xd:desc>
+    </xd:doc>
+    <xsl:param name="dict_lang" select="'en_US'"/>
+    
+    <xd:doc>
         <xd:desc>URL parameter that contained the context for the operation</xd:desc>
     </xd:doc>
     <xsl:variable name="context-param" select="'x-context'"/>

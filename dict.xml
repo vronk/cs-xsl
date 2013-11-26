@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dict>
+    <list xml:lang="en_US">
+        <item key="positioning">Positioning</item>
+        <item key="typology">Typology</item>
+        <item key="glottonyms">Glottonyms</item>
+        <item key="general">General</item>
+        <item key="sampleText">Sample Texts</item>
+        <item key="bibliography">Bibliography</item>
+        <item key="dictionary">Dictionaries</item>
+        <item key="basicGlossary">Basic Glossary</item>
+    </list>
+</dict>

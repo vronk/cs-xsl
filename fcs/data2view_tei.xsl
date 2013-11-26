@@ -2,13 +2,14 @@
 <xsl:stylesheet 
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:exsl="http://exslt.org/common"
     xmlns:aac="urn:general"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:exist="http://exist.sourceforge.net/NS/exist"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     version="1.0" 
-    exclude-result-prefixes="xsl aac tei sru exist xd">
+    exclude-result-prefixes="xsl exsl aac tei sru exist xd">
 
 <xd:doc scope="stylesheet">
     <xd:desc> 
@@ -270,9 +271,34 @@ the named templates are at the bottom.</xd:p>
         </h2>
     </xsl:template>
     
+    <xd:doc>
+        <xd:desc>Generate headings according to the type attribute of a div
+            <xd:p>
+                Superseed this in your local projects xsl if you want to adapt it.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="typeToHeading">
+        <xsl:call-template name="typeToHeading_base"/>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Default implementation of the type lookup
+            <xd:p>This uses the dict.xml file.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="typeToHeading_base">
+        <xsl:variable name="lookup" select="@type"/>
+        <h3>
+           <xsl:call-template name="dict">
+               <xsl:with-param name="key" select="@type"/>
+           </xsl:call-template>
+        </h3>
+    </xsl:template>
+    
     <xsl:template match="tei:div[@type]" mode="record-data">
         <div class="tei-div {@type}">
-            <h3><xsl:value-of select="@type"/></h3>
+            <xsl:call-template name="typeToHeading"/>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>

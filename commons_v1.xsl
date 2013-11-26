@@ -15,12 +15,25 @@
     <xsl:include href="html_snippets.xsl"/>
 
 <!-- <xsl:param name="mode" select="'html'" /> -->
-    <xsl:param name="dict_file" select="'dict.xml'"/>
+    
     <xd:doc>
-        <xd:desc/>
+        <xd:desc>Read the content of the dict.xml file into this variable
+        <xd:p>If the file is not structured as expected an empty list is returned.</xd:p>
+        </xd:desc>
     </xd:doc>
     <xsl:variable name="dict">
-        <dict/>
+        <xsl:variable name="dict_file_content">
+            <xsl:copy-of select="document($dict_file)"/>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]">
+                <xsl:copy-of select="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]"/>
+            </xsl:when>
+            <xsl:otherwise>
+                 <xsl:message>Problem reading dict_file. Please check!</xsl:message>
+                 <list xmlns=""/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:variable>
     <xd:doc>
         <xd:desc/>
@@ -458,17 +471,21 @@
         <xsl:value-of select="$collect"/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>???</xd:desc>
+        <xd:desc>Look up the key or the current context in the dict.xml file that can be supplied
+        <xd:p>
+            Used e.g. for translation.
+        </xd:p>
+        </xd:desc>
     </xd:doc>
     <xsl:template name="dict">
         <xsl:param name="key"/>
         <xsl:param name="fallback" select="$key"/>
         <xsl:choose>
-            <xsl:when test="$dict/list/item[@key=$key]">
-                <xsl:value-of select="$dict/list/item[@key=$key]"/>
+            <xsl:when test="exsl:node-set($dict)/list/item[@key=$key]">
+                <xsl:value-of select="exsl:node-set($dict)/list/item[@key=$key]"/>
             </xsl:when>
-            <xsl:when test="$dict/list/item[.=$key]">
-                <xsl:value-of select="$dict/list/item[.=$key]/@key"/>
+            <xsl:when test="exsl:node-set($dict)/list/item[.=$key]">
+                <xsl:value-of select="exsl:node-set($dict)/list/item[.=$key]/@key"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$fallback"/>
