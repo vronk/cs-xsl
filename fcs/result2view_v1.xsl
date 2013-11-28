@@ -43,7 +43,7 @@
     <xsl:template name="continue-root">
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
-            <div>
+            <div class="{/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context}">
                 <xsl:call-template name="header"/>
     <!-- switch mode depending on the $format-parameter -->
                 <xsl:choose>
