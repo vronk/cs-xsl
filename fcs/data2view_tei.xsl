@@ -734,17 +734,65 @@ the named templates are at the bottom.</xd:p>
             </a>
         </li>
     </xsl:template>
-    <xsl:template match="w|tei:w" mode="record-data">
-        <xsl:call-template name="inline"/>
-        <!--<span class="w-wrap" >        
-        <xsl:if test="@*">
-            <span class="attributes" style="display:none;">
-                <xsl:value-of select="concat(@lemma,' ',@type)" />
-<!-\-                <xsl:apply-templates select="@*" mode="format-attr"/>-\->
-            </span>
-        </xsl:if>
-         <xsl:call-template name="inline" />
-        </span>-->
+    
+    <xsl:strip-space elements="tei:s tei:w tei:c tei:fs"/>
+    <xd:doc>
+        <xd:desc>Handle TEI sentence markers</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:s" mode="record-data">
+        <span class="tei-s"><xsl:apply-templates mode="record-data"/></span>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc></xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:c" mode="record-data">
+        <span class="tei-c"><xsl:value-of select="."/></span>
+    </xsl:template>
+    
+    <xsl:template match="tei:w" mode="record-data">
+        <span>
+            <xsl:attribute name="class">
+                <xsl:value-of select="concat('tei-w pos ', tei:fs/tei:f[@name = 'pos'])"/>
+            </xsl:attribute>
+            <xsl:if test="tei:fs/tei:f[@name='wordform']">
+                <xsl:if test="(tei:fs/tei:f[@name='wordform'])[@xml:lang]">
+                    <xsl:attribute name="data-lang"><xsl:value-of select="(tei:fs/tei:f[@name='wordform'])/@xml:lang"/></xsl:attribute>
+                </xsl:if>
+                <xsl:value-of select="tei:fs/tei:f[@name='wordform']"/>
+            </xsl:if>
+            <xsl:apply-templates mode="record-data"/>
+        </span>
+    </xsl:template>
+    
+    <xsl:template match="tei:w/tei:fs" mode="record-data">
+        <ul class="tei-fs"><xsl:apply-templates mode="record-data"/></ul>
+    </xsl:template>
+
+    <xsl:template match="tei:w/tei:fs/tei:f" mode="record-data" priority="0">
+        <li class="{@name}">
+            <xsl:if test="@lang">
+                <xsl:attribute name="data-lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+            </xsl:if>
+            <xsl:call-template name="dict">
+                <xsl:with-param name="key" select="@name"/>
+            </xsl:call-template>: <xsl:value-of select="."/>
+        </li>
+    </xsl:template>
+
+    <xsl:template match="tei:w/tei:fs/tei:f[@name='wordform']" mode="record-data" priority="1">
+    </xsl:template>
+    
+    <xsl:template match="tei:w/tei:fs/tei:f[@name='pos']" mode="record-data" priority="1">
+        <li>
+            <xsl:call-template name="dict">
+                <xsl:with-param name="key" select="@name"/>
+            </xsl:call-template>: 
+            <xsl:call-template name="dict">
+                <xsl:with-param name="key" select="normalize-space(.)"/>
+                <xsl:with-param name="fallback">Please add word form <xsl:value-of select="concat('&quot;', ., '&quot;')"/> to dict.xml!</xsl:with-param>
+            </xsl:call-template>
+        </li>        
     </xsl:template>
     
     <xd:doc>

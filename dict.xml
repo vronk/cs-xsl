@@ -13,5 +13,28 @@
         <item key="audioData">Audio Data</item>
         <item key="textBooks">Text Books</item>
         <item key="researchHistory">Research History</item>
+        
+        <!-- Description of words in sample texts -->
+        <item key="pos">Part of Speech</item>
+        <item key="lemma">Lemma</item>
+        <item key="number">Number</item>
+        <item key="tense">Tense</item>
+        <item key="person">Person</item>
+        <item key="translation">English</item>
+        
+        <!-- Parts of speech -->
+        <item key="pronoun">Pronoun</item>
+        <item key="adverb">Adverb</item>
+        <item key="verb">Verb</item>
+        <item key="interrogativeAdverb">Interrogative Adverb</item>
+        <item key="adjective">Adjective</item>
+        <item key="commonNoun">Common Noun</item>
+        <item key="properNoun">Proper Noun</item>
+        <item key="cliticPronoun">Clitic Pronoun</item>
+        <item key="interrogativePronoun">Interrogative Pronoun</item>
+        <item key="preposition">Preposition</item>
+        <item key="definiteArticle">Definite Article</item>
+        <item key="particle">Particle</item>
+        <item key="verbalParticle">Verbal Particle</item>        
     </list>
 </dict>
