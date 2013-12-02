@@ -41,7 +41,7 @@
   </xsl:template>
 
   <xsl:template name="getTitle">
-    <xsl:value-of select="//tei:title"/>
+    <xsl:value-of select="//tei:fileDesc//tei:title"/> by <xsl:value-of select="//tei:fileDesc/tei:author"/>
   </xsl:template>
   
   <xsl:template name="generateImg">
