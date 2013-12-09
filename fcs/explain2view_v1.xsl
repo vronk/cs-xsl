@@ -88,6 +88,15 @@
         </div>
     </xsl:template>
     
+    <xsl:template match="sru:recordData">
+        <!-- jQuery ajax does not match clases at the root level -->
+        <div class="wrapper">
+            <div class="content">
+                <xsl:apply-templates/>
+            </div>
+        </div>
+    </xsl:template>
+    
     <xsl:template match="zr:serverInfo" mode="verbose">
         <div class="zr-serverInfo">
             <p>Host: <xsl:value-of select="zr:host"/>:<xsl:value-of select="zr:port"/></p>
@@ -133,7 +142,7 @@
             </xsl:call-template>
         </xsl:variable>
         <li>
-            <a href="{$scan-index}">
+            <a href="{$scan-index}" class="value-caller">
                 <xsl:choose>
                     <xsl:when test="zr:title[@lang=$lang]" >
                         <xsl:value-of select="zr:title[@lang=$lang]" />
