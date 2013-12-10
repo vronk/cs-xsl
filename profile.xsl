@@ -10,6 +10,12 @@
   <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
 
   <xsl:template match="tei:ptr" mode="record-data">
+    <xsl:variable name="linkTarget">
+      <xsl:choose>
+        <xsl:when test="contains(@target, 'http://')">_blank</xsl:when>
+        <xsl:otherwise/> <!-- empty string -->
+      </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="target">
       <xsl:choose>
         <xsl:when test="contains(@target, 'http://')">
@@ -37,7 +43,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <a href="{$target}">Click here!</a>
+    <a href="{$target}" target="{$linkTarget}">Click here!</a>
   </xsl:template>
 
   <xsl:template name="getTitle">
