@@ -6,7 +6,8 @@
    xmlns:tei="http://www.tei-c.org/ns/1.0"
    xmlns:exsl="http://exslt.org/common"
    xmlns:sru="http://www.loc.gov/zing/srw/"
-   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei sru">
+   xmlns:fcs="http://clarin.eu/fcs/1.0"
+   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei sru fcs">
    <xsl:import href="fcs/result2view_v1.xsl"/>
    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
 
@@ -17,10 +18,11 @@
          </head>
       </xsl:if>
       <div class="profiletext">
+         <div class="result-header" data-numberOfRecords="{//sru:numberOfRecords}"/>
         <div style="text-align: center; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; margin: 10px 0px; padding: 5px 0px;">
         <xsl:text>Search results (</xsl:text>
-        <xsl:value-of select="//sru:numberOfRecords"/>
-        <xsl:text> found)</xsl:text></div>
+           <xsl:value-of select="//fcs:returnedRecords"/>
+        <xsl:text> shown)</xsl:text></div>
 
         <xsl:if test="not(//tei:entry)">
             <xsl:text>No entries found!!</xsl:text>
