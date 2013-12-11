@@ -211,7 +211,7 @@
                     <xsl:call-template name="formURL">
                         <xsl:with-param name="action" >searchRetrieve</xsl:with-param>
                         <xsl:with-param name="format" select="$format"></xsl:with-param>
-                        <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"></xsl:with-param>
+                        <xsl:with-param name="q" select="concat($index, '%3D%3D%22', sru:value, '%22')"></xsl:with-param>
                         <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                     </xsl:call-template>
                 </xsl:otherwise>

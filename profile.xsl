@@ -24,7 +24,7 @@
         <xsl:when test="ancestor::tei:div[@type = 'sampleText']">
           <xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-            <xsl:with-param name="q" select="concat('sampleText=', @target)"/>
+            <xsl:with-param name="q" select="concat('sampleText==', @target)"/>
           </xsl:call-template>
         </xsl:when>
         <xsl:when test="contains(@target, '|')">
