@@ -31,18 +31,17 @@
         <xsl:for-each select="//tei:entry">
             <div style="margin-top: 15px; background: rgb(222,232,254); border: 1px solid grey">
                <b>
-                  <xsl:value-of select="tei:form/tei:orth[contains(@xml:lang,'Trans')]"/>
+                  <xsl:value-of select="tei:form/tei:orth[contains(@xml:lang,'-vicav')]"/>
                   <xsl:if test="tei:form[@type='lemma']/tei:orth[contains(@xml:lang,'arabic')]"><xsl:text> </xsl:text>(<xsl:value-of select="tei:form[@type='lemma']/tei:orth[contains(@xml:lang,'arabic')]"/>)</xsl:if>
                </b>
 
                <xsl:if test="tei:gramGrp/tei:gram[@type='pos']">
                   <span style="color: rgb(247,15,9)"><xsl:text>           </xsl:text>[<xsl:value-of select="tei:gramGrp/tei:gram[@type='pos']"/>
                      <xsl:if test="tei:gramGrp/tei:gram[@type='subc']">; <xsl:value-of select="tei:gramGrp/tei:gram[@type='subc']"/></xsl:if>]</span></xsl:if>
-
-
+               
                <xsl:for-each select="tei:form[@type='inflected']">
                   <div style="margin-left:30px">
-                     <xsl:value-of select="orth[contains(@xml:lang,'Trans')]"/>
+                     <xsl:value-of select="tei:orth[contains(@xml:lang,'-vicav')]"/>
                      <xsl:if test="tei:orth[contains(@xml:lang,'arabic')]"><xsl:text> </xsl:text>(<xsl:value-of select="tei:orth[contains(@xml:lang,'arabic')]"/>)</xsl:if>
 
                      <xsl:choose>
@@ -82,7 +81,7 @@
 
                   <xsl:for-each select="tei:cit[@type='example']">
                      <div style="padding: 3px; margin-left:30px;color:green;border:1px solid rgb(97,137,1); background: rgb(250,255,183)">
-                        <xsl:value-of select="tei:quote[contains(@xml:lang,'Trans')]"/>
+                        <xsl:value-of select="tei:quote[contains(@xml:lang,'-vicav')]"/>
                         <div style="margin-left: 20px;">
                            <xsl:if test="tei:cit[(@type='translation')and(@xml:lang='en')]">
                               <i style="color: rgb(193,97,0)"><xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"/></i>
@@ -106,6 +105,7 @@
                      </div>
                  </xsl:for-each>
               </xsl:for-each>
+               <xsl:if test="tei:form[@type='lemma']/tei:bibl"><div class="tei-bibl" style="font-size: 9px;">[<xsl:value-of select="tei:form[@type='lemma']/tei:bibl"/>]</div></xsl:if>
             </div>
         </xsl:for-each>
       </div>
