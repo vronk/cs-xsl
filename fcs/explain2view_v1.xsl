@@ -17,7 +17,7 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
+    <xsl:output method="xml" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
     
     <xsl:param name="lang" select="'en'"/>
     
@@ -71,21 +71,15 @@
     </xsl:template>
     
     <xsl:template match="sru:version" mode="verbose">
-        <div class="sru-version">
-            SRU version: <xsl:value-of select="."/>
-        </div>        
+        <div class="sru-version">SRU version: <xsl:value-of select="."/></div>        
     </xsl:template>
     
     <xsl:template match="sru:recordPacking" mode="verbose">
-        <div class="sru-recordPacking">
-            Default record packing: <xsl:value-of select="."/>
-        </div>
+        <div class="sru-recordPacking">Default record packing: <xsl:value-of select="."/></div>
     </xsl:template>
     
     <xsl:template match="sru:recordSchema" mode="verbose">
-        <div class="sru-recordSchema">
-            Record schema: <xsl:value-of select="."/>
-        </div>
+        <div class="sru-recordSchema">Record schema: <xsl:value-of select="."/></div>
     </xsl:template>
     
     <xsl:template match="sru:recordData">
@@ -113,12 +107,16 @@
         <xd:desc>Fetches the database's name and the descreption if available</xd:desc>
     </xd:doc>
     <xsl:template match="zr:databaseInfo">
-        <h2>
-            <xsl:value-of select="zr:title[@lang=$lang]"/>
-        </h2>
-        <div>
-            <xsl:value-of select="zr:description[@lang=$lang]"/>
-        </div>
+        <xsl:if test="not(contains($format, 'page'))">
+        <h2><xsl:value-of select="zr:title[@lang=$lang]"/></h2>
+        </xsl:if>
+        <div class="zr-author">Author(s): <xsl:value-of select="zr:author"/></div>
+        <div class="zr-description"><xsl:value-of select="zr:description[@lang=$lang]"/><br/>
+        <a class="value-caller"><xsl:attribute name="href"><xsl:call-template name="formURL">
+            <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+            <xsl:with-param name="dataview">metadata</xsl:with-param>
+            <xsl:with-param name="q" select="' '"/>
+        </xsl:call-template></xsl:attribute>More info about this database</a></div>
     </xsl:template>
     
     <xd:doc>
@@ -126,7 +124,7 @@
     </xd:doc>
     <xsl:template match="zr:indexInfo">
         <h3>Available indexes</h3>
-        <ul class="zr:indexInfo">
+        <ul class="zr-indexInfo">
             <xsl:apply-templates select="zr:index"/>
         </ul>
     </xsl:template>
