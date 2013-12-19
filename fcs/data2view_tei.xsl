@@ -256,14 +256,19 @@ the named templates are at the bottom.</xd:p>
         <xd:desc>A head section is assumed to contain a number of headings
         <xd:p>
             To generate HTML headings from these we use another mode.
+            If you want the heading to contain an author you can supersede the
+            getAuthor template in your projects customization.
         </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="tei:head" mode="record-data">
         <div class="tei-head">
             <xsl:apply-templates mode="tei-body-headings"/>
+            <xsl:call-template name="getAuthor"/>
         </div>
     </xsl:template>
+    
+    <xsl:template name="getAuthor"/>
     
     <xsl:template match='*' mode="tei-body-headings">
         <h2>
@@ -635,6 +640,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:with-param name="additional-style" select="string(../@rend)"/>
         </xsl:call-template>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>tei:quote elements are mapped to spans optionally as link to more information.</xd:desc>
     </xd:doc>
