@@ -52,6 +52,26 @@
     <xsl:value-of select="//tei:fileDesc//tei:title"/>by <xsl:apply-templates select="//tei:fileDesc/tei:author"/>
   </xsl:template>
   
+  <xsl:template match="tei:name[@xml:lang]" mode="tei-body-headings">
+    <xsl:if test="@xml:lang='eng'">
+      <h2>
+        <xsl:value-of select="."/>
+      </h2>
+      <div class="nyms">
+        <div class="official nym-wrapper">
+          <span class="official nym-label">Official name: </span>
+          <xsl:apply-templates select="../tei:name[@xml:lang='ara']" mode="record-data"/>
+          <xsl:apply-templates select="../tei:name[@xml:lang = 'ara-x-DMG']" mode="record-data"/>
+        </div>
+        <div class="local nym-wrapper">
+          <span class="local nym-label">Local name: </span>
+          <xsl:apply-templates select="../tei:name[@type='araLoc']" mode="record-data"/>
+          <xsl:apply-templates select="../tei:name[@type='latLoc']" mode="record-data"/>
+        </div>
+      </div>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template name="getAuthor">
     <div class="tei-authors"> by <xsl:apply-templates select="//tei:fileDesc/tei:author"/></div>
   </xsl:template>
@@ -85,7 +105,7 @@
     <xsl:apply-templates select=".//tei:ref" mode="record-data"/>
   </xsl:template>
   
-  <xd:doc>
+<!-- unused right now  <xd:doc>
     <xd:desc>Glottonyms need special treatment, they will be searched in the whole document and
     rendered here.
     </xd:desc>
@@ -93,17 +113,19 @@
   <xsl:template match="tei:div[@type='glottonyms']" mode="record-data">
     <div class="tei-div glottonyms">
       <xsl:call-template name="typeToHeading"/>
-      <div class="official-glottonyms"><span class="official-glottonyms-label">Official name:</span><xsl:apply-templates select="//tei:name[@xml:lang='eng']" mode="record-data"/><xsl:apply-templates select="//tei:name[@xml:lang='ara']" mode="record-data"/></div>
-      <div class="local-glottonyms"><span class="local-glottonyms-label">Local name:</span><xsl:apply-templates select="//tei:name[@type='latLoc']" mode="record-data"/><xsl:apply-templates select="//tei:name[@type='araLoc']" mode="record-data"/></div>
+      <div class="nym">
+        <div class="official-nyms"><span class="official-nyms-label">Official name:</span><xsl:apply-templates select="//tei:name[@xml:lang='ara']" mode="record-data"/><xsl:apply-templates select="//tei:name[@xml:lang='ara-x-DMG']" mode="record-data"/></div>
+        <div class="local-nyms"><span class="local-nyms-label">Local name:</span><xsl:apply-templates select="//tei:name[@type='araLoc']" mode="record-data"/><xsl:apply-templates select="//tei:name[@type='latLoc']" mode="record-data"/></div>
+      </div>
     </div>
-  </xsl:template>
+  </xsl:template> -->
   
   <xsl:template match="tei:name[@xml:lang]" mode="record-data">
-    <span class="{@xml:lang}"><xsl:value-of select="."/></span>
+    <span class="{@xml:lang}"><xsl:value-of select="concat(., ' ')"/></span>
   </xsl:template>
   
   <xsl:template match="tei:name[@type]" mode="record-data">
-    <span class="{@xml:lang} tei-type-{@type}"><xsl:value-of select="."/></span>
+    <span class="{@xml:lang} tei-type-{@type}"><xsl:value-of select="concat(., ' ')"/></span>
   </xsl:template>
   
   <xd:doc>
