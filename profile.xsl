@@ -73,7 +73,7 @@
   </xsl:template>
   
   <xsl:template name="getAuthor">
-    <div class="tei-authors"> by <xsl:apply-templates select="//tei:fileDesc/tei:author"/></div>
+    <div class="tei-authors"><xsl:apply-templates select="//tei:fileDesc/tei:author"/></div>
   </xsl:template>
   
   <xsl:template name="generateImg">

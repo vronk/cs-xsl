@@ -52,7 +52,7 @@ the named templates are at the bottom.</xd:p>
     </xd:doc>
     <xsl:template match="tei:fileDesc" mode="record-data">
             <h1><xsl:value-of select="tei:titleStmt/tei:title"/></h1>
-            <p class="tei-author">by <xsl:value-of select="tei:author"/></p>
+            <p class="tei-authors"><xsl:value-of select="tei:author"/></p>
             <p class="tei-publicationStmt"><xsl:value-of select="tei:publicationStmt/tei:pubPlace"/>, <xsl:value-of select="tei:publicationStmt/tei:date"/></p>
             <p class="tei-editionStmt">Edition: <xsl:value-of select="tei:editionStmt/tei:edition"/></p>
             <p class="tei-sourceDesc">
