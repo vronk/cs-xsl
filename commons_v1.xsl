@@ -234,6 +234,7 @@
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
         <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
         <xsl:param name="x-context" select="$x-context"/>
+        <xsl:param name="contextset" select="''"/>
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
                 <xsl:value-of select="concat('&amp;query=',$q)"/>
@@ -277,7 +278,7 @@
         </xsl:variable>
         <xsl:variable name="param_scanClause">
             <xsl:if test="$scanClause != ''">
-            <xsl:value-of select="concat('&amp;scanClause=',$scanClause)"/>
+            <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_x-dataview">

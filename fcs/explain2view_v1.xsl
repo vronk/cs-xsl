@@ -137,6 +137,16 @@
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'scan'"/>
                 <xsl:with-param name="scanClause" select="zr:map/zr:name"/>
+                <xsl:with-param name="contextset">
+<!--                    <xsl:if test="zr:map/zr:name/@set">
+                        <xsl:value-of select="concat(zr:map/zr:name/@set, '.')"/>
+                    </xsl:if>-->
+                    <xsl:if test="zr:map/zr:name = 'resource'">
+                        <xsl:if test="zr:map/zr:name/@set = 'fcs'">
+                            <xsl:value-of select="concat(zr:map/zr:name/@set, '.')"/>
+                        </xsl:if>
+                    </xsl:if>
+                </xsl:with-param>
             </xsl:call-template>
         </xsl:variable>
         <li>
