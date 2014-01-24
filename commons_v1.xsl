@@ -498,6 +498,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateLinkInScanResults">
+        <xsl:param name="index" select="''"/>
         <!--                        special handling for special index -->
         <xsl:choose>
             <xsl:when test="$scanClause = 'fcs.resource'">

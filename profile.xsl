@@ -49,7 +49,7 @@
   </xsl:template>
 
   <xsl:template name="getTitle">
-    <xsl:value-of select="//tei:fileDesc//tei:title"/>by <xsl:apply-templates select="//tei:fileDesc/tei:author"/>
+    <xsl:value-of select="//tei:fileDesc//tei:title"/><span class="tei-authors"><xsl:apply-templates select="//tei:fileDesc/tei:author"/></span>
   </xsl:template>
   
   <xsl:template match="tei:name[@xml:lang]" mode="tei-body-headings">
