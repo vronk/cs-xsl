@@ -271,6 +271,13 @@
     <xsl:param name="dict_lang" select="'en_US'"/>
     
     <xd:doc>
+        <xd:desc>XDebug passthrough</xd:desc>
+        <xd:p>The XDebug PHP server debugging tool activates itsself depending on this special parameter.</xd:p>
+        <xd:p>So as a service pass this parameter on by appending it to all generated links as is if it is present.</xd:p>
+    </xd:doc>
+    <xsl:param name="XDEBUG_SESSION_START" select="''"/>
+    
+    <xd:doc>
         <xd:desc>URL parameter that contained the context for the operation</xd:desc>
     </xd:doc>
     <xsl:variable name="context-param" select="'x-context'"/>

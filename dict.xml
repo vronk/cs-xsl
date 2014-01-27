@@ -35,6 +35,11 @@
         <item key="preposition">Preposition</item>
         <item key="definiteArticle">Definite Article</item>
         <item key="particle">Particle</item>
-        <item key="verbalParticle">Verbal Particle</item>        
+        <item key="verbalParticle">Verbal Particle</item>
+
+        <!-- Special indices -->
+        <item key="cql.serverChoice">Default Search</item>
+        <item key="fcs.resource">List all resources known to this endpoint</item>
+        <item key="resourcefragment-pid">Permanent links to parts of this document</item>
     </list>
 </dict>
