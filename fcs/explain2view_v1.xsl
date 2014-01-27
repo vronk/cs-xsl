@@ -124,9 +124,9 @@
     </xd:doc>
     <xsl:template match="zr:indexInfo">
         <h3>Available indexes</h3>
-        <ul class="zr-indexInfo">
+        <dl class="zr-indexInfo">
             <xsl:apply-templates select="zr:index"/>
-        </ul>
+        </dl>
     </xsl:template>
     
     <xd:doc>
@@ -149,18 +149,54 @@
                 </xsl:with-param>
             </xsl:call-template>
         </xsl:variable>
-        <li>
+        <xsl:variable name="search-query">
+            <xsl:variable name="default-query-string">
+                <xsl:call-template name="default-query-string"/>              
+            </xsl:variable>
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="action" select="'searchRetrieve'"/>
+                <xsl:with-param name="q" select="concat(.//zr:name, '=', normalize-space($default-query-string))"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <dt>
+            <xsl:choose>
+                <xsl:when test="zr:title[@lang=$lang]" >                        
+                    <xsl:call-template name="dict">
+                        <xsl:with-param name="key" select="zr:title[@lang=$lang]"/>
+                    </xsl:call-template>                        
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="dict">
+                        <xsl:with-param name="key" select="zr:title"/>
+                    </xsl:call-template>   
+                </xsl:otherwise>
+            </xsl:choose>
+        </dt>
+        <dd>
             <a href="{$scan-index}" class="value-caller">
-                <xsl:choose>
-                    <xsl:when test="zr:title[@lang=$lang]" >
-                        <xsl:value-of select="zr:title[@lang=$lang]" />
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="zr:title" />
-                    </xsl:otherwise>
-                </xsl:choose>    	
+                <xsl:call-template name="dict">
+                    <xsl:with-param name="key">List</xsl:with-param>
+                </xsl:call-template>
             </a>
-        </li>
+            <xsl:choose>
+                <xsl:when test=".//zr:name='fcs.resource'"></xsl:when>
+                <xsl:otherwise>
+                    <xsl:text> </xsl:text>
+                    <a href="{$search-query}" class="value-caller">
+                        <xsl:call-template name="dict">
+                            <xsl:with-param name="key">Search</xsl:with-param>
+                        </xsl:call-template>
+                    </a>
+                </xsl:otherwise>
+            </xsl:choose>
+        </dd>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Supersede this template to generate example queries that suite your indices</xd:desc>
+    </xd:doc>
+    <xsl:template name="default-query-string">
+        test
     </xsl:template>
     <!--
         <xsl:template match="*[@lang]" >
