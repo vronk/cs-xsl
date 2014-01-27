@@ -182,7 +182,7 @@
                 <xsl:when test=".//zr:name='fcs.resource'"></xsl:when>
                 <xsl:otherwise>
                     <xsl:text> </xsl:text>
-                    <a href="{$search-query}" class="value-caller">
+                    <a href="{$search-query}" class="search-caller">
                         <xsl:call-template name="dict">
                             <xsl:with-param name="key">Search</xsl:with-param>
                         </xsl:call-template>
