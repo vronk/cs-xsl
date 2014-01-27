@@ -524,7 +524,9 @@
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="action" >searchRetrieve</xsl:with-param>
                     <xsl:with-param name="format" select="$format"></xsl:with-param>
-                    <xsl:with-param name="q" select="concat($index, '%3D%3D%22', sru:value, '%22')"></xsl:with-param>
+<!--                    according to the specs an exact search for a search term looks like this but cr-xq doesn't support this yet-->
+<!--                    <xsl:with-param name="q" select="concat($index, '%3D%3D%22', sru:value, '%22')"></xsl:with-param>-->
+                    <xsl:with-param name="q" select="concat($index, '%3D', sru:value, '')"></xsl:with-param>
                     <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                 </xsl:call-template>
             </xsl:otherwise>

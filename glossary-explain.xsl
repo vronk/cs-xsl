@@ -16,11 +16,11 @@
     </xd:doc>
     <xsl:template name="default-query-string">
         <xsl:choose>
-            <xsl:when test=".//zr:name='geo'">
-                30.05,31.233333
+            <xsl:when test=".//zr:name='sense'">
+                =Wasser
             </xsl:when>
             <xsl:otherwise>
-                Cairo
+                =water
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
