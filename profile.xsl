@@ -59,12 +59,12 @@
       </h2>
       <div class="nyms">
         <div class="official nym-wrapper">
-          <span class="official nym-label">Official name: </span>
+          <span class="official nym-label">Official name </span>
           <xsl:apply-templates select="../tei:name[@xml:lang='ara']" mode="record-data"/>
           <xsl:apply-templates select="../tei:name[@xml:lang = 'ara-x-DMG']" mode="record-data"/>
         </div>
         <div class="local nym-wrapper">
-          <span class="local nym-label">Local name: </span>
+          <span class="local nym-label">Local name </span>
           <xsl:apply-templates select="../tei:name[@type='araLoc']" mode="record-data"/>
           <xsl:apply-templates select="../tei:name[@type='latLoc']" mode="record-data"/>
         </div>
@@ -73,7 +73,7 @@
   </xsl:template>
   
   <xsl:template name="getAuthor">
-    <div class="tei-authors"><xsl:apply-templates select="//tei:fileDesc/tei:author"/></div>
+    <div class="tei-authors"><xsl:apply-templates select="//tei:fileDesc/tei:author" mode="record-data"/></div>
   </xsl:template>
   
   <xsl:template name="generateImg">
