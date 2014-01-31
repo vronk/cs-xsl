@@ -451,6 +451,15 @@
     <xsl:template match="tei:ptr" mode="record-data">
         <a href="{@target}">Click here!</a>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>TEI ref elements are mapped to links that contain the contents of ref <xd:p> Note: You most likely have
+            to supply you're own logic by superseding this. </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:ref" mode="record-data">
+        <a href="{@target}"><xsl:apply-templates/></a>
+    </xsl:template>
 
     <xd:doc>
         <xd:desc>tei:table elements are mapped to html:table elements <xd:p>Note: These elements are
