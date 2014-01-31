@@ -26,18 +26,11 @@
         <xsl:when test="contains(@target, 'http://')">
           <xsl:value-of select="@target"/>
         </xsl:when>
-        <xsl:when test="ancestor::tei:div[@type = 'sampleText']">
+        <xsl:when test="contains(@target, '|')">
           <xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-            <xsl:with-param name="q" select="concat('sampleText==', @target)"/>
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:when test="contains(@target, '|') or contains(@target, '#')">
-          <xsl:call-template name="formURL">
-            <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-            <xsl:with-param name="q" select="substring-after(translate(@target, '#', '|'), '|')"/>
-            <!-- <xsl:with-param name="x-context" select="substring-before(@target, '|')"/>-->
-            <xsl:with-param name="x-context">vicav-bib</xsl:with-param>
+            <xsl:with-param name="q" select="substring-after(@target, '|')"/>
+            <xsl:with-param name="x-context" select="substring-before(@target, '|')"/>
           </xsl:call-template>
         </xsl:when>
         <xsl:otherwise>
