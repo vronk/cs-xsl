@@ -272,7 +272,7 @@
     </xd:doc>
     <xsl:template match="tei:head" mode="record-data">
         <div class="tei-head">
-            <xsl:apply-templates mode="tei-body-headings"/>
+            <xsl:apply-templates select="." mode="tei-body-headings"/>
             <xsl:call-template name="getAuthor"/>
         </div>
     </xsl:template>
