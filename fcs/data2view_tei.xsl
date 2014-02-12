@@ -318,7 +318,7 @@
         match="tei:ref[contains(@target, '.JPG') or 
                                  contains(@target, '.jpg') or
                                  contains(@target, '.PNG') or
-                                 contains(@target, '.PNG')]"
+                                 contains(@target, '.png')]"
         mode="record-data">
         <!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
         <xsl:call-template name="generateImg"/>
@@ -862,6 +862,11 @@
             </dd>
     </xsl:template>
 
+    <xd:doc>
+        <xd:desc>For internal use, don't produce any HTML</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:fs[@type='change']" mode="record-data"/>
+    
     <xd:doc>
         <xd:desc>Get the "argument" of color() used in @rend attributes and return it as html inline
             style attribute. <xd:p>Note: assumes only one color().</xd:p>
