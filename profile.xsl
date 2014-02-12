@@ -107,6 +107,13 @@
       </div>
     </xsl:if>
   </xsl:template>
+  
+  <xd:doc>
+    <xd:desc>Delegate to the default ref logic</xd:desc>
+  </xd:doc>
+  <xsl:template match="tei:ref" mode="tei-body-headings">
+    <xsl:apply-templates select="." mode="record-data"/>
+  </xsl:template>
 
   <xsl:template name="getAuthor">
     <div class="tei-authors">
