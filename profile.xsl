@@ -56,7 +56,10 @@
   <xd:doc>
     <xd:desc>Handling of ref, that is links with further text as description</xd:desc>
   </xd:doc>
-  <xsl:template match="tei:ref" mode="record-data">
+  <xsl:template match="tei:ref[not(contains(@target, '.JPG') or 
+    contains(@target, '.jpg') or
+    contains(@target, '.PNG') or
+    contains(@target, '.png'))]" mode="record-data" priority="-1">
     <xsl:call-template name="generateTarget">
       <xsl:with-param name="linkText">
         <xsl:apply-templates mode="record-data"/>
@@ -161,7 +164,7 @@
     </span>
   </xsl:template>
 
-  <xsl:template match="tei:name[@type]" mode="record-data">
+  <xsl:template match="tei:name[@type]" mode="record-data" priority="2">
     <span class="{@xml:lang} tei-type-{@type}">
       <xsl:value-of select="concat(., ' ')"/>
     </span>
