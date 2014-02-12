@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:html="http://www.w3.org/1999/xhtml"
@@ -9,7 +9,7 @@
   <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
  
   <xsl:template name="getTitle">
-    <span class="tei-authors"><xsl:apply-templates select=".//tei:author" mode="record-data"/></span><span class="xsl-author-title-separator">: </span><span class="tei-title"><xsl:value-of select=".//tei:title"/></span>
+    <xsl:text>&#xa0;</xsl:text>
   </xsl:template>
 
 </xsl:stylesheet>
