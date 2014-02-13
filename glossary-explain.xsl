@@ -25,4 +25,11 @@
         </xsl:choose>
     </xsl:template>
     
+    <xsl:template match="zr:indexInfo">
+        <h3>Search Options</h3>
+        <dl class="zr-indexInfo">
+            <xsl:apply-templates select="zr:index"/>
+        </dl>
+    </xsl:template>
+    
 </xsl:stylesheet>

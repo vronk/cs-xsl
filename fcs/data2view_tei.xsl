@@ -75,6 +75,11 @@
     </xsl:template>
 
     <xd:doc>
+        <xd:desc>revisionDesc is not meaningful right now, for internal use</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:revisionDesc" mode="record-data"/>
+    
+    <xd:doc>
         <xd:desc>A TEI biblStruct is mapped to a HTML div element</xd:desc>
     </xd:doc>
     <xsl:template match="tei:biblStruct" mode="record-data">

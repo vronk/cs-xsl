@@ -7,10 +7,12 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:zr="http://explain.z3950.org/dtd/2.0/"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:exsl="http://exslt.org/common"
-    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl">
+    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl tei">
     <xsl:import href="../commons_v1.xsl"/>
+    <xsl:import href="data2view_tei.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>generate a view for the explain-record (http://www.loc.gov/standards/sru/specs/explain.html) </xd:desc>
     </xd:doc> 
@@ -106,17 +108,25 @@
     <xd:doc>
         <xd:desc>Fetches the database's name and the descreption if available</xd:desc>
     </xd:doc>
-    <xsl:template match="zr:databaseInfo">
+    <xsl:template match="zr:databaseInfo[not(//tei:teiHeader)]">
         <xsl:if test="not(contains($format, 'page'))">
         <h2><xsl:value-of select="zr:title[@lang=$lang]"/></h2>
         </xsl:if>
         <div class="zr-author">Author(s): <xsl:value-of select="zr:author"/></div>
-        <div class="zr-description"><xsl:value-of select="zr:description[@lang=$lang]"/><br/>
+        <div class="zr-description"><xsl:apply-templates/></div>
+    </xsl:template>
+    
+    <xsl:template match="zr:databaseInfo[//tei:teiHeader]">
+        <div class="zr-description"><xsl:apply-templates mode="record-data" select=".//tei:teiHeader/*"/></div>
+    </xsl:template>
+    
+    <xsl:template match="zr:description[@lang]">
+        <xsl:value-of select="zr:description[@lang=$lang]"/><br/>
         <a class="value-caller"><xsl:attribute name="href"><xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
             <xsl:with-param name="dataview">metadata</xsl:with-param>
             <xsl:with-param name="q" select="' '"/>
-        </xsl:call-template></xsl:attribute>More info about this database</a></div>
+        </xsl:call-template></xsl:attribute>More info about this database</a>
     </xsl:template>
     
     <xd:doc>
@@ -159,7 +169,8 @@
             </xsl:call-template>
         </xsl:variable>
         <dt>
-            <xsl:choose>
+            <xsl:attribute name="class"><xsl:value-of select="concat('zr-index ', translate(zr:map/zr:name, '.', '-'))"/></xsl:attribute>
+            <xsl:choose>              
                 <xsl:when test="zr:title[@lang=$lang]" >                        
                     <xsl:call-template name="dict">
                         <xsl:with-param name="key" select="zr:title[@lang=$lang]"/>
@@ -232,5 +243,8 @@
     <xd:doc>
         <xd:desc>Normally zap any text not beloging to processed nodes</xd:desc>
     </xd:doc>
-    <xsl:template match="text()"/>        
+    <xsl:template match="text()"/>
+    
+    <xsl:template name="inline"/>
+    <xsl:template name="generateImg"/>
 </xsl:stylesheet>

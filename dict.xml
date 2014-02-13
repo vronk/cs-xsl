@@ -15,7 +15,7 @@
         <item key="researchHistory">Research History</item>
         
         <!-- Description of words in sample texts -->
-        <item key="pos">Part of Speech</item>
+        <item key="pos">POS</item>
         <item key="lemma">Lemma</item>
         <item key="number">Number</item>
         <item key="tense">Tense</item>
