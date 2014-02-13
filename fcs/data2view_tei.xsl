@@ -873,6 +873,11 @@
     <xsl:template match="tei:fs[@type='change']" mode="record-data"/>
     
     <xd:doc>
+        <xd:desc>For internal use, don't produce any HTML</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:fs[@type='create']" mode="record-data"/>
+    
+    <xd:doc>
         <xd:desc>Get the "argument" of color() used in @rend attributes and return it as html inline
             style attribute. <xd:p>Note: assumes only one color().</xd:p>
         </xd:desc>
