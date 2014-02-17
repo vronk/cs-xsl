@@ -48,7 +48,7 @@
             <xsl:value-of select="tei:titleStmt/tei:title"/>
         </h1>
         <p class="tei-authors">
-            <xsl:value-of select="tei:author"/>
+            <xsl:apply-templates select="tei:author" mode="record-data"/>
         </p>
         <p class="tei-publicationStmt"><xsl:value-of select="tei:publicationStmt/tei:pubPlace"/>,
                 <xsl:value-of select="tei:publicationStmt/tei:date"/></p>
@@ -228,9 +228,11 @@
         <xd:desc>Notes in biblStruct are used to specify index terms</xd:desc>
     </xd:doc>
     <xsl:template match="tei:biblStruct/tei:note/tei:index" mode="record-data">
-        <ul class="tei-index">
-            <xsl:apply-templates mode="record-data"/>
-        </ul>
+        <div class="indexTerms">
+            <ul class="tei-index">
+                <xsl:apply-templates mode="record-data"/>
+            </ul>
+        </div>
     </xsl:template>
 
     <xsl:template match="tei:index/tei:term" mode="record-data">

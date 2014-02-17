@@ -70,7 +70,7 @@
   <xsl:template name="getTitle">
     <xsl:value-of select="concat(//tei:fileDesc//tei:title, ' ')"/>
     <span class="tei-authors">
-      <xsl:apply-templates select="//tei:fileDesc/tei:author"/>
+      <xsl:apply-templates select="//tei:fileDesc/tei:author" mode="record-data"/>
     </span>
   </xsl:template>
 
@@ -133,14 +133,29 @@
   </xsl:template>
 
   <xd:doc>
-    <xd:desc>Suppress metadata rendering. Is explicitly rendered elsewhere</xd:desc>
+    <xd:desc>Transforms one fcs:Resource
+      <xd:p>This supersedes the generic template because we want a fixed order in which
+        the various data views are transformed (metadata last)</xd:p>
+    </xd:desc>
   </xd:doc>
-  <xsl:template match="//fcs:DataView[@type='metadata']" mode="record-data"/>
-
+  <xsl:template match="fcs:Resource" mode="record-data">
+    <xsl:apply-templates select=".//fcs:DataView[not(@type='metadata')]" mode="record-data"/>
+    <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
+  </xsl:template>
+  
   <xd:doc>
-    <xd:desc>Suppress teiHeader rendering. Is explicitly rendered elsewhere</xd:desc>
+    <xd:desc>Put TEI text content into a div</xd:desc>
   </xd:doc>
-  <xsl:template match="tei:teiHeader" mode="record-data"/>
+  <xsl:template match="tei:TEI" mode="record-data">
+    <div class="tei-TEI">
+      <xsl:if test="@xml:id">
+        <xsl:attribute name="class">
+          <xsl:value-of select="concat('tei-TEI ', @xml:id)"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:apply-templates select="tei:text" mode="record-data"/>
+    </div>
+  </xsl:template>
 
   <xd:doc>
     <xd:desc>Suppress rendering the tei:div of type positioning as it only containse a machine
@@ -181,10 +196,10 @@
     <xd:desc>Return the result if there is exactly one result</xd:desc>
   </xd:doc>
   <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
-    <xsl:apply-templates select="sru:record/*" mode="record-data"/>
     <xsl:variable name="rec_uri">
       <xsl:call-template name="_getRecordURI"/>
     </xsl:variable>
+    <xsl:apply-templates select="sru:record/*" mode="record-data"/>
     <div class="title">
       <xsl:choose>
         <xsl:when test="$rec_uri">
@@ -192,20 +207,15 @@
           <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
           <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
             <xsl:call-template name="getTitle"/>
-          </a>
+          </a>                         
           <!--                        <span class="cmd cmd_save"/>-->
         </xsl:when>
         <xsl:otherwise>
           <!-- FIXME: generic link somewhere anyhow! -->
           <xsl:call-template name="getTitle"/>
         </xsl:otherwise>
-      </xsl:choose>
+      </xsl:choose>                        
     </div>
-    <div class="data-view metadata">
-      <xsl:apply-templates select="//fcs:DataView[@type='metadata']/*" mode="record-data"/>
-    </div>
-    <div class="tei-teiHeader">
-      <xsl:apply-templates select="//tei:teiHeader/*" mode="record-data"/>
-    </div>
+    <xsl:apply-templates select="//tei:teiHeader" mode="record-data"/>
   </xsl:template>
 </xsl:stylesheet>

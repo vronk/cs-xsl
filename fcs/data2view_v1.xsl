@@ -107,7 +107,7 @@
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
             <div class="data-view {@type}">
-                <xsl:apply-templates mode="record-data"/>
+                <span class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></span>
             </div>
         </xsl:if>
     </xsl:template>
