@@ -15,12 +15,17 @@
         <item key="researchHistory">Research History</item>
         
         <!-- Description of words in sample texts -->
+        <item key="translation">English</item>
+        
+        <!-- Description of gramatical features -->
         <item key="pos">POS</item>
         <item key="lemma">Lemma</item>
         <item key="number">Number</item>
         <item key="tense">Tense</item>
         <item key="person">Person</item>
-        <item key="translation">English</item>
+        <item key="subc">Subcategory</item>
+        <item key="gender">Gender</item>
+        <item key="root">Root</item>
         
         <!-- Parts of speech -->
         <item key="pronoun">Pronoun</item>

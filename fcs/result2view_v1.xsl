@@ -30,6 +30,11 @@
     <xsl:variable name="cols">
         <col>all</col>
     </xsl:variable>
+    
+    <xsl:template name="continue-root">
+        <xsl:call-template name="continue-root-base"/>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Main entry point. Called by commons_v1.xsl's / matching template.
             <xd:p>
@@ -40,7 +45,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template name="continue-root">
+    <xsl:template name="continue-root-base">
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
             <div class="{/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context}">

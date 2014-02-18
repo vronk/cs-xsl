@@ -392,7 +392,7 @@
                 ... </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="cit | tei:cit" mode="record-data">
+    <xsl:template match="cit|tei:cit" mode="record-data">
         <quote>
             <xsl:apply-templates mode="record-data"/>
         </quote>
@@ -529,105 +529,104 @@
     </xsl:template>
 
     <xd:doc>
-        <xd:desc>tei:entry elements are the base elements for any lexicographical definitions <xd:p>
-                TODO: this has to be broken down to individual children-elements. the styles should
-                be moved to CSS and referenced by classes </xd:p>
+        <xd:desc>Lemma form
+        <xd:p>
+            Default priority="0.5"
+            We do enforce latin before arabic script.
+        </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="entry | tei:entry" mode="record-data">
-        <div class="profiletext">
-            <div style="margin-top: 15px; background:rgb(242,242,242); border: 1px solid grey">
-                <b>
-                    <xsl:value-of select="form[@type='lemma']/orth[contains(@xml:lang,'Trans')]"/>
-                    <xsl:if test="form[@type='lemma']/orth[contains(@xml:lang,'arabic')]">
-                        <xsl:text> </xsl:text>(<xsl:value-of
-                            select="form[@type='lemma']/orth[contains(@xml:lang,'arabic')]"
-                        />)</xsl:if>
-                </b>
-                <xsl:if test="gramGrp/gram[@type='pos']">
-                    <span style="color:rgb(0,64,0)">
-                        <xsl:text>           </xsl:text>[<xsl:value-of
-                            select="gramGrp/gram[@type='pos']"/>
-                        <xsl:if test="gramGrp/gram[@type='subc']">; <xsl:value-of
-                                select="gramGrp/gram[@type='subc']"/>
-                        </xsl:if>]</span>
-                </xsl:if>
-                <xsl:for-each select="form[@type='inflected']">
-                    <div style="margin-left:30px">
-                        <xsl:choose>
-                            <xsl:when test="@ana='#adj_f'">
-                                <b style="color:blue">
-                                    <i>(f) </i>
-                                </b>
-                            </xsl:when>
-                            <xsl:when test="@ana='#adj_pl'">
-                                <b style="color:blue">
-                                    <i>(pl) </i>
-                                </b>
-                            </xsl:when>
-                            <xsl:when test="@ana='#n_pl'">
-                                <b style="color:blue">
-                                    <i>(pl) </i>
-                                </b>
-                            </xsl:when>
-                            <xsl:when test="@ana='#v_pres_sg_p3'">
-                                <b style="color:blue">
-                                    <i>(pres) </i>
-                                </b>
-                            </xsl:when>
-                        </xsl:choose>
-                        <xsl:value-of select="orth[contains(@xml:lang,'Trans')]"/>
-                        <xsl:if test="orth[contains(@xml:lang,'arabic')]">
-                            <xsl:text> </xsl:text>(<xsl:value-of
-                                select="orth[contains(@xml:lang,'arabic')]"/>)</xsl:if>
-                    </div>
-                </xsl:for-each>
-                <xsl:for-each select="sense">
-                    <xsl:if test="def">
-                        <div style="margin-top: 5px; border-top:0.5px dotted grey;">
-                            <xsl:if test="def[@xml:lang='en']">
-                                <xsl:value-of select="def[@xml:lang='en']"/>
-                            </xsl:if>
-                            <xsl:if test="def[@xml:lang='de']">
-                                <xsl:text> </xsl:text>
-                                <span style="color:rgb(126,126,126); font-style: italic"
-                                        >(<xsl:value-of select="def[@xml:lang='de']"/>)</span>
-                            </xsl:if>
-                        </div>
-                    </xsl:if>
-                    <xsl:if test="cit[@type='translation']">
-                        <div style="margin-top: 5px; border-top:0.5px dotted grey;">
-                            <xsl:if test="cit[(@type='translation')and(@xml:lang='en')]">
-                                <xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"
-                                />
-                            </xsl:if>
-                            <xsl:if test="cit[(@type='translation')and(@xml:lang='de')]">
-                                <xsl:text> </xsl:text>
-                                <span style="color:rgb(126,126,126); font-style: italic"
-                                        >(<xsl:value-of
-                                        select="cit[(@type='translation')and(@xml:lang='de')]"
-                                    />)</span>
-                            </xsl:if>
-                        </div>
-                    </xsl:if>
-                    <xsl:for-each select="cit[@type='example']">
-                        <div style="margin-left:30px">
-                            <xsl:value-of select="quote[contains(@xml:lang,'Trans')]"/>
-                            <i>
-                                <xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"
-                                />
-                            </i>
-                            <xsl:if test="cit[(@type='translation')and(@xml:lang='de')]">
-                                <xsl:text> </xsl:text>
-                                <span style="color:rgb(126,126,126); font-style: italic"
-                                        >(<xsl:value-of
-                                        select="cit[(@type='translation')and(@xml:lang='de')]"
-                                    />)</span>
-                            </xsl:if>
-                        </div>
-                    </xsl:for-each>
-                </xsl:for-each>
-            </div>
+    <xsl:template match="tei:form[@type='lemma']" mode="record-data">
+        <span class="tei-form-lemma">
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/><xsl:text> </xsl:text>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
+            <xsl:apply-templates select="*[not(name() = 'orth')]"></xsl:apply-templates>
+        </span>        
+    </xsl:template>
+    
+    <xsl:template match="tei:form[@type='inflected']" mode="record-data">
+        <span class="tei-form-inflected">
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/><xsl:text> </xsl:text>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
+            <span class="tei-form-ana">
+                <xsl:choose>
+                    <xsl:when test="@ana='#adj_f'">f</xsl:when>
+                    <xsl:when test="@ana='#adj_pl'">pl</xsl:when>
+                    <xsl:when test="@ana='#n_pl'">pl</xsl:when>
+                    <xsl:when test="@ana='#v_pres_sg_p3'">pres</xsl:when>
+                </xsl:choose>
+            </span>
+            <xsl:apply-templates select="*[not(name() = 'orth')]"></xsl:apply-templates>
+        </span>
+    </xsl:template>
+    
+    <xsl:template match="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data">
+        <span class="tei-orth {@xml:lang}">
+            <xsl:apply-templates mode="record-data"/>
+        </span>
+    </xsl:template>
+    
+    <xsl:template match="tei:gramGrp" mode="record-data">
+        <dl class="tei-gramGrp">
+            <xsl:apply-templates mode="record-data"/>
+        </dl>
+    </xsl:template>
+    
+    <xsl:template match="tei:gram[@type]" mode="record-data">
+        <dt class="tei-gram">
+            <xsl:call-template name="dict">
+                <xsl:with-param name="key" select="@type"/>
+            </xsl:call-template>
+        </dt>
+        <dd class="tei-gram {@type}">
+            <xsl:apply-templates mode="record-data"/> 
+        </dd>
+    </xsl:template>
+    
+    <xsl:template match="tei:sense" mode="record-data">
+        <div class="tei-sense">
+            <xsl:if test="tei:def">            
+                <div class="tei-defs">
+                    <xsl:apply-templates select="tei:def[@xml:lang='en']"/>
+                    <xsl:apply-templates select="tei:def[@xml:lang='de']"/>
+                    <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]"/>               
+                </div>
+            </xsl:if>
+            <xsl:if test="tei:cit">
+                <div class="tei-cits">
+                    <xsl:apply-templates select="tei:cit" mode="record-data"/>
+                </div>
+            </xsl:if>
+            <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit')]" mode="record-data"/>
+        </div>
+    </xsl:template>
+    
+    <xsl:template match="tei:def[@xml:lang]">
+        <span class="tei-def-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>
+    </xsl:template>
+    
+    <xsl:template match="tei:cit[(@type='translation')]" mode="record-data">
+         <span class="tei-cit-translation-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>                 
+    </xsl:template>
+    
+    <xsl:template match="tei:cit[@type='example']" mode="record-data">
+        <div class="tei-cit-example">
+            <xsl:apply-templates mode="record-data"/>
+        </div>
+    </xsl:template>
+    
+    <xsl:template match="tei:quote[contains(@xml:lang,'-vicav')]" mode="record-data">
+        <span class="tei-quote-vicav-transcr"><xsl:apply-templates mode="record-data"/></span>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>tei:entry elements are the base elements for any lexicographical definitions
+            <xd:p></xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:entry" mode="record-data">
+        <div class="tei-entry">
+            <xsl:apply-templates mode="record-data"/>                                           
         </div>
     </xsl:template>
 
