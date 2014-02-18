@@ -114,6 +114,10 @@
   <xsl:template match="tei:ref" mode="tei-body-headings">
     <xsl:apply-templates select="." mode="record-data"/>
   </xsl:template>
+  
+  <xsl:template match="tei:ref[contains(@target, 'author')]" mode="tei-body-headings">
+    <xsl:call-template name="getAuthor"/>
+  </xsl:template>
 
   <xsl:template name="getAuthor">
     <div class="tei-authors">
