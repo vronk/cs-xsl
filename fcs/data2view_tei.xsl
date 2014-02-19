@@ -282,13 +282,71 @@
             <xsl:apply-templates select="." mode="tei-body-headings"/>
         </div>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Count div elemetents that are ancestor of this node and have a tei:head element</xd:desc>
+    </xd:doc>
+    <xsl:template name="tei-div-count">
+        <xsl:param name="current-node" select='.'/>
+        <xsl:param name="div-count" select='0'/>
+        <xsl:choose>
+            <xsl:when test="$current-node/ancestor::tei:div"><xsl:call-template name="tei-div-count">
+                <xsl:with-param name="div-count">
+                    <xsl:choose>
+                        <xsl:when test="$current-node/ancestor::tei:div/tei:head">
+                            <xsl:value-of select="$div-count + 1"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$div-count"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:with-param>
+                <xsl:with-param name="current-node" select="$current-node/ancestor::tei:div"/>
+            </xsl:call-template></xsl:when>
+            <xsl:otherwise><xsl:value-of select="$div-count"/></xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Utillity "function" to get the contetn into the right header tag</xd:desc>
+    </xd:doc>
+    <xsl:template name="div-count-to-html-header">
+        <xsl:param name="div-count" select="1"/>
+        <xsl:param name="content"></xsl:param>
+        <xsl:choose>
+            <xsl:when test="$div-count = 1">
+                <h1><xsl:copy-of select="$content"/></h1>
+            </xsl:when>
+            <xsl:when test="$div-count = 2">
+                <h2><xsl:copy-of select="$content"/></h2>
+            </xsl:when>
+            <xsl:when test="$div-count = 3">
+                <h3><xsl:copy-of select="$content"/></h3>
+            </xsl:when>
+            <xsl:when test="$div-count = 4">
+                <h4><xsl:copy-of select="$content"/></h4>
+            </xsl:when>
+            <xsl:when test="$div-count = 5">
+                <h5><xsl:copy-of select="$content"/></h5>
+            </xsl:when>
+            <xsl:otherwise>
+                <h6><xsl:copy-of select="$content"/></h6>
+                <!-- there are no more html h tags! -->
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 
     <xsl:template name="getAuthor"/>
 
     <xsl:template match="*" mode="tei-body-headings">
-        <h2>
-            <xsl:apply-templates mode="record-data"/>
-        </h2>
+        <xsl:call-template name="div-count-to-html-header">
+            <xsl:with-param name="div-count">
+                <xsl:call-template name="tei-div-count"/>
+            </xsl:with-param>
+            <xsl:with-param name="content">
+                <xsl:apply-templates mode="record-data"/>
+            </xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
 
     <xd:doc>

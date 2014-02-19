@@ -74,7 +74,16 @@
     </span>
   </xsl:template>
 
-
+  <xsl:template match="tei:head" mode="tei-body-headings">
+    <xsl:if test="normalize-space(./text())">
+      <xsl:call-template name="div-count-to-html-header">
+        <xsl:with-param name="div-count"><xsl:call-template name="tei-div-count"/></xsl:with-param>
+        <xsl:with-param name="content" select="normalize-space(./text())"></xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:apply-templates mode="tei-body-headings"/>
+  </xsl:template>
+  
   <xsl:template match="*" mode="tei-body-headings">
     <xsl:if test="normalize-space(./text())">
       <h2>
