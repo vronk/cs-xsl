@@ -546,36 +546,42 @@
     </xd:doc>
     <xsl:template name="generateTarget">
         <xsl:param name="linkText" select="'Click here'"/>
-        <xsl:variable name="linkTarget">
-            <xsl:choose>
-                <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, 'https://')">_blank</xsl:when>
-                <xsl:otherwise/>
-                <!-- empty string -->
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="target">
-            <xsl:choose>
-                <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, 'https://') or starts-with(@target, '/')">
-                    <xsl:value-of select="@target"/>
-                </xsl:when>
-                <xsl:when test="contains(@target, '|')">
+        <xsl:choose>
+            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, 'https://')">
+                <a href="{@target}" target="_blank">
+                    <xsl:value-of select="$linkText"/>
+                </a>
+            </xsl:when>
+            <xsl:when test="starts-with(@target, '/')">
+                <a href="{@target}" class="value-caller">
+                    <xsl:value-of select="$linkText"/>
+                </a>
+            </xsl:when>
+            <xsl:when test="contains(@target, '|')">
+                <xsl:variable name="linkTarget">
                     <xsl:call-template name="formURL">
                         <xsl:with-param name="action">searchRetrieve</xsl:with-param>
                         <xsl:with-param name="q" select="substring-after(@target, '|')"/>
                         <xsl:with-param name="x-context" select="substring-before(@target, '|')"/>
                     </xsl:call-template>
-                </xsl:when>
-                <xsl:otherwise>
+                </xsl:variable>
+                <a href="{$linkTarget}" class="search-caller">
+                    <xsl:value-of select="$linkText"/>
+                </a>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="linkTarget">
                     <xsl:call-template name="formURL">
                         <xsl:with-param name="action">explain</xsl:with-param>
                         <xsl:with-param name="x-context" select="@target"/>
                     </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <a href="{$target}" target="{$linkTarget}">
-            <xsl:value-of select="$linkText"/>
-        </a>
+                </xsl:variable>
+                <a href="{$linkTarget}" class="value-caller">
+                    <xsl:value-of select="$linkText"/>
+                </a>
+            </xsl:otherwise>
+            
+        </xsl:choose>        
     </xsl:template>
     
     <xd:doc>
