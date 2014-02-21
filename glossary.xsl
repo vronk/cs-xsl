@@ -84,14 +84,14 @@
                         <xsl:value-of select="tei:quote[contains(@xml:lang,'-vicav')]"/>
                         <div style="margin-left: 20px;">
                            <xsl:if test="tei:cit[(@type='translation')and(@xml:lang='en')]">
-                              <i style="color: rgb(193,97,0)"><xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"/></i>
+                              <i style="color: rgb(193,97,0)"><xsl:value-of select="tei:cit[(@type='translation')and(@xml:lang='en')]"/></i>
                            </xsl:if>
 
                            <xsl:if test="tei:cit[(@type='translation')and(@xml:lang='de')]">
                               <xsl:text> </xsl:text><span style="color:rgb(126,126,126); font-style: italic">(<xsl:value-of select="tei:cit[(@type='translation')and(@xml:lang='de')]"/>)</span>
                            </xsl:if>
 
-                           <xsl:if test="tei:ef">
+                           <xsl:if test="tei:ref">
                               <div style="font-style: italic; color: rgb(36,53,208)"> [
                                  <xsl:if test="tei:def[@xml:lang='en']">
                                     <xsl:value-of select="tei:def[@xml:lang='en']"/>

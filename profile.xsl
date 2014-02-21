@@ -9,64 +9,6 @@
     doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
     doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
 
-  <xd:doc>
-    <xd:desc>Special handling of target declarations as used by profiles</xd:desc>
-  </xd:doc>
-  <xsl:template name="generateTarget">
-    <xsl:param name="linkText" select="'Click here'"/>
-    <xsl:variable name="linkTarget">
-      <xsl:choose>
-        <xsl:when test="contains(@target, 'http://')">_blank</xsl:when>
-        <xsl:otherwise/>
-        <!-- empty string -->
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:variable name="target">
-      <xsl:choose>
-        <xsl:when test="contains(@target, 'http://')">
-          <xsl:value-of select="@target"/>
-        </xsl:when>
-        <xsl:when test="contains(@target, '|')">
-          <xsl:call-template name="formURL">
-            <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-            <xsl:with-param name="q" select="substring-after(@target, '|')"/>
-            <xsl:with-param name="x-context" select="substring-before(@target, '|')"/>
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:call-template name="formURL">
-            <xsl:with-param name="action">explain</xsl:with-param>
-            <xsl:with-param name="x-context" select="@target"/>
-          </xsl:call-template>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <a href="{$target}" target="{$linkTarget}">
-      <xsl:value-of select="$linkText"/>
-    </a>
-  </xsl:template>
-
-  <xd:doc>
-    <xd:desc>Handling of ptr, that is links without further text as description</xd:desc>
-  </xd:doc>
-  <xsl:template match="tei:ptr" mode="record-data">
-    <xsl:call-template name="generateTarget"/>
-  </xsl:template>
-
-  <xd:doc>
-    <xd:desc>Handling of ref, that is links with further text as description</xd:desc>
-  </xd:doc>
-  <xsl:template match="tei:ref[not(contains(@target, '.JPG') or 
-    contains(@target, '.jpg') or
-    contains(@target, '.PNG') or
-    contains(@target, '.png'))]" mode="record-data" priority="-1">
-    <xsl:call-template name="generateTarget">
-      <xsl:with-param name="linkText">
-        <xsl:apply-templates mode="record-data"/>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-
   <xsl:template name="getTitle">
     <xsl:value-of select="concat(//tei:fileDesc//tei:title, ' ')"/>
     <span class="tei-authors">
@@ -82,6 +24,18 @@
       </xsl:call-template>
     </xsl:if>
     <xsl:apply-templates mode="tei-body-headings"/>
+  </xsl:template>
+  
+  <xsl:template name="generateImgHTMLTags">
+    <xsl:param name="altText" select="@target"/>
+    <xsl:choose>
+      <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
+        <img src="{@target}" alt="{$altText}"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <img src="http://corpus3.aac.ac.at/vicav/images/{@target}" alt="{@target}"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template match="*" mode="tei-body-headings">
@@ -133,18 +87,7 @@
       <xsl:apply-templates select="//tei:fileDesc/tei:author" mode="record-data"/>
     </div>
   </xsl:template>
-
-  <xsl:template name="generateImg">
-    <xsl:choose>
-      <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/')">
-        <img src="{@target}" alt="{@target}"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <img src="http://corpus3.aac.ac.at/vicav/images/{@target}" alt="{@target}"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
+  
   <xd:doc>
     <xd:desc>Transforms one fcs:Resource
       <xd:p>This supersedes the generic template because we want a fixed order in which

@@ -108,7 +108,7 @@
     <xd:doc>
         <xd:desc>Fetches the database's name and the descreption if available</xd:desc>
     </xd:doc>
-    <xsl:template match="zr:databaseInfo[not(//tei:teiHeader)]">
+    <xsl:template match="zr:databaseInfo[not(//tei:teiHeader|//tei:front)]">
         <xsl:if test="not(contains($format, 'page'))">
         <h2><xsl:value-of select="zr:title[@lang=$lang]"/></h2>
         </xsl:if>
@@ -116,8 +116,8 @@
         <div class="zr-description"><xsl:apply-templates/></div>
     </xsl:template>
     
-    <xsl:template match="zr:databaseInfo[//tei:teiHeader]">
-        <div class="zr-description"><xsl:apply-templates mode="record-data" select=".//tei:teiHeader/*"/></div>
+    <xsl:template match="zr:databaseInfo[//tei:teiHeader|//tei:front]">
+        <div class="zr-description"><xsl:apply-templates mode="record-data" select=".//tei:teiHeader/*|.//tei:front/*"/></div>
     </xsl:template>
     
     <xsl:template match="zr:description[@lang]">
@@ -128,7 +128,7 @@
             <xsl:with-param name="q" select="' '"/>
         </xsl:call-template></xsl:attribute>More info about this database</a>
     </xsl:template>
-    
+   
     <xd:doc>
         <xd:desc>Generates a heading and stars the list of possible indexes</xd:desc>
     </xd:doc>

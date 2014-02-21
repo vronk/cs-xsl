@@ -378,15 +378,6 @@
         </div>
     </xsl:template>
 
-    <xsl:template
-        match="tei:ref[contains(@target, '.JPG') or 
-                                 contains(@target, '.jpg') or
-                                 contains(@target, '.PNG') or
-                                 contains(@target, '.png')]"
-        mode="record-data">
-        <!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
-        <xsl:call-template name="generateImg"/>
-    </xsl:template>
     <xd:doc>
         <xd:desc>some special elements retained in data, due to missing correspondencies in tei if
             it will get more, we should move to separate file</xd:desc>
@@ -508,23 +499,102 @@
     </xsl:template>
 
     <xd:doc>
-        <xd:desc>TEI ptr elements are mapped to "Click here" links <xd:p> Note: You most likely have
-                to supply you're own logic by superseding this. </xd:p>
+        <xd:desc>TEI ptr elements are mapped to "Click here" links
         </xd:desc>
     </xd:doc>
-    <xsl:template match="tei:ptr" mode="record-data">
-        <a href="{@target}">Click here!</a>
+    <xsl:template match="tei:ptr[not(contains(@target, '.JPG') or 
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png'))]" mode="record-data">
+        <xsl:call-template name="generateTarget"/>
     </xsl:template>
     
     <xd:doc>
-        <xd:desc>TEI ref elements are mapped to links that contain the contents of ref <xd:p> Note: You most likely have
-            to supply you're own logic by superseding this. </xd:p>
+        <xd:desc>TEI ref elements are mapped to links that contain the contents of ref 
         </xd:desc>
     </xd:doc>
-    <xsl:template match="tei:ref" mode="record-data">
-        <a href="{@target}"><xsl:apply-templates/></a>
+    <xsl:template match="tei:ref[not(contains(@target, '.JPG') or 
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png'))]" mode="record-data">
+        <xsl:call-template name="generateTarget">
+            <xsl:with-param name="linkText"><xsl:apply-templates mode="record-data"/></xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
-
+    
+    <xsl:template  match="tei:ptr[contains(@target, '.JPG') or 
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png')]" mode="record-data">
+        <xsl:call-template name="generateImgHTMLTags"/>
+    </xsl:template>
+    
+    <xsl:template match="tei:ref[contains(@target, '.JPG') or 
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png')]" mode="record-data">
+        <xsl:call-template name="generateImgHTMLTags">
+            <xsl:with-param name="altText"><xsl:value-of select="."/></xsl:with-param>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Special handling of target declarations that point to other resources
+            <xd:p> Note: You most likely have
+                to supply you're own logic by superseding this. </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateTarget">
+        <xsl:param name="linkText" select="'Click here'"/>
+        <xsl:variable name="linkTarget">
+            <xsl:choose>
+                <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, 'https://')">_blank</xsl:when>
+                <xsl:otherwise/>
+                <!-- empty string -->
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="target">
+            <xsl:choose>
+                <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, 'https://') or starts-with(@target, '/')">
+                    <xsl:value-of select="@target"/>
+                </xsl:when>
+                <xsl:when test="contains(@target, '|')">
+                    <xsl:call-template name="formURL">
+                        <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+                        <xsl:with-param name="q" select="substring-after(@target, '|')"/>
+                        <xsl:with-param name="x-context" select="substring-before(@target, '|')"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="formURL">
+                        <xsl:with-param name="action">explain</xsl:with-param>
+                        <xsl:with-param name="x-context" select="@target"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <a href="{$target}" target="{$linkTarget}">
+            <xsl:value-of select="$linkText"/>
+        </a>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Generates img tags from ref or ptr
+        <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateImgHTMLTags">
+        <xsl:param name="altText" select="@target"/>
+        <xsl:choose>
+            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
+                <img src="{@target}" alt="{$altText}"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <img src="{@target}" alt="{$altText}"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>tei:table elements are mapped to html:table elements <xd:p>Note: These elements are
                 found eg. in the mecmua transkription.</xd:p>

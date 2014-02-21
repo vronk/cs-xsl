@@ -32,4 +32,16 @@
         </dl>
     </xsl:template>
     
+    <xsl:template name="generateImgHTMLTags">
+        <xsl:param name="altText" select="@target"/>
+        <xsl:choose>
+            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
+                <img src="{@target}" alt="{$altText}"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <img src="http://corpus3.aac.ac.at/vicav/images/{@target}" alt="{@target}"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
 </xsl:stylesheet>
