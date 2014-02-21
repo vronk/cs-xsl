@@ -364,11 +364,11 @@
     </xd:doc>
     <xsl:template name="typeToHeading_base">
         <xsl:variable name="lookup" select="@type"/>
-        <h3>
+        <h2>
             <xsl:call-template name="dict">
                 <xsl:with-param name="key" select="@type"/>
             </xsl:call-template>
-        </h3>
+        </h2>
     </xsl:template>
 
     <xsl:template match="tei:div[@type]" mode="record-data">

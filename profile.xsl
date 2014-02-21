@@ -51,9 +51,9 @@
 
   <xsl:template match="tei:name[@xml:lang]" mode="tei-body-headings">
     <xsl:if test="@xml:lang='eng'">
-      <h2>
+      <h1>
         <xsl:value-of select="."/>
-      </h2>
+      </h1>
       <div class="nyms">
         <div class="official nym-wrapper">
           <span class="official nym-label">Official name </span>
