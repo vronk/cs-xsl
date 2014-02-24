@@ -287,23 +287,14 @@
         <xd:desc>Count div elemetents that are ancestor of this node and have a tei:head element</xd:desc>
     </xd:doc>
     <xsl:template name="tei-div-count">
-        <xsl:param name="current-node" select='.'/>
-        <xsl:param name="div-count" select='0'/>
+        <xsl:variable name="div-count-raw" select="count(./ancestor-or-self::tei:div[tei:head|@type])"/>
         <xsl:choose>
-            <xsl:when test="$current-node/ancestor::tei:div"><xsl:call-template name="tei-div-count">
-                <xsl:with-param name="div-count">
-                    <xsl:choose>
-                        <xsl:when test="$current-node/ancestor::tei:div/tei:head">
-                            <xsl:value-of select="$div-count + 1"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="$div-count"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:with-param>
-                <xsl:with-param name="current-node" select="$current-node/ancestor::tei:div"/>
-            </xsl:call-template></xsl:when>
-            <xsl:otherwise><xsl:value-of select="$div-count"/></xsl:otherwise>
+            <xsl:when test="./ancestor::tei:body/tei:head">
+                <xsl:value-of select="$div-count-raw + 1"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$div-count-raw"/>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     
@@ -364,11 +355,14 @@
     </xd:doc>
     <xsl:template name="typeToHeading_base">
         <xsl:variable name="lookup" select="@type"/>
-        <h2>
-            <xsl:call-template name="dict">
-                <xsl:with-param name="key" select="@type"/>
-            </xsl:call-template>
-        </h2>
+        <xsl:call-template name="div-count-to-html-header">
+            <xsl:with-param name="div-count"><xsl:call-template name="tei-div-count"/></xsl:with-param>
+            <xsl:with-param name="content">
+                <xsl:call-template name="dict">
+                    <xsl:with-param name="key" select="@type"/>
+                </xsl:call-template>
+            </xsl:with-param>
+        </xsl:call-template>            
     </xsl:template>
 
     <xsl:template match="tei:div[@type]" mode="record-data">
