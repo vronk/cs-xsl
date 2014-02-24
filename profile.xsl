@@ -3,7 +3,7 @@
   xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:exsl="http://exslt.org/common"
   xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
-  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru">
+  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru html">
   <xsl:import href="fcs/result2view_v1.xsl"/>
   <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8"
     doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -51,9 +51,12 @@
 
   <xsl:template match="tei:name[@xml:lang]" mode="tei-body-headings">
     <xsl:if test="@xml:lang='eng'">
-      <h1>
-        <xsl:value-of select="."/>
-      </h1>
+      <xsl:call-template name="div-count-to-html-header">
+        <xsl:with-param name="div-count"><xsl:call-template name="tei-div-count"/></xsl:with-param>
+        <xsl:with-param name="content">
+          <xsl:value-of select="."/>
+        </xsl:with-param>
+      </xsl:call-template>       
       <div class="nyms">
         <div class="official nym-wrapper">
           <span class="official nym-label">Official name </span>
@@ -99,19 +102,6 @@
     <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
   </xsl:template>
   
-  <xd:doc>
-    <xd:desc>Put TEI text content into a div</xd:desc>
-  </xd:doc>
-  <xsl:template match="tei:TEI" mode="record-data">
-    <div class="tei-TEI">
-      <xsl:if test="@xml:id">
-        <xsl:attribute name="class">
-          <xsl:value-of select="concat('tei-TEI ', @xml:id)"/>
-        </xsl:attribute>
-      </xsl:if>
-      <xsl:apply-templates select="tei:text" mode="record-data"/>
-    </div>
-  </xsl:template>
 
   <xd:doc>
     <xd:desc>Suppress rendering the tei:div of type positioning as it only containse a machine
@@ -120,21 +110,6 @@
   <xsl:template match="tei:div[@type='positioning']" mode="record-data">
     <xsl:apply-templates select=".//tei:ref" mode="record-data"/>
   </xsl:template>
-
-  <!-- unused right now  <xd:doc>
-    <xd:desc>Glottonyms need special treatment, they will be searched in the whole document and
-    rendered here.
-    </xd:desc>
-  </xd:doc>
-  <xsl:template match="tei:div[@type='glottonyms']" mode="record-data">
-    <div class="tei-div glottonyms">
-      <xsl:call-template name="typeToHeading"/>
-      <div class="nym">
-        <div class="official-nyms"><span class="official-nyms-label">Official name:</span><xsl:apply-templates select="//tei:name[@xml:lang='ara']" mode="record-data"/><xsl:apply-templates select="//tei:name[@xml:lang='ara-x-DMG']" mode="record-data"/></div>
-        <div class="local-nyms"><span class="local-nyms-label">Local name:</span><xsl:apply-templates select="//tei:name[@type='araLoc']" mode="record-data"/><xsl:apply-templates select="//tei:name[@type='latLoc']" mode="record-data"/></div>
-      </div>
-    </div>
-  </xsl:template> -->
 
   <xsl:template match="tei:name[@xml:lang]" mode="record-data">
     <span class="{@xml:lang}">
@@ -148,30 +123,4 @@
     </span>
   </xsl:template>
 
-  <xd:doc>
-    <xd:desc>Return the result if there is exactly one result</xd:desc>
-  </xd:doc>
-  <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
-    <xsl:variable name="rec_uri">
-      <xsl:call-template name="_getRecordURI"/>
-    </xsl:variable>
-    <xsl:apply-templates select="sru:record/*" mode="record-data"/>
-    <div class="title">
-      <xsl:choose>
-        <xsl:when test="$rec_uri">
-          <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
-          <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
-          <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
-            <xsl:call-template name="getTitle"/>
-          </a>                         
-          <!--                        <span class="cmd cmd_save"/>-->
-        </xsl:when>
-        <xsl:otherwise>
-          <!-- FIXME: generic link somewhere anyhow! -->
-          <xsl:call-template name="getTitle"/>
-        </xsl:otherwise>
-      </xsl:choose>                        
-    </div>
-    <xsl:apply-templates select="//tei:teiHeader" mode="record-data"/>
-  </xsl:template>
 </xsl:stylesheet>
