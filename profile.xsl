@@ -9,6 +9,10 @@
     doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
     doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
 
+  <xsl:template name="callback-header">
+    <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
+  </xsl:template>
+  
   <xsl:template name="getTitle">
     <xsl:value-of select="concat(//tei:fileDesc//tei:title, ' ')"/>
     <span class="tei-authors">

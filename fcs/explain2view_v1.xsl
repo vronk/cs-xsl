@@ -10,7 +10,8 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:exsl="http://exslt.org/common"
-    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl tei">
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl tei html">
     <xsl:import href="../commons_v1.xsl"/>
     <xsl:import href="data2view_tei.xsl"/>
     <xd:doc scope="stylesheet">
@@ -22,6 +23,11 @@
     <xsl:output method="xml" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
     
     <xsl:param name="lang" select="'en'"/>
+    
+    <xd:doc>
+        <xd:desc>Set this to a CSS class that should be included in the output's outer most element by superseding this</xd:desc>
+    </xd:doc>
+    <xsl:variable name="style-type" select="''"/>
     
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     
@@ -87,9 +93,15 @@
     <xsl:template match="sru:recordData">
         <!-- jQuery ajax does not match clases at the root level -->
         <div class="wrapper">
-            <div class="content">
+            <div class="content explain {$x-context}{$style-type}">
                 <xsl:apply-templates/>
             </div>
+        </div>
+    </xsl:template>
+    
+    <xsl:template match="sru:recordData" mode="verbose">
+        <div class="content explain {$x-context}{$style-type}">
+            <xsl:apply-templates mode="verbose"/>
         </div>
     </xsl:template>
     

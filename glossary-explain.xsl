@@ -11,6 +11,9 @@
     xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru zr">
     <xsl:import href="fcs/explain2view_v1.xsl"/>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
+    
+    <xsl:variable name="style-type" select="' glossary'"/>
+    
     <xd:doc>
         <xd:desc></xd:desc>
     </xd:doc>
@@ -26,10 +29,14 @@
     </xsl:template>
     
     <xsl:template match="zr:indexInfo">
-        <h3>Search Options</h3>
-        <dl class="zr-indexInfo">
-            <xsl:apply-templates select="zr:index"/>
-        </dl>
+        <div class="zr-indexInfo">
+            <div>
+                <h3>Search Options</h3>
+                <dl>
+                    <xsl:apply-templates select="zr:index"/>
+                </dl>
+            </div>
+        </div>
     </xsl:template>
     
     <xsl:template name="generateImgHTMLTags">
@@ -42,6 +49,28 @@
                 <img src="http://corpus3.aac.ac.at/vicav/images/{@target}" alt="{@target}"/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Suppress, handled elsewhere</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:front/tei:div/tei:ref[contains(@target, '.JPG') or 
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png')]" mode="record-data"/>
+    
+    <xsl:template match="zr:databaseInfo[//tei:teiHeader|//tei:front]">
+        <div class="zr-description">
+            <xsl:apply-templates mode="record-data" select=".//tei:teiHeader/*|.//tei:front/*"/>
+        </div>
+        <div class="zr-description background">
+            <xsl:attribute name="style">
+                <xsl:value-of select="concat('background-image:url(', .//tei:front/tei:div/tei:ref[contains(@target, '.JPG') or 
+                    contains(@target, '.jpg') or
+                    contains(@target, '.PNG') or
+                    contains(@target, '.png')]/@target, ');')"/>
+            </xsl:attribute>
+        </div>
     </xsl:template>
     
 </xsl:stylesheet>
