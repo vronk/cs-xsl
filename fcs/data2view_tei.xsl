@@ -459,12 +459,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="div|tei:div" mode="record-data">
-        <div>
-            <xsl:if test="@type">
-                <xsl:attribute name="class">
-                    <xsl:value-of select="concat('tei-type-', @type)"/>
-                </xsl:attribute>
-            </xsl:if>
+        <div class="tei-div">
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
