@@ -6,6 +6,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
     version="1.0" exclude-result-prefixes="xs sru fcs xd">
     <xsl:import href="params.xsl"/>
     <xd:doc scope="stylesheet">
@@ -91,7 +92,20 @@
                     <xsl:with-param name="format" select="'xml'"/>
                 </xsl:call-template>
             </xsl:variable>
+            <xsl:variable name="link_tei">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="format" select="'xmltei'"/>
+                </xsl:call-template>               
+            </xsl:variable>
             <a href="{$link_xml}">fcs/xml</a>
+            <xsl:choose>
+                <xsl:when test="//tei:TEI">
+                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+                </xsl:when>
+                <xsl:when test="//tei:teiHeader">
+                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+                </xsl:when>
+            </xsl:choose>
             <!--<xsl:choose>
                 <xsl:when test="contains($format,'htmljspage')">
                     <a href="{$link_toggle_js}"> none js </a>
