@@ -107,7 +107,7 @@
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
             <div class="data-view {@type}">
-                <span class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></span>
+                <div class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></div>
             </div>
         </xsl:if>
     </xsl:template>
@@ -219,7 +219,7 @@
             <xsl:apply-templates mode="record-data"/>
         </span>
         <xsl:if test="following-sibling::*[1][local-name()='c']">
-            <br/>
+            <xsl:call-template name="br"/>
         </xsl:if>
     </xsl:template>
     <xd:doc>
@@ -255,6 +255,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>Common template to insert a TEI element as a span with an appropriate class.
             <xd:p>XSL 1.0 port.</xd:p>
@@ -306,38 +307,39 @@
         </xsl:variable>
         <span class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
-                <span class="attributes" style="display:none;">
-                    <table>
-                        <tr>
-                            <td colspan="2">
-                                <xsl:call-template name="join-attributes-with-space">
-                                    <xsl:with-param name="nodes" select="exsl:node-set(descendant-or-self::*)"/>
-                                </xsl:call-template>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <xsl:for-each select="descendant-or-self::*">
-                                    <xsl:if test="@*">
-                                        <table style="float:left">
-                                            <xsl:for-each select="@*">
-                                                <tr>
-                                                    <td class="label">
-                                                        <xsl:value-of select="name()"/>
-                                                    </td>
-                                                    <td class="value">
-                                                        <xsl:value-of select="."/>
-                                                    </td>
-                                                </tr>
-                                            </xsl:for-each>
-                                        </table>
-                                    </xsl:if>
-                                </xsl:for-each>
-                            </td>
-                        </tr>
-                    </table>
+                <span class="attributes">
+                    <xsl:for-each select="child::*|@*">
+                        <table>
+                            <tr>
+                                <th colspan="2">
+                                    <xsl:value-of select="name()"/>
+                                </th>
+                            </tr>
+                            <!--                        <xsl:apply-templates select="@*" mode="format-attr"/>-->
+                            <tr>
+                                <td>
+                                    <xsl:for-each select=".">
+                                        <xsl:if test="@*">
+                                            <table>
+                                                <xsl:for-each select="@*">
+                                                  <tr>
+                                                  <td class="label">
+                                                  <xsl:value-of select="name()"/>
+                                                  </td>
+                                                  <td class="value">
+                                                  <xsl:value-of select="."/>
+                                                  </td>
+                                                  </tr>
+                                                </xsl:for-each>
+                                            </table>
+                                        </xsl:if>
+                                    </xsl:for-each>
+                                </td>
+                            </tr>
+                        </table>
+                    </xsl:for-each>
                 </span>
-            </xsl:if>
+            </xsl:if>          
             <xsl:copy-of select="$inline-elem"/>
         </span>
     </xsl:template>

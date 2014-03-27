@@ -408,13 +408,13 @@
         <address>
             <xsl:if test="tei:street">
                 <xsl:value-of select="tei:street"/>
-                <br/>
+                <xsl:call-template name="br"/>
             </xsl:if>
             <xsl:if test="tei:postCode | tei:settlement">
                 <xsl:value-of select="tei:postCode"/>
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="tei:settlement"/>
-                <br/>
+                <xsl:call-template name="br"/>
             </xsl:if>
             <xsl:if test="tei:country">
                 <xsl:value-of select="tei:country"/>
@@ -724,21 +724,29 @@
     </xsl:template>
     
     <xsl:template match="tei:def[@xml:lang]">
-        <span class="tei-def-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>
+        <span class="tei-def lang-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>
     </xsl:template>
     
     <xsl:template match="tei:cit[(@type='translation')]" mode="record-data">
-         <span class="tei-cit-translation-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>                 
+         <span class="tei-cit translation-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>                 
     </xsl:template>
     
     <xsl:template match="tei:cit[@type='example']" mode="record-data">
-        <div class="tei-cit-example">
+        <div class="tei-cit example">
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
     
     <xsl:template match="tei:quote[contains(@xml:lang,'-vicav')]" mode="record-data">
-        <span class="tei-quote-vicav-transcr"><xsl:apply-templates mode="record-data"/></span>
+        <span class="tei-quote vicav-transcr"><xsl:apply-templates mode="record-data"/></span>
+    </xsl:template>
+    
+    <xsl:template match="tei:quote[not(contains(@xml:lang,'-vicav'))]" mode="record-data">
+        <span class="tei-quote lang-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>
+    </xsl:template>
+    
+    <xsl:template match="tei:quote[not(@xml:lang)]" mode="record-data">
+        <span class="tei-quote"><xsl:apply-templates mode="record-data"/></span>
     </xsl:template>
     
     <xd:doc>
@@ -774,10 +782,10 @@
     </xd:doc>
     <xsl:template match="l | tei:l" mode="record-data">
         <xsl:apply-templates mode="record-data"/>
-        <br/>
+        <xsl:call-template name="br"/>
     </xsl:template>
     <xsl:template match="lb | tei:lb" mode="record-data">
-        <br/>
+        <xsl:call-template name="br"/>
     </xsl:template>
     <xsl:template match="lg | tei:lg" mode="record-data">
         <div class="lg">

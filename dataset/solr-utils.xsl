@@ -201,7 +201,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="lst[@name='params']/arr/str" mode="form"  >        
-        <input type="text" name="{../@name}"  value="{.}" /><br/>        
+        <input type="text" name="{../@name}"  value="{.}" /><xsl:call-template name="br"/>        
     </xsl:template>
     
     <xsl:template match="text()" mode="query-input"/>

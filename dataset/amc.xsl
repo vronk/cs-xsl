@@ -134,7 +134,6 @@ media-type="text/xhtml"
                 <link rel="stylesheet" type="text/css" href="{concat($scripts-dir, 'style/jquery.ui.resizable.css')}" />
                 <link rel="stylesheet" type="text/css" href="{concat($scripts-dir, 'style/jquery.ui.all.css')}" />
                 <link rel="stylesheet" type="text/css" href="{concat($scripts-dir, 'style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css')}" />
-                <link rel="stylesheet" type="text/css" href="{concat($scripts-dir, 'style/cmds-ui.css')}" />
                 
                 <!--table { border-collapse:collapse;  border:1px solid grey }
         td {padding: 3px; border:1px solid grey}-->

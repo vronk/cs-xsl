@@ -92,7 +92,7 @@
         </xsl:variable>
         <span class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
-                <span class="attributes" style="display:none;">
+                <span class="attributes">
                     <table>
                         <xsl:for-each-group select="descendant-or-self::*" group-by="name()">
                             <tr>
@@ -106,7 +106,7 @@
                                 <td>
                                     <xsl:for-each select="current-group()">
                                         <xsl:if test="@*">
-                                            <table style="float:left">
+                                            <table>
                                                 <xsl:for-each select="@*">
                                                     <tr>
                                                         <td class="label">

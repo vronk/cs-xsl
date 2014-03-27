@@ -133,7 +133,7 @@
     </xsl:template>
     
     <xsl:template match="zr:description[@lang]">
-        <xsl:value-of select="zr:description[@lang=$lang]"/><br/>
+        <xsl:value-of select="zr:description[@lang=$lang]"/><xsl:call-template name="br"/>
         <a class="value-caller"><xsl:attribute name="href"><xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
             <xsl:with-param name="dataview">metadata</xsl:with-param>

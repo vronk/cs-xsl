@@ -24,7 +24,7 @@
                     <xsl:value-of select="count(cmd:ResourceProxy[cmd:ResourceType='Resource'])"/>
                     <label> Resources</label>
                     <xsl:if test="count(cmd:ResourceProxy) &gt; $resourceref_limit">
-                        <br/>
+                        <xsl:call-template name="br"/>
                         <label>showing first </label>
                         <xsl:value-of select="$resourceref_limit"/>
                         <label> references. </label> 

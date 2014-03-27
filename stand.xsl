@@ -111,12 +111,12 @@
             <xsl:value-of select="$mid"/>_<xsl:value-of select="$line"/>
         </xsl:variable>
         <xsl:if test="$line &gt; 0">
-            <br>
+            <p>
                 <xsl:attribute name="style">font-family:'Arial Unicode MS';font-size:13pt;</xsl:attribute>
                 <xsl:attribute name="id">
                     <xsl:value-of select="$brID"/>
                 </xsl:attribute>
-            </br>
+            </p>
             <xsl:call-template name="emptyLine">
                 <xsl:with-param name="line" select="$line - 1"/>
                 <xsl:with-param name="mid" select="$mid"/>

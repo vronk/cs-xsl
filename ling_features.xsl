@@ -13,6 +13,7 @@
    
    <xsl:template name="callback-header">
       <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
+      <link href="{$scripts_url}style/glossary.css" type="text/css" rel="stylesheet"/>
       <link href="{$scripts_url}style/lingFeature.css" type="text/css" rel="stylesheet"/>
    </xsl:template>
    
@@ -103,17 +104,7 @@
       </td>
    </xsl:template>
    
-<!--   <xsl:template match="tei:div" mode="record-data">
-      <div>
-         <xsl:apply-templates mode="record-data"/>
-      </div>
-   </xsl:template>-->
-   
    <xsl:template match="tei:fs|tei:f" mode="record-data"/>
-   
-   <xsl:template match="tei:cit[@type='translation']" mode="record-data">
-      <span class="translation"><br/><xsl:apply-templates mode="record-data"/></span>
-   </xsl:template>
    
    <xsl:template match="*" mode="tei-body-headings">
       <div id="{@xml:id}" class="feature">
@@ -128,10 +119,6 @@
       </xsl:call-template>
       </div>
    </xsl:template>
-   
-<!--   <xsl:template match="tei:p" mode="record-data">
-      <p><xsl:apply-templates mode="record-data"/></p>
-   </xsl:template>-->
    
    <xsl:template match="tei:quote" mode="record-data"><xsl:apply-templates mode="record-data"/></xsl:template>
    
@@ -149,16 +136,8 @@
       <xsl:text> </xsl:text>
    </xsl:template>
    
-<!--   <xsl:template match="tei:row" mode="record-data">
-      <tr>
-         <xsl:apply-templates mode="record-data"/>
-      </tr>
-   </xsl:template>-->
-   
-<!--   <xsl:template match="tei:table" mode="record-data">
-      <table>
-         <xsl:apply-templates mode="record-data"/>
-      </table>
-   </xsl:template>-->
+   <xsl:template name="generateTarget">
+      <p>To be discussed.</p>
+   </xsl:template>
    
 </xsl:stylesheet>

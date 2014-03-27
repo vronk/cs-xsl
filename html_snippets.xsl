@@ -7,7 +7,7 @@
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
-    version="1.0" exclude-result-prefixes="xs sru fcs xd">
+    version="1.0" exclude-result-prefixes="xs sru fcs xd tei">
     <xsl:import href="params.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>pieces of html wrapped in templates, to be reused by other stylesheets
@@ -41,7 +41,6 @@
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.6.2.js"/>
         <!--        <xsl:if test="contains($format,'htmljspage')">
@@ -102,7 +101,7 @@
                 <xsl:when test="//tei:TEI">
                     <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
                 </xsl:when>
-                <xsl:when test="//tei:teiHeader">
+                <xsl:when test="//tei:teiHeader|//tei:front">
                     <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
                 </xsl:when>
             </xsl:choose>
@@ -157,7 +156,7 @@
                     -->
                     <label>Context</label>
                     <xsl:call-template name="contexts-select"/>
-                    <br/>
+                    <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
                     <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
@@ -165,7 +164,7 @@
                             <td>
                        -->
                     <input type="submit" value="submit" id="submit-query"/>
-                                <!--<br/>-->
+                    <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
                           <!--  </td>
@@ -174,7 +173,7 @@
                             <td valign="top">                                    
                                         
 							<!-\-  selected collections  -\->
-							<!-\- <label>Collections</label><br/>-\->
+							<!-\- <label>Collections</label><xsl:call-template name="br"/>-\->
                                 <div id="collections-widget" class="c-widget"/>
                             </td>
                             <td valign="top">

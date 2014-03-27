@@ -136,8 +136,7 @@
             <head>
                 <title>
                     <xsl:value-of select="$title"/>
-                </title>
-                <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet"/>				
+                </title>			
 				<!-- <xsl:call-template name="callback-header"/> -->
             </head>
             <xsl:call-template name="page-header"/>
@@ -168,7 +167,7 @@
         <p>
             <xsl:value-of select="diag:message"/>
             <xsl:if test="diag:details"> (<xsl:value-of select="diag:details"/>)</xsl:if>
-            <br/>
+            <xsl:call-template name="br"/>
             <xsl:value-of select="diag:uri"/>
         </p>
     </xsl:template>
@@ -391,7 +390,7 @@
         <xsl:param name="value" select="."/>
 		<!-- cnt_value:<xsl:value-of select="count($value)" />  -->
         <xsl:choose>
-            <xsl:when test="starts-with($value[1], 'http:') ">
+            <xsl:when test="starts-with($value[1], 'http:') or starts-with($value[1], 'https:')">
                 <a target="_blank" class="external" href="{$value}">
                     <xsl:value-of select="$value"/>
                 </a>
@@ -401,6 +400,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>Provides a generic html-view for xml-elements 
 	    </xd:desc>
@@ -430,18 +430,17 @@
                 </xsl:choose>
             </xsl:variable>
             <div class="cmds-xmlelem {$has_children} value-{$has_text}">
-                <span class="{$label-class}">
-                    <xsl:value-of select="name()"/>:</span>
+                <span class="{$label-class}"><xsl:value-of select="name()"/></span>
+                <xsl:if test="@*">
+                    <span class="attributes">
+                        <xsl:apply-templates select="@*" mode="format-attr"/>
+                    </span>
+                </xsl:if>
                 <span class="value">
                     <xsl:call-template name="format-value">
                         <xsl:with-param name="value" select="text()[.!='']"/>
                     </xsl:call-template>
                 </span>
-                <xsl:if test="@*">
-                    <div class="attributes">
-                        <xsl:apply-templates select="@*" mode="format-attr"/>
-                    </div>
-                </xsl:if>
                 <xsl:choose>
                     <xsl:when test="$strict">
                         <xsl:apply-templates select="*" mode="format-xmlelem">
@@ -449,21 +448,23 @@
                         </xsl:apply-templates>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:apply-templates select="*" mode="record-data"/>
+                        <xsl:apply-templates select="*" mode="format-xmlelem"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </div>
         </xsl:if>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>Returns attribute names and their values as pairs of HTML span tags</xd:desc>
     </xd:doc>
     <xsl:template match="@*" mode="format-attr">
-        <span class="inline label">@<xsl:value-of select="name()"/>: </span>
+        <span class="inline label"><xsl:value-of select="name()"/></span>
         <span class="value">
-            <xsl:call-template name="format-value"/><!--<xsl:value-of select="." /> -->
+            <xsl:call-template name="format-value"/>
         </span>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>???</xd:desc>
     </xd:doc>
@@ -531,5 +532,14 @@
                 </xsl:call-template>
             </xsl:otherwise>
         </xsl:choose>        
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Forces generation of one (!) emtpty &lt;br/> tag
+            <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="br">
+        <xsl:text disable-output-escaping="yes">&lt;br/></xsl:text>
     </xsl:template>
 </xsl:stylesheet>
