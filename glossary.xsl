@@ -22,4 +22,9 @@
       <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
    </xsl:template>
    
+   <xd:doc>
+      <xd:desc>For private use.</xd:desc>
+   </xd:doc>
+   <xsl:template match="tei:xr" mode="record-data"/>
+   
 </xsl:stylesheet>
