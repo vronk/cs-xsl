@@ -728,7 +728,7 @@
         </div>
     </xsl:template>
     
-    <xsl:template match="tei:def[@xml:lang]">
+    <xsl:template match="tei:def[@xml:lang]" mode="record-data">
         <span class="tei-def lang-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>
     </xsl:template>
     
