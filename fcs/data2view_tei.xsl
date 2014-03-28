@@ -658,11 +658,11 @@
         </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="tei:form[@type='lemma']" mode="record-data">
-        <span class="tei-form-lemma">
+    <xsl:template match="tei:form[@type='lemma' or @type='multiWordUnit']" mode="record-data">
+        <span class="tei-form-{@type}">
             <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/><xsl:text> </xsl:text>
             <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
-            <xsl:apply-templates select="*[not(name() = 'orth')]"></xsl:apply-templates>
+            <xsl:apply-templates select="*[not(name() = 'orth')]" mode="record-data"/>
         </span>        
     </xsl:template>
     
@@ -678,7 +678,7 @@
                     <xsl:when test="@ana='#v_pres_sg_p3'">pres</xsl:when>
                 </xsl:choose>
             </span>
-            <xsl:apply-templates select="*[not(name() = 'orth')]"></xsl:apply-templates>
+            <xsl:apply-templates select="*[not(name() = 'orth')]" mode="record-data"/>
         </span>
     </xsl:template>
     
@@ -709,9 +709,9 @@
         <div class="tei-sense">
             <xsl:if test="tei:def">            
                 <div class="tei-defs">
-                    <xsl:apply-templates select="tei:def[@xml:lang='en']"/>
-                    <xsl:apply-templates select="tei:def[@xml:lang='de']"/>
-                    <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]"/>               
+                    <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
+                    <xsl:apply-templates select="tei:def[@xml:lang='de']" mode="record-data"/>
+                    <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]" mode="record-data"/>               
                 </div>
             </xsl:if>
             <xsl:if test="tei:usg[@type='dom']">
