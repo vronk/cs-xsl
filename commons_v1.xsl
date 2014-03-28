@@ -429,29 +429,33 @@
                     <xsl:otherwise>inline label</xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
-            <div class="cmds-xmlelem {$has_children} value-{$has_text}">
-                <span class="{$label-class}"><xsl:value-of select="name()"/></span>
-                <xsl:if test="@*">
-                    <span class="attributes">
-                        <xsl:apply-templates select="@*" mode="format-attr"/>
+            <span class="cmds-xmlelem wrapper">
+                <div class="cmds-xmlelem {$has_children} value-{$has_text}">
+                    <span class="{$label-class}">
+                        <xsl:value-of select="name()"/>
                     </span>
-                </xsl:if>
-                <span class="value">
-                    <xsl:call-template name="format-value">
-                        <xsl:with-param name="value" select="text()[.!='']"/>
-                    </xsl:call-template>
-                </span>
-                <xsl:choose>
-                    <xsl:when test="$strict">
-                        <xsl:apply-templates select="*" mode="format-xmlelem">
-                            <xsl:with-param name="strict" select="$strict"/>
-                        </xsl:apply-templates>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="*" mode="format-xmlelem"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </div>
+                    <xsl:if test="@*">
+                        <span class="attributes">
+                            <xsl:apply-templates select="@*" mode="format-attr"/>
+                        </span>
+                    </xsl:if>
+                    <span class="value">
+                        <xsl:call-template name="format-value">
+                            <xsl:with-param name="value" select="text()[.!='']"/>
+                        </xsl:call-template>
+                    </span>
+                    <xsl:choose>
+                        <xsl:when test="$strict">
+                            <xsl:apply-templates select="*" mode="format-xmlelem">
+                                <xsl:with-param name="strict" select="$strict"/>
+                            </xsl:apply-templates>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates select="*" mode="format-xmlelem"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </div>
+            </span>
         </xsl:if>
     </xsl:template>
     

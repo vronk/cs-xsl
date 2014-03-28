@@ -714,12 +714,17 @@
                     <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]"/>               
                 </div>
             </xsl:if>
+            <xsl:if test="tei:usg[@type='dom']">
+                <div class="tei-usg-doms">
+                    <xsl:apply-templates select="tei:usg[@type='dom']" mode="record-data"/>
+                </div>
+            </xsl:if>
             <xsl:if test="tei:cit">
                 <div class="tei-cits">
                     <xsl:apply-templates select="tei:cit" mode="record-data"/>
                 </div>
             </xsl:if>
-            <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit')]" mode="record-data"/>
+            <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit' or name() = 'usg')]" mode="record-data"/>
         </div>
     </xsl:template>
     
@@ -745,8 +750,12 @@
         <span class="tei-quote lang-{@xml:lang}"><xsl:apply-templates mode="record-data"/></span>
     </xsl:template>
     
-    <xsl:template match="tei:quote[not(@xml:lang)]" mode="record-data">
+    <xsl:template match="tei:quote[not(@xml:lang)]" mode="record-data" priority="0.6">
         <span class="tei-quote"><xsl:apply-templates mode="record-data"/></span>
+    </xsl:template>
+    
+    <xsl:template match="tei:usg" mode="record-data">
+        <span class="tei-usg tei-type-{@type}"><xsl:apply-templates mode="record-data"/></span>
     </xsl:template>
     
     <xd:doc>
