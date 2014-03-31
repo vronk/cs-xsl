@@ -211,10 +211,10 @@
     </xsl:template>
 
     <xd:doc>
-        <xd:desc/>
+        <xd:desc>In bibliographies a series in which a monography was published.</xd:desc>
     </xd:doc>
     <xsl:template match="tei:series" mode="record-data">
-        <div class="cs-xsl-error"> TODO! </div>
+        <div class="tei-series"><xsl:apply-templates mode="record-data"/>.</div>
     </xsl:template>
 
     <xd:doc>
