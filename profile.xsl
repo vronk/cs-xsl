@@ -70,8 +70,14 @@
         <xsl:if test="../tei:name[@type='araLoc' or @type='latLoc']">
           <div class="local nym-wrapper">
             <span class="local nym-label">Local name </span>
-            <xsl:apply-templates select="../tei:name[@type='araLoc']" mode="record-data"/>
-            <xsl:apply-templates select="../tei:name[@type='latLoc']" mode="record-data"/>
+            <xsl:choose>
+              <xsl:when test="../tei:name[@type='araLoc']"><xsl:apply-templates select="../tei:name[@type='araLoc']" mode="record-data"/></xsl:when>
+              <xsl:otherwise><span class="tei-type-araLoc"/></xsl:otherwise>
+            </xsl:choose>            
+            <xsl:choose>
+              <xsl:when test="../tei:name[@type='latLoc']"><xsl:apply-templates select="../tei:name[@type='latLoc']" mode="record-data"/></xsl:when>
+              <xsl:otherwise><span class="tei-type-latLoc"/></xsl:otherwise>
+            </xsl:choose>
           </div>
         </xsl:if>
       </div>
