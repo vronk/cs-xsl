@@ -67,7 +67,7 @@
           <xsl:apply-templates select="../tei:name[@xml:lang='ara']" mode="record-data"/>
           <xsl:apply-templates select="../tei:name[@xml:lang = 'ara-x-DMG']" mode="record-data"/>
         </div>
-        <xsl:if test="../tei:name[@type='araLoc']">
+        <xsl:if test="../tei:name[@type='araLoc' or @type='latLoc']">
           <div class="local nym-wrapper">
             <span class="local nym-label">Local name </span>
             <xsl:apply-templates select="../tei:name[@type='araLoc']" mode="record-data"/>

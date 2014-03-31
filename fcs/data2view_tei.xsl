@@ -465,24 +465,44 @@
     </xsl:template>
 
     <xd:doc>
-        <xd:desc>tei:p elements are mapped to html:p elements </xd:desc>
+        <xd:desc>tei:p elements are mapped to html:p elements</xd:desc>
+        <xd:p>A style attribute is either <xd:ul>
+                <xd:li>translated into a html style attribute if it contains even one ':'</xd:li>
+                <xd:li>or it is translated into a class attribute</xd:li>
+            </xd:ul>
+        </xd:p>       
     </xd:doc>
     <xsl:template match="p|tei:p" mode="record-data">
         <p>
-            <xsl:if test="@rend">
-                <xsl:attribute name="class">
-                    <xsl:call-template name="rend-without-color">
-                        <xsl:with-param name="rend-text" select="@rend"/>
-                    </xsl:call-template>
-                </xsl:attribute>
-                <xsl:if test="substring-after(string(@rend), 'color(')">
-                    <xsl:attribute name="style">
-                        <xsl:call-template name="rend-color-as-html-style">
+            <xsl:choose>
+                <xsl:when test="@style">
+                    <xsl:choose>
+                        <xsl:when test="contains(@style, ':')">
+                            <xsl:attribute name="class">tei-p</xsl:attribute>
+                            <xsl:attribute name="style">
+                                <xsl:value-of select="@style"/>
+                            </xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="class">tei-p <xsl:value-of select="@style"/>
+                            </xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:when test="@rend">
+                    <xsl:attribute name="class">tei-p <xsl:call-template name="rend-without-color">
                             <xsl:with-param name="rend-text" select="@rend"/>
                         </xsl:call-template>
                     </xsl:attribute>
-                </xsl:if>
-            </xsl:if>
+                    <xsl:if test="substring-after(string(@rend), 'color(')">
+                        <xsl:attribute name="style">
+                            <xsl:call-template name="rend-color-as-html-style">
+                                <xsl:with-param name="rend-text" select="@rend"/>
+                            </xsl:call-template>
+                        </xsl:attribute>
+                    </xsl:if>
+                </xsl:when>
+            </xsl:choose>
             <xsl:apply-templates mode="record-data"/>
         </p>
     </xsl:template>
@@ -629,12 +649,32 @@
     <xd:doc>
         <xd:desc>tei:hi is mapped to html:span and @rend is mapped to @class</xd:desc>
         <xd:p>Note these elements are found eg. in the mecmua transkription</xd:p>
+        <xd:p>A style attribute is either
+            <xd:ul>
+                <xd:li>translated into a html style attribute if it contains even one ':'</xd:li>
+                <xd:li>or it is translated into a class attribute</xd:li>
+            </xd:ul>
+        </xd:p>
     </xd:doc>
     <xsl:template match="hi|tei:hi" mode="record-data">
         <span>
-            <xsl:if test="@rend">
-                <xsl:attribute name="class">
-                    <xsl:call-template name="rend-without-color">
+            <xsl:choose>
+                <xsl:when test="@style">
+                    <xsl:choose>
+                        <xsl:when test="contains(@style, ':')">
+                            <xsl:attribute name="class">tei-hi</xsl:attribute>
+                            <xsl:attribute name="style">
+                                <xsl:value-of select="@style"/>
+                            </xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="class">tei-hi <xsl:value-of select="@style"/>
+                            </xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+            <xsl:when test="@rend">
+                <xsl:attribute name="class">tei-hi <xsl:call-template name="rend-without-color">
                         <xsl:with-param name="rend-text" select="@rend"/>
                     </xsl:call-template>
                 </xsl:attribute>
@@ -645,7 +685,8 @@
                         </xsl:call-template>
                     </xsl:attribute>
                 </xsl:if>
-            </xsl:if>
+            </xsl:when>
+            </xsl:choose>
             <xsl:apply-templates mode="record-data"/>
         </span>
     </xsl:template>
