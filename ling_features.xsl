@@ -136,8 +136,9 @@
       <xsl:text> </xsl:text>
    </xsl:template>
    
-   <xsl:template name="generateTarget">
-      <p>To be discussed.</p>
-   </xsl:template>
+   <xd:doc>
+      <xd:desc>Ignore pointers needed by web_dict_editor</xd:desc>
+   </xd:doc>
+   <xsl:template match="tei:ptr[starts-with(@target, '#')]" mode="record-data"/>
    
 </xsl:stylesheet>
