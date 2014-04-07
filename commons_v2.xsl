@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0">
+    <xsl:import href="commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling
             <xd:p>History:
@@ -13,19 +15,16 @@
         <xd:desc>???</xd:desc>
     </xd:doc>
     <xsl:template name="contexts-doc">
-        
-        <!--<xsl:if test="not(doc-available(resolve-uri($contexts_url,$base_url)))">
+        <xsl:if test="not(doc-available(resolve-uri($contexts_url,$base_url)))">
             <xsl:message>ERROR: context not available: <xsl:value-of select="resolve-uri($contexts_url,$base_url)"/>
                 base-uri:  <xsl:value-of select="base-uri()"/>
             </xsl:message>
         </xsl:if>
-        <xsl:copy-of select="if (doc-available(resolve-uri($contexts_url,$base_url))) then doc(resolve-uri($contexts_url,$base_url)) else ()"/>-->
+        <xsl:copy-of select="if (doc-available(resolve-uri($contexts_url,$base_url))) then doc(resolve-uri($contexts_url,$base_url)) else ()"/>
     </xsl:template>
     <xd:doc>
         <xd:desc>Convenience-wrapper to formURL-template
-            shall be usable to form consistently all urls within xsl
-            <xd:p>Note: This function might get optimized away as it doesn't do anything in addition to the template as of now.</xd:p>
-        </xd:desc>
+            shall be usable to form consistently all urls within xsl </xd:desc>
         <xd:param name="action">See <xd:ref name="formURL" type="template">formURL template</xd:ref>.</xd:param>
         <xd:param name="format">See <xd:ref name="formURL" type="template">formURL template</xd:ref>.</xd:param>
         <xd:param name="q">See <xd:ref name="formURL" type="template">formURL template</xd:ref>.</xd:param>
@@ -34,12 +33,10 @@
         <xsl:param name="action"/>
         <xsl:param name="format"/>
         <xsl:param name="q"/>
-        <xsl:param name="dataview"/>
         <xsl:call-template name="formURL">
             <xsl:with-param name="action" select="$action"/>
             <xsl:with-param name="format" select="$format"/>
             <xsl:with-param name="q" select="$q"/>
-            <xsl:with-param name="dataview" select="$dataview"/>
             <!-- CHECK: possibly necessary   <xsl:with-param name="repository" select="$repository" /> -->
         </xsl:call-template>
         <!-- XSL 2.0 implementation: 
@@ -118,8 +115,8 @@
         <xd:desc>Dummy that returns it's parameter as this is not needed in XSL 2.0</xd:desc>
         <xd:param name="node-set">This node-set is returned as is</xd:param>
     </xd:doc>
-    <xsl:function name="exsl:node-set" as="node()*">
-        <xsl:param name="node-set" as="node()*"/>
-        <xsl:sequence select="$node-set"/>
+    <xsl:function name="exsl:node-set">
+        <xsl:param name="node-set"/>
+        <xsl:value-of select="$node-set"/>
     </xsl:function>
 </xsl:stylesheet>
