@@ -18,9 +18,12 @@
         <xd:desc/>
     </xd:doc>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
-    
+        
     <xsl:param name="lang" select="'en'"/>
-    
+       
+    <xsl:import href="../commons_v1.xsl"/>
+    <xsl:output method="html"/>
+    <xsl:param name="lang" select="'de'"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     
     <xd:doc>
@@ -33,16 +36,16 @@
     <xsl:variable name="title">
         <xsl:text>explain: </xsl:text>
         <xsl:choose>
-            <xsl:when test="//zr:databaseInfo/zr:title[@lang=$lang]/text()" >
-                <xsl:value-of select="//zr:databaseInfo/zr:title[@lang=$lang]/text()" />
+            <xsl:when test="//zr:databaseInfo/zr:title[@lang=$lang]/text()">
+                <xsl:value-of select="//zr:databaseInfo/zr:title[@lang=$lang]/text()"/>
             </xsl:when>
-            <xsl:when test="//zr:databaseInfo/zr:title/text()" >
-                <xsl:value-of select="//zr:databaseInfo/zr:title[1]/text()" />
+            <xsl:when test="//zr:databaseInfo/zr:title/text()">
+                <xsl:value-of select="//zr:databaseInfo/zr:title[1]/text()"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="$site_name" />
+                <xsl:value-of select="$site_name"/>
             </xsl:otherwise>
-        </xsl:choose>    	
+        </xsl:choose>
     </xsl:variable>
     
     <xd:doc>
@@ -61,13 +64,13 @@
                 <xsl:apply-templates mode="verbose"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates/>
+        <xsl:apply-templates/>
             </xsl:otherwise>
         </xsl:choose>
         
         <!--<div class="explain-view">
             <xsl:apply-templates select="." mode="format-xmlelem"/>
-            </div>-->
+        </div>-->
     </xsl:template>
     
     <xsl:template match="sru:version" mode="verbose">
@@ -135,20 +138,20 @@
         <li>
             <a href="{$scan-index}">
                 <xsl:choose>
-                    <xsl:when test="zr:title[@lang=$lang]" >
-                        <xsl:value-of select="zr:title[@lang=$lang]" />
+                    <xsl:when test="zr:title[@lang=$lang]">
+                        <xsl:value-of select="zr:title[@lang=$lang]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="zr:title" />
+                        <xsl:value-of select="zr:title"/>
                     </xsl:otherwise>
-                </xsl:choose>    	
+                </xsl:choose>
             </a>
         </li>
     </xsl:template>
     <!--
-        <xsl:template match="*[@lang]" >
+    <xsl:template match="*[@lang]" >
         
-        </xsl:template>-->
+    </xsl:template>-->
     
     <xd:doc>
         <xd:desc>In verbose mode first display the list and then the 
