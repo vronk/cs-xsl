@@ -10,8 +10,8 @@
     version="1.0" 
     exclude-result-prefixes="xsl aac tei sru exist xd">
 
-<xd:doc scope="stylesheet">
-    <xd:desc> 
+    <xd:doc scope="stylesheet">
+        <xd:desc>
 <xd:p>Stylesheet for formatting TEI-elements  inside a FCS/SRU-result.
 the TEI-elements are expected without namespace (!) (just local names)
 This is not nice, but is currently in results like that.</xd:p>
@@ -21,7 +21,8 @@ if the same transformation applies to multiple elements,
 it is extracted into own named-template and called from the matching templates.
 the named templates are at the bottom.</xd:p>
         </xd:desc>
-</xd:doc>
+    </xd:doc>
+    <xsl:include href="data2view_teiHeader.xsl"/>
     <xsl:include href="data2view_teiHeader.xsl"/>
     <xd:doc scope="component">
         <xd:desc>
@@ -51,6 +52,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:value-of select="concat(' tei-unit-',@unit)"/>
         </xsl:if>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>Put TEI content into a div</xd:desc>
     </xd:doc>
@@ -70,6 +72,10 @@ the named templates are at the bottom.</xd:p>
     <xsl:template match="text | front | back | tei:text | tei:front | tei:back" mode="record-data">
         <xsl:apply-templates mode="record-data"/>
     </xsl:template>
+    <xsl:template match="text | body| front | back | tei:text | tei:body | tei:front | tei:back" mode="record-data">
+        <xsl:apply-templates mode="record-data"/>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Put TEI Header content into a div</xd:desc>
     </xd:doc>
@@ -445,6 +451,15 @@ the named templates are at the bottom.</xd:p>
             </span>
         </div>
     </xsl:template>
+    <xsl:template match="tei:birth" mode="record-data">
+        <div>
+            <span class="label">geboren: </span>
+            <span class="{local-name()}" data-when="{@when}">
+                <xsl:value-of select="concat(@when, ', ', tei:placeName)"/>
+            </span>
+        </div>
+    </xsl:template>
+    
     <xsl:template match="choice | tei:choice " mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -514,6 +529,57 @@ the named templates are at the bottom.</xd:p>
             </sup>
         </span>
     </xsl:template>
+    <xsl:template match="choice | tei:choice " mode="record-data">
+        <span class="choice">
+            <xsl:apply-templates mode="record-data"/>
+        </span>
+    </xsl:template>
+    <xsl:template match="orig | tei:orig | tei:sic | sic" mode="record-data">
+        <xsl:call-template name="inline">
+            <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+        </xsl:call-template>
+    </xsl:template>
+    <xsl:template match="tei:ref|ref|tei:ptr|ptr" mode="record-data"/>
+    <xsl:template match="tei:note|note" mode="record-data">
+        <span>
+            <xsl:attribute name="class">
+                <xsl:text>note</xsl:text>
+                <xsl:if test="@type"> note-<xsl:value-of select="@type"/>
+                </xsl:if>
+                <xsl:if test="@type"> note-<xsl:value-of select="@place"/>
+                </xsl:if>
+            </xsl:attribute>
+            <xsl:apply-templates mode="record-data"/>
+        </span>
+    </xsl:template>
+    <xsl:template match="tei:corr | corr" mode="record-data">
+        <sup>
+            <xsl:text>(</xsl:text>
+            <xsl:call-template name="inline">
+                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+            </xsl:call-template>
+            <xsl:text>)</xsl:text>
+        </sup>
+    </xsl:template>
+    <xsl:template match="tei:supplied | supplied" mode="record-data">
+        <sup>
+            <xsl:text>〈</xsl:text>
+            <xsl:call-template name="inline">
+                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+            </xsl:call-template>
+            <xsl:text>〉</xsl:text>
+        </sup>
+    </xsl:template>
+    <xsl:template match="tei:reg | reg" mode="record-data">
+        <sup>
+            <xsl:text>[</xsl:text>
+            <xsl:call-template name="inline">
+                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+            </xsl:call-template>
+            <xsl:text>]</xsl:text>
+        </sup>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>tei:cit elements are mapped to html:quote elements
             <xd:p>Suche elements occur in ... </xd:p>
@@ -1011,7 +1077,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </xsl:copy>
     </xsl:template>
-    <xd:doc>
+xd:doc>
         <xd:desc>tei:persName, tei:placeName etc. elements are mapped to spans optionally as link to more information.</xd:desc>
     </xd:doc>
     <xsl:template match="name | persName | placeName | tei:name | tei:persName | tei:placeName" mode="record-data">
@@ -1044,11 +1110,18 @@ the named templates are at the bottom.</xd:p>
     </xd:doc>
     <!-- for STB: dont want seg -->
     <!--    <xsl:template match="seg | tei:seg" mode="record-data"/>-->
+    <!-- for STB: dont want seg -->
+    <!--    <xsl:template match="seg | tei:seg" mode="record-data"/>-->
     <xsl:template match="seg | tei:seg" mode="record-data">
         <!--<xsl:call-template name="inline"/>-->
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="@type='whitespace'">
+                <xsl:value-of select="."/>
+            </xsl:when>
+            <xsl:otherwise>
         <span class="{$class}">
             <xsl:choose>
                 <xsl:when test="@type[.='whitespace' or .='ws']" xml:space="preserve">
@@ -1060,6 +1133,8 @@ the named templates are at the bottom.</xd:p>
                 </xsl:otherwise>
             </xsl:choose>
         </span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <!-- handing over to aac:stand.xsl -->
@@ -1117,6 +1192,12 @@ the named templates are at the bottom.</xd:p>
         <span class="{$class}">
             <xsl:apply-templates mode="record-data"/>
         </span>
+    </xsl:template>
+   
+    <xsl:template match="g|tei:g" mode="record-data">
+        <xsl:call-template name="inline">
+            <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+        </xsl:call-template>
     </xsl:template>
     <xsl:template match="tei:titlePage | tei:byline | titlePage | byline" mode="record-data">
         <xsl:variable name="class">
@@ -1210,4 +1291,21 @@ the named templates are at the bottom.</xd:p>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+        
+        <xsl:template name="clone">
+            <xsl:param name="content"/>
+            <xsl:choose>
+                <xsl:when test="./self::text()">
+                    <xsl:value-of select="$content"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:copy>
+                        <xsl:copy-of select="@*"/>
+                        <xsl:call-template name="clone">
+                            <xsl:with-param name="content" select="$content"/>
+                        </xsl:call-template>
+                    </xsl:copy>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:template>
 </xsl:stylesheet>
