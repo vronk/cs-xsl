@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:sru="http://www.loc.gov/zing/srw/"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    version="1.0" exclude-result-prefixes="xs sru fcs xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="xs sru fcs">
     <xsl:import href="params.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>pieces of html wrapped in templates, to be reused by other stylesheets
             <xd:p>History:
             <xd:ul>
-                <xd:li>2011-12-05: created by:"vr": copied from cr/html_snippets reworked back to xslt 1.0</xd:li>
-            </xd:ul>
+                    <xd:li>2011-12-05: created by:"vr": copied from cr/html_snippets reworked back to xslt 1.0</xd:li>
+                </xd:ul>
             </xd:p>
         </xd:desc>
     </xd:doc>
-
     <xd:doc>
         <xd:desc>Standard header for the html page
             <xd:p>
@@ -40,14 +32,13 @@
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
+<!-- cmds-ui.csdeprecated:        <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet"/>-->
+        <link href="{$scripts_url}css/cr.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.6.2.js"/>
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
             </xsl:if>-->
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>A header visible for the user
             <xd:p>
@@ -56,26 +47,33 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="page-header">
-        <div class="cmds-ui-block" id="titlelogin">
+        <xsl:variable name="logo_link">
+            <xsl:choose>
+                <xsl:when test="not($site_url='')">
+                    <xsl:value-of select="$site_url"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$base_url"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <div class="cmds-ui-block" id="header">
             <div id="logo">
-                <a href="{$base_url}">
+                <a href="{$logo_link}">
                     <img src="{$site_logo}" alt="{$site_name}"/>
                 </a>
                 <div id="site-name">
                     <xsl:value-of select="$site_name"/>
                 </div>
             </div>
-            <div id="top-menu">
-                <xsl:call-template name="top-menu"/>
-            </div>
+            <xsl:call-template name="top-menu"/>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
     </xd:doc>
     <xsl:template name="top-menu">
-        <div id="user">
+        <!--
             <xsl:variable name="link_toggle_js">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="format">
@@ -85,14 +83,18 @@
                         </xsl:choose>
                     </xsl:with-param>
                 </xsl:call-template>
-            </xsl:variable>
-            <xsl:variable name="link_xml">
-                <xsl:call-template name="formURL">
-                    <xsl:with-param name="format" select="'xml'"/>
-                </xsl:call-template>
-            </xsl:variable>
-            <a href="{$link_xml}">fcs/xml</a>
-            <!--<xsl:choose>
+            </xsl:variable>-->
+        <xsl:variable name="link_xml">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="format" select="'xml'"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <div id="top-menu">
+            <a href="{$link_xml}">XML</a>
+        </div>
+        
+        <!--<div id="user">            
+        <xsl:choose>
                 <xsl:when test="contains($format,'htmljspage')">
                     <a href="{$link_toggle_js}"> none js </a>
                 </xsl:when>
@@ -112,12 +114,10 @@
                 </xsl:otherwise>
             </xsl:choose>
             <a target="_blank" href="static/info"> docs</a> -->
-        </div>
         <div id="notify" class="cmds-elem-plus note">
             <div id="notifylist" class="note"/>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Provides query controls
         <xd:p>Note: This is included in the operation specific parts of the style sheet and htmljs pages.</xd:p>
@@ -142,7 +142,7 @@
                             <td colspan="2">
                     -->
                     <label>Context</label>
-                    <xsl:call-template name="contexts-select"/>
+                    <!--<xsl:call-template name="contexts-select"/>-->
                     <br/>
 <!--                    <div id="main-query" >-->
                     <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active"/>
@@ -246,10 +246,10 @@
         </xsl:variable>
         <span class="result-navigation prev-next">
             <a class="internal prev {$prev-disabled}" href="{$link_prev}">
-                <span class="cmd cmd_prev"/>
+                <span class="ui-icon cmd_prev"/>
             </a>
             <a class="internal next {$next-disabled}" href="{$link_next}">
-                <span class="cmd cmd_next"/>
+                <span class="ui-icon cmd_next"/>
             </a>
         </span>
     </xsl:template>
