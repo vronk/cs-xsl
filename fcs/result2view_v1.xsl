@@ -105,12 +105,12 @@
     </xd:doc>
     <xsl:template match="sru:records" mode="table">
         <table class="show">
-            <thead>
+            <!--<thead>
                 <tr>
                     <th>pos</th>
                     <th>record</th>
                 </tr>
-            </thead>
+            </thead>-->
             <tbody>
                 <xsl:apply-templates select="sru:record" mode="table"/>
             </tbody>
