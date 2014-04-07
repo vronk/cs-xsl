@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" 
-     exclude-result-prefixes="#all" version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" exclude-result-prefixes="#all" version="2.0">
     <!-- 
 <purpose> generate a simplified xml-version of scanResponse </purpose>
 <params>
@@ -39,23 +38,17 @@
  
 </sample>
 -->
-
-<xsl:output indent="yes"></xsl:output>
-    
+    <xsl:output indent="yes"/>
     <xsl:param name="sort">x</xsl:param>
     <!-- s=size|n=name|t=time|x=default -->
-    
     <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
-
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
     <xsl:param name="index" select="$scanClause"/>
-
     <xsl:template match="/">
         <xsl:variable name="countTerms" select="/sru:scanResponse/sru:extraResponseData/fcs:countTerms"/>
-        
         <map index="{$scanClause}" count="{$countTerms}">
-            <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>            
+            <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>
         </map>
     </xsl:template>
     
@@ -69,12 +62,12 @@ sample data:
         </sru:term>
     -->
     <xsl:template match="sru:terms">
-            <xsl:apply-templates select="sru:term"/>
+        <xsl:apply-templates select="sru:term"/>
     </xsl:template>
     <xsl:template match="sru:term">
-        <item count="{sru:numberOfRecords}" norm="{(sru:displayTerm, sru:value)[1]}" ><xsl:value-of select="(sru:displayTerm, sru:value)[1]"/></item>
-        
+        <item count="{sru:numberOfRecords}" norm="{(sru:displayTerm, sru:value)[1]}">
+            <xsl:value-of select="(sru:displayTerm, sru:value)[1]"/>
+        </item>
         <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>
     </xsl:template>
-    
 </xsl:stylesheet>

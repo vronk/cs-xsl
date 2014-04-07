@@ -18,7 +18,6 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-
     <xd:doc>
         <xd:desc>Standard header for the html page
             <xd:p>
@@ -47,7 +46,6 @@
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
             </xsl:if>-->
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>A header visible for the user
             <xd:p>
@@ -56,26 +54,33 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="page-header">
-        <div class="cmds-ui-block" id="titlelogin">
+        <xsl:variable name="logo_link">
+            <xsl:choose>
+                <xsl:when test="not($site_url='')">
+                    <xsl:value-of select="$site_url"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$base_url"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <div class="cmds-ui-block" id="header">
             <div id="logo">
-                <a href="{$base_url}">
+                <a href="{$logo_link}">
                     <img src="{$site_logo}" alt="{$site_name}"/>
                 </a>
                 <div id="site-name">
                     <xsl:value-of select="$site_name"/>
                 </div>
             </div>
-            <div id="top-menu">
                 <xsl:call-template name="top-menu"/>
             </div>
-        </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
     </xd:doc>
     <xsl:template name="top-menu">
-        <div id="user">
+        <!--
             <xsl:variable name="link_toggle_js">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="format">
@@ -85,7 +90,7 @@
                         </xsl:choose>
                     </xsl:with-param>
                 </xsl:call-template>
-            </xsl:variable>
+            </xsl:variable>-->
             <xsl:variable name="link_xml">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="format" select="'xml'"/>
@@ -125,12 +130,10 @@
                 </xsl:otherwise>
             </xsl:choose>
             <a target="_blank" href="static/info"> docs</a> -->
-        </div>
         <div id="notify" class="cmds-elem-plus note">
             <div id="notifylist" class="note"/>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Provides query controls
         <xd:p>Note: This is included in the operation specific parts of the style sheet and htmljs pages.</xd:p>
@@ -155,7 +158,7 @@
                             <td colspan="2">
                     -->
                     <label>Context</label>
-                    <xsl:call-template name="contexts-select"/>
+                    <!--<xsl:call-template name="contexts-select"/>-->
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
                     <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active"/>
@@ -259,10 +262,10 @@
         </xsl:variable>
         <span class="result-navigation prev-next">
             <a class="internal prev {$prev-disabled}" href="{$link_prev}">
-                <span class="cmd cmd_prev"/>
+                <span class="ui-icon cmd_prev"/>
             </a>
             <a class="internal next {$next-disabled}" href="{$link_next}">
-                <span class="cmd cmd_next"/>
+                <span class="ui-icon cmd_next"/>
             </a>
         </span>
     </xsl:template>

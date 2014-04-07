@@ -1,4 +1,5 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" extension-element-prefixes="diag sru fcs exsl xd">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" extension-element-prefixes="diag sru fcs exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling.
             <xd:p>History:
@@ -38,8 +39,9 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:variable name="contexts" select="//fcs:contexts"/>
-    <!--        <xsl:call-template name="contexts-doc"/>-->
+    <xsl:variable name="contexts">
+        <xsl:call-template name="contexts-doc"/>
+    </xsl:variable>
     <xd:doc>
         <xd:desc>Common starting point for all stylesheet
 	        <xd:p>Cares for unified html-envelope
@@ -68,13 +70,13 @@
 			<xsl:message>format:<xsl:value-of select="$format"/>
 			</xsl:message>-->
         <xsl:choose>
-            <xsl:when test="contains($format,'page')">
+            <xsl:when test="contains($format,'htmlpage')">
                 <xsl:call-template name="html"/>
             </xsl:when>
-            <xsl:when test="contains($format,'js')">
+            <xsl:when test="contains($format,'htmljspage')">
                 <xsl:call-template name="htmljs"/>
             </xsl:when>
-            <xsl:when test="contains($format,'simple')">
+            <xsl:when test="contains($format,'htmlsimple')">
                 <xsl:call-template name="htmlsimple"/>
             </xsl:when>
             <xsl:otherwise>
@@ -193,7 +195,8 @@
 <!--            DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
         DEBUG: base_url:<xsl:value-of select="$base_url" />
         DEBUG: contexts:<xsl:copy-of select="$contexts" /> -->
-        <select name="x-context">
+        <input name="x-context" type="text"/>
+    <!--    <select name="x-context">
             <xsl:if test="$contexts">
                 <xsl:for-each select="(exsl:node-set($contexts))//sru:terms/sru:term">
                     <xsl:variable name="ancestors-prefix">
@@ -209,7 +212,7 @@
                     </option>
                 </xsl:for-each>
             </xsl:if>
-        </select>
+        </select>-->
     </xsl:template>
     <xd:doc>
         <xd:desc>Shall be usable to form consistently all urls within xsl</xd:desc>
@@ -228,12 +231,11 @@
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
         <xsl:param name="q" select="$q"/>
-        <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
-        <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
+        <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
                 <xsl:value-of select="concat('&amp;query=',$q)"/>
@@ -245,18 +247,11 @@
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_x-context">
+<!--            if action=explain, handle-q param as x-context-->
             <xsl:choose>
                 <xsl:when test="$action='explain'">
-<!--            if action=explain, handle-q param as x-context, delete me if nothing broke-->
-<!--                    <xsl:choose>
-                        <xsl:when test="$q != ''">
                             <xsl:value-of select="concat('&amp;x-context=',$q)"/>
                         </xsl:when>
-                        <xsl:when test="$x-context != ''">-->
-                            <xsl:value-of select="concat('&amp;x-context=',$x-context)"/>
-<!--                        </xsl:when>
-                    </xsl:choose>      -->        
-                </xsl:when>
                 <!--<xsl:when test="$x-context != '' ">
                     <xsl:value-of select="concat('&x-context=',$x-context)"/>
                 </xsl:when>-->
@@ -280,17 +275,18 @@
             <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
             </xsl:if>
         </xsl:variable>
-        <xsl:variable name="param_x-dataview">
-            <xsl:if test="$dataview != ''">
-                <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
-            </xsl:if>
-        </xsl:variable>
         <xsl:variable name="XDEBUG_SESSION_START">
             <xsl:if test="$XDEBUG_SESSION_START">
                 <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:choose>
+            <xsl:when test="$action='get-data'">
+                <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
+            </xsl:when>
+            <xsl:when test="$action='get-metadata'">
+                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata', translate($param_format,'&amp;','?'))"/>
+            </xsl:when>
             <xsl:when test="$action='explain'">
                 <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
             </xsl:when>
@@ -333,7 +329,9 @@
         <xsl:param name="elem" select="exsl:node-set(.)"/>
         
         <!-- WATCHME: primitive matching on elem-name, let's see how far this gets us -->
-        <xsl:variable name="index" select="$context-mapping//index[path = name($elem)][@link]"/>
+<!--        <xsl:variable name="index" select="$context-mapping//index[path = name($elem)][@link]"/>-->
+<!--   FIXME: temporarily deactivated due to problems with feeding context     -->
+        <xsl:variable name="index" select="/non-existent"/>
         <xsl:if test="$index">
             <!-- we would need a dynamic evaluation to get the specific piece of data from the $elem 
                 but let's try with some more trivial means -->
@@ -432,7 +430,7 @@
             <span class="cmds-xmlelem wrapper">
                 <div class="cmds-xmlelem {$has_children} value-{$has_text}">
                     <span class="{$label-class}">
-                        <xsl:value-of select="name()"/>
+                        <xsl:value-of select="local-name()"/>
                     </span>
                     <xsl:if test="@*">
                         <span class="attributes">

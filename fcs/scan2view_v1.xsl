@@ -2,6 +2,7 @@
 <xsl:stylesheet
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:cr="http://aac.ac.at/content_repository" 
     xmlns:utils="http://aac.ac.at/content_repository/utils"
     xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -18,7 +19,7 @@
                 </xd:ul>
             </xd:p>
             <xd:p>
-<xd:pre>
+                <xd:pre>
 &lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/">
 &lt;sru:version>1.2&lt;/sru:version>
    &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)">
@@ -103,7 +104,7 @@
                 See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-after">.XPath language definition</xd:a>
             </xd:p>
         </xd:desc>
-    </xd:doc>    
+    </xd:doc>
     <xsl:param name="filter" select="substring-after($scanClause,'=')"/>
     
     <xd:doc>
@@ -137,9 +138,15 @@
         
         <!--  <h2>MDRepository Statistics - index values</h2>  -->
         <div class="header">
-            <xsl:attribute name="data-countTerms" ><xsl:value-of select="$countTerms"/></xsl:attribute> 
-            <xsl:attribute name="start-item"  ><xsl:value-of select="$start-item"/></xsl:attribute> 
-            <xsl:attribute name="maximum-items" ><xsl:value-of select="$maximum-items"/></xsl:attribute> 
+            <xsl:attribute name="data-countTerms">
+                <xsl:value-of select="$countTerms"/>
+            </xsl:attribute>
+            <xsl:attribute name="start-item">
+                <xsl:value-of select="$start-item"/>
+            </xsl:attribute>
+            <xsl:attribute name="maximum-items">
+                <xsl:value-of select="$maximum-items"/>
+            </xsl:attribute> 
             <!--<xsl:value-of select="$title"/>-->
             <form>
                 <input type="text" name="index" value="{$index}"/>
@@ -153,7 +160,6 @@
             
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Operation scan returns any number of terms which are presented in HTML either nested as lists aor tables</xd:desc>
     </xd:doc>
@@ -172,7 +178,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>A term consits of a number for this term and the term itself
         <xd:p>The term is presented as a link that can be used to scan for that term.</xd:p>
@@ -192,12 +197,39 @@
     <xsl:template match="sru:term">
         <xsl:variable name="depth" select="count(ancestor::sru:term)"/>
         <xsl:variable name="href">
+            <!--                        special handling for special index -->
+            <xsl:choose>
+                <xsl:when test="$scanClause = 'fcs.resource'">
+<!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
+                    <xsl:call-template name="formURL">
+                        <xsl:with-param name="action">explain</xsl:with-param>
+                        <xsl:with-param name="format" select="$format"/>
+                        <xsl:with-param name="q" select="sru:value"/>
             <xsl:call-template name="generateLinkInScanResults">
                 <xsl:with-param name="index" select="$index"/>
             </xsl:call-template>
+                </xsl:when>
+                <!-- TODO: special handling for cmd.collection? -->
+                <!--<xsl:when test="$index = 'cmd.collection'">
+                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
+                </xsl:when>-->
+                <xsl:otherwise>
+<!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
+                    <xsl:call-template name="formURL">
+                        <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+                        <xsl:with-param name="format" select="$format"/>
+                        <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
         <xsl:variable name="link">
             <span>
+                <xsl:if test="sru:extraTermData/cr:type">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="sru:extraTermData/cr:type"/>
+                    </xsl:attribute>
+                </xsl:if>
 <!--                <xsl:value-of select="for $i in (1 to $depth) return '- '"/>-->
                 <a class="search-caller" href="{$href}">  <!--target="_blank"-->
                     <xsl:choose>

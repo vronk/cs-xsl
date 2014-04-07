@@ -12,7 +12,7 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
+    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
     <xd:doc>
         <xd:desc>Common stuff that works with XSL 1.0</xd:desc>
     </xd:doc>
@@ -60,7 +60,7 @@
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:apply-templates select="sru:records" mode="table"/>
-<!--                        result2view_v1: unrecognized format: <xsl:value-of select="$format"/>-->
+                        <!-- result2view_v1: unrecognized format: <xsl:value-of select="$format"/>-->
                     </xsl:otherwise>
                 </xsl:choose>
             </div>
@@ -99,11 +99,11 @@
                         <span class="value">
                             <xsl:value-of select="."/>
                         </span>;
-	        </xsl:for-each> 
+                    </xsl:for-each>
                 <!--<span class="label">duration: </span>
-                <span class="value">
-                    <xsl:value-of select="sru:extraResponseData/fcs:duration"/>
-                    </span>;-->
+<span class="value">
+<xsl:value-of select="sru:extraResponseData/fcs:duration"/>
+</span>;-->
                 </div>
             </xsl:if>
         </div>
@@ -150,12 +150,12 @@
     </xd:doc>
     <xsl:template match="sru:records" mode="table">
         <table class="show">
-            <thead>
+            <!--<thead>
                 <tr>
                     <th>pos</th>
                     <th>record</th>
                 </tr>
-            </thead>
+            </thead>-->
             <tbody>
                 <xsl:apply-templates select="sru:record" mode="table"/>
             </tbody>
@@ -194,13 +194,13 @@
     </xd:doc>
     <xsl:template match="sru:record" mode="table">
         <xsl:variable name="curr_record" select="."/>
-<!--        <xsl:variable name="fields">
-            <div>
-                <xsl:apply-templates select="*" mode="record-data"/>
-            </div>
-        </xsl:variable>-->
+        <!-- <xsl:variable name="fields">
+<div>
+<xsl:apply-templates select="*" mode="record-data"/>
+</div>
+</xsl:variable>-->
         <xsl:call-template name="record-table-row">
-<!--            <xsl:with-param name="fields" select="exsl:node-set($fields)"/>-->
+            <!-- <xsl:with-param name="fields" select="exsl:node-set($fields)"/>-->
         </xsl:call-template>
     </xsl:template>
     
@@ -212,9 +212,9 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="record-table-row">
-<!--        <xsl:param name="fields"/>-->
-<!-- @field absolute_position compute records position over whole recordset, ie add `startRecord` (important when paging)
- -->
+        <!-- <xsl:param name="fields"/>-->
+        <!-- @field absolute_position compute records position over whole recordset, ie add `startRecord` (important when paging)
+-->
         <xsl:variable name="absolute_position">
             <xsl:choose>
         <!--      CHECK: Does this check if $startRecord is a number, or is it an error?          -->
@@ -229,6 +229,19 @@
         <xsl:variable name="rec_uri">
             <xsl:call-template name="_getRecordURI">
                 <xsl:with-param name="absolute_position" select="$absolute_position"/>
+            <xsl:choose>
+                <xsl:when test=".//sru:recordIdentifier">
+                    <xsl:value-of select=".//sru:recordIdentifier"/>
+                </xsl:when>
+                <xsl:when test=".//fcs:Resource/@ref">
+                    <xsl:value-of select=".//fcs:Resource/@ref"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <!-- TODO: this won't work yet, the idea is to deliver only the one record as a fall-back
+(i.e. when there is no other view, no further link) supplied for the Resource) -->
+                    <xsl:call-template name="formURL">
+                        <xsl:with-param name="action" select="'record'"/>
+                        <xsl:with-param name="q" select="$absolute_position"/>
             </xsl:call-template>
         </xsl:variable>
         <tr>
@@ -236,22 +249,22 @@
                 <xsl:choose>
                     <xsl:when test="$rec_uri">
                            <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
-<!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+                        <!-- <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
                         <a class="internal" href="{$rec_uri}&amp;x-format={$format}">
                             <xsl:value-of select="$absolute_position"/>
-                        </a>                         
-<!--                        <span class="cmd cmd_save"/>-->
+                        </a>
+                        <!-- <span class="cmd cmd_save"/>-->
                     </xsl:when>
                     <xsl:otherwise>
-<!-- FIXME: generic link somewhere anyhow! -->
+                        <!-- FIXME: generic link somewhere anyhow! -->
                         <xsl:value-of select="$absolute_position"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </td>
             <td>
                 <!--
-                    TODO: handle context 
-                    <xsl:call-template name="getContext"/>-->
+TODO: handle context
+<xsl:call-template name="getContext"/>-->
                 <div class="title">
                     <xsl:choose>
                         <xsl:when test="$rec_uri">
@@ -259,14 +272,14 @@
                             <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
                             <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
                                 <xsl:call-template name="getTitle"/>
-                            </a>                         
+                            </a>
                             <!--                        <span class="cmd cmd_save"/>-->
                         </xsl:when>
                         <xsl:otherwise>
                             <!-- FIXME: generic link somewhere anyhow! -->
                             <xsl:call-template name="getTitle"/>
                         </xsl:otherwise>
-                    </xsl:choose>                        
+                    </xsl:choose>
                 </div>
             </td>
         </tr>

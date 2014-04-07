@@ -6,20 +6,20 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:fcs="http://clarin.eu/fcs/1.0"
                 xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-                xmlns:exsl="http://exslt.org/common"              
+    xmlns:exsl="http://exslt.org/common"
                 version="1.0">
     <xsl:import href="../commons_v1.xsl"/>
 <xd:doc scope="stylesheet">
     <xd:desc>
-    generate a json object of the scanResponse 
+            generate a json object of the scanResponse
         <xd:p>Output:</xd:p>
-<xd:pre>
+            <xd:pre>
      {index:"$scanClause", count:"$countTerms",
-      terms: [{label:"label1", value:"value1", count:"#number"}, ...]            
+      terms: [{label:"label1", value:"value1", count:"#number"}, ...]
      }
 </xd:pre>
         <xd:p>Sample input</xd:p>		
-<xd:pre>
+            <xd:pre>
 &lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/">
 &lt;sru:version>1.2&lt;/sru:version>
    &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)">
@@ -42,11 +42,11 @@
     &lt;sru:echoedScanRequest>
         &lt;sru:scanClause>diary-month&lt;/sru:scanClause>
         &lt;sru:maximumTerms>100&lt;/sru:maximumTerms>
-    &lt;/sru:echoedScanRequest>        
+    &lt;/sru:echoedScanRequest>
  &lt;/sru:scanResponse>
 </xd:pre>
     </xd:desc>
-</xd:doc>
+    </xd:doc>
     <xsl:output indent="no" method="text" media-type="application/json" encoding="UTF-8"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xd:doc>
@@ -86,11 +86,11 @@
         <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>
         <xsl:text>}</xsl:text>
     </xsl:template>
-
-<xd:doc>
+    
+    <xd:doc>
     <xd:desc>Converts a single term to json format
         <xd:p> sample data: </xd:p>
-<xd:pre>
+            <xd:pre>
         &lt;sru:term>
         &lt;sru:value>cartesian&lt;/sru:value>
         &lt;sru:numberOfRecords>35645&lt;/sru:numberOfRecords>
@@ -99,7 +99,7 @@
         &lt;/sru:term>
 </xd:pre>
     </xd:desc>
-</xd:doc>
+    </xd:doc>
     <xsl:template match="sru:terms">
         <xsl:text>
 "terms": [
@@ -139,7 +139,7 @@
         <xsl:text>"}</xsl:text>
         <xsl:if test="not(position()=last())">, </xsl:if>
         
-<!--    dont go deeper, because flattened    <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
+        <!-- dont go deeper, because flattened <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
     </xsl:template>
     
     <xd:doc>

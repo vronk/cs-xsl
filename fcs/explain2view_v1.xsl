@@ -41,16 +41,16 @@
     <xsl:variable name="title">
         <xsl:text>explain: </xsl:text>
         <xsl:choose>
-            <xsl:when test="//zr:databaseInfo/zr:title[@lang=$lang]/text()" >
-                <xsl:value-of select="//zr:databaseInfo/zr:title[@lang=$lang]/text()" />
+            <xsl:when test="//zr:databaseInfo/zr:title[@lang=$lang]/text()">
+                <xsl:value-of select="//zr:databaseInfo/zr:title[@lang=$lang]/text()"/>
             </xsl:when>
-            <xsl:when test="//zr:databaseInfo/zr:title/text()" >
-                <xsl:value-of select="//zr:databaseInfo/zr:title[1]/text()" />
+            <xsl:when test="//zr:databaseInfo/zr:title/text()">
+                <xsl:value-of select="//zr:databaseInfo/zr:title[1]/text()"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="$site_name" />
+                <xsl:value-of select="$site_name"/>
             </xsl:otherwise>
-        </xsl:choose>    	
+        </xsl:choose>
     </xsl:variable>
     
     <xd:doc>

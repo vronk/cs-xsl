@@ -1,16 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
-    xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:sru="http://www.loc.gov/zing/srw/"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:exist="http://exist.sourceforge.net/NS/exist"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
-    
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
+    <xsl:import href="data2view_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
             <xd:p>History:
@@ -21,7 +10,6 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-   
     <xd:doc>
         <xd:desc>
             <xd:p>generic template, invoked link processing and places attributes of the element 
@@ -31,35 +19,30 @@
     </xd:doc>
     <xsl:template name="inline">
         <xsl:param name="additional-style"/>
+        <xsl:param name="insertTrailingBlank" as="xs:boolean?"/>
         <xsl:variable name="elem-link">
             <xsl:call-template name="elem-link"/>
         </xsl:variable>
         <xsl:variable name="inline-content">
-            <!--<xsl:choose>
-                <xsl:when test="*">
-                    <xsl:for-each select="*" >
-                    <xsl:apply-templates select="*" mode="record-data"></xsl:apply-templates>
-                     </xsl:for-each>
-                </xsl:when>
-                <xsl:otherwise>-->                    
-                    <!--            <xsl:value-of select="."/>-->            
-                    <!-- umständliche lösung to get spaces between children elements -->
-            <xsl:for-each select=".//text()">
-                        <!--<xsl:value-of select="."/>
-                            <xsl:text> </xsl:text>-->
+            <xsl:for-each select="node()">
+<!--                   DEBUG:<xsl:value-of select="name()"></xsl:value-of>-->
                 <xsl:choose>
                     <xsl:when test="parent::exist:match">
-                                <!--                        <xsl:value-of select="name(.)"/>-->
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
                     </xsl:when>
-                    <xsl:otherwise>
+                    <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
-                        <xsl:text> </xsl:text>
+                        <xsl:if test="$insertTrailingBlank">
+                            <xsl:text> </xsl:text>
+                        </xsl:if>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:apply-templates select="." mode="record-data">
+                            <xsl:with-param name="insertTrailingBlank" select="$insertTrailingBlank"/>
+                        </xsl:apply-templates>
                     </xsl:otherwise>
                 </xsl:choose>
-            </xsl:for-each>        
-            <!--    </xsl:otherwise>
-            </xsl:choose>-->
+            </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="class">
             <xsl:for-each select="distinct-values((descendant-or-self::*/name(), data(descendant-or-self::*/@type),  data(descendant-or-self::*/@subtype)))">

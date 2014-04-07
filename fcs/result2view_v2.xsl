@@ -13,18 +13,18 @@
     version="2.0" exclude-result-prefixes="#all">
     <xsl:import href="result2view_v1.xsl"/>
     <xd:doc scope="stylesheet">
-        <xd:desc>Generate html view of a sru-result-set  (eventually in various formats)
+        <xd:desc>Generate html view of a sru-result-set (eventually in various formats)
             <xd:p>History:
                 <xd:ul>
                     <xd:li>2011-12-06: created by:"vr": based on cmdi/scripts/mdset2view.xsl retrofitted for XSLT 1.0</xd:li>
                 </xd:ul>
             </xd:p>
         </xd:desc>
-    </xd:doc>  
+    </xd:doc>
     
     <xd:doc>
         <xd:desc>Generate a valid XHTML 1 DOCTYPE and handle some HTML cornercasees.
-            <xd:p>Note: method="xhtml" is saxon-specific! prevents  collapsing empty &lt;script> tags, that makes browsers choke (eg. not loading that script), but collapses &lt;br> tags which might otherwise be interpreted as two.</xd:p>
+            <xd:p>Note: method="xhtml" is saxon-specific! prevents collapsing empty &lt;script> tags, that makes browsers choke (eg. not loading that script), but collapses &lt;br> tags which might otherwise be interpreted as two.</xd:p>
             <xd:p>Note: saxon checks the namespace of the script and br tags so to make this magic work it's essential the tags to have xmlns="http://www.w3.org/1999/xhtml".
                 This might be achieved by setting this as the default namespace like in this script or otherwise.
             </xd:p>
