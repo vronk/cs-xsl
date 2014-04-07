@@ -66,6 +66,12 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="sru:recordIdentifier | sru:recordPosition" mode="record-data"/>
+    <xd:doc>
+        <xd:desc>
+            <xd:p>Remove administrative attributes</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="@cr:project-id|@cr:resource-pid|@cr:id|@xml:id|@xml:space" mode="format-attr"/>
     
 <!-- kwic match -->
     <xd:doc>
@@ -104,7 +110,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView" mode="record-data">
-        <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
+           <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
             <div class="data-view {@type}">
                 <xsl:apply-templates mode="record-data"/>
@@ -136,7 +142,7 @@
             </a>
         </div>
     </xsl:template>
-    <xsl:template match="fcs:DataView[@ref][contains(@type, facs)]" mode="record-data" priority="10">
+    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs')]" mode="record-data" priority="10">
         <div class="data-view {@type}">
             <xsl:call-template name="generateImg">
                 <xsl:with-param name="ref" select="@ref"/>
@@ -153,11 +159,11 @@
         <xsl:choose>
             <xsl:when test="@ref">
                 <img src="@ref" alt="@ref"/>
-            </xsl:when>
-            <xsl:otherwise>
+                </xsl:when>
+                <xsl:otherwise>
                 <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
-            </xsl:otherwise>
-        </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
     </xsl:template>
     
  <!-- better hide the fullview (the default view is too much)
@@ -175,7 +181,14 @@
     </xd:doc>
     <xsl:template match="fcs:ResourceFragment[@type]" mode="record-data">
         <a href="{@ref}&amp;x-format={$format}" rel="{@type}" class="{@type}">
-            <xsl:value-of select="@pid"/>
+            <xsl:choose>
+                <xsl:when test="@label">
+                    <xsl:value-of select="@label"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="@pid"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </a>
     </xsl:template>
     
@@ -250,6 +263,12 @@
             <xsl:when test=".//fcs:DataView[@type='title']">
                 <xsl:value-of select=".//fcs:DataView[@type='title']"/>
             </xsl:when>
+            <xsl:when test=".//date/@value">
+                <xsl:value-of select=".//date/@value"/>
+            </xsl:when>
+            <xsl:when test=".//tei:persName">
+                <xsl:value-of select=".//tei:persName"/>
+            </xsl:when>
             <xsl:otherwise>
                 <span class="cs-xsl-error">You need to supersede the getTitle template in your project's XSL customization!</span>
             </xsl:otherwise>
@@ -267,14 +286,18 @@
             <xsl:call-template name="elem-link"/>
         </xsl:variable>
         <xsl:variable name="inline-content">
-            <xsl:for-each select=".//text()">
+<!-- moved from .//text() to node(), because otherwise all the descendants got flattened -->
+            <xsl:for-each select="node()">
                 <xsl:choose>
                     <xsl:when test="parent::exist:match">
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
                     </xsl:when>
-                    <xsl:otherwise>
+                    <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
                         <xsl:text> </xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:apply-templates mode="record-data"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:for-each>
@@ -310,9 +333,9 @@
                     <table>
                         <tr>
                             <td colspan="2">
-                                <xsl:call-template name="join-attributes-with-space">
-                                    <xsl:with-param name="nodes" select="exsl:node-set(descendant-or-self::*)"/>
-                                </xsl:call-template>
+                               <!-- <xsl:call-template name="join-attributes-with-space">
+<!-\-                                    <xsl:with-param name="nodes" select="exsl:node-set(descendant-or-self::*)"/>-\->
+                                </xsl:call-template>-->
                             </td>
                         </tr>
                         <tr>
