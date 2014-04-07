@@ -19,7 +19,7 @@
                 </xd:ul>
             </xd:p>
             <xd:p>
-<xd:pre>
+                <xd:pre>
 &lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/">
 &lt;sru:version>1.2&lt;/sru:version>
    &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)">
@@ -104,7 +104,7 @@
                 See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-after">.XPath language definition</xd:a>
             </xd:p>
         </xd:desc>
-    </xd:doc>    
+    </xd:doc>
     <xsl:param name="filter" select="substring-after($scanClause,'=')"/>
     
     <xd:doc>
@@ -138,9 +138,15 @@
         
         <!--  <h2>MDRepository Statistics - index values</h2>  -->
         <div class="header">
-            <xsl:attribute name="data-countTerms" ><xsl:value-of select="$countTerms"/></xsl:attribute> 
-            <xsl:attribute name="start-item"  ><xsl:value-of select="$start-item"/></xsl:attribute> 
-            <xsl:attribute name="maximum-items" ><xsl:value-of select="$maximum-items"/></xsl:attribute> 
+            <xsl:attribute name="data-countTerms">
+                <xsl:value-of select="$countTerms"/>
+            </xsl:attribute>
+            <xsl:attribute name="start-item">
+                <xsl:value-of select="$start-item"/>
+            </xsl:attribute>
+            <xsl:attribute name="maximum-items">
+                <xsl:value-of select="$maximum-items"/>
+            </xsl:attribute> 
             <!--<xsl:value-of select="$title"/>-->
             <form>
                 <input type="text" name="index" value="{$index}"/>
@@ -154,7 +160,6 @@
             
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Operation scan returns any number of terms which are presented in HTML either nested as lists aor tables</xd:desc>
     </xd:doc>
@@ -173,7 +178,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>A term consits of a number for this term and the term itself
         <xd:p>The term is presented as a link that can be used to scan for that term.</xd:p>
@@ -198,9 +202,9 @@
                 <xsl:when test="$scanClause = 'fcs.resource'">
 <!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
                     <xsl:call-template name="formURL">
-                        <xsl:with-param name="action" >explain</xsl:with-param>
-                        <xsl:with-param name="format" select="$format"></xsl:with-param>
-                        <xsl:with-param name="q" select="sru:value"></xsl:with-param>
+                        <xsl:with-param name="action">explain</xsl:with-param>
+                        <xsl:with-param name="format" select="$format"/>
+                        <xsl:with-param name="q" select="sru:value"/>
                     </xsl:call-template>
                 </xsl:when>
                 <!-- TODO: special handling for cmd.collection? -->
@@ -210,9 +214,9 @@
                 <xsl:otherwise>
 <!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
                     <xsl:call-template name="formURL">
-                        <xsl:with-param name="action" >searchRetrieve</xsl:with-param>
-                        <xsl:with-param name="format" select="$format"></xsl:with-param>
-                        <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"></xsl:with-param>
+                        <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+                        <xsl:with-param name="format" select="$format"/>
+                        <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"/>
                     </xsl:call-template>
                 </xsl:otherwise>
             </xsl:choose>
