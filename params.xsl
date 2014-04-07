@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:exsl="http://exslt.org/common"
-    xmlns:sru="http://www.loc.gov/zing/srw/"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    exclude-result-prefixes="xs"
-    version="1.0">
-    
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs" version="1.0">
     <xd:doc scope="stylesheet">
         <xd:desc>Central definition of all parameters the style sheets take
             <xd:p>
                 The following are needed in commons_v1.xsl (formURL) and in html_snippets.xsl, therefore they need to be defined here
                 (but only as default, so we could move them, because actually they pertain only to result2view.xsl:
                 <xd:ul>
-                    <xd:li><xd:ref name="operation" type="parameter">operation</xd:ref></xd:li>
-                    <xd:li><xd:ref name="format" type="parameter">format</xd:ref></xd:li>
-                    <xd:li><xd:ref name="q" type="parameter">q</xd:ref></xd:li>
-                    <xd:li><xd:ref name="x-context" type="parameter">x-context</xd:ref></xd:li>
-                    <xd:li><xd:ref name="startRecord" type="parameter">startRecord</xd:ref></xd:li>
-                    <xd:li><xd:ref name="maximumRecords" type="parameter">maximumRecords</xd:ref></xd:li>
-                    <xd:li><xd:ref name="numberOfRecords" type="parameter">numberOfRecords</xd:ref></xd:li>
-                    <xd:li><xd:ref name="numberOfMatches" type="parameter">numberOfMatches</xd:ref></xd:li>
-                    <xd:li><xd:ref name="mode" type="parameter">mode</xd:ref></xd:li>
+                    <xd:li>
+                        <xd:ref name="operation" type="parameter">operation</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="format" type="parameter">format</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="q" type="parameter">q</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="x-context" type="parameter">x-context</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="startRecord" type="parameter">startRecord</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="maximumRecords" type="parameter">maximumRecords</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="numberOfRecords" type="parameter">numberOfRecords</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="numberOfMatches" type="parameter">numberOfMatches</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="mode" type="parameter">mode</xd:ref>
+                    </xd:li>
                 </xd:ul>
             </xd:p>
         </xd:desc>
     </xd:doc>
-    
     <xd:doc>
         <xd:desc>???</xd:desc>
     </xd:doc>
     <xsl:param name="user" select="''"/>
-    
     <xd:doc>
         <xd:desc>
             <xd:p>
@@ -52,8 +59,12 @@
             <xd:p>
                 Examples:
                 <xd:ul>
-                    <xd:li><xd:a href="http://corpus3.aac.ac.at/switch">http://corpus3.aac.ac.at/switch</xd:a></xd:li>
-                    <xd:li><xd:a href="http://clarin.aac.ac.at/cr/lrp/fcs">http://clarin.aac.ac.at/cr/lrp/fcs</xd:a></xd:li>
+                    <xd:li>
+                        <xd:a href="http://corpus3.aac.ac.at/switch">http://corpus3.aac.ac.at/switch</xd:a>
+                    </xd:li>
+                    <xd:li>
+                        <xd:a href="http://clarin.aac.ac.at/cr/lrp/fcs">http://clarin.aac.ac.at/cr/lrp/fcs</xd:a>
+                    </xd:li>
                     <xd:li>http://localhost/corpus_shell/modules/fcs-aggregator/switch.php</xd:li>
                     <xd:li>The URL has to be reachable by the XSLT processor so sth. like this is possible: http://localhost:8686/exist/rest/db/cr/cr.xql</xd:li>
                 </xd:ul>
@@ -64,39 +75,50 @@
         </xd:desc>
     </xd:doc>
     <xsl:param name="base_url" select="''"/>
+    <xd:doc>
+        <xd:desc>to be put as link on the logo in simple html pages </xd:desc>
+    </xd:doc>
+    <xsl:param name="site_url" select="'http://clarin.oeaw.ac.at'"/>
     
     <!-- <xsl:param name="base_dir">http://corpus3.aac.ac.at/cs/</xsl:param>-->
-    
     <xd:doc>
         <xd:desc>A URL for locating JavaScript scripts and CSS style sheets
         <xd:p>
             Note: If this parameter is supplied it has to end in a path separator (/)!
         </xd:p>
-        <xd:p>
+            <xd:p>
             Note: These paths are meant for the user's browser so localhost is usually not an option!
         </xd:p>
-        <xd:p>
+            <xd:p>
             If this is an empty string the location of the files are interpreted relativ to the URL that
             executed the style sheet respectively the document generated by the style sheet.
         </xd:p>
-        <xd:p>
+            <xd:p>
             Usually passed by the script 
             <xd:a href="../phpdocs/config/_utils-php---config.php.html#global$scriptsUrl">switch.php</xd:a>.
         </xd:p>
-        <xd:p>
+            <xd:p>
             Examples:
             <xd:ul>
-                <xd:li>../../</xd:li>
-                <xd:li>http://corpus3.aac.ac.at/cs2/corpus_shell/scripts/</xd:li>
-                <xd:li>Only for testing purpose on your development machine: http://localhost/corpus_shell/</xd:li>
-            </xd:ul>
-        </xd:p>
-        <xd:p>
-            Defaults to an emtpy string
+                    <xd:li>../../</xd:li>
+                    <xd:li>http://corpus3.aac.ac.at/cs2/corpus_shell/scripts/</xd:li>
+                    <xd:li>Only for testing purpose on your development machine: http://localhost/corpus_shell/</xd:li>
+                </xd:ul>
+            </xd:p>
+            <xd:p>
+            Defaults to an empty string
         </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:param name="scripts_url" select="''"/>
+    <xd:doc>
+        <xd:desc>A URL-prefix for the rest-endpoint
+            <xd:p>
+                Defaults to /exist/restxq/cr-xq/
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="rest_prefix">/exist/restxq/cr-xq</xsl:param>
     <xd:doc>
         <xd:desc>A URL where a logo for the site can be found
             <xd:p>
@@ -117,7 +139,6 @@
     
     <!-- following are needed in in commons_v1.xsl (formURL) and in html_snippets.xsl, therefore they need to be defined here
         (but only as default, so we could move them, because actually they pertain only to result2view.xsl -->
-    
     <xd:doc>
         <xd:desc>Operation for which this template should do the transformation 
             <xd:p>One of
@@ -145,7 +166,7 @@
                         <xd:ul>
                             <xd:li>"page"</xd:li>
                             <xd:li>"js" generate an HTML page that utilises JavaScript</xd:li>
-                            <xd:li>"simple" generate a simple HTML page</xd:li>                    
+                            <xd:li>"simple" generate a simple HTML page</xd:li>
                         </xd:ul>
                     </xd:li>
                     <xd:li>"list" represent the SRU items as a list</xd:li>
@@ -156,11 +177,11 @@
                 Examples would be: htmlsimpledetail or htmljslist
             </xd:p>
             <xd:p>
-                Defaults to 'htmlpagetable'.
+                Defaults to 'htmlpagelist'.
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="format" select="'htmlpagetable'"/>
+    <xsl:param name="format" select="'htmlpagelist'"/>
     <xd:doc>
         <xd:desc>The query sent by the client
             <xd:p>
@@ -217,7 +238,6 @@
         </xd:desc>
     </xd:doc>
     <xsl:param name="mode" select="'html'"/>
- 
     <xd:doc>
         <xd:desc>The scanClause specified by the client
             <xd:p>
@@ -237,14 +257,12 @@
                 style sheet.
             </xd:p>
         </xd:desc>
-    </xd:doc> 
-    <xsl:param name="contexts_url" select="concat($base_url,'?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml')"/>
-    
+    </xd:doc>
+    <xsl:param name="contexts_url" select="concat($base_url,'fcs?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml')"/>
     <xd:doc>
         <xd:desc>A URL to a file where additional parameters can be specified</xd:desc>
     </xd:doc>
     <xsl:param name="mappings-file" select="''"/>
-    
     <xd:doc>
         <xd:desc>URL parameter that contained the context for the operation</xd:desc>
     </xd:doc>
@@ -255,7 +273,8 @@
     <xsl:variable name="mappings" select="exsl:node-set(document($mappings-file)/map)"/>
     <xd:doc>
         <xd:desc>The settings for <xd:ref name="x-context" type="parameter">$x-context</xd:ref> contained in 
-        <xd:ref name="mappings" type="variable">mappings</xd:ref></xd:desc>
+        <xd:ref name="mappings" type="variable">mappings</xd:ref>
+        </xd:desc>
         <xd:p>
             The XML atrribute key is taken from the XSL context where this variable is evaluated so the context
             should be an XML element that has a key attribute.
