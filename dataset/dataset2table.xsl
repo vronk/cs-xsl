@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/corpus_shell/utils" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="2.0" extension-element-prefixes="exsl"
-    exclude-result-prefixes="exsl xs utils xd ds"
-    xmlns:ds="http://aac.ac.at/corpus_shell/dataset"
-    xmlns="http://www.w3.org/1999/xhtml" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/corpus_shell/utils" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://aac.ac.at/corpus_shell/dataset" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="2.0" extension-element-prefixes="exsl" exclude-result-prefixes="exsl xs utils xd ds">
     <xsl:import href="../utils.xsl"/>
-    
     <xd:doc scope="stylesheet">
         <xd:desc>
             <xd:p>
@@ -17,15 +12,14 @@
     </xd:doc>
     
     <!--    values: dataseries-table or #any-->
-    <xsl:param name="mode"></xsl:param> 
+    <xsl:param name="mode"/> 
 
 
   <!-- taken from cmd2graph.xsl  should be available at in helpers.xsl-->
 <!--    <xsl:function name="utils:normalize">
         <xsl:param name="value"/>
-        <xsl:value-of select="translate($value,'*/-.'',$@={}:[]()#&gt;&lt; ','XZ__')"/>
+        <xsl:value-of select="translate($value,'*/-.'',$@={}:[]()#>< ','XZ__')"/>
     </xsl:function>-->
-    
     <xsl:template match="/">
    <!-- some root element, to deliver well-formed x(ht)ml -->
         <div>
@@ -43,29 +37,29 @@
                 <xsl:apply-templates select="$data" mode="dataseries-table"/>
             </xsl:when>
             <xsl:otherwise>
-                <div id="table-{$dataset-name}" >
-                  <h3 class="title">
-                      <xsl:value-of select="$data/(@name,@label,@key)[1]"/>
-                  </h3>
-                  <table class="show">
-<!--                      XX<xsl:value-of select="count($data/ds:labels/ds:label)" />-<xsl:value-of select="count($data/ds:dataseries)" />-<xsl:value-of select="count($data/ds:labels/ds:label) &gt; count($data/ds:dataseries)" />-->
-                    <xsl:choose>
-                        <xsl:when test="count($data/ds:labels/ds:label) &gt; count($data/ds:dataseries)">
-                            <xsl:variable name="inverted-dataset">
+                <div id="table-{$dataset-name}">
+                    <h3 class="title">
+                        <xsl:value-of select="$data/(@name,@label,@key)[1]"/>
+                    </h3>
+                    <table class="show">
+<!--                      XX<xsl:value-of select="count($data/ds:labels/ds:label)" />-<xsl:value-of select="count($data/ds:dataseries)" />-<xsl:value-of select="count($data/ds:labels/ds:label) > count($data/ds:dataseries)" />-->
+                        <xsl:choose>
+                            <xsl:when test="count($data/ds:labels/ds:label) &gt; count($data/ds:dataseries)">
+                                <xsl:variable name="inverted-dataset">
                 <!--<xsl:apply-templates select="exsl:node-set($data)" mode="invert"/>-->
-                                <xsl:apply-templates select="$data" mode="invert"/>
-                            </xsl:variable>
-                            <xsl:apply-templates select="$inverted-dataset" mode="table"/>
+                                    <xsl:apply-templates select="$data" mode="invert"/>
+                                </xsl:variable>
+                                <xsl:apply-templates select="$inverted-dataset" mode="table"/>
               <!--<xsl:copy-of select="."></xsl:copy-of>
                             <xsl:copy-of select="$inverted-dataset"></xsl:copy-of>-->
-                        </xsl:when>
-                        <xsl:otherwise>
+                            </xsl:when>
+                            <xsl:otherwise>
               <!--                            <xsl:apply-templates select="exsl:node-set($data)" mode="table"/>-->
-                            <xsl:apply-templates select="$data" mode="table"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </table>
-              </div>   
+                                <xsl:apply-templates select="$data" mode="table"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </table>
+                </div>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -129,7 +123,7 @@
                     <xsl:value-of select="(@name,@label,@key)[not(.='')][1]"/>
                 </caption>
                 <xsl:for-each select="ds:value">
-                    <xsl:variable name="label" select="$labels/ds:label[@key=current()/@key]/text()"></xsl:variable>
+                    <xsl:variable name="label" select="$labels/ds:label[@key=current()/@key]/text()"/>
                     <tr>
                         <td>
                             <xsl:value-of select="($label|@label|@key)[not(.='')][1]"/>
@@ -141,13 +135,11 @@
         </div>
     </xsl:template>
     <xsl:template match="ds:label" mode="table">
-        
-        <th colspan="{if (xs:string(@type)='reldata') then 2 else 1}" >
+        <th colspan="{if (xs:string(@type)='reldata') then 2 else 1}">
             <xsl:value-of select="(.|@key)[not(.='')][1]"/>
         </th>
     </xsl:template>
     <xsl:template match="ds:value" mode="table">
-        
         <xsl:variable name="val">
             <xsl:choose>
                 <xsl:when test="@formatted">
@@ -170,13 +162,15 @@
         <td class="{$class-number}">
             <xsl:choose>
                 <xsl:when test="ds:list">
-                    <a class="detail-caller" href=""><xsl:value-of select="$val"></xsl:value-of></a>
-                    <div class="detail" >
-                        <xsl:apply-templates select="ds:list" mode="table" />
+                    <a class="detail-caller" href="">
+                        <xsl:value-of select="$val"/>
+                    </a>
+                    <div class="detail">
+                        <xsl:apply-templates select="ds:list" mode="table"/>
                     </div>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$val" />
+                    <xsl:value-of select="$val"/>
                 </xsl:otherwise>
             </xsl:choose>
         </td>
@@ -192,17 +186,17 @@
         <br/><xsl:value-of select="@rel_formatted" />
       </xsl:if>-->
     </xsl:template>
-    
     <xsl:template match="ds:list" mode="table">
         <ul>
-            <xsl:apply-templates select="*" mode="table" /> 
+            <xsl:apply-templates select="*" mode="table"/>
         </ul>
     </xsl:template>
-    
     <xsl:template match="ds:li" mode="table">
-        <xsl:variable name="key" select="utils:normalize(@key)"></xsl:variable>
+        <xsl:variable name="key" select="utils:normalize(@key)"/>
         <li>
-            <a href=".?selected={$key}" data-key="{$key}" title="{(@title,$key)[1]}"><xsl:value-of select="."></xsl:value-of></a>
+            <a href=".?selected={$key}" data-key="{$key}" title="{(@title,$key)[1]}">
+                <xsl:value-of select="."/>
+            </a>
         </li>
     </xsl:template>
     
