@@ -1,5 +1,6 @@
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
+                xmlns:cr="http://aac.ac.at/content_repository" 
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:sru="http://www.loc.gov/zing/srw/"
