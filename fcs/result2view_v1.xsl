@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:saxon="http://saxon.sf.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="saxon xs exsl diag sru fcs xd">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:saxon="http://saxon.sf.net/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="saxon xs exsl diag sru fcs xd">
     <xd:doc scope="stylesheet">
         <xd:desc>Generate html view of a sru-result-set  (eventually in various formats).
             <xd:p>History:
@@ -12,7 +12,7 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
+    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
     <xd:doc>
         <xd:desc>Common stuff that works with XSL 1.0</xd:desc>
     </xd:doc>
@@ -44,22 +44,24 @@
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
             <div>
-<!--                <xsl:if test="contains($format, 'page')">-->
+                <!--                <xsl:if test="contains($format, 'htmlpage')">-->
                 <xsl:call-template name="header"/>
-<!--                </xsl:if>-->
-                <!-- switch mode depending on the $format-parameter -->
-                <xsl:choose>
-                    <xsl:when test="contains($format,'table')">
-                        <xsl:apply-templates select="sru:records" mode="table"/>
-                    </xsl:when>
-                    <xsl:when test="contains($format,'list')">
+                <!--                </xsl:if>-->
                         <xsl:apply-templates select="sru:records" mode="list"/>
+                <!-- switch mode depending on the $format-parameter -->        
+                <!--<xsl:choose> 
+                    <xsl:when test="contains($format,'htmltable')">
+                        <xsl:apply-templates select="records" mode="table"/>
                     </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="sru:records" mode="table"/>
-<!--                        result2view_v1: unrecognized format: <xsl:value-of select="$format"/>-->
+                    <xsl:when test="contains($format,'htmllist')">
+                        <xsl:apply-templates select="records" mode="list"/>
+                    </xsl:when> 
+                    <xsl:when test="contains($format, 'htmlpagelist')">
+                        <xsl:apply-templates select="records" mode="list"/>
+                    </xsl:when>
+                    <xsl:otherwise>mdset2view: unrecognized format: <xsl:value-of select="$format"/>
                     </xsl:otherwise>
-                </xsl:choose>
+                </xsl:choose>-->
             </div>
         </xsl:for-each>
     </xsl:template>
@@ -98,7 +100,7 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:template match="sru:records" mode="table">
+    <xsl:template match="sru:records" mode="list">
         <div class="result-body scrollable-content-box">
             <table class="show">
             <!--<thead>
@@ -108,7 +110,7 @@
                 </tr>
             </thead>-->
                 <tbody>
-                    <xsl:apply-templates select="sru:record" mode="table"/>
+                <xsl:apply-templates select="sru:record" mode="list"/>
                 </tbody>
             </table>
         </div>
@@ -116,23 +118,23 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:template match="sru:record" mode="table">
+    <xsl:template match="sru:record" mode="list">
         <xsl:variable name="curr_record" select="."/>
-<!--        <xsl:variable name="fields">
+        <xsl:variable name="fields">
             <div>
                 <xsl:apply-templates select="*" mode="record-data"/>
             </div>
-        </xsl:variable>-->
+        </xsl:variable>
         <xsl:call-template name="record-table-row">
-<!--            <xsl:with-param name="fields" select="exsl:node-set($fields)"/>-->
+            <xsl:with-param name="fields" select="exsl:node-set($fields)"/>
         </xsl:call-template>
     </xsl:template>
     <xd:doc>
         <xd:desc/>
     </xd:doc>
     <xsl:template name="record-table-row">
-<!--        <xsl:param name="fields"/>-->
-<!-- @field absolute_position compute records position over whole recordset, ie add `startRecord` (important when paging)
+        <xsl:param name="fields"/>
+        <!-- @field absolute_position compute records position over whole recordset, ie add `startRecord` (important when paging)
  -->
         <xsl:variable name="absolute_position">
             <xsl:choose>
@@ -168,14 +170,14 @@
                 <xsl:choose>
                     <xsl:when test="$rec_uri">
                         <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
-<!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+                        <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
                         <a class="internal" href="{$rec_uri}&amp;x-format={$format}">
                             <xsl:value-of select="$absolute_position"/>
                         </a>                         
-<!--                        <span class="cmd cmd_save"/>-->
+                        <!--                        <span class="cmd cmd_save"/>-->
                     </xsl:when>
                     <xsl:otherwise>
-<!-- FIXME: generic link somewhere anyhow! -->
+                        <!-- FIXME: generic link somewhere anyhow! -->
                         <xsl:value-of select="$absolute_position"/>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -185,28 +187,13 @@
                     TODO: handle context 
                     <xsl:call-template name="getContext"/>-->
                 <div class="title">
-                    <xsl:choose>
-                        <xsl:when test="$rec_uri">
-                            <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
-                            <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
-                            <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
                                 <xsl:call-template name="getTitle"/>
-                            </a>                         
-                            <!--                        <span class="cmd cmd_save"/>-->
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <!-- FIXME: generic link somewhere anyhow! -->
-                            <xsl:call-template name="getTitle"/>
-                        </xsl:otherwise>
-                    </xsl:choose>                        
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                <div>
-                    <xsl:apply-templates select="*" mode="record-data"/>
-                </div>
+                <xsl:copy-of select="exsl:node-set($fields)"/>
             </td>
         </tr>
     </xsl:template>
