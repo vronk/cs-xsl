@@ -784,7 +784,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </xsl:copy>
     </xsl:template>
-xd:doc>
+<xd:doc>
         <xd:desc>tei:persName, tei:placeName etc. elements are mapped to spans optionally as link to more information.</xd:desc>
     </xd:doc>
     <xsl:template match="name | persName | placeName | tei:name | tei:persName | tei:placeName" mode="record-data">
