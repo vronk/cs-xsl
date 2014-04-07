@@ -22,6 +22,9 @@
     <xsl:import href="../commons_v1.xsl"/>
     <xsl:output method="html"/>
     <xsl:param name="lang" select="'de'"/>
+    <xsl:import href="../commons_v1.xsl"/>
+    <xsl:output method="html"/>
+    <xsl:param name="lang" select="'de'"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xd:doc>
         <xd:desc>Called from common_v1.xsl to present a title string
@@ -33,16 +36,16 @@
     <xsl:variable name="title">
         <xsl:text>explain: </xsl:text>
         <xsl:choose>
-            <xsl:when test="//zr:databaseInfo/zr:title[@lang=$lang]/text()" >
-                <xsl:value-of select="//zr:databaseInfo/zr:title[@lang=$lang]/text()" />
+            <xsl:when test="//zr:databaseInfo/zr:title[@lang=$lang]/text()">
+                <xsl:value-of select="//zr:databaseInfo/zr:title[@lang=$lang]/text()"/>
             </xsl:when>
-            <xsl:when test="//zr:databaseInfo/zr:title/text()" >
-                <xsl:value-of select="//zr:databaseInfo/zr:title[1]/text()" />
+            <xsl:when test="//zr:databaseInfo/zr:title/text()">
+                <xsl:value-of select="//zr:databaseInfo/zr:title[1]/text()"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="$site_name" />
+                <xsl:value-of select="$site_name"/>
             </xsl:otherwise>
-        </xsl:choose>    	
+        </xsl:choose>
     </xsl:variable>
     
     <xd:doc>
@@ -137,13 +140,13 @@
         <li>
             <a href="{$scan-index}">
                 <xsl:choose>
-                    <xsl:when test="zr:title[@lang=$lang]" >
-                        <xsl:value-of select="zr:title[@lang=$lang]" />
+                    <xsl:when test="zr:title[@lang=$lang]">
+                        <xsl:value-of select="zr:title[@lang=$lang]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="zr:title" />
+                        <xsl:value-of select="zr:title"/>
                     </xsl:otherwise>
-                </xsl:choose>    	
+                </xsl:choose>
             </a>
         </li>
     </xsl:template>
