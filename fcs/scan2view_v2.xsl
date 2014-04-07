@@ -80,6 +80,9 @@
         <sru:maximumTerms>100</sru:maximumTerms>        
         </sru:echoedScanRequest> -->
     <xsl:template name="header">
+        <xsl:variable name="countTerms" select="/sru:scanResponse/sru:extraResponseData/fcs:countTerms"/>
+        <xsl:variable name="start-item" select="'TODO:start-item=?'"/>
+        <xsl:variable name="maximum-items" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
         <div class="header">
             <xsl:attribute name="data-countTerms" select="$countTerms"/>
 <!--            x-context:<xsl:value-of select="$x-context"/>-->
@@ -239,6 +242,8 @@ sample data:
                     </span>
 <!--                    </xsl:if>-->
                     <!--DEBUG:<xsl:value-of select="exists(sru:extraTermData/sru:terms/sru:term)" />-->
+                    <xsl:if test="sru:extraTermData/sru:terms/sru:term">
+                    </xsl:if>
                     <xsl:if test="sru:extraTermData/sru:terms/sru:term">
                         <ul>
                             <xsl:if test="sru:extraTermData/cr:type">
