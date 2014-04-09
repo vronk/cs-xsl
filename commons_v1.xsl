@@ -233,6 +233,7 @@
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
+        <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
@@ -273,6 +274,11 @@
         <xsl:variable name="param_scanClause">
             <xsl:if test="$scanClause != ''">
             <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:variable name="param_x-dataview">
+            <xsl:if test="$dataview != ''">
+                <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="XDEBUG_SESSION_START">
@@ -512,10 +518,9 @@
             <xsl:when test="$scanClause = 'fcs.resource'">
                 <!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
                 <xsl:call-template name="formURL">
-                    <xsl:with-param name="action" >explain</xsl:with-param>
-                    <xsl:with-param name="format" select="$format"></xsl:with-param>
-                    <!--                        <xsl:with-param name="q" select="sru:value"></xsl:with-param>-->
-                    <xsl:with-param name="x-context" select="sru:value"></xsl:with-param>
+                    <xsl:with-param name="action">explain</xsl:with-param>
+                    <xsl:with-param name="format" select="$format"/>
+                    <xsl:with-param name="q" select="sru:value"/>
                 </xsl:call-template>
             </xsl:when>
             <!-- TODO: special handling for cmd.collection? -->
@@ -525,15 +530,15 @@
             <xsl:otherwise>
                 <!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
                 <xsl:call-template name="formURL">
-                    <xsl:with-param name="action" >searchRetrieve</xsl:with-param>
-                    <xsl:with-param name="format" select="$format"></xsl:with-param>
+                    <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+                    <xsl:with-param name="format" select="$format"/>
+                    <xsl:with-param name="q" select="concat($index, '%3D', sru:value)"/>
 <!--                    according to the specs an exact search for a search term looks like this but cr-xq doesn't support this yet-->
 <!--                    <xsl:with-param name="q" select="concat($index, '%3D%3D%22', sru:value, '%22')"></xsl:with-param>-->
-                    <xsl:with-param name="q" select="concat($index, '%3D', sru:value, '')"></xsl:with-param>
                     <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                 </xsl:call-template>
             </xsl:otherwise>
-        </xsl:choose>        
+        </xsl:choose>     
     </xsl:template>
     
     <xd:doc>

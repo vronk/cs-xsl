@@ -40,6 +40,7 @@
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.6.2.js"/>
         <!--        <xsl:if test="contains($format,'htmljspage')">

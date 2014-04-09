@@ -38,7 +38,7 @@
         </div>
     </xsl:template>
     <xsl:template match="cmd:ResourceProxy" mode="record-data">
-        <xsl:variable name="href" select="cmd:ResourceRef">
+        <xsl:variable name="href" select="cmd:ResourceRef"/>
             <!--<xsl:choose>
                 <xsl:when test="cmd:ResourceType='Resource'">
                     <xsl:value-of select="cmd:ResourceRef"/>
@@ -61,13 +61,14 @@
                         </xsl:with-param>
                     </xsl:call-template>-\->
                 </xsl:otherwise>
-            </xsl:choose>-->
-        </xsl:variable>
+            </xsl:choose>
+        </xsl:variable>-->
         <!-- XPath 1.0 if trick: from http://stackoverflow.com/questions/971067/is-there-an-if-then-else-statement-in-xpath and
         http://www.tkachenko.com/blog/archives/000156.html Becker's method, relies on substring start argument bigger than string lenght
         returns empty string and number(false) = 0, number(true) = 1. -->
         <!-- XPath 2.0:  if (cmd:ResourceType='Resource') then 'external' else 'internal' -->
-        <xsl:variable name="class" select="concat(             substring('external', number(not(cmd:ResourceType='Resource')) * string-length('external') + 1),             substring('internal', number(cmd:ResourceType='Resource') * string-length('internal') + 1)             )"/>
+        <xsl:variable name="class" select="concat(substring('external', number(not(cmd:ResourceType='Resource')) * string-length('external') + 1),
+            substring('internal', number(cmd:ResourceType='Resource') * string-length('internal') + 1))"/>
         <li>
             <span class="label">
                 <xsl:value-of select="cmd:ResourceType"/>: </span>

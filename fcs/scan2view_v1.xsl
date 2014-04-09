@@ -197,31 +197,9 @@
     <xsl:template match="sru:term">
         <xsl:variable name="depth" select="count(ancestor::sru:term)"/>
         <xsl:variable name="href">
-            <!--                        special handling for special index -->
-            <xsl:choose>
-                <xsl:when test="$scanClause = 'fcs.resource'">
-<!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
-                    <xsl:call-template name="formURL">
-                        <xsl:with-param name="action">explain</xsl:with-param>
-                        <xsl:with-param name="format" select="$format"/>
-                        <xsl:with-param name="q" select="sru:value"/>
             <xsl:call-template name="generateLinkInScanResults">
                 <xsl:with-param name="index" select="$index"/>
             </xsl:call-template>
-                </xsl:when>
-                <!-- TODO: special handling for cmd.collection? -->
-                <!--<xsl:when test="$index = 'cmd.collection'">
-                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
-                </xsl:when>-->
-                <xsl:otherwise>
-<!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
-                    <xsl:call-template name="formURL">
-                        <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-                        <xsl:with-param name="format" select="$format"/>
-                        <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"/>
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
         </xsl:variable>
         <xsl:variable name="link">
             <span>
