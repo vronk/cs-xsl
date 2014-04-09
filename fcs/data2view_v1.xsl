@@ -82,8 +82,8 @@
     </xd:doc>
     <xsl:template match="exist:match" mode="record-data">
         <span class="hilight match">
-  <!--            <xsl:apply-templates select="*" mode="record-data"/>-->
-            <xsl:value-of select="."/>
+            <xsl:apply-templates mode="record-data"/>
+            <!--            <xsl:value-of select="."/>-->
         </span>
     </xsl:template>
 
@@ -312,9 +312,10 @@
 <!-- moved from .//text() to node(), because otherwise all the descendants got flattened -->
             <xsl:for-each select="node()">
                 <xsl:choose>
+<!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
                     <xsl:when test="parent::exist:match">
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
-                    </xsl:when>
+                    </xsl:when>-->
                     <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
                         <xsl:text> </xsl:text>

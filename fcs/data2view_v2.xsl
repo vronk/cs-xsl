@@ -29,9 +29,10 @@
             <xsl:for-each select="node()">
 <!--                   DEBUG:<xsl:value-of select="name()"></xsl:value-of>-->
                 <xsl:choose>
-                    <xsl:when test="parent::exist:match">
+<!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
+                        <xsl:when test="parent::exist:match">
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
-                    </xsl:when>
+                    </xsl:when>-->
                     <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
                         <xsl:if test="$insertTrailingBlank">

@@ -223,6 +223,7 @@
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
+        <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
         <xsl:param name="responsePosition" select="1"/>
         <xsl:param name="maximumTerms" select="$maximumTerms"/>
         <xsl:param name="x-filter" select="$x-filter"/>
@@ -280,6 +281,14 @@
                 <xsl:value-of select="concat('&amp;scanClause=',$scanClause)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_x-dataview">
+            <xsl:if test="$dataview != ''">
+                <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:variable name="XDEBUG_SESSION_START">
+            <xsl:if test="$XDEBUG_SESSION_START">
+                <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
         <xsl:variable name="param_filter">
             <xsl:if test="$x-filter != ''">
                 <xsl:value-of select="concat('&amp;x-filter=',$x-filter)"/>
@@ -496,5 +505,47 @@
                 <xsl:value-of select="$fallback"/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Generate links for the scan operation results
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateLinkInScanResults">
+        <xsl:param name="index" select="''"/>
+        <!--                        special handling for special index -->
+        <xsl:choose>
+            <xsl:when test="$scanClause = 'fcs.resource'">
+                <!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="action">explain</xsl:with-param>
+                    <xsl:with-param name="format" select="$format"/>
+                    <xsl:with-param name="q" select="sru:value"/>
+                </xsl:call-template>
+            </xsl:when>
+            <!-- TODO: special handling for cmd.collection? -->
+            <!--<xsl:when test="$index = 'cmd.collection'">
+                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
+                </xsl:when>-->
+            <xsl:otherwise>
+                <!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+                    <xsl:with-param name="format" select="$format"/>
+                    <xsl:with-param name="q" select="concat($index, '%3D', sru:value)"/>
+<!--                    according to the specs an exact search for a search term looks like this but cr-xq doesn't support this yet-->
+<!--                    <xsl:with-param name="q" select="concat($index, '%3D%3D%22', sru:value, '%22')"></xsl:with-param>-->
+                    <xsl:with-param name="dataview">kwic,title</xsl:with-param>
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>     
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Forces generation of one (!) emtpty &lt;br/> tag
+            <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="br">
+        <xsl:text disable-output-escaping="yes">&lt;br/></xsl:text>
     </xsl:template>
 </xsl:stylesheet>

@@ -211,7 +211,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="format" select="'htmlpagelist'"/>
+    <xsl:param name="format" select="'htmlpagetable'"/>
     <xd:doc>
         <xd:desc>The query sent by the client
             <xd:p>
@@ -313,7 +313,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="contexts_url" select="concat($base_url,'fcs?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml')"/>
+    <xsl:param name="contexts_url" select="concat($base_url,'?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml')"/>
     <xd:doc>
         <xd:desc>A URL to a file where additional parameters can be specified</xd:desc>
     </xd:doc>
