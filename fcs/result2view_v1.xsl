@@ -22,7 +22,7 @@
     </xd:doc>
     <xsl:include href="data2view_v1.xsl"/>
     <xsl:param name="title">
-        <xsl:text>Result Set</xsl:text>
+        <xsl:call-template name="getTitle"/>
     </xsl:param>
     <xd:doc>
         <xd:desc>???</xd:desc>
@@ -43,21 +43,24 @@
     <xsl:template name="continue-root">
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
-            <div>
+            <div class="searchresults">
+                <div
+                    class="{/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context}">
                 <xsl:call-template name="header"/>
-                <!-- switch mode depending on the $format-parameter -->
-                <xsl:choose>
-                    <xsl:when test="contains($format,'table')">
-                        <xsl:apply-templates select="sru:records" mode="table"/>
-                    </xsl:when>
-                    <xsl:when test="contains($format,'list')">
-                        <xsl:apply-templates select="sru:records" mode="list"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="sru:records" mode="table"/>
-                        <!-- result2view_v1: unrecognized format: <xsl:value-of select="$format"/>-->
-                    </xsl:otherwise>
-                </xsl:choose>
+                    <!-- switch mode depending on the $format-parameter -->
+                    <xsl:choose>
+                        <xsl:when test="contains($format,'table')">
+                            <xsl:apply-templates select="sru:records" mode="table"/>
+                        </xsl:when>
+                        <xsl:when test="contains($format,'list')">
+                            <xsl:apply-templates select="sru:records" mode="list"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates select="sru:records" mode="table"/>
+                            <!-- result2view_v1: unrecognized format: <xsl:value-of select="$format"/>-->
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </div>
             </div>
         </xsl:for-each>
     </xsl:template>
@@ -95,6 +98,42 @@
     </xsl:template>
     <xd:doc>
         <xd:desc/>
+    </xd:doc>
+    <xsl:template match="sru:records[count(sru:record) = 0]" mode="table">
+        <xsl:call-template name="dict">
+            <xsl:with-param name="key">noResult</xsl:with-param>
+            <xsl:with-param name="fallback">Your search did not yield any results.</xsl:with-param>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Return the result if there is exactly one result</xd:desc>
+    </xd:doc>
+    <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
+        <xsl:variable name="rec_uri">
+            <xsl:call-template name="_getRecordURI"/>
+        </xsl:variable>
+        <div class="title">
+            <xsl:choose>
+                <xsl:when test="$rec_uri">
+                    <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
+                    <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+                    <a class="xsl-rec-uri value-caller" href="{$rec_uri}&amp;x-format={$format}">
+                        <xsl:call-template name="getTitle"/>
+                    </a>                         
+                    <!--                        <span class="cmd cmd_save"/>-->
+                </xsl:when>
+                <xsl:otherwise>
+                    <!-- FIXME: generic link somewhere anyhow! -->
+                    <xsl:call-template name="getTitle"/>
+                </xsl:otherwise>
+            </xsl:choose>                        
+        </div>
+        <xsl:apply-templates select="sru:record/*" mode="record-data"/>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Return a table of results if there is more than one record returned</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records" mode="table">
         <div class="result-body scrollable-content-box">
