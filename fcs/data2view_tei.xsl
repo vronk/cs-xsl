@@ -23,11 +23,12 @@
     </xd:doc>
     <xsl:template match="TEI | tei:TEI" mode="record-data">
         <div class="tei-TEI">
-            <xsl:if test="@xml:id">
-                <xsl:attribute name="class">
-                    <xsl:value-of select="concat('tei-TEI ', @xml:id)"/>
-                </xsl:attribute>
-            </xsl:if>
+            <xsl:attribute name="class">
+                <xsl:choose>
+                    <xsl:when test="@xml:id"><xsl:value-of select="concat('tei-TEI ', @xml:id)"/></xsl:when>
+                    <xsl:otherwise>tei-TEI</xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
@@ -696,6 +697,7 @@
                 differently form eg. blind tables used elsewhere.</xd:p>
         </xd:desc>
     </xd:doc>
+    
     <xsl:template match="table|tei:table" mode="record-data">
         <table class="tei-table">
             <xsl:apply-templates mode="record-data"/>
@@ -721,6 +723,40 @@
                     <xsl:value-of select="./@cols"/>
                 </xsl:attribute>
             </xsl:if>
+                <xsl:choose>
+                    <xsl:when test="@style">
+                        <xsl:choose>
+                            <xsl:when test="contains(@style, ':')">
+                                <xsl:attribute name="class">tei-cell</xsl:attribute>
+                                <xsl:attribute name="style">
+                                    <xsl:value-of select="@style"/>
+                                </xsl:attribute>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:attribute name="class">tei-cell <xsl:value-of select="@style"/>
+                                </xsl:attribute>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:when test="@rend">
+                        <xsl:attribute name="class">tei-cell <xsl:call-template
+                                name="rend-without-color">
+                                <xsl:with-param name="rend-text" select="@rend"/>
+                            </xsl:call-template>
+                        </xsl:attribute>
+                        <xsl:if test="substring-after(string(@rend), 'color(')">
+                            <xsl:attribute name="style">
+                                <xsl:call-template name="rend-color-as-html-style">
+                                    <xsl:with-param name="rend-text" select="@rend"/>
+                                </xsl:call-template>
+                            </xsl:attribute>
+                        </xsl:if>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="class">tei-cell</xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
+                            
             <xsl:apply-templates mode="record-data"/>
         </td>
     </xsl:template>
@@ -1203,16 +1239,17 @@
     </xsl:template>
 
     <xsl:template match="tei:w" mode="record-data">
-        <!-- XPath 1.0 if trick: from http://stackoverflow.com/questions/971067/is-there-an-if-then-else-statement-in-xpath and
+        <xsl:choose>
+            <xsl:when test="tei:fs/tei:f[@name='wordform']">
+                <!-- Special handling for notations like those used in sample texts -->
+                <!-- XPath 1.0 if trick: from http://stackoverflow.com/questions/971067/is-there-an-if-then-else-statement-in-xpath and
         http://www.tkachenko.com/blog/archives/000156.html Becker's method, relies on substring start argument bigger than string lenght
         returns empty string and number(false) = 0, number(true) = 1. -->
-        <!-- XPath 2.0:  if (tei:fs/tei:f[@name = 'pos']) then 'pos ' else '' -->
-        <xsl:variable name="pos"
-            select="concat(substring('pos ', number(not(tei:fs/tei:f[@name = 'pos'])) * string-length('pos ') + 1),
-            substring('', number(tei:fs/tei:f[@name = 'pos']) * string-length('') + 1))"/>
-        <span class="tei-w {$pos}{tei:fs/tei:f[@name = 'pos']}">
-            <xsl:choose>
-                <xsl:when test="tei:fs/tei:f[@name='wordform']">
+                <!-- XPath 2.0:  if (tei:fs/tei:f[@name = 'pos']) then 'pos ' else '' -->
+                <xsl:variable name="pos"
+                    select="concat(substring('pos ', number(not(tei:fs/tei:f[@name = 'pos'])) * string-length('pos ') + 1),
+                        substring('', number(tei:fs/tei:f[@name = 'pos']) * string-length('') + 1))"/>
+                <span class="tei-w {$pos}{tei:fs/tei:f[@name = 'pos']}">
                     <xsl:if test="(tei:fs/tei:f[@name='wordform'])[@xml:lang]">
                         <xsl:attribute name="data-lang">
                             <xsl:value-of select="(tei:fs/tei:f[@name='wordform'])/@xml:lang"/>
@@ -1220,16 +1257,17 @@
                     </xsl:if>
                     <xsl:value-of select="tei:fs/tei:f[@name='wordform']"/>
                     <xsl:apply-templates mode="record-data"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:call-template name="inline">
-                        <xsl:with-param name="insertTrailingBlank"
-                            select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"
-                        />
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
-        </span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:call-template name="inline">
+                    <xsl:with-param name="insertTrailingBlank"
+                        select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"
+                    />
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>
+
     </xsl:template>
 
     <xsl:template match="tei:w/tei:fs" mode="record-data">

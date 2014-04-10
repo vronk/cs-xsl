@@ -22,7 +22,7 @@
     </xd:doc>
     <xsl:include href="data2view_v1.xsl"/>
     <xsl:param name="title">
-        <xsl:text>Result Set</xsl:text>
+        <xsl:call-template name="getTitle"/>
     </xsl:param>
     <xd:doc>
         <xd:desc>???</xd:desc>
@@ -48,21 +48,24 @@
     <xsl:template name="continue-root-base">
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
-            <div class="{/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context}">
-                <xsl:call-template name="header"/>
-    <!-- switch mode depending on the $format-parameter -->
-                <xsl:choose>
-                    <xsl:when test="contains($format,'table')">
-                        <xsl:apply-templates select="sru:records" mode="table"/>
-                    </xsl:when>
-                    <xsl:when test="contains($format,'list')">
-                        <xsl:apply-templates select="sru:records" mode="list"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="sru:records" mode="table"/>
-                        <!-- result2view_v1: unrecognized format: <xsl:value-of select="$format"/>-->
-                    </xsl:otherwise>
-                </xsl:choose>
+            <div class="searchresults">
+                <div
+                    class="{/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context}">
+                    <xsl:call-template name="header"/>
+                    <!-- switch mode depending on the $format-parameter -->
+                    <xsl:choose>
+                        <xsl:when test="contains($format,'table')">
+                            <xsl:apply-templates select="sru:records" mode="table"/>
+                        </xsl:when>
+                        <xsl:when test="contains($format,'list')">
+                            <xsl:apply-templates select="sru:records" mode="list"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates select="sru:records" mode="table"/>
+                            <!-- result2view_v1: unrecognized format: <xsl:value-of select="$format"/>-->
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </div>
             </div>
         </xsl:for-each>
     </xsl:template>
@@ -131,7 +134,7 @@
                 <xsl:when test="$rec_uri">
                     <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
                     <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
-                    <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
+                    <a class="xsl-rec-uri value-caller" href="{$rec_uri}&amp;x-format={$format}">
                         <xsl:call-template name="getTitle"/>
                     </a>                         
                     <!--                        <span class="cmd cmd_save"/>-->

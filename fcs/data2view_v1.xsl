@@ -9,7 +9,7 @@
                 xmlns:exist="http://exist.sourceforge.net/NS/exist"
                 xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
                 xmlns:exsl="http://exslt.org/common"
-                version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
+                version="1.0" exclude-result-prefixes="cr kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
             <xd:p>History:
@@ -114,10 +114,17 @@
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
             <div class="data-view {@type}">
+                <xsl:call-template name="dataview-full-contents"/>
                 <div class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></div>
             </div>
         </xsl:if>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Supersede this to generate some sort of contents block as first element of the data view.</xd:desc>
+    </xd:doc>
+    <xsl:template name="dataview-full-contents"/>
+    
     <xd:doc>
         <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
         </xd:desc>
@@ -310,8 +317,7 @@
                 it doesn't matter if the class is specified once or n-times so for 1.0 just forget
                 about distinct-values() for now and let's see -->
             <xsl:for-each select="descendant-or-self::*">
-                <xsl:value-of select="name(.)"/>
-                <xsl:text> </xsl:text>
+                <xsl:value-of select="concat(local-name(.), ' ', concat('tei-', local-name(.)), ' ', @rend)"/>
             </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="inline-elem">
@@ -333,46 +339,57 @@
         <span class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
                 <span class="attributes">
-                    <xsl:for-each select="child::*|@*">
-                        <table>
-                            <tr>
-                                <td colspan="2">
-                                    <xsl:value-of select="name()"/>
-                                </td>
-                            </tr>
-                            <!--                        <xsl:apply-templates select="@*" mode="format-attr"/>-->
-                            <tr>
-                                <td>
-                                    <xsl:for-each select=".">
-                                        <xsl:if test="@*">
-                                            <table>
-                                                <xsl:for-each select="@*">
-                                                  <tr>
-                                                  <td class="label">
-                                                  <xsl:value-of select="name()"/>
-                                                  </td>
-                                                  <td class="value">
-                                                  <xsl:value-of select="."/>
-                                                  </td>
-                                                  </tr>
-                                                </xsl:for-each>
-                                            </table>
-                                        </xsl:if>
-                                    </xsl:for-each>
-                                </td>
-                            </tr>
-                        </table>
-                    </xsl:for-each>
+                    <xsl:call-template name="descendants-table">
+                        <xsl:with-param name="elem-name">
+                            <xsl:call-template name="dict">
+                                <xsl:with-param name="key">this element</xsl:with-param>
+                            </xsl:call-template>
+                        </xsl:with-param>
+                    </xsl:call-template>
                 </span>
             </xsl:if>          
             <xsl:copy-of select="$inline-elem"/>
         </span>
     </xsl:template>
+    
     <xsl:template name="join-attributes-with-space">
         <xsl:param name="nodes"/>
         <xsl:for-each select="$nodes/@*">
             <xsl:value-of select="."/>
             <xsl:text> </xsl:text>
         </xsl:for-each>
+    </xsl:template>
+    
+    <xsl:template name="descendants-table">
+        <xsl:param name="elem-name" select="name()"/>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <xsl:value-of select="$elem-name"/>
+                </td>
+            </tr>
+            <!--                        <xsl:apply-templates select="@*" mode="format-attr"/>-->
+            <tr>
+                <td>
+                    <xsl:if test="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
+                        <table>
+                            <xsl:for-each select="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
+                                <tr>
+                                    <td class="label">
+                                        <xsl:value-of select="concat('@', name())"/>
+                                    </td>
+                                    <td class="value">
+                                        <xsl:value-of select="."/>
+                                    </td>
+                                </tr>
+                            </xsl:for-each>
+                        </table>
+                    </xsl:if>
+                    <xsl:for-each select="child::*">
+                        <xsl:call-template name="descendants-table"/>
+                    </xsl:for-each>
+                </td>
+            </tr>
+        </table>
     </xsl:template>
 </xsl:stylesheet>
