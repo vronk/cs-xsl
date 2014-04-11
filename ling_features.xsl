@@ -33,27 +33,27 @@
             <xsl:for-each select=".//tei:head">
                <li>
                   <xsl:if test="count(ancestor::tei:div) = 1">
-                     <a class="h1_contents" href="#{@xml:id}">
+                     <a class="h1_contents" href="#{concat(//tei:TEI/@xml:id, '-', @xml:id)}">
                         <xsl:value-of select="."/>
                      </a>
                   </xsl:if>
                   <xsl:if test="count(ancestor::tei:div) = 2">
-                     <a class="h2_contents" href="#{@xml:id}">
+                     <a class="h2_contents" href="#{concat(//tei:TEI/@xml:id, '-', @xml:id)}">
                         <xsl:value-of select="."/>
                      </a>
                   </xsl:if>
                   <xsl:if test="count(ancestor::tei:div) = 3">
-                     <a class="h3_contents" href="#{@xml:id}">
+                     <a class="h3_contents" href="#{concat(//tei:TEI/@xml:id, '-', @xml:id)}">
                         <xsl:value-of select="."/>
                      </a>
                   </xsl:if>
                   <xsl:if test="count(ancestor::tei:div) = 4">
-                     <a class="h4_contents" href="#{@xml:id}">
+                     <a class="h4_contents" href="#{concat(//tei:TEI/@xml:id, '-', @xml:id)}">
                         <xsl:value-of select="."/>
                      </a>
                   </xsl:if>
                   <xsl:if test="count(ancestor::tei:div) = 5">
-                     <a class="h5_contents" href="#{@xml:id}">
+                     <a class="h5_contents" href="#{concat(//tei:TEI/@xml:id, '-', @xml:id)}">
                         <xsl:value-of select="."/>
                      </a>
                   </xsl:if>
@@ -62,6 +62,11 @@
          </ul>
       </div>
    </xsl:template>
+   
+   <xd:doc>
+      <xd:desc>Enable generation of contents back links</xd:desc>
+   </xd:doc>
+   <xsl:variable name="contents-target">#contents</xsl:variable>
    
    <xd:doc>
       <xd:desc>Ignore pointers needed by web_dict_editor</xd:desc>

@@ -312,33 +312,90 @@
     </xsl:template>
     
     <xd:doc>
-        <xd:desc>Utillity "function" to get the contetn into the right header tag</xd:desc>
+        <xd:desc>Utillity "function" to get the contetn into the right header tag
+            <xd:p>To generate a contents (back) link set the variable $contents-link
+                to the approproiate link target (#id).
+            </xd:p>
+        </xd:desc>
     </xd:doc>
     <xsl:template name="div-count-to-html-header">
         <xsl:param name="div-count" select="1"/>
-        <xsl:param name="content"></xsl:param>
+        <xsl:param name="content"/>
+        <xsl:param name="id" select="concat(//tei:TEI/@xml:id, '-', @xml:id)"/>
+        <xsl:param name="contents-target" select="$contents-target"/>
         <xsl:choose>
             <xsl:when test="$div-count = 1">
-                <h1><xsl:copy-of select="$content"/></h1>
+                <h1>
+                    <xsl:if test="$id">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="$id"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$content"/>
+                </h1>
             </xsl:when>
             <xsl:when test="$div-count = 2">
-                <h2><xsl:copy-of select="$content"/></h2>
+                <h2>
+                    <xsl:if test="$id">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="$id"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$content"/>
+                </h2>
             </xsl:when>
             <xsl:when test="$div-count = 3">
-                <h3><xsl:copy-of select="$content"/></h3>
+                <h3>
+                    <xsl:if test="$id">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="$id"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$content"/>
+                </h3>
             </xsl:when>
             <xsl:when test="$div-count = 4">
-                <h4><xsl:copy-of select="$content"/></h4>
+                <h4>
+                    <xsl:if test="$id">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="$id"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$content"/>
+                </h4>
             </xsl:when>
             <xsl:when test="$div-count = 5">
-                <h5><xsl:copy-of select="$content"/></h5>
+                <h5>
+                    <xsl:if test="$id">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="$id"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$content"/>
+                </h5>
             </xsl:when>
             <xsl:otherwise>
-                <h6><xsl:copy-of select="$content"/></h6>
+                <h6>
+                    <xsl:if test="$id">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="$id"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$content"/>
+                </h6>
                 <!-- there are no more html h tags! -->
             </xsl:otherwise>
         </xsl:choose>
+        <xsl:if test="$contents-target">
+            <a class="xsl-aContents" href="{$contents-target}">
+                <xsl:call-template name="dict">
+                    <xsl:with-param name="key">Go to contents</xsl:with-param>
+                </xsl:call-template>
+            </a>
+        </xsl:if>
     </xsl:template>
+    
+    <xsl:variable name="contents-target"/>
 
     <xsl:template name="getAuthor"/>
 
@@ -539,7 +596,17 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="div|tei:div" mode="record-data">
-        <div class="tei-div">
+        <div>
+            <xsl:choose>
+                <xsl:when test="@rend|@type">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="concat('tei-div ', @rend, ' ', @type)"/>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="class">tei-div</xsl:attribute>
+                </xsl:otherwise>
+            </xsl:choose>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
