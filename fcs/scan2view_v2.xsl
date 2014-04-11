@@ -161,7 +161,10 @@ sample data:
                     <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
                 </xsl:when>-->
                 <xsl:otherwise>
-                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, encode-for-uri(concat('=&#34;', sru:value, '&#34;'))), 'kwic,title')"/>
+                    <!-- currently utils:formURL does not support a 4th argument, and even though the underlying template supports a number of further parameters, none is for dataview
+                         This should rather be moved as default into the searchRetrieve response. 
+                        -->
+                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, encode-for-uri(concat('=&#34;', sru:value, '&#34;'))))"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
