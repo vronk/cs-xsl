@@ -76,6 +76,14 @@
     </xd:doc>
     <xsl:param name="base_url" select="''"/>
     <xd:doc>
+        <xd:desc>A user name that may be needed to access resources used by these xsl transforms</xd:desc>
+    </xd:doc>
+    <xsl:param name="scripts_user" select="''"/>
+    <xd:doc>
+        <xd:desc>A password associated with scripts_user</xd:desc>
+    </xd:doc>
+    <xsl:param name="scripts_pw" select="''"/>
+    <xd:doc>
         <xd:desc>to be put as link on the logo in simple html pages </xd:desc>
     </xd:doc>
     <xsl:param name="site_url" select="'http://clarin.oeaw.ac.at'"/>

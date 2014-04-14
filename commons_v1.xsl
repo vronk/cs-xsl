@@ -185,7 +185,13 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="contexts-doc">
-        <xsl:copy-of select="document($contexts_url)"/>
+        <xsl:choose>
+            <xsl:when test="$scripts_user">
+                <xsl:variable name="contexts_auth_url" select="concat(substring-before($contexts_url, '//'), '//', $scripts_user, ':', $scripts_pw, '@', substring-after($contexts_url,'//'))"/>                    
+                <xsl:copy-of select="document($contexts_auth_url)"/>
+            </xsl:when>
+            <xsl:otherwise><xsl:copy-of select="document($contexts_url)"/></xsl:otherwise>
+        </xsl:choose>                
     </xsl:template>
     <xd:doc>
         <xd:desc>Generates an HTML select-option list of available contexts</xd:desc>
