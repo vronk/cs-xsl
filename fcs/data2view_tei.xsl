@@ -937,7 +937,7 @@
         </span>
     </xsl:template>
     
-    <xsl:template match="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data">
+    <xsl:template match="tei:orth" mode="record-data">
         <span class="tei-orth {@xml:lang}">
             <xsl:apply-templates mode="record-data"/>
         </span>
