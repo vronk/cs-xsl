@@ -904,7 +904,19 @@
             </xsl:if>
         </span>
     </xsl:template>
-
+    
+    <xsl:template match="tei:re" mode="record-data">
+        <span class="tei-re">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
+    
+    <xsl:template match="tei:form[@type]" mode="record-data" priority="0.5">
+        <span class="tei-form-{@type}">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
+   
     <xd:doc>
         <xd:desc>Lemma form
         <xd:p>
