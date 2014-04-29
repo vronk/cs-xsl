@@ -1,9 +1,10 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:cr="http://aac.ac.at/content_repository"  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" extension-element-prefixes="sru fcs utils xs xd">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cr="http://aac.ac.at/content_repository" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" extension-element-prefixes="sru fcs utils xs xd">
     <xsl:import href="scan2view_v1.xsl"/>
     <xsl:import href="../commons_v2.xsl"/>
     <xd:doc>
         <xd:desc>generate a view for a values-list (index scan) 
-    <xd:p>Note: This is called eg. from fsc:scan with mode "subsequence".</xd:p>
+            <xd:p>Note: This is called eg. from fsc:scan with mode "subsequence".</xd:p>
             <xd:p>
                 <xd:pre>
 &lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/"&gt;
@@ -35,7 +36,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:output method="xhtml" indent="yes"/>
-
+    
     <!-- <xsl:param name="size_lowerbound">0</xsl:param>
 <xsl:param name="max_depth">0</xsl:param>
 <xsl:param name="freq_limit">20</xsl:param>
@@ -44,10 +45,10 @@
     <xsl:param name="sort">x</xsl:param>
     <xsl:param name="list-mode"/> <!-- table -->
     <xsl:param name="parts"/> <!-- header -->
-
+    
     <!-- <xsl:param name="mode" select="'htmldiv'" />     -->
     <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
-
+    
     <!--
 <xsl:param name="detail_uri_prefix"  select="'?q='"/> 
 -->
@@ -106,7 +107,7 @@ sample data:
         </sru:term>
     -->
     <xsl:template match="sru:terms">
-<!--        <xsl:variable name="index" select="my:xpath2index(@path)"/>-->
+        <!--        <xsl:variable name="index" select="my:xpath2index(@path)"/>-->
         <xsl:choose>
             <xsl:when test="$list-mode = 'table'">
                 <table>
@@ -126,8 +127,8 @@ sample data:
             <!--                        special handling for special index -->
             <xsl:choose>
                 <xsl:when test="$index = 'fcs.resource'">
-<!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
-<!--                    <xsl:value-of select="utils:formURL('get-data',$format,sru:value)"/>-->
+                    <!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
+                    <!--                    <xsl:value-of select="utils:formURL('get-data',$format,sru:value)"/>-->
                     <xsl:call-template name="formURL">
                         <xsl:with-param name="action" select="'scan'"/>
                         <xsl:with-param name="format" select="$format"/>
@@ -175,7 +176,7 @@ sample data:
                         <xsl:value-of select="sru:extraTermData/cr:type"/>
                     </xsl:attribute>
                 </xsl:if>
-<!--                <xsl:value-of select="for $i in (1 to $depth) return '- '"/>-->
+                <!--                <xsl:value-of select="for $i in (1 to $depth) return '- '"/>-->
                 <a class="value-caller" href="{$href}">  <!--target="_blank"-->
                     <xsl:value-of select="if (normalize-space((sru:displayTerm, sru:value)[1]) eq '') then '----------' else (sru:displayTerm, sru:value)[1]"/>
                 </a>
@@ -197,7 +198,7 @@ sample data:
             <xsl:otherwise>
                 <li>
                     <xsl:sequence select="$link"/>
-                    <xsl:if test="number(sru:numberOfRecords) &gt; 1">                        
+                    <xsl:if test="number(sru:numberOfRecords) &gt; 1">
                         <span class="note"> |<xsl:value-of select="sru:numberOfRecords"/>|</span>
                     </xsl:if>
                     <xsl:if test="sru:extraTermData/sru:terms/sru:term">
