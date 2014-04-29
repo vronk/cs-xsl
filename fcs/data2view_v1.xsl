@@ -1,15 +1,5 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
-                xmlns:cr="http://aac.ac.at/content_repository" 
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:tei="http://www.tei-c.org/ns/1.0"
-                xmlns:sru="http://www.loc.gov/zing/srw/"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:fcs="http://clarin.eu/fcs/1.0"
-                xmlns:exist="http://exist.sourceforge.net/NS/exist"
-                xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-                xmlns:exsl="http://exslt.org/common"
-                version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
             <xd:p>History:
@@ -38,7 +28,6 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-    
     <xsl:template match="*" mode="record-data">
         <!--<xsl:variable name="overrides">
             <xsl:apply-imports/>
@@ -143,14 +132,13 @@
             </a>
         </div>
     </xsl:template>
-    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs')]" mode="record-data" priority="10">
+    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]" mode="record-data" priority="10">
         <div class="data-view {@type}">
             <xsl:call-template name="generateImg">
                 <xsl:with-param name="ref" select="@ref"/>
             </xsl:call-template>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Generic handler for image references passed by the facs data view
         <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
@@ -159,12 +147,12 @@
     <xsl:template name="generateImg">
         <xsl:choose>
             <xsl:when test="@ref">
-                <img src="@ref" alt="@ref"/>
-                </xsl:when>
-                <xsl:otherwise>
+                <img src="{@ref}" alt="{@ref}"/>
+            </xsl:when>
+            <xsl:otherwise>
                 <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
-                </xsl:otherwise>
-            </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
  <!-- better hide the fullview (the default view is too much)
