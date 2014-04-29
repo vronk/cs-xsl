@@ -125,17 +125,25 @@
                 <xsl:with-param name="scanClause" select="'fcs.toc'"/>
             </xsl:call-template>
         </xsl:variable>
-        <xsl:variable name="md-link-tei">
+        <xsl:variable name="md-link-cmdi">
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'get-metadata'"/>
                 <xsl:with-param name="format" select="'htmlpage'"/>
                 <xsl:with-param name="q" select="$resource-id"/>
             </xsl:call-template>
         </xsl:variable>
+        <xsl:variable name="md-link-tei">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="action" select="'get-metadata'"/>
+                <xsl:with-param name="format" select="'htmlpage'"/>
+                <xsl:with-param name="md-format" select="'TEIHDR'"/>
+                <xsl:with-param name="q" select="$resource-id"/>
+            </xsl:call-template>
+        </xsl:variable>
         <div class="links">
-            <!--<a class="toc" href="{$toc-link}">ToC</a>-->
-<!--            <a class="tei" href="{$md-link-tei}">TEI</a>-->
-            <a class="tei" href="{$md-link-tei}/CMDI">CMD</a>
+            <a class="toc" href="{$toc-link}">ToC</a>
+            <a class="tei" href="{$md-link-tei}">TEI</a>
+            <a class="tei" href="{$md-link-cmdi}">CMD</a>
 <!--            <a class="tei" href="TODO">Search</a>-->
 <!--            <a class="tei" href="./fcs">FCS</a>-->
         </div>
