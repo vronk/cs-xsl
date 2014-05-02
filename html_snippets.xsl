@@ -154,12 +154,15 @@
                 <!--<form id="searchretrieve" action="{$base_url}" method="get">-->
                 <form id="searchretrieve" action="" method="get">
                     <input type="hidden" name="x-format" value="{$format}"/>
+                    <input type="hidden" name="operation" value="{$operation}"/>
+                    <input type="hidden" name="version" value="1.2"/> 
+                    <input type="hidden" name="x-dataview" value="{//fcs:x-dataview}"/>
                     <!--<table class="cmds-ui-elem-stretch">
                         <tr>
                             <td colspan="2">
                     -->
                     <label>Context</label>
-                    <!--<xsl:call-template name="contexts-select"/>-->
+                    <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
                     <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active"/>

@@ -149,8 +149,8 @@
             </xsl:attribute> 
             <!--<xsl:value-of select="$title"/>-->
             <form>
-                <input type="text" name="index" value="{$index}"/>
-                <input type="text" name="scanClause" value="{$filter}"/>
+                <input type="hidden" name="version" value="1.2"/>
+                <input type="text" name="scanClause" value="{$index}={$filter}"/>
                 <input type="hidden" name="operation" value="scan"/>
                 <input type="hidden" name="x-format" value="{$format}"/>
                 <input type="hidden" name="x-context" value="{$x-context}"/>

@@ -201,8 +201,7 @@
 <!--            DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
         DEBUG: base_url:<xsl:value-of select="$base_url" />
         DEBUG: contexts:<xsl:copy-of select="$contexts" /> -->
-        <input name="x-context" type="text"/>
-    <!--    <select name="x-context">
+        <select name="x-context">
             <xsl:if test="$contexts">
                 <xsl:for-each select="(exsl:node-set($contexts))//sru:terms/sru:term">
                     <xsl:variable name="ancestors-prefix">
@@ -218,7 +217,7 @@
                     </option>
                 </xsl:for-each>
             </xsl:if>
-        </select>-->
+        </select>
     </xsl:template>
     <xd:doc>
         <xd:desc>Shall be usable to form consistently all urls within xsl</xd:desc>

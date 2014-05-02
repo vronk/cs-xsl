@@ -131,7 +131,8 @@
         </xsl:variable>
         <div class="title">
             <xsl:choose>
-                <xsl:when test="$rec_uri">
+                <!--  <sru:recordIdentifier/> leads to an existing but empty string -->
+                <xsl:when test="$rec_uri != ''">
                     <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
                     <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
                     <a class="xsl-rec-uri value-caller" href="{$rec_uri}&amp;x-format={$format}">
