@@ -90,9 +90,9 @@
             nav links are created from specialized ResourceFragments[@type=prev|next].
                     Handling via fcs:DataView was based on erroneous data, that provided
                     the resourcefragments wrapped in fcs:DataView           -->
-        <div class="navigation">
+        <!--<div class="navigation">
             <xsl:apply-templates select=".//fcs:ResourceFragment[@type][not(fcs:DataView)]" mode="record-data"/>
-        </div>
+        </div>-->
         <xsl:apply-templates select=".//fcs:DataView" mode="record-data"/>
     </xsl:template>
     <xd:doc>
