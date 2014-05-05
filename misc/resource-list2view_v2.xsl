@@ -22,16 +22,18 @@
         <col>all</col>
     </xsl:variable>
     <xsl:template name="continue-root">
-        <xsl:for-each select="sru:searchRetrieveResponse">
-            <div>
-                <xsl:apply-templates select="sru:diagnostics"/>
+        <xsl:apply-templates/>
+    </xsl:template>
+    <xsl:template match="sru:searchRetrieveResponse">
+        <div>
+            <xsl:apply-templates select="sru:diagnostics"/>
             
                 <!--actually we want the header all of the time, no?
                     <xsl:if test="contains($format, 'htmlpage')">
                     <xsl:call-template name="header"/>
                     </xsl:if>-->
 <!--                <xsl:call-template name="header"/>-->
-                <xsl:apply-templates select="sru:records" mode="list"/>
+            <xsl:apply-templates select="sru:records" mode="list"/>
     <!-- switch mode depending on the $format-parameter -->        
                 <!--<xsl:choose>   
                     <xsl:when test="contains($format,'htmltable')">
@@ -46,8 +48,7 @@
                      <xsl:otherwise>mdset2view: unrecognized format: <xsl:value-of select="$format"/>
                     </xsl:otherwise>
                 </xsl:choose>-->
-            </div>
-        </xsl:for-each>
+        </div>
     </xsl:template>
     <xsl:template name="header">
         <div class="result-header" data-numberOfRecords="{$numberOfRecords}">
@@ -94,17 +95,21 @@
         </xsl:variable>-->
         <div class="record resource">
 <!--            <xsl:call-template name="getTitle"></xsl:call-template>           -->
-            <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
+            <xsl:apply-templates select=".//fcs:Resource" mode="record-data"/>
         </div>
     </xsl:template>
-    <xsl:template match="teiHeader" mode="record-data">
+    <xsl:template match="fcs:Resource" mode="record-data">
         <div class="header">
             <h4>
-                <xsl:value-of select=".//sourceDesc/bibl[@type='short']"/>
+                <!--<xsl:value-of select=".//sourceDesc/bibl[@type='short']"/>-->
+                <xsl:call-template name="getTitle"/>
             </h4>
             <xsl:call-template name="links"/>
         </div>
-        <xsl:apply-templates select="ancestor::fcs:Resource//fcs:DataView[@type='image']" mode="record-data"/>
+        <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
+        <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data"/>
+    </xsl:template>
+    <xsl:template match="teiHeader" mode="record-data">
         <p>
             <xsl:apply-templates select=".//sourceDesc/bibl[@type='transcript']" mode="record-data"/>
         </p>
@@ -141,6 +146,7 @@
             </xsl:call-template>
         </xsl:variable>
         <div class="links">
+            <a class="link-info" href="#">Info</a>
             <a class="toc" href="{$toc-link}">ToC</a>
             <a class="tei" href="{$md-link-tei}">TEI</a>
             <a class="tei" href="{$md-link-cmdi}">CMD</a>
@@ -151,17 +157,12 @@
         <div class="div-after"/>
     </xsl:template>
     <xsl:template match="cmd:CMD" mode="record-data">
-        <div class="header">
-            <h4>
-                <xsl:value-of select=".//cmd:ResourceTitle"/>
-            </h4>
-            <xsl:call-template name="links"/>
-        </div>
-<!--        <xsl:apply-templates select="ancestor::fcs:Resource//fcs:DataView[@type='image']" mode="record-data"/>-->
-        <!--<p>
-            <xsl:apply-templates select=".//cmd:Description" mode="record-data"/>
-        </p>-->
+        <p>
+            <xsl:apply-templates select=".//cmd:sourceDesc/cmd:bibl" mode="record-data"/>
+        </p>
         <!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
+        <xsl:apply-templates select=".//cmd:sourceDesc//cmd:msDesc" mode="record-data"/>
+        s
 <!--        <xsl:apply-templates select=".//cmd:TotalSize" mode="record-data"/>-->
         <div class="div-after"/>
     </xsl:template>
