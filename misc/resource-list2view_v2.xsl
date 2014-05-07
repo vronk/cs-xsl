@@ -106,8 +106,8 @@
             </h4>
             <xsl:call-template name="links"/>
         </div>
-        <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
         <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data"/>
+        <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
     </xsl:template>
     <xsl:template match="teiHeader" mode="record-data">
         <p>
@@ -115,7 +115,6 @@
         </p>
 <!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
         <xsl:apply-templates select=".//sourceDesc//msDesc" mode="record-data"/>
-        <div class="div-after"/>
     </xsl:template>
     <xsl:template match="gap" mode="record-data"> [...] </xsl:template>
     
