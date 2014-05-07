@@ -45,9 +45,9 @@
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
             <div>
-                <xsl:if test="contains($format, 'page')">
-                    <xsl:call-template name="header"/>
-                </xsl:if>
+<!--                <xsl:if test="contains($format, 'page')">-->
+                <xsl:call-template name="header"/>
+<!--                </xsl:if>-->
                 <!-- switch mode depending on the $format-parameter -->
                 <xsl:choose>
                     <xsl:when test="contains($format,'table')">
@@ -72,33 +72,35 @@
         <div class="result-header" data-numberOfRecords="{$numberOfRecords}">
             <xsl:if test="contains($format, 'page')">
                 <xsl:call-template name="query-input"/>
-                <span class="label">showing </span>
-                <span class="value hilight">
-                    <xsl:value-of select="sru:extraResponseData/fcs:returnedRecords"/>
-                </span>
-                <span class="label"> out of </span>
-                <span class="value hilight">
-                    <xsl:value-of select="$numberOfRecords"/>
-                </span>
-                <span class="label"> entries (with </span>
-                <span class="value hilight">
-                    <xsl:value-of select="$numberOfMatches"/>
-                </span>
-                <span class="label"> hits)</span>
-                <div class="note">
-                    <xsl:for-each select="(sru:echoedSearchRetrieveRequest/*|sru:extraResponseData/*)">
-                        <span class="label">
-                            <xsl:value-of select="name()"/>: </span>
-                        <span class="value">
-                            <xsl:value-of select="."/>
-                        </span>;
+            </xsl:if>
+            <xsl:apply-templates select="sru:facetedResults"/>
+            <span class="label">showing </span>
+            <span class="value hilight">
+                <xsl:value-of select="sru:extraResponseData/fcs:returnedRecords"/>
+            </span>
+            <span class="label"> out of </span>
+            <span class="value hilight">
+                <xsl:value-of select="$numberOfRecords"/>
+            </span>
+            <span class="label"> entries (with </span>
+            <span class="value hilight">
+                <xsl:value-of select="$numberOfMatches"/>
+            </span>
+            <span class="label"> hits)</span>
+            <div class="note">
+                <xsl:for-each select="(sru:echoedSearchRetrieveRequest/*|sru:extraResponseData/*)">
+                    <span class="label">
+                        <xsl:value-of select="name()"/>: </span>
+                    <span class="value">
+                        <xsl:value-of select="."/>
+                    </span>;
                     </xsl:for-each>
                     <!--<span class="label">duration: </span>
 <span class="value">
 <xsl:value-of select="sru:extraResponseData/fcs:duration"/>
 </span>;-->
-                </div>
-            </xsl:if>
+            </div>
+            <xsl:call-template name="prev-next"/>
         </div>
     </xsl:template>
     <xd:doc>
@@ -169,7 +171,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <tr>
+        <tr class="record-top">
             <td rowspan="2" valign="top">
                 <xsl:choose>
                     <xsl:when test="$rec_uri">
@@ -229,5 +231,42 @@ TODO: handle context
     </xd:doc>
     <xsl:template match="diag:diagnostic">
         <xsl:value-of select="diag:message"/> (<xsl:value-of select="diag:uri"/>)
+    </xsl:template>
+    <xsl:template match="sru:facetedResults">
+        <div class="facets">
+            <xsl:apply-templates/>
+        </div>
+    </xsl:template>
+    <xsl:template match="sru:facet">
+        <xsl:variable name="orig-request">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="action" select="'searchRetrieve'"/>
+                <xsl:with-param name="x-context" select="''"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <div>
+            <h4>
+                <xsl:value-of select="sru:facetDisplayLabel"/>
+            </h4>
+            <a href="{$orig-request}">all</a>
+            <xsl:apply-templates select="sru:terms"/>
+        </div>
+    </xsl:template>
+    <xsl:template match="sru:facet/sru:terms">
+        <table>
+            <xsl:apply-templates/>
+        </table>
+    </xsl:template>
+    <xsl:template match="sru:facet/sru:terms/sru:term">
+        <tr>
+            <td>
+                <xsl:value-of select="sru:count"/>
+            </td>
+            <td>
+                <a href="{sru:requestUrl}">
+                    <xsl:value-of select="sru:actualTerm"/>
+                </a>
+            </td>
+        </tr>
     </xsl:template>
 </xsl:stylesheet>
