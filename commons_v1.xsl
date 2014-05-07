@@ -240,9 +240,7 @@
                 <xsl:when test="$action='explain'">
                     <xsl:value-of select="concat('&amp;x-context=',$q)"/>
                 </xsl:when>
-                <!--<xsl:when test="$x-context != '' ">
-                    <xsl:value-of select="concat('&x-context=',$x-context)"/>
-                </xsl:when>-->
+                <xsl:when test="$x-context = '' "/>
                 <xsl:otherwise>
                     <xsl:value-of select="concat('&amp;x-context=',$x-context)"/>
                 </xsl:otherwise>
