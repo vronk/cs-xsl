@@ -207,6 +207,19 @@
     </xd:doc>
     <xsl:param name="x-context" select="/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context"/>
     <xd:doc>
+        <xd:desc>The x-dataiew the client specified
+            <xd:p>
+                Defaults to a comma separated list of all dataviews the returned xml contains.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="x-dataview">
+        <xsl:call-template name="string-join">
+            <xsl:with-param name="nodes-to-join" select="//fcs:DataView[not(ancestor::fcs:DataView)]/@type"/>
+            <xsl:with-param name="join-with" select="','"/>
+        </xsl:call-template>
+    </xsl:param>
+    <xd:doc>
         <xd:desc>The start record the client requested or the one the upstream endpoint chose
             <xd:p>
                 Defaults to /sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/sru:startRecord

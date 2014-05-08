@@ -235,6 +235,7 @@
     <xsl:template name="formURL">
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
+        <xsl:param name="md-format" select="'CMDI'"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
@@ -255,7 +256,7 @@
         <xsl:variable name="param_x-context">
 <!--            if action=explain, handle-q param as x-context-->
             <xsl:choose>
-                <xsl:when test="$action='explain'">
+                <xsl:when test="$action='explain' and $q != ''">
                             <xsl:value-of select="concat('&amp;x-context=',$q)"/>
                         </xsl:when>
                 <!--<xsl:when test="$x-context != '' ">
@@ -296,7 +297,7 @@
                 <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
             </xsl:when>
             <xsl:when test="$action='get-metadata'">
-                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata', translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'))"/>
             </xsl:when>
             <xsl:when test="$action='explain'">
                 <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
@@ -554,4 +555,46 @@
     <xsl:template name="br">
         <xsl:text disable-output-escaping="yes">&lt;br/></xsl:text>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>string-join replacement</xd:desc>
+    </xd:doc>
+    <xsl:template name="string-join">
+        <xsl:param name="nodes-to-join"/>
+        <xsl:param name="join-with" select="','"/>
+        <xsl:choose>
+            <xsl:when test="not($nodes-to-join) or count($nodes-to-join) = 0">
+                <xsl:value-of select="''"/>
+            </xsl:when>
+            <xsl:when test="count($nodes-to-join) = 1">
+                <xsl:value-of select="$nodes-to-join"/>
+            </xsl:when>
+            <xsl:when test="count($nodes-to-join) = 2">
+                <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2])"/>
+            </xsl:when>            
+            <xsl:when test="count($nodes-to-join) = 3">
+                <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2], $join-with, $nodes-to-join[3])"/>
+            </xsl:when>            
+            <xsl:when test="count($nodes-to-join) = 4">
+                <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2], $join-with, $nodes-to-join[3], $join-with, $nodes-to-join[4])"/>
+            </xsl:when>
+            <xsl:when test="count($nodes-to-join) = 5">
+                <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2], $join-with, $nodes-to-join[3], $join-with, $nodes-to-join[4], $join-with, $nodes-to-join[5])"/>
+            </xsl:when>
+            <xsl:when test="count($nodes-to-join) = 6">
+                <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2], $join-with, $nodes-to-join[3], $join-with, $nodes-to-join[4], $join-with, $nodes-to-join[5], $join-with, $nodes-to-join[6])"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="rest">
+                    <xsl:call-template name="string-join">
+                        <xsl:with-param name="nodes-to-join" select="$nodes-to-join[position() >= 8]"/>
+                        <xsl:with-param name="join-with" select="$join-with"/>
+                    </xsl:call-template>
+                </xsl:variable>
+                <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2], $join-with, $nodes-to-join[3], $join-with, $nodes-to-join[4], $join-with, $nodes-to-join[5], $join-with, $nodes-to-join[6], $join-with, $rest)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    
 </xsl:stylesheet>

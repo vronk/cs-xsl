@@ -95,11 +95,13 @@
             <xsl:variable name="link_xml">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="format" select="'xml'"/>
+                    <xsl:with-param name="dataview" select="$x-dataview"/>
                 </xsl:call-template>
             </xsl:variable>
             <xsl:variable name="link_tei">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="format" select="'xmltei'"/>
+                    <xsl:with-param name="dataview" select="$x-dataview"/>
                 </xsl:call-template>               
             </xsl:variable>
             <a href="{$link_xml}">fcs/xml</a>

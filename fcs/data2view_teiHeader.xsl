@@ -19,7 +19,7 @@ For legacy reasons TEI-elements both with and without namespace (just local name
     </xsl:template>
     <xsl:template match="msIdentifier| tei:msIdentifier" mode="record-data">
         <div class="msIdentifier">
-            <xsl:value-of select="concat(repository, ' (Signatur ',  idno, ')')"/>
+            <xsl:value-of select="concat(repository[1], ' (Signatur ',  idno[1], ')')"/>
         </div>
     </xsl:template>
 </xsl:stylesheet>

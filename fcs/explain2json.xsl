@@ -9,7 +9,9 @@
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:exsl="http://exslt.org/common"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
     version="1.0">
+    
     <xd:doc scope="stylesheet">
         <xd:desc> generate a json object of the explain
             <xd:p>Output</xd:p>
@@ -80,20 +82,25 @@
     <xsl:param name="sort">x</xsl:param>
     <!-- s=size|n=name|t=time|x=default -->
     <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
-    <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
     <xsl:param name="index" select="$scanClause"/>
     <xsl:template match="/">
         <xsl:variable name="countIndexes" select="count(//zr:indexInfo/zr:index)"/>
-        <xsl:text>{"explain":"explain",</xsl:text>
+        <xsl:text>{
+    "explain":"explain",
+</xsl:text>
 <!--        <xsl:value-of select="$x-context"/>-->
-        <xsl:text> "countIndexes":"</xsl:text>
+        <xsl:text>    "countIndexes":"</xsl:text>
         <xsl:value-of select="$countIndexes"/>
         <xsl:text>", </xsl:text><!--"countReturned":"</xsl:text>
         <xsl:value-of select="$countReturned"/>
         <xsl:text>", </xsl:text>-->
         <xsl:apply-templates select="//zr:indexInfo"/>
-        <xsl:text>}</xsl:text>
+        <xsl:if test="//zr:databaseInfo/zr:description[tei:teiHeader]">,</xsl:if>
+        <xsl:apply-templates select="//zr:databaseInfo/zr:description[tei:teiHeader]"/>
+        <xsl:text>
+}
+        </xsl:text>
     </xsl:template>
     
     <xd:doc>
@@ -111,26 +118,29 @@
     </xd:doc>    
     <xsl:template match="zr:indexInfo">
         <xsl:text>
-"context_sets": {
-</xsl:text>
+    "context_sets": {</xsl:text>
         <xsl:apply-templates select="zr:set"/>
-        <xsl:text>},</xsl:text>
         <xsl:text>
-"indexes": {
-</xsl:text>
+    },</xsl:text>
+        <xsl:text>
+    "indexes": {</xsl:text>
         <xsl:apply-templates select="zr:index"/>
-        <xsl:text>}</xsl:text>
+        <xsl:text>
+    }</xsl:text>
     </xsl:template>
     <xsl:template match="zr:set">
-        <xsl:text>"</xsl:text>
+        <xsl:text>
+        "</xsl:text>
         <xsl:value-of select="@name"/>
         <xsl:text>": "</xsl:text>
         <xsl:value-of select="zr:title"/>
         <xsl:text>"</xsl:text>
         <xsl:if test="not(position()=last())">, </xsl:if>
     </xsl:template>
+    
     <xsl:template match="zr:index">
-        <xsl:text>"</xsl:text>
+        <xsl:text>
+        "</xsl:text>
         <xsl:value-of select="zr:title"/>
         <xsl:text>": {"search": "</xsl:text>
         <xsl:value-of select="@search"/>
@@ -154,5 +164,43 @@
         <xsl:text>"}</xsl:text>
         <xsl:if test="not(position()=last())">, </xsl:if>
         <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
+    </xsl:template>
+    
+    <xsl:template match="zr:description">
+        <xsl:text>
+    "description": {</xsl:text>
+        <xsl:apply-templates select="//tei:titleStmt/tei:title"/>
+        <xsl:apply-templates select="//tei:encodingDesc"/>
+        <xsl:text>
+    }</xsl:text>
+    </xsl:template>
+    
+    <xsl:template match="tei:title">
+        <xsl:text>
+        "title": "</xsl:text><xsl:value-of select="text()"/>"<xsl:text>,</xsl:text>        
+    </xsl:template>
+    
+    <xsl:template match="tei:charDecl">
+        <xsl:text>
+        "encoding": {
+            "countNonASCIIChars": "</xsl:text><xsl:value-of select="count(tei:char)"/><xsl:text>",
+            "chars": {</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>
+            }
+        }</xsl:text>
+    </xsl:template>
+    
+    <xsl:template match="tei:char">
+        <xsl:text>
+                "</xsl:text><xsl:value-of select="@xml:id"/><xsl:text>": {</xsl:text>
+        <xsl:apply-templates select="tei:mapping"/>
+        <xsl:text>
+                }</xsl:text><xsl:if test="(position() + 1) &lt; last()">, </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="tei:mapping">
+        <xsl:text>
+                    "</xsl:text><xsl:value-of select="@type"/><xsl:text>": "</xsl:text><xsl:value-of select="text()"/><xsl:text>"</xsl:text><xsl:if test="position() &lt; last()">, </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

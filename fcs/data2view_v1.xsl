@@ -38,7 +38,6 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-    
     <xsl:template match="*" mode="record-data">
         <!--<xsl:variable name="overrides">
             <xsl:apply-imports/>
@@ -150,14 +149,13 @@
             </a>
         </div>
     </xsl:template>
-    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs')]" mode="record-data" priority="10">
+    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]" mode="record-data" priority="10">
         <div class="data-view {@type}">
             <xsl:call-template name="generateImg">
                 <xsl:with-param name="ref" select="@ref"/>
             </xsl:call-template>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Generic handler for image references passed by the facs data view
         <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
@@ -166,7 +164,7 @@
     <xsl:template name="generateImg">
         <xsl:choose>
             <xsl:when test="@ref">
-                <img src="@ref" alt="@ref"/>
+                <img src="{@ref}" alt="{@ref}"/>
             </xsl:when>
             <xsl:otherwise>
                 <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
