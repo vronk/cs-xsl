@@ -19,10 +19,10 @@
     <xsl:template match="cmd:CMD">
         <div class="projectDMD mdtype-cmd record">
             <div class="header">
-                <h4>
+                <h2>
                     <!--<xsl:value-of select=".//sourceDesc/bibl[@type='short']"/>-->
                     <xsl:call-template name="getTitle"/>
-                </h4>
+                </h2>
                 <div class="links">
                     <xsl:variable name="resource-id" select=".//cmd:ResourceProxy[1]/data(@id)"/>
                     <xsl:variable name="md-link-cmdi">
@@ -32,8 +32,15 @@
                             <xsl:with-param name="q" select="$resource-id"/>
                         </xsl:call-template>
                     </xsl:variable>
+                    <xsl:variable name="link-explain">
+                        <xsl:call-template name="formURL">
+                            <xsl:with-param name="action" select="'explain'"/>
+                            <xsl:with-param name="format" select="'htmllist'"/>
+                        </xsl:call-template>
+                    </xsl:variable>
                     <a class="link-info" href="#">Info</a>
                     <a class="link-cmdi" href="{$md-link-cmdi}">CMD</a>
+                    <a class="link-explain" href="{$link-explain}">Register</a>                    
 <!--                    <div class="div-after"/>-->
                 </div>
             </div>
