@@ -17,7 +17,22 @@
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xsl:variable name="title" select="concat('explain: ', (//databaseInfo/title[@lang=$lang]/text(), //databaseInfo/title/text(), $site_name)[1])"/>
     <xsl:template name="continue-root">
-        <xsl:apply-templates/>
+        <div class="explain">
+            <xsl:choose>
+                <xsl:when test="$format='htmllist'"> 
+                    <!-- only list the indexes to scan-->
+                    <!--DEBUG:
+                    base_url:<xsl:value-of select="$base_url"/>
+                    x-context:<xsl:value-of select="$x-context"/>-->
+                    <xsl:apply-templates select=".//indexInfo">
+                        <xsl:with-param name="only_scan" select="true()"/>
+                    </xsl:apply-templates>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
         <!--<div class="explain-view">
             <xsl:apply-templates select="." mode="format-xmlelem"/>
         </div>-->
@@ -34,21 +49,34 @@
         </div>
     </xsl:template>
     <xsl:template match="indexInfo">
-        <div>
-            <a href="{concat('?operation=searchRetrieve&amp;query=test&amp;x-context=', $x-context, '&amp;x-format=', $format )}">search</a>
-        </div>
+    <!--    <div>
+            <a href="{concat('?operation=searchRetrieve&query=test&x-context=', $x-context, '&x-format=', $format )}">search</a>
+        </div>-->
         <h3>Available indexes</h3>
         <ul class="indexInfo">
             <xsl:apply-templates select="index"/>
         </ul>
+        <div class="div-after"/>
     </xsl:template>
     <xsl:template match="index">
-        <xsl:variable name="scan-index" select="concat('?operation=scan&amp;scanClause=', map/name , '&amp;x-context=', $x-context, '&amp;x-format=', $format )"/>
-        <li>
-            <a href="{$scan-index}">
-                <xsl:value-of select="(title[@lang=$lang],title)[1]"/>
-            </a>
-        </li>
+        <xsl:param name="only_scan" select="true()"/>
+        <xsl:param name="format" select="if($format='htmllist') then 'html' else $format"/>
+        <xsl:variable name="scan-index" select="concat('fcs?operation=scan&amp;scanClause=', map/name , '&amp;x-context=', $x-context, '&amp;x-format=', $format )"/>
+        <xsl:choose>
+            <xsl:when test="@scan='true'">
+                <li>
+                    <a href="{$scan-index}">
+                        <xsl:value-of select="(title[@lang=$lang],title)[1]"/>
+                    </a>
+                </li>
+            </xsl:when>
+            <xsl:when test="$only_scan=true()"/>
+            <xsl:otherwise>
+                <li>
+                    <xsl:value-of select="(title[@lang=$lang],title)[1]"/>
+                </li>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <!--
     <xsl:template match="*[@lang]" >
