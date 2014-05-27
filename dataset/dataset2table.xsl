@@ -31,13 +31,14 @@
     </xsl:template>
     <xsl:template match="ds:dataset" mode="data2table">
         <xsl:param name="data" select="."/>
-        <xsl:param name="dataset-name" select="concat(utils:normalize(@name),position())"/>
+<!--        <xsl:param name="dataset-name" select="concat(utils:normalize(@name),position())"/>-->
+        <xsl:variable name="dataset-key" select="utils:dataset-key(.)"/>
         <xsl:choose>
             <xsl:when test="$mode='dataseries-table'">
                 <xsl:apply-templates select="$data" mode="dataseries-table"/>
             </xsl:when>
             <xsl:otherwise>
-                <div id="table-{$dataset-name}">
+                <div id="table-{$dataset-key}">
                     <h3 class="title">
                         <xsl:value-of select="$data/(@name,@label,@key)[1]"/>
                     </h3>
@@ -103,7 +104,7 @@
     </xsl:template>
     <xsl:template match="ds:dataseries" mode="table">
         <tr>
-            <td>
+            <td title="{@key}">
                 <xsl:value-of select="(@name,@label,@key)[not(.='')][1]"/>
                 <xsl:if test="@type='reldata'">
                     <br/>
