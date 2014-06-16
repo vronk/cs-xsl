@@ -146,48 +146,22 @@
         <p><xsl:apply-templates/></p>
     </xsl:template>
 
-    <xsl:strip-space elements="egXML:*"/>
-    
-    <xsl:template name="generateWhiteSpace">
-        <xsl:param name="c" select="0"/>
-        <xsl:choose>
-            <xsl:when test="$c &lt;= 1">
-                <xsl:value-of select="''"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:call-template name="generateWhiteSpace">
-                    <xsl:with-param name="c" select="$c - 1"/>
-                </xsl:call-template>
-                <xsl:value-of select="'    '"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    
     <xsl:template match="*" mode="egXML">
         <span>
-            <xsl:call-template name="generateWhiteSpace">
-                <xsl:with-param name="c" select="count(ancestor::*) - count(ancestor::egXML:egXML/ancestor::*)"/>
-            </xsl:call-template>
-<!--            <xsl:if test="preceding-sibling::node()[1]/self::*">
+            <xsl:if test="preceding-sibling::node()[1]/self::*">
                 <xsl:text>
  </xsl:text>
-            </xsl:if>-->
+            </xsl:if>
             <span class="spRed"><xsl:value-of select="concat('&lt;',local-name())"/></span>
             <xsl:apply-templates select="@*" mode="egXML"/>
             <xsl:choose>
                 <xsl:when test="node()">
-                    <span class="spRed"><xsl:text>&gt;
-</xsl:text></span>
+                    <span class="spRed"><xsl:text>&gt;</xsl:text></span>
                     <xsl:apply-templates mode="egXML"/>
-                    <xsl:call-template name="generateWhiteSpace">
-                        <xsl:with-param name="c" select="count(ancestor::*) - count(ancestor::egXML:egXML/ancestor::*)"/>
-                    </xsl:call-template>
-                    <span class="spRed"><xsl:text>&lt;/</xsl:text><xsl:value-of select="local-name()"/><xsl:text>&gt;
-</xsl:text></span>
+                    <span class="spRed"><xsl:text>&lt;/</xsl:text><xsl:value-of select="local-name()"/><xsl:text>&gt;</xsl:text></span>
                 </xsl:when>
                 <xsl:otherwise>
-                    <span class="spRed"><xsl:text>/&gt;
-</xsl:text></span>
+                    <span class="spRed"><xsl:text>/&gt;</xsl:text></span>
                 </xsl:otherwise>
             </xsl:choose>
         </span>
@@ -200,11 +174,8 @@
         </span>
     </xsl:template>
 
-    <xsl:template match="text()" mode="egXML">
-        <xsl:call-template name="generateWhiteSpace">
-            <xsl:with-param name="c" select="count(ancestor::*) - count(ancestor::egXML:egXML/ancestor::*) - 1"/>
-        </xsl:call-template><xsl:value-of select="normalize-space(.)"/><xsl:text>
-</xsl:text>
+    <xsl:template match="egXML:egXML">
+        <pre class="preBox"><xsl:apply-templates select="node()" mode="egXML"/></pre>
     </xsl:template>
 
     <xsl:template match="egXML:egXML">
