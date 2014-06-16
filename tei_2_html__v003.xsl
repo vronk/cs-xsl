@@ -7,21 +7,21 @@
             <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
                 <style type="text/css">
-                    h1{
+                    .vicav_tools_001 h1{
                         border:1px solid rgb(0, 0, 198);
                         background:rgb(147, 147, 147);
                         padding-left:5px;
                         padding-bottom:2px;
                         color:rgb(0, 0, 206);
                     }
-                    h2{
+                    .vicav_tools_001 h2{
                         border:1px solid rgb(0, 0, 206);
                         background:rgb(192, 192, 192);
                         padding-left:5px;
                         padding-bottom:2px;
                         color:rgb(0, 0, 206);
                     }
-                    h3{
+                    .vicav_tools_001 h3{
                         border:1px solid rgb(0, 84, 168);
                         background:rgb(218, 218, 218);
                         padding-left:5px;
@@ -29,33 +29,35 @@
                         margin-left:20px;
                         color:rgb(0, 0, 206);
                     }
-                    p{
+                    .vicav_tools_001 p{
                         margin-left:20px;
+                        padding-left: initial;
                     }
                     
-                    .tocEntry{
+                    .vicav_tools_001 .tocEntry{
                         margin: 0;
                     }
                     
-                    table{
+                    .vicav_tools_001 table{
+                        width: initial;
                         margin-left:20px;
                         border-collapse:collapse;
                     }
-                    td{
+                    .vicav_tools_001 td{
                         border:1px solid black;
                         background:rgb(245, 245, 245);
                         vertical-align:middle;
                         padding-left:3px;
                         padding-right:3px;
                     }
-                    td.tdLabel{
+                    .vicav_tools_001 td.tdLabel{
                         background:rgb(218, 218, 218);
                     }
                     
-                    .aGoTocontents{
+                    .vicav_tools_001 .aGoTocontents{
                         font-size:8pt;
                     }
-                    .aH2Contents{
+                    .vicav_tools_001 .aH2Contents{
                         text-decoration:none;
                         border:1px dotted black;
                         width:400px;
@@ -64,7 +66,7 @@
                         font-weight:bold;
                         padding-left:5px;
                     }
-                    .aH3Contents{
+                    .vicav_tools_001 .aH3Contents{
                         text-decoration:none;
                         border:1px dotted black;
                         width:380px;
@@ -72,33 +74,35 @@
                         display:block;
                         padding-left:5px;
                     }
-                    .preBox{
+                    .vicav_tools_001 .preBox{
                         border:1px solid black;
                         padding-left:5px;
                         background:rgb(221, 221, 221);
                         margin-left:20px;
+		          margin-right: initial;
 			   white-space: pre;
                     }
-                    .spAttrName{
+                    .vicav_tools_001 .spAttrName{
                         color:rgb(0, 102, 0);
                         font-weight:bold;
                     }
-                    .spEquals{
+                    .vicav_tools_001 .spEquals{
                         color:blue
                     }
-                    .spQuotes{
+                    .vicav_tools_001 .spQuotes{
                         color:rgb(79, 0, 39);
                     }
-                    .spValue{
+                    .vicav_tools_001 .spValue{
                         color:rgb(0, 0, 160);
                     }
-                    .spRed{
+                    .vicav_tools_001 .spRed{
                         color:red;
                     }</style>
             </head>
 
             <body>
                 <div style="display: none;" class="result-header" data-numberofrecords="1"></div>
+	         <div class="vicav_tools_001">
                 <h1>
                     <xsl:value-of select="//tei:div1/tei:head"/>
                 </h1>
@@ -138,6 +142,7 @@
                 </xsl:for-each>
                 <div class="dvContents" id="#contents"> </div>
                 <xsl:apply-templates select="//fcs:DataView[@type = 'full']/@* | //fcs:DataView[@type = 'full']/node()"/>
+                </div>
             </body>
         </html>
     </xsl:template>
