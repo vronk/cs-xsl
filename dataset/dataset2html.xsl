@@ -79,6 +79,9 @@
               });
            */ 
            
+           
+            $("table.show").tablesorter(); 
+            
             $(".detail-caller").live("click", function(event) {
                 //console.log(this);
                 event.preventDefault();
