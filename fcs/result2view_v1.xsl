@@ -263,7 +263,7 @@ TODO: handle context
                 <xsl:value-of select="sru:count"/>
             </td>
             <td>
-                <a href="{sru:requestUrl}">
+                <a href="{sru:requestUrl}&amp;x-format={$format}">
                     <xsl:value-of select="sru:actualTerm"/>
                 </a>
             </td>

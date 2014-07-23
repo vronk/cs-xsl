@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
     <xsl:import href="data2view_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
@@ -20,6 +20,7 @@
     </xd:doc>
     <xsl:template name="inline">
         <xsl:param name="additional-style"/>
+        <xsl:param name="descendants-to-ignore" as="xs:string*"/>
         <xsl:param name="insertTrailingBlank" as="xs:boolean?"/>
         <xsl:variable name="elem-link">
             <xsl:call-template name="elem-link"/>
@@ -46,10 +47,11 @@
             </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="class">
-            <xsl:for-each select="distinct-values((descendant-or-self::*/name(), data(descendant-or-self::*/@type),  data(descendant-or-self::*/@subtype)))">
-                <xsl:value-of select="."/>
+            <!--<xsl:for-each select="distinct-values((descendant-or-self::*/name(), data(descendant-or-self::*/@type),  data(descendant-or-self::*/@subtype)))">
+                <xsl:value-of select=".[. != $descendants-to-ignore]"/>
                 <xsl:text> </xsl:text>
-            </xsl:for-each>
+            </xsl:for-each>-->
+            <xsl:value-of select="string-join((local-name(.),@type,@subtype),' ')"/>
         </xsl:variable>
         <xsl:variable name="inline-elem">
             <xsl:choose>

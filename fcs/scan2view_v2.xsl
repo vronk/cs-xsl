@@ -162,10 +162,31 @@ sample data:
                     <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
                 </xsl:when>-->
                 <xsl:otherwise>
+                    <xsl:variable name="q">
+                        <xsl:choose>
+                            <xsl:when test="sru:extraTermData/cr:type">
+                                <xsl:value-of select="concat(sru:extraTermData/cr:type, '%3D%22', sru:value, '%22')"/>
+                            </xsl:when>
+                            <xsl:when test="ancestor::sru:term">
+                                <xsl:variable name="group-term" select="ancestor::sru:term[1]"/>
+                                <xsl:value-of select="concat($group-term/sru:extraTermData/cr:type, '%3D%22', $group-term/sru:value, '%22', ' and ', $index, '%3D%22', sru:value, '%22')"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="concat($index, '%3D%22', sru:value, '%22')"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <!--<xsl:value-of select="utils:formURL('searchRetrieve', $format, $q)"/>-->
+                    <xsl:call-template name="formURL">
+                        <xsl:with-param name="action" select="'searchRetrieve'"/>
+                        <xsl:with-param name="format" select="$format"/>
+                        <!--<xsl:with-param name="x-context" select="ancestor::sru:extraTermData[cr:type='resource']/replace(preceding-sibling::sru:value,'_toc$','')"/>-->
+                        <xsl:with-param name="q" select="$q"/>
+                    </xsl:call-template>
                     <!-- currently utils:formURL does not support a 4th argument, and even though the underlying template supports a number of further parameters, none is for dataview
                          This should rather be moved as default into the searchRetrieve response. 
                         -->
-                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, encode-for-uri(concat('=&#34;', sru:value, '&#34;'))))"/>
+<!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, encode-for-uri(concat('="', sru:value, '"'))))"/>-->
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -201,6 +222,7 @@ sample data:
                     <xsl:if test="number(sru:numberOfRecords) &gt; 1">
                         <span class="note"> |<xsl:value-of select="sru:numberOfRecords"/>|</span>
                     </xsl:if>
+                    <!--DEBUG:<xsl:value-of select="exists(sru:extraTermData/sru:terms/sru:term)" />-->
                     <xsl:if test="sru:extraTermData/sru:terms/sru:term">
                         <ul>
                             <xsl:if test="sru:extraTermData/cr:type">
