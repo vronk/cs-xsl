@@ -22,6 +22,25 @@
         </xsl:if>
         <xsl:copy-of select="if (doc-available(resolve-uri($contexts_url,$base_url))) then doc(resolve-uri($contexts_url,$base_url)) else ()"/>
     </xsl:template>
+    
+    <xsl:template name="html-with-data">
+        <xsl:param name="payload"><xsl:call-template name="continue-root"></xsl:call-template></xsl:param>
+        <html>
+            <head>
+                <xsl:call-template name="html-head"/>
+                <xsl:call-template name="callback-header"/>
+            </head>
+            <body>
+                <xsl:call-template name="page-header"/>
+                <h1>
+                    <xsl:value-of select="$title"/>
+                </h1>
+                <xsl:apply-templates select="diagnostics"/>
+                <xsl:sequence select="$payload" />
+            </body>
+        </html>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Convenience-wrapper to formURL-template
             shall be usable to form consistently all urls within xsl </xd:desc>
