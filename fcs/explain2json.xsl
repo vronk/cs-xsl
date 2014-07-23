@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:zr="http://explain.z3950.org/dtd/2.0/"
-    xmlns:utils="http://aac.ac.at/content_repository/utils"
-    xmlns:sru="http://www.loc.gov/zing/srw/"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    xmlns:exsl="http://exslt.org/common"
-    version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:zr="http://explain.z3950.org/dtd/2.0/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0">
     <xd:doc scope="stylesheet">
         <xd:desc> generate a json object of the explain
             <xd:p>Output</xd:p>
@@ -20,48 +10,48 @@
             </xd:pre>
             <xd:p>Sample Input</xd:p>
             <xd:pre>
-                &lt;explain xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/ file:/C:/Users/m/3lingua/corpus_shell/_repo2/corpus_shell/fcs/schemas/zeerex-2.0.xsd" authoritative="false" id="id1">
-                    &lt;serverInfo protocol="SRU" version="1.2" transport="http">
-                        &lt;host>TODO: config:param-value($config, "base-url")&lt;/host>
-                        &lt;port>80&lt;/port>
-                        &lt;database>cr&lt;/database>
-                    &lt;/serverInfo>
-                    &lt;databaseInfo>
-                        &lt;title lang="en" primary="true">ICLTT Content Repository&lt;/title>
-                        &lt;description lang="en" primary="true"/>
-                        &lt;author/>
-                        &lt;contact/>
-                    &lt;/databaseInfo>
-                    &lt;metaInfo>
-                        &lt;dateModified>TODO&lt;/dateModified>
-                    &lt;/metaInfo>
-                    &lt;indexInfo>
-                        &lt;set identifier="isocat.org/datcat" name="isocat">
-                            &lt;title>ISOcat data categories&lt;/title>
-                        &lt;/set>
-                        &lt;set identifier="clarin.eu/fcs" name="fcs">
-                            &lt;title>CLARIN - Federated Content Search&lt;/title>
-                        &lt;/set>
-                        &lt;!-- &lt;index search="true" scan="true" sort="false">
-                            &lt;title lang="en">Resource&lt;/title>
-                            &lt;map>
-                            &lt;name set="fcs">resource&lt;/name>
-                            &lt;/map>
-                            &lt;/index> -->
-                        &lt;index search="true" scan="true" sort="false">
-                            &lt;title lang="en">ana&lt;/title>
-                            &lt;map>
-                                &lt;name set="fcs">ana&lt;/name>
-                            &lt;/map>
-                        &lt;/index>
-                        &lt;index search="true" scan="true" sort="false">
-                            &lt;title lang="en">birth-date&lt;/title>
-                            &lt;map>
-                                &lt;name set="fcs">birth-date&lt;/name>
-                            &lt;/map>
-                        &lt;/index>
-                    &lt;/indexInfo>
-                &lt;/explain>
+                &lt;explain xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/ file:/C:/Users/m/3lingua/corpus_shell/_repo2/corpus_shell/fcs/schemas/zeerex-2.0.xsd" authoritative="false" id="id1"&gt;
+                    &lt;serverInfo protocol="SRU" version="1.2" transport="http"&gt;
+                        &lt;host&gt;TODO: config:param-value($config, "base-url")&lt;/host&gt;
+                        &lt;port&gt;80&lt;/port&gt;
+                        &lt;database&gt;cr&lt;/database&gt;
+                    &lt;/serverInfo&gt;
+                    &lt;databaseInfo&gt;
+                        &lt;title lang="en" primary="true"&gt;ICLTT Content Repository&lt;/title&gt;
+                        &lt;description lang="en" primary="true"/&gt;
+                        &lt;author/&gt;
+                        &lt;contact/&gt;
+                    &lt;/databaseInfo&gt;
+                    &lt;metaInfo&gt;
+                        &lt;dateModified&gt;TODO&lt;/dateModified&gt;
+                    &lt;/metaInfo&gt;
+                    &lt;indexInfo&gt;
+                        &lt;set identifier="isocat.org/datcat" name="isocat"&gt;
+                            &lt;title&gt;ISOcat data categories&lt;/title&gt;
+                        &lt;/set&gt;
+                        &lt;set identifier="clarin.eu/fcs" name="fcs"&gt;
+                            &lt;title&gt;CLARIN - Federated Content Search&lt;/title&gt;
+                        &lt;/set&gt;
+                        &lt;!-- &lt;index search="true" scan="true" sort="false"&gt;
+                            &lt;title lang="en"&gt;Resource&lt;/title&gt;
+                            &lt;map&gt;
+                            &lt;name set="fcs"&gt;resource&lt;/name&gt;
+                            &lt;/map&gt;
+                            &lt;/index&gt; --&gt;
+                        &lt;index search="true" scan="true" sort="false"&gt;
+                            &lt;title lang="en"&gt;ana&lt;/title&gt;
+                            &lt;map&gt;
+                                &lt;name set="fcs"&gt;ana&lt;/name&gt;
+                            &lt;/map&gt;
+                        &lt;/index&gt;
+                        &lt;index search="true" scan="true" sort="false"&gt;
+                            &lt;title lang="en"&gt;birth-date&lt;/title&gt;
+                            &lt;map&gt;
+                                &lt;name set="fcs"&gt;birth-date&lt;/name&gt;
+                            &lt;/map&gt;
+                        &lt;/index&gt;
+                    &lt;/indexInfo&gt;
+                &lt;/explain&gt;
             </xd:pre>
         </xd:desc>
     </xd:doc>
@@ -95,20 +85,19 @@
         <xsl:apply-templates select="//zr:indexInfo"/>
         <xsl:text>}</xsl:text>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc> Generate JSON for one indexInfo Item
             <xd:p>sample data:</xd:p>
             <xd:pre>
-            &lt;sru:term>
-                &lt;sru:value>cartesian&lt;/sru:value>
-                &lt;sru:numberOfRecords>35645&lt;/sru:numberOfRecords>
-                &lt;sru:displayTerm>Carthesian&lt;/sru:displayTerm>
-                &lt;sru:extraTermData>&lt;/sru:extraTermData>
-            &lt;/sru:term>
+            &lt;sru:term&gt;
+                &lt;sru:value&gt;cartesian&lt;/sru:value&gt;
+                &lt;sru:numberOfRecords&gt;35645&lt;/sru:numberOfRecords&gt;
+                &lt;sru:displayTerm&gt;Carthesian&lt;/sru:displayTerm&gt;
+                &lt;sru:extraTermData&gt;&lt;/sru:extraTermData&gt;
+            &lt;/sru:term&gt;
             </xd:pre>
         </xd:desc>
-    </xd:doc>    
+    </xd:doc>
     <xsl:template match="zr:indexInfo">
         <xsl:text>
 "context_sets": {
