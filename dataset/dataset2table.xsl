@@ -32,23 +32,43 @@
     <xsl:template match="ds:dataset" mode="data2table">
         <xsl:param name="data" select="."/>
 <!--        <xsl:param name="dataset-name" select="concat(utils:normalize(@name),position())"/>-->
+        <xsl:variable name="data-with-label">
+            <xsl:choose>
+                <!-- if labels already present, leave as is -->
+                <xsl:when test="ds:labels/ds:label"><xsl:sequence select="$data"></xsl:sequence></xsl:when>
+                <xsl:otherwise>
+                    <!-- if not present generate labels from the data (distinct keys) -->
+                    <xsl:variable name="keys" select="distinct-values(ds:dataseries/ds:value/@key)"></xsl:variable>
+                    <ds:dataset>
+                        <xsl:copy-of select="$data/@*"></xsl:copy-of>
+                        <ds:labels>
+                            <xsl:for-each select="$keys">
+                                <ds:label key="{.}"></ds:label>
+                            </xsl:for-each>
+                        </ds:labels>
+                        <xsl:copy-of select="$data/ds:dataseries"></xsl:copy-of>
+                    </ds:dataset>
+                    
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <xsl:variable name="dataset-key" select="utils:dataset-key(.)"/>
         <xsl:choose>
             <xsl:when test="$mode='dataseries-table'">
-                <xsl:apply-templates select="$data" mode="dataseries-table"/>
+                <xsl:apply-templates select="$data-with-label" mode="dataseries-table"/>
             </xsl:when>
             <xsl:otherwise>
                 <div id="table-{$dataset-key}">
                     <h3 class="title">
-                        <xsl:value-of select="$data/(@name,@label,@key)[1]"/>
+                        <xsl:value-of select="$data-with-label/ds:dataset/(@name,@label,@key)[1]"/>
                     </h3>
                     <table class="show">
 <!--                      XX<xsl:value-of select="count($data/ds:labels/ds:label)" />-<xsl:value-of select="count($data/ds:dataseries)" />-<xsl:value-of select="count($data/ds:labels/ds:label) > count($data/ds:dataseries)" />-->
                         <xsl:choose>
-                            <xsl:when test="count($data/ds:labels/ds:label) &gt; count($data/ds:dataseries)">
+                            <xsl:when test="count($data-with-label/ds:dataset/ds:labels/ds:label) &gt; count($data-with-label/ds:dataset/ds:dataseries)">
                                 <xsl:variable name="inverted-dataset">
                 <!--<xsl:apply-templates select="exsl:node-set($data)" mode="invert"/>-->
-                                    <xsl:apply-templates select="$data" mode="invert"/>
+                                    <xsl:apply-templates select="$data-with-label" mode="invert"/>
                                 </xsl:variable>
                                 <xsl:apply-templates select="$inverted-dataset" mode="table"/>
               <!--<xsl:copy-of select="."></xsl:copy-of>
@@ -56,7 +76,7 @@
                             </xsl:when>
                             <xsl:otherwise>
               <!--                            <xsl:apply-templates select="exsl:node-set($data)" mode="table"/>-->
-                                <xsl:apply-templates select="$data" mode="table"/>
+                                <xsl:apply-templates select="$data-with-label" mode="table"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </table>
