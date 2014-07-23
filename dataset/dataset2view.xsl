@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common"
-    xmlns:utils="http://aac.ac.at/corpus_shell/utils"
-    xmlns:ds="http://aac.ac.at/corpus_shell/dataset"
-    exclude-result-prefixes="exsl utils ds"
-    xmlns="http://www.w3.org/1999/xhtml" version="1.0" extension-element-prefixes="exsl"
-      >
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/corpus_shell/utils" xmlns:ds="http://aac.ac.at/corpus_shell/dataset" xmlns:exsl="http://exslt.org/common" exclude-result-prefixes="exsl utils ds" version="1.0" extension-element-prefixes="exsl">
     <xsl:import href="solr-utils.xsl"/>
     <xsl:import href="dataset2table.xsl"/>
     <xsl:import href="dataset2google-json.xsl"/>
@@ -22,26 +17,24 @@
             <xd:p>expects data as dataset (dataset.xsd)</xd:p>
             <xd:p>it is displayed as separate table and chart.</xd:p>
             <xd:p>Example:                
-                <xd:pre><![CDATA[
- <dataseries name="haus">
-   <value label="all" 
+                <xd:pre>
+ &lt;dataseries name="haus"&gt;
+   &lt;value label="all" 
           formatted="1.153.332" 
           abs="1153332" 
           rel="0.04224215720642085"
-          rel_formatted="42.242,16">
+          rel_formatted="42.242,16"&gt;
       42242.16
-   </value>
-  </dataseries>]]></xd:pre>
+   &lt;/value&gt;
+  &lt;/dataseries&gt;</xd:pre>
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:output method="html" indent="yes" omit-xml-declaration="no" media-type="text/html; charset=UTF-8" encoding="utf-8"
-      
-    />
+    <xsl:output method="html" indent="yes" omit-xml-declaration="no" media-type="text/html; charset=UTF-8" encoding="utf-8"/>
     <xsl:template name="continue-root">
         <div>
             <!--<xsl:call-template name="callback-header-dataset"></xsl:call-template>-->
-            <xsl:apply-templates  select="descendant-or-self::ds:dataset">
+            <xsl:apply-templates select="descendant-or-self::ds:dataset">
 <!--            datasets with less categories come first-->
                 <xsl:sort select="count(ds:labels/ds:label)" data-type="number" order="ascending"/>
             </xsl:apply-templates>
@@ -74,7 +67,6 @@
 <!--            <xsl:apply-templates  mode="query-input"/>-->
 <!--            <xsl:copy-of select="$corrected-dataset"/>-->
         <xsl:variable name="dataset-name" select="concat(utils:normalize(@name),position())"/>
-        
         <xsl:if test="contains($parts,'chart')">
             <div class="infovis-wrapper">
                 <div id="infovis-navi-{$dataset-name}">
@@ -82,18 +74,18 @@
                     
 <!--                    <a onclick="toggleStacked();" >stacked</a>-->
 <!--                    <a onclick="toggleLayout('{$dataset-name}');">layout</a>-->
-                    <select onchange="changeLayout('{$dataset-name}',$(this).val())"  name="select-layout-{$dataset-name}" class="select-layout" >
-                                <option value="pie">pie</option>
-                                <option value="column">column</option>
-                                <option value="bar">bar</option>
-                                <option value="line">line</option>
-                                <option value="area">area</option>
-                        </select>
+                    <select onchange="changeLayout('{$dataset-name}',$(this).val())" name="select-layout-{$dataset-name}" class="select-layout">
+                        <option value="pie">pie</option>
+                        <option value="column">column</option>
+                        <option value="bar">bar</option>
+                        <option value="line">line</option>
+                        <option value="area">area</option>
+                    </select>
                 </div>
                 <div class="infovis" id="chart-{$dataset-name}"/>
             </div>
             <xsl:call-template name="chart-google">
-                <xsl:with-param name="data" select="$corrected-dataset"/>                
+                <xsl:with-param name="data" select="$corrected-dataset"/>
                 <xsl:with-param name="dataset-name" select="$dataset-name"/>
             </xsl:call-template>
         </xsl:if>
@@ -102,7 +94,7 @@
                     <input type="text" id="filter" />
                 </form>-->
             <xsl:apply-templates select="$corrected-dataset" mode="data2table">
-                    <xsl:with-param name="dataset-name" select="$dataset-name"/>
+                <xsl:with-param name="dataset-name" select="$dataset-name"/>
                     <!--                    <xsl:with-param name="data" select="$chart-data"></xsl:with-param>-->
             </xsl:apply-templates>
         </xsl:if>
@@ -124,7 +116,7 @@
                     <xsl:attribute name="name" select="$qkey"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:attribute name="name" select="translate(@name,'&#34;','')"/>
+                    <xsl:attribute name="name" select="translate(@name,'"','')"/>
                 </xsl:otherwise>
             </xsl:choose>
             <xsl:copy-of select="@*[not(name()='name')]"/>-->

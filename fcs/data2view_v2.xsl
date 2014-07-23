@@ -1,4 +1,5 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
     <xsl:import href="data2view_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
@@ -56,7 +57,11 @@
                     <a href="{$elem-link}">
                         <span class="{$class}">
                             <xsl:if test="$additional-style">
-                                <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="$additional-style"/></xsl:call-template></xsl:attribute>
+                                <xsl:attribute name="style">
+                                    <xsl:call-template name="rend-color-as-html-style">
+                                        <xsl:with-param name="rend-text" select="$additional-style"/>
+                                    </xsl:call-template>
+                                </xsl:attribute>
                             </xsl:if>
                             <xsl:sequence select="$inline-content"/>
                         </span>
@@ -64,9 +69,15 @@
                 </xsl:when>
                 <xsl:otherwise>
                     <span class="{$class}">
-                        <xsl:attribute name="class"><xsl:value-of select="$class"/></xsl:attribute>
+                        <xsl:attribute name="class">
+                            <xsl:value-of select="$class"/>
+                        </xsl:attribute>
                         <xsl:if test="$additional-style">
-                            <xsl:attribute name="style"><xsl:call-template name="rend-color-as-html-style"><xsl:with-param name="rend-text" select="$additional-style"/></xsl:call-template></xsl:attribute>
+                            <xsl:attribute name="style">
+                                <xsl:call-template name="rend-color-as-html-style">
+                                    <xsl:with-param name="rend-text" select="$additional-style"/>
+                                </xsl:call-template>
+                            </xsl:attribute>
                         </xsl:if>
                         <xsl:sequence select="$inline-content"/>
                     </span>
