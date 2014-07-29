@@ -929,7 +929,7 @@
         <span class="tei-form-{@type}">
             <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/><xsl:text> </xsl:text>
             <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
-            <xsl:apply-templates select="*[not(name() = 'orth')]" mode="record-data"/>
+            <xsl:apply-templates select="*[not(name() = 'orth' or name() = 'bibl')]" mode="record-data"/>
         </span>        
     </xsl:template>
     
@@ -1024,6 +1024,10 @@
     <xsl:template match="tei:usg" mode="record-data">
         <span class="tei-usg tei-type-{@type}"><xsl:apply-templates mode="record-data"/></span>
     </xsl:template>
+
+    <xsl:template match="tei:bibl" mode="record-data">
+        <span class="tei-bibl"><xsl:apply-templates mode="record-data"/></span><xsl:text> </xsl:text>
+    </xsl:template>
     
     <xd:doc>
         <xd:desc>tei:entry elements are the base elements for any lexicographical definitions
@@ -1037,6 +1041,11 @@
                 <xsl:apply-templates select="../tei:form[@type='lemma']" mode="record-data"/>
                 <xsl:apply-templates select="./tei:gramGrp" mode="record-data"/>
                 <xsl:apply-templates select="../tei:gramGrp" mode="record-data"/>
+                <span class="tei-bibls">
+                    <xsl:for-each select="../tei:form[@type='lemma']/tei:bibl">
+                        <xsl:apply-templates select="." mode="record-data"/>
+                    </xsl:for-each>
+                </span>
                 <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
                 <!-- Assumes tei:gramGrp is not rendered, see above -->
                 <xsl:apply-templates select="." mode="record-data"/>
