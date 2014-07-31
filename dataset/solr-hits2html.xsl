@@ -68,13 +68,11 @@
                     <!--if (exists(.)) then saxon:parse(concat('<span>',  replace(replace(replace(.,'&','&amp;'),
                                 $apos,'&apos;'), '<<', '&lt;&lt;') , '</span>')) else ''"/>-->
                     <!--<xsl:variable name="parsed_match" select="
-                        if (exists(.)) then concat('&lt;span&gt;',  replace(replace(replace(replace(.,'&amp;','&amp;amp;'),                                 
-                        $apos,'&amp;apos;'), '&lt;&lt;', '&amp;lt;&amp;lt;'), '&lt;-', '&amp;lt;-') , '&lt;/span&gt;') else ''"/>-->
-                    <xsl:variable name="parsed_match" select="
-                        replace(replace(replace(replace(., '&amp;', '&amp;amp;'),'&lt;', '&amp;lt;'), '&amp;lt;em>', '&lt;em>'),'&amp;lt;/em>', '&lt;/em>')" />
-                        <!--if (exists(.)) then concat('&lt;span&gt;',  replace(replace(replace(replace(.,'&amp;','&amp;amp;'),                                 
-                        $apos,'&amp;apos;'), '&lt;&lt;', '&amp;lt;&amp;lt;'), '&lt;-', '&amp;lt;-') , '&lt;/span&gt;') else ''"/>-->
-                    
+                        if (exists(.)) then concat('<span>',  replace(replace(replace(replace(.,'&','&amp;'),                                 
+                        $apos,'&apos;'), '<<', '&lt;&lt;'), '<-', '&lt;-') , '</span>') else ''"/>-->
+                    <xsl:variable name="parsed_match" select="                         replace(replace(replace(replace(., '&amp;', '&amp;amp;'),'&lt;', '&amp;lt;'), '&amp;lt;em&gt;', '&lt;em&gt;'),'&amp;lt;/em&gt;', '&lt;/em&gt;')"/>
+                        <!--if (exists(.)) then concat('<span>',  replace(replace(replace(replace(.,'&','&amp;'),                                 
+                        $apos,'&apos;'), '<<', '&lt;&lt;'), '<-', '&lt;-') , '</span>') else ''"/>-->
                     <div class="kwic">
 <!--                        <xsl:copy-of select="$parsed_match" />-->
                         <xsl:value-of select="$parsed_match" disable-output-escaping="yes"/>
