@@ -515,7 +515,7 @@ sample
         <style type="text/css">
 		.cmd_add {display:none}
 	</style>
-        <script type="text/javascript">
+        <script type="text/javascript"><![CDATA[
 
     $(function(){
 			$(".terms-tree").treeTable({initialState:"collapsed"});
@@ -526,7 +526,7 @@ sample
 			
 			$(".terms-tree .cmd_detail").click(function(event) {					
 			        $(".terms-tree").expandAll();
-			/* 	if(this.id != $(ui.draggable.parents("tr")[0]).id &amp;&amp; !$(this).is(".expanded")) {
+			/* 	if(this.id != $(ui.draggable.parents("tr")[0]).id && !$(this).is(".expanded")) {
         $(this).expand();
       }  */
 				});
@@ -553,6 +553,6 @@ $.fn.expandAll = function() {
 
 	
 
-		</script>
+		]]></script>
     </xsl:template>
 </xsl:stylesheet>

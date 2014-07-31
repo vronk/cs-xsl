@@ -215,6 +215,14 @@
     </xd:doc>
     <xsl:param name="maximumRecords" select="/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/sru:maximumRecords"/>
     <xd:doc>
+        <xd:desc>The maximum number of terms in scan the client requested or the one the upstream endpoint chose
+            <xd:p>
+                Defaults to /sru:scanResponse/sru:echoedScanRequest/sru:maximumTerms
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="maximumTerms" select="/sru:scanResponse/sru:echoedScanRequest/sru:maximumTerms"/>
+    <xd:doc>
         <xd:desc>The actual number of records in the response
             <xd:p>
                 Defaults to /sru:searchRetrieveResponse/sru:numberOfRecords

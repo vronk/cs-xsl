@@ -96,6 +96,7 @@
         <div class="record resource">
 <!--            <xsl:call-template name="getTitle"></xsl:call-template>           -->
             <xsl:apply-templates select=".//fcs:Resource" mode="record-data"/>
+            <div class="div-after"/>
         </div>
     </xsl:template>
     <xsl:template match="fcs:Resource" mode="record-data">
@@ -127,6 +128,7 @@
                 <xsl:with-param name="format" select="$format"/>
                 <xsl:with-param name="x-context" select="$resource-id"/>
                 <xsl:with-param name="scanClause" select="'fcs.toc'"/>
+                <xsl:with-param name="maximumTerms" select="800"/>
             </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="md-link-cmdi">
