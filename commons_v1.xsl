@@ -222,6 +222,7 @@
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
+        <xsl:param name="maximumTerms" select="$maximumTerms"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:variable name="param_q">
@@ -256,6 +257,11 @@
                 <xsl:value-of select="concat('&amp;maximumRecords=',$maximumRecords)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_maximumTerms">
+            <xsl:if test="$maximumTerms != ''">
+                <xsl:value-of select="concat('&amp;maximumTerms=',$maximumTerms)"/>
+            </xsl:if>
+        </xsl:variable>
         <xsl:variable name="param_scanClause">
             <xsl:if test="$scanClause != ''">
                 <xsl:value-of select="concat('&amp;scanClause=',$scanClause)"/>
@@ -272,7 +278,7 @@
                 <xsl:value-of select="concat($base_url, 'fcs?version=1.2&amp;operation=',$action, $param_x-context, $param_format)"/>
             </xsl:when>
             <xsl:when test="$action='scan'">
-                <xsl:value-of select="concat($base_url, 'fcs?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format)"/>
+                <xsl:value-of select="concat($base_url, 'fcs?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_maximumTerms)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat('?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format)"/>
