@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/corpus_shell/utils" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:ds="http://aac.ac.at/corpus_shell/dataset"
-    xmlns="http://www.w3.org/1999/xhtml" 
-    version="2.0" exclude-result-prefixes="exsl utils xs xd ds">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/corpus_shell/utils" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://aac.ac.at/corpus_shell/dataset" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="exsl utils xs xd ds">
   <!--<xsl:import href="amc-params.xsl"  />
   <xsl:import href="amc-helpers.xsl"  />-->
     <xd:doc scope="stylesheet">
@@ -36,7 +33,6 @@
         <xsl:variable name="layout" select="if (count($data//ds:dataseries[not(@type='base')]) &gt; 1) then 'line' else 'pie' "/>
         <xsl:variable name="legend-position" select="if (count($data//ds:dataseries[not(@type='base')]) = (2,3)) then 'top' else 'right' "/>
         <!--DEBUG:<xsl:value-of select="count($data//dataseries)" />-->
-      
         <script type="text/javascript">
       
       // allow for multiple datasets (for every facet)
@@ -57,8 +53,6 @@
      }-->
         </script>
     </xsl:template>
-    
-   
     <xd:doc>
         <xd:desc>
             <xd:p>to be called explicitely from dataset2view</xd:p>
@@ -69,7 +63,6 @@
         <script type="text/javascript" src="{concat($scripts-dir, 'js/google-corechart.js')}"/>
         <script type="text/javascript" src="{concat($scripts-dir, 'js/chart.js')}"/>
     </xsl:template>
-    
     <xsl:template match="ds:dataset" mode="data2chart-google">
         <xsl:param name="data" select="."/>
         <xsl:variable name="inverted-data">
@@ -91,13 +84,13 @@
         <xsl:text>], </xsl:text>
     </xsl:template>
     <xsl:template match="ds:dataseries[ds:value]" mode="chart-google">
-        <xsl:if test="not(xs:string(@name)=$all-label or @key=$all-label)" >
-           <xsl:text>['</xsl:text>
-           <xsl:value-of select="(@name,@label,@key)[1]"/>
-           <xsl:text>', </xsl:text>
+        <xsl:if test="not(xs:string(@name)=$all-label or @key=$all-label)">
+            <xsl:text>['</xsl:text>
+            <xsl:value-of select="(@name,@label,@key)[1]"/>
+            <xsl:text>', </xsl:text>
             <xsl:apply-templates mode="chart-google" select="ds:value[not(@key=current()/../ds:labels/ds:label[@type='base'])]"/>
-           <xsl:text>]</xsl:text>
-           <xsl:if test="not(position()=last())">, 
+            <xsl:text>]</xsl:text>
+            <xsl:if test="not(position()=last())">, 
     </xsl:if>
         </xsl:if>
     </xsl:template>

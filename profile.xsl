@@ -5,10 +5,7 @@
   xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru html">
   <xsl:import href="fcs/result2view_v1.xsl"/>
-  <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8"
-    doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
-    doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
-
+    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="callback-header">
     <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
   </xsl:template>
@@ -83,7 +80,6 @@
       </div>
     </xsl:if>
   </xsl:template>
-  
   <xd:doc>
     <xd:desc>Delegate to the default ref logic</xd:desc>
   </xd:doc>

@@ -95,24 +95,28 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:Resource" mode="record-data">
-        
+        <xsl:variable name="pid" select="@pid"/>
         <!-- this is quite specialized only for the navigation-ResourceFragments! 
             nav links are created from specialized ResourceFragments[@type=prev|next].
                     Handling via fcs:DataView was based on erroneous data, that provided
                     the resourcefragments wrapped in fcs:DataView           -->
-        <div class="navigation">
+        <!--<div class="navigation">
             <xsl:apply-templates select=".//fcs:ResourceFragment[@type][not(fcs:DataView)]" mode="record-data"/>
-        </div>
-        <xsl:apply-templates select=".//fcs:DataView" mode="record-data"/>
+        </div>-->
+        <xsl:apply-templates select=".//fcs:DataView" mode="record-data">
+            <xsl:with-param name="resource-pid" select="$pid"/>
+        </xsl:apply-templates>
     </xsl:template>
     <xd:doc>
         <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView" mode="record-data">
+        <xsl:param name="resource-pid"/>
+        <xsl:variable name="resourcefragment-pid" select="parent::fcs:ResourceFragment/@pid"/>
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
-            <div class="data-view {@type}">
+            <div class="data-view {@type}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
                 <xsl:call-template name="dataview-full-contents"/>
                 <div class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></div>
             </div>
@@ -129,9 +133,10 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView[contains(@type, 'xmlescaped')]" mode="record-data">
+        <xsl:param name="resource-pid"/>
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
-            <div class="data-view {@type}">
+            <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
                 <textarea rows="25" cols="80">
                     <xsl:apply-templates mode="record-data"/>
                 </textarea>
@@ -143,14 +148,16 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView[@ref][not(@ref='')]" mode="record-data">
-        <div class="data-view {@type}">
+        <xsl:param name="resource-pid"/>
+        <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
             <a href="{@ref}">
                 <xsl:value-of select="@type"/>
             </a>
         </div>
     </xsl:template>
     <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]" mode="record-data" priority="10">
-        <div class="data-view {@type}">
+        <xsl:param name="resource-pid"/>
+        <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
             <xsl:call-template name="generateImg">
                 <xsl:with-param name="ref" select="@ref"/>
             </xsl:call-template>
@@ -289,6 +296,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="inline">
+        <xsl:param name="descendants-to-ignore"/>
         <xsl:variable name="elem-link">
             <xsl:call-template name="elem-link"/>
         </xsl:variable>
@@ -314,9 +322,16 @@
             <!-- This genereates CSS class attributes for HTML elements. As far as I know
                 it doesn't matter if the class is specified once or n-times so for 1.0 just forget
                 about distinct-values() for now and let's see -->
-            <xsl:for-each select="descendant-or-self::*">
+            <!--<xsl:for-each select="descendant-or-self::*">
                 <xsl:value-of select="concat(local-name(.), ' ', concat('tei-', local-name(.)), ' ', @rend)"/>
-            </xsl:for-each>
+            </xsl:for-each>-->
+            <xsl:value-of select="local-name(.)"/>
+            <xsl:if test="@type">
+                <xsl:value-of select="concat(' ',@type)"/>
+            </xsl:if>
+            <xsl:if test="@subtype">
+                <xsl:value-of select="concat(' ',@subtype)"/>
+            </xsl:if>
         </xsl:variable>
         <xsl:variable name="inline-elem">
             <xsl:choose>
@@ -335,7 +350,7 @@
             </xsl:choose>
         </xsl:variable>
         <span class="inline-wrap">
-            <xsl:if test="descendant-or-self::*/@*">
+            <xsl:if test="descendant-or-self::*">
                 <span class="attributes">
                     <xsl:call-template name="descendants-table">
                         <xsl:with-param name="elem-name">

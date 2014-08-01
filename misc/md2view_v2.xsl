@@ -15,20 +15,24 @@
         <xsl:value-of select="(.//cmd:title,.//cmd:Title,.//cmd:Name,.//cmd:ResourceName)[1]"/>
     </xsl:variable>
     <xsl:template name="continue-root">
-        <xsl:apply-templates mode="record-data"/>
+        <div>
+            <xsl:apply-templates mode="record-data"/>
+        </div>
     </xsl:template>
     <xsl:template match="cmd:CMD" mode="record-data">
-        <xsl:apply-templates select="cmd:Header" mode="record-data">
-            <xsl:with-param name="strict" select="true()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="cmd:Resources/cmd:ResourceProxyList" mode="record-data">
-            <xsl:with-param name="strict" select="true()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="cmd:Resources/cmd:IsPartOfList" mode="record-data">
-            <xsl:with-param name="strict" select="true()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="cmd:Components/*" mode="record-data">
-            <xsl:with-param name="strict" select="true()"/>
-        </xsl:apply-templates>
+        <div class="cmd-record">
+            <xsl:apply-templates select="cmd:Header" mode="record-data">
+                <xsl:with-param name="strict" select="true()"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="cmd:Resources/cmd:ResourceProxyList" mode="record-data">
+                <xsl:with-param name="strict" select="true()"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="cmd:Resources/cmd:IsPartOfList" mode="record-data">
+                <xsl:with-param name="strict" select="true()"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="cmd:Components/*" mode="record-data">
+                <xsl:with-param name="strict" select="true()"/>
+            </xsl:apply-templates>
+        </div>
     </xsl:template>
 </xsl:stylesheet>

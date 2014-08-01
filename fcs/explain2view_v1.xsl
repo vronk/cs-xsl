@@ -16,21 +16,18 @@
     <xsl:import href="data2view_tei.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>generate a view for the explain-record (http://www.loc.gov/standards/sru/specs/explain.html) </xd:desc>
-    </xd:doc> 
+    </xd:doc>
     <xd:doc>
         <xd:desc/>
     </xd:doc>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
-    
     <xsl:param name="lang" select="'en'"/>
-    
     <xd:doc>
         <xd:desc>Set this to a CSS class that should be included in the output's outer most element by superseding this</xd:desc>
     </xd:doc>
     <xsl:variable name="style-type" select="''"/>
     
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-    
     <xd:doc>
         <xd:desc>Called from common_v1.xsl to present a title string
         <xd:p>
@@ -52,7 +49,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    
     <xd:doc>
         <xd:desc>Entry point called from commons_v1.xsl
         <xd:p>
@@ -77,15 +73,12 @@
             <xsl:apply-templates select="." mode="format-xmlelem"/>
             </div>-->
     </xsl:template>
-    
     <xsl:template match="sru:version" mode="verbose">
         <div class="sru-version">SRU version: <xsl:value-of select="."/></div>        
     </xsl:template>
-    
     <xsl:template match="sru:recordPacking" mode="verbose">
         <div class="sru-recordPacking">Default record packing: <xsl:value-of select="."/></div>
     </xsl:template>
-    
     <xsl:template match="sru:recordSchema" mode="verbose">
         <div class="sru-recordSchema">Record schema: <xsl:value-of select="."/></div>
     </xsl:template>
@@ -98,7 +91,6 @@
             </div>
         </div>
     </xsl:template>
-    
     <xsl:template match="sru:recordData" mode="verbose">
         <div class="content explain {$x-context}{$style-type}">
             <xsl:apply-templates mode="verbose"/>
@@ -107,16 +99,16 @@
     
     <xsl:template match="zr:serverInfo" mode="verbose">
         <div class="zr-serverInfo">
-            <p>Host: <xsl:value-of select="zr:host"/>:<xsl:value-of select="zr:port"/></p>
-            <p>Database: <xsl:value-of select="zr:database"/></p>
+            <p>Host: <xsl:value-of select="zr:host"/>:<xsl:value-of select="zr:port"/>
+            </p>
+            <p>Database: <xsl:value-of select="zr:database"/>
+            </p>
         </div>
     </xsl:template>
-    
     <xsl:template match="zr:schemaInfo" mode="verbose">
         <p>Schema info available in XML.</p>
         <xsl:apply-templates mode="verbose"/>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Fetches the database's name and the descreption if available</xd:desc>
     </xd:doc>
@@ -127,7 +119,6 @@
         <div class="zr-author">Author(s): <xsl:value-of select="zr:author"/></div>
         <div class="zr-description"><xsl:apply-templates/></div>
     </xsl:template>
-    
     <xsl:template match="zr:databaseInfo[//tei:teiHeader|//tei:front]">
         <div class="zr-description"><xsl:apply-templates mode="record-data" select=".//tei:teiHeader/*|.//tei:front/*"/></div>
     </xsl:template>
@@ -150,7 +141,6 @@
             <xsl:apply-templates select="zr:index"/>
         </dl>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Generate a list item that links to a scan for every known index</xd:desc>
     </xd:doc>
@@ -225,7 +215,6 @@
         <xsl:template match="*[@lang]" >
         
         </xsl:template>-->
-    
     <xd:doc>
         <xd:desc>In verbose mode first display the list and then the 
             items only generated in this mode</xd:desc>
@@ -234,24 +223,25 @@
         <xsl:apply-templates/>
         <xsl:apply-templates mode="verbose"/>
     </xsl:template>
-    
     <xsl:template match="zr:configInfo" mode="verbose">
         <div class="zr-serverInfo">
-            <p>Default number of records: <xsl:value-of select="zr:default[@type='numberOfRecords']"/></p>
-            <p>Settings: maximum records returned: <xsl:value-of select="zr:setting[@type='maximumRecords']"/>, result TTL: <xsl:value-of select="zr:setting[@type='resultSetTTL']"/></p>
+            <p>Default number of records: <xsl:value-of select="zr:default[@type='numberOfRecords']"/>
+            </p>
+            <p>Settings: maximum records returned: <xsl:value-of select="zr:setting[@type='maximumRecords']"/>, result TTL: <xsl:value-of select="zr:setting[@type='resultSetTTL']"/>
+            </p>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>In verbose mode even give hints to unprocessed nodes by including
         their text as comment</xd:desc>
     </xd:doc>
     <xsl:template match="text()" mode="verbose">
         <xsl:if test="normalize-space(.) != ''">
-            <xsl:comment><xsl:value-of select="."/></xsl:comment>
+            <xsl:comment>
+                <xsl:value-of select="."/>
+            </xsl:comment>
         </xsl:if>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Normally zap any text not beloging to processed nodes</xd:desc>
     </xd:doc>

@@ -13,29 +13,58 @@
     <!-- doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" -->
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8"/>
     <xsl:include href="../commons_v2.xsl"/>
-    <xsl:param name="site_logo" select="'scripts/style/imgs/clarin-logo.png'"/>
+    <xsl:param name="site_logo" select="'../scripts/style/imgs/clarin-logo.png'"/>
     <xsl:param name="site_name">SMC statistics</xsl:param>
+    
+    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+        <xd:desc>
+            <xd:p>prefix for the file names, if outputing dataset to separate files</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="output_file_prefix">dataset_</xsl:param>
+    
     <xsl:param name="title"/>
     <xsl:variable name="cols">
         <col>all</col>
     </xsl:variable>
     <xsl:template name="continue-root">
-        <div>
-            <xsl:apply-templates select="*" mode="data2table"/>
-        </div>
+        <xsl:param name="mode" select="$mode"></xsl:param>
+        <xsl:choose>
+            <xsl:when test="contains($mode,'multiple-files')">
+                <xsl:apply-templates select="//ds:dataset" mode="multi"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <div>
+                    <xsl:apply-templates select="*" mode="data2table"/>
+                </div>        
+            </xsl:otherwise>
+        </xsl:choose>
+        
     </xsl:template>
     <xsl:template name="top-menu">
         <xsl:for-each select="//ds:dataset">
             <!-- this has to be in sync with  <xsl:template match="ds:dataset" mode="data2table"> in dataset2table.xsl -->
-            <xsl:variable name="dataset-name" select="concat(utils:normalize(@name),position())"/>
+            <xsl:variable name="dataset-key" select="utils:dataset-key(.)"/>
 <!--                <a href="#dataset-{@key}" ><xsl:value-of select="(@label,@key)[1]"></xsl:value-of></a> | -->
-            <a href="#table-{$dataset-name}">
+            <xsl:variable name="href">
+                <xsl:choose>
+                    <xsl:when test="contains($mode,'multiple-files')">
+                        <xsl:value-of select="concat($output_file_prefix, $dataset-key,'.html')"></xsl:value-of>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="concat('#table-', $dataset-key)"></xsl:value-of>   
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+            <a href="{$href}" title="{@key}">
                 <xsl:value-of select="(@label,@key)[1]"/>
             </a> |
             
             </xsl:for-each>
     </xsl:template>
     <xsl:template name="callback-header">
+        <!--  temporary fix - cmds-ui.css actually deprecated -->
+<!--        <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet" ></link>-->
         <script type="text/javascript">
             $(function()
             {
@@ -50,6 +79,9 @@
               });
            */ 
            
+           
+            $("table.show").tablesorter(); 
+            
             $(".detail-caller").live("click", function(event) {
                 //console.log(this);
                 event.preventDefault();
@@ -58,5 +90,21 @@
               
             });
         </script>
+        
+    </xsl:template>
+    
+    <xsl:template match="ds:dataset" mode="multi">
+        <xsl:variable name="dataset-key" select="utils:dataset-key(.)"/>
+        <xsl:variable name="output_href" select="concat($output_file_prefix, $dataset-key, '.html') "></xsl:variable>
+        <xsl:result-document href="{$output_href}">
+            <xsl:call-template name="html-with-data" >
+                <xsl:with-param name="payload">
+                    <div>
+                        <xsl:apply-templates select="." mode="data2table"/>
+                    </div>        
+                </xsl:with-param>
+            </xsl:call-template>
+            
+        </xsl:result-document>
     </xsl:template>
 </xsl:stylesheet>

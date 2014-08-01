@@ -240,6 +240,7 @@
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
         <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
+        <xsl:param name="maximumTerms" select="$maximumTerms"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
@@ -259,9 +260,7 @@
                 <xsl:when test="$action='explain' and $q != ''">
                             <xsl:value-of select="concat('&amp;x-context=',$q)"/>
                         </xsl:when>
-                <!--<xsl:when test="$x-context != '' ">
-                    <xsl:value-of select="concat('&x-context=',$x-context)"/>
-                </xsl:when>-->
+                <xsl:when test="$x-context = '' "/>
                 <xsl:otherwise>
                     <xsl:value-of select="concat('&amp;x-context=',$x-context)"/>
                 </xsl:otherwise>
@@ -275,6 +274,11 @@
         <xsl:variable name="param_maximumRecords">
             <xsl:if test="$maximumRecords != ''">
                 <xsl:value-of select="concat('&amp;maximumRecords=',$maximumRecords)"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:variable name="param_maximumTerms">
+            <xsl:if test="$maximumTerms != ''">
+                <xsl:value-of select="concat('&amp;maximumTerms=',$maximumTerms)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_scanClause">
@@ -303,7 +307,7 @@
                 <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='scan'">
-                <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $param_maximumTerms, $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="mods xlink xd utils">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="mods xlink xd utils">
     <xsl:import href="../commons_v2.xsl"/>
-<!--    <xsl:include href="../fcs/data2view_v2.xsl"/>-->
+    <xsl:include href="../fcs/data2view_v2.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc> generate a generic html-view for individual parts of the project-mets file:  mods:projectDmd mets:structMap                
             </xd:desc>
@@ -16,8 +16,53 @@
             <xsl:with-param name="strict" select="true()"/>
         </xsl:apply-templates>
     </xsl:template>
+    <xsl:template match="cmd:CMD">
+        <div class="projectDMD mdtype-cmd record">
+            <div class="header">
+                <h2>
+                    <!--<xsl:value-of select=".//sourceDesc/bibl[@type='short']"/>-->
+                    <xsl:call-template name="getTitle"/>
+                </h2>
+                <div class="links">
+                    <xsl:variable name="resource-id" select=".//cmd:ResourceProxy[1]/data(@id)"/>
+                    <xsl:variable name="md-link-cmdi">
+                        <xsl:call-template name="formURL">
+                            <xsl:with-param name="action" select="'get-metadata'"/>
+                            <xsl:with-param name="format" select="'htmlpage'"/>
+                            <xsl:with-param name="q" select="$resource-id"/>
+                        </xsl:call-template>
+                    </xsl:variable>
+                    <xsl:variable name="link-explain">
+                        <xsl:call-template name="formURL">
+                            <xsl:with-param name="action" select="'explain'"/>
+                            <xsl:with-param name="format" select="'htmllist'"/>
+                        </xsl:call-template>
+                    </xsl:variable>
+                    <a class="link-info" href="#">Info</a>
+                    <a class="link-cmdi" href="{$md-link-cmdi}">CMD</a>
+                    <a class="link-explain" href="{$link-explain}">Register</a>                    
+<!--                    <div class="div-after"/>-->
+                </div>
+            </div>
+            <div class="data-view metadata">
+                <p>
+                    <xsl:apply-templates select="(.//cmd:Description)[1]"/>
+                </p>
+                <p>
+                    <xsl:apply-templates select=".//cmd:License" mode="record-data">
+                        <xsl:with-param name="strict" select="true()"/>
+                    </xsl:apply-templates>
+                </p>
+                <p>
+                    <xsl:apply-templates select=".//cmd:Contact" mode="record-data">
+                        <xsl:with-param name="strict" select="true()"/>
+                    </xsl:apply-templates>
+                </p>
+            </div>
+        </div>
+    </xsl:template>
     <xsl:template match="mods:mods">
-        <div class="mods-projectDMD">
+        <div class="projectDMD mdtype-mods">
             <xsl:apply-templates select="*[not(local-name()='name')]"/>
             <xsl:if test="mods:name">
                 <div class="authors">
@@ -120,5 +165,13 @@
                 <xsl:apply-templates/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>
+            <xd:p>overriding default template to get titles - specific for CMD</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="getTitle">
+        <xsl:value-of select="(.//cmd:Title,.//cmd:Name)[1]"/>
     </xsl:template>
 </xsl:stylesheet>
