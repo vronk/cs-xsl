@@ -1020,7 +1020,7 @@
     <xsl:template match="tei:entry" mode="record-data">
         <div class="tei-entry">
             <xsl:for-each select="tei:sense">
-                <xsl:apply-templates select="../tei:form[@type='lemma']" mode="record-data"/>
+                <xsl:apply-templates select="../tei:form[@type='lemma']|../tei:form[@type='multiWordUnit']" mode="record-data"/>
                 <xsl:apply-templates select="./tei:gramGrp" mode="record-data"/>
                 <xsl:apply-templates select="../tei:gramGrp" mode="record-data"/>
                 <span class="tei-bibls">
