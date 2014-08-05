@@ -50,7 +50,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Suppress, handled elsewhere</xd:desc>
     </xd:doc>
@@ -65,12 +65,26 @@
         </div>
         <div class="zr-description background">
             <xsl:attribute name="style">
+                <xsl:call-template name="generateImgBackgroundUrl"/>
+            </xsl:attribute>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="generateImgBackgroundUrl">
+        <xsl:choose>
+            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
                 <xsl:value-of select="concat('background-image:url(', .//tei:front/tei:div/tei:ref[contains(@target, '.JPG') or 
                     contains(@target, '.jpg') or
                     contains(@target, '.PNG') or
                     contains(@target, '.png')]/@target, ');')"/>
-            </xsl:attribute>
-        </div>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat('background-image:url(http://corpus3.aac.ac.at/static/images/vicav/', .//tei:front/tei:div/tei:ref[contains(@target, '.JPG') or 
+                    contains(@target, '.jpg') or
+                    contains(@target, '.PNG') or
+                    contains(@target, '.png')]/@target, ');')"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
 </xsl:stylesheet>
