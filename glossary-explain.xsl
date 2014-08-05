@@ -72,7 +72,7 @@
 
     <xsl:template name="generateImgBackgroundUrl">
         <xsl:choose>
-            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
+            <xsl:when test="starts-with(.//tei:front/tei:div/tei:ref/@target, 'http://') or starts-with(.//tei:front/tei:div/tei:ref/@target, '/') or starts-with(.//tei:front/tei:div/tei:ref/@target, 'https://')">
                 <xsl:value-of select="concat('background-image:url(', .//tei:front/tei:div/tei:ref[contains(@target, '.JPG') or 
                     contains(@target, '.jpg') or
                     contains(@target, '.PNG') or
