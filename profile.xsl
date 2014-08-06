@@ -128,5 +128,20 @@
       <xsl:value-of select="concat(., ' ')"/>
     </span>
   </xsl:template>
+  
+  <xsl:template match="tei:pc" mode="record-data">
+    <xsl:value-of select="."/>
+  </xsl:template>
+  
+  <xsl:template match="tei:w" mode="record-data">
+    <xsl:choose>
+      <xsl:when test="not(./@*|./tei:fs)">
+        <xsl:value-of select="."/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-imports/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
 </xsl:stylesheet>

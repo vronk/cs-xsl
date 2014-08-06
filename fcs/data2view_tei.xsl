@@ -386,8 +386,12 @@
     <xsl:variable name="contents-target"/>
 
     <xsl:template name="getAuthor"/>
-
-    <xsl:template match="*" mode="tei-body-headings">
+    
+    <xsl:template match="tei:*" mode="record-data" priority="-1">
+        <xsl:call-template name="inline"/>
+    </xsl:template>
+    
+    <xsl:template match="tei:*" mode="tei-body-headings">
         <xsl:call-template name="div-count-to-html-header">
             <xsl:with-param name="div-count">
                 <xsl:call-template name="tei-div-count"/>
@@ -1321,6 +1325,14 @@
             </span>
         </div>
     </xsl:template>
+    
+    <xsl:template match="tei:u" mode="record-data">
+        <dl class="tei-u">
+            <dt class="tei-u-who"><xsl:value-of select="@who"/></dt>
+            <dd class="tei-u-what"><xsl:apply-templates mode="record-data"/></dd>
+        </dl>
+    </xsl:template>
+    
     <xsl:template match="g|tei:g" mode="record-data">
         <xsl:choose>
             <xsl:when test="@ref='#rc-glyph'">
@@ -1373,6 +1385,9 @@
                     <xsl:value-of select="tei:fs/tei:f[@name='wordform']"/>
                     <xsl:apply-templates mode="record-data"/>
                 </span>
+            </xsl:when>
+            <xsl:when test="@ana">
+                <span class="tei-w" data-ref="{@ana}"><xsl:apply-templates mode="record-data"/></span>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="inline">
