@@ -138,6 +138,16 @@
       <xsl:when test="not(./@*|./tei:fs)">
         <xsl:value-of select="."/>
       </xsl:when>
+      <xsl:when test="./@ana">
+        <xsl:variable name="linkTarget">
+          <xsl:call-template name="formURL">
+            <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+            <xsl:with-param name="q" select="concat('entry==', substring-after(@ana, '#'))"/>
+            <xsl:with-param name="x-context" select="'aeb_eng_001__v001'"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <span class="tei-w"><xsl:apply-templates mode="record-data"/><dl class="tei-fs"><dt class="dict-ref">Dict.</dt><dd><a href="{$linkTarget}">Go to entry</a></dd></dl></span>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:apply-imports/>
       </xsl:otherwise>
