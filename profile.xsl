@@ -149,7 +149,7 @@
         <xsl:when test="@type">
           <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr xsl-first-of-group')"/>                
         </xsl:when>
-        <xsl:when test="preceding-sibling::*[1]/@type">
+        <xsl:when test="preceding-sibling::tei:w[1]/@type">
           tei-w lang-aeb xsl-first-of-group
         </xsl:when>
         <xsl:otherwise>tei-w</xsl:otherwise>
