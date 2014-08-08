@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+  xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:exsl="http://exslt.org/common"
   xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
-  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru html">
+  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru">
   <xsl:import href="fcs/result2view_v1.xsl"/>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="callback-header">
@@ -131,9 +131,30 @@
   
   <xsl:template match="tei:pc" mode="record-data">
     <xsl:value-of select="."/>
+    <xsl:choose>
+      <xsl:when test="./text() = ',' or ./text() = '.'">
+        <xsl:text> </xsl:text>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
   
+  <xsl:strip-space elements="tei:u tei:w tei:pc"/>
+  
   <xsl:template match="tei:w" mode="record-data">
+    <xsl:variable name="classes">
+      <xsl:choose>
+        <xsl:when test="@type = preceding-sibling::*[1]/@type">
+          <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr')"/>
+        </xsl:when>
+        <xsl:when test="@type">
+          <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr xsl-first-of-group')"/>                
+        </xsl:when>
+        <xsl:when test="preceding-sibling::*[1]/@type">
+          tei-w lang-aeb xsl-first-of-group
+        </xsl:when>
+        <xsl:otherwise>tei-w</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:choose>
       <xsl:when test="not(./@*|./tei:fs)">
         <xsl:value-of select="."/>
@@ -146,12 +167,23 @@
             <xsl:with-param name="x-context" select="'aeb_eng_001__v001'"/>
           </xsl:call-template>
         </xsl:variable>
-        <span class="tei-w"><xsl:apply-templates mode="record-data"/><dl class="tei-fs"><dt class="dict-ref">Dict.</dt><dd><a href="{$linkTarget}">Go to entry</a></dd></dl></span>
+        <span class="{$classes}"><xsl:apply-templates mode="record-data"/><dl class="tei-fs"><dt class="dict-ref">Dict.</dt><dd><a href="{$linkTarget}">Go to entry</a></dd></dl></span>
+      </xsl:when>
+      <xsl:when test="./@type">
+        <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-imports/>
       </xsl:otherwise>
     </xsl:choose>
+    <xsl:if test="not(local-name(following-sibling::*[1]) = 'pc') and
+      not(local-name(following-sibling::*[1]) = 'w' and substring(following-sibling::*[1]/text(), 1, 1) = '-')">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="tei:kinesic" mode="record-data">
+    <span class="tei-kinesic"><xsl:value-of select="tei:desc"/></span>
   </xsl:template>
 
 </xsl:stylesheet>
