@@ -167,7 +167,7 @@
             <xsl:with-param name="x-context" select="'aeb_eng_001__v001'"/>
           </xsl:call-template>
         </xsl:variable>
-        <span class="{$classes}"><xsl:apply-templates mode="record-data"/><dl class="tei-fs"><dt class="dict-ref">Dict.</dt><dd><a href="{$linkTarget}">Go to entry</a></dd></dl></span>
+        <span class="{$classes}"><xsl:apply-templates mode="record-data"/><dl class="tei-fs"><dt class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTarget}">Go to entry</a></dd></dl></span>
       </xsl:when>
       <xsl:when test="./@type">
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>
