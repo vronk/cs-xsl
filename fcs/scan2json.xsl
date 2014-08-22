@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cr="http://aac.ac.at/content_repository" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0">
     <xd:doc scope="stylesheet">
         <xd:desc>
             generate a json object of the scanResponse
@@ -109,10 +109,10 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:text>{"value": "</xsl:text>
-        <xsl:value-of select="translate(normalize-space(sru:value),'&#34;','')"/>
+        <xsl:value-of select="concat(sru:extraTermData/cr:type, '=', translate(normalize-space(sru:value),'&#34;',''))"/>
         <xsl:text>", </xsl:text>
         <xsl:text>"label": "</xsl:text>
-        <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="sru:numberOfRecords"/>
+        <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="concat(sru:extraTermData/cr:type, ' ', sru:numberOfRecords)"/>
         <xsl:text>|", </xsl:text>
         <xsl:text>"count": "</xsl:text>
         <xsl:value-of select="sru:numberOfRecords"/>
