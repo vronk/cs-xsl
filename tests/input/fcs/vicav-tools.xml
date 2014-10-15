@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>toolsText==Tools</sru:query>
+        <fcs:x-context>vicav_tools_001</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/ProfileOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT DISTINCT id, entry FROM vicav_tools_001 WHERE lemma LIKE '%Tools%'</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable list of NLP tools for the Arabic language</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <TEI xml:id="vicav_meta_tools">
+                                <teiHeader>
+                                    <fileDesc>
+                                        <author>Charly Moerth</author>
+                                        <author/>
+                                        <titleStmt>
+                                            <title>Tools</title>
+                                        </titleStmt>
+                                        <publicationStmt>
+                                            <pubPlace>Vienna</pubPlace>
+                                            <date>2014</date>
+                                            <availability status="restricted">
+                                                <p>
+                                                    <ref type="license" target="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+                                                </p>
+                                            </availability>
+                                        </publicationStmt>
+                                        <editionStmt>
+                                            <edition>1.0 (Alpha)</edition>
+                                        </editionStmt>
+                                        <sourceDesc>
+                                            <p>This is an original digital text</p>
+                                        </sourceDesc>
+                                    </fileDesc>
+                                </teiHeader>
+                                <text>
+                                    <body>
+                                        <div1 xml:id="tools">
+                                            <head>Arabic NLP Tools</head>
+                                            <div2>
+                                                <p>While there have not been around many tools to process Arabic language data in the past,
+               the situation has definitely changed in recent years. The following list is a first attempt to 
+               create a list of tools used by the VICAV crew and other relevant projects.</p>
+                                                <div3 xml:id="corpora">
+                                                    <head>Corpora</head>
+                                                    <p>The number of digitally encoded Arabic language corpora has been on the rise in recent years.
+                  Unfortunately, most of these resources are not publicly available.</p>
+                                                    <div4 xml:id="CorpAfroAs">
+                                                        <head>CorpAfroAs</head>
+                                                        <p>
+                                                            CorpAfroAs is an integrated pilot project that also produced Arabic data. On the
+                                                            <ref target="http://corpafroas.huma-num.fr/">project web site</ref>
+                                                            , you can find
+                     extensive information on how to build corpora of spoken language. The data is available.
+                                                        </p>
+                                                    </div4>
+                                                    <div4 xml:id="tunisianArabicCorpus">
+                                                        <head>Tunisian Arabic Corpus</head>
+                                                        <p>
+                                                            This is a comparatively large corpus of Tunisian Arabic mainly collected from the Internet.
+                     The corpus has a very nice
+                                                            <ref target="http://tunisiya.org/">web interface</ref>
+                                                            .
+                                                        </p>
+                                                    </div4>
+                                                    <div4 xml:id="moroccanArabicWriters">
+                                                        <head>Corpus of Moroccan Arabic Writers of Short Stories and Literary Reviews</head>
+                                                        <p>
+                                                            Information on this corpus can be found
+                                                            <ref target="http://www.ugr.es/~dgb/corpus/">here</ref>
+                                                            .
+                                                        </p>
+                                                    </div4>
+                                                </div3>
+                                                <div3>
+                                                    <head>Processing tools</head>
+                                                    <p/>
+                                                </div3>
+                                            </div2>
+                                        </div1>
+                                    </body>
+                                </text>
+                            </TEI>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?x-context=vicav_tools_001&amp;operation=searchRetrieve&amp;version=1.2&amp;query=toolsText%3D%3DTools</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" >
+<sru:version>1.2</sru:version>
+<sru:diagnostics>
+	<diagnostic>
+	<uri>7</uri>
+	<message>Mandatory parameter not supplied</message>
+	<details>query</details>
+	</diagnostic>
+</sru:diagnostics>
+</sru:searchRetrieveResponse>

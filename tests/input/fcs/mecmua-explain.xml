@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.1</sru:version>
+    <sru:record>
+        <sru:recordSchema>http://explain.z3950.org/dtd/2.1/</sru:recordSchema>
+        <sru:recordPacking>xml</sru:recordPacking>
+        <sru:recordData>
+            <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/ file:/C:/Users/m/3lingua/corpus_shell/_repo2/corpus_shell/fcs/schemas/zeerex-2.0.xsd" authoritative="false" id="id1">
+                <zr:serverInfo protocol="SRU" version="1.2" transport="http">
+                    <zr:host>TODO: config:param-value($config, "base-url")</zr:host>
+                    <zr:port>80</zr:port>
+                    <zr:database>mecmua</zr:database>
+                </zr:serverInfo>
+                <zr:databaseInfo>
+                    <zr:title lang="en" primary="true">Mecmua - Mecmua</zr:title>
+                    <zr:description lang="en" primary="true"/>
+                    <zr:author/>
+                    <zr:contact/>
+                </zr:databaseInfo>
+                <zr:metaInfo>
+                    <zr:dateModified>TODO</zr:dateModified>
+                </zr:metaInfo>
+                <zr:indexInfo>
+                    <zr:set identifier="isocat.org/datcat" name="isocat">
+                        <zr:title>ISOcat data categories</zr:title>
+                    </zr:set>
+                    <zr:set identifier="clarin.eu/fcs" name="fcs">
+                        <zr:title>CLARIN - Federated Content Search</zr:title>
+                    </zr:set>
+                    <!-- <index search="true" scan="true" sort="false">
+            <title lang="en">Resource</title>
+            <map>
+                <name set="fcs">resource</name>
+            </map>
+        </index> -->
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">auxSubst</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">auxSubst</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">auxSubstId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">auxSubstId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">auxSubstName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">auxSubstName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">cql.serverChoice</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">cql.serverChoice</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">facs-uri</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">facs-uri</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">illness</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">illness</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">illnessId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">illnessId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">illnessName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">illnessName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">persId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">persId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">person</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">person</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">personName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">personName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">place</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">place</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">placeId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">placeId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">placeName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">placeName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">plant</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">plant</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">plantId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">plantId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">plantName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">plantName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">resource-pid</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">resource-pid</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">resourcefragment-pid</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">resourcefragment-pid</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">textGenre</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">textGenre</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">textGenreId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">textGenreId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">textGenreName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">textGenreName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">title</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">title</zr:name>
+                        </zr:map>
+                    </zr:index>
+                </zr:indexInfo>
+                <zr:schemaInfo>
+                    <!--    <schema identifier="clarin.eu/cmd" location="" name="cmd" retrieve="true">
+            <title lang="en">Component Metadata</title>
+        </schema> -->
+                </zr:schemaInfo>
+                <zr:configInfo>
+                    <!-- should translate to x-cmd-context extension-parameter if correctly interpreted: http://explain.z3950.org/dtd/commentary.html#8 
+                    or shall we rather directly write: x-cmd-context or x-fcs-context -->
+                    <!--        <supports type="extraSearchData">cmd context</supports> -->
+                </zr:configInfo>
+            </zr:explain>
+        </sru:recordData>
+    </sru:record>
+</sru:explainResponse>
