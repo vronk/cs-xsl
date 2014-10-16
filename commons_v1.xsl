@@ -186,6 +186,7 @@
     </xd:doc>
     <xsl:template name="contexts-doc">
         <xsl:choose>
+            <xsl:when test="$contexts_url = ''"/>
             <xsl:when test="$scripts_user">
                 <xsl:variable name="contexts_auth_url" select="concat(substring-before($contexts_url, '//'), '//', $scripts_user, ':', $scripts_pw, '@', substring-after($contexts_url,'//'))"/>                    
                 <xsl:copy-of select="document($contexts_auth_url)"/>
