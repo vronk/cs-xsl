@@ -1,0 +1,193 @@
+<sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.1</sru:version>
+    <sru:record>
+        <sru:recordSchema>http://explain.z3950.org/dtd/2.1/</sru:recordSchema>
+        <sru:recordPacking>xml</sru:recordPacking>
+        <sru:recordData>
+            <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/ file:/C:/Users/m/3lingua/corpus_shell/_repo2/corpus_shell/fcs/schemas/zeerex-2.0.xsd" authoritative="false" id="id1">
+                <zr:serverInfo protocol="SRU" version="1.2" transport="http">
+                    <zr:host>TODO: config:param-value($config, "base-url")</zr:host>
+                    <zr:port>80</zr:port>
+                    <zr:database>lrp</zr:database>
+                </zr:serverInfo>
+                <zr:databaseInfo>
+                    <zr:title lang="en" primary="true">Language Resources Portal - </zr:title>
+                    <zr:description lang="en" primary="true"/>
+                    <zr:author/>
+                    <zr:contact/>
+                </zr:databaseInfo>
+                <zr:metaInfo>
+                    <zr:dateModified>TODO</zr:dateModified>
+                </zr:metaInfo>
+                <zr:indexInfo>
+                    <zr:set identifier="isocat.org/datcat" name="isocat">
+                        <zr:title>ISOcat data categories</zr:title>
+                    </zr:set>
+                    <zr:set identifier="clarin.eu/fcs" name="fcs">
+                        <zr:title>CLARIN - Federated Content Search</zr:title>
+                    </zr:set><!-- <index search="true" scan="true" sort="false">
+            <title lang="en">Resource</title>
+            <map>
+                <name set="fcs">resource</name>
+            </map>
+        </index> -->
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">ana</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">ana</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">birth-date</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">birth-date</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">birth-place</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">birth-place</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">cmd.collection</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">cmd.collection</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">cql.serverChoice</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">cql.serverChoice</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">death-date</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">death-date</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">death-place</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">death-place</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">diary-day</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">diary-day</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">diary-month</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">diary-month</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">diary-year</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">diary-year</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">fcs.resource</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">fcs.resource</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">lemma</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">lemma</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">md-pid</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">md-pid</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">occupation</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">occupation</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">persId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">persId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">person</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">person</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">personName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">personName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">placeName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">placeName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">resource-pid</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">resource-pid</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">resourcefragment-pid</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">resourcefragment-pid</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">sex</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">sex</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">sort</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">sort</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">text</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">text</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">title</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">title</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">w</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">w</zr:name>
+                        </zr:map>
+                    </zr:index>
+                </zr:indexInfo>
+                <zr:schemaInfo><!--    <schema identifier="clarin.eu/cmd" location="" name="cmd" retrieve="true">
+            <title lang="en">Component Metadata</title>
+        </schema> --></zr:schemaInfo>
+                <zr:configInfo><!-- should translate to x-cmd-context extension-parameter if correctly interpreted: http://explain.z3950.org/dtd/commentary.html#8 
+                    or shall we rather directly write: x-cmd-context or x-fcs-context --><!--        <supports type="extraSearchData">cmd context</supports> --></zr:configInfo>
+            </zr:explain>
+        </sru:recordData>
+    </sru:record>
+</sru:explainResponse>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/corpus_shell/utils" xmlns:ds="http://aac.ac.at/corpus_shell/dataset" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="exsl utils xd" extension-element-prefixes="exsl xd">
-    <xsl:import href="solr2dataset.xsl"/>
+   <xsl:import href="solr2dataset.xsl"/>
     <!--<xsl:import href="dataset2table.xsl"/>
     <xsl:import href="dataset2google-json.xsl"/>-->
     <xsl:import href="dataset2view.xsl"/>
@@ -128,7 +128,7 @@ media-type="text/xhtml"
         </style>
                 <script type="text/javascript" src="{concat($scripts-dir, 'js/jquery/jquery.min.js')}"/>
                 <script type="text/javascript" src="{concat($scripts-dir, 'js/jquery/jquery-ui.min.js')}"/>
-             
+           
                 <!--currently not used
                     <xsl:if test="contains($parts,'table')">
                     <script type="text/javascript" src="{concat($scripts-dir, 'js/jquery/jquery.tablesorter.js')}"/>
@@ -170,9 +170,9 @@ media-type="text/xhtml"
                 </xsl:for-each>
                 <xsl:if test="contains($parts,'hits') and exists(/*/result/doc)">
 <!--                    <xsl:for-each select="//result[@name='response']">-->
-                    <xsl:call-template name="hits">
+                        <xsl:call-template name="hits">
                         <xsl:with-param name="data" select="$solr-result-preprocessed/*"/>
-                    </xsl:call-template>
+                        </xsl:call-template>
                 </xsl:if>
             </body>
         </html>

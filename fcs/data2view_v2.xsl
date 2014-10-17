@@ -29,9 +29,10 @@
             <xsl:for-each select="node()">
 <!--                   DEBUG:<xsl:value-of select="name()"></xsl:value-of>-->
                 <xsl:choose>
-                    <xsl:when test="parent::exist:match">
+<!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
+                        <xsl:when test="parent::exist:match">
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
-                    </xsl:when>
+                    </xsl:when>-->
                     <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
                         <xsl:if test="$insertTrailingBlank">
@@ -88,7 +89,7 @@
         </xsl:variable>
         <span class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
-                <span class="attributes" style="display:none;">
+                <span class="attributes">
                     <table>
                         <xsl:for-each-group select="descendant-or-self::*" group-by="name()">
                             <tr>
@@ -102,7 +103,7 @@
                                 <td>
                                     <xsl:for-each select="current-group()">
                                         <xsl:if test="@*">
-                                            <table style="float:left">
+                                            <table>
                                                 <xsl:for-each select="@*">
                                                     <tr>
                                                         <td class="label">

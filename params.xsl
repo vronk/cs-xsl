@@ -76,6 +76,14 @@
     </xd:doc>
     <xsl:param name="base_url" select="''"/>
     <xd:doc>
+        <xd:desc>A user name that may be needed to access resources used by these xsl transforms</xd:desc>
+    </xd:doc>
+    <xsl:param name="scripts_user" select="''"/>
+    <xd:doc>
+        <xd:desc>A password associated with scripts_user</xd:desc>
+    </xd:doc>
+    <xsl:param name="scripts_pw" select="''"/>
+    <xd:doc>
         <xd:desc>to be put as link on the logo in simple html pages </xd:desc>
     </xd:doc>
     <xsl:param name="site_url" select="'http://clarin.oeaw.ac.at'"/>
@@ -181,7 +189,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="format" select="'htmlpagelist'"/>
+    <xsl:param name="format" select="'htmlpagetable'"/>
     <xd:doc>
         <xd:desc>The query sent by the client
             <xd:p>
@@ -198,6 +206,19 @@
         </xd:desc>
     </xd:doc>
     <xsl:param name="x-context" select="/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context"/>
+    <xd:doc>
+        <xd:desc>The x-dataiew the client specified
+            <xd:p>
+                Defaults to a comma separated list of all dataviews the returned xml contains.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="x-dataview">
+        <xsl:call-template name="string-join">
+            <xsl:with-param name="nodes-to-join" select="//fcs:DataView[not(ancestor::fcs:DataView)]/@type"/>
+            <xsl:with-param name="join-with" select="','"/>
+        </xsl:call-template>
+    </xsl:param>
     <xd:doc>
         <xd:desc>The start record the client requested or the one the upstream endpoint chose
             <xd:p>
@@ -266,11 +287,43 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="contexts_url" select="concat($base_url,'fcs?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml')"/>
+    <xsl:param name="contexts_url" select="concat($base_url,'?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml')"/>
     <xd:doc>
         <xd:desc>A URL to a file where additional parameters can be specified</xd:desc>
     </xd:doc>
     <xsl:param name="mappings-file" select="''"/>
+    <xd:doc>
+        <xd:desc>A file containing translation strings
+        <xd:p>
+            Example:
+            <xd:pre>
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;dict>
+    &lt;list xml:lang="en_US">
+        &lt;item key="positioning">Positioning&lt;/item>
+    &lt;/list>
+    &lt;list xml:lang="de_DE">
+        &lt;item key="typology">Typologie&lt;/item>
+    &lt;/list>
+&lt;/dict>               
+            </xd:pre>
+        </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="dict_file" select="'dict.xml'"/>
+    
+    <xd:doc>
+        <xd:desc>The language used for looking up translateable strings</xd:desc>
+    </xd:doc>
+    <xsl:param name="dict_lang" select="'en_US'"/>
+    
+    <xd:doc>
+        <xd:desc>XDebug passthrough</xd:desc>
+        <xd:p>The XDebug PHP server debugging tool activates itsself depending on this special parameter.</xd:p>
+        <xd:p>So as a service pass this parameter on by appending it to all generated links as is if it is present.</xd:p>
+    </xd:doc>
+    <xsl:param name="XDEBUG_SESSION_START" select="''"/>
+    
     <xd:doc>
         <xd:desc>URL parameter that contained the context for the operation</xd:desc>
     </xd:doc>

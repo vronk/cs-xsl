@@ -127,7 +127,7 @@
             <td title="{@key}">
                 <xsl:value-of select="(@name,@label,@key)[not(.='')][1]"/>
                 <xsl:if test="@type='reldata'">
-                    <br/>
+                    <xsl:call-template name="br"/>
                     <xsl:value-of select="ancestor::ds:dataset/@percentile-unit"/>
                 </xsl:if>
             </td>
@@ -204,7 +204,7 @@
 <!--      <xsl:value-of select="@abs" />-->
 <!--      <xsl:value-of select="@formatted" />-->
 <!--      <xsl:if test="@rel_formatted">
-        <br/><xsl:value-of select="@rel_formatted" />
+        <xsl:call-template name="br"/><xsl:value-of select="@rel_formatted" />
       </xsl:if>-->
     </xsl:template>
     <xsl:template match="ds:list" mode="table">

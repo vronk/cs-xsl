@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>10</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>water</sru:query>
+        <fcs:x-context>apc_eng_002</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>8</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM (SELECT base.* FROM apc_eng_002 AS base INNER JOIN apc_eng_002_ndx AS prefilter ON base.id=prefilter.id WHERE prefilter.xpath LIKE  '%-change-f-status-' AND prefilter.txt = 'released') AS base INNER JOIN apc_eng_002_ndx AS ndx ON base.id = ndx.id WHERE ndx.txt LIKE '%water%' AND ndx.txt != '-' GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="mayy_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">mayy</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="gender">feminine</gram>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">mwh</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">mayāya</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>water</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Wasser</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>agua</quote>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="damascCourse">1</bibl>
+                                </xr>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="Stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_07_16"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_12_13"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="maa_wared_001">
+                                <form type="multiWordUnit">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">mā warᵊd</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">mwh wrd</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>rose water</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Rosenwasser</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>agua de rosas</quote>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="damascCourse">7#</bibl>
+                                </xr>
+                                <fs type="create">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_30"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_30"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="battiix_ahmar_001">
+                                <form type="multiWordUnit">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">baṭṭīx ʔaḥmar</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">bṭx ḥmr</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>watermelons</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Wassermelonen</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>sandía</quote>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="damascCourse">17</bibl>
+                                </xr>
+                                <fs type="create">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_02_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_02_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>3</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="biir_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">bīr</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">bʔr</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">byār</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>well (water)</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Brunnen</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>pozo</quote>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="damascCourse">16</bibl>
+                                </xr>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="Stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_04_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="carmen"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_08_17"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_01_17"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_12_22"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_02_03"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_29"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>4</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="sharrab_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">šarrab</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">verb</gram>
+                                    <gram type="subc">II</gram>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">šrb</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#v_pres_sg_p3">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">yšarreb</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>to give so. to drink, to water</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>zu trinken geben, tränken</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>dar de beber, regar</quote>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="damascCourse">20</bibl>
+                                </xr>
+                                <fs type="create">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_19"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_19"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>5</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="argiile_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">ʔargīle</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">ʔrgl</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">ʔaragīl</orth>
+                                </form>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">ʔargīlāt</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>shisha, hookah, water pipe</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Wasserpfeife, Shisha</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>narguile, shisha</quote>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="damascCourse">8</bibl>
+                                </xr>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="carmen"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_09_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="Stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_12_01"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_28"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_19"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>6</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="entry_000024">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">kāse</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">kʔs</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">kāsāt</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>glass (for tee, water)</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Glas (für Tee, Wasser)</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>vaso (de té, agua)</quote>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="damascCourse">6</bibl>
+                                </xr>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="Stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_11_04"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_28"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_12_13"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>7</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A digital dictionary of Damascus Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="entry_000698">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">ʕēn</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="gender">feminine</gram>
+                                    <gram type="root" xml:lang="ar-apc-x-damascus-vicavTrans">ʕyn</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-apc-x-damascus-vicavTrans">ʕyūn</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" lang="en">
+                                        <quote>eye; spring (of water)</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Auge; Quelle</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="es">
+                                        <quote>ojo; fuente</quote>
+                                    </cit>
+                                    <xr>
+                                        <bibl type="damscCourse">16</bibl>
+                                    </xr>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="carmen"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_09_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_12_04"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="Stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_07_16"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>8</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=apc_eng_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>
