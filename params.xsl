@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs" version="1.0">
+<xsl:stylesheet 
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:sru="http://www.loc.gov/zing/srw/"
+    xmlns:zr="http://explain.z3950.org/dtd/2.0/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fcs="http://clarin.eu/fcs/1.0"
+    xmlns:exsl="http://exslt.org/common"
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    exclude-result-prefixes="xsl sru zr xs fcs exsl xd" version="1.0">
     <xd:doc scope="stylesheet">
         <xd:desc>Central definition of all parameters the style sheets take
             <xd:p>
@@ -205,7 +213,8 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="x-context" select="/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context"/>
+    <xsl:param name="x-context" select="/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context|
+                                        /sru:explainResponse/sru:record/sru:recordData/zr:explain/zr:serverInfo/zr:database"/>
     <xd:doc>
         <xd:desc>The x-dataiew the client specified
             <xd:p>
