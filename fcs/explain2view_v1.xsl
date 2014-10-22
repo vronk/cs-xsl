@@ -10,8 +10,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:exsl="http://exslt.org/common"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl tei html">
+    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl tei">
     <xsl:import href="../commons_v1.xsl"/>
     <xsl:import href="data2view_tei.xsl"/>
     <xd:doc scope="stylesheet">
