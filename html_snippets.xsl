@@ -39,6 +39,7 @@
             <xsl:value-of select="$title"/>
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
