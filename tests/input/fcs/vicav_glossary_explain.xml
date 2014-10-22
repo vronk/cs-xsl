@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:record>
+        <sru:recordPacking>XML</sru:recordPacking>
+        <sru:recordSchema>http://explain.z3950.org/dtd/2.0/</sru:recordSchema>
+        <sru:recordData>
+            <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.0/">
+                <zr:serverInfo protocol="SRU" version="1.1" transport="http" method="GET">
+                    <zr:host>127.0.0.1</zr:host>
+                    <zr:port>80</zr:port>
+                    <zr:database>arz_eng_006</zr:database>
+                </zr:serverInfo>
+                <zr:databaseInfo>
+                    <zr:title lang="en" primary="true">A machine-readable dictionary of Egyptian Arabic</zr:title>
+                    <zr:description>
+                        <front xmlns="http://www.tei-c.org/ns/1.0">
+                            <div>
+                                <head>A digital dictionary of Cairo Arabic</head>
+                                <p>
+                                    Compiled by
+                                    <hi rend="italic">Karlheinz Mörth</hi>
+                                </p>
+                                <p>
+                                    In collaboration with
+                                    <hi rend="italic">Tarek Eltayeb</hi>
+                                </p>
+                                <p>
+                                    To query the dictionary
+                                    <ref target="arz_eng_006|water">go here</ref>
+                                    .
+                                </p>
+                                <p>
+                                    To obtain concise information on the dictionary
+                                    <ref target="vicav_meta|metaText==Dictionaries">go here</ref>
+                                    .
+                                </p>
+                                <ref target="http://upload.wikimedia.org/wikipedia/commons/e/e5/Egypt.Cairo.EgyptianMuseum.01.jpg">License: GNU Free Documentation License, CC Attribution-ShareAlike 3.0 Unported, CC Attribution-ShareAlike 3.0 Generic</ref>
+                            </div>
+                        </front>
+                    </zr:description>
+                    <zr:author>Charly Moerth; Tarek Eltayeb</zr:author>
+                    <zr:restrictions lang="en">http://creativecommons.org/licenses/by-nc-sa/3.0/</zr:restrictions>
+                </zr:databaseInfo>
+                <zr:indexInfo>
+                    <zr:set identifier="clarin.eu/fcs" name="fcs">
+                        <zr:title>CLARIN - Federated Content Search</zr:title>
+                    </zr:set>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">cql.serverChoice</zr:title>
+                        <zr:map>
+                            <zr:name set="cql">cql.serverChoice</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">VICAV Egyptian - English/German any entry</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">entry</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">VICAV Egyptian - English/German translated sense</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">sense</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">Resource Fragement PID</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">rfpid</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <!--                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">CQL All</zr:title>
+                        <zr:map>
+                            <zr:name set="cql">all</zr:name>
+                        </zr:map>
+                    </zr:index>-->
+                </zr:indexInfo>
+                <zr:schemaInfo>
+                    <zr:schema identifier="http://www.loc.gov/zing/srw/dcschema/v1.0/" location="http://www.loc.gov/zing/srw/dc.xsd" name="dc" retrieve="true">
+                        <zr:title lang="en">Dublin Core</zr:title>
+                    </zr:schema>
+                    <zr:schema identifier="clarin.eu/schema/ccs-v1.0" location="" name="ccs" retrieve="true">
+                        <zr:title lang="en">CLARIN Content Search</zr:title>
+                    </zr:schema>
+                </zr:schemaInfo>
+                <zr:configInfo>
+                    <zr:default type="numberOfRecords">10</zr:default>
+                    <zr:setting type="maximumRecords">100</zr:setting>
+                    <zr:setting type="resultSetTTL">100</zr:setting>
+                </zr:configInfo>
+            </zr:explain>
+        </sru:recordData>
+    </sru:record>
+</sru:explainResponse>
