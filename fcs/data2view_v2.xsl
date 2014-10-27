@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd">
     <xsl:import href="data2view_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
@@ -86,24 +86,18 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <span class="inline-wrap">
-            <xsl:if test="descendant-or-self::*/@*">
+        <!--<span class="inline-wrap">
+            <!-\- only display element's own attributes -\->
+            <xsl:if test="@*">
                 <span class="attributes" style="display:none;">
                     <table>
-                        <xsl:for-each-group select="descendant-or-self::*" group-by="name()">
+<!-\-                        <xsl:for-each-group select="descendant-or-self::*" group-by="name()">-\->
                             <tr>
                                 <td colspan="2">
                                     <xsl:value-of select="name()"/>
                                 </td>
                             </tr>
-                    
-<!--                        <xsl:apply-templates select="@*" mode="format-attr"/>-->
-                            <tr>
-                                <td>
-                                    <xsl:for-each select="current-group()">
-                                        <xsl:if test="@*">
-                                            <table style="float:left">
-                                                <xsl:for-each select="@*">
+                                <xsl:for-each select="@*">
                                                     <tr>
                                                         <td class="label">
                                                             <xsl:value-of select="name()"/>
@@ -112,18 +106,16 @@
                                                             <xsl:value-of select="."/>
                                                         </td>
                                                     </tr>
-                                                </xsl:for-each>
-                                            </table>
-                                        </xsl:if>
-                                    </xsl:for-each>
-                                </td>
-                            </tr>
-                        </xsl:for-each-group>
+                               </xsl:for-each>
+                        
                     </table>
                 </span>
-            </xsl:if>
+            </xsl:if> 
             <xsl:sequence select="$inline-elem"/>
-        </span>
+            </span>-->
+            
+        <xsl:sequence select="$inline-elem"/>
+        
     </xsl:template>
     
     <!-- versioned going top-down (collecting the children of given element)
