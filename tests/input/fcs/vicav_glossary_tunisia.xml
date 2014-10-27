@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>4</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>water</sru:query>
+        <fcs:x-context>aeb_eng_001__v001</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>4</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM aeb_eng_001__v001 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM aeb_eng_001__v001_ndx AS tab INNER JOIN (SELECT inner.id FROM aeb_eng_001__v001_ndx AS `inner` WHERE inner.txt = 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id WHERE tab.txt != '-') AS ndx WHERE ndx.txt LIKE '%water%' GROUP BY ndx.id) AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A Digital Dictionary of Tunis Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="maa_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">mā</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                    <bibl>Singer 1984, p.46</bibl>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">mwh</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>water</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Wasser</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>eau</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_08"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_09_17"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="ines2"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_01_26"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_19"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A Digital Dictionary of Tunis Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="dillaac_001">
+                                <note type="tasks">[st]</note>
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">dillāʕ</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="subc">collectiveNoun</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">dlʕ</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_unit">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">dillāʕa</orth>
+                                </form>
+                                <form type="inflected" ana="#n_unit">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">kaʕba dillāʕ</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>water melons</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Wassermelonen</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>pastèques</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_13"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_10"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_08_21"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A Digital Dictionary of Tunis Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="warqit_il_maa_001">
+                                <note type="tasks"/>
+                                <form type="multiWordUnit">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">waṛqit il-mā</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                </form>
+                                <gramGrp>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">wrq mwh</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">wṛāq il-mā</orth>
+                                    <form type="variant">
+                                        <orth xml:lang="ar-aeb-x-tunis-vicav">awṛāq il-mā</orth>
+                                    </form>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>water bill</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Wasserrechnung</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>facture d’eau</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_13"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_19"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_08_13"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_04"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>3</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A Digital Dictionary of Tunis Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="ciin_002">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">ʕīn</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="gender">feminine</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">ʕyn</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">ʕyūn</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>spring (water)</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Quelle</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>source, fontaine</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_08_01"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>4</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=water&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>
