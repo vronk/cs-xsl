@@ -29,9 +29,10 @@
             <xsl:for-each select="node()">
 <!--                   DEBUG:<xsl:value-of select="name()"></xsl:value-of>-->
                 <xsl:choose>
-                    <xsl:when test="parent::exist:match">
+<!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
+                        <xsl:when test="parent::exist:match">
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
-                    </xsl:when>
+                    </xsl:when>-->
                     <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
                         <xsl:if test="$insertTrailingBlank">
@@ -86,10 +87,18 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <!--<span class="inline-wrap">
+
+<!-- WATCHME: even more conflicts  <<<<<<< HEAD
+but currently whole span.inline-wrap is deactivated  -->
+       
+ <!--<span class="inline-wrap">
             <!-\- only display element's own attributes -\->
             <xsl:if test="@*">
                 <span class="attributes" style="display:none;">
+        <span class="inline-wrap">
+            <xsl:if test="descendant-or-self::*/@*">
+                <span class="attributes">
+>>>>>>> df738c45315b56c17246f250901e18b6d34aa603
                     <table>
 <!-\-                        <xsl:for-each-group select="descendant-or-self::*" group-by="name()">-\->
                             <tr>
@@ -97,7 +106,18 @@
                                     <xsl:value-of select="name()"/>
                                 </td>
                             </tr>
+<<<<<<< HEAD
                                 <xsl:for-each select="@*">
+=======
+                    
+                    <!-/-    <xsl:apply-templates select="@*" mode="format-attr"/>-/->
+                            <tr>
+                                <td>
+                                    <xsl:for-each select="current-group()">
+                                        <xsl:if test="@*">
+                                            <table>
+                                                <xsl:for-each select="@*">
+
                                                     <tr>
                                                         <td class="label">
                                                             <xsl:value-of select="name()"/>

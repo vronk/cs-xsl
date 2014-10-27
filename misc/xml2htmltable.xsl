@@ -75,7 +75,7 @@
         <div>
             <xsl:if test="parent::*">
                 <xsl:value-of select="name()"/>
-                <br/>
+                <xsl:call-template name="br"/>
                 <xsl:call-template name="node-attrs"/>
             </xsl:if>
             <xsl:if test="*">

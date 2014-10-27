@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"
+    xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>serverChoice==water</sru:query>
+        <fcs:x-context>arz_eng_006</fcs:x-context>
+        <fcs:x-dataview>full</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry FROM arz_eng_006 AS base INNER JOIN
+            arz_eng_006_ndx AS ndx ON base.id = ndx.id WHERE ndx.xpath LIKE '%' AND ndx.txt =
+            'water' LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:DataView type="metadata">
+                        <fcs:f key="copyright">ICLTT</fcs:f>
+                        <fcs:f key="content">Glossary for water</fcs:f>
+                    </fcs:DataView>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="full">
+
+                            <entry xml:id="mayya_0" numID="1097">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-arz-x-cairo-vicavTrans">ṃayya</orth>
+                                    <orth xml:lang="ar-arz-x-cairo-arabic">مية</orth>
+                                </form>
+
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-arz-x-cairo-vicavTrans"
+                                        >ṃāʔ</gram>
+                                </gramGrp>
+
+                                <sense>
+                                    <usg type="dom">food</usg>
+
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>water</quote>
+                                    </cit>
+
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Wasser</quote>
+                                    </cit>
+                                    <cit type="example" numID="1098">
+                                        <quote xml:lang="ar-arz-x-cairo-vicavTrans">bitišṛab ṃayya
+                                            maʕdaniyya.</quote>
+
+                                        <cit type="translation" xml:lang="en">
+                                            <quote>She drinks mineral water.</quote>
+                                        </cit>
+
+                                        <cit type="translation" xml:lang="de">
+                                            <quote>Sie trinkt Mineralwasser.</quote>
+                                        </cit>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="charly"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2012_04_11"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="charly"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2012_05_20"/>
+                                            </f>
+                                        </fs>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2011_11_13"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_01_15"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_04_11"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?x-context=arz_eng_006&amp;operation=searchRetrieve&amp;version=1.2&amp;query=serverChoice%3D%3D%22water%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

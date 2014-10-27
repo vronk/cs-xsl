@@ -101,7 +101,7 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="lst[@name='params']/str" mode="link">
+    <xsl:template match="lst[@name='params']/str"  mode="link">
         <xsl:value-of select="concat(@name,'=',utils:uri-encode(.),'&amp;')"/>
     </xsl:template>
     <xd:doc>
@@ -134,7 +134,7 @@
     <xsl:template name="response-header">
         <!--<xsl:for-each select="result">-->
         <div class="response-header">
-            <xsl:apply-templates select="$params" mode="query-input"/>
+            <xsl:apply-templates select="$params"  mode="query-input"/>
 <!--            <span class="label">hits: </span><span class="value hilight"><xsl:value-of select="utils:format-number(//result/@numFound, '#.###')" /></span>-->
         </div>
     </xsl:template>
@@ -185,9 +185,8 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="lst[@name='params']/arr/str" mode="form">
-        <input type="text" name="{../@name}" value="{.}"/>
-        <br/>
+    <xsl:template match="lst[@name='params']/arr/str" mode="form"  >        
+        <input type="text" name="{../@name}"  value="{.}" /><xsl:call-template name="br"/>        
     </xsl:template>
     <xsl:template match="text()" mode="query-input"/>
     <xsl:template match="text()" mode="form"/>

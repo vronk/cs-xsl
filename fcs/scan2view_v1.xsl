@@ -38,8 +38,8 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
-
+    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
+    
     <!-- <xsl:param name="size_lowerbound">0</xsl:param>
 <xsl:param name="max_depth">0</xsl:param>
 <xsl:param name="freq_limit">20</xsl:param>
@@ -65,10 +65,10 @@
             <xd:a href="http://www.loc.gov/standards/sru/specs/scan.html">SRU documentation</xd:a>.
             The documentation states that scanClause can be "expressed as a complete index, relation, term clause in CQL". 
         </xd:p>
-            <xd:p>
+        <xd:p>
             Note: for the special scan clause fcs.resource this is an empty string.
             See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-before">.XPath language definition</xd:a>
-            </xd:p>
+        </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:param name="index">
@@ -98,11 +98,11 @@
     <xd:doc>
         <xd:desc>Standard callback from / template
         <xd:p>
-                <xd:ul>
-                    <xd:li>If a htmlpage is requested generates input elements for the user to do another scan.</xd:li>
-                    <xd:li>Wraps the HTML representation of the result terms in an HTML div element.</xd:li>
-                </xd:ul>
-            </xd:p>
+            <xd:ul>
+            <xd:li>If a htmlpage is requested generates input elements for the user to do another scan.</xd:li>
+            <xd:li>Wraps the HTML representation of the result terms in an HTML div element.</xd:li>
+            </xd:ul>
+        </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="continue-root">
@@ -136,8 +136,8 @@
             </xsl:attribute> 
             <!--<xsl:value-of select="$title"/>-->
             <form>
-                <input type="text" name="index" value="{$index}"/>
-                <input type="text" name="scanClause" value="{$filter}"/>
+                <input type="hidden" name="version" value="1.2"/>
+                <input type="text" name="scanClause" value="{$index}={$filter}"/>
                 <input type="hidden" name="operation" value="scan"/>
                 <input type="hidden" name="x-format" value="{$format}"/>
                 <input type="hidden" name="x-context" value="{$x-context}"/>
@@ -168,7 +168,7 @@
     <xd:doc>
         <xd:desc>A term consits of a number for this term and the term itself
         <xd:p>The term is presented as a link that can be used to scan for that term.</xd:p>
-            <xd:p>
+        <xd:p>
             Sample data:
 <xd:pre>
             &lt;sru:term&gt;
@@ -178,35 +178,15 @@
                 &lt;sru:extraTermData&gt;&lt;/sru:extraTermData&gt;
             &lt;/sru:term&gt;
 </xd:pre>
-            </xd:p>
+        </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="sru:term">
         <xsl:variable name="depth" select="count(ancestor::sru:term)"/>
         <xsl:variable name="href">
-            <!--                        special handling for special index -->
-            <xsl:choose>
-                <xsl:when test="$scanClause = 'fcs.resource'">
-<!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
-                    <xsl:call-template name="formURL">
-                        <xsl:with-param name="action">explain</xsl:with-param>
-                        <xsl:with-param name="format" select="$format"/>
-                        <xsl:with-param name="q" select="sru:value"/>
-                    </xsl:call-template>
-                </xsl:when>
-                <!-- TODO: special handling for cmd.collection? -->
-                <!--<xsl:when test="$index = 'cmd.collection'">
-                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
-                </xsl:when>-->
-                <xsl:otherwise>
-<!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
-                    <xsl:call-template name="formURL">
-                        <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-                        <xsl:with-param name="format" select="$format"/>
-                        <xsl:with-param name="q" select="concat($index, '%3D%22', sru:value, '%22')"/>
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
+            <xsl:call-template name="generateLinkInScanResults">
+                <xsl:with-param name="index" select="$index"/>
+            </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="link">
             <span>
