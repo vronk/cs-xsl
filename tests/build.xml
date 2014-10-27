@@ -6,7 +6,7 @@
 	<import file="${scripts.dir}\build_defs.xml" />   
 
 
-	<property name="target-scripts.dir" location="../xsl"/>
+	<property name="target-scripts.dir" location="../"/>
 	<property name="in.dir" location="input"/>
 	<property name="output-actual.dir" location="output-actual"/>
 	<property name="output-expected.dir" location="output-expected"/>
@@ -147,7 +147,7 @@
 	
 	
 	<property name="package" value="org.diffxml"/>
-	<property name="diffxml.dir" value="lib/diffxml"/>	
+	<property name="diffxml.dir" value="../utils/diffxml"/>	
 	<property name="diffxml.class" value="${package}.diffxml.DiffXML"/>
 	<property name="patch.class" value="${package}/patchxml/PatchXML"/>
 	
