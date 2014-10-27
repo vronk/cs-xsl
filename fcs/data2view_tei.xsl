@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:aac="urn:general" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xsl aac tei sru exist xd" version="1.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:aac="urn:general" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xsl aac tei sru exist xd" version="1.0">
     <xd:doc scope="stylesheet">
         <xd:desc>
             <xd:p>Stylesheet for formatting TEI-elements  inside a FCS/SRU-result.
@@ -53,7 +53,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
-    <xsl:template match="text | body| front | back | tei:text | tei:body | tei:front | tei:back" mode="record-data">
+    <xsl:template match="text | front | back | tei:text | tei:front | tei:back" mode="record-data">
         <xsl:apply-templates mode="record-data"/>
     </xsl:template>
     <xd:doc>
@@ -332,7 +332,7 @@ the named templates are at the bottom.</xd:p>
     <xd:doc>
         <xd:desc>Put TEI body content into a div</xd:desc>
     </xd:doc>
-    <xsl:template match="tei:body" mode="record-data">
+    <xsl:template match="body | tei:body" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
@@ -934,6 +934,9 @@ the named templates are at the bottom.</xd:p>
             <xsl:when test="@type[.='symbol'] and @rend[.='Merkur']">
                 <span style="font-size:14pt;">☿</span>
             </xsl:when>
+            <xsl:when test="@type[.='symbol'] and @rend[.='Virgo']">
+                <span style="font-size:14pt;">♍</span>
+            </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='undefined']">
                 <b>☉</b>
             </xsl:when>
@@ -1120,7 +1123,7 @@ the named templates are at the bottom.</xd:p>
     <xsl:template match="w|tei:w" mode="record-data">
         <xsl:variable name="next" select="following-sibling::*[1]"/>
         <!--        <xsl:call-template name="inline"/>-->
-        <span class="w-wrap">
+        <span class="inline-wrap">
             <xsl:if test="@*">
                 <span class="attributes" style="display:none;">
                     <xsl:value-of select="concat(@lemma,' ',@type)"/>
