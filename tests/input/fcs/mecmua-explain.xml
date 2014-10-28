@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
     <sru:version>1.1</sru:version>
     <sru:record>
@@ -26,13 +25,30 @@
                     </zr:set>
                     <zr:set identifier="clarin.eu/fcs" name="fcs">
                         <zr:title>CLARIN - Federated Content Search</zr:title>
-                    </zr:set>
-                    <!-- <index search="true" scan="true" sort="false">
+                    </zr:set><!-- <index search="true" scan="true" sort="false">
             <title lang="en">Resource</title>
             <map>
                 <name set="fcs">resource</name>
             </map>
         </index> -->
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">astrEnt</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">astrEnt</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">astrEntId</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">astrEntId</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">astrEntName</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">astrEntName</zr:name>
+                        </zr:map>
+                    </zr:index>
                     <zr:index search="true" scan="true" sort="false">
                         <zr:title lang="en">auxSubst</zr:title>
                         <zr:map>
@@ -172,16 +188,11 @@
                         </zr:map>
                     </zr:index>
                 </zr:indexInfo>
-                <zr:schemaInfo>
-                    <!--    <schema identifier="clarin.eu/cmd" location="" name="cmd" retrieve="true">
+                <zr:schemaInfo><!--    <schema identifier="clarin.eu/cmd" location="" name="cmd" retrieve="true">
             <title lang="en">Component Metadata</title>
-        </schema> -->
-                </zr:schemaInfo>
-                <zr:configInfo>
-                    <!-- should translate to x-cmd-context extension-parameter if correctly interpreted: http://explain.z3950.org/dtd/commentary.html#8 
-                    or shall we rather directly write: x-cmd-context or x-fcs-context -->
-                    <!--        <supports type="extraSearchData">cmd context</supports> -->
-                </zr:configInfo>
+        </schema> --></zr:schemaInfo>
+                <zr:configInfo><!-- should translate to x-cmd-context extension-parameter if correctly interpreted: http://explain.z3950.org/dtd/commentary.html#8 
+                    or shall we rather directly write: x-cmd-context or x-fcs-context --><!--        <supports type="extraSearchData">cmd context</supports> --></zr:configInfo>
             </zr:explain>
         </sru:recordData>
     </sru:record>
