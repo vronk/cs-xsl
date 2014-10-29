@@ -219,9 +219,9 @@ sample data:
             <xsl:otherwise>
                 <li>
                     <xsl:sequence select="$link"/>
-                    <xsl:if test="number(sru:numberOfRecords) &gt; 1">
+<!--                    <xsl:if test="number(sru:numberOfRecords) > 1">-->
                         <span class="note"> |<xsl:value-of select="sru:numberOfRecords"/>|</span>
-                    </xsl:if>
+<!--                    </xsl:if>-->
                     <!--DEBUG:<xsl:value-of select="exists(sru:extraTermData/sru:terms/sru:term)" />-->
                     <xsl:if test="sru:extraTermData/sru:terms/sru:term">
                         <ul>
