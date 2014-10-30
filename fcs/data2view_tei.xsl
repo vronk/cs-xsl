@@ -764,7 +764,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <xsl:element name="{$elementName}">
+        <xsl:element name="{$elementName}" namespace="http://www.w3.org/1999/xhtml">
             <xsl:choose>
 <!-- FIXME: needs merging 
                 <xsl:when test="@style">
