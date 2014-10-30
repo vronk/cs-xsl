@@ -205,7 +205,7 @@
         </xsl:variable>
         <span class="{$class}">
             <xsl:apply-templates mode="record-data"/>
-        </span>.
+        </span><span class="xsl-separator tei-imprint-sep">.</span>
     </xsl:template>
     <xd:doc>
         <xd:desc>TEI pubPlace as pubPlace span</xd:desc>
@@ -308,7 +308,7 @@
     </xd:doc>
     <xsl:template match="tei:series" mode="record-data">
         <div class="tei-series">
-            <xsl:apply-templates mode="record-data"/>.</div>
+            <xsl:apply-templates mode="record-data"/><span class="xsl-separator tei-imprint-sep">.</span></div>
     </xsl:template>
     
     <xsl:template match="tei:settlement|settlement" mode="record-data">
@@ -333,9 +333,11 @@
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
-        <ul class="{$class}">
-            <xsl:apply-templates mode="record-data"/>
-        </ul>
+        <div class="indexTerms">
+            <ul class="{$class}">
+                <xsl:apply-templates mode="record-data"/>
+            </ul>
+        </div>
     </xsl:template>
     <xsl:template match="tei:index/tei:term" mode="record-data">
         <xsl:variable name="href">
@@ -1270,7 +1272,7 @@
     <xd:doc>
         <xd:desc>division headings are transformed into their html h1-h6 counterparts</xd:desc>
     </xd:doc>
-    <xsl:template match="head[parent::div] | tei:head[parent::tei:div] " mode="record-data">
+    <xsl:template match="head[parent::div] | tei:head[parent::tei:div | parent::tei:body] " mode="record-data">
         <div class="tei-head">
             <xsl:apply-templates select="." mode="tei-body-headings"/>
         </div>
@@ -1291,7 +1293,7 @@
     <xd:doc>
         <xd:desc>headings other than list and division headings are transformed into a generic html span</xd:desc>
     </xd:doc>
-    <xsl:template match="head[not(parent::div)] | tei:head[not(parent::tei:div)] " mode="record-data">
+    <xsl:template match="head[not(parent::div)] | tei:head[not(parent::tei:div | parent::tei:body)]" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
