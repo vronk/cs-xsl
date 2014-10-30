@@ -191,7 +191,9 @@
                 <xsl:variable name="contexts_auth_url" select="concat(substring-before($contexts_url, '//'), '//', $scripts_user, ':', $scripts_pw, '@', substring-after($contexts_url,'//'))"/>                    
                 <xsl:copy-of select="document($contexts_auth_url)"/>
             </xsl:when>
-            <xsl:otherwise><xsl:copy-of select="document($contexts_url)"/></xsl:otherwise>
+            <xsl:otherwise>
+                <xsl:copy-of select="document($contexts_url)"/>
+            </xsl:otherwise>
         </xsl:choose>                
     </xsl:template>
     <xd:doc>
@@ -305,13 +307,13 @@
                 <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'))"/>
             </xsl:when>
             <xsl:when test="$action='explain'">
-                <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='scan'">
-                <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $param_maximumTerms, $XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $param_maximumTerms, $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat($base_url, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
             </xsl:otherwise>
         </xsl:choose>                
          
@@ -478,7 +480,9 @@
         <xd:desc>Returns attribute names and their values as pairs of HTML span tags</xd:desc>
     </xd:doc>
     <xsl:template match="@*" mode="format-attr">
-        <span class="inline label"><xsl:value-of select="name()"/></span>
+        <span class="inline label">
+            <xsl:value-of select="name()"/>
+        </span>
         <span class="value">
             <xsl:call-template name="format-value"/>
         </span>
@@ -553,12 +557,12 @@
     </xsl:template>
     
     <xd:doc>
-        <xd:desc>Forces generation of one (!) emtpty &lt;br/> tag
+        <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="br">
-        <xsl:text disable-output-escaping="yes">&lt;br/></xsl:text>
+        <xsl:text disable-output-escaping="yes">&lt;br/&gt;</xsl:text>
     </xsl:template>
     
     <xd:doc>
@@ -592,7 +596,7 @@
             <xsl:otherwise>
                 <xsl:variable name="rest">
                     <xsl:call-template name="string-join">
-                        <xsl:with-param name="nodes-to-join" select="$nodes-to-join[position() >= 8]"/>
+                        <xsl:with-param name="nodes-to-join" select="$nodes-to-join[position() &gt;= 8]"/>
                         <xsl:with-param name="join-with" select="$join-with"/>
                     </xsl:call-template>
                 </xsl:variable>

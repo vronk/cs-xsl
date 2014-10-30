@@ -90,4 +90,10 @@
     </xsl:template>
     <xsl:template match="@ComponentId" mode="format-attr"/>
     <xsl:template match="@xml:lang" mode="format-attr"/>
+    
+    <xsl:template match="cmd:Description">
+        <p>
+            <xsl:value-of select="."/>          
+        </p>
+    </xsl:template>
 </xsl:stylesheet>
