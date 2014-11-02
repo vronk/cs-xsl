@@ -100,11 +100,8 @@
                 <span class="label"> hits)</span>
                 <div class="note">
                     <xsl:for-each select="(sru:echoedSearchRetrieveRequest/*|sru:extraResponseData/*)">
-                        <span class="label">
-                            <xsl:value-of select="name()"/>: </span>
-                        <span class="value">
-                            <xsl:value-of select="."/>
-                        </span>;
+                        <span class="label"><xsl:value-of select="name()"/></span><span class="xsl-separator">: </span> 
+                        <span class="value"><xsl:value-of select="."/></span><span class="xsl-separator">; </span>
                     </xsl:for-each>
                 <!--<span class="label">duration: </span>
 <span class="value">

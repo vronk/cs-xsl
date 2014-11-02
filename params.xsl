@@ -94,7 +94,7 @@
     <xd:doc>
         <xd:desc>to be put as link on the logo in simple html pages </xd:desc>
     </xd:doc>
-    <xsl:param name="site_url" select="'http://clarin.oeaw.ac.at'"/>
+    <xsl:param name="site_url" select="'http://corpus3.oeaw.ac.at/vicav2'"/>
     
     <!-- <xsl:param name="base_dir">http://corpus3.aac.ac.at/cs/</xsl:param>-->
     <xd:doc>
