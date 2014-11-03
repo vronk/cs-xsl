@@ -33,6 +33,9 @@
                     <xd:li>
                         <xd:ref name="mode" type="parameter">mode</xd:ref>
                     </xd:li>
+                    <xd:li>
+                        <xd:ref name="fcs_prefix" type="parameter">fcs_prefix</xd:ref>
+                    </xd:li>
                 </xd:ul>
             </xd:p>
         </xd:desc>
@@ -323,6 +326,11 @@
         <xd:p>So as a service pass this parameter on by appending it to all generated links as is if it is present.</xd:p>
     </xd:doc>
     <xsl:param name="XDEBUG_SESSION_START" select="''"/>
+    
+    <xd:doc>
+        <xd:desc>The location of the fcs endpoint relative to the base-url (used in the <xd:ref name="formURL" type="template">formURL</xd:ref> template to build links.</xd:desc>
+    </xd:doc>
+    <xsl:param name="fcs_prefix" select="''"/>
     
     <xd:doc>
         <xd:desc>URL parameter that contained the context for the operation</xd:desc>
