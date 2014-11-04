@@ -1087,18 +1087,18 @@
     </xd:doc>
     <xsl:template match="tei:form[@type='lemma' or @type='multiWordUnit']" mode="record-data">
         <span class="tei-form-{@type}">
-            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
-            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
             <xsl:apply-templates select="*[not(name() = 'orth' or name() = 'bibl')]" mode="record-data"/>
         </span>        
     </xsl:template>
     
     <xsl:template match="tei:form[@type='inflected']" mode="record-data">
         <span class="tei-form-inflected">
-            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
-            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
             <span class="tei-form-ana">
                 <xsl:choose>
                     <xsl:when test="@ana='#adj_f'">f</xsl:when>
@@ -1123,17 +1123,26 @@
         </dl>
     </xsl:template>
     
-    <xsl:template match="tei:gram[@type]" mode="record-data">
-        <dt class="tei-gram">
+    <xsl:template match="tei:gram[@type and text()]" mode="record-data">
+        <xsl:variable name="first-of-group">
+            <xsl:call-template name="first-of-group"/>
+        </xsl:variable>
+        <dt class="tei-gram {$first-of-group}">
             <xsl:call-template name="dict">
                 <xsl:with-param name="key" select="@type"/>
             </xsl:call-template>
         </dt>
-        <dd class="tei-gram {@type}">
+        <dd class="tei-gram {@type} {$first-of-group}">
             <xsl:apply-templates mode="record-data"/> 
         </dd>
     </xsl:template>
+
+    <xsl:template name="first-of-group">
+        <xsl:if test="@type != preceding-sibling::*[1]/@type">xsl-first-of-group</xsl:if>
+    </xsl:template>
     
+    <xsl:template match="tei:gram" mode="record-data"/>
+        
     <xsl:template match="tei:sense" mode="record-data">
         <div class="tei-sense">
             <xsl:if test="tei:def">            
