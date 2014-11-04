@@ -14,6 +14,7 @@
    </xsl:template>
    
    <xsl:template name="callback-header">
+      <link href="/static/fonts/istok/istokweb.css" type="text/css" rel="stylesheet"/>  
       <link href="{$scripts_url}style/glossary.css" type="text/css" rel="stylesheet"/>      
       <script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
       <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
