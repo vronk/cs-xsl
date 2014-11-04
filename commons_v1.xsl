@@ -247,7 +247,7 @@
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
-        <xsl:param name="fcs_prefix" select="''"/>
+        <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
                 <xsl:value-of select="concat('&amp;query=',$q)"/>
