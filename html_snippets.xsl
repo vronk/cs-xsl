@@ -162,6 +162,7 @@
                     <input type="hidden" name="operation" value="{$operation}"/>
                     <input type="hidden" name="version" value="1.2"/> 
                     <input type="hidden" name="x-dataview" value="{//fcs:x-dataview}"/>
+                    <input type="hidden" name="maximumRecords" value="{$maximumRecords}"/>
                     <!--<table class="cmds-ui-elem-stretch">
                         <tr>
                             <td colspan="2">
