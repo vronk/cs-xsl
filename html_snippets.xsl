@@ -43,8 +43,8 @@
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.6.2.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.1.min.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
         
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
@@ -170,7 +170,7 @@
                     <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
-                    <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active"/>
+                    <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active virtual-keyboard-input" data-context="{$x-context}"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>

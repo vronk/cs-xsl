@@ -10,8 +10,11 @@
                 <xsl:apply-templates/>
             </sru:terms>
             <sru:extraResponseData>
-                <fcs:countTerms>
+                <fcs:countTerms level="top">
                     <xsl:value-of select="count(mets:div)"/>
+                </fcs:countTerms>
+                <fcs:countTerms level="total">
+                    <xsl:value-of select="count(.//mets:div)"/>
                 </fcs:countTerms>
             </sru:extraResponseData>
             <sru:echoedScanRequest>
@@ -54,9 +57,9 @@
                 <sru:terms>
                     <xsl:apply-templates select="mets:div"/>
                 </sru:terms>
-                <fcs:countTerms>
+                <!--<fcs:countTerms>
                     <xsl:value-of select="count(mets:div)"/>
-                </fcs:countTerms>
+                </fcs:countTerms>-->
             </sru:extraTermData>
         </sru:term>
     </xsl:template>

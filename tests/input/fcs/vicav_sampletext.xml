@@ -24,6 +24,9 @@
                     <fcs:ResourceFragment>
                         <fcs:DataView type="title">A Collection of Arabic Dialect Sample Texts</fcs:DataView>
                         <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
                             <TEI xml:id="cairo_sample_01">
                                 <teiHeader>
                                     <fileDesc>
@@ -319,7 +322,7 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>1</sru:recordPosition>
-            <sru:recordIdentifier>?x-context=vicav_sampletexts&amp;operation=searchRetrieve&amp;version=1.2&amp;query=sampleText%3D%3D%22cairo_sample_01%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=sampleText%3D%3Dcairo_sample_01&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_sampletexts&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
     </sru:records>
     <sru:res>1</sru:res>

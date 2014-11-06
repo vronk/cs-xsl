@@ -87,24 +87,37 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+
+<!-- WATCHME: even more conflicts  <<<<<<< HEAD
+but currently whole span.inline-wrap is deactivated  -->
+       
+ <!--<span class="inline-wrap">
+            <!-\- only display element's own attributes -\->
+            <xsl:if test="@*">
+                <span class="attributes" style="display:none;">
         <span class="inline-wrap">
             <xsl:if test="descendant-or-self::*/@*">
                 <span class="attributes">
+>>>>>>> df738c45315b56c17246f250901e18b6d34aa603
                     <table>
-                        <xsl:for-each-group select="descendant-or-self::*" group-by="name()">
+<!-\-                        <xsl:for-each-group select="descendant-or-self::*" group-by="name()">-\->
                             <tr>
                                 <td colspan="2">
                                     <xsl:value-of select="name()"/>
                                 </td>
                             </tr>
+<<<<<<< HEAD
+                                <xsl:for-each select="@*">
+=======
                     
-<!--                        <xsl:apply-templates select="@*" mode="format-attr"/>-->
+                    <!-/-    <xsl:apply-templates select="@*" mode="format-attr"/>-/->
                             <tr>
                                 <td>
                                     <xsl:for-each select="current-group()">
                                         <xsl:if test="@*">
                                             <table>
                                                 <xsl:for-each select="@*">
+
                                                     <tr>
                                                         <td class="label">
                                                             <xsl:value-of select="name()"/>
@@ -113,18 +126,16 @@
                                                             <xsl:value-of select="."/>
                                                         </td>
                                                     </tr>
-                                                </xsl:for-each>
-                                            </table>
-                                        </xsl:if>
-                                    </xsl:for-each>
-                                </td>
-                            </tr>
-                        </xsl:for-each-group>
+                               </xsl:for-each>
+                        
                     </table>
                 </span>
-            </xsl:if>
+            </xsl:if> 
             <xsl:sequence select="$inline-elem"/>
-        </span>
+            </span>-->
+            
+        <xsl:sequence select="$inline-elem"/>
+        
     </xsl:template>
     
     <!-- versioned going top-down (collecting the children of given element)

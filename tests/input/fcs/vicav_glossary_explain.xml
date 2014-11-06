@@ -12,7 +12,7 @@
                     <zr:database>arz_eng_006</zr:database>
                 </zr:serverInfo>
                 <zr:databaseInfo>
-                    <zr:title lang="en" primary="true">A machine-readable dictionary of Egyptian Arabic</zr:title>
+                    <zr:title lang="en" primary="true">A machine-readable glossary of MSA Arabic</zr:title>
                     <zr:description>
                         <front xmlns="http://www.tei-c.org/ns/1.0">
                             <div>
@@ -27,7 +27,7 @@
                                 </p>
                                 <p>
                                     To query the dictionary
-                                    <ref target="arz_eng_006|water">go here</ref>
+                                    <ref target="arz_eng_006|serverChoice==water">go here</ref>
                                     .
                                 </p>
                                 <p>
@@ -39,7 +39,7 @@
                             </div>
                         </front>
                     </zr:description>
-                    <zr:author>Charly Moerth; Tarek Eltayeb</zr:author>
+                    <zr:author>Stephan Procházka; Karlheinz Mörth</zr:author>
                     <zr:restrictions lang="en">http://creativecommons.org/licenses/by-nc-sa/3.0/</zr:restrictions>
                 </zr:databaseInfo>
                 <zr:indexInfo>

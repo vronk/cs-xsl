@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cr="http://aac.ac.at/content_repository" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:saxon="http://saxon.sf.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="#all">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cr="http://aac.ac.at/content_repository" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:saxon="http://saxon.sf.net/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="#all">
     <xd:doc scope="stylesheet">
         <xd:desc>Generate html view of a sru-result-set  (eventually in various formats)
             <xd:p>History:
@@ -109,6 +109,7 @@
         </div>
         <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data"/>
         <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
+        <xsl:apply-templates select=".//fcs:DataView[@type='cite']" mode="record-data"/>
     </xsl:template>
     <xsl:template match="teiHeader" mode="record-data">
         <p>
@@ -138,19 +139,19 @@
                 <xsl:with-param name="q" select="$resource-id"/>
             </xsl:call-template>
         </xsl:variable>
-        <xsl:variable name="md-link-tei">
+        <xsl:variable name="link-data-tei">
             <xsl:call-template name="formURL">
-                <xsl:with-param name="action" select="'get-metadata'"/>
-                <xsl:with-param name="format" select="'htmlpage'"/>
-                <xsl:with-param name="md-format" select="'TEIHDR'"/>
+                <xsl:with-param name="action" select="'get-data'"/>
+                <xsl:with-param name="format" select="'xml'"/>
+                <xsl:with-param name="md-format" select="'TEI'"/>
                 <xsl:with-param name="q" select="$resource-id"/>
             </xsl:call-template>
         </xsl:variable>
         <div class="links">
-            <a class="link-info" href="#">Info</a>
-            <a class="toc" href="{$toc-link}">ToC</a>
-            <a class="tei" href="{$md-link-tei}">TEI</a>
-            <a class="tei" href="{$md-link-cmdi}">CMD</a>
+            <a class="link-info" href="#">Werk</a>
+            <a class="toc" href="{$toc-link}">Inhalt</a>
+<!--            <a class="data" href="{$link-data-tei}">Data (TEI)</a>-->
+            <a class="metadata" href="{$md-link-cmdi}">Metadaten</a>            
 <!--            <a class="tei" href="TODO">Search</a>-->
 <!--            <a class="tei" href="./fcs">FCS</a>-->
         </div>
@@ -163,8 +164,41 @@
         </p>
         <!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
         <xsl:apply-templates select=".//cmd:sourceDesc//cmd:msDesc" mode="record-data"/>
-        s
+        
 <!--        <xsl:apply-templates select=".//cmd:TotalSize" mode="record-data"/>-->
         <div class="div-after"/>
     </xsl:template>
+    
+    <!-- first tried to generate cite string in xsl, but then rather moved to xquery, @see resource:cite()
+    <xsl:template match="*" mode="cite">
+      <xsl:apply-templates select="*" mode="cite"/>        
+    </xsl:template>
+        
+    <xsl:template match="cmd:CMD" mode="cite">
+        <div class="cite" >
+            <xsl:apply-templates select=".//cmd:sourceDesc/cmd:bibl[@type='short']" mode="record-data"/>
+        <xsl:text>In </xsl:text>
+        <xsl:apply-templates select=".//cmd:fileDesc/cmd:titleStmt/cmd:respStmt/cmd:resp/cmd:name"></xsl:apply-templates>
+        <xsl:text>: </xsl:text>
+        <xsl:apply-templates select=".//cmd:fileDesc/cmd:editionStmt/cmd:edition/cmd:note"></xsl:apply-templates>
+        <!-\-        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-\->
+<!-\-        <xsl:apply-templates select=".//cmd:sourceDesc//cmd:msDesc" mode="record-data"/>-\->
+        
+        <div class="div-after"/>
+        </div>
+    </xsl:template>
+    
+    <xsl:template match="teiHeader" mode="cite">
+        <div class="cite" >
+            <xsl:apply-templates select=".//sourceDesc/bibl[@type='short']" mode="record-data"/>
+            <xsl:text>In </xsl:text>
+            <xsl:value-of select="string-join(.//fileDesc/titleStmt/respStmt/name,', ')"></xsl:value-of>
+            <xsl:text> (Hrsg.): </xsl:text>
+            <xsl:apply-templates select=".//fileDesc/editionStmt/edition"></xsl:apply-templates>
+            <!-\-        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-\->
+            <!-\-        <xsl:apply-templates select=".//sourceDesc//msDesc" mode="record-data"/>-\->
+            
+            <div class="div-after"/>
+        </div>
+    </xsl:template>-->
 </xsl:stylesheet>

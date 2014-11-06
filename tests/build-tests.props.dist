@@ -10,11 +10,11 @@
 # base-dir for the utils-scripts
 #  needed for auxiliary util-build files: build_defs and build_docs
 #  TODO: where to get!  
-#scripts.dir=../utils
+scripts.dir=../../utils
 
 # path to diffxml library
 # source: http://diffxml.sourceforge.net/
-#diffxml.dir=lib/diffxml
+diffxml.dir=../../utils/diffxml
 
 # the base directory of the xsl-stylesheets to be tested
 # it could be the xsl folder in the corpus_shell, 

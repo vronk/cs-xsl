@@ -1,0 +1,5 @@
+/tests/build-tests.props
+
+/tests/output-actual/*
+/tests/failed.txt
+/tests/success.txt
