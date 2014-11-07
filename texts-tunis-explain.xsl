@@ -17,7 +17,7 @@
         <xsl:choose>
             <xsl:when test="zr:title = 'word'">tūnis</xsl:when>
             <xsl:when test="zr:title = 'tag'">verb</xsl:when>
-            <xsl:when test="zr:title = 'Lemma'">mʕā</xsl:when>
+            <xsl:when test="zr:title = 'lemma'">mʕā</xsl:when>
             <xsl:when test="zr:title = 'id'">wid_00436</xsl:when>
             <xsl:when test="zr:title = 'lemmaID'">kaan_001</xsl:when>
             <xsl:otherwise>test</xsl:otherwise>
