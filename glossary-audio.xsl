@@ -28,7 +28,7 @@
         <style type="text/css">
             .xsl-audio.xsl-outer {
                 display: inline-block;
-                background-position: -48px -192px;
+                background-position: 0 -160px;
                 width: 16px;
                 height: 16px;
                 margin-right: 0.5em;
