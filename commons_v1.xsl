@@ -250,7 +250,14 @@
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
-                <xsl:value-of select="concat('&amp;query=',$q)"/>
+                <xsl:variable name="q_protected">
+                    <xsl:call-template name="replace-string">
+                        <xsl:with-param name="text" select="$q"/>
+                        <xsl:with-param name="replace" select="'#'"/>
+                        <xsl:with-param name="with" select="'%23'"/>
+                    </xsl:call-template>
+                </xsl:variable>
+                <xsl:value-of select="concat('&amp;query=', $q_protected)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_format">
@@ -606,5 +613,30 @@
         </xsl:choose>
     </xsl:template>
     
+    <xd:doc>
+        <xd:desc>String replacement for XSL 1.0
+            <xd:p>Found on stackoverflow: http://stackoverflow.com/questions/7520762/xslt-1-0-string-replace-function</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="replace-string">
+        <xsl:param name="text"/>
+        <xsl:param name="replace"/>
+        <xsl:param name="with"/>
+        <xsl:choose>
+            <xsl:when test="contains($text,$replace)">
+                <xsl:value-of select="substring-before($text,$replace)"/>
+                <xsl:value-of select="$with"/>
+                <xsl:call-template name="replace-string">
+                    <xsl:with-param name="text"
+                        select="substring-after($text,$replace)"/>
+                    <xsl:with-param name="replace" select="$replace"/>
+                    <xsl:with-param name="with" select="$with"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$text"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
     
 </xsl:stylesheet>

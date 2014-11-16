@@ -22,6 +22,9 @@
             <xsl:when test=".//zr:name='sense'">
                 =Wasser
             </xsl:when>
+            <xsl:when test=".//zr:name='unit'">
+                1
+            </xsl:when>
             <xsl:otherwise>
                 =water
             </xsl:otherwise>

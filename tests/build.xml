@@ -7,7 +7,7 @@
 
 	<property file="build-tests.props"/>
 	
-	<property name="scripts.dir" location="../utils"/>
+	<property name="scripts.dir" location="../../utils"/>
 	<import file="${scripts.dir}\build_defs.xml" />   
 	<property name="target-scripts.dir" location="../"/>
 	<property name="in.dir" location="input"/>
@@ -123,11 +123,10 @@
 		
 		<basename property="infile.basename" file="${path-to-file}" suffix=".xml"/>
 		
-		<property name="output-actual.filename" location="${output-actual.dir}/${tests.basedir}/${style}/${infile.basename}.html"/>
+		<property name="output-actual.filename" location="${output-actual.dir}/${tests.basedir}/${style}/${infile.basename}.xml"/>
 		<property name="output-expected.filename" location="${output-expected.dir}/${tests.basedir}/${style}/${infile.basename}.html"/>
 		
 		<saxon-xslt style="${path-to-stylesheet}" in="${path-to-file}" out="${output-actual.filename}" force="true">
-			<outputproperty name="omit-xml-declaration" value="true"/>
 			<param name="format" expression="html"/> 
 			<!--	important to provide the mappings file  (e.g. for links resolving)		-->
 			<param name="mappings-file" expression="file:/${mappings.file}"/>
@@ -158,7 +157,7 @@
 	
 	<!-- diffxml setup -->
 	<property name="package" value="org.diffxml"/>
-	<property name="diffxml.dir" value="../utils/diffxml"/>	
+	<property name="diffxml.dir" value="${scripts.dir}/diffxml"/>	
 	<property name="diffxml.class" value="${package}.diffxml.DiffXML"/>
 	<property name="patch.class" value="${package}/patchxml/PatchXML"/>
 	
