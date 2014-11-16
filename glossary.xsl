@@ -8,7 +8,9 @@
    xmlns:fcs="http://clarin.eu/fcs/1.0"
    xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei sru fcs">
    <xsl:import href="fcs/result2view_v1.xsl"/>
-   <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
+   <xsl:output method="html" media-type="text/html" indent="yes" encoding="UTF-8" doctype-system="about:legacy-compat"/>
+   <!--   <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/> -->
 
    <xsl:template name="getTitle">
    </xsl:template>
@@ -36,7 +38,10 @@
             VirtualKeyboard.attachKeyboards()
          });
       </script>
+      <xsl:call-template name="callback-header2"/>
    </xsl:template>
+   
+   <xsl:template name="callback-header2"/>
    
    <xsl:template match="fcs:Resource" mode="record-data">
       <xsl:apply-templates select=".//fcs:DataView[not(@type='metadata')]" mode="record-data"/>
