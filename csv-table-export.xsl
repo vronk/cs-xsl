@@ -29,7 +29,7 @@
                 <xsl:apply-templates select="//tei:entry"/>               
             </xsl:when>
             <xsl:when test="contains($format, '-fcdeluxe')">
-                <xsl:text>*&#x9;name&#x9;</xsl:text><xsl:value-of select="//fcs:DataView[@type='title']"/><xsl:text>&#xa;</xsl:text>
+                <xsl:text>*&#x9;name&#x9;</xsl:text><xsl:value-of select="normalize-space(//fcs:DataView[@type='title'])"/><xsl:text>&#xa;</xsl:text>
                 <xsl:text>*&#x9;font&#x9;* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf&#xa;</xsl:text>
                 <xsl:text>*&#x9;deck-stats-1&#x9;&#xa;</xsl:text>
                 <xsl:text>Text1&#x9;Text2&#x9;Text3&#x9;Text4&#x9;Text5&#xa;</xsl:text>
@@ -59,10 +59,16 @@
         </xsl:variable>
        <xsl:choose>
            <xsl:when test="contains($format, '-anki')">
-               <xsl:call-template name="forAnki"/>
+               <xsl:call-template name="forAnki">
+                   <xsl:with-param name="firstInflected" select="$firstInflected"/>
+                   <xsl:with-param name="secondInflected" select="$secondInflected"/>                       
+               </xsl:call-template>
            </xsl:when>
            <xsl:when test="contains($format, '-fcdeluxe')">
-               <xsl:call-template name="forFCDeluxe"/>
+               <xsl:call-template name="forFCDeluxe">
+                   <xsl:with-param name="firstInflected" select="$firstInflected"/>
+                   <xsl:with-param name="secondInflected" select="$secondInflected"/>                       
+               </xsl:call-template>
            </xsl:when>
        </xsl:choose>
     </xsl:template>
