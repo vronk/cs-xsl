@@ -163,6 +163,9 @@
                     <input type="hidden" name="version" value="1.2"/> 
                     <input type="hidden" name="x-dataview" value="{//fcs:x-dataview}"/>
                     <input type="hidden" name="maximumRecords" value="{$maximumRecords}"/>
+                    <xsl:if test="$queryType != ''">
+                        <input type="hidden" name="queryType" value="{$queryType}"/> 
+                    </xsl:if>
                     <!--<table class="cmds-ui-elem-stretch">
                         <tr>
                             <td colspan="2">

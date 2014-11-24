@@ -210,6 +210,18 @@
     </xd:doc>
     <xsl:param name="q" select="/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/sru:query"/>
     <xd:doc>
+        <xd:desc>The query sent by the client
+            <xd:p>
+                Defaults to empty.
+                Possible values:
+                <xd:ul>
+                    <xd:li>native</xd:li>
+                </xd:ul>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="queryType"/>
+    <xd:doc>
         <xd:desc>The x-context (x-cmd-context) the client specified
             <xd:p>
                 Defaults to /sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/sru:query

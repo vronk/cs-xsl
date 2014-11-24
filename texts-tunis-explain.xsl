@@ -31,7 +31,7 @@
         <xsl:variable name="scan-index">
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'scan'"/>
-                <xsl:with-param name="scanClause" select="zr:map/zr:name"/>
+                <xsl:with-param name="scanClause" select="concat(zr:map/zr:name, '=')"/>
                 <xsl:with-param name="contextset">
                     <!--                    <xsl:if test="zr:map/zr:name/@set">
                         <xsl:value-of select="concat(zr:map/zr:name/@set, '.')"/>
@@ -69,11 +69,22 @@
             </xsl:choose>
         </dt>
         <dd>
-            <a href="{$search-query}" class="search-caller">
+            <a href="{$scan-index}" class="value-caller">
                 <xsl:call-template name="dict">
-                    <xsl:with-param name="key">Search</xsl:with-param>
+                    <xsl:with-param name="key">List</xsl:with-param>
                 </xsl:call-template>
             </a>
+            <xsl:choose>
+                <xsl:when test=".//zr:name='fcs.resource'"></xsl:when>
+                <xsl:otherwise>
+                    <xsl:text> </xsl:text>
+                    <a href="{$search-query}" class="search-caller">
+                        <xsl:call-template name="dict">
+                            <xsl:with-param name="key">Search</xsl:with-param>
+                        </xsl:call-template>
+                    </a>
+                </xsl:otherwise>
+            </xsl:choose>
         </dd>
     </xsl:template>
     
