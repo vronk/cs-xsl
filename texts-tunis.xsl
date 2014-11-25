@@ -3,7 +3,8 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:exsl="http://exslt.org/common"
   xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
-  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru">
+  xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
+  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru kwic">
   <xsl:import href="fcs/result2view_v1.xsl"/>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="callback-header">
@@ -160,14 +161,25 @@
         <xsl:value-of select="."/>
       </xsl:when>
       <xsl:when test="./@ana">
-        <xsl:variable name="linkTarget">
+        <xsl:variable name="linkTargetDict">
           <xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-            <xsl:with-param name="q" select="concat('entry==', substring-after(@ana, '#'))"/>
+            <xsl:with-param name="q" select="concat('entry==', @lemmaRef)"/>
             <xsl:with-param name="x-context" select="'aeb_eng_001__v001'"/>
           </xsl:call-template>
         </xsl:variable>
-        <span class="{$classes}"><xsl:apply-templates mode="record-data"/><dl class="tei-fs"><dt class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTarget}">Go to entry</a></dd></dl></span>
+        <xsl:variable name="linkTargetSrc">
+          <xsl:call-template name="formURL">
+            <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+            <xsl:with-param name="q" select="concat('wid=', @xml:id|@copyOf)"/>
+            <xsl:with-param name="x-context" select="../../tei:ptr/@target|../tei:ptr/@target"/>
+            <xsl:with-param name="dataview">full</xsl:with-param>
+          </xsl:call-template>
+        </xsl:variable>
+        <span class="{$classes}"><xsl:apply-templates mode="record-data"/><dl 
+          class="tei-fs"><xsl:if
+            test="@lemmaRef != ''"><dt class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTargetDict}">Go to entry</a></dd></xsl:if><xsl:if
+              test="true()"><dt class="source-ref">Source</dt><dd><a class="search-caller" href="{$linkTargetSrc}">See context</a></dd></xsl:if></dl></span>
       </xsl:when>
       <xsl:when test="./@type">
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>
@@ -185,5 +197,6 @@
   <xsl:template match="tei:kinesic" mode="record-data">
     <span class="tei-kinesic"><xsl:value-of select="tei:desc"/></span>
   </xsl:template>
-
+  
+  <xsl:template match="tei:ptr[parent::kwic:kwic]" mode="record-data"/>
 </xsl:stylesheet>
