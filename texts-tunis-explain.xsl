@@ -19,7 +19,7 @@
             <xsl:when test="zr:title = 'pos'">verb</xsl:when>
             <xsl:when test="zr:title = 'lemma'">mʕā</xsl:when>
             <xsl:when test="zr:title = 'id'">wid_00436</xsl:when>
-            <xsl:when test="zr:title = 'lemmaID'">kaan_001</xsl:when>
+            <xsl:when test="zr:title = 'lemmaRef'">kaan_001</xsl:when>
             <xsl:otherwise>test</xsl:otherwise>
         </xsl:choose>        
     </xsl:template>
@@ -33,7 +33,7 @@
             <xsl:when test="zr:title = 'pos'">[pos = "verb"] []{0,3} [pos="preposition"]</xsl:when>
             <xsl:when test="zr:title = 'lemma'">[lemma = ".*mʕā.*"]</xsl:when>
             <xsl:when test="zr:title = 'id'">[id="wid_00436"]</xsl:when>
-            <xsl:when test="zr:title = 'lemmaID'">[lemmaID = "kaan_001"]</xsl:when>
+            <xsl:when test="zr:title = 'lemmaRef'">[lemmaID = "kaan_001"]</xsl:when>
             <xsl:otherwise>test</xsl:otherwise>
         </xsl:choose>        
     </xsl:template>
