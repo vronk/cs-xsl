@@ -8,7 +8,25 @@
   <xsl:import href="fcs/result2view_v1.xsl"/>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="callback-header">
-    <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
+    <link href="/static/fonts/andika/Andika.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+      body { font: 13px/1.5 AndikaW, 'Andika', serif; }
+    </style>
+    <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>     
+    <script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
+    <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
+    <script type="text/javascript" src="scripts/js/params.js"></script>
+    <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"></script>
+    <link href="{$scripts_url}style/virtual-keyboard.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript">
+      VirtualKeyboard.keys = {
+      "tunico":["ʔ", "ā", "ḅ", "ʕ", "ḏ̣", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"], 
+      }
+      VirtualKeyboard.keys["tunico_conc"] = VirtualKeyboard.keys["tunico"]
+      $(document).ready(function(){
+      VirtualKeyboard.attachKeyboards()
+      });
+    </script>
   </xsl:template>
   
   <xsl:template name="getTitle">
@@ -172,7 +190,16 @@
           <xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
             <xsl:with-param name="q" select="concat('wid=', @xml:id|@copyOf)"/>
-            <xsl:with-param name="x-context" select="../../tei:ptr/@target|../tei:ptr/@target"/>
+            <xsl:with-param name="x-context">
+              <xsl:choose>
+                <xsl:when test="../../tei:ptr/@target|../tei:ptr/@target">
+                  <xsl:value-of select="../../tei:ptr/@target|../tei:ptr/@target"/>                  
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="$x-context"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:with-param>
             <xsl:with-param name="dataview">full</xsl:with-param>
           </xsl:call-template>
         </xsl:variable>
