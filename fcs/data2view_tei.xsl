@@ -1149,6 +1149,11 @@
         
     <xsl:template match="tei:sense" mode="record-data">
         <div class="tei-sense">
+            <xsl:if test="tei:form[@type='construction']">
+                <div class="tei-form-construction">
+                    <xsl:apply-templates select="tei:form[@type='construction']" mode="record-data"/>
+                </div>
+            </xsl:if>
             <xsl:if test="tei:def">            
                 <div class="tei-defs">
                     <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
@@ -1171,7 +1176,7 @@
                     <xsl:apply-templates select="tei:cit" mode="record-data"/>
                 </div>
             </xsl:if>
-            <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit' or name() = 'usg' or name() = 'gramGrp')]" mode="record-data"/>
+            <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit' or name() = 'usg' or name() = 'gramGrp' or @type = 'construction')]" mode="record-data"/>
         </div>
     </xsl:template>
     
