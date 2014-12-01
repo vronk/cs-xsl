@@ -238,7 +238,8 @@
     <xsl:template name="formURL">
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
-        <xsl:param name="md-format" select="'CMDI'"/>
+        <xsl:param name="md-format" select="'CMDI'"/>        
+        <xsl:param name="queryType" select="$queryType"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
@@ -302,6 +303,11 @@
                 <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_queryType">
+            <xsl:if test="$queryType != ''">
+                <xsl:value-of select="concat('&amp;queryType=', $queryType)"/>
+            </xsl:if>
+        </xsl:variable>
         <xsl:variable name="XDEBUG_SESSION_START">
             <xsl:if test="$XDEBUG_SESSION_START">
                 <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
@@ -321,7 +327,7 @@
                 <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $param_maximumTerms, $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $param_queryType, $XDEBUG_SESSION_START)"/>
             </xsl:otherwise>
         </xsl:choose>                
          
