@@ -6,7 +6,11 @@
    xmlns:exsl="http://exslt.org/common"
    xmlns:sru="http://www.loc.gov/zing/srw/"
    xmlns:fcs="http://clarin.eu/fcs/1.0"
-   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei sru fcs">
+   xmlns:saxon="http://icl.com/saxon"
+   xmlns:str="http://exslt.org/strings"
+   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl xd tei sru"
+   extension-element-prefixes="saxon str exsl"
+   >
    <xsl:import href="fcs/result2view_v1.xsl"/>
    <xsl:output method="html" media-type="text/html" indent="yes" encoding="UTF-8" doctype-system="about:legacy-compat"/>
    <!--   <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -46,6 +50,23 @@
    <xsl:template match="fcs:Resource" mode="record-data">
       <xsl:apply-templates select=".//fcs:DataView[not(@type='metadata')]" mode="record-data"/>
       <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
+   </xsl:template>
+   
+   <xsl:template name="analyzeAna">
+      <xsl:variable name="anaParts" select="substring-after(@ana, '#')"/>
+      <xsl:choose>
+         <xsl:when test="function-available('saxon:tokenize')">
+            <xsl:for-each select="saxon:tokenize($anaParts, '_')">
+               <span class="tei-form-ana"><xsl:value-of select="."/></span>
+            </xsl:for-each>            
+         </xsl:when>
+         <xsl:when test="function-available('str:tokenize')">
+            <xsl:for-each select="str:tokenize($anaParts, '_')">
+               <span class="tei-form-ana"><xsl:value-of select="."/></span>
+            </xsl:for-each>            
+         </xsl:when>
+      </xsl:choose>
+          
    </xsl:template>
    
    <xd:doc>
