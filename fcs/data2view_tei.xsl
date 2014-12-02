@@ -348,7 +348,7 @@
         <li>
             <xsl:choose>
                 <xsl:when test="@type = 'vicavTaxonomy'">
-                    <a href="{$href}">
+                    <a href="{$href}" class="search-caller">
                         <xsl:value-of select="."/>
                     </a>
                 </xsl:when>
