@@ -113,7 +113,7 @@
                 <xsl:value-of select="$theNode[contains(@xml:lang, 'vicav')]"/>
             </xsl:when>
             <xsl:when test="$theNode[@xml:lang='ar']">
-                <xsl:value-of select="concat($theNode[@xml:lang='ar'],' ', $theNode[@xml:lang='ar-x-DMG'])"/>                    
+                <xsl:value-of select="concat($theNode[@xml:lang='ar'],' (', $theNode[@xml:lang='ar-x-DMG'], ')')"/>                    
             </xsl:when>
         </xsl:choose>        
     </xsl:template>
