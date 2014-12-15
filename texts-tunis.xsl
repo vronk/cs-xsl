@@ -206,7 +206,7 @@
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/><dl 
           class="tei-fs"><xsl:if
             test="@lemmaRef != ''"><dt class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTargetDict}">Go to entry</a></dd></xsl:if><xsl:if
-              test="true()"><dt class="source-ref">Source</dt><dd><a class="search-caller" href="{$linkTargetSrc}">See context</a></dd></xsl:if></dl></span>
+              test="true()"><dt class="source-ref">Source</dt><dd><a href="{$linkTargetSrc}">See context</a></dd></xsl:if></dl></span>
       </xsl:when>
       <xsl:when test="./@type">
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>

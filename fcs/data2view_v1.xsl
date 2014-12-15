@@ -117,9 +117,9 @@
         <xsl:variable name="resourcefragment-pid" select="parent::fcs:ResourceFragment/@pid"/>
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
-            <div class="data-view {@type}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
+            <div class="data-view {translate(@type, '/+', '__')}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
                 <xsl:call-template name="dataview-full-contents"/>
-                <div class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></div>
+                <div class="wrapper {translate(@type, '/+', '__')}"><xsl:apply-templates mode="record-data"/></div>
             </div>
         </xsl:if>
     </xsl:template>

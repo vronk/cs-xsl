@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>2</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>madrasa</sru:query>
+        <fcs:x-context>ar_de__v001</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/FushaCourseGlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM ar_de__v001 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM ar_de__v001_ndx AS tab INNER JOIN (SELECT inner.id FROM ar_de__v001_ndx AS `inner` WHERE inner.txt = 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id WHERE tab.txt != '-') AS tab INNER JOIN (SELECT inner.id FROM ar_de__v001_ndx AS `inner` WHERE CAST(inner.txt AS signed int) &gt; 0 AND inner.xpath LIKE '%-bibl-course-') AS prefid ON tab.id = prefid.id WHERE tab.txt != '-') AS ndx WHERE ndx.txt LIKE '%madrasa%') AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A Machine-readable Dictionary of Modern Standard Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="madrasa_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-x-DMG">madrasa</orth>
+                                    <orth xml:lang="ar">مدرسة</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="subc"/>
+                                    <gram type="gender"/>
+                                    <gram type="root" xml:lang="ar"/>
+                                    <gram type="root" xml:lang="ar-x-DMG">drs</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_diptPl">
+                                    <orth xml:lang="ar-x-DMG">madāris</orth>
+                                    <orth xml:lang="ar">مدارس</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>school</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Schule</quote>
+                                    </cit>
+                                    <bibl type="course">2</bibl>
+                                </sense>
+                                <unparsed>مَدْرَسةٌ madrasa Schule L2</unparsed>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="lea"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_18"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_30"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="lea"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_11_12"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="lea"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_11_25"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="*"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="lea"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_11_25"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=madrasa&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=ar_de__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+    <div xmlns="http://www.w3.org/1999/xhtml" class="diagnostics">
+        <br/>
+        <font size="1">
+            <table class="xdebug-error xe-warning" dir="ltr" border="1" cellspacing="0" cellpadding="1">
+                <tr>
+                    <th align="left" bgcolor="#f57900" colspan="5">
+                        <span style="background-color: #cc0000; color: #fce94f; font-size: x-large;">( ! )</span>
+                        Warning: DOMDocument::loadXML(): xml:id : attribute value 87 is not an NCName in Entity, line: 1 in /var/www/html/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php on line
+                        <i>324</i>
+                    </th>
+                </tr>
+                <tr>
+                    <th align="left" bgcolor="#e9b96e" colspan="5">Call Stack</th>
+                </tr>
+                <tr>
+                    <th align="center" bgcolor="#eeeeec">#</th>
+                    <th align="left" bgcolor="#eeeeec">Time</th>
+                    <th align="left" bgcolor="#eeeeec">Memory</th>
+                    <th align="left" bgcolor="#eeeeec">Function</th>
+                    <th align="left" bgcolor="#eeeeec">Location</th>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">1</td>
+                    <td bgcolor="#eeeeec" align="center">0.0002</td>
+                    <td bgcolor="#eeeeec" align="right">247416</td>
+                    <td bgcolor="#eeeeec">{main}(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/FushaCourseGlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../FushaCourseGlossaryOnSRU.php
+                        <b>:</b>
+                        0
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">2</td>
+                    <td bgcolor="#eeeeec" align="center">0.0094</td>
+                    <td bgcolor="#eeeeec" align="right">1532504</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\SRUFromMysqlBase-&gt;run(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/FushaCourseGlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../FushaCourseGlossaryOnSRU.php
+                        <b>:</b>
+                        47
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">3</td>
+                    <td bgcolor="#eeeeec" align="center">0.0107</td>
+                    <td bgcolor="#eeeeec" align="right">1533768</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\FilteredGlossaryOnSRU-&gt;search(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/common.php" bgcolor="#eeeeec">
+                        ../common.php
+                        <b>:</b>
+                        789
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">4</td>
+                    <td bgcolor="#eeeeec" align="center">0.0107</td>
+                    <td bgcolor="#eeeeec" align="right">1535240</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\GlossaryOnSRU-&gt;search(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/FushaCourseGlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../FushaCourseGlossaryOnSRU.php
+                        <b>:</b>
+                        41
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">5</td>
+                    <td bgcolor="#eeeeec" align="center">0.0109</td>
+                    <td bgcolor="#eeeeec" align="right">1538208</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\SRUFromMysqlBase-&gt;getSearchResult(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../GlossaryOnSRU.php
+                        <b>:</b>
+                        306
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">6</td>
+                    <td bgcolor="#eeeeec" align="center">0.1995</td>
+                    <td bgcolor="#eeeeec" align="right">1568336</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\GlossaryOnSRU-&gt;processSearchResult(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/common.php" bgcolor="#eeeeec">
+                        ../common.php
+                        <b>:</b>
+                        549
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">7</td>
+                    <td bgcolor="#eeeeec" align="center">0.1996</td>
+                    <td bgcolor="#eeeeec" align="right">1570664</td>
+                    <td bgcolor="#eeeeec">
+                        <a href="http://www.php.net/DOMDocument.loadXML" target="_new">loadXML</a>
+                        (  )
+                    </td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../GlossaryOnSRU.php
+                        <b>:</b>
+                        324
+                    </td>
+                </tr>
+            </table>
+        </font>
+        <br/>
+        <font size="1">
+            <table class="xdebug-error xe-warning" dir="ltr" border="1" cellspacing="0" cellpadding="1">
+                <tr>
+                    <th align="left" bgcolor="#f57900" colspan="5">
+                        <span style="background-color: #cc0000; color: #fce94f; font-size: x-large;">( ! )</span>
+                        Warning: DOMDocument::loadXML(): xml:id : attribute value 87 is not an NCName in Entity, line: 2 in /var/www/html/vicav2/corpus_shell/modules/mysqlonsru/common.php on line
+                        <i>471</i>
+                    </th>
+                </tr>
+                <tr>
+                    <th align="left" bgcolor="#e9b96e" colspan="5">Call Stack</th>
+                </tr>
+                <tr>
+                    <th align="center" bgcolor="#eeeeec">#</th>
+                    <th align="left" bgcolor="#eeeeec">Time</th>
+                    <th align="left" bgcolor="#eeeeec">Memory</th>
+                    <th align="left" bgcolor="#eeeeec">Function</th>
+                    <th align="left" bgcolor="#eeeeec">Location</th>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">1</td>
+                    <td bgcolor="#eeeeec" align="center">0.0002</td>
+                    <td bgcolor="#eeeeec" align="right">247416</td>
+                    <td bgcolor="#eeeeec">{main}(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/FushaCourseGlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../FushaCourseGlossaryOnSRU.php
+                        <b>:</b>
+                        0
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">2</td>
+                    <td bgcolor="#eeeeec" align="center">0.0094</td>
+                    <td bgcolor="#eeeeec" align="right">1532504</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\SRUFromMysqlBase-&gt;run(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/FushaCourseGlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../FushaCourseGlossaryOnSRU.php
+                        <b>:</b>
+                        47
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">3</td>
+                    <td bgcolor="#eeeeec" align="center">0.0107</td>
+                    <td bgcolor="#eeeeec" align="right">1533768</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\FilteredGlossaryOnSRU-&gt;search(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/common.php" bgcolor="#eeeeec">
+                        ../common.php
+                        <b>:</b>
+                        789
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">4</td>
+                    <td bgcolor="#eeeeec" align="center">0.0107</td>
+                    <td bgcolor="#eeeeec" align="right">1535240</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\GlossaryOnSRU-&gt;search(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/FushaCourseGlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../FushaCourseGlossaryOnSRU.php
+                        <b>:</b>
+                        41
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">5</td>
+                    <td bgcolor="#eeeeec" align="center">0.0109</td>
+                    <td bgcolor="#eeeeec" align="right">1538208</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\SRUFromMysqlBase-&gt;getSearchResult(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php" bgcolor="#eeeeec">
+                        ../GlossaryOnSRU.php
+                        <b>:</b>
+                        306
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">6</td>
+                    <td bgcolor="#eeeeec" align="center">0.2000</td>
+                    <td bgcolor="#eeeeec" align="right">1573560</td>
+                    <td bgcolor="#eeeeec">ACDH\FCSSRU\mysqlonsru\SRUFromMysqlBase-&gt;getTEIDataAsXMLQueryObject(  )</td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/common.php" bgcolor="#eeeeec">
+                        ../common.php
+                        <b>:</b>
+                        558
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeec" align="center">7</td>
+                    <td bgcolor="#eeeeec" align="center">0.2000</td>
+                    <td bgcolor="#eeeeec" align="right">1575360</td>
+                    <td bgcolor="#eeeeec">
+                        <a href="http://www.php.net/DOMDocument.loadXML" target="_new">loadXML</a>
+                        (  )
+                    </td>
+                    <td title="/var/www/html/vicav2/corpus_shell/modules/mysqlonsru/common.php" bgcolor="#eeeeec">
+                        ../common.php
+                        <b>:</b>
+                        471
+                    </td>
+                </tr>
+            </table>
+        </font>
+    </div>
+</sru:searchRetrieveResponse>
