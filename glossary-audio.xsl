@@ -47,7 +47,7 @@
         </style>
     </xsl:template>
     
-    <xsl:variable name="audiolist" select="exsl:node-set(document('http://localhost/static/audio/words/aeb_eng_001__v001/Omar_Siam/list.xspf'))"/>
+    <xsl:variable name="audiolist" select="exsl:node-set(document('http://localhost/static/audio/words/aeb_eng_001__v001/Ines_Gabsi/list.xspf'))"/>
     
     <xsl:template match="tei:orth" mode="record-data">
         <xsl:apply-imports/>
