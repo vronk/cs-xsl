@@ -5,8 +5,9 @@
     xmlns:exsl="http://exslt.org/common"
     xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:tei="http://www.tei-c.org/ns/1.0" 
-    exclude-result-prefixes="xs xd exsl tei"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:xspf="http://xspf.org/ns/0/" 
+    exclude-result-prefixes="xs xd exsl tei xspf"
     version="1.0">
     <xsl:import href="commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
@@ -28,6 +29,9 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:param>
+    
+    <xsl:param name="audioListURl">https://corpus3.aac.oeaw.ac.at/static/audio/words/aeb_eng_001__v001/Ines_Gabsi/list.xspf</xsl:param>
+    <xsl:variable name="audiolist" select="exsl:node-set(document($audioListURl))"/>
 
     <xsl:output indent="no" method="text" media-type="text/csv" encoding="UTF-8"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
@@ -42,7 +46,8 @@
                 <xsl:text>*&#x9;name&#x9;Unit </xsl:text><xsl:value-of select="concat($unit, ' Vocabulary from ', normalize-space(//fcs:DataView[@type='title']))"/><xsl:text>&#xa;</xsl:text>
                 <xsl:text>*&#x9;font&#x9;* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf&#xa;</xsl:text>
                 <xsl:text>*&#x9;deck-stats-1&#x9;&#xa;</xsl:text>
-                <xsl:text>Text 1&#x9;Text 2&#x9;Text 3&#x9;Text 4&#x9;Text 5&#xa;</xsl:text>
+                <xsl:text>Text 1&#x9;Text 2&#x9;Text 3&#x9;Text 4&#x9;Text 5</xsl:text><xsl:if 
+                    test="contains($format, '-audio')"><xsl:text>&#x9;Sound 1&#x9;Sound 2&#x9;Sound 3&#x9;Sound 4&#x9;Sound 5</xsl:text></xsl:if><xsl:text>&#xa;</xsl:text>
                 <xsl:apply-templates select="//tei:entry"/>
             </xsl:when>           
             <xsl:otherwise>
@@ -94,6 +99,20 @@
                    <xsl:with-param name="secondInflected" select="$secondInflected"/>
                    <xsl:with-param name="thirdInflected" select="$thirdInflected"/>
                </xsl:call-template>
+           </xsl:when>           
+           <xsl:when test="contains($format, '-fcdeluxe-audio')">
+               <xsl:call-template name="forFCDeluxe">
+                   <xsl:with-param name="lemma" select="$lemma"/>
+                   <xsl:with-param name="firstInflected" select="$firstInflected"/>
+                   <xsl:with-param name="secondInflected" select="$secondInflected"/>
+                   <xsl:with-param name="thirdInflected" select="$thirdInflected"/>                       
+               </xsl:call-template>
+               <xsl:call-template name="forFCDeluxeAudio">
+                   <xsl:with-param name="lemma" select="$lemma"/>
+                   <xsl:with-param name="firstInflected" select="$firstInflected"/>
+                   <xsl:with-param name="secondInflected" select="$secondInflected"/>
+                   <xsl:with-param name="thirdInflected" select="$thirdInflected"/>                       
+               </xsl:call-template>              
            </xsl:when>
            <xsl:when test="contains($format, '-fcdeluxe')">
                <xsl:call-template name="forFCDeluxe">
@@ -158,7 +177,27 @@
         <xsl:call-template name="getCell"><xsl:with-param name="word" select="$firstInflected"/></xsl:call-template><xsl:text>&#x9;</xsl:text>
         <xsl:call-template name="getCell"><xsl:with-param name="word" select="$secondInflected"/></xsl:call-template><xsl:text>&#x9;</xsl:text>
         <xsl:call-template name="getCell"><xsl:with-param name="word" select="$thirdInflected"/></xsl:call-template><xsl:text>&#x9;</xsl:text>
-        <xsl:text>&#xa;</xsl:text>         
+        <xsl:if test="not(contains($format, '-audio'))"><xsl:text>&#xa;</xsl:text></xsl:if>         
+    </xsl:template>
+
+    <xsl:template name="forFCDeluxeAudio">
+        <xsl:param name="lemma"/>
+        <xsl:param name="firstInflected"/>
+        <xsl:param name="secondInflected"/>
+        <xsl:param name="thirdInflected"/><xsl:text>&#x9;</xsl:text>        
+        <xsl:call-template name="getFCDAudio"><xsl:with-param name="word" select="$lemma"/></xsl:call-template><xsl:text>&#x9;</xsl:text>
+        <xsl:call-template name="getFCDAudio"><xsl:with-param name="word" select="$firstInflected"/></xsl:call-template><xsl:text>&#x9;</xsl:text>
+        <xsl:call-template name="getFCDAudio"><xsl:with-param name="word" select="$secondInflected"/></xsl:call-template><xsl:text>&#x9;</xsl:text>
+        <xsl:call-template name="getFCDAudio"><xsl:with-param name="word" select="$thirdInflected"/></xsl:call-template><xsl:text>&#x9;</xsl:text>
+        <xsl:text>&#xa;</xsl:text>
+    </xsl:template>
+    
+    <xsl:template name="getFCDAudio">
+        <xsl:param name="word" select="''"/>
+        <xsl:variable name="audiofile">
+            <xsl:value-of select="$audiolist/xspf:playlist/xspf:trackList/xspf:track[xspf:title=$word]/xspf:location"/>
+        </xsl:variable>
+        <xsl:value-of select="$audiofile"/>
     </xsl:template>
     
     <xsl:template match="/">

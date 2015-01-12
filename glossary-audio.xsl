@@ -5,7 +5,7 @@
     xmlns:exsl="http://exslt.org/common"
     xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:xspf="https://xspf.org/ns/0/"
+    xmlns:xspf="http://xspf.org/ns/0/"
     xmlns="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="xsl exsl xd tei sru fcs xspf"
     version="1.0">
@@ -47,7 +47,7 @@
         </style>
     </xsl:template>
     
-    <xsl:variable name="audiolist" select="exsl:node-set(document('http://localhost/static/audio/words/aeb_eng_001__v001/Omar_Siam/list.xspf'))"/>
+    <xsl:variable name="audiolist" select="exsl:node-set(document('http://localhost/static/audio/words/aeb_eng_001__v001/Ines_Gabsi/list.xspf'))"/>
     
     <xsl:template match="tei:orth" mode="record-data">
         <xsl:apply-imports/>
