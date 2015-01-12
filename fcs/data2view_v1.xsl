@@ -227,6 +227,9 @@
     </xd:doc>
     <xsl:template match="kwic:kwic" mode="record-data">
         <div class="kwic-line">
+            <xsl:if test="tei:ptr">
+                <span class="tei-ptr-doc"><xsl:value-of select="tei:ptr/@cRef"/></span>
+            </xsl:if>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>        
