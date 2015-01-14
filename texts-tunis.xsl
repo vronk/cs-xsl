@@ -12,6 +12,7 @@
     <style type="text/css">
       body { font: 13px/1.5 AndikaW, 'Andika', serif; }
     </style>
+    <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>     
     <link href="{$scripts_url}style/fcs-kwic.css" type="text/css" rel="stylesheet"/>     
     <script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
     <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
@@ -203,10 +204,10 @@
             <xsl:with-param name="dataview">full</xsl:with-param>
           </xsl:call-template>
         </xsl:variable>
-        <span class="{$classes}"><a href="{$linkTargetSrc}"><xsl:apply-templates mode="record-data"/></a><dl 
-          class="tei-fs"><dt
-              class="dict-ref">Dict.</dt><dd><xsl:if
-                test="@lemmaRef != ''"><a class="search-caller" href="{$linkTargetDict}">entry</a></xsl:if></dd></dl></span>
+        <span class="{$classes}"><a href="{$linkTargetSrc}"><xsl:apply-templates mode="record-data"/></a><xsl:if
+          test="@lemmaRef != ''"><dl 
+              class="tei-fs"><dt
+              class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTargetDict}">entry</a></dd></dl></xsl:if></span>
       </xsl:when>
       <xsl:when test="./@type">
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>
