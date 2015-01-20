@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <sru:searchRetrieveResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
     <sru:version>1.2</sru:version>
-    <sru:numberOfRecords>10</sru:numberOfRecords>
+    <sru:numberOfRecords>14</sru:numberOfRecords>
     <sru:echoedSearchRetrieveRequest>
         <sru:version>1.2</sru:version>
-        <sru:query>tūnis</sru:query>
+        <sru:query>word=tūnis</sru:query>
         <fcs:x-context>tunico</fcs:x-context>
         <fcs:x-dataview>kwic</fcs:x-dataview>
+        <sru:startRecord>1</sru:startRecord>
+        <sru:maximumRecords>10</sru:maximumRecords>
         <sru:baseUrl>http://127.0.0.1/bonito/run.cgi/fcs</sru:baseUrl>
     </sru:echoedSearchRetrieveRequest>
     <sru:extraResponseData>
         <fcs:returnedRecords>10</fcs:returnedRecords>
-        <fcs:numberOfMatches>10</fcs:numberOfMatches>
+        <fcs:numberOfMatches/>
         <fcs:duration>0.0</fcs:duration>
-        <fcs:transformedQuery>[lemma=".*tūnis.*"]</fcs:transformedQuery>
+        <fcs:transformedQuery>[word=".*tūnis.*"]</fcs:transformedQuery>
     </sru:extraResponseData>
     <sru:records>
         <sru:record>
@@ -22,415 +24,463 @@
             <sru:recordData>
                 <fcs:Resource pid="tunico" ref="tunico">
                     <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
                             <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00146" ana="verb" lemmaRef="hbat_001">tahbaṭ</tei:w>
-                                <tei:w copyOf="wid_00147" ana="" lemmaRef="">la</tei:w>
-                                <tei:w copyOf="wid_00148" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00149" ana="adverb" lemmaRef="hnaa_001">hnā</tei:w>
-                                <tei:w copyOf="wid_00150" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00151" ana="" lemmaRef="hakka_claash_001">hakka ʕlāš</tei:w>
-                                <tei:w copyOf="wid_00152" ana="verb" lemmaRef="qcad_001">qʕadt</tei:w>
-                                <tei:w copyOf="wid_00153" ana="numeral" lemmaRef="tlaata_001">tlāṯa</tei:w>
-                                <tei:w copyOf="wid_00154" ana="noun" lemmaRef="snaa_001">snīn</tei:w>
-                                <tei:w copyOf="wid_00155" ana="" lemmaRef="">mā</tei:w>
-                                <tei:w copyOf="wid_00156" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00157" ana="verb" lemmaRef="rawwah_001">ṛawwaḥt</tei:w>
-                                <tei:w copyOf="wid_00158" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00159" ana="" lemmaRef="">š</tei:w>
-                                <tei:w copyOf="wid_00160" ana="" lemmaRef="">ᵊl</tei:w>
-                                <tei:w copyOf="wid_00161" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#163">
+                            <tei:w copyOf="wid_00147" ana="" lemmaRef="">la</tei:w>
+                            <tei:w copyOf="wid_00148" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00149" ana="adverb" lemmaRef="hnaa_001">hnā</tei:w>
+                            <tei:w copyOf="wid_00150" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00151" ana="" lemmaRef="hakka_claash_001">hakka ʕlāš</tei:w>
+                            <tei:w copyOf="wid_00152" ana="verb" lemmaRef="qcad_001">qʕadt</tei:w>
+                            <tei:w copyOf="wid_00153" ana="numeral" lemmaRef="tlaata_001">tlāṯa</tei:w>
+                            <tei:w copyOf="wid_00154" ana="noun" lemmaRef="snaa_001">snīn</tei:w>
+                            <tei:w copyOf="wid_00155" ana="" lemmaRef="">mā</tei:w>
+                            <tei:w copyOf="wid_00156" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00157" ana="verb" lemmaRef="rawwah_001">ṛawwaḥt</tei:w>
+                            <tei:w copyOf="wid_00158" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00159" ana="" lemmaRef="">š</tei:w>
+                            <tei:w copyOf="wid_00160" ana="" lemmaRef="">ᵊl</tei:w>
+                            <tei:w copyOf="wid_00161" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#163">
                                 <tei:w copyOf="wid_00162" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00163" ana="personalPronoun" lemmaRef="aana_001">āna</tei:w>
-                                <tei:w copyOf="wid_00164" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00165" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00166" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00167" ana="verb" lemmaRef="qraa_001">qrīt</tei:w>
-                                <tei:w copyOf="wid_00168" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00169" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00170" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00171" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00172" ana="verb" lemmaRef="caash_001">ʕišt</tei:w>
-                                <tei:w copyOf="wid_00173" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00174" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00176" ana="" lemmaRef="">žüskā</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00155" ana="" lemmaRef="">mā</tei:w>
-                                <tei:w copyOf="wid_00156" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00157" ana="verb" lemmaRef="rawwah_001">ṛawwaḥt</tei:w>
-                                <tei:w copyOf="wid_00158" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00159" ana="" lemmaRef="">š</tei:w>
-                                <tei:w copyOf="wid_00160" ana="" lemmaRef="">ᵊl</tei:w>
-                                <tei:w copyOf="wid_00161" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00162" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00163" ana="personalPronoun" lemmaRef="aana_001">āna</tei:w>
-                                <tei:w copyOf="wid_00164" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00165" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00166" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00167" ana="verb" lemmaRef="qraa_001">qrīt</tei:w>
-                                <tei:w copyOf="wid_00168" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00169" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#171">
-                                <tei:w copyOf="wid_00170" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00171" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00172" ana="verb" lemmaRef="caash_001">ʕišt</tei:w>
-                                <tei:w copyOf="wid_00173" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00174" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00176" ana="" lemmaRef="">žüskā</tei:w>
-                                <tei:w copyOf="wid_00177" ana="" lemmaRef="">vṏnt</tei:w>
-                                <tei:w copyOf="wid_00178" ana="" lemmaRef="">ȭ</tei:w>
-                                <tei:w copyOf="wid_00179" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00180" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00181" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
-                                <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
-                                <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00187" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00161" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00162" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00163" ana="personalPronoun" lemmaRef="aana_001">āna</tei:w>
-                                <tei:w copyOf="wid_00164" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00165" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00166" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00167" ana="verb" lemmaRef="qraa_001">qrīt</tei:w>
-                                <tei:w copyOf="wid_00168" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00169" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00170" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00171" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00172" ana="verb" lemmaRef="caash_001">ʕišt</tei:w>
-                                <tei:w copyOf="wid_00173" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00174" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#176">
-                                <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00176" ana="" lemmaRef="">žüskā</tei:w>
-                                <tei:w copyOf="wid_00177" ana="" lemmaRef="">vṏnt</tei:w>
-                                <tei:w copyOf="wid_00178" ana="" lemmaRef="">ȭ</tei:w>
-                                <tei:w copyOf="wid_00179" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00180" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00181" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
-                                <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
-                                <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00187" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
-                                <tei:w copyOf="wid_00188" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00189" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00190" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00191" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00192" ana="" lemmaRef="">hm</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00174" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00176" ana="" lemmaRef="">žüskā</tei:w>
-                                <tei:w copyOf="wid_00177" ana="" lemmaRef="">vṏnt</tei:w>
-                                <tei:w copyOf="wid_00178" ana="" lemmaRef="">ȭ</tei:w>
-                                <tei:w copyOf="wid_00179" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00180" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00181" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
-                                <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
-                                <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00187" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
-                                <tei:w copyOf="wid_00188" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00189" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#191">
-                                <tei:w copyOf="wid_00190" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00191" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00192" ana="" lemmaRef="">hm</tei:w>
-                                <tei:w copyOf="wid_00193" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00194" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
-                                <tei:w copyOf="wid_00195" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00196" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00197" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00198" ana="conjunction" lemmaRef="walla_001">walla</tei:w>
-                                <tei:w copyOf="wid_00199" ana="verb" lemmaRef="hawwil_001">ḥawwilt</tei:w>
-                                <tei:w copyOf="wid_00200" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00201" ana="" lemmaRef="">mā</tei:w>
-                                <tei:w copyOf="wid_00202" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00203" ana="verb" lemmaRef="craf_001">naʕṛaf</tei:w>
-                                <tei:w copyOf="wid_00204" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00205" ana="" lemmaRef="">š</tei:w>
-                                <tei:w copyOf="wid_00206" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00207" ana="" lemmaRef="">ᵊl</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00181" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
-                                <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
-                                <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00187" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
-                                <tei:w copyOf="wid_00188" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00189" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00190" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00191" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00192" ana="" lemmaRef="">hm</tei:w>
-                                <tei:w copyOf="wid_00193" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00194" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
-                                <tei:w copyOf="wid_00195" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00196" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#198">
-                                <tei:w copyOf="wid_00197" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00198" ana="conjunction" lemmaRef="walla_001">walla</tei:w>
-                                <tei:w copyOf="wid_00199" ana="verb" lemmaRef="hawwil_001">ḥawwilt</tei:w>
-                                <tei:w copyOf="wid_00200" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00201" ana="" lemmaRef="">mā</tei:w>
-                                <tei:w copyOf="wid_00202" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00203" ana="verb" lemmaRef="craf_001">naʕṛaf</tei:w>
-                                <tei:w copyOf="wid_00204" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00205" ana="" lemmaRef="">š</tei:w>
-                                <tei:w copyOf="wid_00206" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00207" ana="" lemmaRef="">ᵊl</tei:w>
-                                <tei:w copyOf="wid_00208" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00209" ana="noun" lemmaRef="blaasa_001">blāyiṣ</tei:w>
-                                <tei:w copyOf="wid_00210" ana="adjective" lemmaRef="aaxar_001">uxṛīn</tei:w>
-                                <tei:w copyOf="wid_00211" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00212" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00213" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00199" ana="verb" lemmaRef="hawwil_001">ḥawwilt</tei:w>
-                                <tei:w copyOf="wid_00200" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00201" ana="" lemmaRef="">mā</tei:w>
-                                <tei:w copyOf="wid_00202" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00203" ana="verb" lemmaRef="craf_001">naʕṛaf</tei:w>
-                                <tei:w copyOf="wid_00204" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00205" ana="" lemmaRef="">š</tei:w>
-                                <tei:w copyOf="wid_00206" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00207" ana="" lemmaRef="">ᵊl</tei:w>
-                                <tei:w copyOf="wid_00208" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00209" ana="noun" lemmaRef="blaasa_001">blāyiṣ</tei:w>
-                                <tei:w copyOf="wid_00210" ana="adjective" lemmaRef="aaxar_001">uxṛīn</tei:w>
-                                <tei:w copyOf="wid_00211" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00212" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00213" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00214" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#216">
-                                <tei:w copyOf="wid_00215" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00216" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00217" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00218" ana="verb" lemmaRef="saafir_001">nsāfir</tei:w>
-                                <tei:w copyOf="wid_00219" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00220" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00221" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00222" ana="adverb" lemmaRef="barsha_001">baṛša</tei:w>
-                                <tei:w copyOf="wid_00223" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00224" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00225" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00226" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00227" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00228" ana="verb" lemmaRef="xdim_001">nixdim</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00207" ana="" lemmaRef="">ᵊl</tei:w>
-                                <tei:w copyOf="wid_00208" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00209" ana="noun" lemmaRef="blaasa_001">blāyiṣ</tei:w>
-                                <tei:w copyOf="wid_00210" ana="adjective" lemmaRef="aaxar_001">uxṛīn</tei:w>
-                                <tei:w copyOf="wid_00211" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00212" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00213" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00214" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00215" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                                <tei:w copyOf="wid_00216" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00217" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00218" ana="verb" lemmaRef="saafir_001">nsāfir</tei:w>
-                                <tei:w copyOf="wid_00219" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00220" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#222">
-                                <tei:w copyOf="wid_00221" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00222" ana="adverb" lemmaRef="barsha_001">baṛša</tei:w>
-                                <tei:w copyOf="wid_00223" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00224" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00225" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00226" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00227" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00228" ana="verb" lemmaRef="xdim_001">nixdim</tei:w>
-                                <tei:w copyOf="wid_00229" ana="" lemmaRef="">äh</tei:w>
-                                <tei:w copyOf="wid_00230" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00231" ana="" lemmaRef="">ṏnženyȫġ</tei:w>
-                                <tei:w copyOf="wid_00232" ana="" lemmaRef="">dö</tei:w>
-                                <tei:w copyOf="wid_00233" ana="" lemmaRef="">sȭ</tei:w>
-                                <tei:w copyOf="wid_00234" ana="preposition" lemmaRef="mcaa_001">mʕā</tei:w>
-                                <tei:w copyOf="wid_00235" ana="" lemmaRef="">gṛūp</tei:w>
-                                <tei:w copyOf="wid_00236" ana="preposition" lemmaRef="mtaac_001">ᵊmtāʕ</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00267" ana="" lemmaRef="macnaa_001">maʕnāt</tei:w>
-                                <tei:w copyOf="wid_00268" ana="" lemmaRef="">ha</tei:w>
-                                <tei:w copyOf="wid_00269" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
-                                <tei:w copyOf="wid_00270" ana="verb" lemmaRef="xdim_001">nixdim</tei:w>
-                                <tei:w copyOf="wid_00271" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00272" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00273" ana="" lemmaRef="">lē</tei:w>
-                                <tei:w copyOf="wid_00274" ana="" lemmaRef="">zōn</tei:w>
-                                <tei:w copyOf="wid_00275" ana="" lemmaRef="">tuġistīk</tei:w>
-                                <tei:w copyOf="wid_00276" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00277" ana="" lemmaRef="">okē</tei:w>
-                                <tei:w copyOf="wid_00278" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00279" ana="" lemmaRef="macnaa_001">maʕnāt</tei:w>
-                                <tei:w copyOf="wid_00280" ana="" lemmaRef="">ha</tei:w>
-                                <tei:w copyOf="wid_00281" ana="verb" lemmaRef="saafir_001">sāfirt</tei:w>
-                                <tei:w copyOf="wid_00282" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
-                                <tei:w copyOf="wid_00283" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#285">
-                                <tei:w copyOf="wid_00284" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00285" ana="adverb" lemmaRef="barsha_001">baṛša</tei:w>
-                                <tei:w copyOf="wid_00286" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00287" ana="responseParticle" lemmaRef="ayy_001">īh</tei:w>
-                                <tei:w copyOf="wid_00288" ana="" lemmaRef="">sē</tei:w>
-                                <tei:w copyOf="wid_00289" ana="" lemmaRef="">byṏ</tei:w>
-                                <tei:w copyOf="wid_00290" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00291" ana="conjunction" lemmaRef="w_001">w</tei:w>
-                                <tei:w copyOf="wid_00292" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00293" ana="" lemmaRef="">il</tei:w>
-                                <tei:w copyOf="wid_00294" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00295" ana="" lemmaRef="">vōyāž</tei:w>
-                                <tei:w copyOf="wid_00296" ana="verb" lemmaRef="kaan_001">kān</tei:w>
-                                <tei:w copyOf="wid_00297" ana="" lemmaRef="macnaa_001">maʕnāt</tei:w>
-                                <tei:w copyOf="wid_00298" ana="" lemmaRef="">ha</tei:w>
-                                <tei:w copyOf="wid_00299" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
-                                <tei:w copyOf="wid_00300" ana="noun" lemmaRef="haazha_001">ḥāža</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00302" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00303" ana="" lemmaRef="">ha</tei:w>
-                                <tei:w copyOf="wid_00304" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00305" ana="conjunction" lemmaRef="aama_002">āma</tei:w>
-                                <tei:w copyOf="wid_00306" ana="preposition" lemmaRef="qbal_001">qbal</tei:w>
-                                <tei:w copyOf="wid_00307" ana="noun" lemmaRef="cmur_001">ʕumṛ</tei:w>
-                                <tei:w copyOf="wid_00308" ana="" lemmaRef="">i</tei:w>
-                                <tei:w copyOf="wid_00309" ana="" lemmaRef="">mā</tei:w>
-                                <tei:w copyOf="wid_00310" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00311" ana="adverb" lemmaRef="hakka_001">hakkāka</tei:w>
-                                <tei:w copyOf="wid_00312" ana="verb" lemmaRef="xammam_001">xammamt</tei:w>
-                                <tei:w copyOf="wid_00313" ana="verb" lemmaRef="xrazh_001">nuxṛuž</tei:w>
-                                <tei:w copyOf="wid_00314" ana="preposition" lemmaRef="min_001">min</tei:w>
-                                <tei:w copyOf="wid_00315" ana="" lemmaRef="">-</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#317">
-                                <tei:w copyOf="wid_00316" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00317" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00318" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00319" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00320" ana="interrogative" lemmaRef="waqtaash_001">waqtāš</tei:w>
-                                <tei:w copyOf="wid_00321" ana="adverb" lemmaRef="mmaala_001">māla</tei:w>
-                                <tei:w copyOf="wid_00322" ana="verb" lemmaRef="bdaa_001">bdīt</tei:w>
-                                <tei:w copyOf="wid_00323" ana="preposition" lemmaRef="f_i_001">f</tei:w>
-                                <tei:w copyOf="wid_00324" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00325" ana="" lemmaRef="">it</tei:w>
-                                <tei:w copyOf="wid_00326" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00327" ana="noun" lemmaRef="tuxmaam_001">tuxmām</tei:w>
-                                <tei:w copyOf="wid_00328" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00329" ana="interrogative" lemmaRef="claash_001">ʕlāš</tei:w>
-                                <tei:w copyOf="wid_00330" ana="verb" lemmaRef="xrazh_001">xṛažt</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
-                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic" xmlns:tei="http://www.tei-c.org/ns/1.0">
-                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
-                            <kwic:c type="left">
-                                <tei:w copyOf="wid_00322" ana="verb" lemmaRef="bdaa_001">bdīt</tei:w>
-                                <tei:w copyOf="wid_00323" ana="preposition" lemmaRef="f_i_001">f</tei:w>
-                                <tei:w copyOf="wid_00324" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00325" ana="" lemmaRef="">it</tei:w>
-                                <tei:w copyOf="wid_00326" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00327" ana="noun" lemmaRef="tuxmaam_001">tuxmām</tei:w>
-                                <tei:w copyOf="wid_00328" ana="" lemmaRef="">,</tei:w>
-                                <tei:w copyOf="wid_00329" ana="interrogative" lemmaRef="claash_001">ʕlāš</tei:w>
-                                <tei:w copyOf="wid_00330" ana="verb" lemmaRef="xrazh_001">xṛažt</tei:w>
-                                <tei:w copyOf="wid_00331" ana="adverb" lemmaRef="mmaala_001">māla</tei:w>
-                                <tei:w copyOf="wid_00332" ana="" lemmaRef="">?</tei:w>
-                                <tei:w copyOf="wid_00333" ana="verb" lemmaRef="xrazh_001">xṛažt</tei:w>
-                                <tei:w copyOf="wid_00334" ana="preposition" lemmaRef="min_001">min</tei:w>
-                            </kwic:c>
-                            <kwic:kw ref="#336">
-                                <tei:w copyOf="wid_00335" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
-                            </kwic:kw>
-                            <kwic:c type="right">
-                                <tei:w copyOf="wid_00336" ana="conjunction" lemmaRef="claa_xaatir_001">xāṭir</tei:w>
-                                <tei:w copyOf="wid_00337" ana="verb" lemmaRef="tqaabil_001">qābilt</tei:w>
-                                <tei:w copyOf="wid_00338" ana="noun" lemmaRef="tufla_001">ṭufla</tei:w>
-                                <tei:w copyOf="wid_00339" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00340" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
-                                <tei:w copyOf="wid_00341" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00342" ana="preposition" lemmaRef="min_001">m</tei:w>
-                                <tei:w copyOf="wid_00343" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00344" ana="" lemmaRef="">il</tei:w>
-                                <tei:w copyOf="wid_00345" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00346" ana="" lemmaRef="">kanadā</tei:w>
-                                <tei:w copyOf="wid_00347" ana="" lemmaRef="">.</tei:w>
-                                <tei:w copyOf="wid_00348" ana="conjunction" lemmaRef="w_001">w</tei:w>
-                                <tei:w copyOf="wid_00349" ana="" lemmaRef="">-</tei:w>
-                                <tei:w copyOf="wid_00350" ana="" lemmaRef="">ēl</tei:w>
-                                <tei:w copyOf="wid_00351" ana="" lemmaRef="">vōyāž</tei:w>
-                            </kwic:c>
-                        </kwic:kwic>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00163" ana="personalPronoun" lemmaRef="aana_001">āna</tei:w>
+                            <tei:w copyOf="wid_00164" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00165" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00166" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00167" ana="verb" lemmaRef="qraa_001">qrīt</tei:w>
+                            <tei:w copyOf="wid_00168" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00169" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00170" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00171" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00172" ana="verb" lemmaRef="caash_001">ʕišt</tei:w>
+                            <tei:w copyOf="wid_00173" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00174" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                        </hits:Result>
                     </fcs:DataView>
                 </fcs:Resource>
             </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00155" ana="" lemmaRef="">mā</tei:w>
+                            <tei:w copyOf="wid_00156" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00157" ana="verb" lemmaRef="rawwah_001">ṛawwaḥt</tei:w>
+                            <tei:w copyOf="wid_00158" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00159" ana="" lemmaRef="">š</tei:w>
+                            <tei:w copyOf="wid_00160" ana="" lemmaRef="">ᵊl</tei:w>
+                            <tei:w copyOf="wid_00161" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00162" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00163" ana="personalPronoun" lemmaRef="aana_001">āna</tei:w>
+                            <tei:w copyOf="wid_00164" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00165" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00166" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00167" ana="verb" lemmaRef="qraa_001">qrīt</tei:w>
+                            <tei:w copyOf="wid_00168" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00169" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#171">
+                                <tei:w copyOf="wid_00170" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00171" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00172" ana="verb" lemmaRef="caash_001">ʕišt</tei:w>
+                            <tei:w copyOf="wid_00173" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00174" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00176" ana="" lemmaRef="">žüskā</tei:w>
+                            <tei:w copyOf="wid_00177" ana="" lemmaRef="">vṏnt</tei:w>
+                            <tei:w copyOf="wid_00178" ana="" lemmaRef="">ȭ</tei:w>
+                            <tei:w copyOf="wid_00179" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00180" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00181" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
+                            <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
+                            <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00162" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00163" ana="personalPronoun" lemmaRef="aana_001">āna</tei:w>
+                            <tei:w copyOf="wid_00164" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00165" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00166" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00167" ana="verb" lemmaRef="qraa_001">qrīt</tei:w>
+                            <tei:w copyOf="wid_00168" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00169" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00170" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00171" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00172" ana="verb" lemmaRef="caash_001">ʕišt</tei:w>
+                            <tei:w copyOf="wid_00173" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00174" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#176">
+                                <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00176" ana="" lemmaRef="">žüskā</tei:w>
+                            <tei:w copyOf="wid_00177" ana="" lemmaRef="">vṏnt</tei:w>
+                            <tei:w copyOf="wid_00178" ana="" lemmaRef="">ȭ</tei:w>
+                            <tei:w copyOf="wid_00179" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00180" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00181" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
+                            <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
+                            <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00187" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
+                            <tei:w copyOf="wid_00188" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00189" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00190" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>3</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00175" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00176" ana="" lemmaRef="">žüskā</tei:w>
+                            <tei:w copyOf="wid_00177" ana="" lemmaRef="">vṏnt</tei:w>
+                            <tei:w copyOf="wid_00178" ana="" lemmaRef="">ȭ</tei:w>
+                            <tei:w copyOf="wid_00179" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00180" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00181" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
+                            <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
+                            <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00187" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
+                            <tei:w copyOf="wid_00188" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00189" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#191">
+                                <tei:w copyOf="wid_00190" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00191" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00192" ana="" lemmaRef="">hm</tei:w>
+                            <tei:w copyOf="wid_00193" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00194" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
+                            <tei:w copyOf="wid_00195" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00196" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00197" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00198" ana="conjunction" lemmaRef="walla_001">walla</tei:w>
+                            <tei:w copyOf="wid_00199" ana="verb" lemmaRef="hawwil_001">ḥawwilt</tei:w>
+                            <tei:w copyOf="wid_00200" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00201" ana="" lemmaRef="">mā</tei:w>
+                            <tei:w copyOf="wid_00202" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00203" ana="verb" lemmaRef="craf_001">naʕṛaf</tei:w>
+                            <tei:w copyOf="wid_00204" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00205" ana="" lemmaRef="">š</tei:w>
+                            <tei:w copyOf="wid_00206" ana="" lemmaRef="">,</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>4</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00182" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00183" ana="conjunction" lemmaRef="w_001">w</tei:w>
+                            <tei:w copyOf="wid_00184" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00185" ana="" lemmaRef="">āh</tei:w>
+                            <tei:w copyOf="wid_00186" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00187" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
+                            <tei:w copyOf="wid_00188" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00189" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00190" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00191" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00192" ana="" lemmaRef="">hm</tei:w>
+                            <tei:w copyOf="wid_00193" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00194" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
+                            <tei:w copyOf="wid_00195" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00196" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#198">
+                                <tei:w copyOf="wid_00197" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00198" ana="conjunction" lemmaRef="walla_001">walla</tei:w>
+                            <tei:w copyOf="wid_00199" ana="verb" lemmaRef="hawwil_001">ḥawwilt</tei:w>
+                            <tei:w copyOf="wid_00200" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00201" ana="" lemmaRef="">mā</tei:w>
+                            <tei:w copyOf="wid_00202" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00203" ana="verb" lemmaRef="craf_001">naʕṛaf</tei:w>
+                            <tei:w copyOf="wid_00204" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00205" ana="" lemmaRef="">š</tei:w>
+                            <tei:w copyOf="wid_00206" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00207" ana="" lemmaRef="">ᵊl</tei:w>
+                            <tei:w copyOf="wid_00208" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00209" ana="noun" lemmaRef="blaasa_001">blāyiṣ</tei:w>
+                            <tei:w copyOf="wid_00210" ana="adjective" lemmaRef="aaxar_001">uxṛīn</tei:w>
+                            <tei:w copyOf="wid_00211" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00212" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00213" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>5</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00199" ana="verb" lemmaRef="hawwil_001">ḥawwilt</tei:w>
+                            <tei:w copyOf="wid_00200" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00201" ana="" lemmaRef="">mā</tei:w>
+                            <tei:w copyOf="wid_00202" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00203" ana="verb" lemmaRef="craf_001">naʕṛaf</tei:w>
+                            <tei:w copyOf="wid_00204" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00205" ana="" lemmaRef="">š</tei:w>
+                            <tei:w copyOf="wid_00206" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00207" ana="" lemmaRef="">ᵊl</tei:w>
+                            <tei:w copyOf="wid_00208" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00209" ana="noun" lemmaRef="blaasa_001">blāyiṣ</tei:w>
+                            <tei:w copyOf="wid_00210" ana="adjective" lemmaRef="aaxar_001">uxṛīn</tei:w>
+                            <tei:w copyOf="wid_00211" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00212" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00213" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00214" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#216">
+                                <tei:w copyOf="wid_00215" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00216" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00217" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00218" ana="verb" lemmaRef="saafir_001">nsāfir</tei:w>
+                            <tei:w copyOf="wid_00219" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00220" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00221" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00222" ana="adverb" lemmaRef="barsha_001">baṛša</tei:w>
+                            <tei:w copyOf="wid_00223" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00224" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00225" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00226" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00227" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00228" ana="verb" lemmaRef="xdim_001">nixdim</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>6</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00208" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00209" ana="noun" lemmaRef="blaasa_001">blāyiṣ</tei:w>
+                            <tei:w copyOf="wid_00210" ana="adjective" lemmaRef="aaxar_001">uxṛīn</tei:w>
+                            <tei:w copyOf="wid_00211" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00212" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00213" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00214" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00215" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            <tei:w copyOf="wid_00216" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00217" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00218" ana="verb" lemmaRef="saafir_001">nsāfir</tei:w>
+                            <tei:w copyOf="wid_00219" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00220" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#222">
+                                <tei:w copyOf="wid_00221" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00222" ana="adverb" lemmaRef="barsha_001">baṛša</tei:w>
+                            <tei:w copyOf="wid_00223" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00224" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00225" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00226" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00227" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00228" ana="verb" lemmaRef="xdim_001">nixdim</tei:w>
+                            <tei:w copyOf="wid_00229" ana="" lemmaRef="">äh</tei:w>
+                            <tei:w copyOf="wid_00230" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00231" ana="" lemmaRef="">ṏnženyȫġ</tei:w>
+                            <tei:w copyOf="wid_00232" ana="" lemmaRef="">dö</tei:w>
+                            <tei:w copyOf="wid_00233" ana="" lemmaRef="">sȭ</tei:w>
+                            <tei:w copyOf="wid_00234" ana="preposition" lemmaRef="mcaa_001">mʕā</tei:w>
+                            <tei:w copyOf="wid_00235" ana="" lemmaRef="">gṛūp</tei:w>
+                            <tei:w copyOf="wid_00236" ana="preposition" lemmaRef="mtaac_001">ᵊmtāʕ</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>7</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00268" ana="" lemmaRef="">ha</tei:w>
+                            <tei:w copyOf="wid_00269" ana="verb" lemmaRef="kaan_001">kunt</tei:w>
+                            <tei:w copyOf="wid_00270" ana="verb" lemmaRef="xdim_001">nixdim</tei:w>
+                            <tei:w copyOf="wid_00271" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00272" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00273" ana="" lemmaRef="">lē</tei:w>
+                            <tei:w copyOf="wid_00274" ana="" lemmaRef="">zōn</tei:w>
+                            <tei:w copyOf="wid_00275" ana="" lemmaRef="">tuġistīk</tei:w>
+                            <tei:w copyOf="wid_00276" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00277" ana="" lemmaRef="">okē</tei:w>
+                            <tei:w copyOf="wid_00278" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00279" ana="" lemmaRef="macnaa_001">maʕnāt</tei:w>
+                            <tei:w copyOf="wid_00280" ana="" lemmaRef="">ha</tei:w>
+                            <tei:w copyOf="wid_00281" ana="verb" lemmaRef="saafir_001">sāfirt</tei:w>
+                            <tei:w copyOf="wid_00282" ana="preposition" lemmaRef="f_i_001">fi</tei:w>
+                            <tei:w copyOf="wid_00283" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#285">
+                                <tei:w copyOf="wid_00284" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00285" ana="adverb" lemmaRef="barsha_001">baṛša</tei:w>
+                            <tei:w copyOf="wid_00286" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00287" ana="responseParticle" lemmaRef="ayy_001">īh</tei:w>
+                            <tei:w copyOf="wid_00288" ana="" lemmaRef="">sē</tei:w>
+                            <tei:w copyOf="wid_00289" ana="" lemmaRef="">byṏ</tei:w>
+                            <tei:w copyOf="wid_00290" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00291" ana="conjunction" lemmaRef="w_001">w</tei:w>
+                            <tei:w copyOf="wid_00292" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00293" ana="" lemmaRef="">il</tei:w>
+                            <tei:w copyOf="wid_00294" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00295" ana="" lemmaRef="">vōyāž</tei:w>
+                            <tei:w copyOf="wid_00296" ana="verb" lemmaRef="kaan_001">kān</tei:w>
+                            <tei:w copyOf="wid_00297" ana="" lemmaRef="macnaa_001">maʕnāt</tei:w>
+                            <tei:w copyOf="wid_00298" ana="" lemmaRef="">ha</tei:w>
+                            <tei:w copyOf="wid_00299" ana="adverb" lemmaRef="diima_001">dīma</tei:w>
+                            <tei:w copyOf="wid_00300" ana="noun" lemmaRef="haazha_001">ḥāža</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>8</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00302" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00303" ana="" lemmaRef="">ha</tei:w>
+                            <tei:w copyOf="wid_00304" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00305" ana="conjunction" lemmaRef="aama_002">āma</tei:w>
+                            <tei:w copyOf="wid_00306" ana="preposition" lemmaRef="qbal_001">qbal</tei:w>
+                            <tei:w copyOf="wid_00307" ana="noun" lemmaRef="cmur_001">ʕumṛ</tei:w>
+                            <tei:w copyOf="wid_00308" ana="" lemmaRef="">i</tei:w>
+                            <tei:w copyOf="wid_00309" ana="" lemmaRef="">mā</tei:w>
+                            <tei:w copyOf="wid_00310" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00311" ana="adverb" lemmaRef="hakka_001">hakkāka</tei:w>
+                            <tei:w copyOf="wid_00312" ana="verb" lemmaRef="xammam_001">xammamt</tei:w>
+                            <tei:w copyOf="wid_00313" ana="verb" lemmaRef="xrazh_001">nuxṛuž</tei:w>
+                            <tei:w copyOf="wid_00314" ana="preposition" lemmaRef="min_001">min</tei:w>
+                            <tei:w copyOf="wid_00315" ana="" lemmaRef="">-</tei:w>
+                            <hits:Hit ref="#317">
+                                <tei:w copyOf="wid_00316" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00317" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00318" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00319" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00320" ana="interrogative" lemmaRef="waqtaash_001">waqtāš</tei:w>
+                            <tei:w copyOf="wid_00321" ana="adverb" lemmaRef="mmaala_001">māla</tei:w>
+                            <tei:w copyOf="wid_00322" ana="verb" lemmaRef="bdaa_001">bdīt</tei:w>
+                            <tei:w copyOf="wid_00323" ana="preposition" lemmaRef="f_i_001">f</tei:w>
+                            <tei:w copyOf="wid_00324" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00325" ana="" lemmaRef="">it</tei:w>
+                            <tei:w copyOf="wid_00326" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00327" ana="noun" lemmaRef="tuxmaam_001">tuxmām</tei:w>
+                            <tei:w copyOf="wid_00328" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00329" ana="interrogative" lemmaRef="claash_001">ʕlāš</tei:w>
+                            <tei:w copyOf="wid_00330" ana="verb" lemmaRef="xrazh_001">xṛažt</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>9</sru:recordPosition>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource pid="tunico" ref="tunico">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <hits:Result xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0">
+                            <tei:ptr target="tunico" cRef="Ayyoub_30_08_2013__v004.xml"/>
+                            <tei:w copyOf="wid_00322" ana="verb" lemmaRef="bdaa_001">bdīt</tei:w>
+                            <tei:w copyOf="wid_00323" ana="preposition" lemmaRef="f_i_001">f</tei:w>
+                            <tei:w copyOf="wid_00324" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00325" ana="" lemmaRef="">it</tei:w>
+                            <tei:w copyOf="wid_00326" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00327" ana="noun" lemmaRef="tuxmaam_001">tuxmām</tei:w>
+                            <tei:w copyOf="wid_00328" ana="" lemmaRef="">,</tei:w>
+                            <tei:w copyOf="wid_00329" ana="interrogative" lemmaRef="claash_001">ʕlāš</tei:w>
+                            <tei:w copyOf="wid_00330" ana="verb" lemmaRef="xrazh_001">xṛažt</tei:w>
+                            <tei:w copyOf="wid_00331" ana="adverb" lemmaRef="mmaala_001">māla</tei:w>
+                            <tei:w copyOf="wid_00332" ana="" lemmaRef="">?</tei:w>
+                            <tei:w copyOf="wid_00333" ana="verb" lemmaRef="xrazh_001">xṛažt</tei:w>
+                            <tei:w copyOf="wid_00334" ana="preposition" lemmaRef="min_001">min</tei:w>
+                            <hits:Hit ref="#336">
+                                <tei:w copyOf="wid_00335" ana="toponym" lemmaRef="tuunis_001">tūnis</tei:w>
+                            </hits:Hit>
+                            <tei:w copyOf="wid_00336" ana="conjunction" lemmaRef="claa_xaatir_001">xāṭir</tei:w>
+                            <tei:w copyOf="wid_00337" ana="verb" lemmaRef="tqaabil_001">qābilt</tei:w>
+                            <tei:w copyOf="wid_00338" ana="noun" lemmaRef="tufla_001">ṭufla</tei:w>
+                            <tei:w copyOf="wid_00339" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00340" ana="responseParticle" lemmaRef="ayy_001">ayy</tei:w>
+                            <tei:w copyOf="wid_00341" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00342" ana="preposition" lemmaRef="min_001">m</tei:w>
+                            <tei:w copyOf="wid_00343" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00344" ana="" lemmaRef="">il</tei:w>
+                            <tei:w copyOf="wid_00345" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00346" ana="" lemmaRef="">kanadā</tei:w>
+                            <tei:w copyOf="wid_00347" ana="" lemmaRef="">.</tei:w>
+                            <tei:w copyOf="wid_00348" ana="conjunction" lemmaRef="w_001">w</tei:w>
+                            <tei:w copyOf="wid_00349" ana="" lemmaRef="">-</tei:w>
+                            <tei:w copyOf="wid_00350" ana="" lemmaRef="">ēl</tei:w>
+                        </hits:Result>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>10</sru:recordPosition>
         </sru:record>
     </sru:records>
 </sru:searchRetrieveResponse>

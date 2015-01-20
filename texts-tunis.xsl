@@ -3,8 +3,8 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:exsl="http://exslt.org/common"
   xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
-  xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
-  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru kwic">
+  xmlns:hits="http://clarin.eu/fcs/dataview/hits"
+  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru hits">
   <xsl:import href="fcs/result2view_v1.xsl"/>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="callback-header">
@@ -58,6 +58,18 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  
+  <xd:doc>
+    <xd:desc>We need three columns for the kwic like results.</xd:desc>
+  </xd:doc>
+  <xsl:template name="result-rows">
+    <xsl:apply-templates mode="result-data-table"/>
+  </xsl:template>
+  
+  <xd:doc>
+    <xd:desc>This result view has 4 columns + the result number</xd:desc>
+  </xd:doc>
+  <xsl:template name="getTotalNumberofResultCols">4</xsl:template>
   
   <xsl:template match="*" mode="tei-body-headings">
     <xsl:if test="normalize-space(./text())">
@@ -226,33 +238,6 @@
     <span class="tei-kinesic"><xsl:value-of select="tei:desc"/></span>
   </xsl:template>
   
-  <xd:doc>
-    <xd:desc>
-      <xd:p/>
-    </xd:desc>
-  </xd:doc>
-  <xsl:template match="kwic:c" mode="record-data">
-    <span class="{@type} context">
-      <xsl:apply-templates mode="record-data"/>
-    </span>
-    <xsl:if test="following-sibling::*[1][local-name()='c']">
-      <xsl:call-template name="br"/>
-    </xsl:if>
-  </xsl:template>
-  
-  <xd:doc>
-    <xd:desc>
-      <xd:p/>
-    </xd:desc>
-  </xd:doc>
-  <xsl:template match="kwic:kw" mode="record-data">
-    <xsl:text> </xsl:text>
-    <span class="kw hilight">
-      <xsl:apply-templates mode="record-data"/>
-    </span>
-    <xsl:text> </xsl:text>
-  </xsl:template>
-  
-  <xsl:template match="tei:ptr[parent::kwic:kwic]" mode="record-data"/>
+  <xsl:template match="tei:ptr[parent::hits:Result]" mode="record-data"/>
   
 </xsl:stylesheet>

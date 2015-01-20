@@ -261,6 +261,9 @@
                 <xsl:with-param name="absolute_position" select="$absolute_position"/>
             </xsl:call-template>
         </xsl:variable>
+        <xsl:variable name="totalNumberofResultCols">
+            <xsl:call-template name="getTotalNumberofResultCols"/>
+        </xsl:variable>
         <tr class="record-top">
             <td rowspan="2" valign="top">
                 <xsl:choose>
@@ -278,7 +281,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </td>
-            <td>
+            <td colspan="{$totalNumberofResultCols}">
                 <!--
 TODO: handle context
 <xsl:call-template name="getContext"/>-->
@@ -300,13 +303,25 @@ TODO: handle context
                 </div>
             </td>
         </tr>
-        <tr>
-            <td>
-                <div>
-                    <xsl:apply-templates select="*" mode="record-data"/>
-                </div>
-            </td>
+        <tr class="data-view {translate(sru:recordData/fcs:Resource/fcs:DataView/@type, '/+', '__')}">
+            <xsl:call-template name="result-rows"/>
         </tr>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Returns the total number of columns in a result row, needed for the spacing row</xd:desc>
+    </xd:doc>
+    <xsl:template name="getTotalNumberofResultCols">1</xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Supersede this template if you need more columns in your result display!</xd:desc>
+    </xd:doc>
+    <xsl:template name="result-rows">        
+        <td>
+            <div>
+                <xsl:apply-templates select="*" mode="record-data"/>
+            </div>
+        </td>
     </xsl:template>
     
     <xd:doc>
