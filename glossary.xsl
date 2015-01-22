@@ -47,6 +47,14 @@
    
    <xsl:template name="callback-header2"/>
    
+   <xsl:template name="queryTextUI">
+      <span class="virtual-keyboard-input-combo virtual-keyboard-input-above">
+         <input name="query" type="text" size="18" class="queryinput active virtual-keyboard-input" id="query-text-ui" value="{$q}" data-context="{$x-context}"/>
+         <input type="checkbox" value="unused" class="virtual-keyboard-toggle" id="glueToLabel1" checked="checked"/>
+         <label for="glueToLabel1" class="virtual-keyboard-first-three">äöü</label>
+      </span>       
+   </xsl:template>
+   
    <xsl:template match="fcs:Resource" mode="record-data">
       <xsl:apply-templates select=".//fcs:DataView[not(@type='metadata')]" mode="record-data"/>
       <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>

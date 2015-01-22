@@ -43,7 +43,7 @@
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.1.min.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
         
         <!--        <xsl:if test="contains($format,'htmljspage')">
@@ -174,7 +174,7 @@
                     <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
-                    <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active virtual-keyboard-input" data-context="{$x-context}"/>
+                    <xsl:call-template name="queryTextUI"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>
@@ -202,6 +202,11 @@
             </div>
         </div>
     </xsl:template>
+    
+    <xsl:template name="queryTextUI">
+        <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active" data-context="{$x-context}"/>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Provides information to the user about the position in a search response that spans multiple pages</xd:desc>
     </xd:doc>
