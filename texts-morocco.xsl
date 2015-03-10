@@ -5,7 +5,8 @@
   xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
   xmlns:hits="http://clarin.eu/fcs/dataview/hits"
   xmlns:m="http://acdh.oeaw.ac.at/morocco"
-  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru hits m">
+  xmlns:cr="http://aac.ac.at/content_repository"
+  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru hits m cr">
   <xsl:import href="fcs/result2view_v1.xsl"/>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="callback-header">
@@ -203,7 +204,7 @@
         <xsl:variable name="linkTargetSrc">
           <xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-            <xsl:with-param name="q" select="concat('wid=', @xml:id|@copyOf)"/>
+            <xsl:with-param name="q" select="concat('wid=', @cr:id|@copyOf)"/>
             <xsl:with-param name="x-context">
               <xsl:choose>
                 <xsl:when test="../../tei:ref/@target|../tei:ref/@target">
@@ -220,7 +221,10 @@
         <span class="{$classes}"><a href="{$linkTargetSrc}"><xsl:apply-templates mode="record-data"/></a><xsl:if
           test="@lemmaRef != ''"><dl 
               class="tei-fs"><dt
-              class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTargetDict}">entry</a></dd></dl></xsl:if></span>
+                class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTargetDict}">entry</a></dd></dl></xsl:if><xsl:if
+          test="@m:ana != ''"><dl 
+               class="tei-fs"><dt
+                 class="m-ana">Ana.:</dt><dd><xsl:value-of select="@m:ana"/></dd></dl></xsl:if></span>
       </xsl:when>
       <xsl:when test="./@type">
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>
