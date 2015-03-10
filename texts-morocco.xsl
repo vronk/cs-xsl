@@ -224,7 +224,7 @@
                 class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTargetDict}">entry</a></dd></dl></xsl:if><xsl:if
           test="@m:ana != ''"><dl 
                class="tei-fs"><dt
-                 class="m-ana">Ana.:</dt><dd><xsl:value-of select="@m:ana"/></dd></dl></xsl:if></span>
+                 class="m-ana">Ana.</dt><dd><xsl:value-of select="@m:ana"/></dd></dl></xsl:if></span>
       </xsl:when>
       <xsl:when test="./@type">
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>
