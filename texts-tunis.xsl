@@ -203,6 +203,8 @@
           <xsl:call-template name="formURL">
             <xsl:with-param name="action">searchRetrieve</xsl:with-param>
             <xsl:with-param name="q" select="concat('wid=', @xml:id|@copyOf)"/>
+            <xsl:with-param name="startRecord">1</xsl:with-param>
+            <xsl:with-param name="maximumRecords">1</xsl:with-param>
             <xsl:with-param name="x-context">
               <xsl:choose>
                 <xsl:when test="../../tei:ptr/@target|../tei:ptr/@target">
