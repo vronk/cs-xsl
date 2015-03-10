@@ -257,6 +257,9 @@
             <xsl:when test="tei:ptr">
                 <td class="tei-ptr-doc"><xsl:value-of select="tei:ptr/@cRef"/></td>
             </xsl:when>
+            <xsl:when test="tei:ref">
+                <td class="tei-ptr-doc"><xsl:value-of select="tei:ref"/></td>
+            </xsl:when>
             <xsl:otherwise><td></td></xsl:otherwise>
         </xsl:choose>
         <xsl:apply-templates select="hits:Hit" mode="result-data-table"/>
