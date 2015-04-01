@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling.
             <xd:p>History:
@@ -16,7 +16,6 @@
     <xsl:include href="html_snippets.xsl"/>
 
 <!-- <xsl:param name="mode" select="'html'" /> -->
-    
     <xd:doc>
         <xd:desc>Read the content of the dict.xml file into this variable
         <xd:p>If the file is not structured as expected an empty list is returned.</xd:p>
@@ -188,13 +187,13 @@
         <xsl:choose>
             <xsl:when test="$contexts_url = ''"/>
             <xsl:when test="$scripts_user">
-                <xsl:variable name="contexts_auth_url" select="concat(substring-before($contexts_url, '//'), '//', $scripts_user, ':', $scripts_pw, '@', substring-after($contexts_url,'//'))"/>                    
+                <xsl:variable name="contexts_auth_url" select="concat(substring-before($contexts_url, '//'), '//', $scripts_user, ':', $scripts_pw, '@', substring-after($contexts_url,'//'))"/>
                 <xsl:copy-of select="document($contexts_auth_url)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:copy-of select="document($contexts_url)"/>
             </xsl:otherwise>
-        </xsl:choose>                
+        </xsl:choose>
     </xsl:template>
     <xd:doc>
         <xd:desc>Generates an HTML select-option list of available contexts</xd:desc>
@@ -239,6 +238,7 @@
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
         <xsl:param name="md-format" select="'CMDI'"/>
+        <xsl:param name="queryType" select="$queryType"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
@@ -418,7 +418,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Provides a generic html-view for xml-elements 
 	    </xd:desc>
@@ -476,7 +475,6 @@
             </span>
         </xsl:if>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Returns attribute names and their values as pairs of HTML span tags</xd:desc>
     </xd:doc>
@@ -488,7 +486,6 @@
             <xsl:call-template name="format-value"/>
         </span>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>???</xd:desc>
     </xd:doc>
@@ -554,9 +551,8 @@
                     <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                 </xsl:call-template>
             </xsl:otherwise>
-        </xsl:choose>     
+        </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
@@ -565,7 +561,6 @@
     <xsl:template name="br">
         <xsl:text disable-output-escaping="yes">&lt;br/&gt;</xsl:text>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>string-join replacement</xd:desc>
     </xd:doc>
@@ -581,10 +576,10 @@
             </xsl:when>
             <xsl:when test="count($nodes-to-join) = 2">
                 <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2])"/>
-            </xsl:when>            
+            </xsl:when>
             <xsl:when test="count($nodes-to-join) = 3">
                 <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2], $join-with, $nodes-to-join[3])"/>
-            </xsl:when>            
+            </xsl:when>
             <xsl:when test="count($nodes-to-join) = 4">
                 <xsl:value-of select="concat($nodes-to-join[1], $join-with, $nodes-to-join[2], $join-with, $nodes-to-join[3], $join-with, $nodes-to-join[4])"/>
             </xsl:when>
@@ -605,6 +600,28 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
-    
+    <xd:doc>
+        <xd:desc>String replacement for XSL 1.0
+            <xd:p>Found on stackoverflow: http://stackoverflow.com/questions/7520762/xslt-1-0-string-replace-function</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="replace-string">
+        <xsl:param name="text"/>
+        <xsl:param name="replace"/>
+        <xsl:param name="with"/>
+        <xsl:choose>
+            <xsl:when test="contains($text,$replace)">
+                <xsl:value-of select="substring-before($text,$replace)"/>
+                <xsl:value-of select="$with"/>
+                <xsl:call-template name="replace-string">
+                    <xsl:with-param name="text" select="substring-after($text,$replace)"/>
+                    <xsl:with-param name="replace" select="$replace"/>
+                    <xsl:with-param name="with" select="$with"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$text"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 </xsl:stylesheet>
