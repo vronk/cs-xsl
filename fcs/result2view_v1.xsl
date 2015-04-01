@@ -153,7 +153,7 @@
         <xd:desc>Return a table of results if there is more than one record returned</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records" mode="table">
-        <div class="result-body">
+        <div class="result-body scrollable-content-box">
             <table class="show">
             <!--<thead>
                 <tr>
