@@ -39,11 +39,12 @@
             <xsl:value-of select="$title"/>
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.6.2.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
         
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
@@ -161,6 +162,10 @@
                     <input type="hidden" name="operation" value="{$operation}"/>
                     <input type="hidden" name="version" value="1.2"/> 
                     <input type="hidden" name="x-dataview" value="{//fcs:x-dataview}"/>
+                    <input type="hidden" name="maximumRecords" value="{$maximumRecords}"/>
+                    <xsl:if test="$queryType != ''">
+                        <input type="hidden" name="queryType" value="{$queryType}"/> 
+                    </xsl:if>
                     <!--<table class="cmds-ui-elem-stretch">
                         <tr>
                             <td colspan="2">
@@ -169,7 +174,7 @@
                     <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
-                    <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active"/>
+                    <xsl:call-template name="queryTextUI"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>
@@ -197,6 +202,11 @@
             </div>
         </div>
     </xsl:template>
+    
+    <xsl:template name="queryTextUI">
+        <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active" data-context="{$x-context}"/>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Provides information to the user about the position in a search response that spans multiple pages</xd:desc>
     </xd:doc>

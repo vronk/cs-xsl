@@ -10,8 +10,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:exsl="http://exslt.org/common"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl tei html">
+    version="1.0" exclude-result-prefixes="xsl utils sru zr xs fcs xd exsl tei">
     <xsl:import href="../commons_v1.xsl"/>
     <xsl:import href="data2view_tei.xsl"/>
     <xd:doc scope="stylesheet">
@@ -148,7 +147,9 @@
         <xsl:variable name="scan-index">
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'scan'"/>
-                <xsl:with-param name="scanClause" select="zr:map/zr:name"/>
+                <xsl:with-param name="scanClause">
+                    <xsl:call-template name="scan-clause-string"/>
+                </xsl:with-param>
                 <xsl:with-param name="contextset">
 <!--                    <xsl:if test="zr:map/zr:name/@set">
                         <xsl:value-of select="concat(zr:map/zr:name/@set, '.')"/>
@@ -168,6 +169,16 @@
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'searchRetrieve'"/>
                 <xsl:with-param name="q" select="concat(.//zr:name, '=', normalize-space($default-query-string))"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="native-search-query">
+            <xsl:variable name="native-query-string">
+                <xsl:call-template name="native-query-string"/>              
+            </xsl:variable>
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="action" select="'searchRetrieve'"/>
+                <xsl:with-param name="queryType">native</xsl:with-param>
+                <xsl:with-param name="q" select="normalize-space($native-query-string)"/>
             </xsl:call-template>
         </xsl:variable>
         <dt>
@@ -200,6 +211,14 @@
                             <xsl:with-param name="key">Search</xsl:with-param>
                         </xsl:call-template>
                     </a>
+                    <xsl:if test="@native='true'">
+                        <xsl:text> </xsl:text>
+                        <a href="{$native-search-query}" class="search-caller">
+                            <xsl:call-template name="dict">
+                                <xsl:with-param name="key">Native Search</xsl:with-param>
+                            </xsl:call-template>
+                        </a>                        
+                    </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
         </dd>
@@ -210,6 +229,16 @@
     </xd:doc>
     <xsl:template name="default-query-string">
         test
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Supersede this template to generate native example queries that suite your indices</xd:desc>
+    </xd:doc>
+    <xsl:template name="native-query-string"/>
+    <xd:doc>
+        <xd:desc>Supersede this template to generate scan clauses that suite your endpoints needs</xd:desc>
+    </xd:doc>
+    <xsl:template name="scan-clause-string">
+        <xsl:value-of  select="zr:map/zr:name"/>
     </xsl:template>
     <!--
         <xsl:template match="*[@lang]" >

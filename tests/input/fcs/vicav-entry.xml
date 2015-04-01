@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0"
-    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"
-    xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
     <sru:version>1.2</sru:version>
     <sru:numberOfRecords>1</sru:numberOfRecords>
     <sru:echoedSearchRetrieveRequest>
         <sru:version>1.2</sru:version>
-        <sru:query>serverChoice==water</sru:query>
+        <sru:query>cql.serverChoice==water</sru:query>
         <fcs:x-context>arz_eng_006</fcs:x-context>
-        <fcs:x-dataview>full</fcs:x-dataview>
-        <sru:baseUrl>http://127.0.0.1/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
     </sru:echoedSearchRetrieveRequest>
     <sru:extraResponseData>
         <fcs:returnedRecords>1</fcs:returnedRecords>
         <fcs:numberOfMatches/>
         <fcs:duration>0.0</fcs:duration>
-        <fcs:transformedQuery>SELECT ndx.txt, base.entry FROM arz_eng_006 AS base INNER JOIN
-            arz_eng_006_ndx AS ndx ON base.id = ndx.id WHERE ndx.xpath LIKE '%' AND ndx.txt =
-            'water' LIMIT 0, 10</fcs:transformedQuery>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM arz_eng_006 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM arz_eng_006_ndx AS ndx WHERE ndx.txt = 'water' GROUP BY ndx.id) AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
     </sru:extraResponseData>
     <sru:records>
         <sru:record>
@@ -25,43 +21,34 @@
             <sru:recordPacking>xml</sru:recordPacking>
             <sru:recordData>
                 <fcs:Resource>
-                    <fcs:DataView type="metadata">
-                        <fcs:f key="copyright">ICLTT</fcs:f>
-                        <fcs:f key="content">Glossary for water</fcs:f>
-                    </fcs:DataView>
                     <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable dictionary of Egyptian Arabic</fcs:DataView>
                         <fcs:DataView type="full">
-
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
                             <entry xml:id="mayya_0" numID="1097">
                                 <form type="lemma">
                                     <orth xml:lang="ar-arz-x-cairo-vicavTrans">ṃayya</orth>
                                     <orth xml:lang="ar-arz-x-cairo-arabic">مية</orth>
                                 </form>
-
                                 <gramGrp>
                                     <gram type="pos">noun</gram>
-                                    <gram type="root" xml:lang="ar-arz-x-cairo-vicavTrans"
-                                        >ṃāʔ</gram>
+                                    <gram type="root" xml:lang="ar-arz-x-cairo-vicavTrans">ṃāʔ</gram>
                                 </gramGrp>
-
                                 <sense>
                                     <usg type="dom">food</usg>
-
                                     <cit type="translation" xml:lang="en">
                                         <quote>water</quote>
                                     </cit>
-
                                     <cit type="translation" xml:lang="de">
                                         <quote>Wasser</quote>
                                     </cit>
                                     <cit type="example" numID="1098">
-                                        <quote xml:lang="ar-arz-x-cairo-vicavTrans">bitišṛab ṃayya
-                                            maʕdaniyya.</quote>
-
+                                        <quote xml:lang="ar-arz-x-cairo-vicavTrans">bitišṛab ṃayya maʕdaniyya.</quote>
                                         <cit type="translation" xml:lang="en">
                                             <quote>She drinks mineral water.</quote>
                                         </cit>
-
                                         <cit type="translation" xml:lang="de">
                                             <quote>Sie trinkt Mineralwasser.</quote>
                                         </cit>
@@ -113,7 +100,7 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>1</sru:recordPosition>
-            <sru:recordIdentifier>?x-context=arz_eng_006&amp;operation=searchRetrieve&amp;version=1.2&amp;query=serverChoice%3D%3D%22water%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=cql.serverChoice%3D%3Dwater&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=arz_eng_006&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
     </sru:records>
     <sru:res>1</sru:res>

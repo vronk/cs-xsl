@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"
+    xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>serverChoice==aam_001</sru:query>
+        <fcs:x-context>arz_eng_006</fcs:x-context>
+        <fcs:x-dataview>full</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry FROM arz_eng_006 AS base INNER JOIN
+            arz_eng_006_ndx AS ndx ON base.id = ndx.id WHERE ndx.xpath LIKE '%' AND ndx.txt =
+            'aam_001' LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:DataView type="metadata">
+                        <fcs:f key="copyright">ICLTT</fcs:f>
+                        <fcs:f key="content">Glossary for aam_001</fcs:f>
+                    </fcs:DataView>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="full">
+                            <entry xmlns="http://www.tei-c.org/ns/1.0" style="display:inline;"
+                                xml:id="d2e1582583">
+                                <form type="lemma">
+                                    <orth>Würstel</orth>
+                                    <syll>Würs|tel</syll>
+                                    <stress>Wụ̈rstel</stress>
+                                    <oewb:lemma xmlns:oewb="http://www.oeaw.ac.at/icltt/oewb"
+                                        >Wrs|tel </oewb:lemma>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="gen">n</gram>
+                                </gramGrp>
+                                <form ana="#n_gen_sg" type="inflected">
+                                    <orth>
+                                        <oRef rend="-"/>s</orth>
+                                </form>
+                                <form ana="#n_nom_pl" type="inflected">
+                                    <orth>
+                                        <oRef rend="-"/>[n]</orth>
+                                </form>
+                                <sense>
+                                    <def>Wurst</def>
+                                    <cit type="example">
+                                        <quote> Frankfurter Würstel[n]</quote>
+                                    </cit>
+                                    <cit type="example">
+                                        <quote> W. im Schlafrock <cit type="translation">
+                                                <quote>(im Teigmantel) </quote>
+                                            </cit>
+                                        </quote>
+                                    </cit>
+                                </sense>
+                                <sense>
+                                    <usg type="register">ugs.</usg>
+                                    <cit type="example">
+                                        <quote> ein armes W.<cit type="translation">
+                                                <quote>(bemitleidenswerter, hilfsbedürftiger,
+                                                  benachteiligter Mensch) </quote>
+                                            </cit>
+                                        </quote>
+                                    </cit>
+                                </sense>
+                                <sense>
+                                    <cit type="example">
+                                        <quote>
+                                            <usg type="style">sal.</usg> da gibt’s keine
+                                                Würstel[n]<cit type="translation">
+                                                <quote>(keine Rücksicht) </quote>
+                                            </cit>
+                                        </quote>
+                                    </cit>
+                                </sense>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?x-context=arz_eng_006&amp;operation=searchRetrieve&amp;version=1.2&amp;query=serverChoice%3D%3D%22aam_001%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

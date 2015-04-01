@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:terms>
+        <sru:term>
+            <sru:value>Contributors</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>1</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>Dictionaries</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>2</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>Linguistics</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>3</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>Text Technology</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>4</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+    </sru:terms>
+    <sru:extraResponseData>
+        <fcs:countTerms>4</fcs:countTerms>
+        <fcs:transformedQuery>SELECT DISTINCT lemma, id, sid, COUNT(*) FROM vicav_meta WHERE lemma NOT LIKE '[%]' GROUP BY lemma</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:echoedScanRequest>
+        <sru:version>1.2</sru:version>
+        <sru:scanClause>metaText</sru:scanClause>
+        <sru:maximumTerms>100</sru:maximumTerms>
+    </sru:echoedScanRequest>
+</sru:scanResponse>

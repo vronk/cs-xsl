@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>metaText=Dictionaries</sru:query>
+        <fcs:x-context>vicav_meta</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/ProfileOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT DISTINCT id, entry FROM vicav_meta WHERE lemma LIKE '%Dictionaries%'</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">This is a collection of meta-texts concerning the VICAV project</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <TEI xml:id="vicav_meta_text_dictionaries">
+                                <teiHeader>
+                                    <fileDesc>
+                                        <author/>
+                                        <author/>
+                                        <titleStmt>
+                                            <title/>
+                                        </titleStmt>
+                                        <publicationStmt>
+                                            <pubPlace>Vienna</pubPlace>
+                                            <date>2014</date>
+                                            <availability status="restricted">
+                                                <p>
+                                                    <ref type="license" target="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+                                                </p>
+                                            </availability>
+                                        </publicationStmt>
+                                        <editionStmt>
+                                            <edition>1.0 (Alpha)</edition>
+                                        </editionStmt>
+                                        <sourceDesc>
+                                            <p>This is an original digital text</p>
+                                        </sourceDesc>
+                                    </fileDesc>
+                                </teiHeader>
+                                <text>
+                                    <body>
+                                        <div>
+                                            <head>Dictionaries</head>
+                                            <div>
+                                                <head>Data</head>
+                                                <p>All entries in the dictionaries which are not further indicated are taken from data provided by the collaborator(s) cited on the front page of each dictionary.
+               Data extracted from other published sources is indicated as such and includes the respective reference.</p>
+                                            </div>
+                                            <div>
+                                                <head>Transcription</head>
+                                                <p>The transcription follows the system which is widely accepted in Arabic studies and also used in reference works such as the Encyclopedia of Arabic Language and Linguistics (Leiden: Brill, 2006-2009). For the future it is planned to provide the data in IPA-transcription too.</p>
+                                                <p>Following a widespread convention in Arabic dialectology, the data is presented in in a broad phonological transcription 
+               that does not indicate allophones.</p>
+                                                <p>List of signs used [zum Anklicken?]</p>
+                                            </div>
+                                            <div>
+                                                <head>Arabic roots</head>
+                                                <p>
+                                                    In order to facilitate cross-dialectal comparative search all word
+               roots are have to be taken as being strictly etymological, i.e. they reflect 
+               the corresponding roots of Standard Arabic wherever possible. The source 
+               of reference is the
+                                                    <hi rend="italic">Dictionary of Modern Written Arabic</hi>
+                                                    by Hans Wehr 
+               (English version edited by J. Milton Cowell, Wiesbaden: Harrassowitz, 1979). For 
+               words which have entered Arabic from other languages a (in many hypothetical) root consisting 
+               of the mere consonantal structure of the word in question is given.
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <head>Part-of-speech</head>
+                                                <p>As for verbs a subcategory indicating the so-called verbal form is provided
+               (using the traditional order labelled by Roman numerals from I to X, in case of 
+               quadriliteral roots Iq and IIq).</p>
+                                                <p>In many cases a clear distinction between adjective and active or passive participle is not possible. If a given lemma is mainly used in an adjectival sense it is labelled as such but with an additional category that indicates the word is morphologically seen a participle.</p>
+                                                <p>The gender of Arabic nouns is not noted unless it is contradictory to the rules of Arabic morphology (which is particularly the case with unmarked feminine nouns).</p>
+                                            </div>
+                                        </div>
+                                    </body>
+                                </text>
+                            </TEI>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=metaText%3DDictionaries&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_meta&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

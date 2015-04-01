@@ -205,7 +205,7 @@
         </xsl:variable>
         <span class="{$class}">
             <xsl:apply-templates mode="record-data"/>
-        </span>.
+        </span><span class="xsl-separator tei-imprint-sep">.</span>
     </xsl:template>
     <xd:doc>
         <xd:desc>TEI pubPlace as pubPlace span</xd:desc>
@@ -308,7 +308,7 @@
     </xd:doc>
     <xsl:template match="tei:series" mode="record-data">
         <div class="tei-series">
-            <xsl:apply-templates mode="record-data"/>.</div>
+            <xsl:apply-templates mode="record-data"/><span class="xsl-separator tei-imprint-sep">.</span></div>
     </xsl:template>
     
     <xsl:template match="tei:settlement|settlement" mode="record-data">
@@ -333,9 +333,11 @@
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
-        <ul class="{$class}">
-            <xsl:apply-templates mode="record-data"/>
-        </ul>
+        <div class="indexTerms">
+            <ul class="{$class}">
+                <xsl:apply-templates mode="record-data"/>
+            </ul>
+        </div>
     </xsl:template>
     <xsl:template match="tei:index/tei:term" mode="record-data">
         <xsl:variable name="href">
@@ -346,7 +348,7 @@
         <li>
             <xsl:choose>
                 <xsl:when test="@type = 'vicavTaxonomy'">
-                    <a href="{$href}">
+                    <a href="{$href}" class="search-caller">
                         <xsl:value-of select="."/>
                     </a>
                 </xsl:when>
@@ -764,7 +766,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <xsl:element name="{$elementName}">
+        <xsl:element name="{$elementName}" namespace="http://www.w3.org/1999/xhtml">
             <xsl:choose>
 <!-- FIXME: needs merging 
                 <xsl:when test="@style">
@@ -1085,27 +1087,31 @@
     </xd:doc>
     <xsl:template match="tei:form[@type='lemma' or @type='multiWordUnit']" mode="record-data">
         <span class="tei-form-{@type}">
-            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
-            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
             <xsl:apply-templates select="*[not(name() = 'orth' or name() = 'bibl')]" mode="record-data"/>
         </span>        
     </xsl:template>
     
     <xsl:template match="tei:form[@type='inflected']" mode="record-data">
         <span class="tei-form-inflected">
-            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
-            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
-            <span class="tei-form-ana">
-                <xsl:choose>
-                    <xsl:when test="@ana='#adj_f'">f</xsl:when>
-                    <xsl:when test="@ana='#adj_pl'">pl</xsl:when>
-                    <xsl:when test="@ana='#n_pl'">pl</xsl:when>
-                    <xsl:when test="@ana='#v_pres_sg_p3'">impf</xsl:when>
-                </xsl:choose>
-            </span>
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
+            <xsl:call-template name="analyzeAna"/>
             <xsl:apply-templates select="*[not(name() = 'orth')]" mode="record-data"/>
+        </span>
+    </xsl:template>
+    
+    <xsl:template name="analyzeAna">
+        <span class="tei-form-ana">
+            <xsl:choose>
+                <xsl:when test="@ana='#adj_f'">f</xsl:when>
+                <xsl:when test="@ana='#adj_pl'">pl</xsl:when>
+                <xsl:when test="@ana='#n_pl'">pl</xsl:when>
+                <xsl:when test="@ana='#v_pres_sg_p3'">impf</xsl:when>
+            </xsl:choose>
         </span>
     </xsl:template>
     
@@ -1121,19 +1127,33 @@
         </dl>
     </xsl:template>
     
-    <xsl:template match="tei:gram[@type]" mode="record-data">
-        <dt class="tei-gram">
+    <xsl:template match="tei:gram[@type and text()]" mode="record-data">
+        <xsl:variable name="first-of-group">
+            <xsl:call-template name="first-of-group"/>
+        </xsl:variable>
+        <dt class="tei-gram {$first-of-group}">
             <xsl:call-template name="dict">
                 <xsl:with-param name="key" select="@type"/>
             </xsl:call-template>
         </dt>
-        <dd class="tei-gram {@type}">
+        <dd class="tei-gram {@type} {$first-of-group}">
             <xsl:apply-templates mode="record-data"/> 
         </dd>
     </xsl:template>
+
+    <xsl:template name="first-of-group">
+        <xsl:if test="(@type != preceding-sibling::*[1]/@type) or (normalize-space(preceding-sibling::*[1]/text()) = '')">xsl-first-of-group</xsl:if>
+    </xsl:template>
     
+    <xsl:template match="tei:gram" mode="record-data"/>
+        
     <xsl:template match="tei:sense" mode="record-data">
         <div class="tei-sense">
+            <xsl:if test="tei:form[@type='construction']">
+                <div class="tei-form-construction">
+                    <xsl:apply-templates select="tei:form[@type='construction']" mode="record-data"/>
+                </div>
+            </xsl:if>
             <xsl:if test="tei:def">            
                 <div class="tei-defs">
                     <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
@@ -1146,12 +1166,17 @@
                     <xsl:apply-templates select="tei:usg[@type='dom']" mode="record-data"/>
                 </div>
             </xsl:if>
+            <xsl:if test="tei:usg[@type='prag']">
+                <div class="tei-usg-prags">
+                    <xsl:apply-templates select="tei:usg[@type='prag']" mode="record-data"/>
+                </div>
+            </xsl:if>
             <xsl:if test="tei:cit">
                 <div class="tei-cits">
                     <xsl:apply-templates select="tei:cit" mode="record-data"/>
                 </div>
             </xsl:if>
-            <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit' or name() = 'usg' or name() = 'gramGrp')]" mode="record-data"/>
+            <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit' or name() = 'usg' or name() = 'gramGrp' or @type = 'construction')]" mode="record-data"/>
         </div>
     </xsl:template>
     
@@ -1191,7 +1216,7 @@
     </xsl:template>
     
     <xsl:template match="tei:usg" mode="record-data">
-        <span class="tei-usg tei-type-{@type}">
+        <span class="tei-usg tei-type-{@type} lang-{@lang}">
             <xsl:apply-templates mode="record-data"/>
         </span>
     </xsl:template>
@@ -1212,17 +1237,24 @@
     <xsl:template match="tei:entry" mode="record-data">
         <div class="tei-entry">
             <xsl:for-each select="tei:sense">
-                <xsl:apply-templates select="../tei:form[@type='lemma']|../tei:form[@type='multiWordUnit']" mode="record-data"/>
-                <xsl:apply-templates select="./tei:gramGrp" mode="record-data"/>
-                <xsl:apply-templates select="../tei:gramGrp" mode="record-data"/>
-                <span class="tei-bibls">
-                    <xsl:for-each select="../tei:form[@type='lemma']/tei:bibl">
+                <xsl:choose>
+                    <xsl:when test="tei:form/@type = 'construction'">
                         <xsl:apply-templates select="." mode="record-data"/>
-                    </xsl:for-each>
-                </span>
-                <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
-                <!-- Assumes tei:gramGrp is not rendered, see above -->
-                <xsl:apply-templates select="." mode="record-data"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:apply-templates select="../tei:form[@type='lemma']|../tei:form[@type='multiWordUnit']" mode="record-data"/>
+                        <xsl:apply-templates select="./tei:gramGrp" mode="record-data"/>
+                        <xsl:apply-templates select="../tei:gramGrp" mode="record-data"/>
+                        <span class="tei-bibls">
+                            <xsl:for-each select="../tei:form[@type='lemma']/tei:bibl">
+                                <xsl:apply-templates select="." mode="record-data"/>
+                            </xsl:for-each>
+                        </span>
+                        <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
+                        <!-- Assumes tei:gramGrp is not rendered, see above -->
+                        <xsl:apply-templates select="." mode="record-data"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:for-each>                                           
         </div>
     </xsl:template>
@@ -1270,7 +1302,7 @@
     <xd:doc>
         <xd:desc>division headings are transformed into their html h1-h6 counterparts</xd:desc>
     </xd:doc>
-    <xsl:template match="head[parent::div] | tei:head[parent::tei:div] " mode="record-data">
+    <xsl:template match="head[parent::div] | tei:head[parent::tei:div | parent::tei:body] " mode="record-data">
         <div class="tei-head">
             <xsl:apply-templates select="." mode="tei-body-headings"/>
         </div>
@@ -1291,7 +1323,7 @@
     <xd:doc>
         <xd:desc>headings other than list and division headings are transformed into a generic html span</xd:desc>
     </xd:doc>
-    <xsl:template match="head[not(parent::div)] | tei:head[not(parent::tei:div)] " mode="record-data">
+    <xsl:template match="head[not(parent::div)] | tei:head[not(parent::tei:div | parent::tei:body)]" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>

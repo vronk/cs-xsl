@@ -4,7 +4,7 @@
     <sru:numberOfRecords>1</sru:numberOfRecords>
     <sru:echoedSearchRetrieveRequest>
         <sru:version>1.2</sru:version>
-        <sru:query>profile=Cairo</sru:query>
+        <sru:query>profile==Cairo</sru:query>
         <fcs:x-context>vicav_profiles_001</fcs:x-context>
         <fcs:x-dataview>kwic,title</fcs:x-dataview>
         <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/ProfileOnSRU.php</sru:baseUrl>
@@ -13,7 +13,7 @@
         <fcs:returnedRecords>1</fcs:returnedRecords>
         <fcs:numberOfMatches/>
         <fcs:duration>0.0</fcs:duration>
-        <fcs:transformedQuery>SELECT DISTINCT id, entry FROM vicav_profiles_001 WHERE lemma LIKE '%Cairo%'</fcs:transformedQuery>
+        <fcs:transformedQuery>SELECT DISTINCT id, entry FROM vicav_profiles_001 WHERE lemma = 'Cairo'</fcs:transformedQuery>
     </sru:extraResponseData>
     <sru:records>
         <sru:record>
@@ -214,7 +214,7 @@ As there is not much available in digital form, it is still worth looking at. To
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>1</sru:recordPosition>
-            <sru:recordIdentifier>?x-context=vicav_profiles_001&amp;operation=searchRetrieve&amp;version=1.2&amp;query=profile%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=profile%3D%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_profiles_001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
     </sru:records>
     <sru:res>1</sru:res>

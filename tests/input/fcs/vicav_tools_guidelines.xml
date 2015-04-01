@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+   <sru:version>1.2</sru:version>
+   <sru:numberOfRecords>1</sru:numberOfRecords>
+   <sru:echoedSearchRetrieveRequest>
+      <sru:version>1.2</sru:version>
+      <sru:query>toolsText=Dictionary</sru:query>
+      <fcs:x-context>vicav_tools_001</fcs:x-context>
+      <fcs:x-dataview>kwic,title</fcs:x-dataview>
+      <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/ProfileOnSRU.php</sru:baseUrl>
+   </sru:echoedSearchRetrieveRequest>
+   <sru:extraResponseData>
+      <fcs:returnedRecords>1</fcs:returnedRecords>
+      <fcs:numberOfMatches/>
+      <fcs:duration>0.0</fcs:duration>
+      <fcs:transformedQuery>SELECT DISTINCT id, entry FROM vicav_tools_001 WHERE lemma LIKE '%Dictionary%'</fcs:transformedQuery>
+   </sru:extraResponseData>
+   <sru:records>
+      <sru:record>
+         <sru:recordSchema/>
+         <sru:recordPacking>xml</sru:recordPacking>
+         <sru:recordData>
+            <fcs:Resource>
+               <fcs:ResourceFragment>
+                  <fcs:DataView type="title">A machine-readable list of NLP tools for the Arabic language</fcs:DataView>
+                  <fcs:DataView type="full">
+                     <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+<TEI>
+   <teiHeader>
+      <fileDesc>
+         <author>Charly Moerth</author>
+         <author>Stephan Procházka</author>
+
+         <titleStmt><title>VICAV Dictionary Encoding Guidelines</title></titleStmt>
+
+         <publicationStmt>
+            <pubPlace>Vienna</pubPlace>
+            <date>2014</date>
+            <availability status="restricted">
+               <p>
+                  <ref type="license" target="http://creativecommons.org/licenses/by-nc-sa/3.0/"></ref>
+               </p>
+            </availability>
+         </publicationStmt>
+
+         <editionStmt><edition>1.0 (Alpha)</edition></editionStmt>
+         <sourceDesc></sourceDesc>
+      </fileDesc>
+      <revisionDesc></revisionDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+         <div1>
+            <head>VICAV Dictionary Encoding Guidelines</head>
+
+            <div2 xml:id="generalities">
+               <head>Introduction</head>
+               <p>The examples in the following guidelines are mainly taken from two dictionaries both 
+               of which are part of the VICAV dictionaries: <hi rend="italic">A Machine-readable Dictionary of Egyptian Arabic</hi> and <hi rend="italic">A Digital Dictionary of Tunis Arabic</hi>.</p>
+            </div2>
+
+            <div2 xml:id="basicStructure">
+               <head>Basic dictionary structure</head>
+               <p>The VICAV dictionaries are encoded according to the Guidelines of the 
+               Text Encoding Initiative (P5). Such dictionaries are conceptualised as a specific 
+               type of text and are therefore encoded with <code>text</code> elements. 
+               Each dictionary starts with a <code>teiHeader</code> element which contains 
+               the metadata of the dictionary. The dictionary entries are placed in a 
+               <code>body</code> element. Thus, our TEI dictionaries basically look like this:</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<TEI>
+   <teiHeader>
+   ...
+   </teiHeader>
+   <text>
+      <body>
+         <entry>...</entry>
+         <entry>...</entry>
+         <entry>...</entry>
+         ...
+         ...
+         ...
+      </body>
+   </text>
+</TEI></egXML>
+               <p>The <code>body</code> of the VICAV dictionaries can contain one 
+               more element construct: <code>cit/quote</code>. This is used to 
+               represent example sentences are treated as independent 
+               entries. This allows the dictionary writers 
+               to reuse them in different parts of the dictionary (See below: Examples 
+               and Creating examples).</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+      <body>
+         <entry>...</entry>
+         <entry>...</entry>
+         <entry>...</entry>
+         <cit type="example">...</cit>
+         <cit type="example">...</cit>
+         <cit type="example">...</cit>
+         ...
+         ...
+         ...
+      </body></egXML>
+            </div2>
+
+            <div2 xml:id="characterEncoding">
+               <head>Character encoding</head>
+               <p>tbd</p>
+            </div2>
+
+            <div2 xml:id="dictEntries">
+               <head>Dictionary entries</head>
+                  <p>There are three types of entries: lemmas and multi-word units (MWUs) and examples.</p>
+
+               <div3 xml:id="entryTypes">
+                  <head>Lemmas and MWUs</head>
+                  <p>Lemmas and MWUs basically have the same structure.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<entry xml:id="kitaab_001">
+   <form type="lemma">
+      <orth xml:lang="ar-arz-x-cairo-vicavTrans">kitāb</orth>
+   </form>
+   ...
+</entry></egXML>
+
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<entry xml:id="fi_0">
+   <form type="multiWordUnit">
+      <orth xml:lang="ar-arz-x-cairo-vicavTrans">fi baḥr</orth>
+   </form>
+   ...
+</entry></egXML>
+               </div3>
+
+               <div3 xml:id="ids">
+                  <head>Identifiers (IDs)</head>
+                  <p>As can be seen in the examples above, entries are assigned a unique identifier. 
+                  In the VICAV dictionaries, these are made up of characters that are restricted 
+                  to letters in the ASCII range. Usually, the IDs are created by pressing 
+                  <hi rend="italic">Ctrl + I</hi>. If VLE (the editor tool) creates an ID already 
+                  existing in the database, the entry can not be saved. In such cases, the user 
+                  has to modify the ID manually by e.g. increasing the number at the end of 
+                  the ID.</p>
+               </div3>
+               
+               <div3 xml:id="examples1">
+                  <head>Examples</head>
+                  <p>Examples are encoded making use of a <code>cit/quote</code> construction.</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<cit xml:id="yibqa_ustaz_001" type="example">
+   <quote xml:lang="ar-arz-x-cairo-vicavTrans">ḥayibʔa ustāz in šāʔ allāh.</quote>
+   ...
+</cit></egXML>
+                     <p>Ideally, examples should consist in complete sentences. Single examples 
+                     should be concise, but can also contain several sentences. If dialogical models 
+                     are involved, sentences are to be separated by a dash.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<quote xml:lang="ar-arz-x-cairo-vicavTrans">tislam idēki. - ʔaḷḷāh yisallimak.</quote></egXML>
+               </div3>
+
+               <div3 xml:id="proverbs">
+                  <head>Proverbs</head>
+                  <p>Proverbs are a subtype of example.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<cit xml:id="il_cagala_min_ish_shitaan_001" type="example" subc="proverb">
+   <quote xml:lang="ar-arz-x-cairo-vicavTrans">il-ʕagala min iš-šiṭān.</quote>
+
+   <cit type="translation" xml:lang="en">
+      <quote>Haste makes waste.</quote>
+   </cit>
+</cit></egXML>
+               </div3>
+            </div2>
+            
+            <div2 xml:id="transEquivs">
+               <head>Translation equivalents</head>
+               <div3 xml:id="transEquivsLemmasMWUs">
+                  <head>Translating lemmas and multi word units</head>
+                  <p>Translations of lemmas and MWUs are given in <code>sense</code> elements.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<entry xml:id="bard_0">
+   <form type="lemma">
+      <orth xml:lang="ar-arz-x-cairo-vicavTrans">bard</orth>
+   </form>
+   ...
+   <sense>
+      <cit type="translation" xml:lang="en">
+         <quote>coldness</quote>
+      </cit>
+      <cit type="translation" xml:lang="de">
+         <quote>Kälte</quote>
+      </cit>
+   </sense>
+   ...
+</entry></egXML>
+
+                  <p>Semantically unrelated homophones or items with clearly differing semantics 
+                  have to be documented with several <code>sense</code> elements. The lemma <hi rend="italic">balad</hi> has two senses.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+...
+<sense>
+   <cit type="translation" xml:lang="en">
+      <quote>country, land</quote>
+   </cit>
+   ...
+</sense>
+<sense>
+   <cit type="translation" xml:lang="en">
+      <quote>city, town</quote>
+   </cit>
+   ...
+</sense>
+...</egXML>
+
+                  <p>Another example is <hi rend="italic">rās</hi>:</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+...
+<sense>
+   <cit type="translation" xml:lang="de">
+      <quote>Kopf</quote>
+   </cit>
+</sense>
+
+<sense>
+   <cit type="translation" xml:lang="de">
+      <quote>Anfang</quote>
+   </cit>
+</sense>
+...</egXML>
+               </div3>
+               
+               <div3 xml:id="examples2">
+                  <head>Translating examples</head>
+                  <p>Translation equivalents of examples are indicated in <code>cit/quote</code> constructions.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<cit xml:id="tislam_ideeki__001" type="example">
+   <quote xml:lang="ar-arz-x-cairo-vicavTrans">tislam idēki! - ʔaḷḷāh yisallimak.</quote>
+
+   <cit type="translation" xml:lang="en">
+      <quote>Thank you! - Not at all.</quote>
+   </cit>
+
+</cit></egXML>
+               </div3>
+               
+               <div3 xml:id="transEquivsExplanations">
+                  <head>Explanations</head>
+                  <p>When the translation of a term is not very common or easily understandable 
+                  in the target language, it is common practise to explain the item instead of or 
+                  in addition to the translation. Explanations can be understood as same language 
+                  "translations". In TEI they are indicated in <code>def</code> “definition” elements.</p> 
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<sense>
+   <def xml:lang="en">a sweet dessert made of semolina, butter, sugar and rosewater</def>
+   <def xml:lang="de">Süßigkeit aus Gries, Butter, Zucker und Rosenwasser</def>
+
+   <cit type="translation" xml:lang="en">
+      <quote>Basbusa</quote>
+   </cit>
+</sense></egXML>
+               </div3>
+            </div2>
+
+<div2 xml:id="inflectedWFs">
+               <head>Inflected word forms</head>
+               <p>There are two inflected forms that should be added on a regular basis: plurals of nominals and the third person singular present tense of verbs.</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+<entry xml:id="balad_0">
+   <form type="lemma">
+      <orth xml:lang="ar-arz-x-cairo-vicavTrans">balad</orth>
+   </form>
+   
+   ...
+   
+   <form type="inflected" ana="#n_pl">
+      <orth xml:lang="ar-arz-x-cairo-vicavTrans">bilād</orth>
+   </form>
+   ...
+</entry></egXML>
+               <div3 xml:id="morphoAnots">
+                  <head>Morphosyntactic annotations</head>
+                  <p>The different forms are indicated in the <code>ana</code> “analytic” attribute.</p>
+                  <table>
+                     <row><cell><hi rend="bold">Value</hi></cell><cell><hi rend="bold">Meaning</hi></cell></row>
+                     <row><cell>#n_pl</cell><cell>plural of a noun</cell></row>
+                     <row><cell>#adj_pl</cell><cell>plural of an adjective</cell></row>
+                     <row><cell>#v_pres_sg_p3</cell><cell>3rd person singular present tense</cell></row>
+                  </table>
+
+                  <p>An example with a verb:</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+...
+<form type="inflected" ana="#v_pres_sg_p3">
+   <orth xml:lang="ar-apc-x-damascus-vicavTrans">yǝṣal</orth>
+</form>
+
+<form type="inflected" ana="#v_pres_sg_p3">
+   <orth xml:lang="ar-apc-x-damascus-vicavTrans">yūṣal</orth>
+</form>
+...</egXML>
+               </div3>
+               
+               <div3 xml:id="variants">
+                  <head>Variants</head>
+                  <p>Only headwords may have variants. These are encoded as typed forms 
+                  nested in the top-level form of the entry.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+...
+<form type="lemma">
+   <orth xml:lang="ar-apc-x-damascus-vicavTrans">tžawwaz</orth>
+
+   <form type="variant">
+      <orth xml:lang="ar-apc-x-damascus-vicavTrans">dzawwaž‎</orth>
+   </form>
+</form>
+...</egXML>
+                  <p>This is the only position where the <code>form</code> element may have the 
+                  <code>type="variant"</code> attribute. All other variants are simply listed but 
+                  not classified. Variants can be assigned usage labels indicating e.g. a particular register.
+                  Generally, it is assumed that the more frequent variant is listed first.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+...
+<form type="inflected" ana="#n_pl">
+   <orth xml:lang="ar-apc-x-damascus-vicavTrans">kǝnaz</orth>
+</form>
+
+<form type="inflected" ana="#n_pl">
+   <orth xml:lang="ar-apc-x-damascus-vicavTrans">kanzāt</orth>
+</form>
+...</egXML>
+               </div3>
+
+            </div2>
+			<div2 xml:id="shortened">
+			   <head>Shortened for test purpose</head>
+			   <p></p>
+			</div2>
+            <div2 xml:id="openIssues">
+               <head>Open issues</head>
+               <p>How do we deal with word initial hamza?</p>
+            </div2>
+            
+            <div2 xml:id="biblio">
+               <head>References</head>
+               <p></p>
+            </div2>
+
+      </div1>
+   </body>
+   </text>
+</TEI>
+                  </fcs:DataView>
+               </fcs:ResourceFragment>
+            </fcs:Resource>
+         </sru:recordData>
+         <sru:recordPosition>1</sru:recordPosition>
+         <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=toolsText%3DDictionary&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_tools_001&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+      </sru:record>
+   </sru:records>
+   <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>
+

@@ -116,10 +116,24 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:text>{"value": "</xsl:text>
-        <xsl:value-of select="concat(sru:extraTermData/cr:type, '=', translate(normalize-space(sru:value),'&#34;',''))"/>
+        <xsl:choose>
+            <xsl:when test="sru:extraTermData/cr:type">
+                <xsl:value-of select="concat(sru:extraTermData/cr:type, '=', translate(normalize-space(sru:value),'&#34;',''))"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="translate(normalize-space(sru:value),'&#34;','')"/>                
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:text>", </xsl:text>
         <xsl:text>"label": "</xsl:text>
-        <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="concat(sru:extraTermData/cr:type, ' ', sru:numberOfRecords)"/>
+        <xsl:choose>
+            <xsl:when test="sru:extraTermData/cr:type">
+                <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="concat(sru:extraTermData/cr:type, ' ', sru:numberOfRecords)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="sru:numberOfRecords"/>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:text>|", </xsl:text>
         <xsl:text>"nextHref": "</xsl:text>
         <xsl:value-of select="$href"/>

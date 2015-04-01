@@ -9,7 +9,8 @@
                 xmlns:exist="http://exist.sourceforge.net/NS/exist"
                 xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
                 xmlns:exsl="http://exslt.org/common"
-                version="1.0" exclude-result-prefixes="cr kwic xsl tei sru xs fcs exist xd exsl">
+                xmlns:hits="http://clarin.eu/fcs/dataview/hits"
+                version="1.0" exclude-result-prefixes="cr kwic xsl tei sru xs fcs exist xd exsl hits">
 
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
@@ -117,9 +118,9 @@
         <xsl:variable name="resourcefragment-pid" select="parent::fcs:ResourceFragment/@pid"/>
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
-            <div class="data-view {@type}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
+            <div class="data-view {translate(@type, '/+', '__')}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
                 <xsl:call-template name="dataview-full-contents"/>
-                <div class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></div>
+                <div class="wrapper {translate(@type, '/+', '__')}"><xsl:apply-templates mode="record-data"/></div>
             </div>
         </xsl:if>
     </xsl:template>
@@ -227,10 +228,58 @@
     </xd:doc>
     <xsl:template match="kwic:kwic" mode="record-data">
         <div class="kwic-line">
+            <xsl:if test="tei:ptr">
+                <span class="tei-ptr-doc"><xsl:value-of select="tei:ptr/@cRef"/></span>
+            </xsl:if>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>        
     
+    <xd:doc>
+        <xd:desc>Text with hits in standard HTML context, e.g. not in a search results table
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="hits:Result" mode="record-data">
+        <div class="kwic-line">
+            <xsl:if test="tei:ptr">
+                <span class="tei-ptr-doc"><xsl:value-of select="tei:ptr/@cRef"/></span>
+            </xsl:if>
+            <xsl:apply-templates mode="record-data"/>
+        </div>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Text with hits in a search results table
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="hits:Result" mode="result-data-table">
+        <xsl:choose>
+            <xsl:when test="tei:ptr">
+                <td class="tei-ptr-doc"><xsl:value-of select="tei:ptr/@cRef"/></td>
+            </xsl:when>
+            <xsl:when test="tei:ref">
+                <td class="tei-ptr-doc"><xsl:value-of select="tei:ref"/></td>
+            </xsl:when>
+            <xsl:otherwise><td></td></xsl:otherwise>
+        </xsl:choose>
+        <xsl:apply-templates select="hits:Hit" mode="result-data-table"/>
+    </xsl:template>
+    
+    <xsl:template match="sru:recordData" mode="result-data-table">
+        <xsl:apply-templates mode="result-data-table"/> 
+    </xsl:template>
+    
+    <xsl:template match="fcs:Resource" mode="result-data-table">
+        <xsl:apply-templates mode="result-data-table"/> 
+    </xsl:template>
+    
+    <xsl:template match="fcs:DataView" mode="result-data-table">
+       <xsl:apply-templates mode="result-data-table"/>
+    </xsl:template>
+    
+    <xsl:template match="*" mode="result-data-table">
+        <xsl:apply-templates select="." mode="record-data"/>
+    </xsl:template>
  <!--
      handle KWIC-DataView:
      <c type="left"></c><kw></kw><c type="right"></c>
@@ -262,6 +311,29 @@
         <xsl:text> </xsl:text>
     </xsl:template>
     
+    <xd:doc>
+        <xd:desc>A hit with its context in normal HTML context
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="hits:Hit" mode="record-data">
+        <xsl:apply-templates  select="preceding-sibling::*" mode="record-data"/>
+        <xsl:text> </xsl:text>
+        <span class="kw hilight">
+            <xsl:apply-templates mode="record-data"/>
+        </span>
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="following-sibling::*" mode="record-data"/>        
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>A hit with its context in search result context
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="hits:Hit" mode="result-data-table">        
+        <td class="left context"><xsl:apply-templates  select="preceding-sibling::*" mode="record-data"/></td>
+        <td class="kw hilight"><xsl:apply-templates mode="record-data"/></td>
+        <td class="right context"><xsl:apply-templates select="following-sibling::*" mode="record-data"/></td>
+    </xsl:template>
     
     <!-- ************************ -->
     <!-- named templates starting -->

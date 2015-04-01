@@ -1,0 +1,7 @@
+/tests/build-tests.props
+
+/tests/output-actual/*
+/tests/scripts/*
+/tests/failed.txt
+/tests/success.txt
+/tests/nbproject/private/
