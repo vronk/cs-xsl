@@ -239,7 +239,6 @@
         <xsl:param name="format" select="$format"/>
         <xsl:param name="md-format" select="'CMDI'"/>        
         <xsl:param name="queryType" select="$queryType"/>
-        <xsl:param name="queryType" select="$queryType"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
