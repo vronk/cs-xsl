@@ -1,0 +1,197 @@
+<project name="c_s-xsl-tests" xmlns:au="antlib:org.apache.ant.antunit">
+
+	<!-- a comma-separated list of relative paths containing the tests to execute: 
+		each should contain one or more subdirectories of the name of the stylesheet which 
+		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
+	<property name="tests" value="custom-xsl/tunico,
+                                      custom-xsl/abacus"/>
+
+	<property file="build-tests.props"/>
+	
+	<property name="scripts.dir" location="../../utils"/>
+	<import file="${scripts.dir}\build_defs.xml" />   
+	<property name="target-scripts.dir" location="../"/>
+	<property name="in.dir" location="input"/>
+	<property name="output-actual.dir" location="output-actual"/>
+	<property name="output-expected.dir" location="output-expected"/>
+	<property name="webscripts.url" value="../../../scripts/"/>
+	<property name="successful-tests.file" value="success.txt"/>
+	<property name="failed-tests.file" value="failed.txt"/>
+	
+	<property name="mappings.file_" location="input/fcs/mappings.xml"></property>
+	<property name="base-data.file_" location="input/dataset/stats_base.xml"></property>
+	
+	<!-- antcontrib setup -->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${scripts.dir}/ant-contrib/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+	
+	<typedef name="countfilter"
+		classname="net.sf.antcount.filters.CountFilter"
+		classpath="${scripts.dir}/ant/lib/antcount.jar" />
+	
+	
+	
+	
+	<target name="setup">
+		<delete dir="${output-actual.dir}"/>
+		<mkdir dir="${output-actual.dir}"/>
+		<echo file="${successful-tests.file}">successful tests:&#10;</echo>
+		<echo file="${failed-tests.file}">failed tests:&#10;</echo>
+	</target>
+	
+	
+	<!-- main target: iterates over the list of test directories ${tests} and calls the "test-styles" task to look for the stylesheets they are related to  -->
+	<target name="tests" description="the tests sequence (defined and sequentially executed)" depends="setup">
+		<foreach list="${tests}" target="test-styles" param="dir"/>
+		
+		<property name="fail-count">0</property>
+		<property name="success-count">0</property>
+		
+		<loadfile property="success" srcFile="${successful-tests.file}">
+			<filterchain>
+				<countfilter property="success-count" contains=" -" override="true"/>
+			</filterchain>
+		</loadfile>
+		<loadfile property="fail" srcFile="${failed-tests.file}">
+			<filterchain>
+				<countfilter property="fail-count" contains=" -" override="true"/>
+			</filterchain>
+		</loadfile>
+		<echo>${success}&#10;success-count: ${success-count}&#10;====================================================================================================&#10;${fail}&#10;fail-count: ${fail-count}</echo>
+		
+	</target>		
+	
+	
+	<!-- iterates over all subdirectories in a test set (e.g. all tests of a project ) and calls the "test-style" target 
+	 to look for the corresponding stylesheet -->
+	<target name="test-styles">
+            <propertyregex property="dir" input="${dir}" regexp="^\s*(.*)$" replace="\1" override="true"/>
+            <echo>${dir} => ${in.dir}/${dir}/*</echo>
+		<foreach target="test-style" param="in.dir.style">
+			<path>
+				<dirset dir="${in.dir}/${dir}">
+					<include name="*"/>
+				</dirset>
+			</path>
+			<param name="tests.basedir" value="${dir}"/>
+		</foreach>
+	</target>
+	
+	
+	
+	<!-- tests a set of test files residing in one directory ${in.dir.style} against the stylesheet of the files' parent directory's name - 
+		e.g. tests/custom-xsl/myProject/result2view/test1.xml will be tested against result2view.xsl -->
+	<target name="test-style">
+		
+		<!-- name of the directory = the basename of the stylesheet to test -->
+		<basename property="style" file="${in.dir.style}"/>
+		<property name="path-to-stylesheet" location="${target-scripts.dir}/${tests.basedir}/${style}.xsl"/>
+		
+		<condition property="stylesheetIsAvailable">
+			<available file="${path-to-stylesheet}" type="file"/>
+		</condition>
+		<if>
+			<istrue value="${stylesheetIsAvailable}"/>
+			<then>
+				<echo>stylesheet ${path-to-stylesheet}</echo>
+				<echo append="true" file="${successful-tests.file}">---------------------------------------------------------------------------&#10;${path-to-stylesheet}&#10;---------------------------------------------------------------------------&#10;</echo>
+				<echo append="true" file="${failed-tests.file}">---------------------------------------------------------------------------&#10;${path-to-stylesheet}&#10;---------------------------------------------------------------------------&#10;</echo>
+				<!-- iterates over all files in the stylesheet's test case directory -->
+				<foreach target="test-file" param="path-to-file">
+					<path>
+						<fileset dir="${in.dir.style}" includes="*.xml"/>
+					</path>
+					<param name="style" value="${style}"/>
+					<param name="path-to-stylesheet" value="${path-to-stylesheet}"/>
+					<param name="tests.basedir" value="${tests.basedir}"/>
+				</foreach>
+			</then>
+			<else>
+				<echo>Stylesheet ${path-to-stylesheet} is not found.</echo>
+			</else>
+		</if>
+	</target>
+	
+	
+	<!-- transforms a single test file ${path-to-file} with the stylesheet ${path-to-stylesheet} and calls the xmldiff task -->
+	<target name="test-file">
+		<propertyregex property="mappings.file" input="${mappings.file_}" regexp="\\" 			
+			replace="/"			defaultvalue="Error"  override="true"/>
+		
+		<propertyregex property="base-data.file" input="${base-data.file_}" regexp="\\" 			
+			replace="/"			defaultvalue="Error"  override="true"/>
+		
+		<basename property="infile.basename" file="${path-to-file}" suffix=".xml"/>
+		
+		<property name="output-actual.filename" location="${output-actual.dir}/${tests.basedir}/${style}/${infile.basename}.xml"/>
+                <property name="output-actual.filename-idt" location="${output-actual.dir}/${tests.basedir}/${style}/${infile.basename}-idt.xml"/>
+		<property name="output-expected.filename" location="${output-expected.dir}/${tests.basedir}/${style}/${infile.basename}.html"/>
+		<property name="output-expected.filename-idt" location="${output-expected.dir}/${tests.basedir}/${style}/${infile.basename}-idt.xml"/>
+		
+		<saxon-xslt style="${path-to-stylesheet}" in="${path-to-file}" out="${output-actual.filename}" force="true">
+			<param name="format" expression="html"/> 
+			<!--	important to provide the mappings file  (e.g. for links resolving)		-->
+			<param name="mappings-file" expression="file:/${mappings.file}"/>
+			<param name="scripts-dir" expression="${webscripts.url}"/>
+			<param name="scripts_url" expression="${webscripts.url}"/>
+                        <param name="x-context" expression="tunico_conc"/>
+                        <param name="x-dataview" expression="title,full"/>
+                        <param name="operation" expression="searchRetrieve"/>
+			<param name="baseurl" expression="http://localhost:8983/solr/collection2/select?"/>
+			<param name="default-base-data-path" expression="file:/${base-data.file}"/>
+		</saxon-xslt>
+
+                <saxon-xslt style="nulltransform.xsl" in="${output-actual.filename}" out="${output-actual.filename-idt}" force="true">
+                </saxon-xslt>
+
+                <saxon-xslt style="nulltransform.xsl" in="${output-expected.filename}" out="${output-expected.filename-idt}" force="true">
+                </saxon-xslt>
+
+		<!-- calls the xmldiff target and fetches its return code -->
+		<antcallback target="xmldiff" return="returnvalue">
+			<param name="file1" location="${output-actual.filename-idt}" />
+			<param name="file2" location="${output-expected.filename-idt}" />
+			<param name="diff.filename" value="${tests.basedir}/${style}/${infile.basename}_diff.xml"/>
+		</antcallback>
+		
+		<if>
+			<equals arg1="${returnvalue}" arg2="0"/>
+			<then>
+				<echo append="true" file="${successful-tests.file}"> - ${path-to-file}&#10;</echo>
+			</then>
+			<else>
+				<echo append="true" file="${failed-tests.file}"> - ${path-to-file}&#10;</echo>
+			</else>
+		</if> 
+	</target>
+	
+	<!-- diffxml setup -->
+	<property name="package" value="org.diffxml"/>
+	<property name="diffxml.dir" value="${scripts.dir}/diffxml"/>	
+	<property name="diffxml.class" value="${package}.diffxml.DiffXML"/>
+	<property name="patch.class" value="${package}/patchxml/PatchXML"/>
+	
+	<!-- Classpath -->
+	<path id="xmldiff-classpath">
+		<pathelement location="${diffxml.dir}"/>
+		<pathelement location="${diffxml.dir}/lib/diffxml.jar"/>
+	</path>
+	
+	<!-- executes xmldiff passing the two files' names; exit code is stored in ${returnvalue} -->
+	<target name="xmldiff" description="uses diffxml to compare files">
+		<java classname="${diffxml.class}" 
+			dir="${diffxml.dir}" 
+			fork="true"
+			classpathref="xmldiff-classpath"
+			failonerror="false"
+			resultproperty="returnvalue"
+			output="${output-actual.dir}/${diff.filename}">
+			<arg value="${file1}"/>  
+			<arg value="${file2}"/>  
+		</java>
+	</target>
+	
+</project>
