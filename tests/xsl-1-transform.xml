@@ -5,9 +5,14 @@
                                         includes="**/*.xml"
                                         destdir="output-actual/${test-base.dir}"
                                         style="${xsl.file}" extension=".xml"
-                                        classpath="./lib/xalan.jar">
+                                        classpath="./lib/saxon-jdom.jar:./lib/saxon-xml-apis.jar:./lib/saxon.jar">
+<!--                                        classpath="./lib/xalan.jar">
             <factory name="org.apache.xalan.processor.TransformerFactoryImpl">
                 <attribute name="http://xml.apache.org/xalan/features/optimize" value="true"/>
+            </factory>-->
+            <factory name="com.icl.saxon.TransformerFactoryImpl">
+                <!--<attribute name="http://xml.apache.org/xalan/features/optimize" value="true"/>-->
+                <attribute name="http://icl.com/saxon/feature/linenumbering" value="true"/>
             </factory>
             <param name="XDEBUG_SESSION_START" expression="${c_s-xsl-param.XDEBUG_SESSION_START}" type="STRING"/>
             <param name="base_url" expression="${c_s-xsl-param.base_url}" type="STRING"/>
@@ -17,8 +22,8 @@
             <param name="fcs_prefix" expression="${c_s-xsl-param.fcs_prefix}" type="STRING"/>
             <param name="format" expression="${c_s-xsl-param.format}" type="STRING"/>
             <param name="mappings-file" expression="${c_s-xsl-param.mappings-file}" type="STRING"/>
-            <param name="maximumRecords" expression="${c_s-xsl-param.maximumRecords}" type="STRING"/>
-            <param name="maximumTerms" expression="${c_s-xsl-param.maximumTerms}" type="STRING"/>
+            <param name="maximumRecords" expression="${c_s-xsl-param.maximumRecords}" type="STRING" if="c_s-xsl-param.maximumRecords"/>
+            <param name="maximumTerms" expression="${c_s-xsl-param.maximumTerms}" type="STRING" if="c_s-xsl-param.maximumTerms"/>
             <param name="mode" expression="${c_s-xsl-param.mode}" type="STRING"/>
             <param name="numberOfMatches" expression="${c_s-xsl-param.numberOfMatches}" type="STRING" if="c_s-xsl-param.numberOfMatches"/>
             <param name="numberOfRecords" expression="${c_s-xsl-param.numberOfRecords}" type="STRING" if="c_s-xsl-param.numberOfRecords"/>
