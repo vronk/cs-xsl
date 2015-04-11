@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="load-diffxml">	
+    <taskdef name="diffxml" classname="uk.co.firstzero.xml.AntXMLUnit">            
+        <classpath>
+            <pathelement location="./lib/xmlunit-1.6.jar"/>
+            <pathelement location="./lib/log4j-1.2.17.jar"/>           
+            <pathelement location="./lib/AddOnJavaAntTasks-2.10.jar"/>            
+            <pathelement location="./lib/AddOnJavaAntTasks-logging"/>
+	</classpath>
+    </taskdef>
+</project>
