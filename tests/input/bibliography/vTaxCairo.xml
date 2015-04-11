@@ -7,7 +7,9 @@
         <sru:query>vicavTaxonomy=Cairo</sru:query>
         <fcs:x-context>vicav_bibl_002</fcs:x-context>
         <fcs:x-dataview>kwic,title</fcs:x-dataview>
-        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/BibliographyOnSRU.php</sru:baseUrl>
+        <sru:startRecord>1</sru:startRecord>
+        <sru:maximumRecords>10</sru:maximumRecords>
+        <sru:baseUrl>http://127.0.0.1/corpus_shell/modules/mysqlonsru/BibliographyOnSRU.php</sru:baseUrl>
     </sru:echoedSearchRetrieveRequest>
     <sru:extraResponseData>
         <fcs:returnedRecords>10</fcs:returnedRecords>
@@ -71,7 +73,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>1</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -128,7 +130,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>2</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -186,7 +188,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>3</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -244,7 +246,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>4</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -299,7 +301,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>5</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -359,7 +361,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>6</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -414,7 +416,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>7</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -474,7 +476,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>8</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -536,7 +538,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>9</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -601,7 +603,7 @@ is not used for the content variable. (e. g. egXML) -->
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>10</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
     </sru:records>
     <sru:res>1</sru:res>
