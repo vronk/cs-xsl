@@ -20,10 +20,10 @@
             <param name="maximumRecord" expression="${c_s-xsl-param.maximumRecords}" type="STRING"/>
             <param name="maximumTerms" expression="${c_s-xsl-param.maximumTerms}" type="STRING"/>
             <param name="mode" expression="${c_s-xsl-param.mode}" type="STRING"/>
-            <param name="numberOfMatches" expression="${c_s-xsl-param.numberOfMatches}" type="STRING"/>
-            <param name="numberOfRecords" expression="${c_s-xsl-param.numberOfRecords}" type="STRING"/>
+            <param name="numberOfMatches" expression="${c_s-xsl-param.numberOfMatches}" type="STRING" if="c_s-xsl-param.numberOfMatches"/>
+            <param name="numberOfRecords" expression="${c_s-xsl-param.numberOfRecords}" type="STRING" if="c_s-xsl-param.numberOfRecords"/>
             <param name="operation" expression="${c_s-xsl-param.operation}" type="STRING"/>
-            <param name="q" expression="${c_s-xsl-param.q}" type="STRING"/>
+            <param name="q" expression="${c_s-xsl-param.q}" type="STRING" if="c_s-xsl-param.q"/>
             <param name="queryType" expression="${c_s-xsl-param.queryType}" type="STRING"/>
             <param name="rest_prefix" expression="${c_s-xsl-param.rest_prefix}" type="STRING"/>
             <param name="scanClause" expression="${c_s-xsl-param.scanClause}" type="STRING"/>
