@@ -7,7 +7,7 @@
         <sru:query>vicavTaxonomy=Cairo</sru:query>
         <fcs:x-context>vicav_bibl_002</fcs:x-context>
         <fcs:x-dataview>kwic,title</fcs:x-dataview>
-        <sru:baseUrl>http://127.0.0.1/corpus_shell/modules/mysqlonsru/BibliographyOnSRU.php</sru:baseUrl>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/BibliographyOnSRU.php</sru:baseUrl>
     </sru:echoedSearchRetrieveRequest>
     <sru:extraResponseData>
         <fcs:returnedRecords>10</fcs:returnedRecords>
