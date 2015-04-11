@@ -1,184 +1,123 @@
-<project name="c_s-xsl-tests" xmlns:au="antlib:org.apache.ant.antunit">
+<project name="c_s-xsl-tests" xmlns:if="ant:if" xmlns:unless="ant:unless">
+        <import file="lib/load-ant-contrib.xml"/>
+        <import file="lib/load-diffxml.xml"/>
+        <import file="xsl-1-transform.xml"/>
+        <import file="xsl-2-transform.xml"/>
 
-	<!-- a comma-separated list of relative paths containing the tests to execute: 
+	<!-- a colon-separated list of relative paths containing the tests to execute: 
 		each should contain one or more subdirectories of the name of the stylesheet which 
 		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
-	<property name="tests" value="custom-xsl/abacus"/>
-
-	<property file="build-tests.props"/>
-	
-	<property name="scripts.dir" location="../../utils"/>
-	<import file="${scripts.dir}\build_defs.xml" />   
-	<property name="target-scripts.dir" location="../"/>
-	<property name="in.dir" location="input"/>
-	<property name="output-actual.dir" location="output-actual"/>
-	<property name="output-expected.dir" location="output-expected"/>
-	<property name="webscripts.url" value="../../../scripts/"/>
-	<property name="successful-tests.file" value="success.txt"/>
-	<property name="failed-tests.file" value="failed.txt"/>
-	
-	<property name="mappings.file_" location="input/fcs/mappings.xml"></property>
-	<property name="base-data.file_" location="input/dataset/stats_base.xml"></property>
-	
-	<!-- antcontrib setup -->
-	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
-		<classpath>
-			<pathelement location="${scripts.dir}/ant-contrib/ant-contrib-1.0b3.jar"/>
-		</classpath>
-	</taskdef>
-	
-	<typedef name="countfilter"
-		classname="net.sf.antcount.filters.CountFilter"
-		classpath="${scripts.dir}/ant/lib/antcount.jar" />
-	
-	
-	
-	
-	<target name="setup">
-		<delete dir="${output-actual.dir}"/>
-		<mkdir dir="${output-actual.dir}"/>
-		<echo file="${successful-tests.file}">successful tests:&#10;</echo>
-		<echo file="${failed-tests.file}">failed tests:&#10;</echo>
-	</target>
-	
-	
-	<!-- main target: iterates over the list of test directories ${tests} and calls the "test-styles" task to look for the stylesheets they are related to  -->
-	<target name="tests" description="the tests sequence (defined and sequentially executed)" depends="setup">
-		<foreach list="${tests}" target="test-styles" param="dir"/>
-		
-		<property name="fail-count">0</property>
-		<property name="success-count">0</property>
-		
-		<loadfile property="success" srcFile="${successful-tests.file}">
-			<filterchain>
-				<countfilter property="success-count" contains=" -" override="true"/>
-			</filterchain>
-		</loadfile>
-		<loadfile property="fail" srcFile="${failed-tests.file}">
-			<filterchain>
-				<countfilter property="fail-count" contains=" -" override="true"/>
-			</filterchain>
-		</loadfile>
-		<echo>${success}&#10;success-count: ${success-count}&#10;====================================================================================================&#10;${fail}&#10;fail-count: ${fail-count}</echo>
-		
-	</target>		
-	
-	
-	<!-- iterates over all subdirectories in a test set (e.g. all tests of a project ) and calls the "test-style" target 
-	 to look for the corresponding stylesheet -->
-	<target name="test-styles">
-		<foreach target="test-style" param="in.dir.style">
-			<path>
-				<dirset dir="${in.dir}/${dir}">
-					<include name="*"/>
-				</dirset>
-			</path>
-			<param name="tests.basedir" value="${dir}"/>
-		</foreach>
-	</target>
-	
-	
-	
-	<!-- tests a set of test files residing in one directory ${in.dir.style} against the stylesheet of the files' parent directory's name - 
-		e.g. tests/custom-xsl/myProject/result2view/test1.xml will be tested against result2view.xsl -->
-	<target name="test-style">
-		
-		<!-- name of the directory = the basename of the stylesheet to test -->
-		<basename property="style" file="${in.dir.style}"/>
-		<property name="path-to-stylesheet" location="${target-scripts.dir}/${tests.basedir}/${style}.xsl"/>
-		
-		<condition property="stylesheetIsAvailable">
-			<available file="${path-to-stylesheet}" type="file"/>
-		</condition>
-		<if>
-			<istrue value="${stylesheetIsAvailable}"/>
-			<then>
-				<echo>stylesheet ${path-to-stylesheet}</echo>
-				<echo append="true" file="${successful-tests.file}">---------------------------------------------------------------------------&#10;${path-to-stylesheet}&#10;---------------------------------------------------------------------------&#10;</echo>
-				<echo append="true" file="${failed-tests.file}">---------------------------------------------------------------------------&#10;${path-to-stylesheet}&#10;---------------------------------------------------------------------------&#10;</echo>
-				<!-- iterates over all files in the stylesheet's test case directory -->
-				<foreach target="test-file" param="path-to-file">
-					<path>
-						<fileset dir="${in.dir.style}" includes="*.xml"/>
-					</path>
-					<param name="style" value="${style}"/>
-					<param name="path-to-stylesheet" value="${path-to-stylesheet}"/>
-					<param name="tests.basedir" value="${tests.basedir}"/>
-				</foreach>
-			</then>
-			<else>
-				<echo>Stylesheet ${path-to-stylesheet} is not found.</echo>
-			</else>
-		</if>
-	</target>
-	
-	
-	<!-- transforms a single test file ${path-to-file} with the stylesheet ${path-to-stylesheet} and calls the xmldiff task -->
-	<target name="test-file">
-		<propertyregex property="mappings.file" input="${mappings.file_}" regexp="\\" 			
-			replace="/"			defaultvalue="Error"  override="true"/>
-		
-		<propertyregex property="base-data.file" input="${base-data.file_}" regexp="\\" 			
-			replace="/"			defaultvalue="Error"  override="true"/>
-		
-		<basename property="infile.basename" file="${path-to-file}" suffix=".xml"/>
-		
-		<property name="output-actual.filename" location="${output-actual.dir}/${tests.basedir}/${style}/${infile.basename}.xml"/>
-		<property name="output-expected.filename" location="${output-expected.dir}/${tests.basedir}/${style}/${infile.basename}.html"/>
-		
-		<saxon-xslt style="${path-to-stylesheet}" in="${path-to-file}" out="${output-actual.filename}" force="true">
-			<param name="format" expression="html"/> 
-			<!--	important to provide the mappings file  (e.g. for links resolving)		-->
-			<param name="mappings-file" expression="file:/${mappings.file}"/>
-			<param name="scripts-dir" expression="${webscripts.url}"/>
-			<param name="scripts_url" expression="${webscripts.url}"/>
-			<!--			<param name="baseurl" expression="http://localhost:8983/solr/collection2/select?"/>-->
-			<param name="default-base-data-path" expression="file:/${base-data.file}"/>
-		</saxon-xslt>
-
-
-		<!-- calls the xmldiff target and fetches its return code -->
-		<antcallback target="xmldiff" return="returnvalue">
-			<param name="file1" location="${output-actual.filename}" />
-			<param name="file2" location="${output-expected.filename}" />
-			<param name="diff.filename" value="${tests.basedir}/${style}/${infile.basename}_diff.xml"/>
-		</antcallback>
-		
-		<if>
-			<equals arg1="${returnvalue}" arg2="0"/>
-			<then>
-				<echo append="true" file="${successful-tests.file}"> - ${path-to-file}&#10;</echo>
-			</then>
-			<else>
-				<echo append="true" file="${failed-tests.file}"> - ${path-to-file}&#10;</echo>
-			</else>
-		</if> 
-	</target>
-	
-	<!-- diffxml setup -->
-	<property name="package" value="org.diffxml"/>
-	<property name="diffxml.dir" value="${scripts.dir}/diffxml"/>	
-	<property name="diffxml.class" value="${package}.diffxml.DiffXML"/>
-	<property name="patch.class" value="${package}/patchxml/PatchXML"/>
-	
-	<!-- Classpath -->
-	<path id="xmldiff-classpath">
-		<pathelement location="${diffxml.dir}"/>
-		<pathelement location="${diffxml.dir}/lib/diffxml.jar"/>
-	</path>
-	
-	<!-- executes xmldiff passing the two files' names; exit code is stored in ${returnvalue} -->
-	<target name="xmldiff" description="uses diffxml to compare files">
-		<java classname="${diffxml.class}" 
-			dir="${diffxml.dir}" 
-			fork="true"
-			classpathref="xmldiff-classpath"
-			failonerror="false"
-			resultproperty="returnvalue"
-			output="${output-actual.dir}/${diff.filename}">
-			<arg value="${file1}"/>  
-			<arg value="${file2}"/>  
-		</java>
-	</target>
-	
+	<!--<property name="tests" value="../custom-xsl/tunico:../:../fcs"/>-->
+        <property name="tests" value="../:../custom-xsl/abacus:../custom-xsl/tunico"/>           
+        
+        <target name="tests" depends="clear-actual">
+            <foreach target="get-xsl-files" param="xsl.dir">
+                <path>
+                    <pathelement path="${tests}"/>
+                </path>
+            </foreach>
+        </target>
+        
+        <target name="get-xsl-files">
+            <foreach target="filter-existing-input" param="xsl.file">
+                <path>
+                    <fileset dir="${xsl.dir}">
+                        <include name="*.xsl"/>
+                    </fileset>
+                </path>
+            </foreach>
+        </target>
+        
+        <target name="filter-existing-input">
+            <basename file="${xsl.file}" suffix=".xsl"
+                      property="test-base.dir"/>
+            <property name="relative-xsl.dir" value="${xsl.dir}" relative="true"/>
+            <property name="test-sub.dir" value=""/>
+            <propertyregex input="${relative-xsl.dir}" regexp="^.*?([/\\].*)$" select="\1"
+                           property="test-sub.dir" override="true"/>
+            <available file="input${test-sub.dir}/${test-base.dir}" type="dir"
+                       property="input-exists.bool"/>
+            <antcall if:true="${input-exists.bool}"
+                     target="do-transforms" inheritall="true"/>
+            <echo unless:set="input-exists.bool">No input found for input${test-sub.dir}/${test-base.dir}</echo>
+        </target>
+        
+        <target name="do-transforms">
+            <echo>${xsl.file} => ${test-base.dir}</echo>
+            <available file="input${test-sub.dir}/${test-base.dir}/xsl-1-processor.properties"
+                       property="have-xsl-1-params.bool"/>
+            <available file="input${test-sub.dir}/${test-base.dir}/xsl-2-processor.properties"
+                       property="have-xsl-2-params.bool"/>
+            <condition property="any-xsl-processor-specified.bool">
+                <or>
+                    <istrue value="${have-xsl-1-params.bool}"/>
+                    <istrue value="${have-xsl-2-params.bool}"/>
+                </or>           
+            </condition>
+            <echo if:true="${have-xsl-1-params.bool}">Using XSL 1.0 (Xalan 2)</echo>
+            <echo if:true="${have-xsl-2-params.bool}">Using XSL 2.0 (saxon 9.4)</echo>
+            <property file="input${test-sub.dir}/${test-base.dir}/xsl-1-processor.properties" 
+                      description="Project specific properties for c_s-xsl transforms 1.0"/>
+            <property file="input${test-sub.dir}/${test-base.dir}/xsl-2-processor.properties" 
+                      description="Project specific properties for c_s-xsl transforms 2.0"/>
+            <property file="input/xsl-processor-default.properties"
+                      description="Default properties for c_s-xsl transforms"/>
+            <echoproperties if:true="${any-xsl-processor-specified.bool}">
+                <propertyset>
+                    <propertyref prefix="c_s-xsl-param."/>
+                </propertyset>
+            </echoproperties>
+            
+            <property name="in.dir" value="input${test-sub.dir}/${test-base.dir}"/>
+            <property name="out.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
+            <property name="includes.pattern" value="**/*.xml"/>
+            <property name="extension.string" value=".xml"/>
+            
+            <antcall if:true="${have-xsl-2-params.bool}" target="c_s-xsl-2-transform" inheritall="true"/>
+            <antcall if:true="${have-xsl-1-params.bool}" target="c_s-xsl-1-transform" inheritall="true"/>
+            
+            <!-- very slow! -->
+            <!--<antcall if:true="${any-xsl-processor-specified.bool}" target="normalize-output" inheritall="true"/>-->
+            <echo unless:true="${any-xsl-processor-specified.bool}">No processor specified</echo>
+            
+            <antcall if:true="${any-xsl-processor-specified.bool}"
+                     target="create-xmldiff-file" inheritall="true"/>
+        </target>
+        
+        <target name="create-xmldiff-file">
+            <basename file="${actual.file}" suffix=".xml"
+                      property="actual-name.string"/>
+            <property name="absolute-expected.dir" location="output-expected${test-sub.dir}\${test-base.dir}"/>
+            <property name="absolute-actual.dir" location="output-actual${test-sub.dir}\${test-base.dir}"/>
+            <diffxml testDirectory="${absolute-expected.dir}" resultDirectory="${absolute-actual.dir}">
+                <fileset dir="${absolute-actual.dir}" includes="*.xml"/>
+            </diffxml>        
+        </target>
+        <!-- very slow! -->
+        <target name="normalize-output" depends="normalize-actual,normalize-expected"/>
+        
+        <target name="normalize-actual">
+            <antcall target="c_s-xsl-2-transform">
+                <param name="in.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
+                <param name="out.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
+                <param name="includes.pattern" value="**/*.xml"/>
+                <param name="extension.string" value=".norm.xml"/>
+                <param name="xsl.file" value="nulltransform.xsl"/>
+            </antcall>
+        </target>
+        
+        <target name="normalize-expected">
+            <antcall target="c_s-xsl-2-transform">
+                <param name="in.dir" value="output-expected${test-sub.dir}/${test-base.dir}"/>
+                <param name="out.dir" value="output-expected${test-sub.dir}/${test-base.dir}"/>
+                <param name="includes.pattern" value="**/*.html"/>
+                <param name="extension.string" value=".norm.xml"/>
+                <param name="xsl.file" value="nulltransform.xsl"/>
+            </antcall>    
+        </target>
+        
+        <target name="clear-actual">
+            <delete dir="output-actual"/>
+            <mkdir dir="output-actual"/>
+        </target>
 </project>
