@@ -1,4 +1,4 @@
-/tests/build-tests.props
+/tests/build-tests.properties
 
 /tests/output-actual/*
 /tests/scripts/*
