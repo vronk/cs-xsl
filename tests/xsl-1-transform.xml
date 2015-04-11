@@ -17,7 +17,7 @@
             <param name="fcs_prefix" expression="${c_s-xsl-param.fcs_prefix}" type="STRING"/>
             <param name="format" expression="${c_s-xsl-param.format}" type="STRING"/>
             <param name="mappings-file" expression="${c_s-xsl-param.mappings-file}" type="STRING"/>
-            <param name="maximumRecord" expression="${c_s-xsl-param.maximumRecords}" type="STRING"/>
+            <param name="maximumRecords" expression="${c_s-xsl-param.maximumRecords}" type="STRING"/>
             <param name="maximumTerms" expression="${c_s-xsl-param.maximumTerms}" type="STRING"/>
             <param name="mode" expression="${c_s-xsl-param.mode}" type="STRING"/>
             <param name="numberOfMatches" expression="${c_s-xsl-param.numberOfMatches}" type="STRING" if="c_s-xsl-param.numberOfMatches"/>
