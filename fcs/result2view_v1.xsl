@@ -162,7 +162,7 @@
                 </tr>
             </thead>-->
                 <tbody>
-                    <xsl:apply-templates select="sru:record" mode="table"/>
+                    <xsl:apply-templates select="sru:record/*" mode="record-data"/>
                 </tbody>
             </table>
         </div>
