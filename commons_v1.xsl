@@ -639,4 +639,31 @@
         </xsl:choose>
     </xsl:template>
     
+    <xsl:template name="linebreak-80">
+        <xsl:call-template name="_linebreak-80">
+            <xsl:with-param name="text" select="."/>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template name="_linebreak-80">
+        <xsl:param name="text"/>
+        <xsl:choose>
+            <xsl:when test="$text = ''"/>
+            <xsl:otherwise>
+                <xsl:value-of select="substring($text, 1, 80)"/>
+                <xsl:call-template name="_linebreak_next_space">
+                    <xsl:with-param name="text" select="substring($text, 80)"/>
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template name="_linebreak_next_space">
+        <xsl:param name="text"/>
+        <xsl:value-of select="substring-before($text, ' ')"/><xsl:text>
+</xsl:text><xsl:call-template name="_linebreak-80">
+    <xsl:with-param name="text" select="substring-after($text, ' ')"/>
+</xsl:call-template>
+    </xsl:template>
+    
 </xsl:stylesheet>
