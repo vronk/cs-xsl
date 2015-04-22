@@ -10,7 +10,7 @@
             </factory>
             <param name="XDEBUG_SESSION_START" expression="${c_s-xsl-param.XDEBUG_SESSION_START}" type="STRING"/>
             <param name="base_url" expression="${c_s-xsl-param.base_url}" type="STRING"/>
-            <param name="context_url" expression="${c_s-xsl-param.context_url}" type="STRING"/>
+            <param name="contexts_url" expression="${c_s-xsl-param.contexts_url}" type="STRING"/>
             <param name="dict_file" expression="${c_s-xsl-param.dict_file}" type="STRING"/>
             <param name="dict_lang" expression="${c_s-xsl-param.dict_lang}" type="STRING"/>
             <param name="fcs_prefix" expression="${c_s-xsl-param.fcs_prefix}" type="STRING"/>
