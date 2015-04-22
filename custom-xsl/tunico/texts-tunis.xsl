@@ -5,24 +5,24 @@
     <xsl:template name="callback-header">
         <link href="/static/fonts/andika/Andika.css" type="text/css" rel="stylesheet"/>
         <style type="text/css">
-      body { font: 13px/1.5 AndikaW, 'Andika', serif; }
-    </style>
+            body { font: 13px/1.5 AndikaW, 'Andika', serif; }
+        </style>
         <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/fcs-kwic.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="{$scripts_url}js/URI.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js" />
         <script type="text/javascript" src="scripts/js/params.js"/>
         <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/>
         <link href="{$scripts_url}style/virtual-keyboard.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript">
-      VirtualKeyboard.keys = {
-      "tunico":["ʔ", "ā", "ḅ", "ʕ", "ḏ̣", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"], 
-      }
-      VirtualKeyboard.keys["tunico_conc"] = VirtualKeyboard.keys["tunico"]
-      $(document).ready(function(){
-      VirtualKeyboard.attachKeyboards()
-      });
-    </script>
+            VirtualKeyboard.keys = {
+            "tunico":["ʔ", "ā", "ḅ", "ʕ", "ḏ̣", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"], 
+            }
+            VirtualKeyboard.keys["tunico_conc"] = VirtualKeyboard.keys["tunico"]
+            $(document).ready(function(){
+            VirtualKeyboard.attachKeyboards()
+            });
+        </script>
     </xsl:template>
     <xsl:template name="getTitle">
         <xsl:choose>
@@ -140,6 +140,9 @@
     <xsl:template match="hits:Result" mode="result-data-table">
         <xsl:apply-templates select="hits:Hit" mode="result-data-table"/>
     </xsl:template>
+    
+    <xsl:template match="fcs:DataView[@type='title']" mode="result-data-table"/>
+    
     <xsl:template name="getAuthor">
         <div class="tei-authors">
             <xsl:apply-templates select="//tei:fileDesc/tei:author" mode="record-data"/>
@@ -147,8 +150,8 @@
     </xsl:template>
     <xd:doc>
         <xd:desc>Transforms one fcs:Resource
-      <xd:p>This supersedes the generic template because we want a fixed order in which
-        the various data views are transformed (metadata last)</xd:p>
+            <xd:p>This supersedes the generic template because we want a fixed order in which
+                the various data views are transformed (metadata last)</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:Resource" mode="record-data">
@@ -157,7 +160,7 @@
     </xsl:template>
     <xd:doc>
         <xd:desc>Suppress rendering the tei:div of type positioning as it only containse a machine
-      readable geo tag used by the map function.</xd:desc>
+            readable geo tag used by the map function.</xd:desc>
     </xd:doc>
     <xsl:template match="tei:div[@type='positioning']" mode="record-data">
         <xsl:apply-templates select=".//tei:ref" mode="record-data"/>
@@ -191,8 +194,8 @@
                     <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr xsl-first-of-group')"/>
                 </xsl:when>
                 <xsl:when test="preceding-sibling::tei:w[1]/@type">
-          tei-w lang-aeb xsl-first-of-group
-        </xsl:when>
+                    tei-w lang-aeb xsl-first-of-group
+                </xsl:when>
                 <xsl:otherwise>tei-w</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -248,7 +251,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="."/>
-<!--                <xsl:apply-imports/>-->
+                <!--                <xsl:apply-imports/>-->
             </xsl:otherwise>
         </xsl:choose>
         <xsl:if test="not(local-name(following-sibling::*[1]) = 'pc') and       not(local-name(following-sibling::*[1]) = 'w' and substring(following-sibling::*[1]/text(), 1, 1) = '-')">
@@ -261,4 +264,40 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:ptr[parent::hits:Result]" mode="record-data"/>
+    <!-- private use -->
+    <xsl:template match="tei:xr" mode="record-data"/>
+    <xsl:template match="tei:xr[tei:bibl/@type='tunisCourse']" mode="record-data">
+        <div>Ritt-Benmimoun 2014: Lektion <xsl:value-of select="tei:bibl"/>
+        </div>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Return the result if there is exactly one result
+            <xd:p>Maybe this should be standard?</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
+        <xsl:variable name="rec_uri">
+            <xsl:call-template name="_getRecordURI"/>
+        </xsl:variable>
+        <div class="result-body scrollable-content-box">
+            <div class="title">
+                <xsl:choose>
+                    <!--  <sru:recordIdentifier/> leads to an existing but empty string -->
+                    <xsl:when test="$rec_uri != ''">
+                        <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
+                        <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+                        <a class="xsl-rec-uri value-caller" href="{$rec_uri}&amp;x-format={$format}">
+                            <xsl:call-template name="getTitle"/>
+                        </a>                         
+                        <!--                        <span class="cmd cmd_save"/>-->
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <!-- FIXME: generic link somewhere anyhow! -->
+                        <xsl:call-template name="getTitle"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </div>
+            <xsl:apply-templates select="sru:record/*" mode="record-data"/>
+        </div>
+    </xsl:template>
 </xsl:stylesheet>
