@@ -652,7 +652,7 @@
             <xsl:otherwise>
                 <xsl:value-of select="substring($text, 1, 80)"/>
                 <xsl:call-template name="_linebreak_next_space">
-                    <xsl:with-param name="text" select="substring($text, 80)"/>
+                    <xsl:with-param name="text" select="substring($text, 81)"/>
                 </xsl:call-template>
             </xsl:otherwise>
         </xsl:choose>
