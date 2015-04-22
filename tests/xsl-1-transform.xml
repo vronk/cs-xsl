@@ -20,6 +20,8 @@
               classpath="./lib/saxon-jdom.jar:./lib/saxon-xml-apis.jar:./lib/saxon.jar">
             <factory name="com.icl.saxon.TransformerFactoryImpl">
             </factory>
+            <!-- Indents text nodes with line breaks otherwise which is the opposite of what libxslt does. Some indenting happens anyway.-->
+            <outputproperty name="indent" value="no"/>
             <!-- See http://saxon.sourceforge.net/saxon6.5/extensions.html#output
             saxon: translates to {http://icl.com/saxon} -->
             <outputproperty name="{http://icl.com/saxon}character-representation" value="native;entity"/>
