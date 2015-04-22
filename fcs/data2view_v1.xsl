@@ -273,6 +273,10 @@
         <xsl:apply-templates mode="result-data-table"/> 
     </xsl:template>
     
+    <xsl:template match="fcs:ResourceFragment" mode="result-data-table">
+        <xsl:apply-templates mode="result-data-table"/> 
+    </xsl:template>
+    
     <xsl:template match="fcs:DataView" mode="result-data-table">
        <xsl:apply-templates mode="result-data-table"/>
     </xsl:template>
