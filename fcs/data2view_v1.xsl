@@ -281,6 +281,13 @@
        <xsl:apply-templates mode="result-data-table"/>
     </xsl:template>
     
+    <xd:doc>
+        <xd:desc>Transform title to a column. That most likely should be changed in customization.</xd:desc>
+    </xd:doc>
+    <xsl:template match="fcs:DataView[@type='title']" mode="result-data-table">
+        <td><xsl:apply-templates select=".|text()" mode="record-data"/></td>
+    </xsl:template>
+    
     <xsl:template match="*" mode="result-data-table">
         <xsl:apply-templates select="." mode="record-data"/>
     </xsl:template>

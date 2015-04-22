@@ -1071,7 +1071,7 @@
         </span>
     </xsl:template>
     
-    <xsl:template match="tei:form[@type]" mode="record-data" priority="0.5">
+    <xsl:template match="tei:form[@type]" mode="record-data" priority="0.4">
         <span class="tei-form-{@type}">
             <xsl:apply-templates/>
         </span>
@@ -1197,6 +1197,13 @@
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
+    
+    <xsl:template match="tei:cit[@type='example']" mode="result-data-table">
+        <td class="tei-cit example">
+            <xsl:apply-templates mode="record-data"/>
+        </td>
+    </xsl:template>
+    
     <xsl:template match="tei:quote[contains(@xml:lang,'-vicav')]" mode="record-data">
         <span class="tei-quote vicav-transcr">
             <xsl:apply-templates mode="record-data"/>
@@ -1236,27 +1243,37 @@
     
     <xsl:template match="tei:entry" mode="record-data">
         <div class="tei-entry">
-            <xsl:for-each select="tei:sense">
-                <xsl:choose>
-                    <xsl:when test="tei:form/@type = 'construction'">
-                        <xsl:apply-templates select="." mode="record-data"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="../tei:form[@type='lemma']|../tei:form[@type='multiWordUnit']" mode="record-data"/>
-                        <xsl:apply-templates select="./tei:gramGrp" mode="record-data"/>
-                        <xsl:apply-templates select="../tei:gramGrp" mode="record-data"/>
-                        <span class="tei-bibls">
-                            <xsl:for-each select="../tei:form[@type='lemma']/tei:bibl">
-                                <xsl:apply-templates select="." mode="record-data"/>
-                            </xsl:for-each>
-                        </span>
-                        <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
-                        <!-- Assumes tei:gramGrp is not rendered, see above -->
-                        <xsl:apply-templates select="." mode="record-data"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:for-each>                                           
+            <xsl:call-template name="_tei_entry"/>                                         
         </div>
+    </xsl:template>
+    
+    <xsl:template match="tei:entry" mode="result-data-table">
+        <td class="tei-entry">
+           <xsl:call-template name="_tei_entry"/> 
+        </td>
+    </xsl:template>
+    
+    <xsl:template name="_tei_entry">
+        <xsl:for-each select="tei:sense">
+            <xsl:choose>
+                <xsl:when test="tei:form/@type = 'construction'">
+                    <xsl:apply-templates select="." mode="record-data"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="../tei:form[@type='lemma']|../tei:form[@type='multiWordUnit']" mode="record-data"/>
+                    <xsl:apply-templates select="./tei:gramGrp" mode="record-data"/>
+                    <xsl:apply-templates select="../tei:gramGrp" mode="record-data"/>
+                    <span class="tei-bibls">
+                        <xsl:for-each select="../tei:form[@type='lemma']/tei:bibl">
+                            <xsl:apply-templates select="." mode="record-data"/>
+                        </xsl:for-each>
+                    </span>
+                    <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
+                    <!-- Assumes tei:gramGrp is not rendered, see above -->
+                    <xsl:apply-templates select="." mode="record-data"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:for-each>        
     </xsl:template>
 
     <xd:doc>
