@@ -52,7 +52,7 @@
             <param name="startRecord" expression="${c_s-xsl-param.startRecord}" type="STRING"/>
             <param name="title" expression="${c_s-xsl-param.title}" type="STRING"/>
             <param name="user" expression="${c_s-xsl-param.user}" type="STRING"/>
-            <param name="x-context" expression="${c_s-xsl-param.x-context}" type="STRING"/>
+            <param name="x-context" expression="${c_s-xsl-param.x-context}" type="STRING" if="c_s-xsl-param.x-context"/>
             <param name="x-dataview" expression="${c_s-xsl-param.x-dataview}" type="STRING"/>
         </xslt>
     </target>

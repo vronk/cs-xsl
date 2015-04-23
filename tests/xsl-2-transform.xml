@@ -8,6 +8,8 @@
               classpath="./lib/saxonhe-9.4.0.7.jar">
             <factory name="net.sf.saxon.TransformerFactoryImpl">
             </factory>
+            <!-- Indents text nodes with line breaks otherwise which is the opposite of what exist-db does.-->
+            <outputproperty name="indent" value="no"/>
             <param name="XDEBUG_SESSION_START" expression="${c_s-xsl-param.XDEBUG_SESSION_START}" type="STRING"/>
             <param name="base_url" expression="${c_s-xsl-param.base_url}" type="STRING"/>
             <param name="contexts_url" expression="${c_s-xsl-param.contexts_url}" type="STRING"/>
@@ -35,7 +37,7 @@
             <param name="startRecord" expression="${c_s-xsl-param.startRecord}" type="STRING"/>
             <param name="title" expression="${c_s-xsl-param.title}" type="STRING"/>
             <param name="user" expression="${c_s-xsl-param.user}" type="STRING"/>
-            <param name="x-context" expression="${c_s-xsl-param.x-context}" type="STRING"/>
+            <param name="x-context" expression="${c_s-xsl-param.x-context}" type="STRING" if="c_s-xsl-param.x-context"/>
             <param name="x-dataview" expression="${c_s-xsl-param.x-dataview}" type="STRING"/>
         </xslt>
     </target>
