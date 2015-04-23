@@ -274,6 +274,21 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
+    <xd:doc>
+        <xd:desc>How the result terms of a scan should be sorted
+            <xd:p>
+                Defaults to 'x', default sorting.
+                Possible values:
+                <xd:ul>
+                    <xd:li>s=size</xd:li>
+                    <xd:li>n=name</xd:li>
+                    <xd:li>t=time</xd:li>
+                    <xd:li>x=default</xd:li>
+                </xd:ul>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="sort" select="'x'"/>
     <xsl:param name="numberOfRecords" select="/sru:searchRetrieveResponse/sru:numberOfRecords"/>
     <xd:doc>
         <xd:desc>The number of matches records in the response
@@ -294,11 +309,11 @@
     <xd:doc>
         <xd:desc>The scanClause specified by the client
             <xd:p>
-                Defaults to an empty xs:string.
+                Defaults to /sru:scanResponse/sru:echoedScanRequest/sru:scanClause.
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="scanClause" select="''"/>
+    <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
     <xd:doc>
         <xd:desc>A URL that returns any contexts an endpoint provides
             <xd:p>

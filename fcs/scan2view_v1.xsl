@@ -56,7 +56,6 @@
 <xsl:param name="detail_uri_prefix"  select="'?q='"/> 
 -->
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-    <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
 <!--    <xsl:param name="scanClause-array" select="tokenize($scanClause,'=')"/>-->
     <xd:doc>
         <xd:desc>The index is defined as the part of the scanClause before the '='
