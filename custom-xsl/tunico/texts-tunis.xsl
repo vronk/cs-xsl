@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="xsl exsl xd tei fcs sru hits">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="xsl exsl xd tei fcs sru hits">
     <xsl:import href="../../fcs/result2view_v1.xsl"/>
     <xsl:import href="../../commons_v2.xsl"/>
     <xsl:output method="xhtml" media-type="text/xhtml" indent="yes" omit-xml-declaration="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
@@ -10,7 +10,7 @@
         <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/fcs-kwic.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="{$scripts_url}js/URI.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js" />
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/>
         <script type="text/javascript" src="scripts/js/params.js"/>
         <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/>
         <link href="{$scripts_url}style/virtual-keyboard.css" type="text/css" rel="stylesheet"/>
@@ -26,14 +26,14 @@
     </xsl:template>
     <xsl:template name="getTitle">
         <xsl:choose>
-            <xsl:when test="//tei:ptr">
-                <xsl:value-of select="//tei:ptr/@cRef"/>
+            <xsl:when test=".//tei:ptr">
+                <xsl:value-of select=".//tei:ptr/@cRef"/>
             </xsl:when>
-            <xsl:when test="//tei:ref">
-                <xsl:value-of select="//tei:ref"/>
+            <xsl:when test=".//tei:ref">
+                <xsl:value-of select=".//tei:ref"/>
             </xsl:when>
-            <xsl:when test="//fcs:DataView[@type='title']">
-                <xsl:value-of select="//fcs:DataView[@type='title']"/>
+            <xsl:when test=".//fcs:DataView[@type='title']">
+                <xsl:value-of select=".//fcs:DataView[@type='title']"/>
             </xsl:when>
             <xsl:otherwise>Check document reference! <xsl:value-of select="name(.)"/>
             </xsl:otherwise>
@@ -140,9 +140,7 @@
     <xsl:template match="hits:Result" mode="result-data-table">
         <xsl:apply-templates select="hits:Hit" mode="result-data-table"/>
     </xsl:template>
-    
     <xsl:template match="fcs:DataView[@type='title']" mode="result-data-table"/>
-    
     <xsl:template name="getAuthor">
         <div class="tei-authors">
             <xsl:apply-templates select="//tei:fileDesc/tei:author" mode="record-data"/>
@@ -271,33 +269,27 @@
         </div>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Return the result if there is exactly one result
-            <xd:p>Maybe this should be standard?</xd:p>
+        <xd:desc>Return the result if there is exactly one result. Custom handling: same as multiple results.
         </xd:desc>
     </xd:doc>
-    <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
-        <xsl:variable name="rec_uri">
-            <xsl:call-template name="_getRecordURI"/>
-        </xsl:variable>
+    <xsl:template match="sru:records[(count(sru:record) = 1) and (.//fcs:DataView[@type = 'application/x-clarin-fcs-kwic+xml'] or .//tei:entry)]" mode="table">
         <div class="result-body scrollable-content-box">
-            <div class="title">
-                <xsl:choose>
-                    <!--  <sru:recordIdentifier/> leads to an existing but empty string -->
-                    <xsl:when test="$rec_uri != ''">
-                        <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
-                        <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
-                        <a class="xsl-rec-uri value-caller" href="{$rec_uri}&amp;x-format={$format}">
-                            <xsl:call-template name="getTitle"/>
-                        </a>                         
-                        <!--                        <span class="cmd cmd_save"/>-->
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <!-- FIXME: generic link somewhere anyhow! -->
-                        <xsl:call-template name="getTitle"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </div>
-            <xsl:apply-templates select="sru:record/*" mode="record-data"/>
+            <table class="show">
+                <tbody>
+                    <xsl:apply-templates select="sru:record" mode="table"/>
+                </tbody>
+            </table>
         </div>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>A hit with its context in search result context. Custom handling:l imit context.
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="hits:Hit" mode="result-data-table">
+        <xsl:variable name="num-context-items" select="4"/>        
+        <td class="left context"><xsl:apply-templates  select="subsequence(preceding-sibling::*, count(preceding-sibling::*) - $num-context-items, $num-context-items)" mode="record-data"/></td>
+        <td class="kw hilight"><xsl:apply-templates mode="record-data"/></td>
+        <td class="right context"><xsl:apply-templates select="subsequence(following-sibling::*, 1, $num-context-items)" mode="record-data"/></td>
     </xsl:template>
 </xsl:stylesheet>
