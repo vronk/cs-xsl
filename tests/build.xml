@@ -8,7 +8,7 @@
 		each should contain one or more subdirectories of the name of the stylesheet which 
 		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
 	<!--<property name="tests" value="../custom-xsl/tunico:../:../fcs"/>-->
-        <property name="tests" value="../:../custom-xsl/abacus:../custom-xsl/tunico"/>           
+        <property name="tests" value="../:../fcs:../custom-xsl/abacus:../custom-xsl/tunico"/>           
         
         <target name="tests" depends="clear-actual">
             <foreach target="get-xsl-files" param="xsl.dir">
