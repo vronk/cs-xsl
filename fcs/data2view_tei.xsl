@@ -1159,7 +1159,7 @@
             <xsl:if test="tei:def">            
                 <div class="tei-defs">
                     <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
-                    <xsl:apply-templates select="tei:def[@xml:lang='de' or @xml:lang='deu']" mode="record-data"/>
+                    <xsl:apply-templates select="tei:def[@xml:lang='de' or (@lang|@xml:lang)='deu']" mode="record-data"/>
                     <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]" mode="record-data"/>               
                 </div>
             </xsl:if>
