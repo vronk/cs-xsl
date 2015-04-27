@@ -1090,6 +1090,7 @@
             <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
             <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(@xml:lang)]" mode="record-data"/>
             <xsl:apply-templates select="*[not(name() = 'orth' or name() = 'bibl')]" mode="record-data"/>
         </span>        
     </xsl:template>
@@ -1099,6 +1100,7 @@
             <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
             <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(@xml:lang)]" mode="record-data"/>
             <xsl:call-template name="analyzeAna"/>
             <xsl:apply-templates select="*[not(name() = 'orth')]" mode="record-data"/>
         </span>
@@ -1157,7 +1159,7 @@
             <xsl:if test="tei:def">            
                 <div class="tei-defs">
                     <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
-                    <xsl:apply-templates select="tei:def[@xml:lang='de']" mode="record-data"/>
+                    <xsl:apply-templates select="tei:def[@xml:lang='de' or @xml:lang='deu']" mode="record-data"/>
                     <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]" mode="record-data"/>               
                 </div>
             </xsl:if>
