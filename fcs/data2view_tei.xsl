@@ -1189,7 +1189,7 @@
     </xsl:template>
     
     <xsl:template match="tei:cit[(@type='translation')]" mode="record-data">
-         <span class="tei-cit translation-{@xml:lang}">
+         <span class="tei-cit translation-{(@xml:lang|@lang)[1]}">
             <xsl:apply-templates mode="record-data"/>
         </span>                 
     </xsl:template>
@@ -1225,7 +1225,7 @@
     </xsl:template>
     
     <xsl:template match="tei:usg" mode="record-data">
-        <span class="tei-usg tei-type-{@type} lang-{@lang}">
+        <span class="tei-usg tei-type-{@type} lang-{(@xml:lang|@lang)[1]}">
             <xsl:apply-templates mode="record-data"/>
         </span>
     </xsl:template>
