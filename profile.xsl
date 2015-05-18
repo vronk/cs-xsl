@@ -100,6 +100,7 @@
   
   <xsl:template match="tei:ref[contains(@target, 'author')]" mode="tei-body-headings">
     <xsl:call-template name="getAuthor"/>
+    <div class="tei-authors"><span class="last-change"><xsl:apply-templates select="//tei:teiHeader/tei:revisionDesc"/></span></div>
   </xsl:template>
 
   <xsl:template name="getAuthor">

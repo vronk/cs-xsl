@@ -113,6 +113,12 @@
     </xd:doc>
     <xsl:template match="tei:revisionDesc" mode="record-data"/>
     
+    <xsl:template match="tei:change">
+        <xsl:value-of select="text()"/>
+        <xsl:if test="tei:fs">
+            Last changed <xsl:value-of select="tei:fs/tei:f[@name='when']/tei:symbol/@value"/> by <xsl:value-of select="tei:fs/tei:f[@name='who']/tei:symbol/@value"/>
+        </xsl:if>
+    </xsl:template>
     
     <xd:doc>
         <xd:desc>encodingDesc is not meaningful right now, content may be referenced elsewhere</xd:desc>
@@ -126,17 +132,17 @@
         <xsl:variable name="mapping-list">
             <xsl:call-template name="get-char-mappings"/>
         </xsl:variable>
-        <table>
+        <table class="tei-charDecl">
             <thead>
                 <tr>
-                    <th><xsl:call-template name="dict">
+                    <th class="tei-charProp-value"><xsl:call-template name="dict">
                         <xsl:with-param name="key">Char.</xsl:with-param>
                     </xsl:call-template></th>
-                    <th><xsl:call-template name="dict">
+                    <th class="tei-charProp-unicodeName"><xsl:call-template name="dict">
                         <xsl:with-param name="key">Unicode Character Name</xsl:with-param>
                     </xsl:call-template></th>
                     <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
-                        <th><xsl:call-template name="dict">
+                        <th class="tei-mapping-{@type}"><xsl:call-template name="dict">
                             <xsl:with-param name="key" select="@type"/>
                         </xsl:call-template></th>                
                     </xsl:for-each>                
@@ -174,11 +180,11 @@
         </xsl:variable>
         <xsl:variable name="cur-char" select="."/>
         <tr>
-            <td><xsl:value-of select="tei:charProp/tei:value"/></td>
-            <td><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
+            <td class="tei-charProp-value"><xsl:value-of select="tei:charProp/tei:value"/></td>
+            <td class="tei-charProp-unicodeName"><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
             <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
                 <xsl:variable name="type" select="./@type"/>
-                <td><xsl:call-template name="string-join">
+                <td class="tei-mapping-{$type}"><xsl:call-template name="string-join">
                     <xsl:with-param name="nodes-to-join" select="exsl:node-set($cur-char)/tei:mapping[@type=$type]"/>
                     <xsl:with-param name="join-with">,</xsl:with-param>
                 </xsl:call-template></td>
