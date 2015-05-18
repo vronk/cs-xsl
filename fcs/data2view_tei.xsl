@@ -178,7 +178,10 @@
             <td><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
             <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
                 <xsl:variable name="type" select="./@type"/>
-                <td><xsl:value-of select="exsl:node-set($cur-char)/tei:mapping[@type=$type]"/></td>
+                <td><xsl:call-template name="string-join">
+                    <xsl:with-param name="nodes-to-join" select="exsl:node-set($cur-char)/tei:mapping[@type=$type]"/>
+                    <xsl:with-param name="join-with">,</xsl:with-param>
+                </xsl:call-template></td>
             </xsl:for-each>
         </tr>    
     </xsl:template>
