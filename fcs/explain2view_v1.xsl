@@ -277,5 +277,5 @@
     <xsl:template match="text()"/>
     
     <xsl:template name="inline"/>
-    <xsl:template name="generateImg"/>
+    <xsl:template name="generateImgHTMLTags"/>
 </xsl:stylesheet>

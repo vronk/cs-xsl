@@ -9,6 +9,17 @@
   <xsl:template name="callback-header">
     <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
   </xsl:template>
+
+  <xd:doc>
+    <xd:desc>Mappings to other transcritption systems for latin diacritics used in VICAV transcription</xd:desc>
+  </xd:doc>
+  <xsl:template name="get-char-mappings">
+    <tei:mapping type="arabic"/>
+    <tei:mapping type="vicavMSA"/>
+    <tei:mapping type="DIN"/>
+    <tei:mapping type="IPA"/>
+    <tei:mapping type="chat"/>         
+  </xsl:template>
   
   <xsl:template name="getTitle">
     <xsl:value-of select="concat(//tei:fileDesc//tei:title, ' ')"/>

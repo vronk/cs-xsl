@@ -28,9 +28,11 @@
         <xsl:choose>
             <xsl:when test="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]">
                 <xsl:copy-of select="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]"/>
+                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message>
             </xsl:when>
             <xsl:otherwise>
-                 <xsl:message>Problem reading dict_file. Please check!</xsl:message>
+                <xsl:message>Problem reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/>
+                    <xsl:copy-of select="$dict_file_content"/>.. Please check!</xsl:message>
                  <list xmlns=""/>
             </xsl:otherwise>
         </xsl:choose>

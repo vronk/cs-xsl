@@ -14,7 +14,7 @@
     <xsl:template name="inline">
         <span class="tei-{name(.)}"><xsl:apply-templates mode="record-data"/></span>
     </xsl:template>
-    <xsl:template name="generateImg">
+    <xsl:template name="generateImgHTMLTags">
         <p>Image: <xsl:value-of select="."/></p>
     </xsl:template>
     <!-- Ignore for now -->

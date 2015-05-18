@@ -107,10 +107,81 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
+    
     <xd:doc>
-        <xd:desc>revisionDesc is not meaningful right now, for internal use</xd:desc>
+        <xd:desc>revisionDesc is not meaningful right now, content may be referenced elsewhere</xd:desc>
     </xd:doc>
     <xsl:template match="tei:revisionDesc" mode="record-data"/>
+    
+    
+    <xd:doc>
+        <xd:desc>encodingDesc is not meaningful right now, content may be referenced elsewhere</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:encodingDesc" mode="record-data"/>
+    
+    <xd:doc>
+        <xd:desc>A table listing all the latin diacritics used in transliterates content.</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:charDecl" mode="record-data">
+        <xsl:variable name="mapping-list">
+            <xsl:call-template name="get-char-mappings"/>
+        </xsl:variable>
+        <table>
+            <thead>
+                <tr>
+                    <th><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Char.</xsl:with-param>
+                    </xsl:call-template></th>
+                    <th><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Unicode Character Name</xsl:with-param>
+                    </xsl:call-template></th>
+                    <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
+                        <th><xsl:call-template name="dict">
+                            <xsl:with-param name="key" select="@type"/>
+                        </xsl:call-template></th>                
+                    </xsl:for-each>                
+                </tr>
+            </thead>
+            <tbody>
+                <xsl:apply-templates mode="record-data"/>
+            </tbody>
+        </table>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Customization point that returns a list of all mappings of characters
+            that are used in this resource.
+        <xd:p>Note: There is no meaningful default.</xd:p>
+        <xd:p>
+           Example:<xd:pre>
+        &lt;tei:mapping type="arabic"/>
+        &lt;tei:mapping type="vicavMSA"/>
+        &lt;tei:mapping type="DIN"/>
+        &lt;tei:mapping type="IPA"/>
+        &lt;tei:mapping type="chat"/>                
+           </xd:pre> 
+        </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="get-char-mappings"/>      
+    
+    <xd:doc>
+        <xd:desc>A table row for each diacritic latin character described in encodingDesc</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:char" mode="record-data">
+        <xsl:variable name="mapping-list">
+            <xsl:call-template name="get-char-mappings"/>
+        </xsl:variable>
+        <xsl:variable name="cur-char" select="."/>
+        <tr>
+            <td><xsl:value-of select="tei:charProp/tei:value"/></td>
+            <td><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
+            <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
+                <xsl:variable name="type" select="./@type"/>
+                <td><xsl:value-of select="exsl:node-set($cur-char)/tei:mapping[@type=$type]"/></td>
+            </xsl:for-each>
+        </tr>    
+    </xsl:template>
     
     <xd:doc>
         <xd:desc>A TEI biblStruct is mapped to a HTML div element</xd:desc>
@@ -536,10 +607,6 @@
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
-    <xsl:template match="tei:ref[contains(@target, '.JPG') or                                   contains(@target, '.jpg') or                                  contains(@target, '.PNG') or                                  contains(@target, '.PNG')]" mode="record-data">
-        <!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
-        <xsl:call-template name="generateImg"/>
-    </xsl:template>
     <xd:doc>
         <xd:desc>some special elements retained in data, due to missing correspondencies in tei if
             it will get more, we should move to separate file</xd:desc>
@@ -823,9 +890,14 @@
         <a href="{@target}" class="{$class}">Click here!</a>
 </xsl:template>
 
-    <xsl:template match="tei:ptr[not(contains(@target, '.JPG') or          contains(@target, '.jpg') or         contains(@target, '.PNG') or         contains(@target, '.png'))]" mode="record-data">
+    <xsl:template match="tei:ptr[not(contains(@target, '.JPG') or
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png') or
+        substring(@target, 1, 1) = '#')]" mode="record-data">
         <xsl:call-template name="generateTarget"/>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>TEI ref elements are mapped to links that contain the contents of ref 
         </xd:desc>
@@ -838,11 +910,23 @@
         </xsl:call-template>
     </xsl:template>
     
-    <xsl:template match="tei:ptr[contains(@target, '.JPG') or          contains(@target, '.jpg') or         contains(@target, '.PNG') or         contains(@target, '.png')]" mode="record-data">
+    <xsl:template match="tei:ptr[contains(@target, '.JPG') or
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png')]" mode="record-data">
         <xsl:call-template name="generateImgHTMLTags"/>
     </xsl:template>
     
-    <xsl:template match="tei:ref[contains(@target, '.JPG') or          contains(@target, '.jpg') or         contains(@target, '.PNG') or         contains(@target, '.png')]" mode="record-data">
+    <xsl:template match="tei:ptr[substring(@target, 1, 1) = '#']"
+        mode="record-data">
+        <xsl:variable name="target_id" select="substring(@target,2)"/>
+        <xsl:apply-templates select="//*[@xml:id=$target_id]" mode="record-data"/>
+    </xsl:template>
+    
+    <xsl:template match="tei:ref[contains(@target, '.JPG') or
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png')]" mode="record-data">
         <xsl:call-template name="generateImgHTMLTags">
             <xsl:with-param name="altText">
                 <xsl:value-of select="."/>
@@ -897,18 +981,21 @@
     </xsl:template>
     
     <xd:doc>
-        <xd:desc>Generates img tags from ref or ptr
+        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by the facs data view.
         <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateImgHTMLTags">
         <xsl:param name="altText" select="@target"/>
         <xsl:choose>
+            <xsl:when test="@ref">
+                <img src="{@ref}" alt="{@ref}"/>
+            </xsl:when>
             <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
                 <img src="{@target}" alt="{$altText}"/>
             </xsl:when>
             <xsl:otherwise>
-                <img src="{@target}" alt="{$altText}"/>
+                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in your project's XSL customization!</span>                
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
