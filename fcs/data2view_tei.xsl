@@ -983,6 +983,7 @@
                     <xsl:call-template name="formURL">
                         <xsl:with-param name="action">explain</xsl:with-param>
                         <xsl:with-param name="x-context" select="@target"/>
+                        <xsl:with-param name="q" select="@target"/>
                     </xsl:call-template>
                 </xsl:variable>
                 <a href="{$linkTarget}" class="value-caller">
