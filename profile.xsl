@@ -197,5 +197,15 @@
   <xsl:template match="tei:kinesic" mode="record-data">
     <span class="tei-kinesic"><xsl:value-of select="tei:desc"/></span>
   </xsl:template>
+  
+  <xsl:template match="sru:records[count(sru:record) = 1 and //fcs:x-context = 'vicav_bibl_002']" mode="table">
+    <div class="result-body scrollable-content-box">
+      <table class="show">
+        <tbody>
+          <xsl:apply-templates select="sru:record" mode="table"/>
+        </tbody>
+      </table>
+    </div>
+  </xsl:template>
 
 </xsl:stylesheet>
