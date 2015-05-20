@@ -136,16 +136,19 @@
             <thead>
                 <tr>
                     <th class="tei-charProp-value"><xsl:call-template name="dict">
-                        <xsl:with-param name="key">Char.</xsl:with-param>
-                    </xsl:call-template></th>
-                    <th class="tei-charProp-unicodeName"><xsl:call-template name="dict">
-                        <xsl:with-param name="key">Unicode Character Name</xsl:with-param>
+                        <xsl:with-param name="key">VICAV</xsl:with-param>
                     </xsl:call-template></th>
                     <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
                         <th class="tei-mapping-{@type}"><xsl:call-template name="dict">
                             <xsl:with-param name="key" select="@type"/>
                         </xsl:call-template></th>                
-                    </xsl:for-each>                
+                    </xsl:for-each>
+                    <th class="tei-charProp-localName"><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Sound Description</xsl:with-param>
+                    </xsl:call-template></th>   
+                    <th class="tei-charProp-unicodeName"><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Unicode Character Name</xsl:with-param>
+                    </xsl:call-template></th>           
                 </tr>
             </thead>
             <tbody>
@@ -181,7 +184,6 @@
         <xsl:variable name="cur-char" select="."/>
         <tr>
             <td class="tei-charProp-value"><xsl:value-of select="tei:charProp/tei:value"/></td>
-            <td class="tei-charProp-unicodeName"><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
             <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
                 <xsl:variable name="type" select="./@type"/>
                 <td class="tei-mapping-{$type}"><xsl:call-template name="string-join">
@@ -189,6 +191,8 @@
                     <xsl:with-param name="join-with">,</xsl:with-param>
                 </xsl:call-template></td>
             </xsl:for-each>
+            <td class="tei-charProp-localName"><xsl:value-of select="tei:charProp/tei:localName"/></td>
+            <td class="tei-charProp-unicodeName"><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
         </tr>    
     </xsl:template>
     
