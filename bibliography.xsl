@@ -23,4 +23,15 @@
     <xsl:apply-templates select=".//fcs:DataView[not(@type='metadata')]" mode="record-data"/>
     <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
   </xsl:template>
+  
+  <xsl:template match="sru:records[count(sru:record)]" mode="table">
+    <div class="result-body scrollable-content-box">
+      <table class="show">
+        <tbody>
+          <xsl:apply-templates select="sru:record" mode="table"/>
+        </tbody>
+      </table>
+    </div>
+  </xsl:template>
+  
 </xsl:stylesheet>
