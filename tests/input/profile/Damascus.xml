@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>profile==Damascus</sru:query>
+        <fcs:x-context>vicav_profiles_001</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/corpus_shell/modules/mysqlonsru/ProfileOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT DISTINCT id, entry, status FROM vicav_profiles_001 WHERE lemma = 'Damascus'</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A database of profiles of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <TEI xml:id="profile_damascus_01">
+                                <teiHeader>
+                                    <fileDesc>
+                                        <author>Stephan Procházka</author>
+                                        <titleStmt>
+                                            <title>A machine-readable profile of Damscus Arabic</title>
+                                        </titleStmt>
+                                        <publicationStmt>
+                                            <pubPlace>Vienna</pubPlace>
+                                            <date>2012</date>
+                                            <availability status="restricted">
+                                                <p>
+                                                    <ref type="license" target="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+                                                </p>
+                                            </availability>
+                                        </publicationStmt>
+                                        <editionStmt>
+                                            <edition>1.0 (Alpha)</edition>
+                                        </editionStmt>
+                                        <sourceDesc>
+                                            <p>This is an original digital text</p>
+                                        </sourceDesc>
+                                    </fileDesc>
+                                    <revisionDesc>
+                                        <change>
+                                            <fs type="change">
+                                                <f name="who">
+                                                    <symbol value="omar1"/>
+                                                </f>
+                                                <f name="when">
+                                                    <symbol value="2015_05_20"/>
+                                                </f>
+                                            </fs>
+                                        </change>
+                                    </revisionDesc>
+                                </teiHeader>
+                                <text>
+                                    <body>
+                                        <div>
+                                            <head>
+                                                <ref target="damaskus-moschee-hof-1985.jpg">Copyright Stephan Procházka 1985</ref>
+                                                <name xml:lang="eng">Damascus</name>
+                                                <name xml:lang="ara">دمشق</name>
+                                                <name xml:lang="ara-x-DMG">Dimašq</name>
+                                                <name xml:lang="ajp" type="araLoc">الشام</name>
+                                                <name xml:lang="ajp-Latn" type="latLoc">ǝš-šām</name>
+                                                <ref target="#xpath1(//author)"/>
+                                            </head>
+                                            <div type="positioning">
+                                                <p>
+                                                    <geo>33.513056, 36.2919443</geo>
+                                                </p>
+                                            </div>
+                                            <div type="typology">
+                                                <p>Eastern › Syro-Palestinian › Central Syrian</p>
+                                                <p>Urban, sedentary dialect, high-prestige variety</p>
+                                            </div>
+                                            <div>
+                                                <head>General</head>
+                                                <p>The dialect of the capital of Syria is regarded as a very “elegant”
+            variety of Arabic and has a very high prestige. It is
+            frequently used in the media and increasingly also in films. Hence, 
+            Damascus Arabic is widely understood in whole Syria, in Lebanon,
+            and even in Jordan and Palestine.</p>
+                                            </div>
+                                            <div type="researchHistory">
+                                                <p>
+                                                    Descriptions of the Arabic dialect of Damascus go back as far as
+            the 18th century when the German orientalist and theologian
+            Johann Heinrich Callenberg published his description of Damascus Arabic in Latin (
+                                                    <ref target="vicav_bibl_002|id==callenberg_johann_heinrich_001">Callenberg 1720-1740</ref>
+                                                    ). 
+Collections of texts and short grammatical
+            notes were published at the end of the 19th and the first half
+            of the 20th centuries (Huart 1883, Oestrup 1897 [although mostly
+            not real Damascene dialect], Malinjoud 1924, Bergsträßer 1924,
+            Saussey 1937-38), Cantineau 1956, Dietrich 1956) but the first
+            comprehensive description of the dialect appeared only in the 1960s:
+            Cowell 1964, Grotzfeld 1964, Grotzfeld 1965, Ambros 1977.
+            Today Damascus Arabic is certainly among the Arabic dialects
+            which are best described.
+                                                </p>
+                                                <p>A concise grammatical sketch of the dialect is Jérôme Lentin’s “Damascus Arabic”, in EALL I, 546-555.</p>
+                                            </div>
+                                            <div type="dictionaries">
+                                                <p>Stowasser, Karl; Ani, Moukhtar: English-Damascus Arabic. Georgetown 1964.</p>
+                                                <p>Barthélemy 1935-54 is still unmatched as the dictionary for Syrian Arabic, but it
+            is mainly based on the dialect of Aleppo. Nevertheless it is extremely useful for
+            Damascus Arabic too, as is Denizeau 1960.</p>
+                                                <p>Very promising is the online-dictionary titled Dictionnaire d’arabe dialectal syrien
+            (parler de Damas) by Claude Salamé &amp;amp;amp; Jérôme Lentin, although until now only the letter
+            B has been published.</p>
+                                                <p>
+                                                    Our site provides a digital dictionary of Damascus Arabic.
+                                                    <ptr target="apc_eng_002"/>
+                                                </p>
+                                            </div>
+                                            <div type="textBooks">
+                                                <p>Aldoukhi, Rima; Procházka, Stephan; Telič, Anna. Lehrbuch des Syrisch-Arabischen 1: Praxisnaher Einstieg in den Dialekt von Damaskus. Unter Mitarbeit von Narine Grigoryan. Wiesbaden: Harrassowitz, 2014.</p>
+                                                <p>Aldoukhi, Rima; Procházka, Stephan; Telič, Anna. Lehrbuch des Syrisch-Arabischen 2: Damaszenisch für Fortgeschrittene. Unter Mitarbeit von Narine Grigoryan. Wiesbaden: Harrassowitz, 2014.</p>
+                                                <p>Cantineau &amp;amp;amp; Helbaoui: Manuel élémentaire d’arabe oriental (parler de Damas). 1953.</p>
+                                                <p>Ferguson &amp;amp;amp; Ani: Damascus Arabic. 1965.</p>
+                                                <p>Rice &amp;amp;amp; Sa’id: Eastern Arabic. 1979</p>
+                                                <p>Liddicoat, Lennane, Abdul Rahim: Syrian colloquial Arabic: a functional course. 1999.</p>
+                                            </div>
+                                            <div type="audioData">
+                                                <p>
+                                                    Songs in Damascus Arabic are abundantly found on YouTube, look for instance for
+            the well-known band
+                                                    <ref target="http://www.youtube.com/results?search_query=kulna sawa">Kulna Sawa</ref>
+                                                    .
+                                                </p>
+                                            </div>
+                                            <div type="bibliography">
+                                                <p>
+                                                    To see some important publications on this variety
+                                                    <ref target="vicav_bibl_002|vicavTaxonomy=Damascus">follow this link</ref>
+                                                    .
+                                                </p>
+                                            </div>
+                                            <div type="sampleText">
+                                                <p>
+                                                    <ptr target="vicav_sampletexts|sampleText==damascus_sample_01"/>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <head>Linguistic Features</head>
+                                                <p>Click here.</p>
+                                            </div>
+                                        </div>
+                                    </body>
+                                </text>
+                            </TEI>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=profile%3D%3DDamascus&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_profiles_001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>
