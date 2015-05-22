@@ -391,6 +391,7 @@
             </xsl:if>
         </xsl:if>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>In bibliographies a series in which a monography was published.</xd:desc>
     </xd:doc>
@@ -398,6 +399,15 @@
         <xsl:if test="./text() != ''">
         <div class="tei-series">
             <xsl:apply-templates mode="record-data"/><span class="xsl-separator tei-imprint-sep">.</span></div>
+        </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Series as part of imprint</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:series[parent::tei:imprint]" mode="record-data">
+        <xsl:if test="./text() != ''">
+            <span class="xsl-separator tei-imprint-sep">. In: </span><span class="tei-series"><xsl:apply-templates mode="record-data"/></span>
         </xsl:if>
     </xsl:template>
     
