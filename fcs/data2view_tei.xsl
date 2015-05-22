@@ -296,13 +296,15 @@
     <xd:doc>
         <xd:desc>TEI pubPlace as pubPlace span</xd:desc>
     </xd:doc>
-    <xsl:template match="tei:pubPlace" mode="record-data">
+    <xsl:template match="tei:pubPlace[parent::tei:imprint]" mode="record-data">
+        <xsl:if test="./text() != ''">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
         <span class="{$class}">
             <xsl:value-of select="."/>
         </span>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="tei:imprint/tei:date" mode="record-data">
