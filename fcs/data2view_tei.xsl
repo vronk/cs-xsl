@@ -258,11 +258,13 @@
         <xd:desc>Return text</xd:desc>
     </xd:doc>
     <xsl:template match="tei:imprint/tei:publisher" mode="record-data">
+        <xsl:if test="./text() != ''">
         <span class="tei-publisher">
             <xsl:value-of select="."/>
         </span>
         <xsl:if test="following-sibling::tei:pubPlace">
             <span class="xsl-separator tei-publisher-tei-pubplace-sep">, </span>
+        </xsl:if>
         </xsl:if>
     </xsl:template>
     
@@ -391,8 +393,10 @@
         <xd:desc>In bibliographies a series in which a monography was published.</xd:desc>
     </xd:doc>
     <xsl:template match="tei:series" mode="record-data">
+        <xsl:if test="./text() != ''">
         <div class="tei-series">
             <xsl:apply-templates mode="record-data"/><span class="xsl-separator tei-imprint-sep">.</span></div>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template match="tei:settlement|settlement" mode="record-data">
