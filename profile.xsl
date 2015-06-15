@@ -9,6 +9,17 @@
   <xsl:template name="callback-header">
     <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
   </xsl:template>
+
+  <xd:doc>
+    <xd:desc>Mappings to other transcritption systems for latin diacritics used in VICAV transcription</xd:desc>
+  </xd:doc>
+  <xsl:template name="get-char-mappings">
+    <tei:mapping type="IPA"/>
+    <tei:mapping type="arabic"/>
+<!--    <tei:mapping type="vicavMSA"/>-->
+    <tei:mapping type="DIN"/>
+    <tei:mapping type="chat"/>         
+  </xsl:template>
   
   <xsl:template name="getTitle">
     <xsl:value-of select="concat(//tei:fileDesc//tei:title, ' ')"/>
@@ -30,11 +41,27 @@
   <xsl:template name="generateImgHTMLTags">
     <xsl:param name="altText" select="@target"/>
     <xsl:choose>
+      <xsl:when test="starts-with(@target, 'https://upload.wikimedia.org') or starts-with(@target, 'http://upload.wikimedia.org')">       
+        <div class="img-with-text" style="display: inline-block;">
+          <img src="{@target}" alt="{$altText}"/>
+          <span class="img-caption" style="display: block;">From Wikimedia Commons, <a target="_blank" href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-license-link">CC BY-SA 3.0</a></span>
+        </div>        
+      </xsl:when>
       <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
         <img src="{@target}" alt="{$altText}"/>
       </xsl:when>
       <xsl:otherwise>
-        <img src="http://corpus3.aac.ac.at/static/images/vicav/{@target}" alt="{@target}"/>
+        <xsl:choose>
+          <xsl:when test="text() != ''">
+            <div class="img-with-text" style='display: inline-block;'>
+              <img src="http://corpus3.aac.ac.at/static/images/vicav/{@target}" alt="{$altText}"/>
+              <span class="img-caption" style="display: block;"><xsl:value-of select="."/></span>
+            </div>
+          </xsl:when>
+          <xsl:otherwise>
+            <img src="http://corpus3.aac.ac.at/static/images/vicav/{@target}" alt="{@target}"/>           
+          </xsl:otherwise>
+        </xsl:choose>           
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -89,6 +116,7 @@
   
   <xsl:template match="tei:ref[contains(@target, 'author')]" mode="tei-body-headings">
     <xsl:call-template name="getAuthor"/>
+    <div class="tei-authors"><span class="last-change"><xsl:apply-templates select="//tei:teiHeader/tei:revisionDesc"/></span></div>
   </xsl:template>
 
   <xsl:template name="getAuthor">

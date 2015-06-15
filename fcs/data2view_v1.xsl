@@ -160,25 +160,10 @@
     <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]" mode="record-data" priority="10">
         <xsl:param name="resource-pid"/>
         <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
-            <xsl:call-template name="generateImg">
+            <xsl:call-template name="generateImgHTMLTags">
                 <xsl:with-param name="ref" select="@ref"/>
             </xsl:call-template>
         </div>
-    </xsl:template>
-    <xd:doc>
-        <xd:desc>Generic handler for image references passed by the facs data view
-        <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="generateImg">
-        <xsl:choose>
-            <xsl:when test="@ref">
-                <img src="{@ref}" alt="{@ref}"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
-            </xsl:otherwise>
-        </xsl:choose>
     </xsl:template>
     
  <!-- better hide the fullview (the default view is too much)

@@ -107,10 +107,94 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
+    
     <xd:doc>
-        <xd:desc>revisionDesc is not meaningful right now, for internal use</xd:desc>
+        <xd:desc>revisionDesc is not meaningful right now, content may be referenced elsewhere</xd:desc>
     </xd:doc>
     <xsl:template match="tei:revisionDesc" mode="record-data"/>
+    
+    <xsl:template match="tei:change">
+        <xsl:value-of select="text()"/>
+        <xsl:if test="tei:fs">
+            Last changed <xsl:value-of select="tei:fs/tei:f[@name='when']/tei:symbol/@value"/> by <xsl:value-of select="tei:fs/tei:f[@name='who']/tei:symbol/@value"/>
+        </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>encodingDesc is not meaningful right now, content may be referenced elsewhere</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:encodingDesc" mode="record-data"/>
+    
+    <xd:doc>
+        <xd:desc>A table listing all the latin diacritics used in transliterates content.</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:charDecl" mode="record-data">
+        <xsl:variable name="mapping-list">
+            <xsl:call-template name="get-char-mappings"/>
+        </xsl:variable>
+        <table class="tei-charDecl">
+            <thead>
+                <tr>
+                    <th class="tei-charProp-value"><xsl:call-template name="dict">
+                        <xsl:with-param name="key">VICAV</xsl:with-param>
+                    </xsl:call-template></th>
+                    <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
+                        <th class="tei-mapping-{@type}"><xsl:call-template name="dict">
+                            <xsl:with-param name="key" select="@type"/>
+                        </xsl:call-template></th>                
+                    </xsl:for-each>
+                    <th class="tei-charProp-localName"><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Sound Description</xsl:with-param>
+                    </xsl:call-template></th>   
+                    <th class="tei-charProp-unicodeName"><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Unicode Character Name</xsl:with-param>
+                    </xsl:call-template></th>           
+                </tr>
+            </thead>
+            <tbody>
+                <xsl:apply-templates mode="record-data"/>
+            </tbody>
+        </table>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Customization point that returns a list of all mappings of characters
+            that are used in this resource.
+        <xd:p>Note: There is no meaningful default.</xd:p>
+        <xd:p>
+           Example:<xd:pre>
+        &lt;tei:mapping type="arabic"/>
+        &lt;tei:mapping type="vicavMSA"/>
+        &lt;tei:mapping type="DIN"/>
+        &lt;tei:mapping type="IPA"/>
+        &lt;tei:mapping type="chat"/>                
+           </xd:pre> 
+        </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="get-char-mappings"/>      
+    
+    <xd:doc>
+        <xd:desc>A table row for each diacritic latin character described in encodingDesc</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:char" mode="record-data">
+        <xsl:variable name="mapping-list">
+            <xsl:call-template name="get-char-mappings"/>
+        </xsl:variable>
+        <xsl:variable name="cur-char" select="."/>
+        <tr>
+            <td class="tei-charProp-value"><xsl:value-of select="tei:charProp/tei:value"/></td>
+            <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
+                <xsl:variable name="type" select="./@type"/>
+                <td class="tei-mapping-{$type}"><xsl:call-template name="string-join">
+                    <xsl:with-param name="nodes-to-join" select="exsl:node-set($cur-char)/tei:mapping[@type=$type]"/>
+                    <xsl:with-param name="join-with">,</xsl:with-param>
+                </xsl:call-template></td>
+            </xsl:for-each>
+            <td class="tei-charProp-localName"><xsl:value-of select="tei:charProp/tei:localName"/></td>
+            <td class="tei-charProp-unicodeName"><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
+        </tr>    
+    </xsl:template>
     
     <xd:doc>
         <xd:desc>A TEI biblStruct is mapped to a HTML div element</xd:desc>
@@ -174,11 +258,13 @@
         <xd:desc>Return text</xd:desc>
     </xd:doc>
     <xsl:template match="tei:imprint/tei:publisher" mode="record-data">
+        <xsl:if test="./text() != ''">
         <span class="tei-publisher">
             <xsl:value-of select="."/>
         </span>
         <xsl:if test="following-sibling::tei:pubPlace">
             <span class="xsl-separator tei-publisher-tei-pubplace-sep">, </span>
+        </xsl:if>
         </xsl:if>
     </xsl:template>
     
@@ -210,13 +296,15 @@
     <xd:doc>
         <xd:desc>TEI pubPlace as pubPlace span</xd:desc>
     </xd:doc>
-    <xsl:template match="tei:pubPlace" mode="record-data">
+    <xsl:template match="tei:pubPlace[parent::tei:imprint]" mode="record-data">
+        <xsl:if test="./text() != ''">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
         <span class="{$class}">
             <xsl:value-of select="."/>
         </span>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="tei:imprint/tei:date" mode="record-data">
@@ -303,12 +391,24 @@
             </xsl:if>
         </xsl:if>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>In bibliographies a series in which a monography was published.</xd:desc>
     </xd:doc>
     <xsl:template match="tei:series" mode="record-data">
+        <xsl:if test="./text() != ''">
         <div class="tei-series">
             <xsl:apply-templates mode="record-data"/><span class="xsl-separator tei-imprint-sep">.</span></div>
+        </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Series as part of imprint</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:series[parent::tei:imprint]" mode="record-data">
+        <xsl:if test="./text() != ''">
+            <span class="xsl-separator tei-imprint-sep">. In: </span><span class="tei-series"><xsl:apply-templates mode="record-data"/></span>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template match="tei:settlement|settlement" mode="record-data">
@@ -535,10 +635,6 @@
             <xsl:call-template name="typeToHeading"/>
             <xsl:apply-templates mode="record-data"/>
         </div>
-    </xsl:template>
-    <xsl:template match="tei:ref[contains(@target, '.JPG') or                                   contains(@target, '.jpg') or                                  contains(@target, '.PNG') or                                  contains(@target, '.PNG')]" mode="record-data">
-        <!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
-        <xsl:call-template name="generateImg"/>
     </xsl:template>
     <xd:doc>
         <xd:desc>some special elements retained in data, due to missing correspondencies in tei if
@@ -823,9 +919,14 @@
         <a href="{@target}" class="{$class}">Click here!</a>
 </xsl:template>
 
-    <xsl:template match="tei:ptr[not(contains(@target, '.JPG') or          contains(@target, '.jpg') or         contains(@target, '.PNG') or         contains(@target, '.png'))]" mode="record-data">
+    <xsl:template match="tei:ptr[not(contains(@target, '.JPG') or
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png') or
+        substring(@target, 1, 1) = '#')]" mode="record-data">
         <xsl:call-template name="generateTarget"/>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>TEI ref elements are mapped to links that contain the contents of ref 
         </xd:desc>
@@ -838,11 +939,23 @@
         </xsl:call-template>
     </xsl:template>
     
-    <xsl:template match="tei:ptr[contains(@target, '.JPG') or          contains(@target, '.jpg') or         contains(@target, '.PNG') or         contains(@target, '.png')]" mode="record-data">
+    <xsl:template match="tei:ptr[contains(@target, '.JPG') or
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png')]" mode="record-data">
         <xsl:call-template name="generateImgHTMLTags"/>
     </xsl:template>
     
-    <xsl:template match="tei:ref[contains(@target, '.JPG') or          contains(@target, '.jpg') or         contains(@target, '.PNG') or         contains(@target, '.png')]" mode="record-data">
+    <xsl:template match="tei:ptr[substring(@target, 1, 1) = '#']"
+        mode="record-data">
+        <xsl:variable name="target_id" select="substring(@target,2)"/>
+        <xsl:apply-templates select="//*[@xml:id=$target_id]" mode="record-data"/>
+    </xsl:template>
+    
+    <xsl:template match="tei:ref[contains(@target, '.JPG') or
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.png')]" mode="record-data">
         <xsl:call-template name="generateImgHTMLTags">
             <xsl:with-param name="altText">
                 <xsl:value-of select="."/>
@@ -886,6 +999,7 @@
                     <xsl:call-template name="formURL">
                         <xsl:with-param name="action">explain</xsl:with-param>
                         <xsl:with-param name="x-context" select="@target"/>
+                        <xsl:with-param name="q" select="@target"/>
                     </xsl:call-template>
                 </xsl:variable>
                 <a href="{$linkTarget}" class="value-caller">
@@ -897,18 +1011,21 @@
     </xsl:template>
     
     <xd:doc>
-        <xd:desc>Generates img tags from ref or ptr
+        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by the facs data view.
         <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateImgHTMLTags">
         <xsl:param name="altText" select="@target"/>
         <xsl:choose>
+            <xsl:when test="@ref">
+                <img src="{@ref}" alt="{@ref}"/>
+            </xsl:when>
             <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
                 <img src="{@target}" alt="{$altText}"/>
             </xsl:when>
             <xsl:otherwise>
-                <img src="{@target}" alt="{$altText}"/>
+                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in your project's XSL customization!</span>                
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -1090,6 +1207,7 @@
             <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
             <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(@xml:lang)]" mode="record-data"/>
             <xsl:apply-templates select="*[not(name() = 'orth' or name() = 'bibl')]" mode="record-data"/>
         </span>        
     </xsl:template>
@@ -1099,6 +1217,7 @@
             <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[@xml:lang = 'ar']" mode="record-data"/>
             <xsl:text> </xsl:text>
             <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-vicav')) and (@xml:lang != 'ar')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(@xml:lang)]" mode="record-data"/>
             <xsl:call-template name="analyzeAna"/>
             <xsl:apply-templates select="*[not(name() = 'orth')]" mode="record-data"/>
         </span>
@@ -1157,7 +1276,7 @@
             <xsl:if test="tei:def">            
                 <div class="tei-defs">
                     <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
-                    <xsl:apply-templates select="tei:def[@xml:lang='de']" mode="record-data"/>
+                    <xsl:apply-templates select="tei:def[@xml:lang='de' or (@lang|@xml:lang)='deu']" mode="record-data"/>
                     <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]" mode="record-data"/>               
                 </div>
             </xsl:if>
@@ -1187,7 +1306,7 @@
     </xsl:template>
     
     <xsl:template match="tei:cit[(@type='translation')]" mode="record-data">
-         <span class="tei-cit translation-{@xml:lang}">
+         <span class="tei-cit translation-{(@xml:lang|@lang)[1]}">
             <xsl:apply-templates mode="record-data"/>
         </span>                 
     </xsl:template>
@@ -1223,7 +1342,7 @@
     </xsl:template>
     
     <xsl:template match="tei:usg" mode="record-data">
-        <span class="tei-usg tei-type-{@type} lang-{@lang}">
+        <span class="tei-usg tei-type-{@type} lang-{(@xml:lang|@lang)[1]}">
             <xsl:apply-templates mode="record-data"/>
         </span>
     </xsl:template>

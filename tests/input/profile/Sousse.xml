@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>profile==Sousse</sru:query>
+        <fcs:x-context>vicav_profiles_001</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/corpus_shell/modules/mysqlonsru/ProfileOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT DISTINCT id, entry, status FROM vicav_profiles_001 WHERE lemma = 'Sousse'</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A database of profiles of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <TEI xml:id="profile_sousse_002">
+                                <teiHeader>
+                                    <fileDesc>
+                                        <author>Natanja Faschinger</author>
+                                        <titleStmt>
+                                            <title>A machine-readable profile of Sousse-Arabic</title>
+                                        </titleStmt>
+                                        <publicationStmt>
+                                            <pubPlace>Vienna</pubPlace>
+                                            <date>2012</date>
+                                            <availability status="restricted">
+                                                <p>
+                                                    <ref type="license" target="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+                                                </p>
+                                            </availability>
+                                        </publicationStmt>
+                                        <editionStmt>
+                                            <edition>1.0 (Alpha</edition>
+                                        </editionStmt>
+                                        <sourceDesc>
+                                            <p>This is an original digital text</p>
+                                        </sourceDesc>
+                                    </fileDesc>
+                                    <revisionDesc>
+                                        <change>
+                                            <fs type="change">
+                                                <f name="who">
+                                                    <symbol value="stephan"/>
+                                                </f>
+                                                <f name="when">
+                                                    <symbol value="2015_04_07"/>
+                                                </f>
+                                            </fs>
+                                        </change>
+                                    </revisionDesc>
+                                </teiHeader>
+                                <text>
+                                    <body>
+                                        <div>
+                                            <head>
+                                                <ref target="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Sousse_Ribat_Aussicht.JPG/320px-Sousse_Ribat_Aussicht.JPG"/>
+                                                <name xml:lang="eng">Sousse</name>
+                                                <name xml:lang="ara">سوسة</name>
+                                                <name xml:lang="ara-x-DMG">Sūsa</name>
+                                                <ref target="#xpath1(//author)"/>
+                                            </head>
+                                            <div type="positioning">
+                                                <p>
+                                                    <geo>35.826, 10.64</geo>
+                                                </p>
+                                            </div>
+                                            <div type="typology">
+                                                <p>Dialect group: Maghreb, Tunisia</p>
+                                                <p>Urban sedentary dialect, Sāḥil group</p>
+                                            </div>
+                                            <div>
+                                                <head>General</head>
+                                                <p>Sousse is an important coastal city in the west of Tunisia which has
+               been a regional trade centre for many centuries. Starting in the 1960s 
+               Sousse has developed into one of the country’s main Tourism destinations. 
+               This caused immense increase in population, especially migration from 
+               rural areas all over Tunisia, which has significantly influenced the 
+               original dialect.</p>
+                                            </div>
+                                            <div type="researchHistory">
+                                                <p>
+                                                    A detailed study on the dialect spoken within the
+               medina is
+                                                    <ref target="vicav_bibl_002|id==talmoudi_1980a">Talmoudi 1980</ref>
+                                                    , 
+               a collection of texts are found in
+                                                    <ref target="vicav_bibl_002|id==talmoudi_1981a">Talmoudi 1981</ref>
+                                                    . 
+               An analysis of verbs of Romance origin in Tunisian dialects, including data from Sousse, is given in
+                                                    <ref target="vicav_bibl_002|id==talmoudi_1986a">Talmoudi 1986</ref>
+                                                    .
+                                                    <ref target="vicav_bibl_002|id==saada_1956a">Saada 1956</ref>
+                                                    is a study about the dialect of the Jews of Sousse.
+                                                </p>
+                                            </div>
+                                            <div type="bibliography">
+                                                <p>
+                                                    There are some publications on the dialect of Sousse.
+                                                    <ref target="vicav_bibl_002|vicavTaxonomy=Sousse">Click here</ref>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </body>
+                                    <fs type="create">
+                                        <f name="who">
+                                            <symbol value="charly"/>
+                                        </f>
+                                        <f name="when">
+                                            <symbol value="2013_01_02"/>
+                                        </f>
+                                    </fs>
+                                </text>
+                            </TEI>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=profile%3D%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_profiles_001&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>
