@@ -150,6 +150,7 @@
                 <xsl:with-param name="scanClause">
                     <xsl:call-template name="scan-clause-string"/>
                 </xsl:with-param>
+                <xsl:with-param name="maximumTerms" select="10"/>
                 <xsl:with-param name="contextset">
 <!--                    <xsl:if test="zr:map/zr:name/@set">
                         <xsl:value-of select="concat(zr:map/zr:name/@set, '.')"/>

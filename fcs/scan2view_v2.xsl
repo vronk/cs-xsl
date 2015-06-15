@@ -209,7 +209,7 @@ sample data:
                     </xsl:attribute>
                 </xsl:if>
                 <!--                <xsl:value-of select="for $i in (1 to $depth) return '- '"/>-->
-                <a class="value-caller" href="{$href}">  <!--target="_blank"-->
+                <a class="search-caller" href="{$href}">  <!--target="_blank"-->
                     <xsl:value-of select="if (normalize-space((sru:displayTerm, sru:value)[1]) eq '') then '----------' else (sru:displayTerm, sru:value)[1]"/>
                 </a>
             </span>
@@ -262,7 +262,7 @@ sample data:
     </xd:doc>
     <xsl:template name="prev-next-terms">
        <xsl:if test="not(//sru:term//sru:term) or not(exists(//sru:term))">
-        <xsl:variable name="prev_responsePosition" select="$maximumTerms">
+        <xsl:variable name="prev_responsePosition" select="$maximumTerms + 1">
             <!--<xsl:choose>
                 <xsl:when test="number($responsePosition) - number($maximumTerms) > 0">
                     <xsl:value-of select="format-number(number($responsePosition) - number($maximumTerms),'#')"/>
@@ -290,7 +290,8 @@ sample data:
         
         <xsl:variable name="link_next">
             <xsl:call-template name="formURL">
-                <xsl:with-param name="scanClause" select="$next_scanClause"/>                
+                <xsl:with-param name="scanClause" select="$next_scanClause"/>
+                <xsl:with-param name="responsePosition" select="0"/>                
             </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="next-disabled">
