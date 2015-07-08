@@ -161,25 +161,21 @@
     </span>
   </xsl:template>
   
-  <xsl:template match="tei:pc" mode="record-data">
-    <xsl:value-of select="."/>
-    <xsl:choose>
-      <xsl:when test="./text() = ',' or ./text() = '.'">
-        <xsl:text> </xsl:text>
-      </xsl:when>
-    </xsl:choose>
+  <xsl:strip-space elements="tei:u"/>
+  <xsl:preserve-space elements="tei:w tei:pc"/>
+  
+  <xsl:template match="hits:Result/text()|hits:Hit/text()" mode="record-data">
+    <xsl:if test="normalize-space(.) != ''"><xsl:value-of select="."/></xsl:if>
   </xsl:template>
   
-  <xsl:strip-space elements="tei:u tei:w tei:pc"/>
-  
-  <xsl:template match="tei:w" mode="record-data">
+  <xsl:template match="tei:w|tei:pc" mode="record-data">
     <xsl:variable name="classes">
       <xsl:choose>
         <xsl:when test="@type = preceding-sibling::*[1]/@type">
-          <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr')"/>
+          <xsl:value-of select="concat('tei-', local-name() ,' tei-type-', @type, ' lang-fr')"/>
         </xsl:when>
         <xsl:when test="@type">
-          <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr xsl-first-of-group')"/>                
+          <xsl:value-of select="concat('tei-', local-name() ,' tei-type-', @type, ' lang-fr xsl-first-of-group')"/>                
         </xsl:when>
         <xsl:when test="preceding-sibling::tei:w[1]/@type">
           tei-w lang-aeb xsl-first-of-group
@@ -230,10 +226,6 @@
         <xsl:apply-imports/>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="not(local-name(following-sibling::*[1]) = 'pc') and
-      not(local-name(following-sibling::*[1]) = 'w' and substring(following-sibling::*[1]/text(), 1, 1) = '-')">
-      <xsl:text> </xsl:text>
-    </xsl:if>
   </xsl:template>
   
   <xsl:template match="tei:kinesic" mode="record-data">
