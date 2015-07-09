@@ -136,16 +136,19 @@
             <thead>
                 <tr>
                     <th class="tei-charProp-value"><xsl:call-template name="dict">
-                        <xsl:with-param name="key">Char.</xsl:with-param>
-                    </xsl:call-template></th>
-                    <th class="tei-charProp-unicodeName"><xsl:call-template name="dict">
-                        <xsl:with-param name="key">Unicode Character Name</xsl:with-param>
+                        <xsl:with-param name="key">VICAV</xsl:with-param>
                     </xsl:call-template></th>
                     <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
                         <th class="tei-mapping-{@type}"><xsl:call-template name="dict">
                             <xsl:with-param name="key" select="@type"/>
                         </xsl:call-template></th>                
-                    </xsl:for-each>                
+                    </xsl:for-each>
+                    <th class="tei-charProp-localName"><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Sound Description</xsl:with-param>
+                    </xsl:call-template></th>   
+                    <th class="tei-charProp-unicodeName"><xsl:call-template name="dict">
+                        <xsl:with-param name="key">Unicode Character Name</xsl:with-param>
+                    </xsl:call-template></th>           
                 </tr>
             </thead>
             <tbody>
@@ -181,7 +184,6 @@
         <xsl:variable name="cur-char" select="."/>
         <tr>
             <td class="tei-charProp-value"><xsl:value-of select="tei:charProp/tei:value"/></td>
-            <td class="tei-charProp-unicodeName"><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
             <xsl:for-each select="exsl:node-set($mapping-list)/tei:mapping">
                 <xsl:variable name="type" select="./@type"/>
                 <td class="tei-mapping-{$type}"><xsl:call-template name="string-join">
@@ -189,6 +191,8 @@
                     <xsl:with-param name="join-with">,</xsl:with-param>
                 </xsl:call-template></td>
             </xsl:for-each>
+            <td class="tei-charProp-localName"><xsl:value-of select="tei:charProp/tei:localName"/></td>
+            <td class="tei-charProp-unicodeName"><xsl:value-of select="tei:charProp/tei:unicodeName"/></td>
         </tr>    
     </xsl:template>
     
@@ -254,11 +258,13 @@
         <xd:desc>Return text</xd:desc>
     </xd:doc>
     <xsl:template match="tei:imprint/tei:publisher" mode="record-data">
+        <xsl:if test="./text() != ''">
         <span class="tei-publisher">
             <xsl:value-of select="."/>
         </span>
         <xsl:if test="following-sibling::tei:pubPlace">
             <span class="xsl-separator tei-publisher-tei-pubplace-sep">, </span>
+        </xsl:if>
         </xsl:if>
     </xsl:template>
     
@@ -290,13 +296,15 @@
     <xd:doc>
         <xd:desc>TEI pubPlace as pubPlace span</xd:desc>
     </xd:doc>
-    <xsl:template match="tei:pubPlace" mode="record-data">
+    <xsl:template match="tei:pubPlace[parent::tei:imprint]" mode="record-data">
+        <xsl:if test="./text() != ''">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
         <span class="{$class}">
             <xsl:value-of select="."/>
         </span>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="tei:imprint/tei:date" mode="record-data">
@@ -383,12 +391,24 @@
             </xsl:if>
         </xsl:if>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>In bibliographies a series in which a monography was published.</xd:desc>
     </xd:doc>
     <xsl:template match="tei:series" mode="record-data">
+        <xsl:if test="./text() != ''">
         <div class="tei-series">
             <xsl:apply-templates mode="record-data"/><span class="xsl-separator tei-imprint-sep">.</span></div>
+        </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Series as part of imprint</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:series[parent::tei:imprint]" mode="record-data">
+        <xsl:if test="./text() != ''">
+            <span class="xsl-separator tei-imprint-sep">. In: </span><span class="tei-series"><xsl:apply-templates mode="record-data"/></span>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template match="tei:settlement|settlement" mode="record-data">
@@ -979,6 +999,7 @@
                     <xsl:call-template name="formURL">
                         <xsl:with-param name="action">explain</xsl:with-param>
                         <xsl:with-param name="x-context" select="@target"/>
+                        <xsl:with-param name="q" select="@target"/>
                     </xsl:call-template>
                 </xsl:variable>
                 <a href="{$linkTarget}" class="value-caller">
