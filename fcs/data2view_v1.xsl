@@ -250,6 +250,8 @@
         <xsl:apply-templates select="hits:Hit" mode="result-data-table"/>
     </xsl:template>
     
+    <xsl:template match="tei:ref[parent::hits:Result]" mode="record-data"/>
+    
     <xsl:template match="sru:recordData" mode="result-data-table">
         <xsl:apply-templates mode="result-data-table"/> 
     </xsl:template>
@@ -326,9 +328,9 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="hits:Hit" mode="result-data-table">        
-        <td class="left context"><xsl:apply-templates  select="preceding-sibling::*" mode="record-data"/></td>
+        <td class="left context"><xsl:apply-templates  select="preceding-sibling::*|preceding-sibling::text()" mode="record-data"/></td>
         <td class="kw hilight"><xsl:apply-templates mode="record-data"/></td>
-        <td class="right context"><xsl:apply-templates select="following-sibling::*" mode="record-data"/></td>
+        <td class="right context"><xsl:apply-templates select="following-sibling::*|following-sibling::text()" mode="record-data"/></td>
     </xsl:template>
     
     <!-- ************************ -->
