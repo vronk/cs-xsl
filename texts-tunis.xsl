@@ -242,4 +242,35 @@
   
   <xsl:template match="tei:ptr[parent::hits:Result]" mode="record-data"/>
   
+  <xd:doc>
+    <xd:desc>Return the result if there is exactly one result
+      <xd:p>Maybe this should be standard?</xd:p>
+    </xd:desc>
+  </xd:doc>
+  <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
+    <xsl:variable name="rec_uri">
+      <xsl:call-template name="_getRecordURI"/>
+    </xsl:variable>
+    <div class="result-body scrollable-content-box">
+      <div class="title">
+        <xsl:choose>
+          <!--  <sru:recordIdentifier/> leads to an existing but empty string -->
+          <xsl:when test="$rec_uri != ''">
+            <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
+            <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+            <a class="xsl-rec-uri value-caller" href="{$rec_uri}&amp;x-format={$format}">
+              <xsl:call-template name="getTitle"/>
+            </a>                         
+            <!--                        <span class="cmd cmd_save"/>-->
+          </xsl:when>
+          <xsl:otherwise>
+            <!-- FIXME: generic link somewhere anyhow! -->
+            <xsl:call-template name="getTitle"/>
+          </xsl:otherwise>
+        </xsl:choose>                        
+      </div>
+      <xsl:apply-templates select="sru:record/*" mode="record-data"/>
+    </div>
+  </xsl:template>
+  
 </xsl:stylesheet>
