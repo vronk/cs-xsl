@@ -6,7 +6,7 @@
   xmlns:hits="http://clarin.eu/fcs/dataview/hits"
   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl exsl xd tei fcs sru hits">
   <xsl:import href="fcs/result2view_v1.xsl"/>
-    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+  <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="callback-header">
     <link href="/static/fonts/andika/Andika.css" type="text/css" rel="stylesheet"/>
     <style type="text/css">
@@ -31,17 +31,30 @@
   </xsl:template>
   
   <xsl:template name="getTitle">
-    <xsl:value-of select="concat(//tei:fileDesc//tei:title, ' ')"/>
-    <span class="tei-authors">
+    <xsl:choose>
+      <xsl:when test=".//tei:ptr">
+        <xsl:value-of select=".//tei:ptr/@cRef"/>
+      </xsl:when>
+      <xsl:when test=".//tei:ref">
+        <xsl:value-of select=".//tei:ref"/>
+      </xsl:when>
+      <xsl:when test=".//fcs:DataView[@type='title']">
+        <xsl:value-of select=".//fcs:DataView[@type='title']"/>
+      </xsl:when>
+      <xsl:otherwise>Check document reference! <xsl:value-of select="name(.)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <!--        <xsl:value-of select="concat(//tei:fileDesc//tei:title, ' ')"/>
+      <span class="tei-authors">
       <xsl:apply-templates select="//tei:fileDesc/tei:author" mode="record-data"/>
-    </span>
+      </span>-->
   </xsl:template>
-
+  
   <xsl:template match="tei:head" mode="tei-body-headings">
     <xsl:if test="normalize-space(./text())">
       <xsl:call-template name="div-count-to-html-header">
         <xsl:with-param name="div-count"><xsl:call-template name="tei-div-count"/></xsl:with-param>
-        <xsl:with-param name="content" select="normalize-space(./text())"></xsl:with-param>
+        <xsl:with-param name="content" select="normalize-space(./text())"/>
       </xsl:call-template>
     </xsl:if>
     <xsl:apply-templates mode="tei-body-headings"/>
@@ -81,7 +94,7 @@
   </xsl:template>
   
   <xsl:template match="text()" mode="tei-body-headings"/>  
-
+  
   <xsl:template match="tei:name[@xml:lang]" mode="tei-body-headings">
     <xsl:if test="@xml:lang='eng'">
       <xsl:call-template name="div-count-to-html-header">
@@ -122,7 +135,15 @@
   <xsl:template match="tei:ref[contains(@target, 'author')]" mode="tei-body-headings">
     <xsl:call-template name="getAuthor"/>
   </xsl:template>
-
+  
+  <xd:doc>
+    <xd:desc>Text with hits in a search results table
+    </xd:desc>
+  </xd:doc>
+  <xsl:template match="hits:Result" mode="result-data-table">
+    <xsl:apply-templates select="hits:Hit" mode="result-data-table"/>
+  </xsl:template>
+  <xsl:template match="fcs:DataView[@type='title']" mode="result-data-table"/>
   <xsl:template name="getAuthor">
     <div class="tei-authors">
       <xsl:apply-templates select="//tei:fileDesc/tei:author" mode="record-data"/>
@@ -140,7 +161,7 @@
     <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
   </xsl:template>
   
-
+  
   <xd:doc>
     <xd:desc>Suppress rendering the tei:div of type positioning as it only containse a machine
       readable geo tag used by the map function.</xd:desc>
@@ -148,13 +169,13 @@
   <xsl:template match="tei:div[@type='positioning']" mode="record-data">
     <xsl:apply-templates select=".//tei:ref" mode="record-data"/>
   </xsl:template>
-
+  
   <xsl:template match="tei:name[@xml:lang]" mode="record-data">
     <span class="{@xml:lang}">
       <xsl:value-of select="concat(., ' ')"/>
     </span>
   </xsl:template>
-
+  
   <xsl:template match="tei:name[@type]" mode="record-data" priority="2">
     <span class="{@xml:lang} tei-type-{@type}">
       <xsl:value-of select="concat(., ' ')"/>
@@ -216,14 +237,15 @@
         </xsl:variable>
         <span class="{$classes}"><a href="{$linkTargetSrc}"><xsl:apply-templates mode="record-data"/></a><xsl:if
           test="@lemmaRef != ''"><dl 
-              class="tei-fs"><dt
+            class="tei-fs"><dt
               class="dict-ref">Dict.</dt><dd><a class="search-caller" href="{$linkTargetDict}">entry</a></dd></dl></xsl:if></span>
       </xsl:when>
       <xsl:when test="./@type">
         <span class="{$classes}"><xsl:apply-templates mode="record-data"/></span>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-imports/>
+        <xsl:value-of select="."/>
+        <!--                <xsl:apply-imports/>-->
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -234,12 +256,19 @@
   
   <xsl:template match="tei:ptr[parent::hits:Result]" mode="record-data"/>
   
+  <!-- private use -->
+  <xsl:template match="tei:xr" mode="record-data"/>
+  <xsl:template match="tei:xr[tei:bibl/@type='tunisCourse']" mode="record-data">
+    <div>Ritt-Benmimoun 2014: Lektion <xsl:value-of select="tei:bibl"/>
+    </div>
+  </xsl:template>
+  
   <xd:doc>
     <xd:desc>Return the result if there is exactly one result
       <xd:p>Maybe this should be standard?</xd:p>
     </xd:desc>
   </xd:doc>
-  <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
+  <xsl:template match="sru:records[(count(sru:record) = 1) and (.//fcs:DataView[@type = 'application/x-clarin-fcs-kwic+xml'] or .//tei:entry)]" mode="table">
     <xsl:variable name="rec_uri">
       <xsl:call-template name="_getRecordURI"/>
     </xsl:variable>
@@ -264,5 +293,21 @@
       <xsl:apply-templates select="sru:record/*" mode="record-data"/>
     </div>
   </xsl:template>
-  
+  <!--  <xd:doc>
+    <xd:desc>A hit with its context in search result context. Custom handling: limit context. Doesn't work in XSL 1.0 yet.
+    </xd:desc>
+  </xd:doc>
+
+   <xsl:template match="hits:Hit" mode="result-data-table">
+    <xsl:variable name="num-context-items" select="4"/>
+    <td class="left context">
+      <xsl:apply-templates select="subsequence(preceding-sibling::*, count(preceding-sibling::*) - $num-context-items, $num-context-items)" mode="record-data"/>
+    </td>
+    <td class="kw hilight">
+      <xsl:apply-templates mode="record-data"/>
+    </td>
+    <td class="right context">
+      <xsl:apply-templates select="subsequence(following-sibling::*, 1, $num-context-items)" mode="record-data"/>
+    </td>
+  </xsl:template>-->
 </xsl:stylesheet>
