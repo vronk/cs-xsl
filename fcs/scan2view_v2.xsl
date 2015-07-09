@@ -176,14 +176,14 @@ sample data:
                     <xsl:variable name="q">
                         <xsl:choose>
                             <xsl:when test="sru:extraTermData/cr:type">
-                                <xsl:value-of select="concat(sru:extraTermData/cr:type, '%3D%22', sru:value, '%22')"/>
+                                <xsl:value-of select="concat(sru:extraTermData/cr:type, '%3D%3D%22', sru:value, '%22')"/>
                             </xsl:when>
                             <xsl:when test="ancestor::sru:term">
                                 <xsl:variable name="group-term" select="ancestor::sru:term[1]"/>
-                                <xsl:value-of select="concat($group-term/sru:extraTermData/cr:type, '%3D%22', $group-term/sru:value, '%22', ' and ', $index, '%3D%22', sru:value, '%22')"/>
+                                <xsl:value-of select="concat($group-term/sru:extraTermData/cr:type, '%3D%3D%22', $group-term/sru:value, '%22', ' and ', $index, '%3D%22', sru:value, '%22')"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="concat($index, '%3D%22', sru:value, '%22')"/>
+                                <xsl:value-of select="concat($index, '%3D%3D%22', sru:value, '%22')"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:variable>
