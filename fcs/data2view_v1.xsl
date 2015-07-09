@@ -250,6 +250,8 @@
         <xsl:apply-templates select="hits:Hit" mode="result-data-table"/>
     </xsl:template>
     
+    <xsl:template match="tei:ref[parent::hits:Result]" mode="record-data"/>
+    
     <xsl:template match="sru:recordData" mode="result-data-table">
         <xsl:apply-templates mode="result-data-table"/> 
     </xsl:template>
