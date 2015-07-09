@@ -63,7 +63,7 @@
             <xsl:if test="contains($format, 'page') or $parts='header'">
                 <xsl:call-template name="header"/> 
             </xsl:if>
-            <div class="content">
+            <div class="content scan">
                 <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>
             </div>
         </div>
