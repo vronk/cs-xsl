@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="xsl exsl xd tei fcs sru hits">
-    <xsl:import href="../../apps/cr-xq-mets/modules/cs-xsl/fcs/result2view_v1.xsl"/>
-    <xsl:import href="../../apps/cr-xq-mets/modules/cs-xsl/commons_v2.xsl"/>
-    <xsl:output method="xhtml" media-type="text/xhtml" indent="yes" omit-xml-declaration="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+    <xsl:import href="../../fcs/result2view_v1.xsl"/>
+    <xsl:import href="../../commons_v2.xsl"/>
+    <xsl:output method="xhtml" media-type="text/xhtml" indent="no" omit-xml-declaration="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
     <xsl:template name="callback-header">
         <link href="/static/fonts/andika/Andika.css" type="text/css" rel="stylesheet"/>
         <style type="text/css">
@@ -227,19 +227,12 @@
                         <xsl:with-param name="dataview">full</xsl:with-param>
                     </xsl:call-template>
                 </xsl:variable>
-                <span class="{$classes}">
-                    <a href="{$linkTargetSrc}">
-                        <xsl:apply-templates mode="record-data"/>
-                    </a>
-                    <xsl:if test="@lemmaRef != ''">
-                        <dl class="tei-fs">
+                <span class="{$classes}"><a href="{$linkTargetSrc}"><xsl:apply-templates mode="record-data"/></a><xsl:if test="@lemmaRef != ''"><dl class="tei-fs">
                             <dt class="dict-ref">Dict.</dt>
                             <dd>
                                 <a class="search-caller" href="{$linkTargetDict}">entry</a>
-                            </dd>
-                        </dl>
-                    </xsl:if>
-                </span>
+                            </dd></dl>
+                    </xsl:if></span>
             </xsl:when>
             <xsl:when test="./@type">
                 <span class="{$classes}">
