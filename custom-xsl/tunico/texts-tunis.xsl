@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:hits="http://clarin.eu/fcs/dataview/hits" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="xsl exsl xd tei fcs sru hits">
-    <xsl:import href="../../fcs/result2view_v1.xsl"/>
-    <xsl:import href="../../commons_v2.xsl"/>
+    <xsl:import href="../../apps/cr-xq-mets/modules/cs-xsl/fcs/result2view_v1.xsl"/>
+    <xsl:import href="../../apps/cr-xq-mets/modules/cs-xsl/commons_v2.xsl"/>
     <xsl:output method="xhtml" media-type="text/xhtml" indent="yes" omit-xml-declaration="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
     <xsl:template name="callback-header">
         <link href="/static/fonts/andika/Andika.css" type="text/css" rel="stylesheet"/>
@@ -9,10 +10,10 @@
         </style>
         <link href="{$scripts_url}style/sampleText.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/fcs-kwic.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/URI.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/>
-        <script type="text/javascript" src="scripts/js/params.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
+        <script type="text/javascript" src="scripts/js/params.js"></script>
+        <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"></script>
         <link href="{$scripts_url}style/virtual-keyboard.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript">
             VirtualKeyboard.keys = {
@@ -173,23 +174,21 @@
             <xsl:value-of select="concat(., ' ')"/>
         </span>
     </xsl:template>
-    <xsl:template match="tei:pc" mode="record-data">
-        <xsl:value-of select="."/>
-        <xsl:choose>
-            <xsl:when test="./text() = ',' or ./text() = '.'">
-                <xsl:text> </xsl:text>
-            </xsl:when>
-        </xsl:choose>
+    <xsl:strip-space elements="tei:u"/>
+    <xsl:preserve-space elements="tei:w tei:pc"/>
+    <xsl:template match="hits:Result/text()|hits:Hit/text()" mode="record-data">
+        <xsl:if test="normalize-space(.) != ''">
+            <xsl:value-of select="."/>
+        </xsl:if>
     </xsl:template>
-    <xsl:strip-space elements="tei:u tei:w tei:pc"/>
-    <xsl:template match="tei:w" mode="record-data">
+    <xsl:template match="tei:w|tei:pc" mode="record-data">
         <xsl:variable name="classes">
             <xsl:choose>
                 <xsl:when test="@type = preceding-sibling::*[1]/@type">
-                    <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr')"/>
+                    <xsl:value-of select="concat('tei-', local-name() ,' tei-type-', @type, ' lang-fr')"/>
                 </xsl:when>
                 <xsl:when test="@type">
-                    <xsl:value-of select="concat('tei-w tei-type-', @type, ' lang-fr xsl-first-of-group')"/>
+                    <xsl:value-of select="concat('tei-', local-name() ,' tei-type-', @type, ' lang-fr xsl-first-of-group')"/>
                 </xsl:when>
                 <xsl:when test="preceding-sibling::tei:w[1]/@type">
                     tei-w lang-aeb xsl-first-of-group
@@ -217,8 +216,8 @@
                         <xsl:with-param name="maximumRecords">1</xsl:with-param>
                         <xsl:with-param name="x-context">
                             <xsl:choose>
-                                <xsl:when test="../../tei:ptr/@target|../tei:ptr/@target">
-                                    <xsl:value-of select="../../tei:ptr/@target|../tei:ptr/@target"/>
+                                <xsl:when test="../../tei:ref/@target|../tei:ref/@target">
+                                    <xsl:value-of select="../../tei:ref/@target|../tei:ref/@target"/>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:value-of select="$x-context"/>
@@ -252,9 +251,6 @@
                 <!--                <xsl:apply-imports/>-->
             </xsl:otherwise>
         </xsl:choose>
-        <xsl:if test="not(local-name(following-sibling::*[1]) = 'pc') and       not(local-name(following-sibling::*[1]) = 'w' and substring(following-sibling::*[1]/text(), 1, 1) = '-')">
-            <xsl:text> </xsl:text>
-        </xsl:if>
     </xsl:template>
     <xsl:template match="tei:kinesic" mode="record-data">
         <span class="tei-kinesic">
@@ -269,7 +265,8 @@
         </div>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Return the result if there is exactly one result. Custom handling: same as multiple results.
+        <xd:desc>Return the result if there is exactly one result
+      <xd:p>Maybe this should be standard?</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="sru:records[(count(sru:record) = 1) and (.//fcs:DataView[@type = 'application/x-clarin-fcs-kwic+xml'] or .//tei:entry)]" mode="table">
@@ -281,15 +278,20 @@
             </table>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>A hit with its context in search result context. Custom handling:l imit context.
         </xd:desc>
     </xd:doc>
     <xsl:template match="hits:Hit" mode="result-data-table">
-        <xsl:variable name="num-context-items" select="4"/>        
-        <td class="left context"><xsl:apply-templates  select="subsequence(preceding-sibling::*, count(preceding-sibling::*) - $num-context-items, $num-context-items)" mode="record-data"/></td>
-        <td class="kw hilight"><xsl:apply-templates mode="record-data"/></td>
-        <td class="right context"><xsl:apply-templates select="subsequence(following-sibling::*, 1, $num-context-items)" mode="record-data"/></td>
+        <xsl:variable name="num-context-items" select="4"/>
+        <td class="left context">
+            <xsl:apply-templates select="subsequence(preceding-sibling::*, count(preceding-sibling::*) - $num-context-items, $num-context-items)" mode="record-data"/>
+        </td>
+        <td class="kw hilight">
+            <xsl:apply-templates mode="record-data"/>
+        </td>
+        <td class="right context">
+            <xsl:apply-templates select="subsequence(following-sibling::*, 1, $num-context-items)" mode="record-data"/>
+        </td>
     </xsl:template>
 </xsl:stylesheet>
