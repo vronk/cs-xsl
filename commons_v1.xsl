@@ -28,7 +28,8 @@
         <xsl:choose>
             <xsl:when test="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]">
                 <xsl:copy-of select="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]"/>
-                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message>
+<!-- switch.php is set up to throw an exception on any error or _warning_ so this kills the transform right now -->
+<!--                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message> -->
             </xsl:when>
             <xsl:otherwise>
                 <xsl:message>Problem reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/>
