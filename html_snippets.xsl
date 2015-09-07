@@ -252,7 +252,7 @@
         </xsl:variable>
         <xsl:variable name="next_startRecord">
             <xsl:choose>
-                <xsl:when test="number($startRecord) + number($maximumRecords) &gt; number(numberOfRecords)">
+                <xsl:when test="number($startRecord) + number($maximumRecords) &gt; number($numberOfRecords)">
                     <xsl:value-of select="$startRecord"/>
                 </xsl:when>
                 <xsl:otherwise>
