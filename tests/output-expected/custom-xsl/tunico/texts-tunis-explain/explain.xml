@@ -1,0 +1,21 @@
+<!DOCTYPE div
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns="http://www.w3.org/1999/xhtml" class="wrapper">
+    <div class="content explain tunico_conc">
+        <h2>tunico</h2>
+        <div class="zr-author">Authors: Ines Dallaji, Ines Gabsi</div>
+        <div class="zr-description"></div>
+        <h3>Available indexes</h3>
+        <dl class="zr-indexInfo">
+            <dt class="zr-index word">word</dt>
+            <dd><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=scan&amp;scanClause=word=&amp;x-context=tunico_conc&amp;x-format=htmllist&amp;sort=x" class="value-caller">List</a> <a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=word=t%C5%ABnis&amp;x-context=tunico_conc&amp;startRecord=1&amp;x-format=htmllist" class="search-caller">Search</a> <a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=&#34;t%C5%ABnis&#34;&amp;x-context=tunico_conc&amp;startRecord=1&amp;x-format=htmllist&amp;queryType=native" class="search-caller">Native Search</a>
+            </dd>
+            <dt class="zr-index pos">pos</dt>
+            <dd><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=scan&amp;scanClause=pos=&amp;x-context=tunico_conc&amp;x-format=htmllist&amp;sort=x" class="value-caller">List</a> <a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=pos=verb&amp;x-context=tunico_conc&amp;startRecord=1&amp;x-format=htmllist" class="search-caller">Search</a> <a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=[pos = &#34;verb&#34;] []{0,3} [pos=&#34;preposition&#34;]&amp;x-context=tunico_conc&amp;startRecord=1&amp;x-format=htmllist&amp;queryType=native" class="search-caller">Native Search</a>
+            </dd>
+            <dt class="zr-index lemma">lemma</dt>
+            <dd><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=scan&amp;scanClause=lemma=&amp;x-context=tunico_conc&amp;x-format=htmllist&amp;sort=x" class="value-caller">List</a> <a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=m%CA%95%C4%81&amp;x-context=tunico_conc&amp;startRecord=1&amp;x-format=htmllist" class="search-caller">Search</a> <a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=[lemma = &#34;.*m%CA%95%C4%81.*&#34;]&amp;x-context=tunico_conc&amp;startRecord=1&amp;x-format=htmllist&amp;queryType=native" class="search-caller">Native Search</a>
+            </dd>
+        </dl>
+    </div>
+</div>

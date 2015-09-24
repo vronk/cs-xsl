@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>entry==book</sru:query>
+        <fcs:x-context>arz_eng_006</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM arz_eng_006 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM arz_eng_006_ndx AS ndx WHERE ndx.txt = 'book' GROUP BY ndx.id) AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable dictionary of Egyptian Arabic</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="kitaab_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-arz-x-cairo-vicavTrans">kitāb</orth>
+                                    <orth xml:lang="ar-arz-x-cairo-arabic">كتاب</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-arz-x-cairo-vicavTrans">ktb</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-arz-x-cairo-vicavTrans">kutub</orth>
+                                    <orth xml:lang="ar-arz-x-cairo-arabic">كتب</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>book</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Buch</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2011_11_02"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_02_28"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_10_19"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_15"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=entry%3D%3Dbook&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=arz_eng_006&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

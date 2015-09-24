@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/">
+    <sru:version>1.2</sru:version>
+    <sru:terms>
+        <sru:term>
+            <sru:value>vicav_profiles_001</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Profiles</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>vicav_sampletexts</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Sample Texts</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>vicav_meta</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Meta Texts</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>vicav_tools_001</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Tools Texts</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>vicav_lingfeatures_001</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Linguistic Feature Texts</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>vicav_bibl_002</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Bibliography</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>arz_eng_006</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Dictionary Cairo Variety</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>aeb_eng_001__v001</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Dictionary Tunis Variety</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>apc_eng_002</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>Dictionary Damascus Variety</sru:displayTerm>
+        </sru:term>
+        <sru:term>
+            <sru:value>vicav_texts_tunico__v001</sru:value>
+            <sru:numberOfRecords>1+</sru:numberOfRecords>
+            <sru:displayTerm>TUNICO Texts</sru:displayTerm>
+        </sru:term>
+    </sru:terms>
+    <sru:echoedScanRequest>
+        <sru:version>1.2</sru:version>
+        <sru:scanClause>fcs.resource</sru:scanClause>
+        <sru:responsePosition/>
+        <sru:maximumTerms>1</sru:maximumTerms>
+    </sru:echoedScanRequest>
+</sru:scanResponse>

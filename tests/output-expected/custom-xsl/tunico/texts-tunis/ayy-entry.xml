@@ -1,0 +1,511 @@
+<!DOCTYPE div
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns="http://www.w3.org/1999/xhtml" class="searchresults">
+    <div class="aeb_eng_001__v001">
+        <div class="result-header" data-numberOfRecords="98"><span class="label">showing </span><span class="value hilight">10</span><span class="label"> out of </span><span class="value hilight">98</span><span class="label"> entries (with </span><span class="value hilight"></span><span class="label"> hits)</span>
+            <div class="note"><span class="label">sru:version</span><span class="xsl-separator">: </span><span class="value">1.2
+</span><span class="xsl-separator">; </span><span class="label">sru:query</span><span class="xsl-separator">: </span><span class="value">ayy
+</span><span class="xsl-separator">; </span><span class="label">fcsm:x-context</span><span class="xsl-separator">: </span><span class="value">aeb_eng_001__v001
+</span><span class="xsl-separator">; </span><span class="label">fcsm:x-dataview</span><span class="xsl-separator">: </span><span class="value">kwic,title
+</span><span class="xsl-separator">; </span><span class="label">sru:baseUrl</span><span class="xsl-separator">: </span><span class="value">http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php
+</span><span class="xsl-separator">; </span><span class="label">fcsm:returnedRecords</span><span class="xsl-separator">: </span><span class="value">10
+</span><span class="xsl-separator">; </span><span class="label">fcsm:numberOfMatches</span><span class="xsl-separator">: </span><span class="value"></span><span class="xsl-separator">; </span><span class="label">fcsm:duration</span><span class="xsl-separator">: </span><span class="value">0.0
+</span><span class="xsl-separator">; </span><span class="label">fcsm:transformedQuery</span><span class="xsl-separator">: </span><span class="value">SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM aeb_eng_001__v001 AS base INNER
+JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM aeb_eng_001__v001_ndx
+AS tab INNER JOIN (SELECT inner.id FROM aeb_eng_001__v001_ndx AS `inner` WHERE inner.txt
+= 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id
+WHERE tab.txt != '-') AS ndx WHERE ndx.txt LIKE '%ayy%') AS ndx ON base.id = ndx.id
+ GROUP BY base.sid LIMIT 0, 10
+</span><span class="xsl-separator">; </span>
+            </div><span class="result-navigation prev-next"><a class="internal prev disabled " href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=ayy&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;x-format=html&amp;x-dataview=kwic,title"><span class="ui-icon cmd_prev"></span></a><a class="internal next " href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=ayy&amp;x-context=aeb_eng_001__v001&amp;startRecord=NaN&amp;x-format=html&amp;x-dataview=kwic,title"><span class="ui-icon cmd_next"></span></a></span>
+        </div>
+        <div class="result-body scrollable-content-box">
+            <table class="show">
+                <tbody>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">1</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-lemma"><span class="tei-orth ar-aeb-x-tunis-vicav">ayy</span> </span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">pos</dt>
+                                <dd class="tei-gram pos xsl-first-of-group">responseParticle</dd>
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">ʔy</dd>
+                                </dl><span class="tei-bibls"><span class="tei-bibl">Ritt-Benmimoun 2014</span> </span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">yes</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">ja</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">oui</span>
+                                    </span>
+                                </div>
+                                <div>Ritt-Benmimoun 2014: Lektion 2</div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">2</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-lemma"><span class="tei-orth ar-aeb-x-tunis-vicav">ʕayyiš</span> </span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">pos</dt>
+                                <dd class="tei-gram pos xsl-first-of-group">verb</dd>
+                                    <dt class="tei-gram xsl-first-of-group">subc</dt>
+                                <dd class="tei-gram subc xsl-first-of-group">II</dd>
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">ʕyš</dd>
+                                </dl><span class="tei-bibls"></span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">yʕayyiš</span> <span class="tei-form-ana">impf</span></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">to grant a long life (God)</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">ein langes Leben geben (Gott)</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">donner une longue vie (Dieu)</span>
+                                    </span>
+                                    <div class="tei-cit example">
+                                        <span class="tei-note tei-type-tasks"></span>
+                                        <span class="tei-quote vicav-transcr">yʕayyšik</span>
+                                        <span class="tei-bibl">Ritt-Benmimoun 2014</span> 
+                                        <span class="tei-cit translation-en">
+                                            <span class="tei-quote">Thank you!</span>
+                                        </span>
+                                        <quote class="tei-cit tei-type-literalTranslation">
+                                            <span class="tei-quote">May He (God) let you live.; May He give you a long life.</span>
+                                        </quote>
+                                        <span class="tei-cit translation-de">
+                                            <span class="tei-quote">Danke!</span>
+                                        </span>
+                                        <quote class="tei-cit tei-type-literalTranslation">
+                                            <span class="tei-quote">Er (Gott) lasse dich leben.; Er gebe dir ein langes Leben.</span>
+                                        </quote>
+                                        <span class="tei-cit translation-fr">
+                                            <span class="tei-quote">Merci!</span>
+                                        </span>
+                                        <quote class="tei-cit tei-type-literalTranslation">
+                                            <span class="tei-quote">Qu’il (Dieu) te laisse vivre.; Qu’il te donne une longue vie.</span>
+                                        </quote>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </div>
+                                    <div class="tei-cit example">
+                                        <span class="tei-quote vicav-transcr">yʕayyiš wildi</span>
+                                        <span class="tei-bibl">Ritt-Benmimoun 2014</span> 
+                                        <span class="tei-cit translation-en">
+                                            <span class="tei-quote">Thank you, my dear!</span>
+                                        </span>
+                                        <quote class="tei-cit tei-type-literalTranslation">
+                                            <span class="tei-quote">May He (God) grant a long life for my son.</span>
+                                        </quote>
+                                        <span class="tei-cit translation-de">
+                                            <span class="tei-quote">Danke, mein Lieber!</span>
+                                        </span>
+                                        <quote class="tei-cit tei-type-literalTranslation">
+                                            <span class="tei-quote">Er (Gott) lasse meinen Sohn lange leben.</span>
+                                        </quote>
+                                        <span class="tei-cit translation-fr">
+                                            <span class="tei-quote">Merci, mon cher!</span>
+                                        </span>
+                                        <quote class="tei-cit tei-type-literalTranslation">
+                                            <span class="tei-quote">Que Dieu donne une longue vie à mon fils.</span>
+                                        </quote>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">3</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-lemma"><span class="tei-orth ar-aeb-x-tunis-vicav">ay</span> <span class="tei-form-variant">
+                                        ayya
+                                    </span></span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">pos</dt>
+                                <dd class="tei-gram pos xsl-first-of-group">adverb</dd>
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">ʔyy</dd>
+                                </dl><span class="tei-bibls"></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">right then, well; yes!</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">(na) dann, also; doch!</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">bon, alors; si (fait)!</span>
+                                    </span>
+                                </div>
+                                <div>Ritt-Benmimoun 2014: Lektion 1</div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">4</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-lemma"><span class="tei-orth ar-aeb-x-tunis-vicav">bnayya</span> </span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">pos</dt>
+                                <dd class="tei-gram pos xsl-first-of-group">noun</dd>
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">bnt</dd>
+                                </dl><span class="tei-bibls"><span class="tei-bibl">Ritt-Benmimoun 2014</span> </span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">bnāt</span> <span class="tei-form-ana">pl</span></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">(little) girl</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">(kleines) Mädchen</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">fille, fillette</span>
+                                    </span>
+                                </div>
+                                <div>Ritt-Benmimoun 2014: Lektion 2</div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">5</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-lemma"><span class="tei-orth ar-aeb-x-tunis-vicav">bayyaʕ</span> </span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">pos</dt>
+                                <dd class="tei-gram pos xsl-first-of-group">verb</dd>
+                                    <dt class="tei-gram xsl-first-of-group">subc</dt>
+                                <dd class="tei-gram subc xsl-first-of-group">II</dd>
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">byʕ</dd>
+                                </dl><span class="tei-bibls"><span class="tei-bibl">Singer 1984, p.61</span> </span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">ybayyaʕ</span> <span class="tei-form-ana">impf</span></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-de">
+                                        <span class="tei-quote">zum Verkauf veranlassen</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">6</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-lemma"><span class="tei-orth ar-aeb-x-tunis-vicav">bayyāʕ</span> </span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">pos</dt>
+                                <dd class="tei-gram pos xsl-first-of-group">noun</dd>
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">byʕ</dd>
+                                </dl><span class="tei-bibls"><span class="tei-bibl">Ritt-Benmimoun 2014</span> </span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">bayyāʕa</span> <span class="tei-form-ana">pl</span></span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">bayyāʕīn</span> <span class="tei-form-ana">pl</span></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">seller, salesman</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">Verkäufer</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">vendeur</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">7</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-lemma"><span class="tei-orth ar-aeb-x-tunis-vicav">bū</span> </span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">pos</dt>
+                                <dd class="tei-gram pos xsl-first-of-group">noun</dd>
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">ʔbw</dd>
+                                </dl><span class="tei-bibls"><span class="tei-bibl">Ritt-Benmimoun 2014</span> </span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">bwāt</span> <span class="tei-form-ana">pl</span></span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">bayyāt</span> <span class="tei-form-ana">pl</span></span><span class="tei-form-inflected"><span class="tei-orth ar-aeb-x-tunis-vicav">bwāt</span> <span class="tei-form-ana">pl</span></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">father</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">Vater</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">père</span>
+                                    </span>
+                                </div>
+                                <div>Ritt-Benmimoun 2014: Lektion 2</div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">8</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-multiWordUnit"><span class="tei-orth ar-aeb-x-tunis-vicav">b-iš-šwayya</span> <span class="tei-form-variant">
+                                        b-iš-šwayya b-iš-šwayya
+                                    </span></span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">b šyʔ</dd>
+                                </dl><span class="tei-bibls"></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">slowly</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">langsam</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">lentement</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">9</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-entry"><span class="tei-form-multiWordUnit"><span class="tei-orth ar-aeb-x-tunis-vicav">b-qaddāš</span> </span>
+                            <dl class="tei-gramGrp">
+                                    <dt class="tei-gram xsl-first-of-group">root</dt>
+                                <dd class="tei-gram root xsl-first-of-group">b qdr ʔayy šyʔ</dd>
+                                </dl><span class="tei-bibls"></span>
+                            <div class="tei-sense">
+                                <div class="tei-cits"><span class="tei-cit translation-en">
+                                        <span class="tei-quote">(with) how much/many?; how much is...?</span>
+                                    </span><span class="tei-cit translation-de">
+                                        <span class="tei-quote">(um) wieviel; (mit) wieviel; wie viel kostet...?</span>
+                                    </span><span class="tei-cit translation-fr">
+                                        <span class="tei-quote">(avec) combien; combien coûte...?</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">10</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle&amp;x-format=html">A Digital Dictionary of Tunis Arabic</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view ">
+            
+            
+            
+                
+                    
+                        
+                        
+                            
+                            <td class="tei-cit example">
+                                <span class="tei-note tei-type-tasks"></span>
+                                <span class="tei-quote vicav-transcr">hāḏi bnayya, hāḏūma bnāt</span>
+                                <span class="tei-bibl">Ritt-Benmimoun 2014</span> 
+                                <span class="tei-cit translation-en">
+                                    <span class="tei-quote">This is a girl, these are girls.</span>
+                                </span>
+                                <span class="tei-cit translation-de">
+                                    <span class="tei-quote">Das ist ein Mädchen, das sind Mädchen.</span>
+                                </span>
+                                <span class="tei-cit translation-fr">
+                                    <span class="tei-quote">C’est une fille, ce sont des filles.</span>
+                                </span>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            </td>
+                        
+                    
+                
+            
+            
+            
+        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

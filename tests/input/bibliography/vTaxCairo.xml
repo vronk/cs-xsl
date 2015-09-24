@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>28</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>vicavTaxonomy==Cairo</sru:query>
+        <fcs:x-context>vicav_bibl_002</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/BibliographyOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>10</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM vicav_bibl_002 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM vicav_bibl_002_ndx AS tab INNER JOIN (SELECT inner.id FROM vicav_bibl_002_ndx AS `inner` WHERE inner.txt = 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id ) AS ndx WHERE (ndx.txt = 'Cairo') AND ((ndx.xpath LIKE '%-index-term-vicavTaxonomy-'))) AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="ahmed_mokhtar_001">
+                                <monogr>
+                                    <author>Ahmed, Mokhtar</author>
+                                    <title>Lehrbuch des Ägyptisch-Arabischen</title>
+                                    <imprint>
+                                        <publisher>Otto Harrassowitz</publisher>
+                                        <pubPlace>Wiesbaden</pubPlace>
+                                        <date>1983</date>
+                                        <biblScope type="issue">2. Aufl.</biblScope>
+                                        <biblScope type="pages">314</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="behnstedt_peter_002">
+                                <monogr>
+                                    <author>Behnstedt, Peter</author>
+                                    <author>Woidich, Manfred</author>
+                                    <title>Die ägyptisch-arabischen Dialekte</title>
+                                    <title type="sub">Dialektatlas von Äypten</title>
+                                    <imprint>
+                                        <biblScope type="vol">Band II</biblScope>
+                                        <pubPlace>Wiesbaden</pubPlace>
+                                        <date>1985</date>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_000708">
+                                <monogr>
+                                    <author>Abdel-Aziz, Mohamed</author>
+                                    <title>Ägyptisch-arabisches Wörterbuch: 5200 Wörter; deutsch - ägyptisch-arabisch, ägyptisch-arabisch - deutsch</title>
+                                    <title type="sub">Deutsch - ägyptisch-arabisch, ägyptisch-arabisch - deutsch</title>
+                                    <imprint>
+                                        <pubPlace>Zürich</pubPlace>
+                                        <date>2001</date>
+                                        <biblScope type="pages">201</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                        <term type="vicavTaxonomy">lexicon</term>
+                                        <term type="vicavTaxonomy">dictionary</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>3</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_000710">
+                                <monogr>
+                                    <author>Abdel Aziz, Mohamed</author>
+                                    <title>Wörterbuch: Grundwortschatz: Deutsch - Ägyptisch-Arabisch, Ägyptisch-Arabisch - Deutsch</title>
+                                    <imprint>
+                                        <pubPlace>Zürich</pubPlace>
+                                        <date>1998</date>
+                                        <idno type="issn"/>
+                                        <biblScope type="issue">2. Aufl.</biblScope>
+                                        <biblScope type="pages">138</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                        <term type="vicavTaxonomy">lexicon</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>4</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_000718">
+                                <monogr>
+                                    <author>Abdel-Massih, Ernest T.</author>
+                                    <title>A reference grammar of Egyptian Arabic</title>
+                                    <imprint>
+                                        <pubPlace>Washington (DC)</pubPlace>
+                                        <date>2009</date>
+                                        <biblScope type="pages">337</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>5</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_000909">
+                                <monogr>
+                                    <author>Behnstedt, P.</author>
+                                    <author>Woidich, Manfred</author>
+                                    <title>Die ägyptisch-arabischen Dialekte. Band 1: Einleitung und Anmerkungen zu den Karten. Band 2: Dialektatlas von Ägypten</title>
+                                    <imprint>
+                                        <publisher>Reichert</publisher>
+                                        <pubPlace>Wiesbaden</pubPlace>
+                                        <date>1985</date>
+                                    </imprint>
+                                </monogr>
+                                <series>
+                                    <title>Beihefte zum Tübinger Atlas des Vorderen Orients</title>
+                                    <biblScope type="vol">B/50</biblScope>
+                                </series>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>6</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_000910">
+                                <monogr>
+                                    <author>Behnstedt, P.</author>
+                                    <title>Die ägyptisch-arabischen Dialekte. Band 3: Texte. II. Niltaldialekte. III. Oasendialekte</title>
+                                    <imprint>
+                                        <pubPlace>Wiesbaden</pubPlace>
+                                        <date>1988</date>
+                                        <biblScope type="pages">450</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>7</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_000911">
+                                <monogr>
+                                    <author>Behnstedt, P.</author>
+                                    <title>Die ägyptisch-arabischen Dialekte. Band 4: Glossar Arabisch-Deutsch</title>
+                                    <imprint>
+                                        <publisher>Reichert</publisher>
+                                        <pubPlace>Wiesbaden</pubPlace>
+                                        <date>1994</date>
+                                        <biblScope type="pages">513</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <series>
+                                    <title>Beihefte zum Tübinger Atlas des Vorderen Orients</title>
+                                    <biblScope type="vol">Reihe B, 50/4</biblScope>
+                                </series>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>8</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_000912">
+                                <analytic>
+                                    <author>Behnstedt, P.</author>
+                                    <title>Die ägyptischen Oasen - ein dialektologischer Vorbericht</title>
+                                </analytic>
+                                <monogr>
+                                    <title>Zeitschrift für Arabische Linguistik</title>
+                                    <imprint>
+                                        <pubPlace/>
+                                        <date>1982</date>
+                                        <idno type="issn"/>
+                                        <biblScope type="issue">8</biblScope>
+                                        <biblScope type="pp">-</biblScope>
+                                        <biblScope type="pages">33</biblScope>
+                                        <biblScope type="startPage">39</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>9</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="bibl_001091">
+                                <monogr>
+                                    <author>Boutros, Wadie</author>
+                                    <title>Lexique franco-égyptien: le parler du Caire</title>
+                                    <imprint>
+                                        <pubPlace>Cairo</pubPlace>
+                                        <date>2000</date>
+                                        <biblScope type="pages">329</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Egypt-Sudan</term>
+                                        <term type="vicavTaxonomy">Egypt</term>
+                                        <term type="vicavTaxonomy">Cairo</term>
+                                        <term type="vicavTaxonomy">lexicon</term>
+                                        <term type="vicavTaxonomy">dictionary</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_08"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_09"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_10"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>10</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3D%3D%22Cairo%22&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

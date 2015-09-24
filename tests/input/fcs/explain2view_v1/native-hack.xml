@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:record>
+        <sru:recordSchema>http://explain.z3950.org/dtd/2.0/</sru:recordSchema>
+        <sru:recordPacking>xml</sru:recordPacking>
+        <sru:recordData>
+            <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.0/">
+                <zr:serverInfo protocol="SRU" version="1.2" transport="http" method="GET POST SOAP">
+                    <zr:host>corpus4.aac.ac.at</zr:host>
+                    <zr:port>80</zr:port>
+                    <zr:database>bonito/run.cgi/fcs</zr:database>
+                </zr:serverInfo>
+                <zr:databaseInfo>
+                    <zr:title lang="en" primary="true">tunico</zr:title>
+                </zr:databaseInfo>
+                <zr:indexInfo>
+                    <zr:set identifier="clarin.eu/fcs/1.0" name="fcs">
+                        <zr:title lang="de">CLARIN Content Search</zr:title>
+                        <zr:title lang="en" primary="true">CLARIN Content Search</zr:title>
+                    </zr:set>
+                    <zr:index search="true" scan="true" sort="true" native="true">
+                        <zr:title lang="en" primary="true">word</zr:title>
+                        <zr:map primary="true">
+                            <zr:name>word</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="true" native="true">
+                        <zr:title lang="en" primary="true">id</zr:title>
+                        <zr:map primary="true">
+                            <zr:name>id</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="true" native="true">
+                        <zr:title lang="en" primary="true">pos</zr:title>
+                        <zr:map primary="true">
+                            <zr:name>pos</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="true" native="true">
+                        <zr:title lang="en" primary="true">lemma</zr:title>
+                        <zr:map primary="true">
+                            <zr:name>lemma</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="true" native="true">
+                        <zr:title lang="en" primary="true">lemmaRef</zr:title>
+                        <zr:map primary="true">
+                            <zr:name>lemmaRef</zr:name>
+                        </zr:map>
+                    </zr:index>
+                </zr:indexInfo>
+                <zr:schemaInfo>
+                    <zr:schema identifier="http://clarin.eu/fcs/1.0" name="fcs">
+                        <zr:title lang="en" primary="true">CLARIN Content Search</zr:title>
+                    </zr:schema>
+                </zr:schemaInfo>
+                <zr:configInfo>
+                    <zr:setting type="maximumRecords">250</zr:setting>
+                </zr:configInfo>
+            </zr:explain>
+        </sru:recordData>
+    </sru:record>
+</sru:explainResponse>

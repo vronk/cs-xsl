@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:terms>
+        <sru:term>
+            <sru:value>30.05, 31.233333</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:displayTerm>Cairo</sru:displayTerm>
+            <sru:extraTermData>
+                <fcs:position>1</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>33.513056, 36.2919443</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:displayTerm>Damascus</sru:displayTerm>
+            <sru:extraTermData>
+                <fcs:position>2</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>36.8, 10.183333</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:displayTerm>Tunis</sru:displayTerm>
+            <sru:extraTermData>
+                <fcs:position>3</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+    </sru:terms>
+    <sru:extraResponseData>
+        <fcs:countTerms>3</fcs:countTerms>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, base.lemma, COUNT(*) FROM vicav_profiles_001 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM vicav_profiles_001_ndx AS ndx WHERE (ndx.xpath LIKE '%geo-') GROUP BY ndx.id) AS ndx ON base.id = ndx.id  GROUP BY ndx.txt ORDER BY ndx.txt</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:echoedScanRequest>
+        <sru:version>1.2</sru:version>
+        <sru:scanClause>geo</sru:scanClause>
+        <sru:maximumTerms>100</sru:maximumTerms>
+    </sru:echoedScanRequest>
+</sru:scanResponse>

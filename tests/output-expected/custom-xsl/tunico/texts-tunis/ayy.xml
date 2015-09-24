@@ -1,0 +1,491 @@
+<!DOCTYPE div
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns="http://www.w3.org/1999/xhtml" class="searchresults">
+    <div class="tunico">
+        <div class="result-header" data-numberOfRecords="34"><span class="label">showing </span><span class="value hilight">10</span><span class="label"> out of </span><span class="value hilight">34</span><span class="label"> entries (with </span><span class="value hilight"></span><span class="label"> hits)</span>
+            <div class="note"><span class="label">sru:version</span><span class="xsl-separator">: </span><span class="value">1.2
+</span><span class="xsl-separator">; </span><span class="label">sru:query</span><span class="xsl-separator">: </span><span class="value">ayy
+</span><span class="xsl-separator">; </span><span class="label">fcsm:x-context</span><span class="xsl-separator">: </span><span class="value">tunico
+</span><span class="xsl-separator">; </span><span class="label">fcsm:x-dataview</span><span class="xsl-separator">: </span><span class="value">kwic
+</span><span class="xsl-separator">; </span><span class="label">sru:startRecord</span><span class="xsl-separator">: </span><span class="value">1
+</span><span class="xsl-separator">; </span><span class="label">sru:maximumRecords</span><span class="xsl-separator">: </span><span class="value">10
+</span><span class="xsl-separator">; </span><span class="label">sru:baseUrl</span><span class="xsl-separator">: </span><span class="value">http://127.0.0.1/bonito/run.cgi/fcs
+</span><span class="xsl-separator">; </span><span class="label">fcsm:returnedRecords</span><span class="xsl-separator">: </span><span class="value">10
+</span><span class="xsl-separator">; </span><span class="label">fcsm:numberOfMatches</span><span class="xsl-separator">: </span><span class="value"></span><span class="xsl-separator">; </span><span class="label">fcsm:duration</span><span class="xsl-separator">: </span><span class="value">0.0
+</span><span class="xsl-separator">; </span><span class="label">fcsm:transformedQuery</span><span class="xsl-separator">: </span><span class="value">[lemma=".*ayy.*"]
+</span><span class="xsl-separator">; </span>
+            </div><span class="result-navigation prev-next"><a class="internal prev disabled" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=ayy&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic"><span class="ui-icon cmd_prev"></span></a><a class="internal next " href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=ayy&amp;x-context=tunico&amp;startRecord=11&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic"><span class="ui-icon cmd_next"></span></a></span>
+        </div>
+        <div class="result-body scrollable-content-box">
+            <table class="show">
+                <tbody>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">1</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00075&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00076&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> w</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==w_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00077&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00078&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> āh</a></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00080&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00081&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ,</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00082&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> fīn</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==wiin_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00083&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> tuskun</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==skun_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00084&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ?</a></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">2</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00108&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ʕāṣmit</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==caasma_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00109&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> il</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00110&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00111&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> kanadā</a></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00113&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> īh</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00114&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00115&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> fhimt</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==fhim_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00116&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ?</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00117&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> bʕīda</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==bciid_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">3</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00115&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> fhimt</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==fhim_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00116&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ?</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00117&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> bʕīda</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==bciid_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00118&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> !</a></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00120&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00121&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00122&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> maʕnā</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==macnaa_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00123&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ha</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00124&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> par</a></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">4</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00134&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00135&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> bʕīda</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==bciid_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00136&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> baṛša</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==barsha_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00137&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00139&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00140&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00141&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> titkallif</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==tkallif_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00142&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> xāṣṣatan</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==xaassatan_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00143&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> bīyē</a></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">5</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00160&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ᵊl</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00161&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00162&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> tūnis</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==tuunis_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00163&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> āna</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==aana_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00165&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00166&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00167&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> qrīt</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==qraa_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00168&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> fi</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==f_i_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00169&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">6</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00175&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> tūnis</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==tuunis_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00176&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> žüskā</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00177&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> vṏnt</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00178&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ȭ</a></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00180&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00181&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00182&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00183&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> w</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==w_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00184&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">7</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00176&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> žüskā</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00177&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> vṏnt</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00178&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ȭ</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00179&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00181&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00182&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00183&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> w</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==w_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00184&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00185&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> āh</a></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">8</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00219&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> fi</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==f_i_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00220&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00221&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> tūnis</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==tuunis_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00222&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> baṛša</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==barsha_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00224&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00225&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00226&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00227&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> kunt</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==kaan_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00228&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> nixdim</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==xdim_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">9</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00220&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00221&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> tūnis</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==tuunis_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00222&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> baṛša</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==barsha_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00223&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00225&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> ayy</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00226&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00227&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> kunt</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==kaan_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00228&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> nixdim</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==xdim_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00229&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> äh</a></span> </td>
+                    
+                
+            
+            
+        </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="tunico&amp;x-format=html">10</a>
+                        </td>
+                        <td colspan="4">
+                            <div class="title"><a class="value-caller" href="tunico&amp;x-format=html">Ayyoub</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="data-view application_x-clarin-fcs-kwic_xml">
+            
+            
+            
+                
+                    
+                        <td class="left context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00282&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> fi</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==f_i_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00283&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> -</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00284&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> tūnis</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==tuunis_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00285&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> baṛša</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==barsha_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> </td>
+                        <td class="kw hilight">
+                               <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00287&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> īh</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==ayy_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> 
+                            </td>
+                        <td class="right context"><span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00288&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> sē</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00289&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> byṏ</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00290&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> .</a></span> <span class="tei-w"><a href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=wid=wid_00291&amp;x-context=tunico&amp;startRecord=1&amp;maximumRecords=1&amp;x-format=html&amp;x-dataview=full"> w</a>
+                                <dl class="tei-fs">
+                                    <dt class="dict-ref">Dict.</dt>
+                                    <dd><a class="search-caller" href="https://minerva.arz.oeaw.ac.at/exist/apps/cr-xq-mets/tunico/fcs?version=1.2&amp;operation=searchRetrieve&amp;query=entry==w_001&amp;x-context=aeb_eng_001__v001&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html&amp;x-dataview=kwic">entry</a>
+                                    </dd>
+                                </dl></span> </td>
+                    
+                
+            
+            
+        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

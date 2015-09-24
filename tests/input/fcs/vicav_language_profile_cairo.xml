@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>profile==Cairo</sru:query>
+        <fcs:x-context>vicav_profiles_001</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/ProfileOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>1</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT DISTINCT id, entry FROM vicav_profiles_001 WHERE lemma = 'Cairo'</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A database of profiles of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <TEI xml:id="profile_cairo_01">
+                                <teiHeader>
+                                    <fileDesc>
+                                        <author>Charly Moerth</author>
+                                        <titleStmt>
+                                            <title>A machine-readable language profile of Cairo Arabic</title>
+                                        </titleStmt>
+                                        <publicationStmt>
+                                            <pubPlace>Vienna</pubPlace>
+                                            <date>2014</date>
+                                            <availability status="restricted">
+                                                <p>
+                                                    <ref type="license" target="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+                                                </p>
+                                            </availability>
+                                        </publicationStmt>
+                                        <editionStmt>
+                                            <edition>1.0 (Alpha)</edition>
+                                        </editionStmt>
+                                        <sourceDesc>
+                                            <p>This is an original digital text</p>
+                                        </sourceDesc>
+                                    </fileDesc>
+                                </teiHeader>
+                                <text>
+                                    <body>
+                                        <div>
+                                            <head>
+                                                <ref target="Cairo-2009.JPG"/>
+                                                <name xml:lang="eng">Cairo</name>
+                                                <name xml:lang="ara">القاهیرة</name>
+                                                <name xml:lang="ara-x-DMG">ʔal-Qāhira</name>
+                                                <name xml:lang="arz" type="araLoc">مصر</name>
+                                                <name xml:lang="arz-Latn" type="latLoc">Maṣr</name>
+                                                <ref target="#xpath1(//author)"/>
+                                            </head>
+                                            <div type="positioning">
+                                                <p>
+                                                    <geo>30.05, 31.233333</geo>
+                                                </p>
+                                            </div>
+                                            <div type="typology">
+                                                <p>Eastern › Egyptian › Central Delta</p>
+                                                <p>Urban, sedentary, high prestige variety</p>
+                                            </div>
+                                            <div type="general">
+                                                <p>The Egyptian varieties of Arabic form a quite diversified linguistic group.
+               They are usually subdivided into four major subgroups: the dialects of Upper Egypt,
+               Middle Egypt, Lower Egypt and those spoken in the Oases.
+               The dialect of the capital belongs to the northern group.</p>
+                                                <p>By contrast to most other varieties of vernacular Arabic, the dialect of Cairo
+               has been reduced to writing as well. There exists quite a significant amount of
+               literary output, in particular stage plays.</p>
+                                            </div>
+                                            <div type="researchHistory">
+                                                <p>
+                                                    The first serious reliable descriptions of Egyptian Arabic
+were written in the 19th century: Wilhelm Spitta published his
+                                                    <ref target="vicav_bibl_002|id==spitta_bey_wilhelm_001">grammar in 1880</ref>
+                                                    (which
+can be
+                                                    <ref target="https://archive.org/details/grammatikdesara00spitgoog">read 
+online at the Internet Archive</ref>
+                                                    ) and Vollers a
+                                                    <ref target="vicav_bibl_002|id==vollers_karl_001">textbook in 
+1890</ref>
+                                                    (
+                                                    <ref target="vicav_bibl_002|id==vollers_karl_002">English translation 1895</ref>
+                                                    , available at the
+                                                    <ref target="https://archive.org/details/cu31924026886816">Internet 
+Archive</ref>
+                                                    ). These were followed by
+                                                    <ref target="vicav_bibl_002|id==nallino_1900a">Nallino (1900)</ref>
+                                                    (full text at the
+                                                    <ref target="https://archive.org/details/laraboparlatoine00nalluoft">Internet Archive</ref>
+                                                    ) and
+                                                    <ref target="vicav_bibl_002|id==willmore_1901a">Willmore (1905)</ref>
+                                                    (full text at the
+                                                    <ref target="https://archive.org/details/cu31924026887152">Internet Archive</ref>
+                                                    ).
+                                                </p>
+                                                <p>
+                                                    The great bulk of publications was written after World War II. Interesting information was
+provided by
+                                                    <ref target="vicav_bibl_002|id==mitchell_t_f_001">Mitchell (1956)</ref>
+                                                    ,
+                                                    <ref target="vicav_bibl_002|id==tomiche_nada_001">Tomiche (1962)</ref>
+                                                    and
+                                                    <ref target="vicav_bibl_002|id==salib_m_b_001">Salib (1981)</ref>
+                                                    .
+Most studies followed rather traditional approaches. An exception is
+                                                    <ref target="vicav_bibl_002|id==wise_hillary_001">Wise’s transformational grammar
+(1975)</ref>
+                                                    . Another very informative monography is Parkinson’s socio-linguistic study on
+                                                    <ref target="vicav_bibl_002|id==parkinson_d_b_001">terms of address in Egyptian Arabic (1985)</ref>
+                                                    .
+                                                </p>
+                                                <p>
+                                                    The most substantial scholarly contributions to our knowledge of the Egyptian dialects
+were made by the German dialectologists Behnstedt and Woidich. Most of their work was done 
+in the 80’s and 90’s of the 20th century. Woidich’s
+                                                    <ref target="vicav_bibl_002|id==Woidich_2006a">grammar (2006) of Cairo 
+Arabic</ref>
+                                                    is the so far most comprehensive in-depth study of this variety.
+                                                </p>
+                                            </div>
+                                            <div type="sampleText">
+                                                <p>
+                                                    A short sample text with POS and translations of lemmas is provided
+                                                    <ref target="vicav_sampletexts|sampleText==cairo_sample_01">here</ref>
+                                                    .
+                                                </p>
+                                            </div>
+                                            <div type="bibliography">
+                                                <p>
+                                                    Until the late twentieth century, the language of the Egyptian capital
+            remained poorly documented. Meanwhile, a number of valuable descriptions 
+            have been published. The amount of literature is quite considerable.
+                                                    <ptr target="vicav_bibl_002|vicavTaxonomy=Cairo"/>
+                                                </p>
+                                            </div>
+                                            <div type="textBooks">
+                                                <p>
+                                                    For generations of learners of spoken Egyptian the course material
+compiled by Abdel-Massih (1978-9) was the main guidance. A more up-to-date textbook is 
+Woidich/Heinen’s
+                                                    <ref target="vicav_bibl_002|id==woidich_heinen_2004a">Kullu tamām! (2004)</ref>
+                                                    . 
+Furthermore, a graded series of textbooks by
+                                                    <ref target="vicav_bibl_002|author=Louis, Samia">Samia Louis</ref>
+                                                    has to be mentioned. In 
+these books, all the reading material is presented in the Arabic script. In addition, they come with high quality CDs.
+                                                </p>
+                                                <p>
+                                                    Two German textbooks should also be highlighted: Woidich’s
+                                                    <ref target="vicav_bibl_002|id==woidich_ahlan_2002">Ahlan wa Sahlan (2002)</ref>
+                                                    actually predates his Kullu tamām!. The sesond one is Ahmed’s
+                                                    <ref target="vicav_bibl_002|id==ahmed_mokhtar_001">Lehrbuch 
+des Ägyptisch-Arabischen (1981)</ref>
+                                                    which unfortunately contains 
+countless typos. Nevertheless, the texts collected there are very helpful, especially for 
+advanced learners.
+                                                </p>
+                                            </div>
+                                            <div type="dictionaries">
+                                                <p>
+                                                    There exist several dictionaries for those who want to study Egyptian Arabic.
+   The hitherto most comprehensive one is
+                                                    <ref target="vicav_bibl_002|id==hinds_martin_001">Hinds/Badawi (Arabic-English)</ref>
+                                                    . It was published 
+   in 1986.
+                                                </p>
+                                                <p>
+                                                    Our site provides a small digital dictionary of Cairo Arabic.
+   It primarily serves didactic purposes. You can access it
+                                                    <ref target="arz_eng_006">here</ref>
+                                                    .
+                                                </p>
+                                                <p>
+                                                    <ref target="vicav_bibl_002|id==spiro_001">Socrates Spiro’s dictionary (1895)</ref>
+                                                    is pretty old.
+As there is not much available in digital form, it is still worth looking at. To access it
+                                                    <ref target="http://archive.org/details/anarabicenglish00spirgoog">click here</ref>
+                                                    .
+                                                </p>
+                                                <p>
+                                                    To obtain a list of Egyptian dictionaries contained in our database
+                                                    <ref target="vicav_bibl_002|vicavTaxonomy=lexicon">click here</ref>
+                                                    .
+                                                </p>
+                                            </div>
+                                            <div type="audioData">
+                                                <p>
+                                                    The Semitic Sound Archive provides five recordings.
+                                                    <ref target="http://www.semarch.uni-hd.de/tondokumente.php43?&amp;ORT_ID=112&amp;lang=de">Follow this link</ref>
+                                                    .
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </body>
+                                </text>
+                            </TEI>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=profile%3D%3DCairo&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_profiles_001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

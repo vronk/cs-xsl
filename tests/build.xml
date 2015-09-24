@@ -1,0 +1,124 @@
+<project name="c_s-xsl-tests" xmlns:if="ant:if" xmlns:unless="ant:unless">
+        <import file="lib/load-ant-contrib.xml"/>
+        <import file="lib/load-diffxml.xml"/>
+        <import file="xsl-1-transform.xml"/>
+        <import file="xsl-2-transform.xml"/>
+
+	<!-- a colon-separated list of relative paths containing the tests to execute: 
+		each should contain one or more subdirectories of the name of the stylesheet which 
+		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
+	<!--<property name="tests" value="../custom-xsl/tunico:../:../fcs"/>-->
+<!--        <property name="tests" value="../:../fcs:../custom-xsl/abacus:../custom-xsl/tunico"/>           -->
+    <property name="tests" value="../"/>
+        
+        <target name="tests" depends="clear-actual">
+            <foreach target="get-xsl-files" param="xsl.dir">
+                <path>
+                    <pathelement path="${tests}"/>
+                </path>
+            </foreach>
+        </target>
+        
+        <target name="get-xsl-files">
+            <foreach target="filter-existing-input" param="xsl.file">
+                <path>
+                    <fileset dir="${xsl.dir}">
+                        <include name="*.xsl"/>
+                    </fileset>
+                </path>
+            </foreach>
+        </target>
+        
+        <target name="filter-existing-input">
+            <basename file="${xsl.file}" suffix=".xsl"
+                      property="test-base.dir"/>
+            <property name="relative-xsl.dir" value="${xsl.dir}" relative="true"/>
+            <property name="test-sub.dir" value=""/>
+            <propertyregex input="${relative-xsl.dir}" regexp="^.*?([/\\].*)$" select="\1"
+                           property="test-sub.dir" override="true"/>
+            <available file="input${test-sub.dir}/${test-base.dir}" type="dir"
+                       property="input-exists.bool"/>
+            <antcall if:true="${input-exists.bool}"
+                     target="do-transforms" inheritall="true"/>
+            <echo unless:set="input-exists.bool">No input found for input${test-sub.dir}/${test-base.dir}</echo>
+        </target>
+        
+        <target name="do-transforms">
+            <echo>${xsl.file} => ${test-base.dir}</echo>
+            <available file="input${test-sub.dir}/${test-base.dir}/xsl-1-processor.properties"
+                       property="have-xsl-1-params.bool"/>
+            <available file="input${test-sub.dir}/${test-base.dir}/xsl-2-processor.properties"
+                       property="have-xsl-2-params.bool"/>
+            <condition property="any-xsl-processor-specified.bool">
+                <or>
+                    <istrue value="${have-xsl-1-params.bool}"/>
+                    <istrue value="${have-xsl-2-params.bool}"/>
+                </or>           
+            </condition>
+            <echo if:true="${have-xsl-1-params.bool}">Using XSL 1.0 (Xalan 2)</echo>
+            <echo if:true="${have-xsl-2-params.bool}">Using XSL 2.0 (saxon 9.4)</echo>
+            <property file="input${test-sub.dir}/${test-base.dir}/xsl-1-processor.properties" 
+                      description="Project specific properties for c_s-xsl transforms 1.0"/>
+            <property file="input${test-sub.dir}/${test-base.dir}/xsl-2-processor.properties" 
+                      description="Project specific properties for c_s-xsl transforms 2.0"/>
+            <property file="input/xsl-processor-default.properties"
+                      description="Default properties for c_s-xsl transforms"/>
+            <echoproperties if:true="${any-xsl-processor-specified.bool}">
+                <propertyset>
+                    <propertyref prefix="c_s-xsl-param."/>
+                </propertyset>
+            </echoproperties>
+            
+            <property name="in.dir" value="input${test-sub.dir}/${test-base.dir}"/>
+            <property name="out.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
+            <property name="includes.pattern" value="**/*.xml"/>
+            <property name="extension.string" value=".xml"/>
+            
+            <antcall if:true="${have-xsl-2-params.bool}" target="c_s-xsl-2-transform" inheritall="true"/>
+            <antcall if:true="${have-xsl-1-params.bool}" target="c_s-xsl-1-transform" inheritall="true"/>
+            
+            <!-- very slow! -->
+            <!--<antcall if:true="${any-xsl-processor-specified.bool}" target="normalize-output" inheritall="true"/>-->
+            <echo unless:true="${any-xsl-processor-specified.bool}">No processor specified</echo>
+            
+            <antcall if:true="${any-xsl-processor-specified.bool}"
+                     target="create-xmldiff-file" inheritall="true"/>
+        </target>
+        
+        <target name="create-xmldiff-file">
+            <basename file="${actual.file}" suffix=".xml"
+                      property="actual-name.string"/>
+            <property name="absolute-expected.dir" location="output-expected${test-sub.dir}\${test-base.dir}"/>
+            <property name="absolute-actual.dir" location="output-actual${test-sub.dir}\${test-base.dir}"/>
+            <diffxml testDirectory="${absolute-expected.dir}" resultDirectory="${absolute-actual.dir}">
+                <fileset dir="${absolute-actual.dir}" includes="*.xml"/>
+            </diffxml>        
+        </target>
+        <!-- very slow! -->
+        <target name="normalize-output" depends="normalize-actual,normalize-expected"/>
+        
+        <target name="normalize-actual">
+            <antcall target="c_s-xsl-2-transform">
+                <param name="in.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
+                <param name="out.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
+                <param name="includes.pattern" value="**/*.xml"/>
+                <param name="extension.string" value=".norm.xml"/>
+                <param name="xsl.file" value="nulltransform.xsl"/>
+            </antcall>
+        </target>
+        
+        <target name="normalize-expected">
+            <antcall target="c_s-xsl-2-transform">
+                <param name="in.dir" value="output-expected${test-sub.dir}/${test-base.dir}"/>
+                <param name="out.dir" value="output-expected${test-sub.dir}/${test-base.dir}"/>
+                <param name="includes.pattern" value="**/*.html"/>
+                <param name="extension.string" value=".norm.xml"/>
+                <param name="xsl.file" value="nulltransform.xsl"/>
+            </antcall>    
+        </target>
+        
+        <target name="clear-actual">
+            <delete dir="output-actual"/>
+            <mkdir dir="output-actual"/>
+        </target>
+</project>

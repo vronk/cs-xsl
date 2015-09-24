@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>4</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>vicavTaxonomy=Sousse</sru:query>
+        <fcs:x-context>vicav_bibl_002</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/BibliographyOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>4</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM vicav_bibl_002 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM vicav_bibl_002_ndx AS tab INNER JOIN (SELECT inner.id FROM vicav_bibl_002_ndx AS `inner` WHERE inner.txt = 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id ) AS ndx WHERE (ndx.txt LIKE '%Sousse%') AND ((ndx.xpath LIKE '%-index-term-vicavTaxonomy-')) GROUP BY ndx.id) AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="saada_1956a">
+                                <analytic>
+                                    <author>Saada, Lucienne</author>
+                                    <title>Introduction à l’étude du parler arabe des Juifs de Sousse</title>
+                                </analytic>
+                                <monogr>
+                                    <title>Cahiers de Tunisie</title>
+                                    <imprint>
+                                        <pubPlace/>
+                                        <date>1956</date>
+                                        <biblScope type="vol">4</biblScope>
+                                        <biblScope type="pp">518-532</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Maghreb</term>
+                                        <term type="vicavTaxonomy">Tunisia</term>
+                                        <term type="vicavTaxonomy">Tunis</term>
+                                        <term type="vicavTaxonomy">Sousse</term>
+                                        <term type="vicavTaxonomy">Sfax</term>
+                                        <term type="vicavTaxonomy">urban dialect</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_31"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="talmoudi_1980a">
+                                <monogr>
+                                    <author>Talmoudi, Fathi</author>
+                                    <title>The Arabic Dialect of Sūsa (Tunisia)</title>
+                                    <imprint>
+                                        <pubPlace>Göteborg</pubPlace>
+                                        <date>1980</date>
+                                    </imprint>
+                                </monogr>
+                                <series>
+                                    <title>Acta Universitatis Gothoburgensis, Orientalia Gothoburgensia</title>
+                                </series>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Maghreb</term>
+                                        <term type="vicavTaxonomy">Tunisia</term>
+                                        <term type="vicavTaxonomy">Tunis</term>
+                                        <term type="vicavTaxonomy">Sousse</term>
+                                        <term type="vicavTaxonomy">Sfax</term>
+                                        <term type="vicavTaxonomy">urban dialect</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_31"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="talmoudi_1981a">
+                                <monogr>
+                                    <author>Talmoudi, Fathi</author>
+                                    <title>Texts in the Arabic dialect of Sūsa (Tunisia). Transcription, translation, notes and glossary</title>
+                                    <imprint>
+                                        <pubPlace>Gothenburg</pubPlace>
+                                        <date>1981</date>
+                                        <biblScope type="pages">166</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <series>
+                                    <title>Acta Universitatis Gothoburgensis</title>
+                                    <biblScope type="issue">8</biblScope>
+                                </series>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Maghreb</term>
+                                        <term type="vicavTaxonomy">Tunisia</term>
+                                        <term type="vicavTaxonomy">Tunis</term>
+                                        <term type="vicavTaxonomy">Sousse</term>
+                                        <term type="vicavTaxonomy">Sfax</term>
+                                        <term type="vicavTaxonomy">urban dialect</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_31"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>3</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <biblStruct xml:id="talmoudi_1986a">
+                                <monogr>
+                                    <author>Talmoudi, Fathi</author>
+                                    <title>A morphosemantic study of romance verbs in the Arabic dialects of Tunis, Sūsa and Sfax. Part I: Derived themes II, III, VI and X</title>
+                                    <imprint>
+                                        <pubPlace>Gothenburg</pubPlace>
+                                        <date>1986</date>
+                                        <biblScope type="pages">131</biblScope>
+                                    </imprint>
+                                </monogr>
+                                <series>
+                                    <title>Acta Universitatis Gothoburgensis, Orientalia Gothoburgensia</title>
+                                    <biblScope type="vol">9</biblScope>
+                                </series>
+                                <note>
+                                    <index>
+                                        <term type="vicavTaxonomy">Maghreb</term>
+                                        <term type="vicavTaxonomy">Tunisia</term>
+                                        <term type="vicavTaxonomy">Tunis</term>
+                                        <term type="vicavTaxonomy">Sousse</term>
+                                        <term type="vicavTaxonomy">Sfax</term>
+                                        <term type="vicavTaxonomy">urban dialect</term>
+                                    </index>
+                                </note>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_03_31"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </biblStruct>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>4</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>
