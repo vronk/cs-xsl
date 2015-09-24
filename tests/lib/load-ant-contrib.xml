@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="load-ant-contrib">
+    <!-- antcontrib setup -->
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+        <classpath>
+            <pathelement location="./lib/ant-contrib-1.0b3.jar"/>
+	</classpath>
+    </taskdef>
+</project>
