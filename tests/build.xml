@@ -8,15 +8,47 @@
 		each should contain one or more subdirectories of the name of the stylesheet which 
 		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
 	<!--<property name="tests" value="../custom-xsl/tunico:../:../fcs"/>-->
-<!--        <property name="tests" value="../:../fcs:../custom-xsl/abacus:../custom-xsl/tunico"/>           -->
-    <property name="tests" value="../"/>
+<!--        <property name="tests" value="../:../fcs:../custom-xsl/abacus:../custom-xsl/tunico"/> :../custom-xsl/abacus          -->
+    <property name="tests" value="../fcs"/>
         
+    <xmlcatalog id="commonDTDs">
+        <!-- most important DTD is the XHTML one. saxon 9.4 tries to download this
+        if it's not in a local cache, which makes things really slow!
+        Furthermore: Interpreting this DTD saxon inserts default attribute which are very unusual to
+        actually find in the wild or known defaults never actually stated. The downloaded
+        expecteds also don't contain these by default.-->
+        <dtd
+            publicid="-//W3C//DTD XHTML 1.0 Transitional//EN"
+            location="dtds/xhtml1-transitional.dtd"/>
+    </xmlcatalog>
+    
         <target name="tests" depends="clear-actual">
             <foreach target="get-xsl-files" param="xsl.dir">
                 <path>
                     <pathelement path="${tests}"/>
                 </path>
             </foreach>
+            <path id="generated-xmls" cache="true">
+                <fileset dir="output-actual" includes="**/*.xml"/>
+            </path>
+            <path id="error-csvs" cache="true">
+               <fileset dir="output-actual" includes="**/*.csv"/>
+            </path>
+            <resourcecount property="xml-output.num">
+                <path refid="generated-xmls"/>
+            </resourcecount>
+            <resourcecount property="error-reports.num">
+                <path refid="error-csvs"/>
+            </resourcecount>
+            <condition property="there-were-errors.bool">
+                <not>
+                    <equals arg1="${error-reports.num}" arg2="0"/>
+                </not>
+            </condition>
+            <pathconvert pathsep="&#xA;" property="error-csvs.string" refid="error-csvs"/>            
+            <echo if:true="${there-were-errors.bool}">${error-csvs.string}
+There were ${error-reports.num} differences between actual and expected (csv reports)
+out of ${xml-output.num} test cases.</echo>
         </target>
         
         <target name="get-xsl-files">
@@ -40,61 +72,131 @@
                        property="input-exists.bool"/>
             <antcall if:true="${input-exists.bool}"
                      target="do-transforms" inheritall="true"/>
+            <path id="test-base-sub-dirs">                
+                <dirset dir="input${test-sub.dir}/${test-base.dir}" includes="*"/>
+            </path>
+            <foreach if:true="${input-exists.bool}" target="do-transforms" param="special-sub.dir" inheritall="true">
+                <path refid="test-base-sub-dirs"/>
+            </foreach>
             <echo unless:set="input-exists.bool">No input found for input${test-sub.dir}/${test-base.dir}</echo>
         </target>
         
         <target name="do-transforms">
-            <echo>${xsl.file} => ${test-base.dir}</echo>
             <available file="input${test-sub.dir}/${test-base.dir}/xsl-1-processor.properties"
                        property="have-xsl-1-params.bool"/>
             <available file="input${test-sub.dir}/${test-base.dir}/xsl-2-processor.properties"
                        property="have-xsl-2-params.bool"/>
+            <available file="${special-sub.dir}/xsl-1-processor.properties"
+                       property="have-xsl-1-special-params.bool"/>
+            <available file="${special-sub.dir}/xsl-2-processor.properties"
+                       property="have-xsl-2-special-params.bool"/>
             <condition property="any-xsl-processor-specified.bool">
                 <or>
                     <istrue value="${have-xsl-1-params.bool}"/>
                     <istrue value="${have-xsl-2-params.bool}"/>
                 </or>           
             </condition>
+            <condition property="verbose-xsl-processor.bool">
+                <and>
+                    <istrue value="${any-xsl-processor-specified.bool}"/>
+                    <istrue value="${transform.verbose.bool}"/>                   
+                </and>
+            </condition>
+            <condition property="verbose-no-processor.bool">
+                <and>
+                    <isfalse value="${any-xsl-processor-specified.bool}"/>
+                    <istrue value="${transform.verbose.bool}"/>                   
+                </and>
+            </condition>
+            <condition property="silent-xsl-processor.bool">
+                <not>
+                    <istrue value="${verbose-xsl-processor.bool}"/>                 
+                </not>
+            </condition>
+            <echo if:true="${verbose-xsl-processor.bool}">${xsl.file} => ${test-base.dir}</echo>
             <echo if:true="${have-xsl-1-params.bool}">Using XSL 1.0 (Xalan 2)</echo>
             <echo if:true="${have-xsl-2-params.bool}">Using XSL 2.0 (saxon 9.4)</echo>
+            <property if:set="special-sub.dir"
+                      file="${special-sub.dir}/xsl-1-processor.properties" 
+                      description="Call specific properties for c_s-xsl transforms 1.0"/>
+            <property if:set="special-sub.dir"
+                      file="${special-sub.dir}/xsl-2-processor.properties" 
+                      description="Call specific properties for c_s-xsl transforms 2.0"/>
             <property file="input${test-sub.dir}/${test-base.dir}/xsl-1-processor.properties" 
                       description="Project specific properties for c_s-xsl transforms 1.0"/>
             <property file="input${test-sub.dir}/${test-base.dir}/xsl-2-processor.properties" 
                       description="Project specific properties for c_s-xsl transforms 2.0"/>
             <property file="input/xsl-processor-default.properties"
                       description="Default properties for c_s-xsl transforms"/>
-            <echoproperties if:true="${any-xsl-processor-specified.bool}">
+            <echoproperties if:true="${verbose-xsl-processor.bool}">
                 <propertyset>
                     <propertyref prefix="c_s-xsl-param."/>
+                    <propertyref prefix="extension."/>
+                    <propertyref prefix="transform."/>
                 </propertyset>
             </echoproperties>
             
-            <property name="in.dir" value="input${test-sub.dir}/${test-base.dir}"/>
+            <property if:set="special-sub.dir" name="in.dir" value="${special-sub.dir}"/>
+            <property unless:set="special-sub.dir" name="in.dir" value="input${test-sub.dir}/${test-base.dir}"/>
             <property name="out.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
-            <property name="includes.pattern" value="**/*.xml"/>
+            <property name="includes.pattern" value="*.xml"/>
             <property name="extension.string" value=".xml"/>
+            
+            <condition property="any-xsl-processor-specified-and-is-xml.bool">
+                <and>
+                    <equals arg1=".xml" arg2="${extension.string}"/>
+                    <istrue value="${any-xsl-processor-specified.bool}"/>
+                </and>                
+            </condition>
+            
+            <condition property="any-xsl-processor-and-not-xml.bool">
+                <and>
+                   <not>
+                      <equals arg1=".xml" arg2="${extension.string}"/> 
+                   </not>
+                   <istrue value="${any-xsl-processor-specified.bool}"/>
+                </and>
+            </condition>
             
             <antcall if:true="${have-xsl-2-params.bool}" target="c_s-xsl-2-transform" inheritall="true"/>
             <antcall if:true="${have-xsl-1-params.bool}" target="c_s-xsl-1-transform" inheritall="true"/>
+            <echo if:true="${verbose-no-processor.bool}">No processor specified</echo>
+                                   
+            <antcall if:true="${any-xsl-processor-specified-and-is-xml.bool}" target="normalize-output" inheritall="true"/>
+            <antcall if:true="${any-xsl-processor-specified-and-is-xml.bool}"
+                target="create-xmldiff-file" inheritall="true"/>
             
-            <!-- very slow! -->
-            <!--<antcall if:true="${any-xsl-processor-specified.bool}" target="normalize-output" inheritall="true"/>-->
-            <echo unless:true="${any-xsl-processor-specified.bool}">No processor specified</echo>
-            
-            <antcall if:true="${any-xsl-processor-specified.bool}"
-                     target="create-xmldiff-file" inheritall="true"/>
+            <foreach if:true="${any-xsl-processor-and-not-xml.bool}" 
+                     target="are-files-equal" param="actual.file"
+                     inheritall="true">
+                <path>
+                    <fileset dir="output-actual${test-sub.dir}\${test-base.dir}">
+                        <include name="*${extension.string}"/>
+                    </fileset>
+                </path>  
+            </foreach>
         </target>
-        
+       
+        <target name="are-files-equal">
+            <basename property="actual.filename" file="${actual.file}"/>
+            <property name="expected.file" value="output-expected${test-sub.dir}/${test-base.dir}/${actual.filename}"/>
+            <condition property="files-are-equal.bool">
+                <filesmatch file1="actual.file" file2="expected.file"/>
+            </condition>
+            <echo unless:true="${files-are-equal.bool}" file="${actual.file}.csv">Files are not equal!</echo>
+        </target>
+       
         <target name="create-xmldiff-file">
-            <basename file="${actual.file}" suffix=".xml"
-                      property="actual-name.string"/>
+            <property name="extension.diff.string" value=".norm"/>            
+            <basename file="${actual.file}" suffix="${extension.diff.string}"
+                property="actual-name.string"/>
             <property name="absolute-expected.dir" location="output-expected${test-sub.dir}\${test-base.dir}"/>
             <property name="absolute-actual.dir" location="output-actual${test-sub.dir}\${test-base.dir}"/>
             <diffxml testDirectory="${absolute-expected.dir}" resultDirectory="${absolute-actual.dir}">
-                <fileset dir="${absolute-actual.dir}" includes="*.xml"/>
+                <fileset dir="${absolute-actual.dir}" includes="*${extension.diff.string}"/>
             </diffxml>        
         </target>
-        <!-- very slow! -->
+
         <target name="normalize-output" depends="normalize-actual,normalize-expected"/>
         
         <target name="normalize-actual">
@@ -102,7 +204,7 @@
                 <param name="in.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
                 <param name="out.dir" value="output-actual${test-sub.dir}/${test-base.dir}"/>
                 <param name="includes.pattern" value="**/*.xml"/>
-                <param name="extension.string" value=".norm.xml"/>
+                <param name="extension.string" value=".xml.norm"/>
                 <param name="xsl.file" value="nulltransform.xsl"/>
             </antcall>
         </target>
@@ -111,8 +213,8 @@
             <antcall target="c_s-xsl-2-transform">
                 <param name="in.dir" value="output-expected${test-sub.dir}/${test-base.dir}"/>
                 <param name="out.dir" value="output-expected${test-sub.dir}/${test-base.dir}"/>
-                <param name="includes.pattern" value="**/*.html"/>
-                <param name="extension.string" value=".norm.xml"/>
+                <param name="includes.pattern" value="**/*.xml"/>
+                <param name="extension.string" value=".xml.norm"/>
                 <param name="xsl.file" value="nulltransform.xsl"/>
             </antcall>    
         </target>

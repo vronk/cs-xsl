@@ -5,3 +5,4 @@
 /tests/failed.txt
 /tests/success.txt
 /tests/nbproject/private/
+/tests/output-expected/custom-xsl/abacus/explain2view_custom/*.norm

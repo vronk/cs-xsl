@@ -1,0 +1,16 @@
+<div xmlns:cr="http://aac.ac.at/content_repository" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" class="explain">
+    <h3>Available indexes</h3>
+    <ul class="indexInfo">
+        <li><a href="./fcs?version=1.2&amp;operation=scan&amp;scanClause=w&amp;x-context=abacus&amp;x-format=html&amp;sort=text&amp;responsePosition=1">Wortformen</a>
+        </li>
+        <li><a href="./fcs?version=1.2&amp;operation=scan&amp;scanClause=lemma&amp;x-context=abacus&amp;x-format=html&amp;sort=text&amp;responsePosition=1">Lemmata</a>
+        </li>
+        <li><a href="./fcs?version=1.2&amp;operation=scan&amp;scanClause=pos&amp;x-context=abacus&amp;x-format=html&amp;maximumTerms=0&amp;responsePosition=1">Wortarten</a>
+        </li>
+        <li><a href="./fcs?version=1.2&amp;operation=scan&amp;scanClause=persName&amp;x-context=abacus&amp;x-format=html&amp;sort=text&amp;maximumTerms=0&amp;responsePosition=1">Personennamen</a>
+        </li>
+        <li><a href="./fcs?version=1.2&amp;operation=scan&amp;scanClause=placeName&amp;x-context=abacus&amp;x-format=html&amp;sort=text&amp;maximumTerms=0&amp;responsePosition=1">Ortsnamen</a>
+        </li>
+    </ul>
+    <div class="div-after"></div>
+</div>

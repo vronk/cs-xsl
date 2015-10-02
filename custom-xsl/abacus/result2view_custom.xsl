@@ -1,11 +1,10 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:saxon="http://saxon.sf.net/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="#all">
-     <xsl:import href="../../fcs/result2view_v1.xsl"/>
-    <xd:doc scope="stylesheet"> 
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:saxon="http://saxon.sf.net/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="#all">
+    <xsl:import href="../../fcs/result2view_v1.xsl"/>
+    <xd:doc scope="stylesheet">
         <xd:desc>Customization for abacus project. copied directly from /db/apps/cr-xq-mets/modules/cs-xsl/fcs/result2view.xsl</xd:desc>
     </xd:doc>
     <xsl:output method="xhtml" media-type="text/html" indent="no" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
-<!--    <xsl:output method="xhtml" omit-xml-declaration="yes" indent="no"/>-->
-    <xsl:include href="../../fcs/../commons_v2.xsl"/>
+    <xsl:include href="../../commons_v2.xsl"/>
     <xsl:include href="../../fcs/data2view_v2.xsl"/>
     <xsl:strip-space elements="*"/>
 <!--    <xsl:preserve-space elements="tei:seg"/>-->
@@ -14,8 +13,7 @@
         <xsl:if test="normalize-space(.)=''"> </xsl:if>
         <xsl:text>***</xsl:text>  
         <xsl:next-match/>  
-    </xsl:template>--> 
-    
+    </xsl:template>-->
     <xsl:template match="w|tei:w|pc|tei:pc" mode="record-data" priority="1">
         <span class="inline-wrap">
             <!-- .attributes immer nur für die _innersten_ w-tags angeben und für jene ignorieren, die descendant w-Tags haben, 
@@ -73,7 +71,6 @@
             </xsl:call-template>
         </span>
     </xsl:template>
-    
     <xsl:template match="*[parent::fcs:DataView/@type='full'][normalize-space(.)='']" mode="record-data">
         <xsl:text>&#160;</xsl:text>
         <xsl:next-match/>
@@ -82,7 +79,6 @@
     <!--<xsl:template match="tei:lb|lb" mode="record-data" priority="1">
         <br/>
     </xsl:template>-->
-
     <xsl:template match="exist:match" mode="record-data" priority="1">
         <xsl:apply-templates select="tei:fw[@type='header']" mode="#current"/>
         <span class="hilight match">
@@ -90,15 +86,10 @@
         </span>
         <xsl:apply-templates select="(tei:fw[@type='footer' or contains(@place,'bot_')]|tei:note[@place='bottom'])" mode="#current"/>
     </xsl:template>
-    
     <xsl:template match="*" mode="inmatch">
         <xsl:apply-templates select="." mode="record-data"/>
     </xsl:template>
-    
     <xsl:template match="fw | tei:fw | seg[@type=('footer','header')] | tei:seg[@type=('footer','header')] | tei:note[@place='bottom']" mode="inmatch"/>
-        
-    
-    
     <xsl:template match="tei:head | head" mode="record-data" priority="1">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -109,7 +100,6 @@
             </xsl:call-template>
         </span>
     </xsl:template>
-    
     <xsl:template match="tei:g[@ref='#bracketsMW']|g[@ref='#bracketsMW']" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -150,8 +140,6 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-    
-    
     <xsl:template match="tei:corr | corr" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -160,19 +148,17 @@
             <a href="#">
                 <xsl:text>[</xsl:text>
                 <span class="tei-{local-name()}-content">
-                   <xsl:apply-templates mode="record-data"/>
+                    <xsl:apply-templates mode="record-data"/>
                 </span>
                 <xsl:text>]</xsl:text>
             </a>
         </span>
     </xsl:template>
-    
     <xsl:template match="tei:ref | ref" mode="record-data">
         <xsl:call-template name="inline">
             <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
         </xsl:call-template>
-    </xsl:template>    
-    
+    </xsl:template>
     <xsl:template match="tei:fw[@type = 'header' or @type = 'footer'] | fw[@type = 'header' or @type = 'footer']" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -190,7 +176,6 @@
             <xsl:value-of select="."/>
         </span>
     </xsl:template>-->
-    
     <xsl:template match="tei:seg[@rend='initialCapital']" mode="record-data" priority="1">
         <xsl:variable name="this" select="."/>
         <!--<xsl:variable name="children">
@@ -218,9 +203,11 @@
                             <xsl:text>)</xsl:text>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:value-of select="concat(*/@lemma,if (*/@ana='#oov') then '*' else())"/>
-                            <br/>
-                            <xsl:value-of select="*/@type"/>
+                            <xsl:for-each select="descendant::*[@lemma]">
+                                <xsl:value-of select="concat(@lemma,if (@ana='#oov') then '*' else())"/>
+                                <br/>
+                                <xsl:value-of select="@type"/>
+                            </xsl:for-each>
                         </xsl:otherwise>
                     </xsl:choose>
                 </span>
@@ -242,7 +229,6 @@
             </span>
         </span>
     </xsl:template>
-    
     <xsl:template match="ptr | tei:ptr" mode="record-data"/>
         
     <!-- fw-template angepasst, daher nicht mehr notwendig -->
@@ -257,7 +243,6 @@
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>-->
-    
     <xsl:template match="tei:g[@ref='#bracketsTC'] | g[@ref='#bracketsTC']" mode="record-data">
         <xsl:variable name="ref" select="@ref"/>
         <xsl:variable name="class">
@@ -268,5 +253,4 @@
         </xsl:if>
         <span class="{$class}" style="font-size:18pt;">)(</span>
     </xsl:template>
-    
 </xsl:stylesheet>
