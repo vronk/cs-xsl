@@ -9,9 +9,8 @@
             <factory name="org.apache.xalan.processor.TransformerFactoryImpl">
                 <attribute name="http://xml.apache.org/xalan/features/optimize" value="true"/>
             </factory>
-            <outputproperty if:set="transform.indent.yesno" name="indent" value="${transform.indent.yesno}"/>
-            <outputproperty if:set="transform.encoding.string" name="encoding" value="${transform.encoding.string}"/>
-            <outputproperty if:set="transform.method.string" name="method" value="${transform.method.string}"/>
+            <outputproperty name="indent" value="${transform.indent.yesno}"/>
+            <outputproperty name="encoding" value="${transform.encoding.string}"/>
             <!\-\- Selects the other of two *Entities.properties files
             (see contents of serializer.jar) that determine what characters are
             replaced in the output. Default would by HTMLEntities for html output. 
@@ -30,7 +29,6 @@
             <!-- See http://saxon.sourceforge.net/saxon6.5/extensions.html#output
             saxon: translates to {http://icl.com/saxon} -->
             <outputproperty name="{http://icl.com/saxon}character-representation" value="native;entity"/>
-            <xmlcatalog refid="commonDTDs"/
             <param name="XDEBUG_SESSION_START" expression="${c_s-xsl-param.XDEBUG_SESSION_START}" type="STRING"/>
             <param name="base_url" expression="${c_s-xsl-param.base_url}" type="STRING"/>
             <param name="contexts_url" expression="${c_s-xsl-param.contexts_url}" type="STRING"/>

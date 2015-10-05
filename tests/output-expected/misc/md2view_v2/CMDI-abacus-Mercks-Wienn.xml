@@ -1,0 +1,256 @@
+<html xmlns:cr="http://aac.ac.at/content_repository" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Mercks Wienn, digitale Ausgabe</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./modules/shared/scripts/style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
+        <link href="./modules/shared/scripts/css/cr.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="./modules/shared/scripts/js/jquery/jquery-1.6.2.js"></script>
+        <script type="text/javascript" src="./modules/shared/scripts/js/jquery/jquery.tablesorter.js"></script>
+    </head>
+    <body>
+        <div class="cmds-ui-block" id="header">
+            <div id="logo"><a href="./"><img src="./static/images/Logo_A_v3_resize65.png" alt="BaC:us" /></a>
+                <div id="site-name">BaC:us</div>
+            </div>
+            <div id="top-menu"><a href="?version=1.2&amp;operation=metadata&amp;x-format=xml">XML</a>
+            </div>
+            <div id="notify" class="cmds-elem-plus note">
+                <div id="notifylist" class="note"></div>
+            </div>
+        </div>
+        <h1>Mercks Wienn, digitale Ausgabe</h1>
+        <div xmlns:cmd="http://www.clarin.eu/cmd/" xmlns="">
+            <div class="cmd-record">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="cmds-xmlelem has-children value-empty"><span class="block label">Header:</span><span class="value">
+        </span>
+                    <div class="cmds-xmlelem  value-text"><span class="inline label">MdCreator:</span><span class="value">ACDH-ÖAW, ABa:Cus-Austrian Baroque Corpus</span>
+                    </div>
+                    <div class="cmds-xmlelem  value-text"><span class="inline label">MdCreationDate:</span><span class="value">2015-02-04</span>
+                    </div>
+                    <div class="cmds-xmlelem  value-text"><span class="inline label">MdSelfLink:</span><span class="value"><a target="_blank" class="external" href="http://hdl.handle.net/11022/0000-0000-2085-5">http://hdl.handle.net/11022/0000-0000-2085-5</a></span>
+                    </div>
+                    <div class="cmds-xmlelem  value-text"><span class="inline label">MdProfile:</span><span class="value">clarin.eu:cr1:p_1380106710826</span>
+                    </div>
+                </div>
+                <div xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" class="resource-links">
+                    <h3>Resource links</h3>
+                    <ul>
+            <li><span class="label">LandingPage: </span><a class="internal" href="http://hdl.handle.net/11022/0000-0000-208E-C" target="_blank">http://hdl.handle.net/11022/0000-0000-208E-C</a>
+                        </li>
+        </ul>
+                </div>
+                <div xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml"><span class="label">Resource is part of: </span>
+            <a class="Metadata" href="http://hdl.handle.net/11022/0000-0000-2090-8" target="_blank">http://hdl.handle.net/11022/0000-0000-2090-8</a>
+        </div>
+                <div xmlns="http://www.w3.org/1999/xhtml" class="cmds-xmlelem has-children value-empty"><span class="block label">teiHeader:</span><span class="value">
+            </span>
+                    <div class="cmds-xmlelem  value-text"><span class="inline label">type:</span><span class="value">text</span>
+                    </div>
+                    <div class="cmds-xmlelem has-children value-empty"><span class="block label">fileDesc:</span><span class="value">
+                </span>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">titleStmt:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">title:</span><span class="value">Mercks Wienn, digitale Ausgabe</span>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">author:</span><span class="value">Abraham â Sancta Clara</span>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">respStmt:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">resp:</span><span class="value">herausgegeben von</span>
+                                </div>
+                                <div class="cmds-xmlelem has-children value-empty"><span class="block label">name:</span><span class="value">
+                            </span>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">name:</span><span class="value">Ulrike Czeitschner</span>
+                                    </div>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">name:</span><span class="value">Claudia Resch</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">respStmt:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">resp:</span><span class="value">unter Mitarbeit von</span>
+                                </div>
+                                <div class="cmds-xmlelem has-children value-empty"><span class="block label">name:</span><span class="value">
+                            </span>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">name:</span><span class="value">Barbara Krautgartner</span>
+                                    </div>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">name:</span><span class="value">Eva Wohlfarter</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">editionStmt:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">funder:</span><span class="value">Institut für Corpuslinguistik und Texttechnologie</span>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">funder:</span><span class="value">Wissenschafts- und Forschungsförderung der Stadt Wien</span>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">funder:</span><span class="value">Jubiläumsfonds der Österreichische Nationalbank</span>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">edition:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">note:</span><span class="value">Vollständig digitalisierte Ausgabe </span>
+                                </div>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">date:</span><span class="value">2015</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">extent:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">num:</span><span class="value">52.009 Tokens</span>
+                                <div class="attributes"><span class="test inline label">@n: </span><span class="value">tokens</span>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">num:</span><span class="value">424 Faksimiles</span>
+                                <div class="attributes"><span class="test inline label">@n: </span><span class="value">images</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">publicationStmt:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">publisher:</span><span class="value">Austrian Centre for Digital Humanities, Österreichische Akademie der Wissenschaften</span>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">pubPlace:</span><span class="value">Wien</span>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">date:</span><span class="value">2015</span>
+                                <div class="attributes"><span class="test inline label">@when: </span><span class="value">2015</span>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">idno:</span><span class="value">abacus2.5</span>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">address:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">street:</span><span class="value">Sonnenfelsgasse 19</span>
+                                </div>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">postCode:</span><span class="value">1010</span>
+                                </div>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">name:</span><span class="value">Wien</span>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">availability:</span><span class="value">
+                        </span>
+                                <div class="attributes"><span class="test inline label">@status: </span><span class="value">restricted</span>
+                                </div>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">licence:</span><span class="value"><a target="_blank" class="external" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></span>
+                                </div>
+                                <div class="cmds-xmlelem has-children value-text"><span class="block label">ab:</span><span class="value"></span>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">seg:</span><span class="value">Die Werke von ABaC:us sind auch als Rohdaten im TEI/XML-Format verfügbar. Bei Interesse kontaktieren Sie bitte das ABaC:us-Team.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">notesStmt:</span><span class="value">
+                    </span>
+                        </div>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">sourceDesc:</span><span class="value">
+                    </span>Abraham â Sancta Clara: Mercks Wienn. Wien, 1680.<div class="cmds-xmlelem has-children value-empty"><span class="block label">biblStruct:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem has-children value-empty"><span class="block label">monogr:</span><span class="value">
+                            </span>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">title:</span><span class="value">Mercks Wienn /</span>
+                                    </div>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">title:</span><span class="value">Das ist
+                        Deß wütenden Todts ein vmbständige Beschreibung
+                        Jn Der berühmten Haubt
+                        vnd Kayserl. Residentz
+                        Statt in Oesterreich. /
+                        Jm sechzehen hundert / vnd
+                        neun vnd sibentzigsten Jahr /
+                        Mit Beyfügung so wol
+                        wissen als gwissen antreffender Lehr.
+                        Zusammen getragen mitten in der
+                        betrangten Statt vnd Zeit /
+                        Von P. Abraham â S. Clara Reformierten
+                        Augustiner Baarfüsser vnd
+                        Kayserlichen Prediger:</span>
+                                    </div>
+                                    <div class="cmds-xmlelem has-children value-empty"><span class="block label">author:</span><span class="value">
+                                </span>
+                                        <div class="cmds-xmlelem  value-text"><span class="inline label">name:</span><span class="value">Abraham â Sancta Clara</span>
+                                        </div>
+                                    </div>
+                                    <div xmlns:xs="http://www.w3.org/2001/XMLSchema" class="imprint">Wien,Peter Paul Vivian,1680</div>
+                                    <div class="cmds-xmlelem has-children value-empty"><span class="block label">extent:</span><span class="value">
+                                </span>
+                                        <div class="cmds-xmlelem  value-text"><span class="inline label">num:</span><span class="value">424 [davon 31 unpagiert, 393 paginiert]</span>
+                                            <div class="attributes"><span class="test inline label">@n: </span><span class="value">pages</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div xmlns:xs="http://www.w3.org/2001/XMLSchema" class="msIdentifier">Stiftsbibliothek Melk (Signatur 48.022)</div>
+                    </div>
+                    </div>
+                    <div class="cmds-xmlelem has-children value-empty"><span class="block label">encodingDesc:</span><span class="value">
+                </span>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">projectDesc:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">vorbereitet im Rahmen eines Forschungsstipendiums der Gemeinde Wien "Barocke literarische Totentänze von und mit Abraham a S. Clara"</span>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">weiterbearbeitet im Rahmen des Projekts "Texttechnologische Methoden zur Analyse österreichischer Barockliteratur", 
+                gefördert vom Jubiläumsfonds der Österreichischen Nationalbank (Nr. 14738)</span>
+                            </div>
+                        </div>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">editorialDecl:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">Der elektronische Text wurde nach den Richtlinien der TEI P5 annotiert.</span>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">correction:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">Korrekturen sind als solche ausgewiesen.</span>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">normalization:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">Die Orthografie des Originals wurde beibehalten.</span>
+                                </div>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">Die Typografie des Originals wurde außer im Falle von Ligaturen, Umlauten und Schaft-s beibehalten.
+                    Längenstriche sind durch den Unicode 305 repräsentiert, der dem jeweiligen Buchstaben nachgestellt ist.</span>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem  value-empty"><span class="inline label">hyphenation:</span><span class="value"></span>
+                                <div class="attributes"><span class="test inline label">@eol: </span><span class="value">all</span>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">interpretation:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">Personennamen, Ortsnamen, Datumsangaben, Zitate und bibliographische Verweise</span>
+                                </div>
+                                <div class="cmds-xmlelem  value-text"><span class="inline label">ab:</span><span class="value">Tokenisierung, PoS-Tagging (54-teiliges Stuttgart-Tübingen-TagSet, Guidelines 1999), Lemmatisierung (Referenzwerke: Duden bzw. Deutsches Wörterbuch von Jacob und Wilhelm Grimm), manuelle Korrektur</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cmds-xmlelem has-children value-empty"><span class="block label">profileDesc:</span><span class="value">
+                </span>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">langUsage:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">language:</span><span class="value">(98%)</span>
+                                <div class="attributes"><span class="test inline label">@ident: </span><span class="value">de</span>
+                                </div>
+                            </div>
+                            <div class="cmds-xmlelem  value-text"><span class="inline label">language:</span><span class="value">(2%)</span>
+                                <div class="attributes"><span class="test inline label">@ident: </span><span class="value">la</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cmds-xmlelem has-children value-empty"><span class="block label">textClass:</span><span class="value">
+                    </span>
+                            <div class="cmds-xmlelem has-children value-empty"><span class="block label">keywords:</span><span class="value">
+                        </span>
+                                <div class="cmds-xmlelem has-children value-empty"><span class="block label">list:</span><span class="value">
+                            </span>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">item:</span><span class="value">Erbauungsliteratur</span>
+                                    </div>
+                                    <div class="cmds-xmlelem  value-text"><span class="inline label">item:</span><span class="value">Älteres Neuhochdeutsch</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

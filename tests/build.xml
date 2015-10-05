@@ -8,8 +8,8 @@
 		each should contain one or more subdirectories of the name of the stylesheet which 
 		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
 	<!--<property name="tests" value="../custom-xsl/tunico:../:../fcs"/>-->
-<!--        <property name="tests" value="../:../fcs:../custom-xsl/abacus:../custom-xsl/tunico"/> :../custom-xsl/abacus          -->
-    <property name="tests" value="../fcs"/>
+    <!--        <property name="tests" value="../:../fcs:../misc:../custom-xsl/abacus:../custom-xsl/tunico"/>           -->
+    <property name="tests" value="../fcs:../custom-xsl/abacus:../misc"/>
         
     <xmlcatalog id="commonDTDs">
         <!-- most important DTD is the XHTML one. saxon 9.4 tries to download this
