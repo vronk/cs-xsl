@@ -69,7 +69,7 @@ sample data:
         </sru:term>
     -->
     <xsl:template match="sru:terms">
-            <xsl:apply-templates select="sru:term"/>
+        <xsl:apply-templates select="sru:term"/>
     </xsl:template>
     <xsl:template match="sru:term">
         <item count="{sru:numberOfRecords}" norm="{(sru:displayTerm, sru:value)[1]}" ><xsl:value-of select="(sru:displayTerm, sru:value)[1]"/></item>

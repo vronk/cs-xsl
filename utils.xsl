@@ -47,6 +47,12 @@
         <xsl:param name="value"/>
         <xsl:value-of select="translate($value,'*/-.'',$@={}:[]()#&gt;&lt; ','XZ__')"/>
     </xsl:function>
+    <xsl:function name="utils:dataset-key">
+        <xsl:param name="dataset"/>
+        <!-- this has to be in sync with  <xsl:template match="ds:dataset" mode="data2table"> in dataset2table.xsl -->
+        <xsl:value-of select="concat(utils:normalize($dataset/(@name,@key,@label)[1] ),$dataset/position())"/>
+        <!--                <a href="#dataset-{@key}" ><xsl:value-of select="(@label,@key)[1]"></xsl:value-of></a> | -->
+    </xsl:function>
     <xd:doc>
         <xd:desc>
             <xd:p>inverts the dataset, i.e. labels will get dataseries and vice versa</xd:p>

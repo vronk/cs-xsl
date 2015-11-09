@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0">
     <xsl:import href="commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling
@@ -21,6 +21,25 @@
             </xsl:message>
         </xsl:if>
         <xsl:copy-of select="if (doc-available(resolve-uri($contexts_url,$base_url))) then doc(resolve-uri($contexts_url,$base_url)) else ()"/>
+    </xsl:template>
+    <xsl:template name="html-with-data">
+        <xsl:param name="payload">
+            <xsl:call-template name="continue-root"/>
+        </xsl:param>
+        <html>
+            <head>
+                <xsl:call-template name="html-head"/>
+                <xsl:call-template name="callback-header"/>
+            </head>
+            <body>
+                <xsl:call-template name="page-header"/>
+                <h1>
+                    <xsl:value-of select="$title"/>
+                </h1>
+                <xsl:apply-templates select="diagnostics"/>
+                <xsl:sequence select="$payload"/>
+            </body>
+        </html>
     </xsl:template>
     <xd:doc>
         <xd:desc>Convenience-wrapper to formURL-template

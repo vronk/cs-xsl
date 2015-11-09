@@ -8,6 +8,7 @@
                 xmlns:exist="http://exist.sourceforge.net/NS/exist"
                 xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
                 xmlns:exsl="http://exslt.org/common"
+                xmlns:cr="http://aac.ac.at/content_repository"
                 version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
@@ -95,24 +96,28 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:Resource" mode="record-data">
-        
+        <xsl:variable name="pid" select="@pid"/>
         <!-- this is quite specialized only for the navigation-ResourceFragments! 
             nav links are created from specialized ResourceFragments[@type=prev|next].
                     Handling via fcs:DataView was based on erroneous data, that provided
                     the resourcefragments wrapped in fcs:DataView           -->
-        <div class="navigation">
+        <!--<div class="navigation">
             <xsl:apply-templates select=".//fcs:ResourceFragment[@type][not(fcs:DataView)]" mode="record-data"/>
-        </div>
-        <xsl:apply-templates select=".//fcs:DataView" mode="record-data"/>
+        </div>-->
+        <xsl:apply-templates select=".//fcs:DataView" mode="record-data">
+            <xsl:with-param name="resource-pid" select="$pid"/>
+        </xsl:apply-templates>
     </xsl:template>
     <xd:doc>
         <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView" mode="record-data">
+        <xsl:param name="resource-pid"/>
+        <xsl:variable name="resourcefragment-pid" select="parent::fcs:ResourceFragment/@pid"/>
            <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
-            <div class="data-view {@type}">
+            <div class="data-view {@type}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
                 <xsl:apply-templates mode="record-data"/>
             </div>
         </xsl:if>
@@ -122,9 +127,10 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView[contains(@type, 'xmlescaped')]" mode="record-data">
+        <xsl:param name="resource-pid"/>
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
         <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
-            <div class="data-view {@type}">
+            <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
                 <textarea rows="25" cols="80">
                     <xsl:apply-templates mode="record-data"/>
                 </textarea>
@@ -136,20 +142,33 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView[@ref][not(@ref='')]" mode="record-data">
-        <div class="data-view {@type}">
+        <xsl:param name="resource-pid"/>
+        <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
             <a href="{@ref}">
                 <xsl:value-of select="@type"/>
             </a>
         </div>
     </xsl:template>
-    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs')]" mode="record-data" priority="10">
-        <div class="data-view {@type}">
-            <xsl:call-template name="generateImg">
-                <xsl:with-param name="ref" select="@ref"/>
-            </xsl:call-template>
+    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]" mode="record-data" priority="10">
+        <xsl:param name="resource-pid"/>
+        <xsl:param name="linkTo"/>
+        <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
+            <xsl:choose>
+                <xsl:when test="$linkTo!=''">
+                    <a href="{$linkTo}">
+                        <xsl:call-template name="generateImg">
+                            <xsl:with-param name="ref" select="@ref"/>
+                        </xsl:call-template>
+                    </a>
+                </xsl:when>
+            <xsl:otherwise>
+                    <xsl:call-template name="generateImg">
+                        <xsl:with-param name="ref" select="@ref"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
         </div>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Generic handler for image references passed by the facs data view
         <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
@@ -158,12 +177,12 @@
     <xsl:template name="generateImg">
         <xsl:choose>
             <xsl:when test="@ref">
-                <img src="@ref" alt="@ref"/>
-                </xsl:when>
-                <xsl:otherwise>
+                <img src="{@ref}" alt="{@ref}"/>
+            </xsl:when>
+            <xsl:otherwise>
                 <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
-                </xsl:otherwise>
-            </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
  <!-- better hide the fullview (the default view is too much)
@@ -180,7 +199,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:ResourceFragment[@type]" mode="record-data">
-        <a href="{@ref}&amp;x-format={$format}" rel="{@type}" class="{@type}">
+        <xsl:variable name="link-text">
             <xsl:choose>
                 <xsl:when test="@label">
                     <xsl:value-of select="@label"/>
@@ -189,6 +208,9 @@
                     <xsl:value-of select="@pid"/>
                 </xsl:otherwise>
             </xsl:choose>
+        </xsl:variable>
+        <a href="{@ref}&amp;x-format={$format}" rel="{@type}" class="{@type}" title="{$link-text}">
+            <xsl:value-of select="$link-text"/>
         </a>
     </xsl:template>
     
@@ -282,6 +304,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="inline">
+        <xsl:param name="descendants-to-ignore"/>
         <xsl:variable name="elem-link">
             <xsl:call-template name="elem-link"/>
         </xsl:variable>
@@ -306,10 +329,17 @@
             <!-- This genereates CSS class attributes for HTML elements. As far as I know
                 it doesn't matter if the class is specified once or n-times so for 1.0 just forget
                 about distinct-values() for now and let's see -->
-            <xsl:for-each select="descendant-or-self::*">
+            <!--<xsl:for-each select="descendant-or-self::*">
                 <xsl:value-of select="name(.)"/>
                 <xsl:text> </xsl:text>
-            </xsl:for-each>
+            </xsl:for-each>-->
+            <xsl:value-of select="local-name(.)"/>
+            <xsl:if test="@type">
+                <xsl:value-of select="concat(' ',@type)"/>
+            </xsl:if>
+            <xsl:if test="@subtype">
+                <xsl:value-of select="concat(' ',@subtype)"/>
+            </xsl:if>
         </xsl:variable>
         <xsl:variable name="inline-elem">
             <xsl:choose>
@@ -328,7 +358,7 @@
             </xsl:choose>
         </xsl:variable>
         <span class="inline-wrap">
-            <xsl:if test="descendant-or-self::*/@*">
+            <xsl:if test="descendant-or-self::*">
                 <span class="attributes" style="display:none;">
                     <table>
                         <tr>

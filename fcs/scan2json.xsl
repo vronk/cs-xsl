@@ -5,13 +5,14 @@
                 xmlns:sru="http://www.loc.gov/zing/srw/"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:fcs="http://clarin.eu/fcs/1.0"
+                xmlns:cr="http://aac.ac.at/content_repository"
                 xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
                 xmlns:exsl="http://exslt.org/common"              
                 version="1.0">
 <xd:doc scope="stylesheet">
-    <xd:desc>
+        <xd:desc>
     generate a json object of the scanResponse 
-        <xd:p>Output:</xd:p>
+            <xd:p>Output:</xd:p>
 <xd:pre>
      {index:"$scanClause", count:"$countTerms",
       terms: [{label:"label1", value:"value1", count:"#number"}, ...]            
@@ -44,18 +45,18 @@
     &lt;/sru:echoedScanRequest>        
  &lt;/sru:scanResponse>
 </xd:pre>
-    </xd:desc>
+        </xd:desc>
 </xd:doc>
     <xsl:output indent="no" method="text" media-type="application/json" encoding="UTF-8"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xd:doc>
         <xd:desc>Sort output by
-        <xd:ul>
-            <xd:li>s=size</xd:li>
-            <xd:li>n=name</xd:li>
-            <xd:li>t=time</xd:li>
-            <xd:li>x=default</xd:li>
-        </xd:ul>
+            <xd:ul>
+                <xd:li>s=size</xd:li>
+                <xd:li>n=name</xd:li>
+                <xd:li>t=time</xd:li>
+                <xd:li>x=default</xd:li>
+            </xd:ul>
         </xd:desc>
     </xd:doc>
     <xsl:param name="sort">x</xsl:param>
@@ -87,8 +88,8 @@
     </xsl:template>
 
 <xd:doc>
-    <xd:desc>Converts a single term to json format
-        <xd:p> sample data: </xd:p>
+        <xd:desc>Converts a single term to json format
+            <xd:p> sample data: </xd:p>
 <xd:pre>
         &lt;sru:term>
         &lt;sru:value>cartesian&lt;/sru:value>
@@ -97,7 +98,7 @@
         &lt;sru:extraTermData>&lt;/sru:extraTermData>
         &lt;/sru:term>
 </xd:pre>
-    </xd:desc>
+        </xd:desc>
 </xd:doc>
     <xsl:template match="sru:terms">
         <xsl:text>
@@ -119,11 +120,15 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:text>{"value": "</xsl:text>
-        <xsl:value-of select="translate(normalize-space(sru:value),'&#34;','')"/>
+        <xsl:value-of select="concat(sru:extraTermData/cr:type, '=\&#34;', translate(normalize-space(sru:value),'&#34;',''), '\&#34;')"/>
         <xsl:text>", </xsl:text>
         <xsl:text>"label": "</xsl:text>
-        <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="sru:numberOfRecords"/>
-        <xsl:text>|", </xsl:text>
+        <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/>
+        <!--|<xsl:value-of select="sru:numberOfRecords"/>
+        <xsl:text>| </xsl:text>-->
+        <xsl:text>", "index": "</xsl:text>
+        <xsl:value-of select="sru:extraTermData/cr:type/@l"/>
+        <xsl:text>", </xsl:text>
         <xsl:text>"count": "</xsl:text>
         <xsl:value-of select="sru:numberOfRecords"/>
         <xsl:text>"}</xsl:text>

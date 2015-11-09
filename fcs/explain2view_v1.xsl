@@ -13,16 +13,16 @@
     <xsl:import href="../commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>generate a view for the explain-record (http://www.loc.gov/standards/sru/specs/explain.html) </xd:desc>
-    </xd:doc> 
+    </xd:doc>
     <xd:doc>
         <xd:desc/>
     </xd:doc>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
-    
     <xsl:param name="lang" select="'en'"/>
-    
+    <xsl:import href="../commons_v1.xsl"/>
+    <xsl:output method="html"/>
+    <xsl:param name="lang" select="'de'"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-    
     <xd:doc>
         <xd:desc>Called from common_v1.xsl to present a title string
         <xd:p>
@@ -67,7 +67,7 @@
         
         <!--<div class="explain-view">
             <xsl:apply-templates select="." mode="format-xmlelem"/>
-            </div>-->
+        </div>-->
     </xsl:template>
     
     <xsl:template match="sru:version" mode="verbose">
@@ -90,8 +90,10 @@
     
     <xsl:template match="zr:serverInfo" mode="verbose">
         <div class="zr-serverInfo">
-            <p>Host: <xsl:value-of select="zr:host"/>:<xsl:value-of select="zr:port"/></p>
-            <p>Database: <xsl:value-of select="zr:database"/></p>
+            <p>Host: <xsl:value-of select="zr:host"/>:<xsl:value-of select="zr:port"/>
+            </p>
+            <p>Database: <xsl:value-of select="zr:database"/>
+            </p>
         </div>
     </xsl:template>
     
@@ -146,9 +148,9 @@
         </li>
     </xsl:template>
     <!--
-        <xsl:template match="*[@lang]" >
+    <xsl:template match="*[@lang]" >
         
-        </xsl:template>-->
+    </xsl:template>-->
     
     <xd:doc>
         <xd:desc>In verbose mode first display the list and then the 
@@ -161,8 +163,10 @@
     
     <xsl:template match="zr:configInfo" mode="verbose">
         <div class="zr-serverInfo">
-            <p>Default number of records: <xsl:value-of select="zr:default[@type='numberOfRecords']"/></p>
-            <p>Settings: maximum records returned: <xsl:value-of select="zr:setting[@type='maximumRecords']"/>, result TTL: <xsl:value-of select="zr:setting[@type='resultSetTTL']"/></p>
+            <p>Default number of records: <xsl:value-of select="zr:default[@type='numberOfRecords']"/>
+            </p>
+            <p>Settings: maximum records returned: <xsl:value-of select="zr:setting[@type='maximumRecords']"/>, result TTL: <xsl:value-of select="zr:setting[@type='resultSetTTL']"/>
+            </p>
         </div>
     </xsl:template>
     
@@ -172,7 +176,9 @@
     </xd:doc>
     <xsl:template match="text()" mode="verbose">
         <xsl:if test="normalize-space(.) != ''">
-            <xsl:comment><xsl:value-of select="."/></xsl:comment>
+            <xsl:comment>
+                <xsl:value-of select="."/>
+            </xsl:comment>
         </xsl:if>
     </xsl:template>
     

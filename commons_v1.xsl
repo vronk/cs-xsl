@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" extension-element-prefixes="diag sru fcs exsl">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" extension-element-prefixes="diag sru fcs cr exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling.
             <xd:p>History:
@@ -218,9 +218,14 @@
     <xsl:template name="formURL">
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
+        <xsl:param name="sort" select="$sort"/>
+        <xsl:param name="md-format" select="'CMDI'"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
+        <xsl:param name="responsePosition" select="1"/>
+        <xsl:param name="maximumTerms" select="$maximumTerms"/>
+        <xsl:param name="x-filter" select="$x-filter"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:variable name="param_q">
@@ -233,15 +238,18 @@
                 <xsl:value-of select="concat('&amp;x-format=',$format)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_sort">
+            <xsl:if test="$sort != ''">
+                <xsl:value-of select="concat('&amp;sort=',$sort)"/>
+            </xsl:if>
+        </xsl:variable>
         <xsl:variable name="param_x-context">
 <!--            if action=explain, handle-q param as x-context-->
             <xsl:choose>
                 <xsl:when test="$action='explain'">
                     <xsl:value-of select="concat('&amp;x-context=',$q)"/>
                 </xsl:when>
-                <!--<xsl:when test="$x-context != '' ">
-                    <xsl:value-of select="concat('&x-context=',$x-context)"/>
-                </xsl:when>-->
+                <xsl:when test="$x-context = '' "/>
                 <xsl:otherwise>
                     <xsl:value-of select="concat('&amp;x-context=',$x-context)"/>
                 </xsl:otherwise>
@@ -257,23 +265,39 @@
                 <xsl:value-of select="concat('&amp;maximumRecords=',$maximumRecords)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_maximumTerms">
+            <xsl:if test="$maximumTerms != ''">
+                <xsl:value-of select="concat('&amp;maximumTerms=',$maximumTerms)"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:variable name="param_responsePosition">
+            <xsl:if test="$responsePosition != ''">
+                <xsl:value-of select="concat('&amp;responsePosition=',$responsePosition)"/>
+            </xsl:if>
+        </xsl:variable>
         <xsl:variable name="param_scanClause">
             <xsl:if test="$scanClause != ''">
                 <xsl:value-of select="concat('&amp;scanClause=',$scanClause)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_filter">
+            <xsl:if test="$x-filter != ''">
+                <xsl:value-of select="concat('&amp;x-filter=',$x-filter)"/>
+            </xsl:if>
+        </xsl:variable>
+        
         <xsl:choose>
             <xsl:when test="$action='get-data'">
                 <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
             </xsl:when>
             <xsl:when test="$action='get-metadata'">
-                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata', translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'))"/>
             </xsl:when>
             <xsl:when test="$action='explain'">
                 <xsl:value-of select="concat($base_url, 'fcs?version=1.2&amp;operation=',$action, $param_x-context, $param_format)"/>
             </xsl:when>
             <xsl:when test="$action='scan'">
-                <xsl:value-of select="concat($base_url, 'fcs?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format)"/>
+                <xsl:value-of select="concat($base_url, 'fcs?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_sort, $param_maximumTerms, $param_responsePosition)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat('?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format)"/>
