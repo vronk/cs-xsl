@@ -1,0 +1,40 @@
+<sru:scanResponse xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:terms>
+        <sru:term>
+            <sru:value>zwölftausend</sru:value>
+            <sru:displayTerm>zwölftausend</sru:displayTerm>
+            <sru:numberOfRecords>2</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>13501</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>Zypern</sru:value>
+            <sru:displayTerm>Zypern</sru:displayTerm>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>13502</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>Z’diarsky</sru:value>
+            <sru:displayTerm>Z’diarsky</sru:displayTerm>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>13503</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+    </sru:terms>
+    <sru:extraResponseData>
+        <fcs:countTerms level="top">1</fcs:countTerms>
+        <fcs:countTerms level="total">13503</fcs:countTerms>
+        <fcs:indexLabel>Lemmata</fcs:indexLabel>
+    </sru:extraResponseData>
+    <sru:echoedScanRequest>
+        <sru:scanClause>lemma=zwölftausend</sru:scanClause>
+        <sru:maximumTerms>50</sru:maximumTerms>
+        <fcs:x-context>abacus</fcs:x-context>
+        <fcs:x-filter/>
+    </sru:echoedScanRequest>
+</sru:scanResponse>

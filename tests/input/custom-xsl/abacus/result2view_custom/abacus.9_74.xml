@@ -13,7 +13,7 @@
     </sru:echoedSearchRetrieveRequest>
     <sru:extraResponseData>
         <fcs:returnedRecords xmlns:fcs="http://clarin.eu/fcs/1.0">1</fcs:returnedRecords>
-        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.031S PT0.075S</fcs:duration>
+        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.009S PT0.021S</fcs:duration>
         <fcs:transformedQuery xmlns:fcs="http://clarin.eu/fcs/1.0">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.9_74&lt;/phrase&gt;&lt;/query&gt;)]</fcs:transformedQuery>
     </sru:extraResponseData>
     <sru:records>

@@ -1,0 +1,32 @@
+<sru:scanResponse xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:terms>
+        <sru:term>
+            <sru:value>zwölffte</sru:value>
+            <sru:displayTerm>zwölffte</sru:displayTerm>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>23157</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>z’diarsky</sru:value>
+            <sru:displayTerm>Z’diarsky</sru:displayTerm>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>23158</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+    </sru:terms>
+    <sru:extraResponseData>
+        <fcs:countTerms level="top">1</fcs:countTerms>
+        <fcs:countTerms level="total">23158</fcs:countTerms>
+        <fcs:indexLabel>Wortformen</fcs:indexLabel>
+    </sru:extraResponseData>
+    <sru:echoedScanRequest>
+        <sru:scanClause>w=zwölffte</sru:scanClause>
+        <sru:maximumTerms>50</sru:maximumTerms>
+        <fcs:x-context>abacus</fcs:x-context>
+        <fcs:x-filter/>
+    </sru:echoedScanRequest>
+</sru:scanResponse>

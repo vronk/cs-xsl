@@ -1,0 +1,226 @@
+<sru:searchRetrieveResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>42</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>lemma="gar"</sru:query>
+        <fcs:x-context xmlns:fcs="http://clarin.eu/fcs/1.0">abacus.5</fcs:x-context>
+        <fcs:x-dataview xmlns:fcs="http://clarin.eu/fcs/1.0">title,facets,kwic</fcs:x-dataview>
+        <sru:startRecord>1</sru:startRecord>
+        <sru:maximumRecords>10</sru:maximumRecords>
+        <sru:query>lemma="gar"</sru:query>
+        <sru:baseUrl/>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords xmlns:fcs="http://clarin.eu/fcs/1.0">10</fcs:returnedRecords>
+        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.018S PT0.274S</fcs:duration>
+        <fcs:transformedQuery xmlns:fcs="http://clarin.eu/fcs/1.0">descendant-or-self::tei:w[@lemma][not(@lemma='(span)')][not(matches(@lemma,'^\d'))][@lemma='gar']</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_10" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_10&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e1035">
+                        <fcs:DataView type="title">Lösch Wienn, Widmung [S. 2]</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... tnuß durchlöchert wie ein Süb / daß so  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> nichts darinn hafftet / als wann sic ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_10"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e1035</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_12" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_12&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e1757">
+                        <fcs:DataView type="title">Lösch Wienn, Widmung [S. 4]</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... igen / wie es dann vermuthlich ist von  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> vielen / so durch verwichne Pest von ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_12"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e1757</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_56" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_56&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e21491">
+                        <fcs:DataView type="title">Lösch Wienn, S. 32</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... selben gezehlt seyn worden (vielleicht  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> keine!) welche ohne das flam̅ende sc ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>3</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_56"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e21491</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_80" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_80&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e33185">
+                        <fcs:DataView type="title">Lösch Wienn, S. 56</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">...  zu einem Handelsmann kommen / als der  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> sein guter Freund ware / vnnd wolte  ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>4</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_80"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e33185</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_98" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_98&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e42502">
+                        <fcs:DataView type="title">Lösch Wienn, S. 74</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... ahl gefüeterte KinderHertzen! ich weiß  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> wohl / das bey euch das Neue klingt  ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>5</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_98"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e42502</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_99" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_99&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e42859">
+                        <fcs:DataView type="title">Lösch Wienn, S. 75</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... in Blut verkehren / thäte aber solches  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> manierlich vnd weißlich von sich sch ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>6</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_99"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e42859</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_100" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_100&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e43593">
+                        <fcs:DataView type="title">Lösch Wienn, S. 76</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... n lange Hälß vnd kurtzen Verstand / ja  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> kein / gleichwohl seynd sie gegen ih ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>7</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_100"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e43593</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_107" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_107&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e46843">
+                        <fcs:DataView type="title">Lösch Wienn, S. 83</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... diser Mörder ware / soll ohnverzüglich  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> ohne Fegfeuer den gerade̅ Weeg in da ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>8</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_107"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e46843</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_109" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_109&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e47846">
+                        <fcs:DataView type="title">Lösch Wienn, S. 85</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">... ises ist die Ursach / daß er so behend  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> ohne Fegfeuer in Himmel kommen / vnd ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>9</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_109"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e47846</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_130" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_130&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e58382">
+                        <fcs:DataView type="title">Lösch Wienn, S. 106</fcs:DataView>
+                        <fcs:DataView type="facets"/>
+                        <fcs:DataView type="kwic">
+                            <fcs:c type="left">...  vergessen in den H. Messen / dann ihr  </fcs:c>
+                            <fcs:kw>gar</fcs:kw>
+                            <fcs:c type="right"> wohl bewust ware / daß man die geübr ...</fcs:c>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>10</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_130"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e58382</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:facetedResults>
+        <sru:facet>
+            <sru:terms>
+                <sru:term>
+                    <sru:actualTerm>Lösch Wienn</sru:actualTerm>
+                    <sru:query>abacus.5</sru:query>
+                    <sru:requestUrl>?operation=searchRetrieve&amp;query=lemma="gar"&amp;x-context=abacus.5</sru:requestUrl>
+                    <sru:count>42</sru:count>
+                </sru:term>
+                <sru:facetDisplayLabel>Resource</sru:facetDisplayLabel>
+                <sru:index>fcs.resource</sru:index>
+                <sru:relation>=</sru:relation>
+            </sru:terms>
+        </sru:facet>
+    </sru:facetedResults>
+</sru:searchRetrieveResponse>

@@ -1,0 +1,181 @@
+<sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.1</sru:version>
+    <sru:record>
+        <sru:recordSchema>http://explain.z3950.org/dtd/2.1/</sru:recordSchema>
+        <sru:recordPacking>xml</sru:recordPacking>
+        <sru:recordData>
+            <zr:explain xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zr="http://explain.z3950.org/dtd/2.0/" xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/ file:/C:/Users/m/3lingua/corpus_shell/_repo2/corpus_shell/fcs/schemas/zeerex-2.0.xsd" authoritative="false" id="id1">
+                <zr:serverInfo protocol="SRU" version="1.2" transport="http">
+                    <zr:host>./</zr:host>
+                    <zr:port>80</zr:port>
+                    <zr:database/>
+                </zr:serverInfo>
+                <zr:databaseInfo>
+                    <zr:title lang="en" primary="true"> - </zr:title>
+                    <zr:description lang="en" primary="true"/>
+                    <zr:author/>
+                    <zr:contact/>
+                </zr:databaseInfo>
+                <zr:metaInfo>
+                    <zr:dateModified>TODO</zr:dateModified>
+                </zr:metaInfo>
+                <zr:indexInfo>
+                    <zr:set identifier="isocat.org/datcat" name="isocat">
+                        <zr:title>ISOcat data categories</zr:title>
+                    </zr:set>
+                    <zr:set identifier="clarin.eu/fcs" name="fcs">
+                        <zr:title>CLARIN - Federated Content Search</zr:title>
+                    </zr:set><!-- <index search="true" scan="true" sort="false">
+            <title lang="en">Resource</title>
+            <map>
+                <name set="fcs">resource</name>
+            </map>
+        </index> -->
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">rf</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">rf</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">fcs.resource</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">fcs.resource</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">fcs.rf</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">fcs.rf</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">fcs.toc</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">fcs.toc</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">fcs.r</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">fcs.r</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">facs</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">facs</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">md.get-data-is-restricted</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">md.get-data-is-restricted</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="true" sort="false" cr:type="flat">
+                        <zr:title lang="en">Wortformen</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">w</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="true" sort="false" cr:type="flat">
+                        <zr:title lang="en">Lemmata</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">lemma</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="true" sort="text" cr:type="nested">
+                        <zr:title lang="en">Wortarten</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">pos</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="size" cr:type="nested">
+                        <zr:title lang="en">Wortart-typ</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">posType</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="text" cr:type="flat">
+                        <zr:title lang="en">Wortart-typ</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">posSubtype</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">Kapitel</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">chapter</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">front</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">front</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">back</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">back</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">index</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">index</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">cr:id</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">cr:id</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">cql.serverChoice</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">cql.serverChoice</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="true" sort="false" cr:type="nested">
+                        <zr:title lang="en">Personennamen</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">persName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">persType</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">persType</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="true" sort="false" cr:type="nested">
+                        <zr:title lang="en">Ortsnamen</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">placeName</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">placeType</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">placeType</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index xmlns:cr="http://aac.ac.at/content_repository" search="true" scan="false" sort="false" cr:type="flat">
+                        <zr:title lang="en">placeSubtype</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">placeSubtype</zr:name>
+                        </zr:map>
+                    </zr:index>
+                </zr:indexInfo>
+                <zr:schemaInfo><!--    <schema identifier="clarin.eu/cmd" location="" name="cmd" retrieve="true">
+            <title lang="en">Component Metadata</title>
+        </schema> --></zr:schemaInfo>
+                <zr:configInfo><!-- should translate to x-cmd-context extension-parameter if correctly interpreted: http://explain.z3950.org/dtd/commentary.html#8 
+                    or shall we rather directly write: x-cmd-context or x-fcs-context --><!--        <supports type="extraSearchData">cmd context</supports> --></zr:configInfo>
+            </zr:explain>
+        </sru:recordData>
+    </sru:record>
+</sru:explainResponse>

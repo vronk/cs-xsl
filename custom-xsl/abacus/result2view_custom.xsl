@@ -3,8 +3,7 @@
     <xd:doc scope="stylesheet">
         <xd:desc>Customization for abacus project. copied directly from /db/apps/cr-xq-mets/modules/cs-xsl/fcs/result2view.xsl</xd:desc>
     </xd:doc>
-    <!--<xsl:output method="xhtml" media-type="text/html" indent="no" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>-->
-    <xsl:output method="xhtml" omit-xml-declaration="yes" indent="no"/>
+    <xsl:output method="xhtml" media-type="text/html" indent="no" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
     <xsl:include href="../../commons_v2.xsl"/>
     <xsl:include href="../../fcs/data2view_v2.xsl"/>
     <xsl:strip-space elements="*"/>

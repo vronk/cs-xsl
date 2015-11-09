@@ -1,0 +1,158 @@
+<CMD xmlns:dcr="http://www.isocat.org/ns/dcr" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:ann="http://www.clarin.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.clarin.eu/cmd/" xsi:schemaLocation="http://www.clarin.eu/cmd/ http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1380106710826/xsd" CMDVersion="1.1">
+    <Header>
+        <MdCreator>ACDH-ÖAW, ABa:Cus-Austrian Baroque Corpus</MdCreator>
+        <MdCreationDate>2015-02-04</MdCreationDate>
+        <MdSelfLink>http://hdl.handle.net/11022/0000-0000-2085-5</MdSelfLink>
+        <MdProfile>clarin.eu:cr1:p_1380106710826</MdProfile>
+        <MdCollectionDisplayName/>
+    </Header>
+    <Resources>
+        <ResourceProxyList>
+            <ResourceProxy id="abacus.1">
+                <ResourceType>LandingPage</ResourceType>
+                <ResourceRef>http://hdl.handle.net/11022/0000-0000-208E-C</ResourceRef>
+            </ResourceProxy>
+        </ResourceProxyList>
+        <JournalFileProxyList/>
+        <ResourceRelationList/>
+        <IsPartOfList>
+            <IsPartOf>http://hdl.handle.net/11022/0000-0000-2090-8</IsPartOf>
+        </IsPartOfList>
+    </Resources>
+    <Components>
+        <teiHeader>
+            <type>text</type>
+            <fileDesc>
+                <titleStmt>
+                    <title>Mercks Wienn, digitale Ausgabe</title>
+                    <author>Abraham â Sancta Clara</author>
+                    <respStmt>
+                        <resp>herausgegeben von</resp>
+                        <name>
+                            <name>Ulrike Czeitschner</name>
+                            <name>Claudia Resch</name>
+                        </name>
+                    </respStmt>
+                    <respStmt>
+                        <resp>unter Mitarbeit von</resp>
+                        <name>
+                            <name>Barbara Krautgartner</name>
+                            <name>Eva Wohlfarter</name>
+                        </name>
+                    </respStmt>
+                </titleStmt>
+                <editionStmt>
+                    <funder>Institut für Corpuslinguistik und Texttechnologie</funder>
+                    <funder>Wissenschafts- und Forschungsförderung der Stadt Wien</funder>
+                    <funder>Jubiläumsfonds der Österreichische Nationalbank</funder>
+                    <edition>
+                        <note>Vollständig digitalisierte Ausgabe </note>
+                        <date>2015</date>
+                    </edition>
+                </editionStmt>
+                <extent>
+                    <num n="tokens">52.009 Tokens</num>
+                    <num n="images">424 Faksimiles</num>
+                </extent>
+                <publicationStmt>
+                    <publisher>Austrian Centre for Digital Humanities, Österreichische Akademie der Wissenschaften</publisher>
+                    <pubPlace>Wien</pubPlace>
+                    <date when="2015">2015</date>
+                    <idno>abacus2.5</idno>
+                    <address>
+                        <street>Sonnenfelsgasse 19</street>
+                        <postCode>1010</postCode>
+                        <name>Wien</name>
+                    </address>
+                    <availability status="restricted">
+                        <licence>http://creativecommons.org/licenses/by-nc-sa/3.0/</licence>
+                        <ab>
+                            <seg>Die Werke von ABaC:us sind auch als Rohdaten im TEI/XML-Format verfügbar. Bei Interesse kontaktieren Sie bitte das ABaC:us-Team.</seg>
+                        </ab>
+                    </availability>
+                </publicationStmt>
+                <notesStmt>
+                    <note/>
+                </notesStmt>
+                <sourceDesc>
+                    <bibl>Abraham â Sancta Clara: Mercks Wienn. Wien, 1680.</bibl>
+                    <biblStruct>
+                        <monogr>
+                            <title>Mercks Wienn /</title>
+                            <title>Das ist
+                        Deß wütenden Todts ein vmbständige Beschreibung
+                        Jn Der berühmten Haubt
+                        vnd Kayserl. Residentz
+                        Statt in Oesterreich. /
+                        Jm sechzehen hundert / vnd
+                        neun vnd sibentzigsten Jahr /
+                        Mit Beyfügung so wol
+                        wissen als gwissen antreffender Lehr.
+                        Zusammen getragen mitten in der
+                        betrangten Statt vnd Zeit /
+                        Von P. Abraham â S. Clara Reformierten
+                        Augustiner Baarfüsser vnd
+                        Kayserlichen Prediger:</title>
+                            <author>
+                                <name>Abraham â Sancta Clara</name>
+                            </author>
+                            <imprint>
+                                <pubPlace>Wien</pubPlace>
+                                <publisher>Peter Paul Vivian</publisher>
+                                <date when="1680">1680</date>
+                            </imprint>
+                            <extent>
+                                <num n="pages">424 [davon 31 unpagiert, 393 paginiert]</num>
+                            </extent>
+                        </monogr>
+                    </biblStruct>
+                    <msDesc>
+                        <msIdentifier>
+                            <settlement>Melk</settlement>
+                            <institution>Stift Melk</institution>
+                            <repository>Stiftsbibliothek Melk</repository>
+                            <idno type="signatory">48.022</idno>
+                        </msIdentifier>
+                    </msDesc>
+                </sourceDesc>
+            </fileDesc>
+            <encodingDesc>
+                <projectDesc>
+                    <ab>vorbereitet im Rahmen eines Forschungsstipendiums der Gemeinde Wien "Barocke literarische Totentänze von und mit Abraham a S. Clara"</ab>
+                    <ab>weiterbearbeitet im Rahmen des Projekts "Texttechnologische Methoden zur Analyse österreichischer Barockliteratur", 
+                gefördert vom Jubiläumsfonds der Österreichischen Nationalbank (Nr. 14738)</ab>
+                </projectDesc>
+                <editorialDecl>
+                    <ab>Der elektronische Text wurde nach den Richtlinien der TEI P5 annotiert.</ab>
+                    <correction>
+                        <ab>Korrekturen sind als solche ausgewiesen.</ab>
+                    </correction>
+                    <normalization>
+                        <ab>Die Orthografie des Originals wurde beibehalten.</ab>
+                        <ab>Die Typografie des Originals wurde außer im Falle von Ligaturen, Umlauten und Schaft-s beibehalten.
+                    Längenstriche sind durch den Unicode 305 repräsentiert, der dem jeweiligen Buchstaben nachgestellt ist.</ab>
+                    </normalization>
+                    <hyphenation eol="all"/>
+                    <interpretation>
+                        <ab>Personennamen, Ortsnamen, Datumsangaben, Zitate und bibliographische Verweise</ab>
+                        <ab>Tokenisierung, PoS-Tagging (54-teiliges Stuttgart-Tübingen-TagSet, Guidelines 1999), Lemmatisierung (Referenzwerke: Duden bzw. Deutsches Wörterbuch von Jacob und Wilhelm Grimm), manuelle Korrektur</ab>
+                    </interpretation>
+                </editorialDecl>
+            </encodingDesc>
+            <profileDesc>
+                <langUsage>
+                    <language ident="de">(98%)</language>
+                    <language ident="la">(2%)</language>
+                </langUsage>
+                <textClass>
+                    <keywords>
+                        <list>
+                            <item>Erbauungsliteratur</item>
+                            <item>Älteres Neuhochdeutsch</item>
+                        </list>
+                    </keywords>
+                </textClass>
+            </profileDesc>
+        </teiHeader>
+    </Components>
+</CMD>

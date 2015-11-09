@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="xsl-2-transform">
+<project name="xsl-2-transform" xmlns:if="ant:if" xmlns:unless="ant:unless">
     <target name="c_s-xsl-2-transform">
         <xslt basedir="${in.dir}"
               includes="${includes.pattern}"
               destdir="${out.dir}"
               style="${xsl.file}" extension="${extension.string}"
-              classpath="./lib/saxonhe-9.4.0.7.jar">
+              classpath="./lib/saxonhe-9.4.0.7.jar"
+              suppressWarnings="${silent-xsl-processor.bool}">
             <factory name="net.sf.saxon.TransformerFactoryImpl">
             </factory>
             <!-- Indents text nodes with line breaks otherwise which is the opposite of what exist-db does.-->
-            <outputproperty name="indent" value="no"/>
+            <outputproperty if:set="transform.indent.yesno" name="indent" value="${transform.indent.yesno}"/>
+            <outputproperty if:set="transform.encoding.string" name="encoding" value="${transform.encoding.string}"/>
+            <outputproperty if:set="transform.method.string" name="method" value="${transform.method.string}"/>
+            <xmlcatalog refid="commonDTDs"/>
             <param name="XDEBUG_SESSION_START" expression="${c_s-xsl-param.XDEBUG_SESSION_START}" type="STRING"/>
             <param name="base_url" expression="${c_s-xsl-param.base_url}" type="STRING"/>
             <param name="contexts_url" expression="${c_s-xsl-param.contexts_url}" type="STRING"/>
