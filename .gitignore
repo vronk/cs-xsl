@@ -1,0 +1,4 @@
+/tests/nbproject/private/
+
+*.norm
+/tests/output-actual/
