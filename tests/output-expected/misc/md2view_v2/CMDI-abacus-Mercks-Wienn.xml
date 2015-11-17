@@ -1,4 +1,4 @@
-<html xmlns:cr="http://aac.ac.at/content_repository" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Mercks Wienn, digitale Ausgabe</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="cmds-xmlelem  value-text"><span class="inline label">licence:</span><span class="value"><a target="_blank" class="external" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></span>
                                 </div>
-                                <div class="cmds-xmlelem has-children value-text"><span class="block label">ab:</span><span class="value"></span>
+                                <div class="cmds-xmlelem has-children value-empty"><span class="block label">ab:</span><span class="value"></span>
                                     <div class="cmds-xmlelem  value-text"><span class="inline label">seg:</span><span class="value">Die Werke von ABaC:us sind auch als Rohdaten im TEI/XML-Format verfügbar. Bei Interesse kontaktieren Sie bitte das ABaC:us-Team.</span>
                                     </div>
                                 </div>

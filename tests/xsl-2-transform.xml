@@ -43,6 +43,8 @@
             <param name="user" expression="${c_s-xsl-param.user}" type="STRING"/>
             <param name="x-context" expression="${c_s-xsl-param.x-context}" type="STRING" if="c_s-xsl-param.x-context"/>
             <param name="x-dataview" expression="${c_s-xsl-param.x-dataview}" type="STRING"/>
+            <!-- for nulltransform -->
+            <param name="force-normalize-space" expression="${nt-param.force-normalize-space}" type="BOOLEAN" if="nt-param.force-normalize-space"/>
         </xslt>
     </target>
 </project>

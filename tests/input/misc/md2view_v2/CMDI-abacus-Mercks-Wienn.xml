@@ -1,4 +1,4 @@
-<CMD xmlns:dcr="http://www.isocat.org/ns/dcr" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:ann="http://www.clarin.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.clarin.eu/cmd/" xsi:schemaLocation="http://www.clarin.eu/cmd/ http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1380106710826/xsd" CMDVersion="1.1">
+<CMD xmlns="http://www.clarin.eu/cmd/" xmlns:dcr="http://www.isocat.org/ns/dcr" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:ann="http://www.clarin.eu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.clarin.eu/cmd/ http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1380106710826/xsd" CMDVersion="1.1">
     <Header>
         <MdCreator>ACDH-ÖAW, ABa:Cus-Austrian Baroque Corpus</MdCreator>
         <MdCreationDate>2015-02-04</MdCreationDate>
