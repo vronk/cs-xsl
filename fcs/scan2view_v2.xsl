@@ -80,7 +80,7 @@
         <sru:maximumTerms>100</sru:maximumTerms>        
         </sru:echoedScanRequest> -->
     <xsl:template name="header">
-        <xsl:variable name="countTerms" select="/sru:scanResponse/sru:extraResponseData/fcs:countTerms"/>
+        <xsl:variable name="countTerms" select="(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total'], /sru:scanResponse/sru:extraResponseData/fcs:countTerms)[1]"/>
         <xsl:variable name="start-item" select="'TODO:start-item=?'"/>
         <xsl:variable name="maximum-items" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
         <div class="header">
