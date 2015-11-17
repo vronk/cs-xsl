@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3. org/1999/xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
     <div class="result-header" data-numberOfRecords="1">
         <a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_250&#34;&amp;x-context=abacus.5&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
         <div class="note debug">
@@ -24,7 +24,7 @@
             <span class="value">PT0.021S PT0.356S</span>;
                     <span class="label">fcs:transformedQuery: </span>
             <span class="value">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.5_250&lt;/phrase&gt;&lt;/query&gt;)]</span>;
-                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
+                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"  class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
     </div>
     <div class="result-body scrollable-content-box">
         <table class="show">
@@ -42,14 +42,14 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view cite" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_250">
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view cite" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_250">
                                 <p class="tei-p">Zitation: Abraham â Sancta Clara: Lösch Wienn. Wien, 1680. (Digitale Ausgabe) h. Umschlag verso. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;https://acdh.oeaw.ac.at/abacus/get/abacus.5_250&gt; abgerufen am 5. 10. 2015</p>
                             </div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view navigation" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_250"><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_249&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus.5&amp;x-format=html" rel="prev" class="prev" title="h. Umschlag recto">h. Umschlag recto</a><a href="&amp;x-format=html" rel="next" class="next" title=""></a>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view navigation" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_250"><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_249&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus.5&amp;x-format=html" rel="prev" class="prev" title="h. Umschlag recto">h. Umschlag recto</a><a href="&amp;x-format=html" rel="next" class="next" title=""></a>
                             </div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view full" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_250">&#160;<div class="tei-TEI"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view full" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_250">&#160;<div class="tei-TEI"></div>
                             </div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facs" data-resource-pid="abacus.5"><img src="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_u0008.jpg" alt="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_u0008.jpg" />
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facs" data-resource-pid="abacus.5"><img src="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_u0008.jpg" alt="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_u0008.jpg" />
                             </div>
                         </div>
                     </td>

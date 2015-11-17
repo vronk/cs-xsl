@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3. org/1999/xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
     <div class="result-header" data-numberOfRecords="1">
         <a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.9_74&#34;&amp;x-context=abacus&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
         <div class="note debug">
@@ -24,7 +24,7 @@
             <span class="value">PT0.009S PT0.021S</span>;
                     <span class="label">fcs:transformedQuery: </span>
             <span class="value">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.9_74&lt;/phrase&gt;&lt;/query&gt;)]</span>;
-                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
+                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"  class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
     </div>
     <div class="result-body scrollable-content-box">
         <table class="show">
@@ -42,7 +42,7 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view full" data-resource-pid="abacus.9" data-resourcefragment-pid="abacus.9_74">
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view full" data-resource-pid="abacus.9" data-resourcefragment-pid="abacus.9_74">
                                 <div class="tei-TEI">
                                     <div class="tei-body"><span class="tei-fw tei-type-header"><span class="tei-fw tei-type-pageNum tei-place-top_center"><span class="fw pageNum"><span class="tei-seg tei-type-ornament">✾</span>(68)<span class="tei-seg tei-type-ornament">✾</span></span></span></span><span class="tei-lb tei-rend-line">&#160;</span>
                                         <div class="tei-div tei-type-chapter"><span class="tei-figure"></span><span class="tei-head"><span class="head"><span class="tei-foreign" xml:lang="la"><span class="tei-seg tei-rend-antiqua"><span class="tei-seg tei-rend-bold"><span class="inline-wrap"><span class="attributes" style="display:none;">solvo<br />FM</span><span class="w FM">Solvendo</span></span><span class="tei-seg tei-type-whitespace">

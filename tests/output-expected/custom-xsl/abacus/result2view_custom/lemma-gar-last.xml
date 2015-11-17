@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3. org/1999/xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
     <div class="result-header" data-numberOfRecords="277">
         <div class="facets">
             <div class="facets">
@@ -69,7 +69,7 @@
             <span class="value">PT0.148S PT0.302S</span>;
                     <span class="label">fcs:transformedQuery: </span>
             <span class="value">descendant-or-self::tei:w[@lemma][not(@lemma='(span)')][not(matches(@lemma,'^\d'))][@lemma='gar']</span>;
-                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml" class="result-navigation prev-next"><a class="internal prev" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus&amp;startRecord=261&amp;maximumRecords=10&amp;x-format=html"><span class="cmd_prev"></span></a><span class="result-pager value hilight">271 - 277</span></span>
+                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"  class="result-navigation prev-next"><a class="internal prev" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus&amp;startRecord=261&amp;maximumRecords=10&amp;x-format=html"><span class="cmd_prev"></span></a><span class="result-pager value hilight">271 - 277</span></span>
     </div>
     <div class="result-body scrollable-content-box">
         <table class="show">
@@ -87,8 +87,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_496"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_496"><span class="context left">... wort veranlasste die Wirthin / daß sie  </span> <span class="kw hilight">gar</span> <span class="context right"> die Sach nacher Hof brachte / und ka ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_496"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_496"><span class="context left">... wort veranlasste die Wirthin / daß sie  </span> <span class="kw hilight">gar</span> <span class="context right"> die Sach nacher Hof brachte / und ka ...</span>
                             </div>
                         </div>
                     </td>
@@ -106,8 +106,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_498"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_498"><span class="context left">... auch mit einem Eyd betheuert / daß ihm  </span> <span class="kw hilight">gar</span> <span class="context right"> offt / da sie den H. Rosen=Krantz an ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_498"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_498"><span class="context left">... auch mit einem Eyd betheuert / daß ihm  </span> <span class="kw hilight">gar</span> <span class="context right"> offt / da sie den H. Rosen=Krantz an ...</span>
                             </div>
                         </div>
                     </td>
@@ -125,8 +125,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_506"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_506"><span class="context left">... eits gelegt / und in aller Eyl (hat so  </span> <span class="kw hilight">gar</span> <span class="context right"> der Magdalena nichts darvon angedeut ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_506"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_506"><span class="context left">... eits gelegt / und in aller Eyl (hat so  </span> <span class="kw hilight">gar</span> <span class="context right"> der Magdalena nichts darvon angedeut ...</span>
                             </div>
                         </div>
                     </td>
@@ -144,8 +144,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_528"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_528"><span class="context left">... verglichen 73. es giebt heutiges Tages  </span> <span class="kw hilight">gar</span> <span class="context right"> künstliche 74. auch Schmier=Hantzen  ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_528"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_528"><span class="context left">... verglichen 73. es giebt heutiges Tages  </span> <span class="kw hilight">gar</span> <span class="context right"> künstliche 74. auch Schmier=Hantzen  ...</span>
                             </div>
                         </div>
                     </td>
@@ -163,8 +163,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_531"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_531"><span class="context left">...  Weiber=Hänsel aber wollen ihre Weiber  </span> <span class="kw hilight">gar</span> <span class="context right"> aus Liebe fressen. 116. Haab und Gut ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_531"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_531"><span class="context left">...  Weiber=Hänsel aber wollen ihre Weiber  </span> <span class="kw hilight">gar</span> <span class="context right"> aus Liebe fressen. 116. Haab und Gut ...</span>
                             </div>
                         </div>
                     </td>
@@ -182,8 +182,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_535"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_535"><span class="context left">... mpel von einem Kauffmanns=Diener / der  </span> <span class="kw hilight">gar</span> <span class="context right"> ein Sauff Teuffel war. 65. seq. sind ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_535"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_535"><span class="context left">... mpel von einem Kauffmanns=Diener / der  </span> <span class="kw hilight">gar</span> <span class="context right"> ein Sauff Teuffel war. 65. seq. sind ...</span>
                             </div>
                         </div>
                     </td>
@@ -201,8 +201,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_540"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_540"><span class="context left">... Gewalt 194. der Tod denen Menschen ist  </span> <span class="kw hilight">gar</span> <span class="context right"> nicht gewogen / sie werden von ihm d ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view facets" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_540"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository"  class="data-view kwic" data-resource-pid="abacus.3" data-resourcefragment-pid="abacus.3_540"><span class="context left">... Gewalt 194. der Tod denen Menschen ist  </span> <span class="kw hilight">gar</span> <span class="context right"> nicht gewogen / sie werden von ihm d ...</span>
                             </div>
                         </div>
                     </td>

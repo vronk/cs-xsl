@@ -44,9 +44,7 @@
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
             <div>
-                <xsl:if test="contains($format, 'page')">
                 <xsl:call-template name="header"/>
-                </xsl:if>
                 <!-- switch mode depending on the $format-parameter -->
                 <xsl:choose>
                     <xsl:when test="contains($format,'table')">

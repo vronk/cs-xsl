@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3. org/1999/xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
     <div class="result-header" data-numberOfRecords="42">
         <div class="facets">
             <div class="facets">
@@ -63,8 +63,8 @@
                 <tr>
                     <td>
                         <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_10"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_10"><span class="context left">... tnuß durchlöchert wie ein Süb / daß so  </span> <span class="kw hilight">gar</span> <span class="context right"> nichts darinn hafftet / als wann sic ...</span>
+                            <div xmlns:cr="http://aac.ac.at/content_repository" class="data-view facets" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_10"></div>
+                            <div xmlns:cr="http://aac.ac.at/content_repository" class="data-view kwic" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_10"><span class="context left">... tnuß durchlöchert wie ein Süb / daß so  </span> <span class="kw hilight">gar</span> <span class="context right"> nichts darinn hafftet / als wann sic ...</span>
                             </div>
                         </div>
                     </td>
