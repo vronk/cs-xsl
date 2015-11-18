@@ -7,7 +7,6 @@
     xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
-    xmlns:cr="http://aac.ac.at/content_repository"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:exsl="http://exslt.org/common"
     version="1.0" exclude-result-prefixes="xsl utils sru xs fcs cr xd exsl">

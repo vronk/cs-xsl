@@ -9,7 +9,6 @@
                 xmlns:exist="http://exist.sourceforge.net/NS/exist"
                 xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
                 xmlns:exsl="http://exslt.org/common"
-                xmlns:cr="http://aac.ac.at/content_repository"
                 version="1.0" exclude-result-prefixes="kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData
