@@ -776,6 +776,7 @@ the named templates are at the bottom.</xd:p>
                                 <b style="color:blue">
                                     <i>(f) </i>
                                 </b>
+                            </xsl:when>
                 <!-- FIXME This is a temporary hack to allow initial Caps, we need to adjust the "inline" template -->
                 <xsl:when test="@rend='initialCapital'">
                     <span class="initialCapital">
@@ -807,11 +808,16 @@ the named templates are at the bottom.</xd:p>
                                 </b>
                             </xsl:when>
                         </xsl:choose>
+                </xsl:when>
+                        </xsl:choose>
             <xsl:apply-templates mode="record-data"/>
             <xsl:if test="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])">
                 <xsl:text> </xsl:text>
             </xsl:if>
-        </span>
+                    </div>
+                </xsl:for-each>
+            </div>
+        </div>
     </xsl:template>
 
     <xd:doc>
@@ -877,7 +883,6 @@ the named templates are at the bottom.</xd:p>
                     <xsl:apply-templates select="tei:def[@xml:lang='de']" mode="record-data"/>
                     <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]" mode="record-data"/>               
                     </div>
-                </xsl:for-each>
                 <xsl:for-each select="sense">
                     <xsl:if test="def">
                         <div style="margin-top: 5px; border-top:0.5px dotted grey;">
@@ -914,8 +919,8 @@ the named templates are at the bottom.</xd:p>
                         </div>
                     </xsl:for-each>
                 </xsl:for-each>
+            </xsl:if>
             </div>
-        </div>
     </xsl:template>
     <xd:doc>
         <xd:desc>tei:foreign elements are formatted as divs with an apropriate language class
@@ -1339,6 +1344,7 @@ the named templates are at the bottom.</xd:p>
             </xsl:choose>
         </span>
     </xsl:template>
+    
     <xsl:template match="w|tei:w" mode="record-data">
         <xsl:variable name="next" select="following-sibling::*[1]"/>
         <!--        <xsl:call-template name="inline"/>-->
@@ -1348,6 +1354,8 @@ the named templates are at the bottom.</xd:p>
                     <xsl:value-of select="concat(@lemma,' ',@type)"/>
                     <!--                <xsl:apply-templates select="@*" mode="format-attr"/>-->
                 </span>
+            </xsl:if>
+        </span>
     </xsl:template>
 
     <xsl:template match="tei:w" mode="record-data">

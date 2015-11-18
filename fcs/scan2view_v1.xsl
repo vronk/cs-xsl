@@ -197,7 +197,9 @@
     <xsl:template match="sru:term">
         <xsl:variable name="depth" select="count(ancestor::sru:term)"/>
         <xsl:variable name="href">
-                    </xsl:call-template>
+            <xsl:call-template name="generateLinkInScanResults">
+                <xsl:with-param name="index" select="$index"/>
+            </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="link">
             <span>

@@ -199,9 +199,7 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:variable name="rec_uri">
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
+            <xsl:call-template name="_getRecordURI"/>
         </xsl:variable>
         <tr class="record-top">
             <td rowspan="2" valign="top">
