@@ -18,6 +18,9 @@ auxiliary.show.customizer.message=<message>
                 <action name="test">
                     <target>tests</target>
                 </action>
+                <action name="run">
+                    <target>tests</target>
+                </action>
             </ide-actions>
             <view>
                 <items>
@@ -27,6 +30,7 @@ auxiliary.show.customizer.message=<message>
                 </items>
                 <context-menu>
                     <ide-action name="build"/>
+                    <ide-action name="run"/>
                     <ide-action name="test"/>
                 </context-menu>
             </view>
