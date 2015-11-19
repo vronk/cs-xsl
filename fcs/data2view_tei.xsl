@@ -652,7 +652,7 @@ the named templates are at the bottom.</xd:p>
                 <xsl:when test="@rend">
                     <xsl:attribute name="class">
                         <xsl:value-of select="$class"/>
-                        <xsl:text> </xsl:text>
+                        <xsl:text xml:space="preserve"> </xsl:text>
                         <xsl:call-template name="rend-without-color">
                             <xsl:with-param name="rend-text" select="@rend"/>
                         </xsl:call-template>
