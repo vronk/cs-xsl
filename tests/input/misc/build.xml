@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="fetch">  
+<project default="fetch">
     <import file="../build.xml"/>
-    <property file="fetch-urls.properties"/>
     <property file="../fetch-urls.properties"/>
     <property file="../../fetch-urls.properties"/>
     <property file="../../../fetch-urls.properties"/>

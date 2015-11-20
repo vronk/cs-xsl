@@ -9,8 +9,6 @@
 	<!-- a colon-separated list of relative paths containing the tests to execute: 
 		each should contain one or more subdirectories of the name of the stylesheet which 
 		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
-	<!--<property name="tests" value="../custom-xsl/tunico:../:../fcs"/>-->
-    <!--        <property name="tests" value="../:../fcs:../misc:../custom-xsl/abacus:../custom-xsl/tunico"/>           -->
     <property name="tests" value="../fcs:../custom-xsl/abacus:../misc"/>
         
     <xmlcatalog id="commonDTDs">
@@ -239,7 +237,10 @@ out of ${xml-output.num} test cases.</echo>
         <property unless:set="remove-from-expected-dir.regex" name="remove-from-expected-dir.regex" value=""/>
         <propertyregex property="cleanedexpecteddir" input="${expecteddir}" regexp="${remove-from-expected-dir.regex}" replace=""/>
         <property name="expectedfilename" value="${cleanedexpecteddir}/${filename.${index}}"/>
-        <property name="urlexpected" value="${url}${url-param-expected.${index}}"/>
+        <propertyregex property="urlwithoutformat" input="${url}" regexp="[?&amp;]x-format=[^&amp;]*" replace=""/>
+        <!-- default if there is nothing to replace -->
+        <property name="urlwithoutformat" value="${url}"/>
+        <property name="urlexpected" value="${urlwithoutformat}${url-param-expected.${index}}"/>
         <get src="${urlexpected}" dest="${expectedfilename}" verbose="on" maxtime="10"/>
     </target>
     
