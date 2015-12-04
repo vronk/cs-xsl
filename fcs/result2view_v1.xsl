@@ -110,6 +110,10 @@
         <xd:desc>Return the result if there is exactly one result</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
+        <xsl:call-template name="single-result"/>
+    </xsl:template>
+    
+    <xsl:template name="single-result">
         <xsl:variable name="rec_uri">
             <xsl:call-template name="_getRecordURI"/>
         </xsl:variable>
@@ -136,24 +140,33 @@
         <xd:desc>Return a table of results if there is more than one record returned</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records" mode="table">
+        <xsl:call-template name="multiple-results-table"/>
+    </xsl:template>
+    
+    <xsl:template name="multiple-results-table">        
         <div class="result-body scrollable-content-box">
             <table class="show">
-            <!--<thead>
+                <!--<thead>
                 <tr>
                     <th>pos</th>
                     <th>record</th>
                 </tr>
             </thead>-->
                 <tbody>
-                <xsl:apply-templates select="sru:record" mode="table"/>
+                    <xsl:apply-templates select="sru:record" mode="table"/>
                 </tbody>
             </table>
         </div>
     </xsl:template>
+    
     <xd:doc>
         <xd:desc>Return a list of results if there is more than one record returned</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records" mode="list">
+        <xsl:call-template name="multiple-results-list"/>
+    </xsl:template>
+    
+    <xsl:template name="multiple-results-list">
         <dl class="show">
             <xsl:apply-templates select="sru:record" mode="list"/>
         </dl>
