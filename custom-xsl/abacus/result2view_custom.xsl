@@ -253,4 +253,12 @@
         </xsl:if>
         <span class="{$class}" style="font-size:18pt;">)(</span>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Treat single and multiple results the same. (Forward the processing)</xd:desc>
+    </xd:doc>    
+    <xsl:template name="single-result">
+        <xsl:call-template name="multiple-results-table"/>
+    </xsl:template>
+    
 </xsl:stylesheet>
