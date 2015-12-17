@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling.
             <xd:p>History:
@@ -21,7 +20,11 @@
         <xd:desc/>
     </xd:doc>
     <xsl:variable name="dict">
-        <dict/>
+        <xsl:variable name="dict_loaded" select="document($dict_file)"/>
+        <xsl:choose>
+            <xsl:when test="$dict_loaded/dict"><xsl:copy-of select="$dict_loaded/dict"/></xsl:when>
+            <xsl:otherwise><dict/></xsl:otherwise>
+        </xsl:choose>
     </xsl:variable>
     <xd:doc>
         <xd:desc/>
@@ -497,11 +500,11 @@
         <xsl:param name="key"/>
         <xsl:param name="fallback" select="$key"/>
         <xsl:choose>
-            <xsl:when test="$dict/list/item[@key=$key]">
-                <xsl:value-of select="$dict/list/item[@key=$key]"/>
+            <xsl:when test="$dict/dict/list/item[@key=$key]">
+                <xsl:value-of select="$dict/dict/list/item[@key=$key]"/>
             </xsl:when>
-            <xsl:when test="$dict/list/item[.=$key]">
-                <xsl:value-of select="$dict/list/item[.=$key]/@key"/>
+            <xsl:when test="$dict/dict/list/item[.=$key]">
+                <xsl:value-of select="$dict/dict/list/item[.=$key]/@key"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$fallback"/>
@@ -543,11 +546,11 @@
     </xsl:template>
     
     <xd:doc>
-        <xd:desc>Forces generation of one (!) emtpty &lt;br/> tag
+        <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="br">
-        <xsl:text disable-output-escaping="yes">&lt;br/></xsl:text>
+        <xsl:text disable-output-escaping="yes">&lt;br/&gt;</xsl:text>
     </xsl:template>
 </xsl:stylesheet>
