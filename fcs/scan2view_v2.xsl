@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:cr="http://aac.ac.at/content_repository" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" extension-element-prefixes="sru fcs utils xs xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" version="2.0" extension-element-prefixes="sru fcs utils xs xd">
     <xsl:import href="scan2view_v1.xsl"/>
     <xsl:import href="../commons_v2.xsl"/>
     <xd:doc>
@@ -234,13 +233,13 @@ sample data:
             <xsl:otherwise>
                 <li>
                     <xsl:sequence select="$link"/>
-<!--                    <xsl:if test="number(sru:numberOfRecords) > 1">-->
+                    <xsl:if test="number(sru:numberOfRecords) >= 1">
                     <span class="note" data-content="recordcount">
                         <span class="recordcountDelimiter"> |</span>
                         <xsl:value-of select="sru:numberOfRecords"/>
                         <span class="recordcountDelimiter">|</span>
                     </span>
-<!--                    </xsl:if>-->
+                    </xsl:if>
                     <!--DEBUG:<xsl:value-of select="exists(sru:extraTermData/sru:terms/sru:term)" />-->
                     <xsl:if test="sru:extraTermData/sru:terms/sru:term">
                     </xsl:if>
