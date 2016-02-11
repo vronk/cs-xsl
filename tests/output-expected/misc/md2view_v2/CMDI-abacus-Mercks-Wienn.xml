@@ -1,15 +1,15 @@
-<html xmlns:cr="http://aac.ac.at/content_repository" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Mercks Wienn, digitale Ausgabe</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="./modules/shared/scripts/style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
-        <link href="./modules/shared/scripts/css/cr.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="./modules/shared/scripts/js/jquery/jquery-1.6.2.js"></script>
-        <script type="text/javascript" src="./modules/shared/scripts/js/jquery/jquery.tablesorter.js"></script>
+        <link href="http://hephaistos.arz.oeaw.ac.at/exist-dev/apps/cr-xq-mets/abacus/modules/shared/scripts/style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet" />
+        <link href="http://hephaistos.arz.oeaw.ac.at/exist-dev/apps/cr-xq-mets/abacus/modules/shared/scripts/css/cr.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="http://hephaistos.arz.oeaw.ac.at/exist-dev/apps/cr-xq-mets/abacus/modules/shared/scripts/js/jquery/jquery-1.6.2.js"></script>
+        <script type="text/javascript" src="http://hephaistos.arz.oeaw.ac.at/exist-dev/apps/cr-xq-mets/abacus/modules/shared/scripts/js/jquery/jquery.tablesorter.js"></script>
     </head>
     <body>
         <div class="cmds-ui-block" id="header">
-            <div id="logo"><a href="./"><img src="./static/images/Logo_A_v3_resize65.png" alt="BaC:us" /></a>
+            <div id="logo"><a href="http://hephaistos.arz.oeaw.ac.at/exist-dev/apps/cr-xq-mets/abacus/"><img src="http://hephaistos.arz.oeaw.ac.at/exist-dev/apps/cr-xq-mets/abacus/static/images/Logo_A_v3_resize65.png" alt="BaC:us" /></a>
                 <div id="site-name">BaC:us</div>
             </div>
             <div id="top-menu"><a href="?version=1.2&amp;operation=metadata&amp;x-format=xml">XML</a>

@@ -1,5 +1,7 @@
 <project name="c_s-xsl-tests" xmlns:if="ant:if" xmlns:unless="ant:unless">
+    <dirname property="c_s-xsl-tests.basedir" file="${ant.file.c_s-xsl-tests}"/>
         <import file="lib/load-ant-contrib.xml"/>
+        <import file="lib/load-ant-props.xml"/>
         <import file="lib/load-diffxml.xml"/>
         <import file="xsl-1-transform.xml"/>
         <import file="xsl-2-transform.xml"/>
@@ -7,8 +9,6 @@
 	<!-- a colon-separated list of relative paths containing the tests to execute: 
 		each should contain one or more subdirectories of the name of the stylesheet which 
 		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
-	<!--<property name="tests" value="../custom-xsl/tunico:../:../fcs"/>-->
-    <!--        <property name="tests" value="../:../fcs:../misc:../custom-xsl/abacus:../custom-xsl/tunico"/>           -->
     <property name="tests" value="../fcs:../custom-xsl/abacus:../misc"/>
         
     <xmlcatalog id="commonDTDs">
@@ -19,7 +19,7 @@
         expecteds also don't contain these by default.-->
         <dtd
             publicid="-//W3C//DTD XHTML 1.0 Transitional//EN"
-            location="dtds/xhtml1-transitional.dtd"/>
+            location="${c_s-xsl-tests.basedir}/dtds/xhtml1-transitional.dtd"/>
     </xmlcatalog>
     
         <target name="tests" depends="clear-actual">
@@ -223,4 +223,25 @@ out of ${xml-output.num} test cases.</echo>
             <delete dir="output-actual"/>
             <mkdir dir="output-actual"/>
         </target>
+    
+    <target name="fetch">
+        <foreach if:set="fetch-indexes" list="${fetch-indexes}" target="fetch-input-expected" param="index"/>
+    </target>
+    
+    <target name="fetch-input-expected">
+        <property name="url" value="${base-url.url}${url-param.${index}}"/>
+        <dirname property="basedir" file="${ant.file}"/>
+        <property name="filename" value="${basedir}/${filename.${index}}"/>
+        <get src="${url}" dest="${filename}" verbose="on" maxtime="10"/>
+        <propertyregex property="expecteddir" input="${basedir}" regexp="tests.input" replace="tests/output-expected"/>
+        <property unless:set="remove-from-expected-dir.regex" name="remove-from-expected-dir.regex" value=""/>
+        <propertyregex property="cleanedexpecteddir" input="${expecteddir}" regexp="${remove-from-expected-dir.regex}" replace=""/>
+        <property name="expectedfilename" value="${cleanedexpecteddir}/${filename.${index}}"/>
+        <propertyregex property="urlwithoutformat" input="${url}" regexp="[?&amp;]x-format=[^&amp;]*" replace=""/>
+        <!-- default if there is nothing to replace -->
+        <property name="urlwithoutformat" value="${url}"/>
+        <property name="urlexpected" value="${urlwithoutformat}${url-param-expected.${index}}"/>
+        <get src="${urlexpected}" dest="${expectedfilename}" verbose="on" maxtime="10"/>
+    </target>
+    
 </project>

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cr="http://aac.ac.at/content_repository" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common" version="1.0" exclude-result-prefixes="xsl utils sru xs fcs xd exsl">
+<xsl:stylesheet
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:cr="http://aac.ac.at/content_repository" 
+    xmlns:utils="http://aac.ac.at/content_repository/utils"
+    xmlns:sru="http://www.loc.gov/zing/srw/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fcs="http://clarin.eu/fcs/1.0"
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:exsl="http://exslt.org/common"
+    version="1.0" exclude-result-prefixes="xsl utils sru xs fcs cr xd exsl">
     <xsl:import href="../commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc> generate a view for a values-list (index scan)
@@ -10,30 +20,30 @@
             </xd:p>
             <xd:p>
                 <xd:pre>
-&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/"&gt;
-&lt;sru:version&gt;1.2&lt;/sru:version&gt;
-   &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)"&gt;
-        &lt;sru:term&gt;
-        &lt;sru:value&gt;1903-01&lt;/sru:value&gt;
-        &lt;sru:numberOfRecords&gt;30&lt;/sru:numberOfRecords&gt;
-        &lt;/sru:term&gt;
-        &lt;sru:term&gt;
-        &lt;sru:value&gt;1903-02&lt;/sru:value&gt;
-        &lt;sru:numberOfRecords&gt;28&lt;/sru:numberOfRecords&gt;
-        &lt;/sru:term&gt;
-        &lt;sru:term&gt;
-        &lt;sru:value&gt;1903-03&lt;/sru:value&gt;
-        &lt;sru:numberOfRecords&gt;31&lt;/sru:numberOfRecords&gt;
-        &lt;/sru:term&gt;
-   &lt;/sru:terms&gt;
-   &lt;sru:extraResponseData&gt;
-        &lt;fcs:countTerms&gt;619&lt;/fcs:countTerms&gt;
-    &lt;/sru:extraResponseData&gt;
-    &lt;sru:echoedScanRequest&gt;
-        &lt;sru:scanClause&gt;diary-month&lt;/sru:scanClause&gt;
-        &lt;sru:maximumTerms&gt;100&lt;/sru:maximumTerms&gt;
-    &lt;/sru:echoedScanRequest&gt;        
- &lt;/sru:scanResponse&gt;
+&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/">
+&lt;sru:version>1.2&lt;/sru:version>
+   &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)">
+        &lt;sru:term>
+        &lt;sru:value>1903-01&lt;/sru:value>
+        &lt;sru:numberOfRecords>30&lt;/sru:numberOfRecords>
+        &lt;/sru:term>
+        &lt;sru:term>
+        &lt;sru:value>1903-02&lt;/sru:value>
+        &lt;sru:numberOfRecords>28&lt;/sru:numberOfRecords>
+        &lt;/sru:term>
+        &lt;sru:term>
+        &lt;sru:value>1903-03&lt;/sru:value>
+        &lt;sru:numberOfRecords>31&lt;/sru:numberOfRecords>
+        &lt;/sru:term>
+   &lt;/sru:terms>
+   &lt;sru:extraResponseData>
+        &lt;fcs:countTerms>619&lt;/fcs:countTerms>
+    &lt;/sru:extraResponseData>
+    &lt;sru:echoedScanRequest>
+        &lt;sru:scanClause>diary-month&lt;/sru:scanClause>
+        &lt;sru:maximumTerms>100&lt;/sru:maximumTerms>
+    &lt;/sru:echoedScanRequest>        
+ &lt;/sru:scanResponse>
 </xd:pre>
             </xd:p>
         </xd:desc>
@@ -64,10 +74,10 @@
             <xd:a href="http://www.loc.gov/standards/sru/specs/scan.html">SRU documentation</xd:a>.
             The documentation states that scanClause can be "expressed as a complete index, relation, term clause in CQL". 
         </xd:p>
-        <xd:p>
+            <xd:p>
             Note: for the special scan clause fcs.resource this is an empty string.
             See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-before">.XPath language definition</xd:a>
-        </xd:p>
+            </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:param name="index">
@@ -97,11 +107,11 @@
     <xd:doc>
         <xd:desc>Standard callback from / template
         <xd:p>
-            <xd:ul>
-            <xd:li>If a htmlpage is requested generates input elements for the user to do another scan.</xd:li>
-            <xd:li>Wraps the HTML representation of the result terms in an HTML div element.</xd:li>
-            </xd:ul>
-        </xd:p>
+                <xd:ul>
+                    <xd:li>If a htmlpage is requested generates input elements for the user to do another scan.</xd:li>
+                    <xd:li>Wraps the HTML representation of the result terms in an HTML div element.</xd:li>
+                </xd:ul>
+            </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="continue-root">
@@ -167,7 +177,7 @@
     <xd:doc>
         <xd:desc>A term consits of a number for this term and the term itself
         <xd:p>The term is presented as a link that can be used to scan for that term.</xd:p>
-        <xd:p>
+            <xd:p>
             Sample data:
 <xd:pre>
             &lt;sru:term&gt;
@@ -177,7 +187,7 @@
                 &lt;sru:extraTermData&gt;&lt;/sru:extraTermData&gt;
             &lt;/sru:term&gt;
 </xd:pre>
-        </xd:p>
+            </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="sru:term">

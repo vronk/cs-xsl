@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cr="http://aac.ac.at/content_repository" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:saxon="http://saxon.sf.net/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="#all">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cmd="http://www.clarin.eu/cmd/" version="2.0" exclude-result-prefixes="#all">
     <xd:doc scope="stylesheet">
         <xd:desc>Generate html view of a sru-result-set  (eventually in various formats)
-            <xd:p>History:
+            <xd:p>History: 
                 <xd:ul>
                     <xd:li>2011-12-06: created by:"vr": based on cmdi/scripts/mdset2view.xsl retrofitted for XSLT 1.0</xd:li>
                 </xd:ul>
@@ -107,18 +106,21 @@
             </h4>
             <xsl:call-template name="links"/>
         </div>
-        <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data"/>
-        <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
+            <!--        <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data"/>-->
+            <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data">
+                <xsl:with-param name="linkTo" select="concat($base_url_public,'/',$cr_project,'/get/',@pid)"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
         <xsl:apply-templates select=".//fcs:DataView[@type='cite']" mode="record-data"/>
     </xsl:template>
-    <xsl:template match="teiHeader" mode="record-data">
+    <xsl:template match="tei:teiHeader" mode="record-data">
         <p>
-            <xsl:apply-templates select=".//sourceDesc/bibl[@type='transcript']" mode="record-data"/>
+            <xsl:apply-templates select=".//tei:sourceDesc/tei:bibl[@type='transcript']" mode="record-data"/>
         </p>
 <!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
-        <xsl:apply-templates select=".//sourceDesc//msDesc" mode="record-data"/>
+        <xsl:apply-templates select=".//tei:sourceDesc//tei:msDesc" mode="record-data"/>
     </xsl:template>
-    <xsl:template match="gap" mode="record-data"> [...] </xsl:template>
+    <xsl:template match="tei:gap" mode="record-data"> [...] </xsl:template>
     
 <!--    <xsl:template match="fcs:DataView[@type='image']" mode="record-data" />-->
     <xsl:template name="links">
@@ -148,10 +150,18 @@
             </xsl:call-template>
         </xsl:variable>
         <div class="links">
-            <a class="link-info" href="#">Werk</a>
-            <a class="toc" href="{$toc-link}">Inhalt</a>
+            <!--<span>base_url:<xsl:value-of select="$base_url"/>
+            </span>-->
+            <a class="link-info" href="#">
+                <xsl:value-of select="utils:dict('About')"/>
+            </a>
+            <a class="toc" href="{$toc-link}">
+                <xsl:value-of select="utils:dict('Contents')"/>
+            </a>
 <!--            <a class="data" href="{$link-data-tei}">Data (TEI)</a>-->
-            <a class="metadata" href="{$md-link-cmdi}">Metadaten</a>            
+            <a class="metadata" href="{$md-link-cmdi}">
+                <xsl:value-of select="utils:dict('Metadata')"/>
+            </a>            
 <!--            <a class="tei" href="TODO">Search</a>-->
 <!--            <a class="tei" href="./fcs">FCS</a>-->
         </div>
@@ -184,7 +194,7 @@
         <!-\-        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-\->
 <!-\-        <xsl:apply-templates select=".//cmd:sourceDesc//cmd:msDesc" mode="record-data"/>-\->
         
-        <div class="div-after"/>
+        <div class="div-after"/>  
         </div>
     </xsl:template>
     

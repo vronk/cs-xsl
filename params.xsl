@@ -21,10 +21,16 @@
                         <xd:ref name="format" type="parameter">format</xd:ref>
                     </xd:li>
                     <xd:li>
+                        <xd:ref name="sort" type="parameter">sort</xd:ref>
+                    </xd:li>
+                    <xd:li>
                         <xd:ref name="q" type="parameter">q</xd:ref>
                     </xd:li>
                     <xd:li>
                         <xd:ref name="x-context" type="parameter">x-context</xd:ref>
+                    </xd:li>
+                    <xd:li>
+                        <xd:ref name="cr_project" type="parameter">cr_project</xd:ref>
                     </xd:li>
                     <xd:li>
                         <xd:ref name="startRecord" type="parameter">startRecord</xd:ref>
@@ -94,6 +100,23 @@
         <xd:desc>A password associated with scripts_user</xd:desc>
     </xd:doc>
     <xsl:param name="scripts_pw" select="''"/>
+    <xd:doc>
+        <xd:desc>A URL that is used by this style sheet to construct URLs to the cr-xq root for public exposal
+            <xd:p>Since base_url might also be something like './', we need a explicit public url when constructing links to the application.</xd:p>
+            <xd:p>
+                Defaults to <xd:ref type="parameter" name="base_url">$base_url</xd:ref>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="base_url_public" select="$base_url"/>
+    <xd:doc>
+        <xd:desc>part of the URL for fcs-endpoint (minus <xd:ref name="base_url" type="parameter">$base_url</xd:ref>)
+            <xd:p>
+                Defaults to an empty xs:string.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="fcs_prefix" select="''"/>
     <xd:doc>
         <xd:desc>to be put as link on the logo in simple html pages </xd:desc>
     </xd:doc>
@@ -174,6 +197,13 @@
     </xd:doc>
     <xsl:param name="operation"/>
     <xd:doc>
+        <xd:desc>Requested order of the results
+            <xd:p>One of text or size.</xd:p>
+            <xd:p>No default value, as this would override index-defined default ordering.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="sort"/>
+    <xd:doc>
         <xd:desc>Requested format of the result
             <xd:p>One of htmlpage, htmljspage or htmlsimple or something completely different.
                 Most importantly this chooses between four different frameworks for the page with more or less
@@ -224,7 +254,7 @@
     <xd:doc>
         <xd:desc>The x-context (x-cmd-context) the client specified
             <xd:p>
-                Defaults to /sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/sru:query
+                Defaults to //fcs:x-context 
             </xd:p>
         </xd:desc>
     </xd:doc>
@@ -243,6 +273,13 @@
             <xsl:with-param name="join-with" select="','"/>
         </xsl:call-template>
     </xsl:param>
+        <xd:desc>cr_xq specific parameter: The id of the cr_xq project the user is operating in.
+            <xd:p>
+                Defaults to <xd:ref name="x-context" type="parameter">$x-context</xd:ref>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="cr_project" select="''"/>
     <xd:doc>
         <xd:desc>The start record the client requested or the one the upstream endpoint chose
             <xd:p>
@@ -315,6 +352,15 @@
     </xd:doc>
     <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
     <xd:doc>
+        <xd:desc>The fcs:x-filter for filtering scan (scanClause is for entry point into the index)
+            <xd:p>
+                Defaults to an empty xs:string.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="x-filter" select="''"/>
+    
+    <xd:doc>
         <xd:desc>A URL that returns any contexts an endpoint provides
             <xd:p>
                 Defaults to $base_url + ?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml.
@@ -331,6 +377,14 @@
         <xd:desc>A URL to a file where additional parameters can be specified</xd:desc>
     </xd:doc>
     <xsl:param name="mappings-file" select="''"/>
+    
+    <xd:doc>
+        <xd:desc>XDebug passthrough</xd:desc>
+        <xd:p>The XDebug PHP server debugging tool activates itsself depending on this special parameter.</xd:p>
+        <xd:p>So as a service pass this parameter on by appending it to all generated links as is if it is present.</xd:p>
+    </xd:doc>
+    <xsl:param name="XDEBUG_SESSION_START" select="''"/>
+    
     <xd:doc>
         <xd:desc>A file containing translation strings
         <xd:p>
@@ -395,4 +449,5 @@
         </xd:desc>
     </xd:doc>
     <xsl:variable name="default-mapping" select="$mappings//map[@key][xs:string(@key) = 'default']"/>
+    
 </xsl:stylesheet>

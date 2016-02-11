@@ -46,6 +46,8 @@
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
         
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/>
+        
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
             </xsl:if>-->
@@ -266,26 +268,33 @@
                 <xsl:with-param name="maximumRecords" select="$maximumRecords"/>
             </xsl:call-template>
         </xsl:variable>
-        <xsl:variable name="prev-disabled">
-            <xsl:if test="$startRecord = '1'">disabled</xsl:if>
-        </xsl:variable>
+        <xsl:variable name="prev-enabled" select="not($startRecord = '1')"/>
         <xsl:variable name="link_next">
             <xsl:call-template name="formURL">
                 <xsl:with-param name="startRecord" select="$next_startRecord"/>
                 <xsl:with-param name="maximumRecords" select="$maximumRecords"/>
             </xsl:call-template>
         </xsl:variable>
-        <xsl:variable name="next-disabled">
-            <xsl:if test="number($startRecord) + number($maximumRecords) &gt;= number(numberOfRecords)">disabled</xsl:if>
-        </xsl:variable>
-        <span class="result-navigation prev-next">
-            <a class="internal prev {$prev-disabled}" href="{$link_prev}">
-                <span class="ui-icon cmd_prev"/>
-            </a>
-            <a class="internal next {$next-disabled}" href="{$link_next}">
-                <span class="ui-icon cmd_next"/>
-            </a>
-        </span>
+        <xsl:variable name="next-enabled" select="number($startRecord) + number($maximumRecords) &lt; number($numberOfRecords)"/>
+        <xsl:if test="$numberOfRecords &gt; 0">
+            <span class="result-navigation prev-next">
+                <xsl:if test="$prev-enabled">
+                    <a class="internal prev" href="{$link_prev}">
+                        <span class="cmd_prev"/>
+                    </a>
+                </xsl:if>
+                <span class="result-pager value hilight">
+                    <xsl:value-of select="$startRecord"/>
+                    <xsl:text> - </xsl:text>
+                    <xsl:value-of select="(number($startRecord) + number(sru:extraResponseData/fcs:returnedRecords) - 1)"/>
+                </span>
+                <xsl:if test="$next-enabled">
+                    <a class="internal next" href="{$link_next}">
+                        <span class="cmd_next"/>
+                    </a>
+                </xsl:if>
+            </span>
+        </xsl:if>
     </xsl:template>
     <xd:doc>
         <xd:desc>Provides a querylistblock HTML div element which is manipulated by JavaScript</xd:desc>

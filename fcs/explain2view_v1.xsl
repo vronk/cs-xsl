@@ -70,7 +70,7 @@
         
         <!--<div class="explain-view">
             <xsl:apply-templates select="." mode="format-xmlelem"/>
-            </div>-->
+        </div>-->
     </xsl:template>
     <xsl:template match="sru:version" mode="verbose">
         <div class="sru-version">SRU version: <xsl:value-of select="."/></div>        
@@ -242,9 +242,9 @@
         <xsl:value-of  select="zr:map/zr:name"/>
     </xsl:template>
     <!--
-        <xsl:template match="*[@lang]" >
+    <xsl:template match="*[@lang]" >
         
-        </xsl:template>-->
+    </xsl:template>-->
     <xd:doc>
         <xd:desc>In verbose mode first display the list and then the 
             items only generated in this mode</xd:desc>

@@ -240,14 +240,16 @@
     <xsl:template name="formURL">
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
-        <xsl:param name="md-format" select="'CMDI'"/>        
+        <xsl:param name="sort" select="$sort"/>
+        <xsl:param name="md-format" select="'CMDI'"/>
         <xsl:param name="queryType" select="$queryType"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
         <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
+        <xsl:param name="responsePosition" select="1"/>
         <xsl:param name="maximumTerms" select="$maximumTerms"/>
-        <xsl:param name="sort" select="$sort"/>
+        <xsl:param name="x-filter" select="$x-filter"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
@@ -270,12 +272,17 @@
                 <xsl:value-of select="concat('&amp;x-format=',$format)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_sort">
+            <xsl:if test="$sort != ''">
+                <xsl:value-of select="concat('&amp;sort=',$sort)"/>
+            </xsl:if>
+        </xsl:variable>
         <xsl:variable name="param_x-context">
 <!--            if action=explain, handle-q param as x-context-->
             <xsl:choose>
-                <xsl:when test="$action='explain' and $q != ''">
-                            <xsl:value-of select="concat('&amp;x-context=',$q)"/>
-                        </xsl:when>
+                <xsl:when test="$action='explain'">
+                    <xsl:value-of select="concat('&amp;x-context=',$q)"/>
+                </xsl:when>
                 <xsl:when test="$x-context = '' "/>
                 <xsl:otherwise>
                     <xsl:value-of select="concat('&amp;x-context=',$x-context)"/>
@@ -302,19 +309,24 @@
                 <xsl:value-of select="concat('&amp;sort=',$sort)"/>
             </xsl:if>
         </xsl:variable>
-        <xsl:variable name="param_scanClause">
-            <xsl:if test="$scanClause != ''">
-            <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
-            </xsl:if>
-        </xsl:variable>
         <xsl:variable name="param_responsePosition">
             <xsl:if test="$responsePosition != ''">
                 <xsl:value-of select="concat('&amp;responsePosition=',$responsePosition)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="param_scanClause">
+            <xsl:if test="$scanClause != ''">
+            <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
+            </xsl:if>
+        </xsl:variable>
         <xsl:variable name="param_x-dataview">
             <xsl:if test="$dataview != ''">
                 <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:variable name="XDEBUG_SESSION_START">
+            <xsl:if test="$XDEBUG_SESSION_START">
+                <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_queryType">
@@ -329,10 +341,10 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$action='get-data'">
-                <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'), $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='get-metadata'">
-                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'), $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='explain'">
                 <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $param_XDEBUG_SESSION_START)"/>
@@ -578,7 +590,16 @@
                     <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                 </xsl:call-template>
             </xsl:otherwise>
-        </xsl:choose>
+        </xsl:choose>     
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
+            <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="br">
+        <xsl:text disable-output-escaping="yes">&lt;br/&gt;</xsl:text>
     </xsl:template>
     <xd:doc>
         <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag

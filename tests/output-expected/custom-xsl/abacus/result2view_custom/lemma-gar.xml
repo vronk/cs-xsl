@@ -1,270 +1,272 @@
-<div xmlns="http://www.w3. org/1999/xhtml">
-    <div class="result-header" data-numberOfRecords="277">
-        <div class="facets">
+<div xmlns="http://www.w3.org/1999/xhtml" class="searchresults">
+    <div class="abacus">
+        <div class="result-header" data-numberOfRecords="277">
             <div class="facets">
-                <h4></h4>
-                <table>
-                    <tr>
-                        <td>
-                            <span class="hilight">277</span>
-                        </td>
-                        <td>
-                            <a href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html">all</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>116</td>
-                        <td>
-                            <a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.1&amp;x-format=html">Mercks Wienn</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>42</td>
-                        <td>
-                            <a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.5&amp;x-format=html">Lösch Wienn</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>20</td>
-                        <td>
-                            <a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.7&amp;x-format=html">Todten Bruderschaft</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>33</td>
-                        <td>
-                            <a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.9&amp;x-format=html">Augustini Feuriges Hertz</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>66</td>
-                        <td>
-                            <a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.3&amp;x-format=html">Todten-Capelle</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                <div class="facets">
+                    <h4></h4>
+                    <table>
+                        <tr>
+                            <td><span class="hilight">277</span>
+                            </td>
+                            <td><a href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=html">all</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>116</td>
+                            <td><a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.1&amp;x-format=html">Mercks Wienn</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>42</td>
+                            <td><a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.5&amp;x-format=html">Lösch Wienn</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td><a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.7&amp;x-format=html">Todten Bruderschaft</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td><a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.9&amp;x-format=html">Augustini Feuriges Hertz</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>66</td>
+                            <td><a href="?operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus.3&amp;x-format=html">Todten-Capelle</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div><a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
+            <div class="note debug"><span class="label">sru:version: </span><span class="value">1.2</span>;
+                    <span class="label">sru:query: </span><span class="value">lemma="gar"</span>;
+                    <span class="label">fcs:x-context: </span><span class="value">abacus</span>;
+                    <span class="label">fcs:x-dataview: </span><span class="value">title,kwic,facets</span>;
+                    <span class="label">sru:startRecord: </span><span class="value">1</span>;
+                    <span class="label">sru:maximumRecords: </span><span class="value">10</span>;
+                    <span class="label">sru:query: </span><span class="value">lemma="gar"</span>;
+                    <span class="label">sru:baseUrl: </span><span class="value"></span>;
+                    <span class="label">fcs:returnedRecords: </span><span class="value">10</span>;
+                    <span class="label">fcs:duration: </span><span class="value">PT0.155S PT0.394S</span>;
+                    <span class="label">fcs:transformedQuery: </span><span class="value">descendant-or-self::tei:w[@lemma][not(@lemma='(span)')][not(matches(@lemma,'^\d'))][@lemma='gar']</span>;
+                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 10</span><a class="internal next" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus&amp;startRecord=11&amp;maximumRecords=10&amp;x-format=html"><span class="cmd_next"></span></a></span>
         </div>
-        <a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
-        <div class="note debug">
-            <span class="label">sru:version: </span>
-            <span class="value">1.2</span>;
-                    <span class="label">sru:query: </span>
-            <span class="value">lemma="gar"</span>;
-                    <span class="label">fcs:x-context: </span>
-            <span class="value">abacus</span>;
-                    <span class="label">fcs:x-dataview: </span>
-            <span class="value">title,facets,kwic</span>;
-                    <span class="label">sru:startRecord: </span>
-            <span class="value">1</span>;
-                    <span class="label">sru:maximumRecords: </span>
-            <span class="value">10</span>;
-                    <span class="label">sru:query: </span>
-            <span class="value">lemma="gar"</span>;
-                    <span class="label">sru:baseUrl: </span>
-            <span class="value"></span>;
-                    <span class="label">fcs:returnedRecords: </span>
-            <span class="value">10</span>;
-                    <span class="label">fcs:duration: </span>
-            <span class="value">PT0.136S PT0.59S</span>;
-                    <span class="label">fcs:transformedQuery: </span>
-            <span class="value">descendant-or-self::tei:w[@lemma][not(@lemma='(span)')][not(matches(@lemma,'^\d'))][@lemma='gar']</span>;
-                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 10</span><a class="internal next" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma=&#34;gar&#34;&amp;x-context=abacus&amp;startRecord=11&amp;maximumRecords=10&amp;x-format=html"><span class="cmd_next"></span></a></span>
-    </div>
-    <div class="result-body scrollable-content-box">
-        <table class="show">
-            <tbody>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_12&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e1745&amp;x-format=html">1</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_12&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e1745&amp;x-format=html">Mercks Wienn, Widmung [S. 4]</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_12"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_12"><span class="context left">... fen / dann es duncket mich / als tauge  </span> <span class="kw hilight">gar</span> <span class="context right"> wohl das Elend zubeschreiben ein ele ...</span>
+        <div class="result-body scrollable-content-box">
+            <table class="show">
+                <tbody>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_12&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e1643&amp;x-format=html">1</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_12&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e1643&amp;x-format=html">Mercks Wienn, Widmung [S. 4]</a>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_23&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e6594&amp;x-format=html">2</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_23&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e6594&amp;x-format=html">Mercks Wienn, S. 3</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_23"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_23"><span class="context left">... utz hat / den Teuffel Vnbericht / deme  </span> <span class="kw hilight">gar</span> <span class="context right"> wohl bewust / daß deß Adams S. im Pa ...</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_12">
+                                    <div class="wrapper kwic"><span class="context left">... fen / dann es duncket mich / als tauge  </span><span class="kw hilight">gar</span><span class="context right"> wohl das Elend zubeschreiben ein ele ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_12">
+                                    <div class="wrapper facets"></div>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_40&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e16468&amp;x-format=html">3</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_40&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e16468&amp;x-format=html">Mercks Wienn, S. 20</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_40"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_40"><span class="context left">...  dem Hohenlied Salomonis muß die Braut  </span> <span class="kw hilight">gar</span> <span class="context right"> einen manirlichen Verweiß / oder sol ...</span>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_23&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e6318&amp;x-format=html">2</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_23&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e6318&amp;x-format=html">Mercks Wienn, S. 3</a>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_41&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e16872&amp;x-format=html">4</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_41&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e16872&amp;x-format=html">Mercks Wienn, S. 21</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_41"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_41"><span class="context left">... ßpfaden der strauchlenden Vich=Herden?  </span> <span class="kw hilight">gar</span> <span class="context right"> wohl ist es müglich / gehe zur heiss ...</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_23">
+                                    <div class="wrapper kwic"><span class="context left">... utz hat / den Teuffel Vnbericht / deme  </span><span class="kw hilight">gar</span><span class="context right"> wohl bewust / daß deß Adams S. im Pa ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_23">
+                                    <div class="wrapper facets"></div>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_43&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e18755&amp;x-format=html">5</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_43&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e18755&amp;x-format=html">Mercks Wienn, S. 23</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_43"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_43"><span class="context left">...  Secundus, von dar ist der Weege nicht  </span> <span class="kw hilight">gar</span> <span class="context right"> vngelegen nach der Reichsstatt Regen ...</span>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_40&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e16109&amp;x-format=html">3</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_40&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e16109&amp;x-format=html">Mercks Wienn, S. 20</a>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22712&amp;x-format=html">6</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22712&amp;x-format=html">Mercks Wienn, S. 29</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"><span class="context left">... : Ein Pabst Cornelius nachdem er nicht  </span> <span class="kw hilight">gar</span> <span class="context right"> zwey Jahr regieret / ist gestorben;  ...</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_40">
+                                    <div class="wrapper kwic"><span class="context left">...  dem Hohenlied Salomonis muß die Braut  </span><span class="kw hilight">gar</span><span class="context right"> einen manirlichen Verweiß / oder sol ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_40">
+                                    <div class="wrapper facets"></div>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22782&amp;x-format=html">7</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22782&amp;x-format=html">Mercks Wienn, S. 29</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"><span class="context left">... abst Sixtus Secundus, nachdem er nicht  </span> <span class="kw hilight">gar</span> <span class="context right"> ein Jahr regieret / ist gestorben; E ...</span>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_41&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e16473&amp;x-format=html">4</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_41&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e16473&amp;x-format=html">Mercks Wienn, S. 21</a>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22849&amp;x-format=html">8</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22849&amp;x-format=html">Mercks Wienn, S. 29</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"><span class="context left">...  Ein Pabst Severinus, nachdem er nicht  </span> <span class="kw hilight">gar</span> <span class="context right"> ein halbes Jahr regieret / ist gesto ...</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_41">
+                                    <div class="wrapper kwic"><span class="context left">... ßpfaden der strauchlenden Vich=Herden?  </span><span class="kw hilight">gar</span><span class="context right"> wohl ist es müglich / gehe zur heiss ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_41">
+                                    <div class="wrapper facets"></div>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22921&amp;x-format=html">9</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22921&amp;x-format=html">Mercks Wienn, S. 29</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"><span class="context left">... Ein Pabst Valentinus, nachdem er nicht  </span> <span class="kw hilight">gar</span> <span class="context right"> ein viertel Jahr regieret / ist gest ...</span>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_43&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e18337&amp;x-format=html">5</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_43&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e18337&amp;x-format=html">Mercks Wienn, S. 23</a>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22996&amp;x-format=html">10</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d3e22996&amp;x-format=html">Mercks Wienn, S. 29</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"></div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49"><span class="context left">... bst Damasus Secundus, nachdem er nicht  </span> <span class="kw hilight">gar</span> <span class="context right"> ein Monath regieret / ist gestorben  ...</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_43">
+                                    <div class="wrapper kwic"><span class="context left">...  Secundus, von dar ist der Weege nicht  </span><span class="kw hilight">gar</span><span class="context right"> vngelegen nach der Reichsstatt Regen ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_43">
+                                    <div class="wrapper facets"></div>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22249&amp;x-format=html">6</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22249&amp;x-format=html">Mercks Wienn, S. 29</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper kwic"><span class="context left">... : Ein Pabst Cornelius nachdem er nicht  </span><span class="kw hilight">gar</span><span class="context right"> zwey Jahr regieret / ist gestorben;  ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper facets"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22316&amp;x-format=html">7</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22316&amp;x-format=html">Mercks Wienn, S. 29</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper kwic"><span class="context left">... abst Sixtus Secundus, nachdem er nicht  </span><span class="kw hilight">gar</span><span class="context right"> ein Jahr regieret / ist gestorben; E ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper facets"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22380&amp;x-format=html">8</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22380&amp;x-format=html">Mercks Wienn, S. 29</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper kwic"><span class="context left">...  Ein Pabst Severinus, nachdem er nicht  </span><span class="kw hilight">gar</span><span class="context right"> ein halbes Jahr regieret / ist gesto ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper facets"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22449&amp;x-format=html">9</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22449&amp;x-format=html">Mercks Wienn, S. 29</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper kwic"><span class="context left">... Ein Pabst Valentinus, nachdem er nicht  </span><span class="kw hilight">gar</span><span class="context right"> ein viertel Jahr regieret / ist gest ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper facets"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="record-top">
+                        <td rowspan="2" valign="top"><a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22521&amp;x-format=html">10</a>
+                        </td>
+                        <td>
+                            <div class="title"><a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.1_49&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.1.d4e22521&amp;x-format=html">Mercks Wienn, S. 29</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="data-view kwic" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper kwic"><span class="context left">... bst Damasus Secundus, nachdem er nicht  </span><span class="kw hilight">gar</span><span class="context right"> ein Monath regieret / ist gestorben  ...</span>
+                                    </div>
+                                </div>
+                                <div class="data-view facets" data-resource-pid="abacus.1" data-resourcefragment-pid="abacus.1_49">
+                                    <div class="wrapper facets"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

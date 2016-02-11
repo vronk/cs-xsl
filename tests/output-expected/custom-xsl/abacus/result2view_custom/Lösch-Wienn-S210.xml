@@ -1,57 +1,36 @@
-<div xmlns="http://www.w3. org/1999/xhtml">
-    <div class="result-header" data-numberOfRecords="1">
-        <a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus.5&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
-        <div class="note debug">
-            <span class="label">sru:version: </span>
-            <span class="value">1.2</span>;
-                    <span class="label">sru:query: </span>
-            <span class="value">fcs.rf="abacus.5_234"</span>;
-                    <span class="label">fcs:x-context: </span>
-            <span class="value">abacus.5</span>;
-                    <span class="label">fcs:x-dataview: </span>
-            <span class="value">title,cite,navigation,full,facs</span>;
-                    <span class="label">sru:startRecord: </span>
-            <span class="value">1</span>;
-                    <span class="label">sru:maximumRecords: </span>
-            <span class="value">10</span>;
-                    <span class="label">sru:query: </span>
-            <span class="value">fcs.rf="abacus.5_234"</span>;
-                    <span class="label">sru:baseUrl: </span>
-            <span class="value"></span>;
-                    <span class="label">fcs:returnedRecords: </span>
-            <span class="value">1</span>;
-                    <span class="label">fcs:duration: </span>
-            <span class="value">PT0.01S PT0.178S</span>;
-                    <span class="label">fcs:transformedQuery: </span>
-            <span class="value">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.5_234&lt;/phrase&gt;&lt;/query&gt;)]</span>;
-                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns="http://www.w3.org/1999/xhtml" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
-    </div>
-    <div class="result-body scrollable-content-box">
-        <table class="show">
-            <tbody>
-                <tr class="record-top">
-                    <td rowspan="2" valign="top">
-                        <a class="internal" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e109330&amp;x-format=html">1</a>
-                    </td>
-                    <td>
-                        <div class="title">
-                            <a class="value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e109330&amp;x-format=html">Lösch Wienn, S. 210</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view cite" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_234">
-                                <p class="tei-p">Zitation: Abraham â Sancta Clara: Lösch Wienn. Wien, 1680. (Digitale Ausgabe) S. 210. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;https://acdh.oeaw.ac.at/abacus/get/abacus.5_234&gt; abgerufen am 5. 10. 2015</p>
-                            </div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view navigation" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_234"><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_233&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus.5&amp;x-format=html" rel="prev" class="prev" title="S. 209">S. 209</a><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_235&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus.5&amp;x-format=html" rel="next" class="next" title="S. 211">S. 211</a>
-                            </div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view full" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_234">
-                                <div class="tei-TEI">
-                                    <div class="tei-body">
-                                        <div class="tei-div tei-type-chapter">
-                                            <p class="tei-p tei-rend-indent indent"><span class="tei-fw tei-type-header"><span class="tei-fw tei-type-pageNum tei-place-top_center"><span class="fw pageNum"><span class="tei-seg tei-type-ornament">✾</span> 210 <span class="tei-seg tei-type-ornament">✾</span></span></span></span><span class="tei-lb tei-rend-line">&#160;</span><span class="persName bibl" style=""><span class="tei-seg tei-rend-antiqua"><span class="inline-wrap"><span class="attributes" style="display:none;">Lukas<br />NE</span><span class="w NE">Lucas</span></span></span></span><span class="tei-seg tei-type-whitespace">
+<div xmlns="http://www.w3.org/1999/xhtml" class="searchresults">
+    <div class="abacus.5">
+        <div class="result-header" data-numberOfRecords="1"><a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus.5&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
+            <div class="note debug"><span class="label">sru:version: </span><span class="value">1.2</span>;
+                    <span class="label">sru:query: </span><span class="value">fcs.rf="abacus.5_234"</span>;
+                    <span class="label">fcs:x-context: </span><span class="value">abacus.5</span>;
+                    <span class="label">fcs:x-dataview: </span><span class="value">title,cite,navigation,full,facs</span>;
+                    <span class="label">sru:startRecord: </span><span class="value">1</span>;
+                    <span class="label">sru:maximumRecords: </span><span class="value">10</span>;
+                    <span class="label">sru:query: </span><span class="value">fcs.rf="abacus.5_234"</span>;
+                    <span class="label">sru:baseUrl: </span><span class="value"></span>;
+                    <span class="label">fcs:returnedRecords: </span><span class="value">1</span>;
+                    <span class="label">fcs:duration: </span><span class="value">PT0.01S PT0.167S</span>;
+                    <span class="label">fcs:transformedQuery: </span><span class="value">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.5_234&lt;/phrase&gt;&lt;/query&gt;)]</span>;
+                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
+        </div>
+        <div class="title"><a class="xsl-rec-uri value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-format=html">Lösch Wienn, S. 210</a>
+        </div>
+        <div class="data-view cite" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_234">
+            <div class="wrapper cite">
+                <p class="tei-p">Zitation: Abraham â Sancta Clara: Lösch Wienn. Wien, 1680. (Digitale Ausgabe) S. 210. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;/abacus/get/abacus.5_234&gt; abgerufen am 19. 11. 2015</p>
+            </div>
+        </div>
+        <div class="data-view navigation" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_234">
+            <div class="wrapper navigation"><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_233&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus.5&amp;x-format=html" rel="prev" class="prev" title="S. 209">S. 209</a><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_235&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus.5&amp;x-format=html" rel="next" class="next" title="S. 211">S. 211</a>
+            </div>
+        </div>
+        <div class="data-view full" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_234">
+            <div class="wrapper full">
+                <div class="tei-TEI">
+                    <div class="tei-body">
+                        <div class="tei-div tei-type-chapter">
+                            <p class="tei-p tei-rend-indent indent"><span class="tei-fw tei-type-header"><span class="tei-fw tei-type-pageNum tei-place-top_center"><span class="fw pageNum"><span class="tei-seg tei-type-ornament">✾</span> 210 <span class="tei-seg tei-type-ornament">✾</span></span></span></span><span class="tei-lb tei-rend-line">&#160;</span><span class="persName bibl" style=""><span class="tei-seg tei-rend-antiqua"><span class="inline-wrap"><span class="attributes" style="display:none;">Lukas<br />NE</span><span class="w NE">Lucas</span></span></span></span><span class="tei-seg tei-type-whitespace">
                     
                      
                 </span><span class="inline-wrap"><span class="attributes" style="display:none;">schreiben<br />VVFIN</span><span class="w VVFIN">schreibt</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$.</span><span class="pc final">:</span></span><span class="tei-seg tei-type-whitespace">
@@ -93,7 +72,7 @@
                 </span><span class="inline-wrap"><span class="attributes" style="display:none;">aber<br />ADV</span><span class="w ADV">aber</span></span><span class="tei-seg tei-type-whitespace">
                     
                      
-                </span><span class="inline-wrap"><span class="attributes" style="display:none;">gar<br />ADV</span><span class="w ADV"><span class="hilight match">gar</span></span></span><span class="tei-seg tei-type-whitespace">
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">gar<br />ADV</span><span class="w ADV">gar</span></span><span class="tei-seg tei-type-whitespace">
                     
                      
                 </span><span class="inline-wrap"><span class="attributes" style="display:none;">ein<br />ART</span><span class="w ART">ein</span></span><span class="tei-seg tei-type-whitespace">
@@ -376,17 +355,13 @@
                     
                      
                 </span><span class="inline-wrap"><span class="attributes" style="display:none;">auffahren<br />VVFIN</span><span class="w VVFIN">auf=<br /><span class="tei-fw tei-type-catch tei-place-bot_right"><span class="fw catch">fahren</span></span><span class="tei-note tei-type-footnote tei-place-bottom"><span class="tei-p tei-rend-indent indent"><span class="tei-seg tei-rend-antiqua">(f) <span class="persName bibl">Luc.</span> 16.</span></span></span></span></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="data-view facs" data-resource-pid="abacus.5"><img src="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_n0210.jpg" alt="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_n0210.jpg" />
-                            </div>
+                            </p>
                         </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="data-view facs" data-resource-pid="abacus.5"><img src="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_n0210.jpg" alt="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_n0210.jpg" />
+        </div>
     </div>
 </div>

@@ -2,8 +2,8 @@
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:saxon="http://saxon.sf.net/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0" exclude-result-prefixes="saxon xs exsl diag sru fcs xd">
     <xd:doc scope="stylesheet">
         <xd:desc>Generate html view of a sru-result-set  (eventually in various formats).
-        <xd:p>History:
-        <xd:ul>
+            <xd:p>History:
+                <xd:ul>
                     <xd:li>2011-12-06: created by:"vr": based on cmdi/scripts/mdset2view.xsl retrofitted for XSLT 1.0</xd:li>
                 </xd:ul>
             </xd:p>
@@ -109,6 +109,27 @@
 </span>;-->
                 </div>
             <xsl:call-template name="prev-next"/>
+            <xsl:apply-templates select="sru:facetedResults"/>
+            <xsl:variable name="link_xml">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="format" select="'xml'"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <a class="xml-link debug" href="{$link_xml}">XML</a>
+            <div class="note debug">
+                <xsl:for-each select="(sru:echoedSearchRetrieveRequest/*|sru:extraResponseData/*)">
+                    <span class="label">
+                        <xsl:value-of select="name()"/>: </span>
+                    <span class="value">
+                        <xsl:value-of select="."/>
+                    </span>;
+                    </xsl:for-each>
+                    <!--<span class="label">duration: </span>
+<span class="value">
+<xsl:value-of select="sru:extraResponseData/fcs:duration"/>
+</span>;-->
+            </div>
+            <xsl:call-template name="prev-next"/>
         </div>
     </xsl:template>
     
@@ -126,13 +147,16 @@
         <xd:desc>Return the result if there is exactly one result</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records[count(sru:record) = 1]" mode="table">
+        <xsl:call-template name="single-result"/>
+    </xsl:template>
+    
+    <xsl:template name="single-result">
         <xsl:variable name="rec_uri">
             <xsl:call-template name="_getRecordURI"/>
         </xsl:variable>
         <div class="title">
             <xsl:choose>
-                <!--  <sru:recordIdentifier/> leads to an existing but empty string -->
-                <xsl:when test="$rec_uri != ''">
+                <xsl:when test="$rec_uri">
                     <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
                     <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
                     <a class="xsl-rec-uri value-caller" href="{$rec_uri}&amp;x-format={$format}">
@@ -153,9 +177,13 @@
         <xd:desc>Return a table of results if there is more than one record returned</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records" mode="table">
+        <xsl:call-template name="multiple-results-table"/>
+    </xsl:template>
+    
+    <xsl:template name="multiple-results-table">        
         <div class="result-body scrollable-content-box">
             <table class="show">
-            <!--<thead>
+                <!--<thead>
                 <tr>
                     <th>pos</th>
                     <th>record</th>
@@ -172,6 +200,10 @@
         <xd:desc>Return a list of results if there is more than one record returned</xd:desc>
     </xd:doc>
     <xsl:template match="sru:records" mode="list">
+        <xsl:call-template name="multiple-results-list"/>
+    </xsl:template>
+    
+    <xsl:template name="multiple-results-list">
         <dl class="show">
             <xsl:apply-templates select="sru:record" mode="list"/>
         </dl>
@@ -247,7 +279,7 @@
 -->
         <xsl:variable name="absolute_position">
             <xsl:choose>
-        <!--      CHECK: Does this check if $startRecord is a number, or is it an error?          -->
+                <!-- CHECK: Does this check if $startRecord is a number, or is it an error? -->
                 <xsl:when test="number($startRecord)=number($startRecord)">
                     <xsl:value-of select="number($startRecord) + position() - 1"/>
                 </xsl:when>
@@ -376,6 +408,82 @@ TODO: handle context
                     <xsl:choose>
                         <xsl:when test="$rec_uri">
                             <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
+                            <!-- <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+                            <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
+                                <xsl:call-template name="getTitle"/>
+                            </a>
+                            <!--                        <span class="cmd cmd_save"/>-->
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <!-- FIXME: generic link somewhere anyhow! -->
+                            <xsl:call-template name="getTitle"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </div>
+            </span>
+        </dt>
+        <dd>
+            <span>
+                <div>
+                    <xsl:apply-templates select="*" mode="record-data"/>
+                </div>
+            </span>
+        </dd>
+           
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Transforms one sru:record into a definition list item
+            <xd:p>The definition term contains the position of the record in the
+                result as well as a tite generated by the getTitle template.</xd:p>
+            <xd:p>The definition definition contains the formatted sru:record.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="record-list-item">
+        <!-- <xsl:param name="fields"/>-->
+        <!-- @field absolute_position compute records position over whole recordset, ie add `startRecord` (important when paging)
+-->
+        <xsl:variable name="absolute_position">
+            <xsl:choose>
+                <!--      CHECK: Does this check if $startRecord is a number, or is it an error?          -->
+                <xsl:when test="number($startRecord)=number($startRecord)">
+                    <xsl:value-of select="number($startRecord) + position() - 1"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="position()"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="rec_uri">
+            <xsl:call-template name="_getRecordURI">
+                <xsl:with-param name="absolute_position" select="$absolute_position"/>
+            </xsl:call-template>
+        </xsl:variable>
+                <dt>
+            <span>
+                <xsl:choose>
+                    <xsl:when test="$rec_uri">
+                        <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
+                        <!-- <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
+                        <a class="internal" href="{$rec_uri}&amp;x-format={$format}">
+                            <xsl:value-of select="$absolute_position"/>
+                        </a>
+                        <!-- <span class="cmd cmd_save"/>-->
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <!-- FIXME: generic link somewhere anyhow! -->
+                        <xsl:value-of select="$absolute_position"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </span>
+            <span>
+                <!--
+TODO: handle context
+<xsl:call-template name="getContext"/>-->
+                <div class="title">
+                    <xsl:choose>
+                        <xsl:when test="$rec_uri">
+                            <!-- it was: htmlsimple, htmltable -link-to-> htmldetail; otherwise -> htmlpage -->
                             <!--                        <a class="internal" href="{my:formURL('record', $format, my:encodePID(.//recordIdentifier))}">-->
                             <a class="value-caller" href="{$rec_uri}&amp;x-format={$format}">
                                 <xsl:call-template name="getTitle"/>
@@ -420,23 +528,32 @@ TODO: handle context
         </div>
     </xsl:template>
     <xsl:template match="sru:facet">
+        <div class="facets">
+            <h4>
+                <xsl:value-of select="sru:facetDisplayLabel"/>
+            </h4>
+            <xsl:apply-templates select="sru:terms"/>
+        </div>
+    </xsl:template>
+    <xsl:template match="sru:facet/sru:terms">
         <xsl:variable name="orig-request">
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'searchRetrieve'"/>
                 <xsl:with-param name="x-context" select="''"/>
             </xsl:call-template>
         </xsl:variable>
-        <div>
-            <h4>
-                <xsl:value-of select="sru:facetDisplayLabel"/>
-            </h4>
-            <a href="{$orig-request}">all</a>
-            <xsl:apply-templates select="sru:terms"/>
-        </div>
-    </xsl:template>
-    <xsl:template match="sru:facet/sru:terms">
         <table>
-            <xsl:apply-templates/>
+            <tr>
+                <td>
+                    <span class="hilight">
+                        <xsl:value-of select="$numberOfRecords"/>
+                    </span>
+                </td>
+                <td>
+                    <a href="{$orig-request}">all</a>
+                </td>
+            </tr>
+            <xsl:apply-templates select="sru:term"/>
         </table>
     </xsl:template>
     <xsl:template match="sru:facet/sru:terms/sru:term">

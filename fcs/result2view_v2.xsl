@@ -10,6 +10,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
+    
     <xd:doc>
         <xd:desc>Generate a valid XHTML 1 DOCTYPE and handle some HTML cornercasees.
             <xd:p>Note: method="xhtml" is saxon-specific! prevents collapsing empty &lt;script&gt; tags, that makes browsers choke (eg. not loading that script), but collapses &lt;br&gt; tags which might otherwise be interpreted as two.</xd:p>

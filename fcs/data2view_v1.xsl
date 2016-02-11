@@ -159,11 +159,38 @@
     </xsl:template>
     <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]" mode="record-data" priority="10">
         <xsl:param name="resource-pid"/>
+        <xsl:param name="linkTo"/>
         <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
-            <xsl:call-template name="generateImgHTMLTags">
-                <xsl:with-param name="ref" select="@ref"/>
-            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="$linkTo!=''">
+                    <a href="{$linkTo}">
+                        <xsl:call-template name="generateImg">
+                            <xsl:with-param name="ref" select="@ref"/>
+                        </xsl:call-template>
+                    </a>
+                </xsl:when>
+            <xsl:otherwise>
+                    <xsl:call-template name="generateImg">
+                        <xsl:with-param name="ref" select="@ref"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
         </div>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Generic handler for image references passed by the facs data view
+        <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateImg">
+        <xsl:choose>
+            <xsl:when test="@ref">
+                <img src="{@ref}" alt="{@ref}"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
  <!-- better hide the fullview (the default view is too much)
@@ -180,7 +207,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:ResourceFragment[@type]" mode="record-data">
-        <a href="{@ref}&amp;x-format={$format}" rel="{@type}" class="{@type}">
+        <xsl:variable name="link-text">
             <xsl:choose>
                 <xsl:when test="@label">
                     <xsl:value-of select="@label"/>
@@ -189,6 +216,9 @@
             <xsl:value-of select="@pid"/>
                 </xsl:otherwise>
             </xsl:choose>
+        </xsl:variable>
+        <a href="{@ref}&amp;x-format={$format}" rel="{@type}" class="{@type}" title="{$link-text}">
+            <xsl:value-of select="$link-text"/>
         </a>
     </xsl:template>
     
@@ -376,7 +406,7 @@
             <xsl:for-each select="node()">
                 <xsl:choose>
 <!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
-                        <xsl:when test="parent::exist:match">
+                    <xsl:when test="parent::exist:match">
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
                     </xsl:when>-->
                     <xsl:when test="self::text()">
@@ -421,7 +451,7 @@
             </xsl:choose>
         </xsl:variable>
         <span class="inline-wrap">
-            <xsl:if test="descendant-or-self::*">
+            <xsl:if test="descendant-or-self::*/@*">
                 <span class="attributes">
                     <xsl:call-template name="descendants-table">
                         <xsl:with-param name="elem-name">
@@ -452,11 +482,10 @@
                     <xsl:value-of select="$elem-name"/>
                 </td>
             </tr>
-            <!--                        <xsl:apply-templates select="@*" mode="format-attr"/>-->
             <tr>
                 <td>
                     <xsl:if test="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
-                        <table>
+                                        <table style="float:left">
                             <xsl:for-each select="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
                                 <tr>
                                     <td class="label">

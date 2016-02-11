@@ -13,7 +13,7 @@
     </sru:echoedSearchRetrieveRequest>
     <sru:extraResponseData>
         <fcs:returnedRecords xmlns:fcs="http://clarin.eu/fcs/1.0">1</fcs:returnedRecords>
-        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.021S PT0.356S</fcs:duration>
+        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.175S PT0.235S</fcs:duration>
         <fcs:transformedQuery xmlns:fcs="http://clarin.eu/fcs/1.0">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.5_250&lt;/phrase&gt;&lt;/query&gt;)]</fcs:transformedQuery>
     </sru:extraResponseData>
     <sru:records>
@@ -26,7 +26,7 @@
                         <fcs:DataView type="title">Lösch Wienn, h. Umschlag verso</fcs:DataView>
                         <fcs:DataView type="cite">
                             <bibl>
-                                <p>Zitation: <br/>Abraham â Sancta Clara: Lösch Wienn. Wien, 1680. (Digitale Ausgabe) h. Umschlag verso. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;https://acdh.oeaw.ac.at/abacus/get/abacus.5_250&gt; abgerufen am 5. 10. 2015</p>
+                                <p>Zitation: <br/>Abraham â Sancta Clara: Lösch Wienn. Wien, 1680. (Digitale Ausgabe) h. Umschlag verso. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;/abacus/get/abacus.5_250&gt; abgerufen am 19. 11. 2015</p>
                             </bibl>
                         </fcs:DataView>
                         <fcs:DataView type="navigation">
@@ -34,10 +34,10 @@
                             <fcs:ResourceFragment type="next" pid="" ref="" label=""/>
                         </fcs:DataView>
                         <fcs:DataView type="full">
-                            <tei:TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" xmlns:tei="http://www.tei-c.org/ns/1.0" cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d3e2">
-<tei:text cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d3e3" ana="#prose" type="book">
-<tei:back cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d3e113654">
-<tei:pb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d3e113661" facs="Abraham-Loesch_Wienn_u0008.jpg" n="h. Umschlag verso" xml:id="LW_u0008"/>
+                            <tei:TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" xmlns:tei="http://www.tei-c.org/ns/1.0" cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e2">
+                                <tei:text cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e3" ana="#prose" type="book">
+                                    <tei:back cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e111321">
+                                        <tei:pb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e111328" facs="Abraham-Loesch_Wienn_u0008.jpg" n="h. Umschlag verso" xml:id="LW_u0008"/>
                                     </tei:back>
                                 </tei:text>
                             </tei:TEI>

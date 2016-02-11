@@ -13,7 +13,7 @@
     </sru:echoedSearchRetrieveRequest>
     <sru:extraResponseData>
         <fcs:returnedRecords xmlns:fcs="http://clarin.eu/fcs/1.0">2</fcs:returnedRecords>
-        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.034S PT0.098S</fcs:duration>
+        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.027S PT0.071S</fcs:duration>
         <fcs:transformedQuery xmlns:fcs="http://clarin.eu/fcs/1.0">descendant-or-self::tei:w[@lemma][not(@lemma='(span)')][not(matches(@lemma,'^\d'))][@lemma='gar']</fcs:transformedQuery>
     </sru:extraResponseData>
     <sru:records>
@@ -22,7 +22,7 @@
             <sru:recordPacking>xml</sru:recordPacking>
             <sru:recordData>
                 <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
-                    <fcs:ResourceFragment pid="abacus.5_234" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e109330">
+                    <fcs:ResourceFragment pid="abacus.5_234" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d23e107047">
                         <fcs:DataView type="title">Lösch Wienn, S. 210</fcs:DataView>
                         <fcs:DataView type="facets"/>
                         <fcs:DataView type="kwic">
@@ -34,14 +34,14 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>1</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_234"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e109330</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_234"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d23e107047</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
             <sru:recordPacking>xml</sru:recordPacking>
             <sru:recordData>
                 <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2">
-                    <fcs:ResourceFragment pid="abacus.5_235" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_235&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e109950">
+                    <fcs:ResourceFragment pid="abacus.5_235" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_235&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d23e107667">
                         <fcs:DataView type="title">Lösch Wienn, S. 211</fcs:DataView>
                         <fcs:DataView type="facets"/>
                         <fcs:DataView type="kwic">
@@ -53,7 +53,7 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>2</sru:recordPosition>
-            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_235"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d3e109950</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_235"&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d23e107667</sru:recordIdentifier>
         </sru:record>
     </sru:records>
     <sru:facetedResults>

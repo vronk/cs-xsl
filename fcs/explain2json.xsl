@@ -82,6 +82,7 @@
     <xsl:param name="sort">x</xsl:param>
     <!-- s=size|n=name|t=time|x=default -->
     <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
+    <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
     <xsl:param name="index" select="$scanClause"/>
     <xsl:template match="/">
