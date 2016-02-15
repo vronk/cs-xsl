@@ -601,9 +601,11 @@ the named templates are at the bottom.</xd:p>
     <xsl:template match="tei:*" mode="record-data" priority="-1">
         <xsl:call-template name="inline"/>
     </xsl:template>
-    <xsl:template match="tei:ref[contains(@target, '.JPG') or                                   contains(@target, '.jpg') or                                  contains(@target, '.PNG') or                                  contains(@target, '.PNG')]" mode="record-data">
-        <!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
-        <xsl:call-template name="generateImg"/>
+    <xsl:template match="tei:ref[contains(@target, '.JPG') or
+        contains(@target, '.jpg') or
+        contains(@target, '.PNG') or
+        contains(@target, '.PNG')]" mode="record-data">
+        <xsl:call-template name="generateImgHTMLTags"/>
     </xsl:template>
     
     <xsl:template match="tei:*" mode="tei-body-headings">
@@ -1071,6 +1073,7 @@ the named templates are at the bottom.</xd:p>
                 <xsl:apply-templates mode="record-data"/>
             </xsl:with-param>
         </xsl:call-template>
+    </xsl:template>
     <xsl:template match="p | tei:p" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -1534,11 +1537,7 @@ the named templates are at the bottom.</xd:p>
             <xd:p/>
         </xd:desc>
     </xd:doc>
-    
-    <xsl:template match="tei:entry" mode="record-data">
-        <div class="tei-entry">
-            <xsl:call-template name="_tei_entry"/>                                         
-    </xsl:template>
+                                          
     <xsl:template match="tei:entry" mode="result-data-table">
         <td class="tei-entry">
            <xsl:call-template name="_tei_entry"/> 
@@ -1560,7 +1559,9 @@ the named templates are at the bottom.</xd:p>
                             <xsl:apply-templates select="." mode="record-data"/>
                         </xsl:for-each>
                     </span>
-                    <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
+                    <xsl:if test="not(@rend) or ./@rend != 'singular_only'">
+                        <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
+                    </xsl:if>
                     <!-- Assumes tei:gramGrp is not rendered, see above -->
                     <xsl:apply-templates select="." mode="record-data"/>
                 </xsl:otherwise>
@@ -1894,8 +1895,6 @@ the named templates are at the bottom.</xd:p>
                 <xsl:text>...</xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-            </xsl:otherwise>
-        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:occupation" mode="record-data">
         <xsl:variable name="class">
@@ -1992,18 +1991,6 @@ the named templates are at the bottom.</xd:p>
         </xsl:choose>
     </xsl:template>
 
-    <!-- handing over to aac:stand.xsl -->
-    <!--<xsl:template match="seg" mode="record-data">
-        <xsl:apply-templates select="."/>
-    </xsl:template>-->
-    <!--
-    <xsl:template match="seg[@type='header']" mode="record-data"/>
-    <xsl:template match="seg[@rend='italicised']" mode="record-data">
-        <em>
-            <xsl:apply-templates mode="record-data"/>
-        </em>
-    </xsl:template>
-    -->
     <xd:doc>
         <xd:desc>
             <xd:p>a rather sloppy section optimized for result from aacnames listPerson/tei:person
@@ -2096,18 +2083,6 @@ the named templates are at the bottom.</xd:p>
         </span>
     </xsl:template>
     
-    <xsl:template match="w|tei:w" mode="record-data">
-        <xsl:variable name="next" select="following-sibling::*[1]"/>
-        <!--        <xsl:call-template name="inline"/>-->
-        <span class="inline-wrap">
-            <xsl:if test="@*">
-                <span class="attributes" style="display:none;">
-                    <xsl:value-of select="concat(@lemma,' ',@type)"/>
-                    <!--                <xsl:apply-templates select="@*" mode="format-attr"/>-->
-                </span>
-            </xsl:if>
-        </span>
-    
     <xsl:template match="tei:u" mode="record-data">
         <dl class="tei-u">
             <dt class="tei-u-who">
@@ -2151,17 +2126,6 @@ the named templates are at the bottom.</xd:p>
 
     </xsl:template>
 
-<!-- FIXME: may need MERGE     <<<<<<HEAD (last dev from corpus4)
-    <xsl:template match="w|tei:w" mode="record-data">
-        <xsl:variable name="next" select="following-sibling::*[1]"/>
-      
-        <span class="inline-wrap">
-            <xsl:if test="@*">
-                <span class="attributes" style="display:none;">
-                    <xsl:value-of select="concat(@lemma,' ',@type)"/>
-                    <!-/-                <xsl:apply-templates select="@*" mode="format-attr"/>-/->
-======= -->
-
     <xsl:strip-space elements="tei:s tei:w tei:c tei:fs"/>
     <xd:doc>
         <xd:desc>Handle TEI sentence markers</xd:desc>
@@ -2198,7 +2162,6 @@ the named templates are at the bottom.</xd:p>
                     </xsl:if>
                     <xsl:value-of select="tei:fs/tei:f[@name='wordform']"/>
                     <xsl:apply-templates mode="record-data"/>
-<!-- >>>>>>> df738c45315b56c17246f250901e18b6d34aa603a -->
                 </span>
             </xsl:when>
             <xsl:when test="@ana">

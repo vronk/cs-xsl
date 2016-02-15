@@ -253,7 +253,6 @@
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
-        <xsl:param name="responsePosition" select="''"/>
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
@@ -302,11 +301,6 @@
         <xsl:variable name="param_maximumTerms">
             <xsl:if test="$maximumTerms != ''">
                 <xsl:value-of select="concat('&amp;maximumTerms=',$maximumTerms)"/>
-            </xsl:if>
-        </xsl:variable>
-        <xsl:variable name="param_sort">
-            <xsl:if test="$sort != ''">
-                <xsl:value-of select="concat('&amp;sort=',$sort)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_responsePosition">
@@ -593,14 +587,6 @@
         </xsl:choose>     
     </xsl:template>
     
-    <xd:doc>
-        <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
-            <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="br">
-        <xsl:text disable-output-escaping="yes">&lt;br/&gt;</xsl:text>
-    </xsl:template>
     <xd:doc>
         <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>

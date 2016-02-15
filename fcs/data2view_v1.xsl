@@ -164,13 +164,13 @@
             <xsl:choose>
                 <xsl:when test="$linkTo!=''">
                     <a href="{$linkTo}">
-                        <xsl:call-template name="generateImg">
+                        <xsl:call-template name="generateImgHTMLTags">
                             <xsl:with-param name="ref" select="@ref"/>
                         </xsl:call-template>
                     </a>
                 </xsl:when>
             <xsl:otherwise>
-                    <xsl:call-template name="generateImg">
+                    <xsl:call-template name="generateImgHTMLTags">
                         <xsl:with-param name="ref" select="@ref"/>
                     </xsl:call-template>
                 </xsl:otherwise>
@@ -182,7 +182,7 @@
         <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template name="generateImg">
+    <xsl:template name="generateImgHTMLTags">
         <xsl:choose>
             <xsl:when test="@ref">
                 <img src="{@ref}" alt="{@ref}"/>

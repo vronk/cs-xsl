@@ -202,7 +202,6 @@
             <xd:p>No default value, as this would override index-defined default ordering.</xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="sort"/>
     <xd:doc>
         <xd:desc>Requested format of the result
             <xd:p>One of htmlpage, htmljspage or htmlsimple or something completely different.
@@ -273,7 +272,8 @@
             <xsl:with-param name="join-with" select="','"/>
         </xsl:call-template>
     </xsl:param>
-        <xd:desc>cr_xq specific parameter: The id of the cr_xq project the user is operating in.
+    <xd:doc>
+    <xd:desc>cr_xq specific parameter: The id of the cr_xq project the user is operating in.
             <xd:p>
                 Defaults to <xd:ref name="x-context" type="parameter">$x-context</xd:ref>
             </xd:p>
@@ -411,16 +411,8 @@
     <xsl:param name="dict_lang" select="'en_US'"/>
     
     <xd:doc>
-        <xd:desc>XDebug passthrough</xd:desc>
-        <xd:p>The XDebug PHP server debugging tool activates itsself depending on this special parameter.</xd:p>
-        <xd:p>So as a service pass this parameter on by appending it to all generated links as is if it is present.</xd:p>
-    </xd:doc>
-    <xsl:param name="XDEBUG_SESSION_START" select="''"/>
-    
-    <xd:doc>
         <xd:desc>The location of the fcs endpoint relative to the base-url (used in the <xd:ref name="formURL" type="template">formURL</xd:ref> template to build links.</xd:desc>
     </xd:doc>
-    <xsl:param name="fcs_prefix" select="''"/>
     
     <xd:doc>
         <xd:desc>URL parameter that contained the context for the operation</xd:desc>
