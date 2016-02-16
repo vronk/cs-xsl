@@ -177,21 +177,6 @@
             </xsl:choose>
         </div>
     </xsl:template>
-    <xd:doc>
-        <xd:desc>Generic handler for image references passed by the facs data view
-        <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="generateImgHTMLTags">
-        <xsl:choose>
-            <xsl:when test="@ref">
-                <img src="{@ref}" alt="{@ref}"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
     
  <!-- better hide the fullview (the default view is too much)
         TODO: some more condensed view -->

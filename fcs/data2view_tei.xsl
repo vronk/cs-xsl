@@ -601,11 +601,42 @@ the named templates are at the bottom.</xd:p>
     <xsl:template match="tei:*" mode="record-data" priority="-1">
         <xsl:call-template name="inline"/>
     </xsl:template>
+    
+    <xsl:template match="tei:ptr[substring(@target, 1, 1) = '#']"
+        mode="record-data">
+        <xsl:variable name="target_id" select="substring(@target,2)"/>
+        <xsl:apply-templates select="//*[@xml:id=$target_id]" mode="record-data"/>
+    </xsl:template>
+    
     <xsl:template match="tei:ref[contains(@target, '.JPG') or
         contains(@target, '.jpg') or
         contains(@target, '.PNG') or
-        contains(@target, '.PNG')]" mode="record-data">
-        <xsl:call-template name="generateImgHTMLTags"/>
+        contains(@target, '.png')]" mode="record-data">
+        <xsl:call-template name="generateImgHTMLTags">
+            <xsl:with-param name="altText">
+                <xsl:value-of select="."/>
+            </xsl:with-param>
+        </xsl:call-template>
+    </xsl:template>
+       
+    <xd:doc>
+        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by the facs data view.
+            <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateImgHTMLTags">
+        <xsl:param name="altText" select="@target"/>
+        <xsl:choose>
+            <xsl:when test="@ref">
+                <img src="{@ref}" alt="{@ref}"/>
+            </xsl:when>
+            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
+                <img src="{@target}" alt="{$altText}"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in your project's XSL customization!</span>                
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="tei:*" mode="tei-body-headings">
@@ -1074,73 +1105,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
-    <xsl:template match="p | tei:p" mode="record-data">
-        <xsl:variable name="class">
-            <xsl:call-template name="classnames"/>
-        </xsl:variable>
-        <xsl:variable name="elementName">
-            <xsl:choose>
-                <xsl:when test="ancestor::tei:p or ancestor::p">
-                    <xsl:text>span</xsl:text>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:text>p</xsl:text>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:element name="{$elementName}">
-            <xsl:choose>
-                <xsl:when test="@rend">
-                    <xsl:attribute name="class">
-                        <xsl:value-of select="$class"/>
-                        <xsl:text xml:space="preserve"> </xsl:text>
-                        <xsl:call-template name="rend-without-color">
-                            <xsl:with-param name="rend-text" select="@rend"/>
-                        </xsl:call-template>
-                    </xsl:attribute>
-                    <xsl:if test="substring-after(string(@rend), 'color(')">
-                        <xsl:attribute name="class">
-                            <xsl:value-of select="$class"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="style">
-                            <xsl:call-template name="rend-color-as-html-style">
-                                <xsl:with-param name="rend-text" select="@rend"/>
-                            </xsl:call-template>
-                        </xsl:attribute>
-                    </xsl:if>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:attribute name="class">
-                        <xsl:value-of select="$class"/>
-                    </xsl:attribute>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:apply-templates mode="record-data"/>
-        </xsl:element>
-    </xsl:template>
-    <xsl:template match="tei:ptr[contains(@target, '.JPG') or
-        contains(@target, '.jpg') or
-        contains(@target, '.PNG') or
-        contains(@target, '.png')]" mode="record-data">
-        <xsl:call-template name="generateImgHTMLTags"/>
-    </xsl:template>
-    
-    <xsl:template match="tei:ptr[substring(@target, 1, 1) = '#']"
-        mode="record-data">
-        <xsl:variable name="target_id" select="substring(@target,2)"/>
-        <xsl:apply-templates select="//*[@xml:id=$target_id]" mode="record-data"/>
-    </xsl:template>
-    
-    <xsl:template match="tei:ref[contains(@target, '.JPG') or
-        contains(@target, '.jpg') or
-        contains(@target, '.PNG') or
-        contains(@target, '.png')]" mode="record-data">
-        <xsl:call-template name="generateImgHTMLTags">
-            <xsl:with-param name="altText">
-                <xsl:value-of select="."/>
-            </xsl:with-param>
-        </xsl:call-template>
-    </xsl:template>
     
     <xd:doc>
         <xd:desc>Special handling of target declarations that point to other resources
@@ -1187,25 +1151,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:otherwise>
             
         </xsl:choose>        
-    </xsl:template>
-    <xd:doc>
-        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by the facs data view.
-        <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="generateImgHTMLTags">
-        <xsl:param name="altText" select="@target"/>
-        <xsl:choose>
-            <xsl:when test="@ref">
-                <img src="{@ref}" alt="{@ref}"/>
-            </xsl:when>
-            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
-                <img src="{@target}" alt="{$altText}"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in your project's XSL customization!</span>                
-            </xsl:otherwise>
-        </xsl:choose>
     </xsl:template>
     
     <xd:doc>
@@ -1542,6 +1487,10 @@ the named templates are at the bottom.</xd:p>
         <td class="tei-entry">
            <xsl:call-template name="_tei_entry"/> 
         </td>
+    </xsl:template>
+    
+    <xsl:template match="tei:entry" mode="record-data">
+        <xsl:call-template name="_tei_entry"/>        
     </xsl:template>
     
     <xsl:template name="_tei_entry">
