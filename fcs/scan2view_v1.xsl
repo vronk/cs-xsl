@@ -8,9 +8,11 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    xmlns:exsl="http://exslt.org/common"
-    version="1.0" exclude-result-prefixes="xsl utils sru xs fcs cr xd exsl">
+    xmlns:this="urn:general:encode-for-uri"
+    version="1.0" exclude-result-prefixes="xsl utils sru xs fcs cr xd this">
     <xsl:import href="../commons_v1.xsl"/>
+    <xsl:include href="encode-for-uri_v1.xsl"/>
+    
     <xd:doc scope="stylesheet">
         <xd:desc> generate a view for a values-list (index scan)
             <xd:p>History:
@@ -151,6 +153,7 @@
                 <input type="hidden" name="x-format" value="{$format}"/>
                 <input type="hidden" name="x-context" value="{$x-context}"/>
                 <input type="submit" value="suchen"/>
+                <xsl:call-template name="prev-next-terms"/>
             </form>
             <xsl:value-of select="count(//sru:terms/sru:term)"/> out of <xsl:value-of select="$countTerms"/> Terms
             
@@ -241,4 +244,50 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    <xd:doc>
+        <xd:desc>
+            <xd:p>currently we support paging only for flat scans</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="prev-next-terms">
+        <xsl:if test="not(//sru:term//sru:term) or not(boolean(//sru:term))">
+            <xsl:variable name="prev_responsePosition" select="$maximumTerms"/>
+                <!--<xsl:choose>
+                <xsl:when test="number($responsePosition) - number($maximumTerms) > 0">
+                    <xsl:value-of select="format-number(number($responsePosition) - number($maximumTerms),'#')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="number($maximumTerms) - number($responsePosition)"/>
+                </xsl:otherwise>
+            </xsl:choose>-->
+            <xsl:variable name="prev_scanClause" select="concat($index, '=', this:encode-for-uri((//sru:term)[1]/sru:value[1], true()))"/>
+            <xsl:variable name="link_prev">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="responsePosition" select="$prev_responsePosition"/>
+                    <xsl:with-param name="scanClause" select="$prev_scanClause"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="prev-disabled">
+                <xsl:if test="//sru:term[1]/sru:extraTermData/fcs:position = 1">disabled</xsl:if>
+            </xsl:variable>
+            <xsl:variable name="next_scanClause" select="concat($index, '=', this:encode-for-uri((//sru:term)[last()]/sru:value[1], true()))"/>
+            <xsl:variable name="link_next">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="scanClause" select="$next_scanClause"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="next-disabled">
+                <xsl:if test="number(//sru:term[last()]/sru:extraTermData/fcs:position) &gt;= number(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total'])">disabled</xsl:if>
+            </xsl:variable>
+            <span class="result-navigation prev-next">
+                <a class="internal prev {$prev-disabled}" href="{$link_prev}">
+                    <span class="cmd cmd_prev">prev</span>
+                </a>
+                <a class="internal next {$next-disabled}" href="{$link_next}">
+                    <span class="cmd cmd_next">next</span>
+                </a>
+            </span>
+        </xsl:if>
+    </xsl:template>
+    
 </xsl:stylesheet>

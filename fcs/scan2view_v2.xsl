@@ -40,7 +40,6 @@
 <xsl:param name="max_depth">0</xsl:param>
 <xsl:param name="freq_limit">20</xsl:param>
 <xsl:param name="show">file</xsl:param> -->
-    <xsl:param name="list-mode"/> <!-- table -->
     <xsl:param name="sort">x</xsl:param>
     <xsl:param name="list-mode"/> <!-- table -->
     <xsl:param name="parts">header</xsl:param> <!-- header -->
@@ -52,9 +51,6 @@
 <xsl:param name="detail_uri_prefix"  select="'?q='"/> 
 -->
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-    <xsl:param name="responsePosition" select="/sru:scanResponse/sru:echoedScanRequest/sru:responsePosition"/>
-    <xsl:param name="x-filter" select="/sru:scanResponse/sru:echoedScanRequest/fcs:x-filter"/>
-    <xsl:variable name="countTerms" select="(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total'], /sru:scanResponse/sru:extraResponseData/fcs:countTerms)[1]"/>
     
     <xsl:param name="responsePosition" select="/sru:scanResponse/sru:echoedScanRequest/sru:responsePosition"/>
     <xsl:param name="maximumTerms" select="/sru:scanResponse/sru:echoedScanRequest/sru:maximumTerms"/>
@@ -262,61 +258,6 @@ sample data:
         </xsl:choose>
     </xsl:template> 
     
-    
-    
-    <xd:doc>
-        <xd:desc>
-            <xd:p>currently we support paging only for flat scans</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="prev-next-terms">
-       <xsl:if test="not(//sru:term//sru:term) or not(exists(//sru:term))">
-        <xsl:variable name="prev_responsePosition" select="$maximumTerms + 1">
-            <!--<xsl:choose>
-                <xsl:when test="number($responsePosition) - number($maximumTerms) > 0">
-                    <xsl:value-of select="format-number(number($responsePosition) - number($maximumTerms),'#')"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="number($maximumTerms) - number($responsePosition)"/>
-                </xsl:otherwise>
-            </xsl:choose>-->
-        </xsl:variable>
-        
-        <xsl:variable name="prev_scanClause" select="concat($index, '=', replace((//sru:term)[1]/sru:value,'\s+','%20'))"/>
-        
-        <xsl:variable name="link_prev">
-            <xsl:call-template name="formURL">
-                <xsl:with-param name="responsePosition" select="$prev_responsePosition"/>
-                <xsl:with-param name="scanClause" select="$prev_scanClause"/>                
-            </xsl:call-template>
-        </xsl:variable>
-        <xsl:variable name="prev-disabled">
-            <xsl:if test="//sru:term[1]/sru:extraTermData/fcs:position = 1">disabled</xsl:if>
-        </xsl:variable>
-        
-        
-        <xsl:variable name="next_scanClause" select="concat($index, '=', replace((//sru:term)[last()]/sru:value,'\s+','%20'))"/> 
-        
-        <xsl:variable name="link_next">
-            <xsl:call-template name="formURL">
-                <xsl:with-param name="scanClause" select="$next_scanClause"/>
-                <xsl:with-param name="responsePosition" select="0"/>                
-            </xsl:call-template>
-        </xsl:variable>
-        <xsl:variable name="next-disabled">
-            <xsl:if test="number(//sru:term[last()]/sru:extraTermData/fcs:position) &gt;= number(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total'])">disabled</xsl:if>
-        </xsl:variable>
-        <span class="result-navigation prev-next">
-            <a class="internal prev {$prev-disabled}" href="{$link_prev}">
-                <span class="cmd cmd_prev">prev</span>
-            </a>
-            <a class="internal next {$next-disabled}" href="{$link_next}">
-                <span class="cmd cmd_next">next</span>
-            </a>
-        </span>
-       </xsl:if>
-        
-    </xsl:template>
     <xd:doc>
         <xd:desc>
             <xd:p>currently we support paging only for flat scans</xd:p>

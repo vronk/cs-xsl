@@ -24,32 +24,13 @@
         </xsl:if>
         <xsl:copy-of select="if (doc-available(resolve-uri($contexts_url,$base_url))) then doc(resolve-uri($contexts_url,$base_url)) else ()"/>
     </xsl:template>
-    <xsl:template name="html-with-data">
-        <xsl:param name="payload">
-            <xsl:call-template name="continue-root"/>
-        </xsl:param>
-        <html>
-            <head>
-                <xsl:call-template name="html-head"/>
-                <xsl:call-template name="callback-header"/>
-            </head>
-            <body>
-                <xsl:call-template name="page-header"/>
-                <h1>
-                    <xsl:value-of select="$title"/>
-                </h1>
-                <xsl:apply-templates select="diagnostics"/>
-                <xsl:sequence select="$payload"/>
-            </body>
-        </html>
-    </xsl:template>
     <xd:doc>
         <xd:desc>overrides the template with teh same name in commons_v1.xsl</xd:desc>
     </xd:doc>
     <xsl:template name="br">
         <br/>
     </xsl:template>
-    
+       
     <xsl:template name="html-with-data">
         <xsl:param name="payload">
             <xsl:call-template name="continue-root"/>
