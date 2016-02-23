@@ -303,7 +303,15 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="maximumTerms" select="/sru:scanResponse/sru:echoedScanRequest/sru:maximumTerms"/>
+    <xsl:param name="maximumTerms" select="/sru:scanResponse/sru:echoedScanRequest/sru:maximumTerms"/>    
+    <xd:doc>
+        <xd:desc>The position within the list of terms returned where the client would like the start term to occur.
+            <xd:p>
+                Defaults to /sru:searchRetrieveResponse/sru:numberOfRecords
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="responsePosition" select="/sru:scanResponse/sru:echoedScanRequest/sru:responsePosition"/>
     <xd:doc>
         <xd:desc>The actual number of records in the response
             <xd:p>
@@ -311,6 +319,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
+    <xsl:param name="numberOfRecords" select="/sru:searchRetrieveResponse/sru:numberOfRecords"/>
     <xd:doc>
         <xd:desc>How the result terms of a scan should be sorted
             <xd:p>
@@ -326,7 +335,6 @@
         </xd:desc>
     </xd:doc>
     <xsl:param name="sort" select="'x'"/>
-    <xsl:param name="numberOfRecords" select="/sru:searchRetrieveResponse/sru:numberOfRecords"/>
     <xd:doc>
         <xd:desc>The number of matches records in the response
             <xd:p>

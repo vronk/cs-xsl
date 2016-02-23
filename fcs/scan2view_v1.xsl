@@ -251,7 +251,7 @@
     </xd:doc>
     <xsl:template name="prev-next-terms">
         <xsl:if test="not(//sru:term//sru:term) or not(boolean(//sru:term))">
-            <xsl:variable name="prev_responsePosition" select="$maximumTerms"/>
+            <xsl:variable name="prev_responsePosition" select="$maximumTerms + 1"/>
                 <!--<xsl:choose>
                 <xsl:when test="number($responsePosition) - number($maximumTerms) > 0">
                     <xsl:value-of select="format-number(number($responsePosition) - number($maximumTerms),'#')"/>

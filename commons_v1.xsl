@@ -247,7 +247,7 @@
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
         <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
-        <xsl:param name="responsePosition" select="1"/>
+        <xsl:param name="responsePosition" select="$responsePosition"/>
         <xsl:param name="maximumTerms" select="$maximumTerms"/>
         <xsl:param name="x-filter" select="$x-filter"/>
         <xsl:param name="x-context" select="$x-context"/>
