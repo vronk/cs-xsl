@@ -260,7 +260,7 @@
                     <xsl:value-of select="number($maximumTerms) - number($responsePosition)"/>
                 </xsl:otherwise>
             </xsl:choose>-->
-            <xsl:variable name="prev_scanClause" select="concat($index, '=', this:encode-for-uri((//sru:term)[1]/sru:value[1], true()))"/>
+            <xsl:variable name="prev_scanClause" select="concat($index, '=&quot;', this:encode-for-uri((//sru:term)[1]/sru:value[1], true()), '&quot;')"/>
             <xsl:variable name="link_prev">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="responsePosition" select="$prev_responsePosition"/>
@@ -270,14 +270,17 @@
             <xsl:variable name="prev-disabled">
                 <xsl:if test="//sru:term[1]/sru:extraTermData/fcs:position = 1">disabled</xsl:if>
             </xsl:variable>
-            <xsl:variable name="next_scanClause" select="concat($index, '=', this:encode-for-uri((//sru:term)[last()]/sru:value[1], true()))"/>
+            <xsl:variable name="next_scanClause" select="concat($index, '=&quot;', this:encode-for-uri((//sru:term)[last()]/sru:value[1], true()), '&quot;')"/>
             <xsl:variable name="link_next">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="scanClause" select="$next_scanClause"/>
+                    <xsl:with-param name="responsePosition">0</xsl:with-param>
                 </xsl:call-template>
             </xsl:variable>
             <xsl:variable name="next-disabled">
-                <xsl:if test="number(//sru:term[last()]/sru:extraTermData/fcs:position) &gt;= number(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total'])">disabled</xsl:if>
+                <xsl:if test="number(//sru:term[last()]/sru:extraTermData/fcs:position) &gt;= 
+                              number((/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total']|
+                                      /sru:scanResponse/sru:extraResponseData/fcs:countTerms)[1])">disabled</xsl:if>
             </xsl:variable>
             <span class="result-navigation prev-next">
                 <a class="internal prev {$prev-disabled}" href="{$link_prev}">

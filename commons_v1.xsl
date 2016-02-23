@@ -329,7 +329,7 @@
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_XDEBUG_SESSION_START">
-            <xsl:if test="$XDEBUG_SESSION_START">
+            <xsl:if test="$XDEBUG_SESSION_START != ''">
                 <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
             </xsl:if>
         </xsl:variable>
