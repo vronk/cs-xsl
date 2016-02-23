@@ -121,6 +121,7 @@
             <xsl:if test="contains($format, 'page')">
                 <xsl:call-template name="header"/>
             </xsl:if>
+            <xsl:call-template name="prev-next-terms"/>
             <div class="content scan">
                 <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>
             </div>
@@ -153,7 +154,6 @@
                 <input type="hidden" name="x-format" value="{$format}"/>
                 <input type="hidden" name="x-context" value="{$x-context}"/>
                 <input type="submit" value="suchen"/>
-                <xsl:call-template name="prev-next-terms"/>
             </form>
             <xsl:value-of select="count(//sru:terms/sru:term)"/> out of <xsl:value-of select="$countTerms"/> Terms
             
