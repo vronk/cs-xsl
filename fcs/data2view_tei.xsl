@@ -1380,19 +1380,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:choose>
         </span>
     </xsl:template>
-    
-    <xsl:template match="w|tei:w" mode="record-data">
-        <xsl:variable name="next" select="following-sibling::*[1]"/>
-        <!--        <xsl:call-template name="inline"/>-->
-        <span class="inline-wrap">
-            <xsl:if test="@*">
-                <span class="attributes" style="display:none;">
-                    <xsl:value-of select="concat(@lemma,' ',@type)"/>
-                    <!--                <xsl:apply-templates select="@*" mode="format-attr"/>-->
-                </span>
-            </xsl:if>
-        </span>
-    </xsl:template>
 
     <xsl:template match="tei:w" mode="record-data">
         <xsl:choose>
