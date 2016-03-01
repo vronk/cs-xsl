@@ -15,9 +15,10 @@
             (see contents of serializer.jar) that determine what characters are
             replaced in the output. Default would by HTMLEntities for html output. 
             <outputproperty name="{http://xml.apache.org/xalan}entities" value="org/apache/xml/serializer/XMLEntities"/>-->
-        <xslt basedir="input/${test-base.dir}"
-              includes="**/*.xml"
-              destdir="output-actual/${test-base.dir}"
+        <xslt basedir="${in.dir}"
+              includes="${includes.pattern}"
+              excludes="build.xml"
+              destdir="${out.dir}"
               style="${xsl.file}" extension="${extension.string}"
               classpath="./lib/saxon-jdom.jar:./lib/saxon-xml-apis.jar:./lib/saxon.jar">
             <factory name="com.icl.saxon.TransformerFactoryImpl">
