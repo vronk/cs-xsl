@@ -53,7 +53,29 @@
 		<script type="text/javascript" src="{$scripts_url}js/params.js"></script>
 		<script  type="text/javascript"  src="{$scripts_url}js/virtual-keyboard.js"></script>
 		<script type="text/javascript" src="{$scripts_url}js/bootstrap.min.js"/>
-        
+        <style>
+		#header > div {clear:none;}
+		#logo {float:left;max-width:200px;}	
+		#main > div:first-child {display:block;}
+		#main > div:not(:first-child) {display:none;}
+		.tei-head {display:none;}
+		.navbar {min-height:20px;}
+		</style>
+		<script type="text/javascript">
+		var xcontext = "<xsl:value-of select="$x-context"/>";
+		$('document').ready(function() {
+		
+			$(".nav").on("click","li",function() {
+			var index = $(this).index();
+			console.log(index);
+			$("#main > div").hide();
+			$("#main div:eq("+index+")").show();
+			console.log($("#main div:eq("+index+")").attr("id"));
+			});
+			
+			$('#project').load(window.location.href +'/corpus_shell/modules/fcs-aggregator/switch.php?x-format=html&amp;version=1.2&amp;x-context='+xcontext+'&amp;operation=explain .zr-description');
+		});
+		</script>
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
             </xsl:if>-->
@@ -76,23 +98,49 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <div class="cmds-ui-block" id="header">
+          <div class="jumbotron">
+            <xsl:if test="not($site_logo='')">
             <div id="logo">
                 <a href="{$logo_link}">
                     <img src="{$site_logo}" alt="{$site_name}"/>
                 </a>
-                <div id="site-name">
-                    <xsl:value-of select="$site_name"/>
+            </div>
+			</xsl:if>
+			  <div id="site-name">
+                    <h2><xsl:value-of select="$site_name"/></h2>
                 </div>
+             
             </div>
-                <xsl:call-template name="top-menu"/>
-            </div>
+			<xsl:call-template name="top-menu"/>
     </xsl:template>
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
     </xd:doc>
     <xsl:template name="top-menu">
-        <!--
+          <nav class="navbar navbar-inverse">
+         <div class="container-fluid"> <div class="navbar-header">
+               <button id="navtoggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#"></a>
+            </div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav">
+                  <li id="li-project"><a href="#">Project <span class="sr-only">(current)</span></a></li>
+                  <li id="li-search"><a href="#">Search</a></li>
+                  <li id="li-language"><a href="#">Language</a></li>
+                  <li id="li-documentation"><a href="#">Documentation</a></li>
+				  <li id="li-impressum"><a href="#">Impressum</a></li>
+               </ul>
+     
+            </div>
+         </div>
+      </nav> <!--
             <xsl:variable name="link_toggle_js">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="format">
@@ -147,6 +195,25 @@
         <div id="notify" class="cmds-elem-plus note">
             <div id="notifylist" class="note"/>
         </div>
+		
+    </xsl:template>
+	 <xd:doc>
+        <xd:desc>Main content-container 
+            <xd:p>
+                Shows search-ui and other content.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+   <xsl:template name="page-content">
+   <div id="main">
+			<xsl:call-template name="front"/>
+			<xsl:call-template name="query-input"/>
+			<xsl:call-template name="language"/>
+			<xsl:call-template name="documentation"/>
+			<xsl:call-template name="impressum"/>
+			
+        </div>     
+            
     </xsl:template>
     <xd:doc>
         <xd:desc>Provides query controls
@@ -369,4 +436,23 @@
             </div>
         </div>
     </xsl:template>
+	<xsl:template name="impressum">
+	 <div class="container" id="impressum">
+		Impressum
+		</div>
+	</xsl:template>
+	<xsl:template name="language">
+	 <div class="container" id="language">
+		Language
+		</div>
+	</xsl:template>
+		<xsl:template name="documentation">
+	 <div class="container" id="documentation">
+		Documenation
+		</div>
+	</xsl:template>
+	<xsl:template name="front">
+	 <div class="container" id="project">
+	</div>
+	</xsl:template>
 </xsl:stylesheet>

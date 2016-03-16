@@ -96,6 +96,7 @@
             </head>
             <body>
                 <xsl:call-template name="page-header"/>
+				<xsl:call-template name="page-content"/>
                 <h1>
                     <xsl:value-of select="$title"/>
                 </h1>
@@ -115,6 +116,7 @@
             </head>
             <body>
                 <xsl:call-template name="page-header"/>
+				<xsl:call-template name="page-content"/>
                 <h1>
                     <xsl:value-of select="$title"/>
                 </h1>
