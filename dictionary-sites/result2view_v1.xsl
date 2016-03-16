@@ -21,7 +21,7 @@
     <xd:doc>
         <xd:desc>Use data view framework.</xd:desc>
     </xd:doc>
-    <xsl:include href="../../fcs/data2view_v1.xsl"/>
+    <xsl:include href="../fcs/data2view_v1.xsl"/>
     <xsl:param name="title">
         <xsl:call-template name="getTitle"/>
     </xsl:param>

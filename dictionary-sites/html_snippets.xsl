@@ -8,7 +8,7 @@
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     version="1.0" exclude-result-prefixes="xs sru fcs xd tei">
-    <xsl:import href="../../params.xsl"/>
+    <xsl:import href="../params.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>pieces of html wrapped in templates, to be reused by other stylesheets
             <xd:p>History:
