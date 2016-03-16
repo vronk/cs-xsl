@@ -41,10 +41,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
+		<link rel="stylesheet" href="{$scripts_url}style/bootstrap.min.css"/>
+		<link rel="stylesheet" href="{$scripts_url}style/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
+		<script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
+		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
+		<script type="text/javascript" src="{$scripts_url}js/params.js"></script>
+		<script  type="text/javascript"  src="{$scripts_url}js/virtual-keyboard.js"></script>
+		<script type="text/javascript" src="{$scripts_url}js/bootstrap.min.js"/>
         
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
@@ -288,6 +296,9 @@
             </a>
         </span>
     </xsl:template>
+	<xsl:template name="number-of-records">
+	<p style="line-height:3rem;display:inline;font-size:12px;padding-left:2rem;">Showing <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
+	</xsl:template>
     <xd:doc>
         <xd:desc>Provides a querylistblock HTML div element which is manipulated by JavaScript</xd:desc>
     </xd:doc>
