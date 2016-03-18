@@ -101,7 +101,7 @@
                     <xsl:value-of select="$title"/>
                 </h1>
                 <xsl:apply-templates select="diagnostics"/>
-                <xsl:call-template name="continue-root"/>
+            
             </body>
         </html>
     </xsl:template>
