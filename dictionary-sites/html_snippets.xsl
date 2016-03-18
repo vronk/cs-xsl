@@ -41,9 +41,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
-		<link rel="stylesheet" href="{$scripts_url}style/bootstrap.min.css"/>
-		<link rel="stylesheet" href="{$scripts_url}style/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap-theme.min.css"/>
 		<link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/>
+		<link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
@@ -51,30 +52,14 @@
 		<script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
 		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
 		<script type="text/javascript" src="{$scripts_url}js/params.js"></script>
+		<script type="text/javascript" src="{$scripts_url}js/dictionaries.js"></script>
 		<script  type="text/javascript"  src="{$scripts_url}js/virtual-keyboard.js"></script>
-		<script type="text/javascript" src="{$scripts_url}js/bootstrap.min.js"/>
+		<script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/>
         <style>
-		#header > div {clear:none;}
-		#logo {float:left;max-width:200px;}	
-		#main > div:first-child {display:block;}
-		#main > div:not(:first-child) {display:none;}
-		.tei-head {display:none;}
-		.navbar {min-height:20px;}
+		
 		</style>
 		<script type="text/javascript">
 		var xcontext = "<xsl:value-of select="$x-context"/>";
-		$('document').ready(function() {
-		
-			$(".nav").on("click","li",function() {
-			var index = $(this).index();
-			console.log(index);
-			$("#main > div").hide();
-			$("#main div:eq("+index+")").show();
-			console.log($("#main div:eq("+index+")").attr("id"));
-			});
-			
-			$('#project').load(window.location.href +'/corpus_shell/modules/fcs-aggregator/switch.php?x-format=html&amp;version=1.2&amp;x-context='+xcontext+'&amp;operation=explain .zr-description');
-		});
 		</script>
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
@@ -131,11 +116,11 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav">
-                  <li id="li-project"><a href="#">Project <span class="sr-only">(current)</span></a></li>
-                  <li id="li-search"><a href="#">Search</a></li>
-                  <li id="li-language"><a href="#">Language</a></li>
-                  <li id="li-documentation"><a href="#">Documentation</a></li>
-				  <li id="li-impressum"><a href="#">Impressum</a></li>
+                  <li id="li-project"><a>Project <span class="sr-only">(current)</span></a></li>
+                  <li id="li-search"><a>Search</a></li>
+                  <li id="li-language"><a>Language</a></li>
+                  <li id="li-documentation"><a>Documentation</a></li>
+				  <li id="li-impressum"><a>Impressum</a></li>
                </ul>
      
             </div>
@@ -207,7 +192,7 @@
    <xsl:template name="page-content">
    <div id="main">
 			<xsl:call-template name="front"/>
-			<xsl:call-template name="query-input"/>
+			<xsl:call-template name="continue-root"/>
 			<xsl:call-template name="language"/>
 			<xsl:call-template name="documentation"/>
 			<xsl:call-template name="impressum"/>
