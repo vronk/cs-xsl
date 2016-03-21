@@ -558,6 +558,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateLinkInScanResults">
+        <xsl:param name="format" select="$format"/>
         <xsl:param name="index" select="''"/>
         <!--                        special handling for special index -->
         <xsl:choose>

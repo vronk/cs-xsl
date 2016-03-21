@@ -5,9 +5,11 @@
     xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fcs="http://clarin.eu/fcs/1.0"
+    xmlns:cr="http://aac.ac.at/content_repository" 
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:exsl="http://exslt.org/common"
-    version="1.0">
+    version="1.0" exclude-result-prefixes="xsl utils sru xs fcs cr xd">
+    <xsl:import href="../commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>
             generate a json object of the scanResponse
@@ -48,34 +50,23 @@
     </xd:doc>
     <xsl:output indent="no" method="text" media-type="application/json" encoding="UTF-8"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-    <xd:doc>
-        <xd:desc>Sort output by
-            <xd:ul>
-                <xd:li>s=size</xd:li>
-                <xd:li>n=name</xd:li>
-                <xd:li>t=time</xd:li>
-                <xd:li>x=default</xd:li>
-            </xd:ul>
-        </xd:desc>
-    </xd:doc>
-    <xsl:param name="sort">x</xsl:param>
+
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
-    <xd:doc>
-        <xd:desc/>
-    </xd:doc>
-    <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
-    <xd:doc>
-        <xd:desc/>
-    </xd:doc>
-    <xsl:param name="index" select="$scanClause"/>
+    <xsl:param name="index" select="substring-before($scanClause, '=')"/>
     <xsl:template match="/">
         <xsl:variable name="countTerms" select="/sru:scanResponse/sru:extraResponseData/fcs:countTerms"/>
         <xsl:variable name="countReturned" select="count(/sru:scanResponse//sru:term)"/>
+        <xsl:variable name="scanClauseJson">
+            <xsl:call-template name="replace-string">
+                <xsl:with-param name="text" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
+                <xsl:with-param name="replace">"</xsl:with-param>
+                <xsl:with-param name="with">\"</xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
         <xsl:text>{"index":"</xsl:text>
-        <xsl:value-of select="$scanClause"/>
+        <xsl:value-of select="$scanClauseJson"/>
         <xsl:text>", "indexSize":"</xsl:text>
         <xsl:value-of select="$countTerms"/>
         <xsl:text>", "countReturned":"</xsl:text>
@@ -111,6 +102,7 @@
         <xsl:variable name="href">
             <xsl:call-template name="generateLinkInScanResults">
                 <xsl:with-param name="index" select="$index"/>
+                <xsl:with-param name="format">htmlpagetable</xsl:with-param>
             </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="display">
@@ -149,7 +141,8 @@
         <xsl:text>"count": "</xsl:text>
         <xsl:value-of select="sru:numberOfRecords"/>
         <xsl:text>"}</xsl:text>
-        <xsl:if test="not(position()=last())">, </xsl:if>
+        <xsl:if test="not(position()=last())">, </xsl:if><xsl:text>
+</xsl:text>
         
         <!-- dont go deeper, because flattened <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
     </xsl:template>
