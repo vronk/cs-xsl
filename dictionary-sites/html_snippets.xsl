@@ -7,6 +7,8 @@
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:exsl="http://exslt.org/common"
+    xmlns:html="http://www.w3.org/1999/xhtml"
     version="1.0" exclude-result-prefixes="xs sru fcs xd tei">
     <xsl:import href="../params.xsl"/>
     <xd:doc scope="stylesheet">
@@ -437,7 +439,11 @@
 		</div>
 	</xsl:template>
 	<xsl:template name="front">
-	 <div class="container" id="project">
+	 <div class="container" id="front">
+	     <xsl:variable name="front">
+	         <xsl:copy-of select="document(concat('http://localhost/corpus_shell/modules/fcs-aggregator/switch.php?x-format=html&amp;version=1.2&amp;x-context=',$x-context,'&amp;operation=explain'))"/>
+	     </xsl:variable> 
+	     <xsl:copy-of select="exsl:node-set($front)//html:div[@class='zr-description']"/>
 	</div>
 	</xsl:template>
 </xsl:stylesheet>
