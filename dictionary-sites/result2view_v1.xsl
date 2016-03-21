@@ -115,7 +115,7 @@
 </span>;-->
                 </div>
             <xsl:call-template name="prev-next"/>
-			<xsl:call-template name="number-of-records"/>
+			
         </div>
     </xsl:template>
     
