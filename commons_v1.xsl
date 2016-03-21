@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:exsl="http://exslt.org/common"
+    xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"
+    xmlns:zr="http://explain.z3950.org/dtd/2.0/"
+    xmlns:sru="http://www.loc.gov/zing/srw/"
+    xmlns:fcs="http://clarin.eu/fcs/1.0"
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:cr="http://aac.ac.at/content_repository"
+    version="1.0"
+    extension-element-prefixes="diag zr sru fcs exsl cr xd">
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling.
             <xd:p>History:
@@ -37,12 +47,6 @@
                  <list xmlns=""/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:variable>
-    <xd:doc>
-        <xd:desc/>
-    </xd:doc>
-    <xsl:variable name="contexts">
-        <xsl:call-template name="contexts-doc"/>
     </xsl:variable>
     <xd:doc>
         <xd:desc>Common starting point for all stylesheet
@@ -198,6 +202,46 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>All contexts as XML</xd:desc>
+    </xd:doc>
+    <xsl:variable name="contexts">
+        <xsl:call-template name="contexts-doc"/>
+    </xsl:variable>
+    
+    <xd:doc>
+        <xd:desc>Fetches the explaination for the current endpoint
+            <xd:p>
+                $indexes_url is influenced by <xd:ref name="base_url" type="variable">$base_url</xd:ref> and 
+                <xd:ref name="base_url" type="variable">$x-context</xd:ref>.
+            </xd:p>
+            <xd:p>
+                Note: by default $base_url is set to an empty string so the URL is assumed to be wherever these
+                style sheet is executed. This may lead to warnings by the XSLT processor.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="indexes-doc">
+        <xsl:choose>
+            <xsl:when test="$indexes_url = ''"/>
+            <xsl:when test="$scripts_user">
+                <xsl:variable name="indexes_auth_url" select="concat(substring-before($indexes_url, '//'), '//', $scripts_user, ':', $scripts_pw, '@', substring-after($indexes_url,'//'))"/>
+                <xsl:copy-of select="document($indexes_auth_url)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document($indexes_url)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>All indexes as XML</xd:desc>
+    </xd:doc>
+    <xsl:variable name="indexes">
+        <xsl:call-template name="indexes-doc"/>
+    </xsl:variable>
+    
     <xd:doc>
         <xd:desc>Generates an HTML select-option list of available contexts</xd:desc>
     </xd:doc>
@@ -224,6 +268,29 @@
             </xsl:if>
         </select>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Generates an HTML select-option list of available indexes</xd:desc>
+    </xd:doc>
+    <xsl:template name="indexes-select">
+        
+        <!--            DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
+        DEBUG: base_url:<xsl:value-of select="$base_url" />
+        DEBUG: contexts:<xsl:copy-of select="$contexts" /> -->
+        <select name="indexes">
+            <xsl:if test="$indexes">
+                <xsl:for-each select="(exsl:node-set($indexes))//zr:indexInfo/zr:index">
+                    <option value="{.//zr:name}">
+                        <xsl:if test=".//zr:name/text() = $index">
+                            <xsl:attribute name="selected">selected</xsl:attribute>
+                        </xsl:if>
+                        <xsl:value-of select=".//zr:title"/>
+                    </option>
+                </xsl:for-each>
+            </xsl:if>
+        </select>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Shall be usable to form consistently all urls within xsl</xd:desc>
         <xd:param name="action">Same meaning as <xd:ref name="operation" type="parameter">$operation</xd:ref>.
