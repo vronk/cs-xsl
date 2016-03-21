@@ -263,7 +263,16 @@
                         <xsl:with-param name="with" select="'%23'"/>
                     </xsl:call-template>
                 </xsl:variable>
-                <xsl:value-of select="concat('&amp;query=', $q_protected)"/>
+                <xsl:choose>
+                    <xsl:when test="contains($q_protected, ' ')">
+                        <xsl:variable name="q_index" select="substring-before($q_protected, '%3D')"/>
+                        <xsl:variable name="q_query" select="substring-after($q_protected, '%3D')"/>
+                        <xsl:value-of select="concat('&amp;query=', $q_index, '%3D&quot;', $q_query, '&quot;')"/>                       
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="concat('&amp;query=', $q_protected)"/>                       
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_format">
