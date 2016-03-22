@@ -77,7 +77,7 @@
                 Examples:
                 <xd:ul>
                     <xd:li>
-                        <xd:a href="http://corpus3.aac.ac.at/switch">http://corpus3.aac.ac.at/switch</xd:a>
+                        <xd:a href="https://minervar.arz.oeaw.ac.at/switch">https://minervar.arz.oeaw.ac.at/switch</xd:a>
                     </xd:li>
                     <xd:li>
                         <xd:a href="http://clarin.aac.ac.at/cr/lrp/fcs">http://clarin.aac.ac.at/cr/lrp/fcs</xd:a>
@@ -122,7 +122,7 @@
     </xd:doc>
     <xsl:param name="site_url" select="'http://corpus3.oeaw.ac.at/vicav2'"/>
     
-    <!-- <xsl:param name="base_dir">http://corpus3.aac.ac.at/cs/</xsl:param>-->
+    <!-- <xsl:param name="base_dir">https://minervar.arz.oeaw.ac.at/cs/</xsl:param>-->
     <xd:doc>
         <xd:desc>A URL for locating JavaScript scripts and CSS style sheets
         <xd:p>
@@ -143,7 +143,7 @@
             Examples:
             <xd:ul>
                     <xd:li>../../</xd:li>
-                    <xd:li>http://corpus3.aac.ac.at/cs2/corpus_shell/scripts/</xd:li>
+                    <xd:li>https://minervar.arz.oeaw.ac.at/cs2/corpus_shell/scripts/</xd:li>
                     <xd:li>Only for testing purpose on your development machine: http://localhost/corpus_shell/</xd:li>
                 </xd:ul>
             </xd:p>
@@ -360,6 +360,55 @@
     </xd:doc>
     <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
     <xd:doc>
+        <xd:desc>The index is defined as the part of the scanClause before the '='
+            <xd:p>
+                This is one possibility according to the
+                <xd:a href="http://www.loc.gov/standards/sru/specs/scan.html">SRU documentation</xd:a>.
+                The documentation states that scanClause can be "expressed as a complete index, relation, term clause in CQL". 
+            </xd:p>
+            <xd:p>
+                Note: for the special scan clause fcs.resource this is an empty string.
+                See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-before">.XPath language definition</xd:a>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="index">
+        <xsl:choose>
+            <xsl:when test="substring-before($scanClause,'=')">
+                <xsl:value-of select="substring-before($scanClause,'=')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$scanClause"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
+    
+    <xd:doc>
+        <xd:desc>The filter is defined as the part of the scanClause after the '='
+            <xd:p>
+                This is one possibility according to the
+                <xd:a href="http://www.loc.gov/standards/sru/specs/scan.html">SRU documentation</xd:a>.
+                The documentation states that scanClause can be "expressed as a complete index, relation, term clause in CQL". 
+            </xd:p>
+            <xd:p>
+                Note: for the special scan clause fcs.resource this is an empty string.
+                See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-after">.XPath language definition</xd:a>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="filter" select="substring-after($scanClause,'=')"/>
+    
+    <xd:doc>
+        <xd:desc>Standard callback from / template
+            <xd:p>
+                <xd:ul>
+                    <xd:li>If a htmlpage is requested generates input elements for the user to do another scan.</xd:li>
+                    <xd:li>Wraps the HTML representation of the result terms in an HTML div element.</xd:li>
+                </xd:ul>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xd:doc>
         <xd:desc>The fcs:x-filter for filtering scan (scanClause is for entry point into the index)
             <xd:p>
                 Defaults to an empty xs:string.
@@ -375,12 +424,25 @@
             </xd:p>
             <xd:p>
                 Note: If $base_url is the empty string (the default) then this calls back to whatever URL this style sheet is
-                executed from. Of course this doesn't work on a local hard drive so there my be warnings when processing the
+                executed from. Of course this doesn't work on a local hard drive so there may be warnings when processing the
                 style sheet.
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="contexts_url" select="concat($base_url,'?operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;version=1.2&amp;x-format=xml')"/>
+    <xsl:param name="contexts_url" select="concat($base_url,'?version=1.2&amp;operation=scan&amp;scanClause=fcs.resource&amp;sort=text&amp;x-format=xml')"/>
+    <xd:doc>
+        <xd:desc>A URL that returns the explain operation for the current x-context
+            <xd:p>
+                Defaults to $base_url + '?version=1.2&amp;operation=explain&amp;x-context=' + $x-context + '&amp;x-format=xml'.
+            </xd:p>
+            <xd:p>
+                Note: If $base_url is the empty string (the default) then this calls back to whatever URL this style sheet is
+                executed from. Of course this doesn't work on a local hard drive so there may be warnings when processing the
+                style sheet.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="indexes_url" select="concat($base_url,'?version=1.2&amp;operation=explain&amp;x-context=', $x-context, '&amp;x-format=xml')"/>
     <xd:doc>
         <xd:desc>A URL to a file where additional parameters can be specified</xd:desc>
     </xd:doc>
