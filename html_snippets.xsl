@@ -66,7 +66,7 @@
                     <xsl:value-of select="$site_url"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$base_url"/>
+                    <xsl:value-of select="$base_url_public"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
