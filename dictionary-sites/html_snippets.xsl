@@ -118,10 +118,8 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav">
-                  <li id="li-project"><a>Project <span class="sr-only">(current)</span></a></li>
                   <li id="li-search"><a>Search</a></li>
-                  <li id="li-language"><a>Language</a></li>
-                  <li id="li-documentation"><a>Documentation</a></li>
+                  <li id="li-language"><a>Help</a></li>
 				  <li id="li-impressum"><a>Impressum</a></li>
                </ul>
      
@@ -195,8 +193,7 @@
    <div id="main">
 			<xsl:call-template name="front"/>
 			<xsl:call-template name="continue-root"/>
-			<xsl:call-template name="language"/>
-			<xsl:call-template name="documentation"/>
+			<xsl:call-template name="help"/>
 			<xsl:call-template name="impressum"/>
 			
         </div>     
@@ -423,19 +420,14 @@
             </div>
         </div>
     </xsl:template>
+    <xsl:template name="help">
+	 <div class="container" id="help">
+		Help
+		</div>
+	</xsl:template>
 	<xsl:template name="impressum">
 	 <div class="container" id="impressum">
 		Impressum
-		</div>
-	</xsl:template>
-	<xsl:template name="language">
-	 <div class="container" id="language">
-		Language
-		</div>
-	</xsl:template>
-		<xsl:template name="documentation">
-	 <div class="container" id="documentation">
-		Documenation
 		</div>
 	</xsl:template>
 	<xsl:template name="front">
