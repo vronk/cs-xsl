@@ -50,12 +50,6 @@
         </xsl:choose>
     </xsl:variable>
     <xd:doc>
-        <xd:desc/>
-    </xd:doc>
-    <xsl:variable name="contexts">
-        <xsl:call-template name="contexts-doc"/>
-    </xsl:variable>
-    <xd:doc>
         <xd:desc>Common starting point for all stylesheet
 	        <xd:p>Cares for unified html-envelope
 	        and passes back to the individual stylesheets for the content 
