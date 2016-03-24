@@ -105,6 +105,13 @@
                 <xsl:with-param name="format">htmlpagetable</xsl:with-param>
             </xsl:call-template>
         </xsl:variable>
+        <xsl:variable name="jsonSaveHref">
+            <xsl:call-template name="replace-string">
+                <xsl:with-param name="text" select="$href"/>
+                <xsl:with-param name="replace">"</xsl:with-param>
+                <xsl:with-param name="with">\"</xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
         <xsl:variable name="display">
             <xsl:choose>
                 <xsl:when test="sru:displayTerm != ''">
@@ -136,7 +143,7 @@
         </xsl:choose>
         <xsl:text>|", </xsl:text>
         <xsl:text>"nextHref": "</xsl:text>
-        <xsl:value-of select="$href"/>
+        <xsl:value-of select="$jsonSaveHref"/>
         <xsl:text>", </xsl:text>
         <xsl:text>"count": "</xsl:text>
         <xsl:value-of select="sru:numberOfRecords"/>
