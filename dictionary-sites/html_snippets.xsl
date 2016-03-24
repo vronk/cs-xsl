@@ -56,6 +56,8 @@
 		<script type="text/javascript" src="{$scripts_url}js/params.js"></script>
 		<script  type="text/javascript"  src="{$scripts_url}js/virtual-keyboard.js"></script>
 		<script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/>
+		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
+		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery-ui.min.js"></script>
 				<script type="text/javascript" src="{$scripts_url}js/dictionaries.js"></script>
         <style>
 		
@@ -226,8 +228,8 @@
                         <tr>
                             <td colspan="2">
                     -->
-                    <xsl:call-template name="contexts-select"/>
-                    <xsl:call-template name="br"/>
+                  <!--  <xsl:call-template name="contexts-select"/>
+                    <xsl:call-template name="br"/>-->
 <!--                    <div id="main-query" >-->
                     <xsl:call-template name="queryTextUI"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
@@ -235,6 +237,7 @@
                             <td>
                        -->
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
+					<div id="loader"><img src="https://minerva.arz.oeaw.ac.at/static/images/dicts/ajax-loader.gif"/></div>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
