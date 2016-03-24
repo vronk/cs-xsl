@@ -70,6 +70,34 @@
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
 <!--    <xsl:param name="scanClause-array" select="tokenize($scanClause,'=')"/>-->
     
+    <xsl:template name="callback-header">
+        <link href="/static/fonts/andika/Andika.css" type="text/css" rel="stylesheet"/>
+        <style type="text/css">
+            body { font: 13px/1.5 AndikaW, 'Andika', serif; }
+            input.virtual-keyboard-input { font-family: AndikaW, 'Andika', serif } 
+        </style>
+<!--        <link href="{$scripts_url}style/glossary.css" type="text/css" rel="stylesheet"/>      -->
+        <script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
+        <script type="text/javascript" src="scripts/js/params.js"></script>
+        <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"></script>
+        <link href="{$scripts_url}style/virtual-keyboard.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript">
+            VirtualKeyboard.keys = {
+            "arz_eng_006": ["ʔ", "ā", "ḅ", "ʕ", "ḍ", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"],
+            "apc_eng_002": ["ʔ", "ā", "ḅ", "ʕ", "ḍ", "ḏ", "ē", "ǝ", "ᵊ", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"],
+            "aeb_eng_001__v001":["ʔ", "ā", "ḅ", "ʕ", "ḏ̣", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"], 
+            }
+            VirtualKeyboard.keys["aeb_eng_001__v001F"] = VirtualKeyboard.keys["aeb_eng_001__v001"]
+            $(document).ready(function(){
+            VirtualKeyboard.attachKeyboards()
+            });
+        </script>
+        <xsl:call-template name="callback-header2"/>
+    </xsl:template>
+    
+    <xsl:template name="callback-header2"/>
+    
     <xsl:template name="continue-root">
         <div> <!-- class="cmds-ui-block  init-show" -->
             <xsl:if test="contains($format, 'page')">
