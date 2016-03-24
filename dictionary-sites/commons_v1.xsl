@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
-    <xd:doc scope="stylesheet">
+
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:exsl="http://exslt.org/common"
+    xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/"
+    xmlns:zr="http://explain.z3950.org/dtd/2.0/"
+    xmlns:sru="http://www.loc.gov/zing/srw/"
+    xmlns:fcs="http://clarin.eu/fcs/1.0"
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:cr="http://aac.ac.at/content_repository"
+    version="1.0"
+    extension-element-prefixes="diag zr sru fcs exsl cr xd">
+	<xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling.
             <xd:p>History:
                 <xd:ul>
@@ -28,6 +39,7 @@
         <xsl:choose>
             <xsl:when test="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]">
                 <xsl:copy-of select="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]"/>
+<!-- switch.php is set up to throw an exception on any error or _warning_ so this kills the transform right now -->
 <!--                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message>-->
             </xsl:when>
             <xsl:otherwise>
@@ -199,6 +211,45 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+ <xd:doc>
+        <xd:desc>All contexts as XML</xd:desc>
+    </xd:doc>
+    <xsl:variable name="contexts">
+        <xsl:call-template name="contexts-doc"/>
+    </xsl:variable>
+    
+    <xd:doc>
+        <xd:desc>Fetches the explaination for the current endpoint
+            <xd:p>
+                $indexes_url is influenced by <xd:ref name="base_url" type="variable">$base_url</xd:ref> and 
+                <xd:ref name="base_url" type="variable">$x-context</xd:ref>.
+            </xd:p>
+            <xd:p>
+                Note: by default $base_url is set to an empty string so the URL is assumed to be wherever these
+                style sheet is executed. This may lead to warnings by the XSLT processor.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="indexes-doc">
+        <xsl:choose>
+            <xsl:when test="$indexes_url = ''"/>
+            <xsl:when test="$scripts_user">
+                <xsl:variable name="indexes_auth_url" select="concat(substring-before($indexes_url, '//'), '//', $scripts_user, ':', $scripts_pw, '@', substring-after($indexes_url,'//'))"/>
+                <xsl:copy-of select="document($indexes_auth_url)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy-of select="document($indexes_url)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>All indexes as XML</xd:desc>
+    </xd:doc>
+    <xsl:variable name="indexes">
+        <xsl:call-template name="indexes-doc"/>
+    </xsl:variable>
+
     <xd:doc>
         <xd:desc>Generates an HTML select-option list of available contexts</xd:desc>
     </xd:doc>
@@ -241,18 +292,21 @@
     <xsl:template name="formURL">
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
+		<xsl:param name="sort" select="$sort"/>
         <xsl:param name="md-format" select="'CMDI'"/>        
         <xsl:param name="queryType" select="$queryType"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
         <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
+		<xsl:param name="responsePosition" select="''"/>
         <xsl:param name="maximumTerms" select="$maximumTerms"/>
-        <xsl:param name="sort" select="$sort"/>
+        
+		<xsl:param name="x-filter" select="$x-filter"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
-        <xsl:param name="responsePosition" select="''"/>
+        
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
@@ -263,12 +317,26 @@
                         <xsl:with-param name="with" select="'%23'"/>
                     </xsl:call-template>
                 </xsl:variable>
-                <xsl:value-of select="concat('&amp;query=', $q_protected)"/>
+			<xsl:choose>
+                    <xsl:when test="contains($q_protected, ' ')">
+                        <xsl:variable name="q_index" select="substring-before($q_protected, '%3D')"/>
+                        <xsl:variable name="q_query" select="substring-after($q_protected, '%3D')"/>
+                        <xsl:value-of select="concat('&amp;query=', $q_index, '%3D&quot;', $q_query, '&quot;')"/>                       
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="concat('&amp;query=', $q_protected)"/>                       
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_format">
             <xsl:if test="$format != ''">
                 <xsl:value-of select="concat('&amp;x-format=',$format)"/>
+            </xsl:if>
+        </xsl:variable>
+      <xsl:variable name="param_sort">
+            <xsl:if test="$sort != ''">
+                <xsl:value-of select="concat('&amp;sort=',$sort)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_x-context">
@@ -298,9 +366,9 @@
                 <xsl:value-of select="concat('&amp;maximumTerms=',$maximumTerms)"/>
             </xsl:if>
         </xsl:variable>
-        <xsl:variable name="param_sort">
-            <xsl:if test="$sort != ''">
-                <xsl:value-of select="concat('&amp;sort=',$sort)"/>
+     <xsl:variable name="param_responsePosition">
+            <xsl:if test="$responsePosition != ''">
+                <xsl:value-of select="concat('&amp;responsePosition=',$responsePosition)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_scanClause">
@@ -308,11 +376,7 @@
             <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
             </xsl:if>
         </xsl:variable>
-        <xsl:variable name="param_responsePosition">
-            <xsl:if test="$responsePosition != ''">
-                <xsl:value-of select="concat('&amp;responsePosition=',$responsePosition)"/>
-            </xsl:if>
-        </xsl:variable>
+        
         <xsl:variable name="param_x-dataview">
             <xsl:if test="$dataview != ''">
                 <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
@@ -553,6 +617,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateLinkInScanResults">
+		<xsl:param name="format" select="$format"/>
         <xsl:param name="index" select="''"/>
         <!--                        special handling for special index -->
         <xsl:choose>
