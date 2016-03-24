@@ -226,7 +226,6 @@
                         <tr>
                             <td colspan="2">
                     -->
-                    <label id="contextlabel">Query</label>
                     <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
@@ -235,7 +234,7 @@
                        <!--     </td>
                             <td>
                        -->
-                    <input type="submit" value="submit" id="submit-query"/>
+                    <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
@@ -260,7 +259,7 @@
     </xsl:template>
     
     <xsl:template name="queryTextUI">
-        <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active" data-context="{$x-context}"/>
+        <input type="text" id="input-simplequery" name="query" value="{$q}" class="form-control queryinput active" data-context="{$x-context}"/>
     </xsl:template>
     
     <xd:doc>
