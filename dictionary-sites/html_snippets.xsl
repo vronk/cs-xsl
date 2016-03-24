@@ -54,9 +54,9 @@
 		<script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
 		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
 		<script type="text/javascript" src="{$scripts_url}js/params.js"></script>
-		<script type="text/javascript" src="{$scripts_url}js/dictionaries.js"></script>
 		<script  type="text/javascript"  src="{$scripts_url}js/virtual-keyboard.js"></script>
 		<script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/>
+				<script type="text/javascript" src="{$scripts_url}js/dictionaries.js"></script>
         <style>
 		
 		</style>
@@ -208,9 +208,6 @@
     
 	<!-- QUERYSEARCH - BLOCK -->
         <div class="cmds-ui-block init-show" id="querysearch">
-            <div class="header ui-widget-header ui-state-default ui-corner-top">
-                Search
-            </div>
             <div class="content" id="query-input">
                 <!-- fill form@action with <xsl:call-template name="formURL"/> will not work, 
                         because the parameter have to be encoded as input-elements  not in the form-url  
