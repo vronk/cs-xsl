@@ -2094,39 +2094,6 @@ the named templates are at the bottom.</xd:p>
         </span>
     </xsl:template>
 
-    <xsl:template match="tei:w" mode="record-data">
-        <xsl:choose>
-            <xsl:when test="tei:fs/tei:f[@name='wordform']">
-                <!-- Special handling for notations like those used in sample texts -->
-                <!-- XPath 1.0 if trick: from http://stackoverflow.com/questions/971067/is-there-an-if-then-else-statement-in-xpath and
-        http://www.tkachenko.com/blog/archives/000156.html Becker's method, relies on substring start argument bigger than string lenght
-        returns empty string and number(false) = 0, number(true) = 1. -->
-                <!-- XPath 2.0:  if (tei:fs/tei:f[@name = 'pos']) then 'pos ' else '' -->
-                <xsl:variable name="pos" select="concat(substring('pos ', number(not(tei:fs/tei:f[@name = 'pos'])) * string-length('pos ') + 1),                         substring('', number(tei:fs/tei:f[@name = 'pos']) * string-length('') + 1))"/>
-                <span class="tei-w {$pos}{tei:fs/tei:f[@name = 'pos']}">
-                    <xsl:if test="(tei:fs/tei:f[@name='wordform'])[@xml:lang]">
-                        <xsl:attribute name="data-lang">
-                            <xsl:value-of select="(tei:fs/tei:f[@name='wordform'])/@xml:lang"/>
-                        </xsl:attribute>
-                    </xsl:if>
-                    <xsl:value-of select="tei:fs/tei:f[@name='wordform']"/>
-                    <xsl:apply-templates mode="record-data"/>
-                </span>
-            </xsl:when>
-            <xsl:when test="@ana">
-                <span class="tei-w" data-ref="{@ana}">
-                    <xsl:apply-templates mode="record-data"/>
-                </span>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:call-template name="inline">
-                    <xsl:with-param name="insertTrailingBlank" select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-                </xsl:call-template>
-            </xsl:otherwise>
-        </xsl:choose>
-
-    </xsl:template>
-
     <xsl:template match="tei:w/tei:fs" mode="record-data">
         <dl class="tei-fs">
             <xsl:apply-templates mode="record-data"/>
