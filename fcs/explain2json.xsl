@@ -150,20 +150,11 @@
         <xsl:text>", </xsl:text>
         <xsl:text>"sort": "</xsl:text>
         <xsl:value-of select="@sort"/>
-        <xsl:text>"}</xsl:text>
-        <xsl:if test="not(position()=last())">, </xsl:if>
-        
-        <!--<xsl:text>{"title": "</xsl:text>
-        <xsl:value-of select="translate(sru:value,'"','')"/>
         <xsl:text>", </xsl:text>
-        <xsl:text>"label": "</xsl:text>
-        <xsl:value-of select="translate((sru:displayTerm, sru:value)[1],'"','')"/> |<xsl:value-of select="sru:numberOfRecords"/>
-        <xsl:text>|", </xsl:text>
-        <xsl:text>"count": "</xsl:text>
-        <xsl:value-of select="sru:numberOfRecords"/>
+        <xsl:text>"name": "</xsl:text>
+        <xsl:value-of select=".//zr:name[@set='fcs']"/>
         <xsl:text>"}</xsl:text>
         <xsl:if test="not(position()=last())">, </xsl:if>
-        <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
     </xsl:template>
     
     <xsl:template match="zr:description">
