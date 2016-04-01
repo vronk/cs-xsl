@@ -618,26 +618,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
-       
-    <xd:doc>
-        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by the facs data view.
-            <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="generateImgHTMLTags">
-        <xsl:param name="altText" select="@target"/>
-        <xsl:choose>
-            <xsl:when test="@ref">
-                <img src="{@ref}" alt="{@ref}"/>
-            </xsl:when>
-            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
-                <img src="{@target}" alt="{$altText}"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in your project's XSL customization!</span>                
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
     
     <xsl:template match="tei:*" mode="tei-body-headings">
         <xsl:call-template name="div-count-to-html-header">
@@ -1151,6 +1131,48 @@ the named templates are at the bottom.</xd:p>
             </xsl:otherwise>
             
         </xsl:choose>        
+    </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by the facs data view.
+        <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateImgHTMLTags">
+        <xsl:param name="ref" select="@ref"/>
+        <xsl:param name="altText" select="@target"/>
+        <xsl:choose>
+            <xsl:when test="$ref">
+                <img src="{$ref}" alt="{$ref}"/>
+            </xsl:when>
+            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
+                <img src="{@target}" alt="{$altText}"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in your project's XSL customization!</span>                
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xd:doc>
+        <xd:desc>Generates audio tags from ref or ptr. Generic handler for audio file references passed by the facs data view.
+            <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="generateAudioHTMLTags">
+        <xsl:param name="ref" select="@ref"/>
+        <xsl:param name="sourceType" select="local-name(.)"/>
+        <span>
+            <xsl:attribute name="class">
+                <xsl:value-of select="concat('xsl-audio xsl-outer ', $sourceType)"/>    
+            </xsl:attribute>
+            <div class="xsl-audio xsl-inner">
+                <audio controls="controls" preload="none">
+                    <source src="{$ref}" type="audio/mp4"/>
+                    <a href="{$ref}">Download</a>
+                </audio>
+            </div>
+        </span>
     </xsl:template>
     
     <xd:doc>
