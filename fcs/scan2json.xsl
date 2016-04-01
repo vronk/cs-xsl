@@ -54,7 +54,6 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:param name="index" select="substring-before($scanClause, '=')"/>
     <xsl:template match="/">
         <xsl:variable name="countTerms" select="/sru:scanResponse/sru:extraResponseData/fcs:countTerms"/>
         <xsl:variable name="countReturned" select="count(/sru:scanResponse//sru:term)"/>
