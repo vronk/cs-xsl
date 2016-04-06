@@ -90,7 +90,7 @@
          }
          #glueToLabel1 {display:none;}
          .virtual-keyboard-first-three {display:none;}
-         .tei-teiHeader {display:none;}
+         #front .tei-teiHeader {display:none;}
          iframe {margin-top:6rem;width:auto;height:auto;float:left;}
          
          .navbar-brand {padding:0 !important;}

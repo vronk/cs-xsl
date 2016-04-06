@@ -7,10 +7,9 @@
     xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:exsl="http://exslt.org/common"
-    xmlns:html="http://www.w3.org/1999/xhtml"
     version="1.0" exclude-result-prefixes="xs sru fcs xd tei">
     <xsl:import href="../params.xsl"/>
+    <xsl:include href="html_page_includes.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>pieces of html wrapped in templates, to be reused by other stylesheets
             <xd:p>History:
@@ -28,7 +27,6 @@
                     <xd:li>includes a customized stylesheet based on jQuery-ui 1.8.5</xd:li>
                     <xd:li>includes a CSS style sheet cmd-ui.css</xd:li>
                     <xd:li>includes a CSS style sheet cr.css</xd:li>
-                    <xd:li>includes jQuery 1.6.2 (???!)</xd:li>
                 </xd:ul>
             </xd:p>
             <xd:p>
@@ -36,35 +34,38 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template name="html-head">
+    <xsl:template name="html-head"><xsl:text>&#xA;</xsl:text>
         <title>
             <xsl:value-of select="$title"/>
-        </title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
-		<link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/>
-		<link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/>
-        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
-		<script type="text/javascript" src="{$scripts_url}js/URI.js"></script>
-		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
-		<script type="text/javascript" src="{$scripts_url}js/params.js"></script>
-		<script  type="text/javascript"  src="{$scripts_url}js/virtual-keyboard.js"></script>
-		<script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/>
-		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"></script>
-		<script type="text/javascript" src="{$scripts_url}js/jquery/jquery-ui.min.js"></script>
-				<script type="text/javascript" src="{$scripts_url}js/dictionaries.js"></script>
+        </title><xsl:text>&#xA;</xsl:text>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><xsl:text>&#xA;</xsl:text>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap.min.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap-theme.min.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"></script><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/URI.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-ui.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript">
+            var xcontext = "<xsl:value-of select="$x-context"/>";
+            // set everything that should not have its default falue here before param.js is loaded.
+            var switchURL = "<xsl:value-of select="$base_url_public"/>";
+            var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
+        </script><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/params.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/dictionaries.js"/><xsl:text>&#xA;</xsl:text>
         <style>
 		
 		</style>
-		<script type="text/javascript">
-		var xcontext = "<xsl:value-of select="$x-context"/>";
-		</script>
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
             </xsl:if>-->
@@ -215,7 +216,7 @@
                         because the parameter have to be encoded as input-elements  not in the form-url  
                     -->
                 <!--<form id="searchretrieve" action="{$base_url}" method="get">-->
-                <form id="searchretrieve" action="" method="get">
+                <form id="searchretrieve" action="{$base_url_public}" method="get">
                     <input type="hidden" name="x-format" value="{$format}"/>
                     <input type="hidden" name="operation" value="{$operation}"/>
                     <input type="hidden" name="version" value="1.2"/> 
@@ -231,7 +232,8 @@
                   <!--  <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>-->
 <!--                    <div id="main-query" >-->
-                    <xsl:call-template name="queryTextUI"/>
+<!--                    <xsl:call-template name="queryTextUI"/> -->
+						<input id="query-text-ui" type="text" class="form-control"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>
@@ -420,21 +422,19 @@
         </div>
     </xsl:template>
     <xsl:template name="help">
-	 <div class="container" id="help">
+	    <div class="container" id="help">
 		Help
 		</div>
 	</xsl:template>
 	<xsl:template name="impressum">
-	 <div class="container" id="impressum">
-		Impressum
+	    <div class="container" id="impressum">
+  		    <xsl:call-template name="getTEIHeader"/>
 		</div>
 	</xsl:template>
+    
 	<xsl:template name="front">
 	 <div class="container" id="front">
-	     <xsl:variable name="front">
-	         <xsl:copy-of select="document(concat('http://localhost/corpus_shell/modules/fcs-aggregator/switch.php?x-format=html&amp;version=1.2&amp;x-context=',$x-context,'&amp;operation=explain'))"/>
-	     </xsl:variable> 
-	     <xsl:copy-of select="exsl:node-set($front)//html:div[@class='zr-description']"/>
-	</div>
+        <xsl:call-template name="getTEIFrontPart"/>        
+	 </div>
 	</xsl:template>
 </xsl:stylesheet>
