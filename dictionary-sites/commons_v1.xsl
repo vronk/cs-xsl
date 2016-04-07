@@ -302,6 +302,8 @@
         <xsl:param name="scanClause" select="$scanClause"/>
         
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
+        
+        <xsl:param name="base_url" select="$base_url_public"/>
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
                 <xsl:variable name="q_protected">
@@ -388,7 +390,7 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$action='get-data'">
-                <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url_, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
             </xsl:when>
             <xsl:when test="$action='get-metadata'">
                 <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'))"/>
