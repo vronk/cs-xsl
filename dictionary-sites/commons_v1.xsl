@@ -390,7 +390,7 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$action='get-data'">
-                <xsl:value-of select="concat($base_url_, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
             </xsl:when>
             <xsl:when test="$action='get-metadata'">
                 <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'))"/>
