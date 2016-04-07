@@ -151,13 +151,13 @@
                     <xsl:with-param name="dataview" select="$x-dataview"/>
                 </xsl:call-template>               
             </xsl:variable>
-            <a href="{$link_xml}">fcs/xml</a>
+            <a class="link-fcs-xml" href="{$link_xml}">fcs/xml</a>
             <xsl:choose>
                 <xsl:when test="//tei:TEI">
-                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+                    <xsl:text> </xsl:text><a class="link-tei" href="{$link_tei}">TEI</a>
                 </xsl:when>
-                <xsl:when test="//tei:teiHeader|//tei:front">
-                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+                <xsl:when test="//tei:teiHeader|//tei:front|//tei:entry">
+                    <xsl:text> </xsl:text><a class="link-tei" href="{$link_tei}">TEI</a>
                 </xsl:when>
             </xsl:choose>
             <!--<xsl:choose>
