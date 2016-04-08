@@ -180,6 +180,31 @@
    </xsl:template>
    
    
+   <xsl:template name="menu-content">        
+      <ul class="nav navbar-nav">
+         <li id="li-search"><a>Search</a></li>
+         <li id="li-language"><a>Help</a></li>
+         <li id="li-language"><a>About</a></li>
+         <li id="li-impressum"><a>Impressum</a></li>
+      </ul>
+   </xsl:template>
+   
+   <xsl:template name="page-content">
+      <div id="main">
+         <xsl:call-template name="front"/>
+         <xsl:call-template name="continue-root"/>
+         <xsl:call-template name="help"/>
+         <xsl:call-template name="about"/>
+         <xsl:call-template name="impressum"/>
+      </div>          
+   </xsl:template>
+   
+   <xsl:template name="about">
+      <div class="container" id="about">
+         <xsl:call-template name="getVICAVDictionariesAbout"/>
+      </div>
+   </xsl:template>
+   
    <xsl:template match="tei:entry" mode="record-data">
       
       <div class="dvRoundLemmaBox">

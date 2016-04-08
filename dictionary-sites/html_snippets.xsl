@@ -120,12 +120,7 @@
             </div>
 <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav">
-                  <li id="li-search"><a>Search</a></li>
-                  <li id="li-language"><a>Help</a></li>
-				  <li id="li-impressum"><a>Impressum</a></li>
-               </ul>
-     
+                <xsl:call-template name="menu-content"/>
             </div>
          </div>
       </nav> <!--
@@ -184,6 +179,16 @@
             <div id="notifylist" class="note"/>
         </div>
 		
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Menu content-container</xd:desc>
+    </xd:doc>
+    <xsl:template name="menu-content">        
+        <ul class="nav navbar-nav">
+            <li id="li-search"><a>Search</a></li>
+            <li id="li-language"><a>Help</a></li>
+            <li id="li-impressum"><a>Impressum</a></li>
+        </ul>
     </xsl:template>
 	 <xd:doc>
         <xd:desc>Main content-container 
