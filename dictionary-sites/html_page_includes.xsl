@@ -16,7 +16,7 @@
     </xd:doc>
     <xsl:template name="getTEIFrontPart">
         <xsl:param name="front">
-            <xsl:copy-of select="document(concat($base_url, '?version=1.2&amp;operation=explain&amp;x-context=',$x-context,'&amp;x-format=html'))"/>
+            <xsl:copy-of select="document(concat($base_url, '?version=1.2&amp;operation=explain&amp;x-context=',$x-context,'&amp;x-format=html&amp;x-realhostname=',$site_url))"/>
         </xsl:param> 
         <xsl:copy-of select="exsl:node-set($front)//html:div[@class='zr-description']"/>
     </xsl:template>
@@ -26,7 +26,7 @@
     </xd:doc>
     <xsl:template name="getTEIHeader">
         <xsl:param name="teiHeader">
-            <xsl:copy-of select="document(concat($base_url, '?version=1.2&amp;operation=searchRetrieve&amp;query=rfpid==1&amp;x-context=',$x-context,'&amp;x-format=html'))"/>
+            <xsl:copy-of select="document(concat($base_url, '?version=1.2&amp;operation=searchRetrieve&amp;query=rfpid==1&amp;x-context=',$x-context,'&amp;x-format=html&amp;x-realhostname=',$site_url))"/>
         </xsl:param>
         <xsl:copy-of select="exsl:node-set($teiHeader)//html:div[@class='tei-teiHeader']"/>
     </xsl:template>

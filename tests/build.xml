@@ -9,7 +9,8 @@
 	<!-- a colon-separated list of relative paths containing the tests to execute: 
 		each should contain one or more subdirectories of the name of the stylesheet which 
 		shoud be run on its contents, e.g. result2view for the result2view stylesheet etc. -->
-    <property name="tests" value="../fcs:../custom-xsl/abacus:../misc"/>
+<!--    <property name="tests" value="../fcs:../custom-xsl/abacus:../misc"/>-->
+    <property name="tests" value="../fcs"/>
         
     <xmlcatalog id="commonDTDs">
         <!-- most important DTD is the XHTML one. saxon 9.4 tries to download this
@@ -114,8 +115,8 @@ out of ${xml-output.num} test cases.</echo>
                 </not>
             </condition>
             <echo if:true="${verbose-xsl-processor.bool}">${xsl.file} => ${test-base.dir}</echo>
-            <echo if:true="${have-xsl-1-params.bool}">Using XSL 1.0 (Xalan 2)</echo>
-            <echo if:true="${have-xsl-2-params.bool}">Using XSL 2.0 (saxon 9.4)</echo>
+            <echo if:true="${have-xsl-1-params.bool}">Using XSL 1.0 (Saxon 6.5.5)</echo>
+            <echo if:true="${have-xsl-2-params.bool}">Using XSL 2.0 (Saxon 9.4)</echo>
             <property if:set="special-sub.dir"
                       file="${special-sub.dir}/xsl-1-processor.properties" 
                       description="Call specific properties for c_s-xsl transforms 1.0"/>

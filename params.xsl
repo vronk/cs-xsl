@@ -120,7 +120,7 @@
     <xd:doc>
         <xd:desc>to be put as link on the logo in simple html pages </xd:desc>
     </xd:doc>
-    <xsl:param name="site_url" select="'http://corpus3.oeaw.ac.at/vicav2'"/>
+    <xsl:param name="site_url" select="'https://minerva.arz.oeaw.ac.at/vicav2'"/>
     
     <!-- <xsl:param name="base_dir">https://minervar.arz.oeaw.ac.at/cs/</xsl:param>-->
     <xd:doc>
