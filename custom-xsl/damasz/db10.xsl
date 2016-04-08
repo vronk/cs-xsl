@@ -184,7 +184,7 @@
       <ul class="nav navbar-nav">
          <li id="li-search"><a>Search</a></li>
          <li id="li-language"><a>Help</a></li>
-         <li id="li-language"><a>About</a></li>
+         <li id="li-about"><a>About</a></li>
          <li id="li-impressum"><a>Impressum</a></li>
       </ul>
    </xsl:template>
