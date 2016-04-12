@@ -161,14 +161,14 @@
         <xsl:text>
     "description": {</xsl:text>
         <xsl:apply-templates select="//tei:titleStmt/tei:title"/>
-        <xsl:apply-templates select="//tei:encodingDesc"/>
-        <xsl:text>
-    }</xsl:text>
+        <xsl:if test="//tei:encodingDesc"><xsl:text>,
+</xsl:text></xsl:if>
+        <xsl:apply-templates select="//tei:encodingDesc"/><xsl:text> }</xsl:text>
     </xsl:template>
     
     <xsl:template match="tei:title">
         <xsl:text>
-        "title": "</xsl:text><xsl:value-of select="text()"/>"<xsl:text>,</xsl:text>        
+        "title": "</xsl:text><xsl:value-of select="text()"/>"      
     </xsl:template>
     
     <xsl:template match="tei:charDecl">
