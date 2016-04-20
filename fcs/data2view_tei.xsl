@@ -488,7 +488,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:call-template>
         </span>
     </xsl:template>
-    <xsl:template match="tei:ref|ref" mode="record-data"/>
     <xsl:template match="tei:note|note" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -549,6 +548,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
         </xsl:call-template>
     </xsl:template>
+    
     <xsl:template match="tei:ref|ref|tei:ptr|ptr" mode="record-data"/>
 
     <xsl:template match="tei:corr | corr" mode="record-data">
@@ -676,17 +676,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:choose>
             <xsl:apply-templates mode="record-data"/>
         </xsl:element>
-    </xsl:template>
-    <xd:doc>
-        <xd:desc>TEI ptr elements are mapped to "Click here" links
-        <xd:p>Note: You most likely have to supply you're own logic by superseding this.</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template match="tei:ptr|ptr" mode="record-data">
-        <xsl:variable name="class">
-            <xsl:call-template name="classnames"/>
-        </xsl:variable>
-        <a href="{@target}" class="{$class}">Click here!</a>
     </xsl:template>
     <xd:doc>
         <xd:desc>tei:table elements are mapped to html:table elements
