@@ -449,6 +449,12 @@
     <xsl:param name="mappings-file" select="''"/>
     
     <xd:doc>
+        <xd:desc>A comma separated list of languages the user knows.</xd:desc>
+    </xd:doc>
+    <xsl:param name="user_langs" select="''"/>
+    
+    
+    <xd:doc>
         <xd:desc>XDebug passthrough</xd:desc>
         <xd:p>The XDebug PHP server debugging tool activates itsself depending on this special parameter.</xd:p>
         <xd:p>So as a service pass this parameter on by appending it to all generated links as is if it is present.</xd:p>
