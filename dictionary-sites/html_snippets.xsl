@@ -47,7 +47,7 @@
         <link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/><xsl:text>&#xA;</xsl:text>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
-		<link rel="stylesheet" href="{$scripts_url}style/font-awesome-4.6.1/font-awesome.min.css"/><xsl:text>&#xA;</xsl:text>
+		<link rel="stylesheet" href="{$scripts_url}style/font-awesome-4.6.1/css/font-awesome.min.css"/><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"></script><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/URI.js"/><xsl:text>&#xA;</xsl:text>
