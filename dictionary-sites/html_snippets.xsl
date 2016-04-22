@@ -59,6 +59,9 @@
             // set everything that should not have its default falue here before param.js is loaded.
             var switchURL = "<xsl:value-of select="$base_url_public"/>";
             var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
+			
+			
+			
         </script><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/params.js"/><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/><xsl:text>&#xA;</xsl:text>
@@ -96,13 +99,17 @@
                 </a>
             </div>
 			</xsl:if>
+			
 			  <div id="site-name">
-                    <h2><xsl:value-of select="$site_name"/></h2>
+                 <xsl:call-template name="sitename"/>   
                 </div>
              
             </div>
 			<xsl:call-template name="top-menu"/>
     </xsl:template>
+	<xsl:template name="sitename">
+	<h2><xsl:value-of select="$site_name"/></h2>
+	</xsl:template>
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
     </xd:doc>
@@ -235,10 +242,11 @@
                             <td colspan="2">
                     -->
                   <!--  <xsl:call-template name="contexts-select"/>
-                    <xsl:call-template name="br"/>-->
-<!--                    <div id="main-query" >-->
-<!--                    <xsl:call-template name="queryTextUI"/> -->
-						<input id="query-text-ui" type="text" class="form-control"/>
+                    <xsl:call-template name="br"/>
+                    <div id="main-query" > -->
+
+                 <xsl:call-template name="queryTextUI"/> 
+					<!--	<input id="query-text-ui" type="text" class="form-control"/>-->
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>
@@ -268,9 +276,9 @@
         </div>
     </xsl:template>
     
-    <xsl:template name="queryTextUI">
+    <!--<xsl:template name="queryTextUI">
         <input type="text" id="input-simplequery" name="query" value="{$q}" class="form-control queryinput active" data-context="{$x-context}"/>
-    </xsl:template>
+    </xsl:template>-->
     
     <xd:doc>
         <xd:desc>Provides information to the user about the position in a search response that spans multiple pages</xd:desc>
