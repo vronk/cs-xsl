@@ -52,7 +52,7 @@
       <span class="virtual-keyboard-input-combo virtual-keyboard-with-icon">
          <input name="query" type="text" size="18" class="queryinput active virtual-keyboard-input" id="query-text-ui" value="{$q}" data-context="{$x-context}"/>
          <input type="checkbox" value="unused" class="virtual-keyboard-toggle" id="glueToLabel1" checked="checked"/>
-         <label for="glueToLabel1" class="virtual-keyboard-first-three"><i class="fa fa-keyboard-o" aria-hidden="true"></i></label>
+         <label for="glueToLabel1"><i class="fa fa-keyboard-o" aria-hidden="true"></i></label>
       </span>       
    </xsl:template>
    
