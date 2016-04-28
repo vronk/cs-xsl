@@ -98,6 +98,16 @@
     </xsl:template>
     
     <xsl:template match="sru:term">
+        <xsl:variable name="index">
+            <xsl:choose>
+                <xsl:when test="sru:extraTermData/cr:type">
+                    <xsl:value-of select="sru:extraTermData/cr:type"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$index"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <xsl:variable name="href">
             <xsl:call-template name="generateLinkInScanResults">
                 <xsl:with-param name="index" select="$index"/>
