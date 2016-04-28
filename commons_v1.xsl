@@ -713,6 +713,23 @@
     </xsl:template>
     
     <xd:doc>
+        <xd:desc>tokenize function replacement
+            <xd:p>Note: result needs exsl:node-set!</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="tokenize">
+        <xsl:param name="text"/>
+        <xsl:param name="delimiter"/>
+        <xsl:if test="string-length($text)>0">
+            <lang><xsl:value-of select="substring-before(concat($text, $delimiter), $delimiter)"/></lang>            
+            <xsl:call-template name="tokenize">
+                <xsl:with-param name="text" select="substring-after($text, $delimiter)"/>
+                <xsl:with-param name="delimiter" select="$delimiter"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
+    
+    <xd:doc>
         <xd:desc>String replacement for XSL 1.0
             <xd:p>Found on stackoverflow: http://stackoverflow.com/questions/7520762/xslt-1-0-string-replace-function</xd:p>
         </xd:desc>

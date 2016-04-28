@@ -28,35 +28,71 @@
       
       <style>
          html, body {background-image:linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),url("https://minerva.arz.oeaw.ac.at/static/images/vicav/Dam-Babassalam3.JPG");
-         color:#000;background-size:cover;background-position:0;background-attachment:fixed;background-repeat:no-repeat;}
-         table {font-size:0.9em;}
-         tbody {display:table;width:100%;}
-         .navbar {border-radius:0;background-image:none;}
-         .tei-entry {margin-bottom:2rem;border:2px solid #304E75;padding:1rem;}
-         dt.tei-gram { display: none;}
-         .result-navigation p {padding-left:1rem !important;}
-         .tei-cit {display:block;}
-         .label {color:black !important;}
-         .tei-gramGrp,dd.tei-gram {display: inline;color:#238DD1;}
-         .tei-orth {margin-right:0.4rem;}
-         .tei-orth:first-child {font-weight:bold;}
-         .label:nth-of-type(5),.label:nth-of-type(7){display:none !important;}
-         .searchresults {color:black !important;float:left;}
-         .form-control {font-size:0.8em !important;padding:0rem !important;height:2rem !important;}
-         #submit-query {height:2rem !important;padding:0rem !important;}
-         .note {display:none!important;}
-         #querysearch br {display:none !important;}
-         .result-navigation {display:block !important;}
-         .record-top {display:none !important;}
-         .ui-state-default {background:none !important; color:white !important; border:none !important;}
-         h1 {color:white !important;}
+         color:#000;
+         background-size:cover;
+         background-position:0;
+         background-attachment:fixed;
+         background-repeat:no-repeat;
+         }
+         
+         table {
+         font-size:0.9em;
+         }
+         
+         tbody {
+         display:table;
+         width:100%;
+         }
+         
+         .tei-entry {
+         margin-bottom:2rem;
+         border:2px solid #304E75;
+         padding:1rem;
+         }
+         
+         dt.tei-gram {
+         display: none;
+         }
+         
+         
+         .tei-cit {
+         display:block;
+         }
+         
+         .tei-gramGrp,dd.tei-gram {
+         display: inline;
+         color:#238DD1;
+         }
+         
+         .tei-orth {
+         margin-right:0.4rem;
+         }
+         
+         .tei-orth:first-child {
+         font-weight:bold;
+         }
+         
+         .ui-state-default {
+         background:none !important; 
+         color:white !important; 
+         border:none !important;
+         }
+         
+         .sense-en {color:blue;}
+         .sense-de {color:purple;}
+         .sense-es {color:salmon;}
+         .lemma {color:limegreen;}
+         .inflected {color:goldenrod;}
+         
+         h1 {color:white;}
+         
          h4 {
          padding-right: 20px;
          padding-left: 3px;
          padding-right:3px;
          border: 1px solid #B05045;
          background: #B05045;
-         color: rgb(247,254,160) !important; 
+         color: rgb(247,254,160); 
          }
          .spHighRed {
          color: #B05045;
@@ -73,6 +109,7 @@
          color: #1A3769;
          font-weight: bold;
          }
+         
          .wordforms {
          color: rgb(130,28,198);
          }
@@ -91,20 +128,23 @@
          #glueToLabel1 {display:none;}
          .virtual-keyboard-first-three {display:none;}
          #front .tei-teiHeader {display:none;}
-         iframe {margin-top:6rem;width:auto;height:auto;float:left;}
          
-         .navbar-brand {padding:0 !important;}
+         
+         
+         
          .entrytable td:first-child {
          white-space: normal;
          }
+         .jumbotron {
          
-         .row {margin:0 !important;}
-         .result-body {margin-top:2rem;}
+         padding-left: 2rem; 
+         padding-top: 15px;
+         margin-bottom: 0; 
+         background-color:transparent;
+         }
+         
          #dvLanguage {display:none;}
          #dvDocumentation {display:none;}
-         .disabled {visibility:hidden !important;}
-         .result-navigation {margin-top:1rem;} 
-         .counter {display:none;}
          
          .tdNorm {
          border-bottom: 1px solid #CCC;
@@ -132,13 +172,7 @@
          border: 1px solid rgb(174,87,0);
          box-shadow: 10px 10px 5px rgb(131,107,27);
          }
-         .jumbotron{
          
-         padding-left: 2rem; 
-         background-color:transparent;
-         padding-top: 15px !important;
-         margin-bottom: 0!important; 
-         }
          .dvRoundLemmaBox {
          text-align: right;
          padding-right: 5px;
@@ -146,21 +180,19 @@
          top: 3px;
          left: -10px;
          width: 100px;
+         
          border-radius: 5px;
          background: rgb(232, 234, 151);
          font-weight: bold;
          border: 1px solid rgb(140,70,0);
          }
-         @media screen and (-webkit-min-device-pixel-ratio: 3.0) and (max-width: 1080px), screen and (max-width: 480px) {
-         .jumbotron { padding-top: 0 !important;
-         }
-         h2 { margin-top: 0 !important;padding-top:5px !important;}
-         }         
+         
          .xsl-audio.xsl-outer {
          <xsl:value-of select="concat('background-image: url(', $scripts_url, 'style/base/images/ui-icons_2e83ff_256x240.png)/*{iconsContent}*/;')"/>
          display: inline-block;
          background-position: 0 -160px;
          width: 16px;
+         
          height: 16px;
          margin-right: 0.5em;
          margin-left: 0.5em;
@@ -180,7 +212,7 @@
    </xsl:template>
    
    
-   <xsl:template name="menu-content">        
+   <xsl:template name="menu-content">
       <ul class="nav navbar-nav">
          <li id="li-search"><a>Search</a></li>
          <li id="li-language"><a>Help</a></li>
@@ -196,7 +228,7 @@
          <xsl:call-template name="help"/>
          <xsl:call-template name="about"/>
          <xsl:call-template name="impressum"/>
-      </div>          
+      </div>
    </xsl:template>
    
    <xsl:template name="about">
@@ -204,11 +236,11 @@
          <xsl:call-template name="getVICAVDictionariesAbout"/>
       </div>
    </xsl:template>
-   
    <xsl:template match="tei:entry" mode="record-data">
       
       <div class="dvRoundLemmaBox">
          <xsl:value-of select="tei:form[@type='lemma']/tei:orth[@xml:lang='ar-apc-x-damascus-vicavTrans'] |  tei:form[@type='multiWordUnit']/tei:orth[@xml:lang='ar-apc-x-damascus-vicavTrans']"/>
+         
          
       </div>
       <table class="tbLemma">
@@ -238,7 +270,7 @@
                <td class="tdNorm">
                   <xsl:for-each select="tei:form[@type='inflected']">
                      <xsl:if test="position() > 1">, </xsl:if>
-                     <xsl:value-of select="tei:orth[@xml:lang='ar-apc-x-damascus-vicavTrans']"/>                     
+                     <xsl:value-of select="tei:orth[@xml:lang='ar-apc-x-damascus-vicavTrans']"/>
                      <xsl:apply-templates select="tei:media"/>
                   </xsl:for-each>
                </td>
@@ -247,29 +279,42 @@
             
          </xsl:if>
          <xsl:for-each select="tei:sense">
-            <tr>
-               <td class="tdLeft">Sense</td>
-               <td class="tdNorm">
-                  <div>
-                     <xsl:value-of select="tei:cit[@xml:lang='en']/tei:quote"/>
-                     <xsl:if test="tei:usg[@type='dom']"><b class="spUsg"> [<xsl:value-of select="tei:usg[@type='dom']"/>]</b></xsl:if>
-                     <xsl:for-each select="tei:cit[@type='example']">
-                        <div class="dvExample">
-                           <xsl:value-of select="tei:quote[@xml:lang='ar-apc-x-damascus-vicavTrans']"/>
-                           <xsl:text> </xsl:text><i class="exTranslation">
-                              <xsl:value-of select="tei:cit[@type='translation' and @xml:lang='en']/tei:quote"/></i>
-                        </div>
-                     </xsl:for-each>
-                  </div>
-               </td>
-            </tr>
+            <xsl:variable name="sense" select="."/>
+            <xsl:for-each select="exsl:node-set($userLangs)/*">
+               <xsl:variable name="lang" select="text()"/>
+               <xsl:if test="$sense/tei:cit[@xml:lang = $lang]|$sense/tei:cit[@type = 'translation' and @xml:lang = $lang]">
+               <tr>
+                  <td class="tdLeft">Sense</td>
+                  <td class="tdNorm">
+                     <div>
+                        <xsl:value-of select="$sense/tei:cit[@xml:lang = $lang]/tei:quote"/>
+                        <xsl:if test="$sense/tei:usg[@type = 'dom']">
+                           <b class="spUsg"> [<xsl:value-of select="$sense/tei:usg[@type = 'dom']"
+                              />]</b>
+                        </xsl:if>
+                        <xsl:for-each select="$sense/tei:cit[@type = 'example']">
+                           <div class="dvExample">
+                              <xsl:value-of
+                                 select="$sense/tei:quote[@xml:lang = 'ar-apc-x-damascus-vicavTrans']"/>
+                              <xsl:text> </xsl:text>
+                              <i class="exTranslation">
+                                 <xsl:value-of
+                                    select="$sense/tei:cit[@type = 'translation' and @xml:lang = $lang]/tei:quote"
+                                 />
+                              </i>
+                           </div>
+                        </xsl:for-each>
+                     </div>
+                  </td>
+               </tr>
+               </xsl:if>
+            </xsl:for-each>
          </xsl:for-each>
       </table>
    </xsl:template>
    
    <xsl:template match="tei:media[@mimeType='audio/wav']">
-      <xsl:variable name="audiofile"
-         select="concat('https://minerva.arz.oeaw.ac.at/static/audio/words/apc_eng_002/', @url)"/>      
+      <xsl:variable name="audiofile" select="concat('https://minerva.arz.oeaw.ac.at/static/audio/words/apc_eng_002/', @url)"/>      
       <span class="xsl-audio xsl-outer tei-orth">
          <div class="xsl-audio xsl-inner">
             <audio controls="controls" preload="none">

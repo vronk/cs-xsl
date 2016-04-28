@@ -451,8 +451,14 @@
     <xd:doc>
         <xd:desc>A comma separated list of languages the user knows.</xd:desc>
     </xd:doc>
-    <xsl:param name="user_langs" select="''"/>
+    <xsl:param name="user_langs" select="'en'"/>
     
+    <xsl:variable name="userLangs">
+        <xsl:call-template name="tokenize">
+            <xsl:with-param name="text" select="$user_langs"/>
+            <xsl:with-param name="delimiter" select="','"/>
+        </xsl:call-template>
+    </xsl:variable>
     
     <xd:doc>
         <xd:desc>XDebug passthrough</xd:desc>
