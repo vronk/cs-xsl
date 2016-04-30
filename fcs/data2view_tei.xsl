@@ -538,11 +538,6 @@ the named templates are at the bottom.</xd:p>
             </sup>
         </span>
     </xsl:template>
-    <xsl:template match="choice | tei:choice " mode="record-data">
-        <span class="choice">
-            <xsl:apply-templates mode="record-data"/>
-        </span>
-    </xsl:template>
     <xsl:template match="orig | tei:orig | tei:sic | sic" mode="record-data">
         <xsl:call-template name="inline">
             <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
