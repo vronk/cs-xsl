@@ -18,7 +18,41 @@
             </xd:ul>
             </xd:p>
         </xd:desc>
+    </xd:doc> 
+    <xd:doc>
+        <xd:desc>Standard header for the html page
+            <xd:p>
+                <xd:ul>
+                    <xd:li>Sets the charset to UTF-8</xd:li>
+                    <xd:li>includes a customized stylesheet based on jQuery-ui 1.8.5</xd:li>
+                    <xd:li>includes a CSS style sheet cmd-ui.css</xd:li>
+                    <xd:li>includes a CSS style sheet cr.css</xd:li>
+                    <xd:li>includes jQuery 1.6.2 (???!)</xd:li>
+                </xd:ul>
+            </xd:p>
+            <xd:p>
+                TODO: what about htmljspage and jquery.treeview css/js? Enable it? Toss it?
+            </xd:p>
+        </xd:desc>
     </xd:doc>
+    <xsl:template name="html-head">
+        <title>
+            <xsl:value-of select="$title"/>
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
+        
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/>
+        
+        <!--        <xsl:if test="contains($format,'htmljspage')">
+            <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
+            </xsl:if>-->
+    </xsl:template>
     <xd:doc>
         <xd:desc>Standard header for the html page
             <xd:p>
@@ -34,7 +68,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template name="html-head"><xsl:text>&#xA;</xsl:text>
+    <xsl:template name="html-head-bootstrap"><xsl:text>&#xA;</xsl:text>
         <title>
             <xsl:value-of select="$title"/>
         </title><xsl:text>&#xA;</xsl:text>
@@ -88,6 +122,36 @@
                     <xsl:value-of select="$site_url"/>
                 </xsl:when>
                 <xsl:otherwise>
+                    <xsl:value-of select="$base_url_public"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <div class="cmds-ui-block" id="header">
+            <div id="logo">
+                <a href="{$logo_link}">
+                    <img src="{$site_logo}" alt="{$site_name}"/>
+                </a>
+                <div id="site-name">
+                    <xsl:value-of select="$site_name"/>
+                </div>
+            </div>
+            <xsl:call-template name="top-menu"/>
+        </div>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>A header visible for the user
+            <xd:p>
+                Shows the site's name, a logo and and the contents of top-menu.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="page-header-bootstrap">
+        <xsl:variable name="logo_link">
+            <xsl:choose>
+                <xsl:when test="not($site_url='')">
+                    <xsl:value-of select="$site_url"/>
+                </xsl:when>
+                <xsl:otherwise>
                     <xsl:value-of select="$base_url"/>
                 </xsl:otherwise>
             </xsl:choose>
@@ -114,7 +178,7 @@
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
     </xd:doc>
-    <xsl:template name="top-menu">
+    <xsl:template name="top-menu-bootstrap">
           <nav class="navbar navbar-inverse">
          <div class="container-fluid"> <div class="navbar-header">
                <button id="navtoggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
@@ -189,6 +253,66 @@
 		
     </xsl:template>
     <xd:doc>
+        <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
+    </xd:doc>
+    <xsl:template name="top-menu">
+        <!--
+            <xsl:variable name="link_toggle_js">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="format">
+                        <xsl:choose>
+                            <xsl:when test="contains($format,'htmljspage')">htmlpage</xsl:when>
+                            <xsl:otherwise>htmljspage</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:variable>-->
+        <xsl:variable name="link_xml">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="format" select="'xml'"/>
+                <xsl:with-param name="dataview" select="$x-dataview"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="link_tei">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="format" select="'xmltei'"/>
+                <xsl:with-param name="dataview" select="$x-dataview"/>
+            </xsl:call-template>               
+        </xsl:variable>
+        <a href="{$link_xml}">fcs/xml</a>
+        <xsl:choose>
+            <xsl:when test="//tei:TEI">
+                <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+            </xsl:when>
+            <xsl:when test="//tei:teiHeader|//tei:front">
+                <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+            </xsl:when>
+        </xsl:choose>
+        <!--<xsl:choose>
+                <xsl:when test="contains($format,'htmljspage')">
+                    <a href="{$link_toggle_js}"> none js </a>
+                </xsl:when>
+                <xsl:otherwise>
+                    <a href="{$link_toggle_js}"> js </a>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:choose>
+                <xsl:when test="$user = ''">
+                    <a href="workspace.jsp">    login</a>
+                </xsl:when>
+                <xsl:otherwise>
+                        User: <b>
+                        <xsl:value-of select="$user"/>
+                    </b>
+                    <a href="logout.jsp">    logout</a>
+                </xsl:otherwise>
+            </xsl:choose>
+            <a target="_blank" href="static/info"> docs</a> -->
+        <div id="notify" class="cmds-elem-plus note">
+            <div id="notifylist" class="note"/>
+        </div>
+    </xsl:template>
+    <xd:doc>
         <xd:desc>Menu content-container</xd:desc>
     </xd:doc>
     <xsl:template name="menu-content">        
@@ -224,6 +348,9 @@
     
 	<!-- QUERYSEARCH - BLOCK -->
         <div class="cmds-ui-block init-show" id="querysearch">
+            <div class="header ui-widget-header ui-state-default ui-corner-top">
+                Search
+            </div>
             <div class="content" id="query-input">
                 <!-- fill form@action with <xsl:call-template name="formURL"/> will not work, 
                         because the parameter have to be encoded as input-elements  not in the form-url  
@@ -242,18 +369,17 @@
                         <tr>
                             <td colspan="2">
                     -->
-                  <!--  <xsl:call-template name="contexts-select"/>
+                    <label>Context</label>
+                    <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>
-                    <div id="main-query" > -->
-
-                 <xsl:call-template name="queryTextUI"/> 
-					<!--	<input id="query-text-ui" type="text" class="form-control"/>-->
+<!--                    <div id="main-query" >-->
+                    <xsl:call-template name="queryTextUI"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>
                        -->
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
-					<div id="loader"><img src="https://minerva.arz.oeaw.ac.at/static/images/dicts/ajax-loader.gif"/></div>
+					<div class="loader"><img src="https://minerva.arz.oeaw.ac.at/static/images/dicts/ajax-loader.gif"/></div>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
@@ -277,9 +403,9 @@
         </div>
     </xsl:template>
     
-    <!--<xsl:template name="queryTextUI">
-        <input type="text" id="input-simplequery" name="query" value="{$q}" class="form-control queryinput active" data-context="{$x-context}"/>
-    </xsl:template>-->
+    <xsl:template name="queryTextUI">
+        <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active" data-context="{$x-context}"/>
+    </xsl:template>
     
     <xd:doc>
         <xd:desc>Provides information to the user about the position in a search response that spans multiple pages</xd:desc>
@@ -340,30 +466,36 @@
                 <xsl:with-param name="maximumRecords" select="$maximumRecords"/>
             </xsl:call-template>
         </xsl:variable>
-        <xsl:variable name="prev-disabled">
-            <xsl:if test="$startRecord = '1'">disabled</xsl:if>
-        </xsl:variable>
+        <xsl:variable name="prev-enabled" select="not($startRecord = '1')"/>
         <xsl:variable name="link_next">
             <xsl:call-template name="formURL">
                 <xsl:with-param name="startRecord" select="$next_startRecord"/>
                 <xsl:with-param name="maximumRecords" select="$maximumRecords"/>
             </xsl:call-template>
         </xsl:variable>
-        <xsl:variable name="next-disabled">
-            <xsl:if test="number($startRecord) + number($maximumRecords) &gt;= number($numberOfRecords)">disabled</xsl:if>
-        </xsl:variable>
-        <span style="width:100%" class="result-navigation prev-next">
-            <a style="width:20%;" class="internal prev {$prev-disabled}" href="{$link_prev}">
-                <span class="btn btn-default cmd_prev">Prev</span>
-            </a>
-			<p style="line-height:3rem;display:inline;font-size:12px;padding-left:2rem;">Showing <xsl:value-of select="number($startRecord)"/> to <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
-            <a style="width:20%;" class="internal next {$next-disabled}" href="{$link_next}">
-                <span class="btn btn-default cmd_next">Next</span>
-            </a>
-        </span>
+        <xsl:variable name="next-enabled" select="number($startRecord) + number($maximumRecords) &lt; number($numberOfRecords)"/>
+        <xsl:if test="$numberOfRecords &gt; 0">
+            <span class="result-navigation prev-next">
+                <xsl:if test="$prev-enabled">
+                    <a class="internal prev" href="{$link_prev}">
+                        <span class="cmd_prev"/>
+                    </a>
+                </xsl:if>
+                <span class="result-pager value hilight">
+                    <xsl:value-of select="$startRecord"/>
+                    <xsl:text> - </xsl:text>
+                    <xsl:value-of select="(number($startRecord) + number(sru:extraResponseData/fcs:returnedRecords) - 1)"/>
+                </span>
+                <xsl:if test="$next-enabled">
+                    <a class="internal next" href="{$link_next}">
+                        <span class="cmd_next"/>
+                    </a>
+                </xsl:if>
+            </span>
+        </xsl:if>
     </xsl:template>
 	<xsl:template name="number-of-records">
-	<p style="line-height:3rem;display:inline;font-size:12px;padding-left:2rem;">Showing <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
+	<p>Showing <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
 	</xsl:template>
     <xd:doc>
         <xd:desc>Provides a querylistblock HTML div element which is manipulated by JavaScript</xd:desc>
