@@ -77,6 +77,9 @@
 			<xsl:message>format:<xsl:value-of select="$format"/>
 			</xsl:message>-->
         <xsl:choose>
+            <xsl:when test="contains($format, 'htmlbootstrap')">
+                <xsl:call-template name="htmlbootstrap"/>
+            </xsl:when>
             <xsl:when test="contains($format,'htmlpage')">
                 <xsl:call-template name="html"/>
             </xsl:when>
@@ -94,7 +97,7 @@
     <xd:doc>
         <xd:desc>Generates the typical html framework and integrates the parts created by the specialised named templates</xd:desc>
     </xd:doc>
-    <xsl:template name="html">
+    <xsl:template name="htmlbootstrap">
         <html>
             <head>
                 <xsl:call-template name="html-head"/>
@@ -106,8 +109,26 @@
                 <h1>
                     <xsl:value-of select="$title"/>
                 </h1>
-                <xsl:apply-templates select="diagnostics"/>
-            
+                <xsl:apply-templates select="//sru:diagnostics"/>          
+            </body>
+        </html>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Generates the typical html framework and integrates the parts created by the specialised named templates</xd:desc>
+    </xd:doc>
+    <xsl:template name="html">
+        <html>
+            <head>
+                <xsl:call-template name="html-head"/>
+                <xsl:call-template name="callback-header"/>
+            </head>
+            <body>
+                <xsl:call-template name="page-header"/>
+                <h1>
+                    <xsl:value-of select="$title"/>
+                </h1>
+                <xsl:apply-templates select="//sru:diagnostics"/>
+                <xsl:call-template name="continue-root"/>
             </body>
         </html>
     </xsl:template>
@@ -122,7 +143,6 @@
             </head>
             <body>
                 <xsl:call-template name="page-header"/>
-				<xsl:call-template name="page-content"/>
                 <h1>
                     <xsl:value-of select="$title"/>
                 </h1>
@@ -131,7 +151,7 @@
                 <xsl:call-template name="detail-space"/>
                 <xsl:call-template name="public-space"/>
                 <xsl:call-template name="user-space"/>
-				<!--  <xsl:call-template name="continue-root"/>-->
+				<xsl:call-template name="continue-root"/>
             </body>
         </html>
     </xsl:template>
@@ -270,6 +290,29 @@
             </xsl:if>
         </select>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Generates an HTML select-option list of available indexes</xd:desc>
+    </xd:doc>
+    <xsl:template name="indexes-select">
+        
+        <!--            DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
+        DEBUG: base_url:<xsl:value-of select="$base_url" />
+        DEBUG: contexts:<xsl:copy-of select="$contexts" /> -->
+        <select name="indexes">
+            <xsl:if test="$indexes">
+                <xsl:for-each select="(exsl:node-set($indexes))//zr:indexInfo/zr:index">
+                    <option value="{.//zr:name}">
+                        <xsl:if test=".//zr:name/text() = $index">
+                            <xsl:attribute name="selected">selected</xsl:attribute>
+                        </xsl:if>
+                        <xsl:value-of select=".//zr:title"/>
+                    </option>
+                </xsl:for-each>
+            </xsl:if>
+        </select>
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Shall be usable to form consistently all urls within xsl</xd:desc>
         <xd:param name="action">Same meaning as <xd:ref name="operation" type="parameter">$operation</xd:ref>.
@@ -287,20 +330,18 @@
         <xsl:param name="action" select="$operation"/>
         <xsl:param name="format" select="$format"/>
 		<xsl:param name="sort" select="$sort"/>
-        <xsl:param name="md-format" select="'CMDI'"/>        
+        <xsl:param name="md-format" select="'CMDI'"/>
         <xsl:param name="queryType" select="$queryType"/>
         <xsl:param name="q" select="$q"/>
         <xsl:param name="startRecord" select="$startRecord"/>
         <xsl:param name="maximumRecords" select="$maximumRecords"/>
         <xsl:param name="dataview" select="normalize-space(//fcs:x-dataview)"/>
-		<xsl:param name="responsePosition" select="''"/>
+        <xsl:param name="responsePosition" select="$responsePosition"/>
         <xsl:param name="maximumTerms" select="$maximumTerms"/>
-        
 		<xsl:param name="x-filter" select="$x-filter"/>
         <xsl:param name="x-context" select="$x-context"/>
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
-        
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
         
         <xsl:param name="base_url" select="$base_url_public"/>
@@ -378,31 +419,36 @@
                 <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="XDEBUG_SESSION_START">
+            <xsl:if test="$XDEBUG_SESSION_START">
+                <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
+            </xsl:if>
+        </xsl:variable>
         <xsl:variable name="param_queryType">
             <xsl:if test="$queryType != ''">
                 <xsl:value-of select="concat('&amp;queryType=', $queryType)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_XDEBUG_SESSION_START">
-            <xsl:if test="$XDEBUG_SESSION_START">
+            <xsl:if test="$XDEBUG_SESSION_START != ''">
                 <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$action='get-data'">
-                <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url_public, 'get/', $q, '/data', translate($param_format,'&amp;','?'), $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='get-metadata'">
-                <xsl:value-of select="concat($base_url, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'))"/>
+                <xsl:value-of select="concat($base_url_public, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'), $XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='explain'">
-                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $param_XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $param_XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='scan'">
-                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $param_sort, $param_maximumTerms, $param_responsePosition, $param_XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $param_sort, $param_maximumTerms, $param_responsePosition, $param_XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat($base_url, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $param_queryType, $param_XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $param_queryType, $param_XDEBUG_SESSION_START)"/>
             </xsl:otherwise>
         </xsl:choose>                
          
