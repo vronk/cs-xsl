@@ -369,18 +369,20 @@
                         <tr>
                             <td colspan="2">
                     -->
-                    <label>Context</label>
-                    <xsl:call-template name="contexts-select"/>
+                    <fieldset class="contexts form-group">
+                        <label>Context</label>
+                        <xsl:call-template name="contexts-select"/>
+                    </fieldset>
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
-					<fieldset class="form-group">
+					<fieldset class="query form-group">
                     <xsl:call-template name="queryTextUI"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>
                        -->
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
-					<div class="loader"><img src="https://minerva.arz.oeaw.ac.at/static/images/dicts/ajax-loader.gif"/></div>
+					<div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
 					</fieldset>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>

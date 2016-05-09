@@ -8,7 +8,7 @@
    xmlns:fcs="http://clarin.eu/fcs/1.0"
    xmlns:saxon="http://icl.com/saxon"
    xmlns:str="http://exslt.org/strings"
-   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl xd tei sru"
+   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl xd tei sru fcs"
    extension-element-prefixes="saxon str exsl"
    >
    <xsl:import href="result2view_v1.xsl"/>
@@ -49,8 +49,9 @@
    <xsl:template name="callback-header2"/>
    
    <xsl:template name="queryTextUI">
-      <span class="virtual-keyboard-input-combo virtual-keyboard-with-icon">
-         <input name="query" type="text" size="18" class="queryinput active virtual-keyboard-input form-control" id="query-text-ui" value="{$q}" data-context="{$x-context}"/>
+      <span class="virtual-keyboard-input-combo virtual-keyboard-with-icon virtual-keyboard-input-above">
+         <input name="query" type="text" size="18" class="queryinput active virtual-keyboard-input form-control" id="query-text-ui"
+            value="{$q}" data-context="{$x-context}" data-index="{$index}" data-operator="{$operator}" data-searchstring="{$searchString}"/>
          <input type="checkbox" value="unused" class="virtual-keyboard-toggle" id="glueToLabel1" checked="checked"/>
          <label for="glueToLabel1"><i class="fa fa-keyboard-o" aria-hidden="true"></i></label>
       </span>       
