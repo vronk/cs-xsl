@@ -373,6 +373,7 @@
                     <xsl:call-template name="contexts-select"/>
                     <xsl:call-template name="br"/>
 <!--                    <div id="main-query" >-->
+					<fieldset class="form-group">
                     <xsl:call-template name="queryTextUI"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
@@ -380,6 +381,7 @@
                        -->
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
 					<div class="loader"><img src="https://minerva.arz.oeaw.ac.at/static/images/dicts/ajax-loader.gif"/></div>
+					</fieldset>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
