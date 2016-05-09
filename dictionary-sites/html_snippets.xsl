@@ -170,7 +170,7 @@
                 </div>
              
             </div>
-			<xsl:call-template name="top-menu"/>
+			<xsl:call-template name="top-menu-bootstrap"/>
     </xsl:template>
 	<xsl:template name="sitename">
 	<h2><xsl:value-of select="$site_name"/></h2>

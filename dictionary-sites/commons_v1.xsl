@@ -72,9 +72,9 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="/">
-		<!--<xsl:message>root_document-uri:<xsl:value-of select="$root_uri"/>
-			</xsl:message>
-			<xsl:message>format:<xsl:value-of select="$format"/>
+<!--		<xsl:message>root_document-uri:<xsl:value-of select="$root_uri"/>
+			</xsl:message>-->
+<!--			<xsl:message>format:<xsl:value-of select="$format"/>
 			</xsl:message>-->
         <xsl:choose>
             <xsl:when test="contains($format, 'htmlbootstrap')">
@@ -100,11 +100,11 @@
     <xsl:template name="htmlbootstrap">
         <html>
             <head>
-                <xsl:call-template name="html-head"/>
+                <xsl:call-template name="html-head-bootstrap"/>
                 <xsl:call-template name="callback-header"/>
             </head>
             <body>
-                <xsl:call-template name="page-header"/>
+                <xsl:call-template name="page-header-bootstrap"/>
 				<xsl:call-template name="page-content"/>
                 <h1>
                     <xsl:value-of select="$title"/>
