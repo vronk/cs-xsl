@@ -85,7 +85,7 @@
     </xd:doc>
     <xsl:template name="header">
         <div class="result-header" data-numberOfRecords="{$numberOfRecords}">
-            <xsl:if test="contains($format, 'page')">
+            <xsl:if test="contains($format, 'page') or contains($format, 'bootstrap')">
                 <xsl:call-template name="query-input"/>
             </xsl:if>
             <xsl:apply-templates select="sru:facetedResults"/>
