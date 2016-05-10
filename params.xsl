@@ -359,8 +359,9 @@
         </xd:desc>
     </xd:doc>
     <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
+    
     <xd:doc>
-        <xd:desc>The index is defined as the part of the scanClause before the '='
+        <xd:desc>The index is defined as the part of the scanClause or query before the operator (e. g. '=')
             <xd:p>
                 This is one possibility according to the
                 <xd:a href="http://www.loc.gov/standards/sru/specs/scan.html">SRU documentation</xd:a>.
@@ -377,11 +378,34 @@
             <xsl:when test="substring-before($scanClause,'=')">
                 <xsl:value-of select="substring-before($scanClause,'=')"/>
             </xsl:when>
+            <xsl:when test="substring-before($scanClause,'&lt;')">
+                <xsl:value-of select="substring-before($scanClause,'=')"/>
+            </xsl:when>
+            <xsl:when test="substring-before($scanClause,'>')">
+                <xsl:value-of select="substring-before($scanClause,'=')"/>
+            </xsl:when>
+            <xsl:when test="substring-before($scanClause,' ')">
+                <xsl:value-of select="substring-before($scanClause,'=')"/>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$scanClause"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:param>
+    
+    <xd:doc>
+        <xd:desc>The operator is defined as the part of the scanClause or query
+            <xd:p>Note: has to be passed in, cannot be computed xsl 1.0</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="operator" select="''"/>
+    
+    <xd:doc>
+        <xd:desc>The searchString is defined as the part of the scanClause or query
+            <xd:p>Note: has to be passed in, cannot be computed xsl 1.0</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="searchString" select="''"/>               
     
     <xd:doc>
         <xd:desc>The filter is defined as the part of the scanClause after the '='

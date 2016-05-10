@@ -19,34 +19,34 @@
       terms: [{label:"label1", value:"value1", count:"#number"}, ...]
      }
 </xd:pre>
-            <xd:p>Sample input</xd:p>	
+            <xd:p>Sample input</xd:p>
             <xd:pre>
-&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/">
-&lt;sru:version>1.2&lt;/sru:version>
-   &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)">
-        &lt;sru:term>
-        &lt;sru:value>1903-01&lt;/sru:value>
-        &lt;sru:numberOfRecords>30&lt;/sru:numberOfRecords>
-        &lt;/sru:term>
-        &lt;sru:term>
-        &lt;sru:value>1903-02&lt;/sru:value>
-        &lt;sru:numberOfRecords>28&lt;/sru:numberOfRecords>
-        &lt;/sru:term>
-        &lt;sru:term>
-        &lt;sru:value>1903-03&lt;/sru:value>
-        &lt;sru:numberOfRecords>31&lt;/sru:numberOfRecords>
-        &lt;/sru:term>
-   &lt;/sru:terms>
-   &lt;sru:extraResponseData>
-        &lt;fcs:countTerms>619&lt;/fcs:countTerms>
-    &lt;/sru:extraResponseData>
-    &lt;sru:echoedScanRequest>
-        &lt;sru:scanClause>diary-month&lt;/sru:scanClause>
-        &lt;sru:maximumTerms>100&lt;/sru:maximumTerms>
-    &lt;/sru:echoedScanRequest>
- &lt;/sru:scanResponse>
+&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/"&gt;
+&lt;sru:version&gt;1.2&lt;/sru:version&gt;
+   &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)"&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-01&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;30&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-02&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;28&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-03&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;31&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+   &lt;/sru:terms&gt;
+   &lt;sru:extraResponseData&gt;
+        &lt;fcs:countTerms&gt;619&lt;/fcs:countTerms&gt;
+    &lt;/sru:extraResponseData&gt;
+    &lt;sru:echoedScanRequest&gt;
+        &lt;sru:scanClause&gt;diary-month&lt;/sru:scanClause&gt;
+        &lt;sru:maximumTerms&gt;100&lt;/sru:maximumTerms&gt;
+    &lt;/sru:echoedScanRequest&gt;
+ &lt;/sru:scanResponse&gt;
 </xd:pre>
-    </xd:desc>
+        </xd:desc>
     </xd:doc>
     <xsl:output indent="no" method="text" media-type="application/json" encoding="UTF-8"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
@@ -74,25 +74,24 @@
         <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>
         <xsl:text>}</xsl:text>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Converts a single term to json format
             <xd:p> sample data: </xd:p>
             <xd:pre>
-        &lt;sru:term>
-        &lt;sru:value>cartesian&lt;/sru:value>
-        &lt;sru:numberOfRecords>35645&lt;/sru:numberOfRecords>
-        &lt;sru:displayTerm>Carthesian&lt;/sru:displayTerm>
-        &lt;sru:extraTermData>&lt;/sru:extraTermData>
-        &lt;/sru:term>
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;cartesian&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;35645&lt;/sru:numberOfRecords&gt;
+        &lt;sru:displayTerm&gt;Carthesian&lt;/sru:displayTerm&gt;
+        &lt;sru:extraTermData&gt;&lt;/sru:extraTermData&gt;
+        &lt;/sru:term&gt;
 </xd:pre>
-    </xd:desc>
+        </xd:desc>
     </xd:doc>
     <xsl:template match="sru:terms">
         <xsl:text>
 "terms": [
 </xsl:text>
-        <!-- flatten ( => dont go deeper )  -->
+        <!-- flatten ( => dont go deeper ) -->
         <xsl:apply-templates select=".//sru:term"/>
         <xsl:text>]</xsl:text>
     </xsl:template>
@@ -142,23 +141,19 @@
         </xsl:choose>
         <xsl:text>", </xsl:text>
         <xsl:text>"label": "</xsl:text>
-        <xsl:choose>
-            <xsl:when test="sru:extraTermData/cr:type">
-                <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="concat(sru:extraTermData/cr:type, ' ', sru:numberOfRecords)"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="sru:numberOfRecords"/>
-            </xsl:otherwise>
-        </xsl:choose>
-        <xsl:text>|", </xsl:text>
+        <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/>
+        <xsl:text>", </xsl:text>
+        <xsl:text>"index": "</xsl:text>
+        <xsl:value-of select="sru:extraTermData/cr:type/@l"/>
+        <xsl:text>", </xsl:text>
         <xsl:text>"nextHref": "</xsl:text>
         <xsl:value-of select="$jsonSaveHref"/>
         <xsl:text>", </xsl:text>
         <xsl:text>"count": "</xsl:text>
         <xsl:value-of select="sru:numberOfRecords"/>
         <xsl:text>"}</xsl:text>
-        <xsl:if test="not(position()=last())">, </xsl:if><xsl:text>
-</xsl:text>
+        <xsl:if test="not(position()=last())"><xsl:text>,
+</xsl:text></xsl:if>
         
         <!-- dont go deeper, because flattened <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
     </xsl:template>
