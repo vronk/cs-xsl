@@ -141,15 +141,11 @@
         </xsl:choose>
         <xsl:text>", </xsl:text>
         <xsl:text>"label": "</xsl:text>
-        <xsl:choose>
-            <xsl:when test="sru:extraTermData/cr:type">
-                <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="concat(sru:extraTermData/cr:type, ' ', sru:numberOfRecords)"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/> | <xsl:value-of select="sru:numberOfRecords"/>
-            </xsl:otherwise>
-        </xsl:choose>
-        <xsl:text>|", </xsl:text>
+        <xsl:value-of select="translate(normalize-space($display),'&#34;','')"/>
+        <xsl:text>", </xsl:text>
+        <xsl:text>"index": "</xsl:text>
+        <xsl:value-of select="sru:extraTermData/cr:type/@l"/>
+        <xsl:text>", </xsl:text>
         <xsl:text>"nextHref": "</xsl:text>
         <xsl:value-of select="$jsonSaveHref"/>
         <xsl:text>", </xsl:text>
