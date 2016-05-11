@@ -8,7 +8,7 @@
    xmlns:fcs="http://clarin.eu/fcs/1.0"
    xmlns:saxon="http://icl.com/saxon"
    xmlns:str="http://exslt.org/strings"
-   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl xd tei sru"
+   xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl xd tei sru fcs"
    extension-element-prefixes="saxon str exsl"
    >
    <xsl:import href="fcs/result2view_v1.xsl"/>
@@ -36,6 +36,7 @@
             "arz_eng_006": ["ʔ", "ā", "ḅ", "ʕ", "ḍ", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"],
             "apc_eng_002": ["ʔ", "ā", "ḅ", "ʕ", "ḍ", "ḏ", "ē", "ǝ", "ᵊ", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"],
             "aeb_eng_001__v001":["ʔ", "ā", "ḅ", "ʕ", "ḏ̣", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"], 
+            "pes_eng_033": ["ï", "š", "ž", "ọ", "ẕ", "ṣ", "ṭ", "s̠", "ḫ", "ẓ", "â", "ḏ", "ḫ", "s̠", "ṯ", "ã", "ậ", "č", "ë", "ǧ"]
          }
          VirtualKeyboard.keys["aeb_eng_001__v001F"] = VirtualKeyboard.keys["aeb_eng_001__v001"]
          $(document).ready(function(){
@@ -49,9 +50,10 @@
    
    <xsl:template name="queryTextUI">
       <span class="virtual-keyboard-input-combo virtual-keyboard-input-above">
-         <input name="query" type="text" size="18" class="queryinput active virtual-keyboard-input" id="query-text-ui" value="{$q}" data-context="{$x-context}"/>
+         <input name="query" type="text" size="18" class="queryinput active virtual-keyboard-input form-control" id="query-text-ui"
+            value="{$q}" data-context="{$x-context}" data-index="{$index}" data-operator="{$operator}" data-searchstring="{$searchString}"/>
          <input type="checkbox" value="unused" class="virtual-keyboard-toggle" id="glueToLabel1" checked="checked"/>
-         <label for="glueToLabel1" class="virtual-keyboard-first-three">äöü</label>
+         <label for="glueToLabel1" class="virtual-keyboard-first-three" aria-hidden="true">äöü</label>
       </span>       
    </xsl:template>
    
