@@ -209,27 +209,7 @@
                     </xsl:with-param>
                 </xsl:call-template>
             </xsl:variable>-->
-            <xsl:variable name="link_xml">
-                <xsl:call-template name="formURL">
-                    <xsl:with-param name="format" select="'xml'"/>
-                    <xsl:with-param name="dataview" select="$x-dataview"/>
-                </xsl:call-template>
-            </xsl:variable>
-            <xsl:variable name="link_tei">
-                <xsl:call-template name="formURL">
-                    <xsl:with-param name="format" select="'xmltei'"/>
-                    <xsl:with-param name="dataview" select="$x-dataview"/>
-                </xsl:call-template>               
-            </xsl:variable>
-            <a class="link-fcs-xml" href="{$link_xml}">fcs/xml</a>
-            <xsl:choose>
-                <xsl:when test="//tei:TEI">
-                    <xsl:text> </xsl:text><a class="link-tei" href="{$link_tei}">TEI</a>
-                </xsl:when>
-                <xsl:when test="//tei:teiHeader|//tei:front|//tei:entry">
-                    <xsl:text> </xsl:text><a class="link-tei" href="{$link_tei}">TEI</a>
-                </xsl:when>
-            </xsl:choose>
+        <xsl:call-template name="xml-links"/>
             <!--<xsl:choose>
                 <xsl:when test="contains($format,'htmljspage')">
                     <a href="{$link_toggle_js}"> none js </a>
@@ -255,6 +235,32 @@
         </div>
 
     </xsl:template>
+    
+    <xsl:template name="xml-links">
+        <xsl:param name="additional-css-classes" select="''"/>
+        <xsl:variable name="link_xml">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="format" select="'xml'"/>
+                <xsl:with-param name="dataview" select="$x-dataview"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="link_tei">
+            <xsl:call-template name="formURL">
+                <xsl:with-param name="format" select="'xmltei'"/>
+                <xsl:with-param name="dataview" select="$x-dataview"/>
+            </xsl:call-template>               
+        </xsl:variable>
+        <a class="link-fcs-xml {$additional-css-classes}" href="{$link_xml}">fcs/xml</a>
+        <xsl:choose>
+            <xsl:when test="//tei:TEI">
+                <xsl:text> </xsl:text><a class="link-tei {$additional-css-classes}" href="{$link_tei}">TEI</a>
+            </xsl:when>
+            <xsl:when test="//tei:teiHeader|//tei:front|//tei:entry">
+                <xsl:text> </xsl:text><a class="link-tei {$additional-css-classes}" href="{$link_tei}">TEI</a>
+            </xsl:when>
+        </xsl:choose>        
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
     </xd:doc>

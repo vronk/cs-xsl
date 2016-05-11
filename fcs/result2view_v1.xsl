@@ -56,7 +56,7 @@
     <xsl:template name="continue-root-base">
         <xsl:for-each select="sru:searchRetrieveResponse">
             <xsl:apply-templates select="sru:diagnostics"/>
-            <div class="searchresults col-xs-12 col-sm-6 col-lg-4">
+            <div class="searchresults {$additional-searchresults-classes}">
                 <div
                     class="{/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/fcs:x-context}">
                     <xsl:call-template name="header"/>
@@ -77,6 +77,9 @@
             </div>
         </xsl:for-each>
     </xsl:template>
+    
+    <xsl:variable name="additional-searchresults-classes"/>
+    
     <xd:doc>
         <xd:desc>Generates a header for each of the &lt;div&gt; containers
             <xd:ref name="continue-root" type="template">continue-root</xd:ref> creates.
@@ -105,7 +108,7 @@
                 <xsl:value-of select="$numberOfMatches"/>
             </span>
             <span class="label"> hits)</span>
-            <div class="note">
+            <div class="note debug">
                 <xsl:for-each select="(sru:echoedSearchRetrieveRequest/* | sru:extraResponseData/*)">
                     <span class="label">
                         <xsl:value-of select="name()"/>
@@ -123,25 +126,9 @@
             </div>
             <xsl:call-template name="prev-next"/>
             <xsl:apply-templates select="sru:facetedResults"/>
-            <xsl:variable name="link_xml">
-                <xsl:call-template name="formURL">
-                    <xsl:with-param name="format" select="'xml'"/>
-                </xsl:call-template>
-            </xsl:variable>
-            <a class="xml-link debug" href="{$link_xml}">XML</a>
-            <div class="note debug">
-                <xsl:for-each select="(sru:echoedSearchRetrieveRequest/* | sru:extraResponseData/*)">
-                    <span class="label">
-                        <xsl:value-of select="name()"/>: </span>
-                    <span class="value">
-                        <xsl:value-of select="."/>
-                    </span>; </xsl:for-each>
-                <!--<span class="label">duration: </span>
-<span class="value">
-<xsl:value-of select="sru:extraResponseData/fcs:duration"/>
-</span>;-->
-            </div>
-            <xsl:call-template name="prev-next"/>
+            <xsl:call-template name="xml-links">
+                <xsl:with-param name="additional-css-classes">debug</xsl:with-param>
+            </xsl:call-template>
         </div>
     </xsl:template>
 

@@ -13,7 +13,7 @@
    >
    <xsl:import href="../glossary.xsl"/>
    <xsl:output method="html" media-type="text/html" indent="yes" encoding="UTF-8" doctype-system="about:legacy-compat"/>
-
+   
    <xd:doc>
       <xd:desc>Header can be much simpler.</xd:desc>
    </xd:doc>
@@ -34,6 +34,24 @@
          <label for="glueToLabel1" class="fa fa-keyboard-o" aria-hidden="true"/>
       </span>       
    </xsl:template>
+   
+   <xd:doc>
+      <xd:desc>Search results (default root element within body) needs to be wrapped in a div representing the
+         search part of the web site.
+      </xd:desc>
+   </xd:doc>
+   <xsl:template name="continue-root">
+      <div id="searchcontainer" class="container">
+         <xsl:call-template name="continue-root-base"/>
+      </div>
+   </xsl:template>
+   
+   <xd:doc>
+      <xd:desc>Sets this variable to those classes that the bootstrap grid needs to create the search result
+         with the right sizes on different screens.
+      </xd:desc>
+   </xd:doc>
+   <xsl:variable name="additional-searchresults-classes">col-xs-12 col-sm-6 col-lg-4</xsl:variable>
    
    <xd:docc>
       <xd:desc>Treat a single result the same way as mulitple results.</xd:desc>
