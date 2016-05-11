@@ -71,11 +71,14 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="/">
-		<!--<xsl:message>root_document-uri:<xsl:value-of select="$root_uri"/>
-			</xsl:message>
-			<xsl:message>format:<xsl:value-of select="$format"/>
+<!--		<xsl:message>root_document-uri:<xsl:value-of select="$root_uri"/>
+			</xsl:message>-->
+<!--			<xsl:message>format:<xsl:value-of select="$format"/>
 			</xsl:message>-->
         <xsl:choose>
+            <xsl:when test="contains($format, 'htmlbootstrap')">
+                <xsl:call-template name="htmlbootstrap"/>
+            </xsl:when>
             <xsl:when test="contains($format,'htmlpage')">
                 <xsl:call-template name="html"/>
             </xsl:when>
@@ -89,6 +92,25 @@
                 <xsl:call-template name="continue-root"/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Generates the typical html framework and integrates the parts created by the specialised named templates</xd:desc>
+    </xd:doc>
+    <xsl:template name="htmlbootstrap">
+        <html>
+            <head>
+                <xsl:call-template name="html-head-bootstrap"/>
+                <xsl:call-template name="callback-header"/>
+            </head>
+            <body>
+                <xsl:call-template name="page-header-bootstrap"/>
+				<xsl:call-template name="page-content"/>
+                <h1>
+                    <xsl:value-of select="$title"/>
+                </h1>
+                <xsl:apply-templates select="//sru:diagnostics"/>          
+            </body>
+        </html>
     </xsl:template>
     <xd:doc>
         <xd:desc>Generates the typical html framework and integrates the parts created by the specialised named templates</xd:desc>
@@ -128,7 +150,7 @@
                 <xsl:call-template name="detail-space"/>
                 <xsl:call-template name="public-space"/>
                 <xsl:call-template name="user-space"/>
-				<!--  <xsl:call-template name="continue-root"/>-->
+				<xsl:call-template name="continue-root"/>
             </body>
         </html>
     </xsl:template>
@@ -202,7 +224,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>All contexts as XML</xd:desc>
     </xd:doc>
@@ -241,7 +263,7 @@
     <xsl:variable name="indexes">
         <xsl:call-template name="indexes-doc"/>
     </xsl:variable>
-    
+
     <xd:doc>
         <xd:desc>Generates an HTML select-option list of available contexts</xd:desc>
     </xd:doc>
@@ -321,6 +343,8 @@
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
+        <xsl:param name="base_url" select="$base_url_public"/>
+
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
                 <xsl:variable name="q_protected">
@@ -355,7 +379,7 @@
         <xsl:variable name="param_x-context">
 <!--            if action=explain, handle-q param as x-context-->
             <xsl:choose>
-                <xsl:when test="$action='explain'">
+                <xsl:when test="$action='explain' and $q != ''">
                     <xsl:value-of select="concat('&amp;x-context=',$q)"/>
                 </xsl:when>
                 <xsl:when test="$x-context = '' "/>
@@ -661,9 +685,9 @@
                     <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                 </xsl:call-template>
             </xsl:otherwise>
-        </xsl:choose>     
+        </xsl:choose>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>

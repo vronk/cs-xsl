@@ -18,7 +18,7 @@
             </xd:ul>
             </xd:p>
         </xd:desc>
-    </xd:doc> 
+    </xd:doc>
     <xd:doc>
         <xd:desc>Standard header for the html page
             <xd:p>
@@ -53,6 +53,7 @@
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
             </xsl:if>-->
     </xsl:template>
+
     <xd:doc>
         <xd:desc>Standard header for the html page
             <xd:p>
@@ -115,6 +116,7 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
+
     <xsl:template name="page-header">
         <xsl:variable name="logo_link">
             <xsl:choose>
@@ -175,6 +177,7 @@
 	<xsl:template name="sitename">
 	<h2><xsl:value-of select="$site_name"/></h2>
 	</xsl:template>
+
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
     </xd:doc>
@@ -250,7 +253,7 @@
         <div id="notify" class="cmds-elem-plus note">
             <div id="notifylist" class="note"/>
         </div>
-		
+
     </xsl:template>
     <xd:doc>
         <xd:desc>Shows a link that leads to the xml representation of this page</xd:desc>
@@ -267,28 +270,28 @@
                     </xsl:with-param>
                 </xsl:call-template>
             </xsl:variable>-->
-        <xsl:variable name="link_xml">
-            <xsl:call-template name="formURL">
-                <xsl:with-param name="format" select="'xml'"/>
-                <xsl:with-param name="dataview" select="$x-dataview"/>
-            </xsl:call-template>
-        </xsl:variable>
-        <xsl:variable name="link_tei">
-            <xsl:call-template name="formURL">
-                <xsl:with-param name="format" select="'xmltei'"/>
-                <xsl:with-param name="dataview" select="$x-dataview"/>
-            </xsl:call-template>               
-        </xsl:variable>
-        <a href="{$link_xml}">fcs/xml</a>
-        <xsl:choose>
-            <xsl:when test="//tei:TEI">
-                <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
-            </xsl:when>
-            <xsl:when test="//tei:teiHeader|//tei:front">
-                <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
-            </xsl:when>
-        </xsl:choose>
-        <!--<xsl:choose>
+            <xsl:variable name="link_xml">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="format" select="'xml'"/>
+                    <xsl:with-param name="dataview" select="$x-dataview"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="link_tei">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="format" select="'xmltei'"/>
+                    <xsl:with-param name="dataview" select="$x-dataview"/>
+                </xsl:call-template>               
+            </xsl:variable>
+            <a href="{$link_xml}">fcs/xml</a>
+            <xsl:choose>
+                <xsl:when test="//tei:TEI">
+                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+                </xsl:when>
+                <xsl:when test="//tei:teiHeader|//tei:front">
+                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
+                </xsl:when>
+            </xsl:choose>
+            <!--<xsl:choose>
                 <xsl:when test="contains($format,'htmljspage')">
                     <a href="{$link_toggle_js}"> none js </a>
                 </xsl:when>
@@ -322,23 +325,23 @@
             <li id="li-impressum"><a>Impressum</a></li>
         </ul>
     </xsl:template>
-	 <xd:doc>
+
+    <xd:doc>
         <xd:desc>Main content-container 
             <xd:p>
                 Shows search-ui and other content.
             </xd:p>
         </xd:desc>
     </xd:doc>
-   <xsl:template name="page-content">
-   <div id="main">
-			<xsl:call-template name="front"/>
-			<xsl:call-template name="continue-root"/>
-			<xsl:call-template name="help"/>
-			<xsl:call-template name="impressum"/>
-			
-        </div>     
-            
+    <xsl:template name="page-content">
+    <div id="main">
+        <xsl:call-template name="front"/>
+        <xsl:call-template name="continue-root"/>
+        <xsl:call-template name="help"/>
+        <xsl:call-template name="impressum"/>
+    </div>     
     </xsl:template>
+
     <xd:doc>
         <xd:desc>Provides query controls
         <xd:p>Note: This is included in the operation specific parts of the style sheet and htmljs pages.</xd:p>
@@ -346,7 +349,7 @@
     </xd:doc>
     <xsl:template name="query-input">
     
-	<!-- QUERYSEARCH - BLOCK -->
+    <!-- QUERYSEARCH - BLOCK -->
         <div class="cmds-ui-block init-show" id="querysearch">
             <div class="header ui-widget-header ui-state-default ui-corner-top">
                 Search
@@ -374,16 +377,15 @@
                         <xsl:call-template name="contexts-select"/>
                     </fieldset>
                     <xsl:call-template name="br"/>
-<!--                    <div id="main-query" >-->
-					<fieldset class="query form-group">
+                    <fieldset class="query form-group">
                     <xsl:call-template name="queryTextUI"/>
 <!--                                <div id="searchclauselist" class="queryinput inactive"/>-->
                        <!--     </td>
                             <td>
                        -->
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
-					<div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
-					</fieldset>
+                    <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
+                    </fieldset>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
@@ -498,9 +500,11 @@
             </span>
         </xsl:if>
     </xsl:template>
-	<xsl:template name="number-of-records">
-	<p>Showing <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
-	</xsl:template>
+
+    <xsl:template name="number-of-records">
+    <p>Showing <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
+    </xsl:template>
+
     <xd:doc>
         <xd:desc>Provides a querylistblock HTML div element which is manipulated by JavaScript</xd:desc>
     </xd:doc>
@@ -571,20 +575,22 @@
             </div>
         </div>
     </xsl:template>
+
     <xsl:template name="help">
-	    <div class="container" id="help">
-		Help
-		</div>
-	</xsl:template>
-	<xsl:template name="impressum">
-	    <div class="container" id="impressum">
-  		    <xsl:call-template name="getTEIHeader"/>
-		</div>
-	</xsl:template>
-    
-	<xsl:template name="front">
-	 <div class="container" id="front">
-        <xsl:call-template name="getTEIFrontPart"/>        
-	 </div>
-	</xsl:template>
+        <div class="container" id="help">
+        Help
+        </div>
+    </xsl:template>
+    <xsl:template name="impressum">
+        <div class="container" id="impressum">
+            <xsl:call-template name="getTEIHeader"/>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="front">
+       <div class="container" id="front">
+           <xsl:call-template name="getTEIFrontPart"/>
+        </div>
+     </xsl:template>
+
 </xsl:stylesheet>

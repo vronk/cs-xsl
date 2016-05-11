@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:exsl="http://exslt.org/common"
@@ -40,7 +39,7 @@
             <xsl:when test="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]">
                 <xsl:copy-of select="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]"/>
 <!-- switch.php is set up to throw an exception on any error or _warning_ so this kills the transform right now -->
-<!--                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message>-->
+<!--                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message> -->
             </xsl:when>
             <xsl:otherwise>
                 <xsl:message>Problem reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/>
@@ -225,6 +224,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+
  <xd:doc>
         <xd:desc>All contexts as XML</xd:desc>
     </xd:doc>
@@ -343,8 +343,8 @@
         <xsl:param name="contextset" select="''"/>
         <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
-        
         <xsl:param name="base_url" select="$base_url_public"/>
+
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
                 <xsl:variable name="q_protected">
@@ -413,7 +413,6 @@
             <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
             </xsl:if>
         </xsl:variable>
-        
         <xsl:variable name="param_x-dataview">
             <xsl:if test="$dataview != ''">
                 <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
@@ -688,6 +687,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+
     <xd:doc>
         <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
