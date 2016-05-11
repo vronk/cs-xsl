@@ -13,9 +13,19 @@
    >
    <xsl:import href="../glossary.xsl"/>
    <xsl:output method="html" media-type="text/html" indent="yes" encoding="UTF-8" doctype-system="about:legacy-compat"/>
-   <!--   <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/> -->
 
+   <xd:doc>
+      <xd:desc>Header can be much simpler.</xd:desc>
+   </xd:doc>
+   <xsl:template name="header">
+      <div class="result-header" data-numberOfRecords="{$numberOfRecords}">
+         <xsl:call-template name="query-input"/>
+      </div>
+   </xsl:template>
+   
+   <xd:doc>
+      <xd:desc>Customized query input</xd:desc>
+   </xd:doc>
    <xsl:template name="queryTextUI">
       <span class="virtual-keyboard-input-combo virtual-keyboard-input-above">
          <input name="query" type="text" size="18" class="queryinput active virtual-keyboard-input form-control" id="query-text-ui"
@@ -24,4 +34,12 @@
          <label for="glueToLabel1" class="fa fa-keyboard-o" aria-hidden="true"/>
       </span>       
    </xsl:template>
+   
+   <xd:docc>
+      <xd:desc>Treat a single result the same way as mulitple results.</xd:desc>
+   </xd:docc>
+   <xsl:template name="single-result">      
+      <xsl:call-template name="multiple-results-table"/>
+   </xsl:template>
+   
 </xsl:stylesheet>
