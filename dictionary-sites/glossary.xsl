@@ -24,6 +24,18 @@
    </xsl:template>
    
    <xd:doc>
+      <xd:desc>Search results (default root element within body) needs to be wrapped in a div representing the
+         search part of the web site.
+      </xd:desc>
+   </xd:doc>
+   <xsl:template name="continue-root">
+      <div id="searchcontainer" class="container">
+         <input type="checkbox" value="unused" style="display: none;" id="exampleToggle"/>
+         <xsl:call-template name="continue-root-base"/>
+      </div>
+   </xsl:template>
+   
+   <xd:doc>
       <xd:desc>Customized query input</xd:desc>
    </xd:doc>
    <xsl:template name="queryTextUI">
@@ -35,15 +47,10 @@
       </span>       
    </xsl:template>
    
-   <xd:doc>
-      <xd:desc>Search results (default root element within body) needs to be wrapped in a div representing the
-         search part of the web site.
-      </xd:desc>
-   </xd:doc>
-   <xsl:template name="continue-root">
-      <div id="searchcontainer" class="container">
-         <xsl:call-template name="continue-root-base"/>
-      </div>
+   <xsl:template name="additional-search-ui-controls">
+      <fieldset class="form-group">
+         <span class="checkbox"><label for="exampleToggle" id="exampleToggle">Show examples</label></span>
+      </fieldset>
    </xsl:template>
    
    <xd:doc>

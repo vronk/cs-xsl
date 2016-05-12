@@ -78,6 +78,7 @@
         <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
         <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap.min.css"/><xsl:text>&#xA;</xsl:text>
         <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap-theme.min.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/awesome-bootstrap-checkbox.css"/><xsl:text>&#xA;</xsl:text>
         <link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/><xsl:text>&#xA;</xsl:text>
         <link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/><xsl:text>&#xA;</xsl:text>
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
@@ -276,27 +277,7 @@
                     </xsl:with-param>
                 </xsl:call-template>
             </xsl:variable>-->
-            <xsl:variable name="link_xml">
-                <xsl:call-template name="formURL">
-                    <xsl:with-param name="format" select="'xml'"/>
-                    <xsl:with-param name="dataview" select="$x-dataview"/>
-                </xsl:call-template>
-            </xsl:variable>
-            <xsl:variable name="link_tei">
-                <xsl:call-template name="formURL">
-                    <xsl:with-param name="format" select="'xmltei'"/>
-                    <xsl:with-param name="dataview" select="$x-dataview"/>
-                </xsl:call-template>               
-            </xsl:variable>
-            <a href="{$link_xml}">fcs/xml</a>
-            <xsl:choose>
-                <xsl:when test="//tei:TEI">
-                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
-                </xsl:when>
-                <xsl:when test="//tei:teiHeader|//tei:front">
-                    <xsl:text> </xsl:text><a href="{$link_tei}">TEI</a>
-                </xsl:when>
-            </xsl:choose>
+            <xsl:call-template name="xml-links"/>
             <!--<xsl:choose>
                 <xsl:when test="contains($format,'htmljspage')">
                     <a href="{$link_toggle_js}"> none js </a>
@@ -392,6 +373,7 @@
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
                     <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
                     </fieldset>
+                    <xsl:call-template name="additional-search-ui-controls"/>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
@@ -418,6 +400,8 @@
     <xsl:template name="queryTextUI">
         <input type="text" id="input-simplequery" name="query" value="{$q}" class="queryinput active" data-context="{$x-context}"/>
     </xsl:template>
+    
+    <xsl:template name="additional-search-ui-controls"/>
     
     <xd:doc>
         <xd:desc>Provides information to the user about the position in a search response that spans multiple pages</xd:desc>
