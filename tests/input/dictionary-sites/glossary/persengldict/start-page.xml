@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>2</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>Lemma=fārsi</sru:query>
+        <fcs:x-context>pes_eng_033</fcs:x-context>
+        <fcs:x-dataview>kwic,title</fcs:x-dataview>
+        <sru:startRecord>1</sru:startRecord>
+        <sru:maximumRecords>10</sru:maximumRecords>
+        <sru:baseUrl>https://127.0.0.1/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords>2</fcs:returnedRecords>
+        <fcs:numberOfMatches/>
+        <fcs:duration>0.0</fcs:duration>
+        <fcs:transformedQuery>SELECT SQL_CALC_FOUND_ROWS ndx.txt, base.entry, base.sid, COUNT(*) FROM pes_eng_033 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM pes_eng_033_ndx AS tab INNER JOIN (SELECT inner.id, inner.txt FROM pes_eng_033_ndx AS `inner` WHERE inner.txt = 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id WHERE tab.txt != '-') AS ndx WHERE ((ndx.txt = 'fārsi' OR ndx.txt = 'f#8#257#9#rsi')  AND (ndx.xpath LIKE '%%form%[@type="lemma"]%/orth%' OR ndx.xpath LIKE '%%form%[@type="multiWordUnit"]%/orth%'))) AS ndx ON base.id = ndx.id WHERE base.id &gt; 700 GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable Persian-English Dictionary</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xmlns:wkp="urn:general" xml:id="faarsi01">
+                                <form type="lemma">
+                                    <orth xml:lang="fa-Arab">فارسی</orth>
+                                    <orth xml:lang="fa-x-modDMG">fārsi</orth>
+                                </form>
+                                <wkp:link target="C:\temp\wikipedia_fa\fa_wiki_split_002\out_254925.xml"/>
+                                <wkp:link target="http://fa.wikipedia.org/wiki/فارسی۱"/>
+                                <gramGrp>
+                                    <gram type="pos">adjective</gram>
+                                </gramGrp>
+                                <wkp:sense>
+                                    <usg type="dom" xml:lang="fa-Arab">شبکه‌های تلویزیونی فارسی‌زبان, شبکه‌های تلویزیونی امارات متحده عربی, شبکه فارسی۱, گروه رسانه‌ای موبی, زبان فارسی, شبکه‌های فیلم, رسانه‌های امارات متحده عربی, کانال‌ها و ایستگاه‌های تلوزیونی تأسیس‌شده در سال ۲۰۰۹</usg>
+                                    <def xml:lang="fa-Arab">{def}</def>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>FARSI1</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote/>
+                                    </cit>
+                                </wkp:sense>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>Persian</quote>
+                                    </cit>
+                                </sense>
+                                <wkp:usg type="dom" xml:lang="fa-Arab">شبکه‌های تلویزیونی فارسی‌زبان, شبکه‌های تلویزیونی امارات متحده عربی, شبکه فارسی۱, گروه رسانه‌ای موبی, زبان فارسی, شبکه‌های فیلم, رسانه‌های امارات متحده عربی, کانال‌ها و ایستگاه‌های تلوزیونی تأسیس‌شده در سال ۲۰۰۹</wkp:usg>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_05_22"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=Lemma%3Df%C4%81rsi&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=pes_eng_033&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource>
+                    <fcs:ResourceFragment>
+                        <fcs:DataView type="title">A machine-readable Persian-English Dictionary</fcs:DataView>
+                        <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="wipe_141414">
+                                <form type="multiWordUnit">
+                                    <orth xml:lang="fa-Arab">زبان فارسی</orth>
+                                    <orth xml:lang="fa-x-modDMG">zabān-e fārsi</orth>
+                                </form>
+                                <link target="C:\temp\wikipedia_fa\fa_wiki_split_002\out_227270.xml"/>
+                                <link target="http://fa.wikipedia.org/wiki/زبان فارسی"/>
+                                <gramGrp>
+                                    <gram type="pos">NP</gram>
+                                </gramGrp>
+                                <sense>
+                                    <usg type="dom" xml:lang="fa-Arab">زبان‌های هند, زبان‌های ازبکستان, فرهنگ در ایران, زبان‌های افغانستان, زبان‌های عراق, زبان‌های تاجیکستان, زبان‌ها|فارسی, زبان‌های ایرانی|فارسی, زبان‌های ایران|فارسی, زبان فارسی|*, زبان‌های خراسان</usg>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>Persian language</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>die persische Sprache</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_04_09"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_03_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=Lemma%3Df%C4%81rsi&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=pes_eng_033&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>
