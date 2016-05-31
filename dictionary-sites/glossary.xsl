@@ -53,9 +53,6 @@
       </fieldset>
    </xsl:template>
    
-   <xsl:template name="number-of-records">
-      <p>Showing <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
-   </xsl:template
    
    <xd:doc>
       <xd:desc>Sets this variable to those classes that the bootstrap grid needs to create the search result
