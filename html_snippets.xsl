@@ -374,7 +374,6 @@
                     <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
                     </fieldset>
                     <xsl:call-template name="additional-search-ui-controls"/>
-                    <xsl:call-template name="number-of-records"/>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
@@ -493,7 +492,7 @@
     </xsl:template>
 
     <xsl:template name="number-of-records">
-    <p>Showing <xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/> out of <xsl:value-of select="number($numberOfRecords)"/> hits</p>
+        <p class="xsl-number-of-records">Showing <span class="fcs-returnedRecords"><xsl:value-of select="(sru:extraResponseData/fcs:returnedRecords)+number($startRecord)-1"/></span> out of <span class="fcs-numberOfRecords"><xsl:value-of select="number($numberOfRecords)"/></span> hits</p>
     </xsl:template>
 
     <xd:doc>

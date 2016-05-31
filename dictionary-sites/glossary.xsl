@@ -20,6 +20,7 @@
    <xsl:template name="header">
       <div class="result-header" data-numberOfRecords="{$numberOfRecords}">
          <xsl:call-template name="query-input"/>
+         <xsl:call-template name="number-of-records"/>
       </div>
    </xsl:template>
    
