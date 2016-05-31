@@ -374,7 +374,7 @@
                     <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
                     </fieldset>
                     <xsl:call-template name="additional-search-ui-controls"/>
-                    <xsl:call-template name="number-of-records"/>
+                    
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
