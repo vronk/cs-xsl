@@ -439,12 +439,16 @@ TODO: handle context
             <xsl:apply-templates/>
         </div>
     </xsl:template>
+    
     <xd:doc>
-        <xd:desc/>
+        <xd:desc>Render SRU diagnostic messages</xd:desc>
     </xd:doc>
     <xsl:template match="diag:diagnostic">
-        <xsl:value-of select="diag:message"/> (<xsl:value-of select="diag:uri"/>)
+        <span class="diag-message"><xsl:value-of select="diag:message"/></span><xsl:call-template name="br"/>
+        <span class="xsl-diag-details-label">Details</span><span class="xsl-separator">: </span><span class="diag-details"><xsl:value-of select="diag:details" disable-output-escaping="yes"/></span><xsl:call-template name="br"/>        
+        (<span class="diag-uri"><xsl:value-of select="diag:uri"/></span>)
     </xsl:template>
+    
     <xsl:template match="sru:facetedResults">
         <div class="facets">
             <xsl:apply-templates/>
