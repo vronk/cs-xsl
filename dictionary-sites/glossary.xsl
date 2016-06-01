@@ -31,7 +31,7 @@
    </xd:doc>
    <xsl:template name="continue-root">
       <div id="searchcontainer" class="container">
-         <input type="checkbox" value="unused" style="display: none;" id="exampleToggle"/>
+         <input type="checkbox" value="unused" checked="checked" style="display: none;" id="exampleToggle"/>
          <xsl:call-template name="continue-root-base"/>
       </div>
    </xsl:template>
@@ -50,7 +50,7 @@
    
    <xsl:template name="additional-search-ui-controls">
       <fieldset class="form-group">
-         <span class="checkbox"><label for="exampleToggle" id="exampleToggle">Show examples</label></span>
+         <span class="checkbox"><label for="exampleToggle" id="exampleToggleLabel">Show examples</label></span>
       </fieldset>
    </xsl:template>
    
