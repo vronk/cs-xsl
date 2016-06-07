@@ -1,0 +1,2686 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Stylesheet documentation for: data2view_v1.xsl</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        
+        var parametersBoxes= new Array('prs_M_fcsDataViewM_record-dataS_data2view_v1.xsl', 
+				'prs_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl', 
+				'prs_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl', 
+				'prs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl', 
+				'prs_T_inlineS_data2view_v1.xsl', 
+				'prs_T_join-attributes-with-spaceS_data2view_v1.xsl', 
+				'prs_T_descendants-tableS_data2view_v1.xsl');
+
+        
+        var usedByBoxes= new Array('uB_T_dataview-full-contentsS_data2view_v1.xsl', 
+				'uB_T_generateImgS_data2view_v1.xsl', 
+				'uB_T_getTitleS_data2view_v1.xsl', 
+				'uB_T_descendants-tableS_data2view_v1.xsl');
+
+        var docBoxes= new Array('dS_data2view_v1.xsl', 
+				'dS_M_srurecordDataM_record-dataS_data2view_v1.xsl', 
+				'dS_M_M_record-dataS_data2view_v1.xsl', 
+				'dS_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl', 
+				'dS_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl', 
+				'dS_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl', 
+				'dS_M_existmatchM_record-dataS_data2view_v1.xsl', 
+				'dS_M_fcsResourceM_record-dataS_data2view_v1.xsl', 
+				'dS_M_fcsDataViewM_record-dataS_data2view_v1.xsl', 
+				'dS_T_dataview-full-contentsS_data2view_v1.xsl', 
+				'dS_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl', 
+				'dS_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl', 
+				'dS_T_generateImgS_data2view_v1.xsl', 
+				'dS_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl', 
+				'dS_M_fcsfM_record-dataS_data2view_v1.xsl', 
+				'dS_M_kwickwicM_record-dataS_data2view_v1.xsl', 
+				'dS_M_kwiccfcscM_record-dataS_data2view_v1.xsl', 
+				'dS_M_kwickwfcskwM_record-dataS_data2view_v1.xsl', 
+				'dS_T_getTitleS_data2view_v1.xsl', 
+				'dS_T_inlineS_data2view_v1.xsl');
+
+        var sourceBoxes= new Array('src_M_srurecordDataM_record-dataS_data2view_v1.xsl', 
+				'src_M_M_record-dataS_data2view_v1.xsl', 
+				'src_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl', 
+				'src_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl', 
+				'src_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl', 
+				'src_M_existmatchM_record-dataS_data2view_v1.xsl', 
+				'src_M_fcsResourceM_record-dataS_data2view_v1.xsl', 
+				'src_M_fcsDataViewM_record-dataS_data2view_v1.xsl', 
+				'src_T_dataview-full-contentsS_data2view_v1.xsl', 
+				'src_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl', 
+				'src_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl', 
+				'src_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl', 
+				'src_T_generateImgS_data2view_v1.xsl', 
+				'src_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl', 
+				'src_M_fcsfM_record-dataS_data2view_v1.xsl', 
+				'src_M_kwickwicM_record-dataS_data2view_v1.xsl', 
+				'src_M_kwiccfcscM_record-dataS_data2view_v1.xsl', 
+				'src_M_kwickwfcskwM_record-dataS_data2view_v1.xsl', 
+				'src_T_getTitleS_data2view_v1.xsl', 
+				'src_T_inlineS_data2view_v1.xsl', 
+				'src_T_join-attributes-with-spaceS_data2view_v1.xsl', 
+				'src_T_descendants-tableS_data2view_v1.xsl');
+
+        
+        var overridingBoxes= new Array('ovr_T_inlineS_data2view_v1.xsl');
+
+        var referencesBoxes= new Array('refs_M_fcsDataViewM_record-dataS_data2view_v1.xsl', 
+				'refs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl', 
+				'refs_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl', 
+				'refs_T_inlineS_data2view_v1.xsl', 
+				'refs_T_descendants-tableS_data2view_v1.xsl');
+
+        
+        var includesBoxes= new Array('ic_data2view_v1.xsl');
+
+        var importedFromBoxes= new Array('ipF_data2view_v1.xsl');
+
+        var includedFromBoxes= new Array('icF_data2view_v1.xsl');
+
+        var button_prefix = 'bt_';
+        
+        /**
+        * Get all DIV elements with a specified class name.
+        *
+        * @param className The class name. 
+        */
+        function getElementsByClassName(className) {
+            var results = [];
+    
+             if (document.getElementsByClassName == undefined) {
+                var allElements = document.getElementsByTagName("div");
+                var element;
+                for (var i = 0; i < allElements.length; i++) {
+                    var element = allElements[i];
+                	var elementClass = element.className;
+                	if (elementClass == className) { 
+                		results.push(element);
+                	}
+                }
+             } else {
+                results = document.getElementsByClassName(className);
+             }
+    
+            return results;
+        }
+            
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+
+       /**
+        * Switch between the compact list representation and the clasic list representation.
+        */
+       function switchMode(checkBox) {
+            if (checkBox == null) {
+                // Checkbox not found
+            } else if (checkBox.checked == 1) {
+                // Compact mode
+                var divs = getElementsByClassName('refItemBlock');
+                for (var i = 0; i < divs.length; i ++) {
+                    divs[i].style.display = "inline";
+                    var children = divs[i].children;
+                    var refItemSep = children[children.length - 1];
+                    if (refItemSep.className == "refItemSep") {
+                        children[children.length - 1].style.display = "inline";
+                    }
+                }
+            } else {
+                // Expanded mode
+                var divs = getElementsByClassName('refItemBlock');
+                for (var i = 0; i < divs.length; i ++) {
+                    divs[i].style.display = "block";
+                    var children = divs[i].children;
+                    var refItemSep = children[children.length - 1];
+                    if (refItemSep.className == "refItemSep") {
+                        children[children.length - 1].style.display = "none";
+                    }
+                }
+            }
+        }
+
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updPT(message) {
+            top.document.title = "Stylesheet documentation for: " + message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id){
+         var selectIds = new Array('toc_group_by_location', 'toc_group_by_component_type', 'toc_group_by_namespace', 'toc_group_by_mode');
+            // Make all the tabs invisible.
+            for (i = 0; i < 4; i++){
+               var tab = getElementObject(selectIds[i]);
+               tab.style.display = 'none';
+            }
+            var selTab = getElementObject(id);
+            selTab.style.display = 'block';            
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cTL"></td>
+               <td class="rt_lT"></td>
+               <td class="rt_cTR"></td>
+            </tr>
+            <tr>
+               <td class="rt_lL"></td>
+               <td class="rt_cnt">
+                  <h3>Mode:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchMode(this);" class="control" /></span><span class="globalControlName">Compact lists</span></td>
+                     </tr>
+                  </table>
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, docBoxes);" class="control" /></span><span class="globalControlName">Documentation
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, parametersBoxes);" class="control" /></span><span class="globalControlName">Parameters </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, referencesBoxes);" class="control" /></span><span class="globalControlName">References </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, overridingBoxes);" class="control" /></span><span class="globalControlName">Overriding </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, includesBoxes);" class="control" /></span><span class="globalControlName">Included modules
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, importedFromBoxes);" class="control" /></span><span class="globalControlName">Imported from
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, includedFromBoxes);" class="control" /></span><span class="globalControlName">Included from
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lR"></td>
+            </tr>
+            <tr>
+               <td class="rt_cBL"></td>
+               <td class="rt_lB"></td>
+               <td class="rt_cBR"></td>
+            </tr>
+         </table>
+      </div><a id="data2view_v1.xsl"></a><div class="cmpT">Stylesheet
+         <span class="qname">data2view_v1.xsl</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Provides more specific handling of sru-result-set recordData
+                                 
+                                 <p>History:
+                                    
+                                    <ul>
+                                       
+                                       <li class="doc">2013-04-17: created by: "m": </li>
+                                       
+                                       <li class="doc">2011-11-14: created by: "vr": based on cmdi/scripts/xml2view.xsl</li>
+                                       
+                                    </ul>
+                                    
+                                 </p>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Included modules</div>
+                           <div class="flR"><input id="bt_ic_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('ic_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="ic_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v28.html#data2view_cmd.xsl" target="_self" title="No namespace" onclick="updPT('data2view_cmd.xsl')">data2view_cmd.xsl</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="result2view_v29.html#data2view_tei.xsl" target="_self" title="No namespace" onclick="updPT('data2view_tei.xsl')">data2view_tei.xsl</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Imported from</div>
+                           <div class="flR"><input id="bt_ipF_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('ipF_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="ipF_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v23.html#data2view_v2.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v2.xsl')">data2view_v2.xsl</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Included from</div>
+                           <div class="flR"><input id="bt_icF_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('icF_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="icF_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v21.html#result2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('result2view_v1.xsl')">result2view_v1.xsl</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Stylesheet version</td>
+                        <td>1.0</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_srurecordDataM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">sru:recordData</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_srurecordDataM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_srurecordDataM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_srurecordDataM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Default starting-point
+                                 
+                                 <p>In mode record-data this this and all included style sheets define the transformation.</p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre>    &lt;xsl:include href="../stand_weiss.xsl"/&gt;</pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>sru:recordData</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_srurecordDataM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_srurecordDataM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_srurecordDataM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"sru:recordData"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"*"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_M_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">*</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_M_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_M_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_M_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>default fallback: display the xml-structure
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>*</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_M_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_M_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_M_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"*"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--&lt;xsl:variable name="overrides"&gt;
+            &lt;xsl:apply-imports/&gt;
+        &lt;/xsl:variable&gt;
+        &lt;xsl:choose&gt;
+            &lt;xsl:when test="$overrides"&gt;
+                &lt;xsl:copy-of select="$overrides"/&gt;
+            &lt;/xsl:when&gt;
+            &lt;xsl:otherwise&gt;
+                &lt;xsl:apply-templates select="." mode="format-xmlelem"/&gt;
+            &lt;/xsl:otherwise&gt;
+        &lt;/xsl:choose&gt;--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> mode=</span><span class="tAV">"format-xmlelem"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">sru:recordSchema|sru:recordPacking</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> hide meta-information about the record from output</pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>sru:recordSchema|sru:recordPacking</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_srurecordSchemasrurecordPackingM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"sru:recordSchema|sru:recordPacking"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">sru:recordIdentifier | sru:recordPosition</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>sru:recordIdentifier | sru:recordPosition</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_srurecordIdentifiersrurecordPositionM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"sru:recordIdentifier | sru:recordPosition"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">@cr:project-id|@cr:resource-pid|@cr:id|@xml:id|@xml:space</span><span class="titleTemplateMode">format-attr</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p>Remove administrative attributes</p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>@cr:project-id|@cr:resource-pid|@cr:id|@xml:id|@xml:space</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>format-attr</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_crproject-idcrresource-pidcridxmlidxmlspaceM_format-attrS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"@cr:project-id|@cr:resource-pid|@cr:id|@xml:id|@xml:space"</span><span class="tAN"> mode=</span><span class="tAV">"format-attr"</span><span class="tXSLEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_existmatchM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">exist:match</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_existmatchM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_existmatchM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_existmatchM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> kwic match </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>exist:match</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_existmatchM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_existmatchM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_existmatchM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"exist:match"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"hilight match"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!--            &lt;xsl:value-of select="."/&gt;--&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_fcsResourceM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">fcs:Resource</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_fcsResourceM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_fcsResourceM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_fcsResourceM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> FCS-wrap </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>fcs:Resource</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_fcsResourceM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_fcsResourceM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_fcsResourceM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"fcs:Resource"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"pid"</span><span class="tAN"> select=</span><span class="tAV">"@pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- this is quite specialized only for the navigation-ResourceFragments! 
+            nav links are created from specialized ResourceFragments[@type=prev|next].
+                    Handling via fcs:DataView was based on erroneous data, that provided
+                    the resourcefragments wrapped in fcs:DataView           --&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--&lt;div class="navigation"&gt;
+            &lt;xsl:apply-templates select=".//fcs:ResourceFragment[@type][not(fcs:DataView)]" mode="record-data"/&gt;
+        &lt;/div&gt;--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">".//fcs:DataView"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"resource-pid"</span><span class="tAN"> select=</span><span class="tAV">"$pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:apply-templates&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_fcsDataViewM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">fcs:DataView</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_fcsDataViewM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_fcsDataViewM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_fcsDataViewM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate
+                                 classes
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>fcs:DataView</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_fcsDataViewM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_M_fcsDataViewM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_fcsDataViewM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v25.html#T_dataview-full-contentsS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="nRf">dataview-full-contents</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_M_fcsDataViewM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_M_fcsDataViewM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_M_fcsDataViewM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">resource-pid</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_fcsDataViewM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_fcsDataViewM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_fcsDataViewM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"fcs:DataView"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"resource-pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"resourcefragment-pid"</span><span class="tAN"> select=</span><span class="tAV">"parent::fcs:ResourceFragment/@pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- don't show full view if, there is kwic, title-view is called separately, and  --&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"data-view {@type}"</span><span class="tAN"> data-resource-pid=</span><span class="tAV">"{$resource-pid}"</span><span class="tAN"> data-resourcefragment-pid=</span><span class="tAV">"{$resourcefragment-pid}"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"dataview-full-contents"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"wrapper {@type}"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_dataview-full-contentsS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">dataview-full-contents</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_T_dataview-full-contentsS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_T_dataview-full-contentsS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_T_dataview-full-contentsS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Supersede this to generate some sort of contents block as first element of the data
+                                 view.
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_dataview-full-contentsS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_T_dataview-full-contentsS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_dataview-full-contentsS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v25.html#M_fcsDataViewM_record-dataS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="mRf">fcs:DataView</span><span class="mdRf">record-data</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_dataview-full-contentsS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_T_dataview-full-contentsS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_dataview-full-contentsS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"dataview-full-contents"</span><span class="tXSLEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">fcs:DataView[contains(@type, 'xmlescaped')]</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate
+                                 classes
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>fcs:DataView[contains(@type, 'xmlescaped')]</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">resource-pid</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_fcsDataViewcontainstypexmlescapedM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"fcs:DataView[contains(@type, 'xmlescaped')]"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"resource-pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!-- don't show full view if, there is kwic, title-view is called separately, and  --&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"data-view {@type}"</span><span class="tAN"> data-resource-pid=</span><span class="tAV">"{$resource-pid}"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;textarea</span><span class="tAN"> rows=</span><span class="tAV">"25"</span><span class="tAN"> cols=</span><span class="tAV">"80"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/textarea&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">fcs:DataView[@ref][not(@ref='')]</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Handle DataViews that have a non-empty @ref by creating a div with appropriate classes
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>fcs:DataView[@ref][not(@ref='')]</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">resource-pid</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_fcsDataViewrefnotrefM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"fcs:DataView[@ref][not(@ref='')]"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"resource-pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"data-view {@type}"</span><span class="tAN"> data-resource-pid=</span><span class="tAV">"{$resource-pid}"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;a</span><span class="tAN"> href=</span><span class="tAV">"{@ref}"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"@type"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/a&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v25.html#T_generateImgS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="nRf">generateImg</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">linkTo</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">resource-pid</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Priority</td>
+                        <td>10</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tAN"> priority=</span><span class="tAV">"10"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"resource-pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"linkTo"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"data-view {@type}"</span><span class="tAN"> data-resource-pid=</span><span class="tAV">"{$resource-pid}"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"$linkTo!=''"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;a</span><span class="tAN"> href=</span><span class="tAV">"{$linkTo}"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"generateImg"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> select=</span><span class="tAV">"@ref"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/a&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"generateImg"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"ref"</span><span class="tAN"> select=</span><span class="tAV">"@ref"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_generateImgS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">generateImg</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_T_generateImgS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_T_generateImgS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_T_generateImgS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Generic handler for image references passed by the facs data view
+                                 
+                                 <p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute
+                                    path to the images!
+                                 </p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_generateImgS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_T_generateImgS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_generateImgS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v25.html#M_fcsDataViewrefcontainstypefacsorcontainstypeimageM_record-dataS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="mRf">fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]</span><span class="mdRf">record-data</span></a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="result2view_v29.html#M_teirefcontainstarget.JPGorcontainstarget.jpgorcontainstarget.PNGorcontainstarget.PNGM_record-dataS_data2view_tei.xsl" target="_self" title="No namespace" onclick="updPT('data2view_tei.xsl')"><span class="mRf">tei:ref[contains(@target, '.JPG') or                                   contains(@target,
+                                                   '.jpg') or                                  contains(@target, '.PNG') or         
+                                                   contains(@target, '.PNG')]</span><span class="mdRf">record-data</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_generateImgS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_T_generateImgS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_generateImgS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"generateImg"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"@ref"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;img</span><span class="tAN"> src=</span><span class="tAV">"{@ref}"</span><span class="tAN"> alt=</span><span class="tAV">"{@ref}"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"cs-xsl-error"</span><span class="tEl">&gt;</span><span class="tT">You need to supersede the generateImg template in your project's XSL customization!</span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">fcs:ResourceFragment[@type]</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p>special handling for navigation fragments (@type=prev|next)</p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> better hide the fullview (the default view is too much)
+        TODO: some more condensed view </pre><pre>    &lt;xsl:template match="fcs:DataView[@type='full']" mode="record-data"/&gt;</pre><pre>  this would be to use, if including a stylesheet without mode=record-data (like aac:stand.xsl)       
+    &lt;xsl:template match="fcs:DataView[@type='full']/*" mode="record-data"&gt;
+        &lt;xsl:apply-templates&gt;&lt;/xsl:apply-templates&gt;
+    &lt;/xsl:template&gt;
+</pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>fcs:ResourceFragment[@type]</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Parameter</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v27.html#P_formatS_..params.xsl" target="_self" title="No namespace" onclick="updPT('../params.xsl')">format</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_fcsResourceFragmenttypeM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"fcs:ResourceFragment[@type]"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"link-text"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"@label"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"@label"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"@pid"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;a</span><span class="tAN"> href=</span><span class="tAV">"{@ref}&amp;x-format={$format}"</span><span class="tAN"> rel=</span><span class="tAV">"{@type}"</span><span class="tAN"> class=</span><span class="tAV">"{@type}"</span><span class="tAN"> title=</span><span class="tAV">"{$link-text}"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$link-text"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/a&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_fcsfM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">fcs:f</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_fcsfM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_fcsfM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_fcsfM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> handle generic metadata-fields </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>fcs:f</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_fcsfM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_fcsfM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_fcsfM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"fcs:f"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"@key"</span><span class="tXSLEl">/&gt;</span><span class="tT">: </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"value"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tT" style="white-space:normal">;</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_kwickwicM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">kwic:kwic</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_kwickwicM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_kwickwicM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_kwickwicM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>kwic:kwic</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_kwickwicM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_kwickwicM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_kwickwicM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"kwic:kwic"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"kwic-line"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_kwiccfcscM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">kwic:c|fcs:c</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_kwiccfcscM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_kwiccfcscM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_kwiccfcscM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre>
+     handle KWIC-DataView:
+     &lt;c type="left"&gt;&lt;/c&gt;&lt;kw&gt;&lt;/kw&gt;&lt;c type="right"&gt;&lt;/c&gt;
+     WATCHME: temporarily accepting both version (fcs and kwic namespacEe)
+ </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>kwic:c|fcs:c</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_kwiccfcscM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_kwiccfcscM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_kwiccfcscM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"kwic:c|fcs:c"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"context {@type}"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"following-sibling::*[1][local-name()='c']"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;br</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_kwickwfcskwM_record-dataS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">kwic:kw|fcs:kw</span><span class="titleTemplateMode">record-data</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_kwickwfcskwM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_M_kwickwfcskwM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_kwickwfcskwM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p></p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>kwic:kw|fcs:kw</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>record-data</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_kwickwfcskwM_record-dataS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_M_kwickwfcskwM_record-dataS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_kwickwfcskwM_record-dataS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"kwic:kw|fcs:kw"</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT"> </span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"kw hilight"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT"> </span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_getTitleS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">getTitle</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_T_getTitleS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_T_getTitleS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_T_getTitleS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p>get the title for the shown piece of data (i.e. normally the title of the shown resource
+                                    fragment )
+                                 </p>
+                                 
+                                 <p>expected to be delivered in the input xml in fcs:DataView[@type='title'] (needs index=title
+                                    in mappings and contains(x-dataview,'title')
+                                 </p>
+                                 
+                                 <p>Can be be overridden in your project's XSL customization!</p>
+                                 
+                              </div>
+                              <hr />
+                              <div>
+                                 <h3>Description</h3><pre> ************************ </pre><pre> named templates starting </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_getTitleS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_T_getTitleS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_getTitleS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v21.html#T_record-list-itemS_result2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('result2view_v1.xsl')"><span class="nRf">record-list-item</span></a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="result2view_v21.html#T_record-table-rowS_result2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('result2view_v1.xsl')"><span class="nRf">record-table-row</span></a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="result2view_v21.html#T_single-resultS_result2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('result2view_v1.xsl')"><span class="nRf">single-result</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Parameter</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v21.html#P_titleS_result2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('result2view_v1.xsl')">title</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_getTitleS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_T_getTitleS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_getTitleS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"getTitle"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">".//fcs:DataView[@type='title']"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">".//fcs:DataView[@type='title']"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">".//date/@value"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">".//date/@value"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">".//tei:persName"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">".//tei:persName"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"cs-xsl-error"</span><span class="tEl">&gt;</span><span class="tT">You need to supersede the getTitle template in your project's XSL customization!</span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_inlineS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">inline</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_T_inlineS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_T_inlineS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_T_inlineS_data2view_v1.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>Common template to insert a TEI element as a span with an appropriate class.
+                                 
+                                 <p>XSL 1.0 port.</p>
+                                 
+                                 <p>If there is a known way to link to more information the span is placed inside a link.</p>
+                                 
+                                 <p>Advanced functionality is available with XSL 2.0 using features. See data2view_v2.xsl</p>
+                                 
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_T_inlineS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_T_inlineS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_T_inlineS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v25.html#T_descendants-tableS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="nRf">descendants-table</span></a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="result2view_v24.html#T_dictS_..commons_v1.xsl" target="_self" title="No namespace" onclick="updPT('../commons_v1.xsl')"><span class="nRf">dict</span></a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="result2view_v24.html#T_elem-linkS_..commons_v1.xsl" target="_self" title="No namespace" onclick="updPT('../commons_v1.xsl')"><span class="nRf">elem-link</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Overriding</div>
+                           <div class="flR"><input id="bt_ovr_T_inlineS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('ovr_T_inlineS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="ovr_T_inlineS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v23.html#T_inlineS_data2view_v2.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v2.xsl')"><span class="nRf">inline</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_inlineS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_T_inlineS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_inlineS_data2view_v1.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">descendants-to-ignore</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_inlineS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_T_inlineS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_inlineS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"inline"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"descendants-to-ignore"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"elem-link"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"elem-link"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"inline-content"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- moved from .//text() to node(), because otherwise all the descendants got flattened --&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"node()"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
+                    &lt;xsl:when test="parent::exist:match"&gt;
+                        &lt;xsl:apply-templates select="parent::exist:match" mode="record-data"/&gt;
+                    &lt;/xsl:when&gt;--&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"self::text()"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT"> </span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> mode=</span><span class="tAV">"record-data"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"class"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- This genereates CSS class attributes for HTML elements. As far as I know
+                it doesn't matter if the class is specified once or n-times so for 1.0 just forget
+                about distinct-values() for now and let's see --&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!--&lt;xsl:for-each select="descendant-or-self::*"&gt;
+                &lt;xsl:value-of select="concat(local-name(.), ' ', concat('tei-', local-name(.)), ' ', @rend)"/&gt;
+            &lt;/xsl:for-each&gt;--&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"local-name(.)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"@type"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(' ',@type)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"@subtype"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(' ',@subtype)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"inline-elem"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"not($elem-link='')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;a</span><span class="tAN"> href=</span><span class="tAV">"{$elem-link}"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"{$class}"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:copy-of</span><span class="tAN"> select=</span><span class="tAV">"$inline-content"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/a&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"{$class}"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:copy-of</span><span class="tAN"> select=</span><span class="tAV">"$inline-content"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"inline-wrap"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"descendant-or-self::*/@*"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"attributes"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"descendants-table"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"elem-name"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"dict"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"key"</span><span class="tXSLEl">&gt;</span><span class="tT">this element</span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:copy-of</span><span class="tAN"> select=</span><span class="tAV">"$inline-elem"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_join-attributes-with-spaceS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">join-attributes-with-space</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_join-attributes-with-spaceS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_T_join-attributes-with-spaceS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_join-attributes-with-spaceS_data2view_v1.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">nodes</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_join-attributes-with-spaceS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_T_join-attributes-with-spaceS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_join-attributes-with-spaceS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"join-attributes-with-space"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"nodes"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$nodes/@*"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT"> </span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_descendants-tableS_data2view_v1.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">descendants-table</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_descendants-tableS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_T_descendants-tableS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_descendants-tableS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v25.html#T_descendants-tableS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="nRf">descendants-table</span></a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="result2view_v25.html#T_inlineS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="nRf">inline</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_T_descendants-tableS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_T_descendants-tableS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_T_descendants-tableS_data2view_v1.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="result2view_v25.html#T_descendants-tableS_data2view_v1.xsl" target="_self" title="No namespace" onclick="updPT('data2view_v1.xsl')"><span class="nRf">descendants-table</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_descendants-tableS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_T_descendants-tableS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_descendants-tableS_data2view_v1.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Select</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">elem-name</td>
+                                    <td>No namespace</td>
+                                    <td>name()</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>4</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_descendants-tableS_data2view_v1.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_T_descendants-tableS_data2view_v1.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_descendants-tableS_data2view_v1.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"descendants-table"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"elem-name"</span><span class="tAN"> select=</span><span class="tAV">"name()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;table</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;td</span><span class="tAN"> colspan=</span><span class="tAV">"2"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$elem-name"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;table</span><span class="tAN"> style=</span><span class="tAV">"float:left"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('@', name())"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"value"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/table&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"child::*"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"descendants-table"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/table&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">Stylesheet documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.
+         </div>
+      </div><script type="text/javascript">
+         <!--
+                    // The namespace is the selected option in the TOC combo.
+                    
+                    // The corresponding div is already visible conf. to its style attr.                     
+                    
+                            var selectToc = getElementObject('selectTOC');
+                            if(selectToc != null){
+                            // It can be null when having chunking, the combo of the TOC is in another frame.
+                            selectToc.selectedIndex = 0;
+                            }
+                        
+                    
+                    // Floats the toolbar.
+                    var globalControls = getElementObject("global_controls"); 
+                    
+                    if(globalControls != null){
+                    var browser=navigator.appName;
+                    var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+                    
+                    var IE6 = false;
+                    if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+                    IE6 = true;
+                    }
+                    
+                    //alert (IE6 + " |V| " + version);
+                    
+                    if(IE6){
+                    // On IE 6 the 'fixed' property is not supported. We must use javascript. 
+                    globalControls.style.position='absolute';                         
+                    // The global controls will do not exist in the TOC frame, when chunking.
+                    findAndFloat("global_controls", 225, 30);    
+                    } else {
+                    globalControls.style.position='fixed';                     	
+                    }
+                    
+                    globalControls.style.right='0';                       
+                    }
+                //--></script></body>
+</html>
