@@ -61,14 +61,14 @@ the named templates are at the bottom.</xd:p>
             <xsl:call-template name="classnames"/>
         </xsl:variable>
         <div class="{$class}">
-            <xsl:attribute name="class">
+                <xsl:attribute name="class">
                 <xsl:choose>
                     <xsl:when test="@xml:id">
                         <xsl:value-of select="concat('tei-TEI ', @xml:id)"/>
                     </xsl:when>
                     <xsl:otherwise>tei-TEI</xsl:otherwise>
                 </xsl:choose>
-            </xsl:attribute>
+                </xsl:attribute>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
@@ -447,9 +447,9 @@ the named templates are at the bottom.</xd:p>
             <xsl:call-template name="classnames"/>
         </xsl:variable>
         <div class="indexTerms">
-            <ul class="{$class}">
-                <xsl:apply-templates mode="record-data"/>
-            </ul>
+        <ul class="{$class}">
+            <xsl:apply-templates mode="record-data"/>
+        </ul>
         </div>
     </xsl:template>
     <xsl:template match="tei:index/tei:term" mode="record-data">
@@ -491,7 +491,7 @@ the named templates are at the bottom.</xd:p>
         <div class="{$class}">
             <xsl:apply-templates mode="record-data"/>
         </div>
-	</xsl:template>
+    </xsl:template>
     
     <xd:doc>
         <xd:desc>Count div elemetents that are ancestor of this node and have a tei:head element</xd:desc>
@@ -513,7 +513,7 @@ the named templates are at the bottom.</xd:p>
         <xd:desc>Utillity "function" to get the contetn into the right header tag
             <xd:p>To generate a contents (back) link set the variable $contents-link
                 to the approproiate link target (#id).
-            </xd:p>
+        </xd:p>
             
         </xd:desc>
     </xd:doc>
@@ -765,7 +765,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:call-template>
         </span>
     </xsl:template>
-    <xsl:template match="tei:ref|ref" mode="record-data"/>
     <xsl:template match="tei:note|note" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -814,14 +813,6 @@ the named templates are at the bottom.</xd:p>
                 </xsl:call-template>
                 <xsl:text>]</xsl:text>
             </sup>
-        </span>
-    </xsl:template>
-    <xsl:template match="choice | tei:choice " mode="record-data">
-        <xsl:variable name="class">
-            <xsl:call-template name="classnames"/>
-        </xsl:variable>
-        <span class="{$class}">
-            <xsl:apply-templates mode="record-data"/>
         </span>
     </xsl:template>
     <xsl:template match="orig | tei:orig | tei:sic | sic" mode="record-data">
@@ -834,15 +825,6 @@ the named templates are at the bottom.</xd:p>
             </xsl:call-template>
         </span>
     </xsl:template>
-    <xsl:template match="tei:ref|ref" mode="record-data"/>
-    <xsl:template match="tei:note|note" mode="record-data">
-        <xsl:variable name="class">
-            <xsl:call-template name="classnames"/>
-        </xsl:variable>
-        <span class="{$class}">
-            <xsl:apply-templates mode="record-data"/>
-        </span>
-    </xsl:template>
     <xsl:template match="tei:corr | corr" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -885,46 +867,8 @@ the named templates are at the bottom.</xd:p>
             </sup>
         </span>
     </xsl:template>
-    <xsl:template match="choice | tei:choice " mode="record-data">
-        <span class="choice">
-            <xsl:apply-templates mode="record-data"/>
-        </span>
-    </xsl:template>
-    <xsl:template match="orig | tei:orig | tei:sic | sic" mode="record-data">
-        <xsl:call-template name="inline">
-            <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-        </xsl:call-template>
-    </xsl:template>
-    <xsl:template match="tei:ref|ref|tei:ptr|ptr" mode="record-data"/>
 
-    <xsl:template match="tei:corr | corr" mode="record-data">
-        <sup>
-            <xsl:text>(</xsl:text>
-            <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-            </xsl:call-template>
-            <xsl:text>)</xsl:text>
-        </sup>
-    </xsl:template>
-    <xsl:template match="tei:supplied | supplied" mode="record-data">
-        <sup>
-            <xsl:text>〈</xsl:text>
-            <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-            </xsl:call-template>
-            <xsl:text>〉</xsl:text>
-        </sup>
-    </xsl:template>
-    <xsl:template match="tei:reg | reg" mode="record-data">
-        <sup>
-            <xsl:text>[</xsl:text>
-            <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-            </xsl:call-template>
-            <xsl:text>]</xsl:text>
-        </sup>
-    </xsl:template>
-    
+    <xsl:template match="tei:ref|ref" mode="record-data"/>
     <xd:doc>
         <xd:desc>tei:cit elements are mapped to html:quote elements <xd:p>Suche elements occur in
                 ... </xd:p>
@@ -1056,15 +1000,6 @@ the named templates are at the bottom.</xd:p>
         </xsl:element>
     </xsl:template>
     <xd:doc>
-        <xd:desc>TEI ptr elements are mapped to "Click here" links
-        </xd:desc>
-    </xd:doc>
-    <xsl:template match="tei:ptr|ptr" mode="record-data">
-        <xsl:variable name="class">
-            <xsl:call-template name="classnames"/>
-        </xsl:variable>
-        <a href="{@target}" class="{$class}">Click here!</a>
-</xsl:template>
 
     <xsl:template match="tei:ptr[not(contains(@target, '.JPG') or
         contains(@target, '.jpg') or
@@ -1276,7 +1211,7 @@ the named templates are at the bottom.</xd:p>
                 <xd:li>translated into a html style attribute if it contains even one ':'</xd:li>
                 <xd:li>or it is translated into a class attribute</xd:li>
             </xd:ul>
-        </xd:p>
+            </xd:p>
     </xd:doc>
     <xsl:template match="hi|tei:hi" mode="record-data">
         <xsl:variable name="wrapper-class" select="(@rend|@rendition|@style)[1]"/>
@@ -1284,7 +1219,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:call-template name="classnames"/>
         </xsl:variable>
         <span>
-            <xsl:choose>
+                        <xsl:choose>
                 <!-\- FIXME This is a temporary hack to allow initial Caps, we need to adjust the "inline" template -\->
                 <xsl:when test="@rend='initialCapital'">
                     <span class="initialCapital">
@@ -1299,13 +1234,13 @@ the named templates are at the bottom.</xd:p>
                             <xsl:attribute name="style">
                                 <xsl:value-of select="@style"/>
                             </xsl:attribute>
-                        </xsl:when>
+                            </xsl:when>
                         <xsl:otherwise>
                             <xsl:attribute name="class">tei-hi <xsl:value-of select="@style"/>
                             </xsl:attribute>
                         </xsl:otherwise>
                     </xsl:choose>
-                </xsl:when>
+                            </xsl:when>
                 <xsl:when test="@rend">
                     <xsl:attribute name="class">tei-hi <xsl:call-template name="rend-without-color">
                             <xsl:with-param name="rend-text" select="@rend"/>
@@ -1318,8 +1253,8 @@ the named templates are at the bottom.</xd:p>
                             </xsl:call-template>
                         </xsl:attribute>
                     </xsl:if>
-                </xsl:when>
-            </xsl:choose>
+                            </xsl:when>
+                        </xsl:choose>
             <xsl:apply-templates mode="record-data"/>
             <xsl:if test="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])">
                 <xsl:text> </xsl:text>
@@ -1369,14 +1304,14 @@ the named templates are at the bottom.</xd:p>
     </xsl:template>
     
     <xsl:template name="analyzeAna">
-        <span class="tei-form-ana">
-            <xsl:choose>
-                <xsl:when test="@ana='#adj_f'">f</xsl:when>
-                <xsl:when test="@ana='#adj_pl'">pl</xsl:when>
-                <xsl:when test="@ana='#n_pl'">pl</xsl:when>
+            <span class="tei-form-ana">
+                <xsl:choose>
+                    <xsl:when test="@ana='#adj_f'">f</xsl:when>
+                    <xsl:when test="@ana='#adj_pl'">pl</xsl:when>
+                    <xsl:when test="@ana='#n_pl'">pl</xsl:when>
                 <xsl:when test="@ana='#v_pres_sg_p3'">impf</xsl:when>
-            </xsl:choose>
-        </span>
+                </xsl:choose>
+            </span>
     </xsl:template>
     
     <xsl:template match="tei:orth" mode="record-data">
@@ -1423,25 +1358,25 @@ the named templates are at the bottom.</xd:p>
                     <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
                     <xsl:apply-templates select="tei:def[@xml:lang='de' or (@lang|@xml:lang)='deu']" mode="record-data"/>
                     <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]" mode="record-data"/>               
-                </div>
-            </xsl:if>
+                    </div>
+                            </xsl:if>
             <xsl:if test="tei:usg[@type='dom']">
                 <div class="tei-usg-doms">
                     <xsl:apply-templates select="tei:usg[@type='dom']" mode="record-data"/>
                 </div>
-            </xsl:if>
+                            </xsl:if>
             <xsl:if test="tei:usg[@type='prag']">
                 <div class="tei-usg-prags">
                     <xsl:apply-templates select="tei:usg[@type='prag']" mode="record-data"/>
-                </div>
-            </xsl:if>
+                        </div>
+                    </xsl:if>
             <xsl:if test="tei:cit">
                 <div class="tei-cits">
                     <xsl:apply-templates select="tei:cit" mode="record-data"/>
                 </div>
-            </xsl:if>
+                            </xsl:if>
             <xsl:apply-templates select="*[not(name() = 'def' or name() = 'cit' or name() = 'usg' or name() = 'gramGrp' or @type = 'construction')]" mode="record-data"/>
-        </div>
+                        </div>
     </xsl:template>
     
     <xsl:template match="tei:def[@xml:lang]" mode="record-data">
@@ -1496,7 +1431,7 @@ the named templates are at the bottom.</xd:p>
         <span class="tei-bibl">
             <xsl:apply-templates mode="record-data"/>
         </span>
-        <xsl:text> </xsl:text>
+                                <xsl:text> </xsl:text>
     </xsl:template>
     
     <xd:doc>
@@ -1528,11 +1463,11 @@ the named templates are at the bottom.</xd:p>
                     <span class="tei-bibls">
                         <xsl:for-each select="../tei:form[@type='lemma']/tei:bibl">
                             <xsl:apply-templates select="." mode="record-data"/>
-                        </xsl:for-each>
+                    </xsl:for-each>
                     </span>
                     <xsl:if test="not(@rend) or ./@rend != 'singular_only'">
                         <xsl:apply-templates select="../tei:form[@type='inflected']" mode="record-data"/>
-                    </xsl:if>
+            </xsl:if>
                     <!-- Assumes tei:gramGrp is not rendered, see above -->
                     <xsl:apply-templates select="." mode="record-data"/>
                 </xsl:otherwise>
@@ -1542,7 +1477,7 @@ the named templates are at the bottom.</xd:p>
 
     <xd:doc>
         <xd:desc>tei:foreign elements are formatted as divs with an apropriate language class
-                <xd:p>Suche elements occur in ... </xd:p>
+            <xd:p>Suche elements occur in ... </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="foreign | tei:foreign" mode="record-data">
@@ -1731,7 +1666,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:call-template name="classnames"/>
         </xsl:variable>
         <span class="{$class}">
-        <xsl:apply-templates mode="record-data"/>
+            <xsl:apply-templates mode="record-data"/>
         </span>
         <xsl:call-template name="br"/>
     </xsl:template>
@@ -1940,7 +1875,7 @@ the named templates are at the bottom.</xd:p>
     </xsl:template>
     <xd:doc>
         <xd:desc>tei:seg elements are mapped to spans optionally as link to more information.
-                <xd:p>Note: These may not make sense in a particular project eg. STB.</xd:p>
+        <xd:p>Note: These may not make sense in a particular project eg. STB.</xd:p>
         </xd:desc>
     </xd:doc>
     <!-- for STB: dont want seg -->
@@ -1952,14 +1887,14 @@ the named templates are at the bottom.</xd:p>
                 <xsl:value-of select="."/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:variable name="class">
-                    <xsl:call-template name="classnames"/>
-                </xsl:variable>
-                <span class="{$class}">
+        <xsl:variable name="class">
+            <xsl:call-template name="classnames"/>
+        </xsl:variable>
+        <span class="{$class}">
                     <xsl:apply-templates mode="record-data"/>
                 </span>
-            </xsl:otherwise>
-        </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
     </xsl:template>
 
     <xd:doc>
