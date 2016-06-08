@@ -310,6 +310,7 @@
             <li id="li-search"><a>Search</a></li>
             <li id="li-language"><a>Help</a></li>
             <li id="li-impressum"><a>Impressum</a></li>
+            <li id="li-settings"><a>Settings</a></li>
         </ul>
     </xsl:template>
 
@@ -326,6 +327,7 @@
         <xsl:call-template name="continue-root"/>
         <xsl:call-template name="help"/>
         <xsl:call-template name="impressum"/>
+        <xsl:call-template name="settings"/>
     </div>     
     </xsl:template>
 
@@ -373,7 +375,7 @@
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
                     <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
                     </fieldset>
-                    <xsl:call-template name="additional-search-ui-controls"/>
+                    
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
@@ -576,11 +578,14 @@
             <xsl:call-template name="getTEIHeader"/>
         </div>
     </xsl:template>
-
+    <xsl:template name="settings">
+        <div class="container" id="settings">
+            <xsl:call-template name="getTEIFrontPart"/>
+        </div>
+    </xsl:template>
     <xsl:template name="front">
        <div class="container" id="front">
-           <xsl:call-template name="getTEIFrontPart"/>
+           <xsl:call-template name="additional-search-ui-controls"/>
         </div>
      </xsl:template>
-
 </xsl:stylesheet>
