@@ -29,14 +29,74 @@
     <xsl:template name="html-head">
         <title>
             <xsl:value-of select="$title"/>
-        </title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <link href="{$scripts_url}css/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}css/corpusshell.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}css/cr.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.6.2.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/>
-        
+        </title><xsl:text>&#xA;</xsl:text>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><xsl:text>&#xA;</xsl:text>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/><xsl:text>&#xA;</xsl:text>       
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript">
+            var xcontext = "<xsl:value-of select="$x-context"/>";
+            // set everything that should not have its default falue here before param.js is loaded.
+            var switchURL = "<xsl:value-of select="$base_url_public"/>";
+            var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
+            var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
+        </script><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="scripts/js/params.js"/><xsl:text>&#xA;</xsl:text>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>Standard header for the html page
+            <xd:p>
+                <xd:ul>
+                    <xd:li>Sets the charset to UTF-8</xd:li>
+                    <xd:li>includes a customized stylesheet based on jQuery-ui 1.8.5</xd:li>
+                    <xd:li>includes a CSS style sheet cmd-ui.css</xd:li>
+                    <xd:li>includes a CSS style sheet cr.css</xd:li>
+                </xd:ul>
+            </xd:p>
+            <xd:p>
+                TODO: what about htmljspage and jquery.treeview css/js? Enable it? Toss it?
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="html-head-bootstrap"><xsl:text>&#xA;</xsl:text>
+        <title>
+            <xsl:value-of select="$title"/>
+        </title><xsl:text>&#xA;</xsl:text>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><xsl:text>&#xA;</xsl:text>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap.min.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap-theme.min.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/awesome-bootstrap-checkbox.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/><xsl:text>&#xA;</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+		<link rel="stylesheet" href="{$scripts_url}style/font-awesome-4.6.1/css/font-awesome.min.css"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"></script><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/URI.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.history.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-ui.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript">
+            var xcontext = "<xsl:value-of select="$x-context"/>";
+            // set everything that should not have its default falue here before param.js is loaded.
+            var switchURL = "<xsl:value-of select="$base_url_public"/>";
+            var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
+            var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
+        </script><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/params.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/dictionaries.js"/><xsl:text>&#xA;</xsl:text>
+        <style>
+		
+		</style>
         <!--        <xsl:if test="contains($format,'htmljspage')">
             <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
             </xsl:if>-->
