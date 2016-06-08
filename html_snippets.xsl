@@ -437,12 +437,12 @@
     </xsl:template>
     <xsl:template name="settings">
         <div class="container" id="settings">
-            <xsl:call-template name="getTEIFrontPart"/>
+            <xsl:call-template name="additional-search-ui-controls"/>
         </div>
     </xsl:template>
     <xsl:template name="front">
        <div class="container" id="front">
-           <xsl:call-template name="additional-search-ui-controls"/>
+           <xsl:call-template name="getTEIFrontPart"/>           
         </div>
      </xsl:template>
 </xsl:stylesheet>
