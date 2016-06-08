@@ -38,20 +38,23 @@
     <xsl:template name="html-head">
         <title>
             <xsl:value-of select="$title"/>
-        </title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
-        
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/>
-        
-        <!--        <xsl:if test="contains($format,'htmljspage')">
-            <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
-            </xsl:if>-->
+        </title><xsl:text>&#xA;</xsl:text>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><xsl:text>&#xA;</xsl:text>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/><xsl:text>&#xA;</xsl:text>       
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript">
+            var xcontext = "<xsl:value-of select="$x-context"/>";
+            // set everything that should not have its default falue here before param.js is loaded.
+            var switchURL = "<xsl:value-of select="$base_url_public"/>";
+            var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
+            var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
+        </script><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="scripts/js/params.js"/><xsl:text>&#xA;</xsl:text>
     </xsl:template>
 
     <xd:doc>
@@ -96,9 +99,7 @@
             // set everything that should not have its default falue here before param.js is loaded.
             var switchURL = "<xsl:value-of select="$base_url_public"/>";
             var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
-			
-			
-			
+            var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
         </script><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/params.js"/><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/><xsl:text>&#xA;</xsl:text>

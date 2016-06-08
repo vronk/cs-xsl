@@ -547,5 +547,13 @@
         </xd:desc>
     </xd:doc>
     <xsl:variable name="default-mapping" select="$mappings//map[@key][xs:string(@key) = 'default']"/>
+    <xd:doc>
+        <xd:desc>A parameter that can contains all the parameters passed to the XSL processor as JSON
+            <xd:p>
+                Defaults to the empty object {}.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:variable name="parameters_as_json" select="'{}'"/>
     
 </xsl:stylesheet>
