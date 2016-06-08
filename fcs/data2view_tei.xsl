@@ -999,7 +999,6 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </xsl:element>
     </xsl:template>
-    <xd:doc>
 
     <xsl:template match="tei:ptr[not(contains(@target, '.JPG') or
         contains(@target, '.jpg') or
