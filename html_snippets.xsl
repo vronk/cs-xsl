@@ -323,6 +323,7 @@
     </xd:doc>
     <xsl:template name="page-content">
     <div id="main">
+        <input type="checkbox" value="unused" checked="checked" style="display: none;" id="exampleToggle"/>
         <xsl:call-template name="front"/>
         <xsl:call-template name="continue-root"/>
         <xsl:call-template name="help"/>
