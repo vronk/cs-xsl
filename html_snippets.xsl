@@ -181,6 +181,35 @@
         </div>
     </xsl:template>
     <xd:doc>
+        <xd:desc>Menu content-container</xd:desc>
+    </xd:doc>
+    <xsl:template name="menu-content">        
+        <ul class="nav navbar-nav">
+            <li id="li-search"><a>Search</a></li>
+            <li id="li-language"><a>Help</a></li>
+            <li id="li-impressum"><a>Impressum</a></li>
+            <li id="li-settings"><a>Settings</a></li>
+        </ul>
+    </xsl:template>
+
+    <xd:doc>
+        <xd:desc>Main content-container 
+            <xd:p>
+                Shows search-ui and other content.
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="page-content">
+    <div id="main">
+        <xsl:call-template name="front"/>
+        <xsl:call-template name="continue-root"/>
+        <xsl:call-template name="help"/>
+        <xsl:call-template name="impressum"/>
+        <xsl:call-template name="settings"/>
+    </div>     
+    </xsl:template>
+
+    <xd:doc>
         <xd:desc>Provides query controls
         <xd:p>Note: This is included in the operation specific parts of the style sheet and htmljs pages.</xd:p>
         </xd:desc>
@@ -212,8 +241,11 @@
                        <!--     </td>
                             <td>
                        -->
-                    <input type="submit" value="submit" id="submit-query"/>
-                                <!--<br/>-->
+                    <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
+                    <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
+                    </fieldset>
+                    
+                    <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
                           <!--  </td>
@@ -392,4 +424,25 @@
             </div>
         </div>
     </xsl:template>
+
+    <xsl:template name="help">
+        <div class="container" id="help">
+        Help
+        </div>
+    </xsl:template>
+    <xsl:template name="impressum">
+        <div class="container" id="impressum">
+            <xsl:call-template name="getTEIHeader"/>
+        </div>
+    </xsl:template>
+    <xsl:template name="settings">
+        <div class="container" id="settings">
+            <xsl:call-template name="getTEIFrontPart"/>
+        </div>
+    </xsl:template>
+    <xsl:template name="front">
+       <div class="container" id="front">
+           <xsl:call-template name="additional-search-ui-controls"/>
+        </div>
+     </xsl:template>
 </xsl:stylesheet>
