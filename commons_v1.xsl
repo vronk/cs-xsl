@@ -126,7 +126,9 @@
                 <h1>
                     <xsl:value-of select="$title"/>
                 </h1>
-                <xsl:apply-templates select="//sru:diagnostics"/>
+                <xsl:if test="not(sru:searchRetrieveResponse)">
+                    <xsl:apply-templates select="//sru:diagnostics"/>
+                </xsl:if>
                 <xsl:call-template name="continue-root"/>
             </body>
         </html>
