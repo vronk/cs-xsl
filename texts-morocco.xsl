@@ -56,7 +56,7 @@
         <img src="{@target}" alt="{$altText}"/>
       </xsl:when>
       <xsl:otherwise>
-        <img src="http://corpus3.aac.ac.at/static/images/vicav/{@target}" alt="{@target}"/>
+        <img src="http://minerva.arz.oeaw.ac.at/static/images/vicav/{@target}" alt="{@target}"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

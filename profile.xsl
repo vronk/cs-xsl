@@ -54,12 +54,12 @@
         <xsl:choose>
           <xsl:when test="text() != ''">
             <div class="img-with-text" style='display: inline-block;'>
-              <img src="http://corpus3.aac.ac.at/static/images/vicav/{@target}" alt="{$altText}"/>
+              <img src="https://minerva.arz.oeaw.ac.at/static/images/vicav/{@target}" alt="{$altText}"/>
               <span class="img-caption" style="display: block;"><xsl:value-of select="."/></span>
             </div>
           </xsl:when>
           <xsl:otherwise>
-            <img src="http://corpus3.aac.ac.at/static/images/vicav/{@target}" alt="{@target}"/>           
+            <img src="https://minerva.arz.oeaw.ac.at/static/images/vicav/{@target}" alt="{@target}"/>           
           </xsl:otherwise>
         </xsl:choose>           
       </xsl:otherwise>
