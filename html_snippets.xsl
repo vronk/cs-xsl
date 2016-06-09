@@ -45,8 +45,7 @@
         <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
         <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/><xsl:text>&#xA;</xsl:text>       
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript">
             var xcontext = "<xsl:value-of select="$x-context"/>";
             // set everything that should not have its default falue here before param.js is loaded.
