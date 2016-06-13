@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://explain.z3950.org/dtd/2.0/" authoritative="false" id="id1">
     <zr:serverInfo protocol="SRU" version="1.2" transport="http">
-        <zr:host>corpus3.aac.ac.at</zr:host>
+        <zr:host>minerva.arz.oeaw.ac.at</zr:host>
         <zr:port>80</zr:port>
         <zr:database>cr</zr:database>
     </zr:serverInfo>
