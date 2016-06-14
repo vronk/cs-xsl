@@ -882,6 +882,17 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </quote>
     </xsl:template>
+    
+    <xd:doc>
+        <xd:desc>Audio media tags are transformed to html audio tags</xd:desc>
+    </xd:doc>
+    <xsl:template match="tei:media[contains(@mimeType, 'audio/')]" mode="record-data">
+       <xsl:call-template name="generateAudioHTMLTags">
+           <xsl:with-param name="mimeType" select="@mimeType"/>
+           <xsl:with-param name="ref" select="@url"/>
+       </xsl:call-template> 
+    </xsl:template>
+    
     <xd:doc>
         <xd:desc>tei:data elements are formatted as spans with an apropriate class <xd:p>Suche
                 elements occur in ... </xd:p>
@@ -1096,13 +1107,14 @@ the named templates are at the bottom.</xd:p>
     <xsl:template name="generateAudioHTMLTags">
         <xsl:param name="ref" select="@ref"/>
         <xsl:param name="sourceType" select="local-name(.)"/>
+        <xsl:param name="mimeType" select="'audio/mp4'"/>
         <span>
             <xsl:attribute name="class">
                 <xsl:value-of select="concat('xsl-audio xsl-outer ', $sourceType)"/>    
             </xsl:attribute>
             <div class="xsl-audio xsl-inner">
                 <audio controls="controls" preload="none">
-                    <source src="{$ref}" type="audio/mp4"/>
+                    <source src="{$ref}" type="{$mimeType}"/>
                     <a href="{$ref}">Download</a>
                 </audio>
             </div>
