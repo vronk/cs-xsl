@@ -1426,6 +1426,13 @@ the named templates are at the bottom.</xd:p>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    <xsl:template match="cb[@type='start'] | tei:cb[@type='start']" mode="record-data">
+        <xsl:variable name="class">
+            <xsl:call-template name="classnames"/>
+        </xsl:variable>
+        <span class="{$class}"/>        
+    </xsl:template>
         
         <xsl:template name="clone">
             <xsl:param name="content"/>
