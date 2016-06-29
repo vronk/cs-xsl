@@ -545,34 +545,6 @@ the named templates are at the bottom.</xd:p>
     </xsl:template>
     
     <xsl:template match="tei:ref|ref|tei:ptr|ptr" mode="record-data"/>
-
-    <xsl:template match="tei:corr | corr" mode="record-data">
-        <sup>
-            <xsl:text>(</xsl:text>
-            <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-            </xsl:call-template>
-            <xsl:text>)</xsl:text>
-        </sup>
-    </xsl:template>
-    <xsl:template match="tei:supplied | supplied" mode="record-data">
-        <sup>
-            <xsl:text>〈</xsl:text>
-            <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-            </xsl:call-template>
-            <xsl:text>〉</xsl:text>
-        </sup>
-    </xsl:template>
-    <xsl:template match="tei:reg | reg" mode="record-data">
-        <sup>
-            <xsl:text>[</xsl:text>
-            <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-            </xsl:call-template>
-            <xsl:text>]</xsl:text>
-        </sup>
-    </xsl:template>
     
     <xd:doc>
         <xd:desc>tei:cit elements are mapped to html:quote elements
