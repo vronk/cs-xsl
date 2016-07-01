@@ -25,16 +25,11 @@
     </xsl:template>
     <xsl:template match="sru:searchRetrieveResponse">
         <div>
-            <xsl:apply-templates select="sru:diagnostics"/>
-            
-                <!--actually we want the header all of the time, no?
+            <xsl:apply-templates select="sru:diagnostics"/><!--actually we want the header all of the time, no?
                     <xsl:if test="contains($format, 'htmlpage')">
                     <xsl:call-template name="header"/>
-                    </xsl:if>-->
-<!--                <xsl:call-template name="header"/>-->
-            <xsl:apply-templates select="sru:records" mode="list"/>
-    <!-- switch mode depending on the $format-parameter -->        
-                <!--<xsl:choose>   
+                    </xsl:if>--><!--                <xsl:call-template name="header"/>-->
+            <xsl:apply-templates select="sru:records" mode="list"/><!-- switch mode depending on the $format-parameter --><!--<xsl:choose>   
                     <xsl:when test="contains($format,'htmltable')">
                         <xsl:apply-templates select="records" mode="table"/>
                     </xsl:when>
@@ -74,8 +69,7 @@
                     <span class="value">
                         <xsl:value-of select="."/>
                     </span>;
-	        </xsl:for-each> 
-                <!--<span class="label">duration: </span>
+	        </xsl:for-each><!--<span class="label">duration: </span>
                 <span class="value"> 
                     <xsl:value-of select="sru:extraResponseData/fcs:duration"/>
                     </span>;-->
@@ -83,46 +77,52 @@
         </div>
     </xsl:template>
     <xsl:template match="sru:records" mode="list">
-        <xsl:apply-templates select="sru:record" mode="list"/>
+        <xsl:choose>
+            <xsl:when test="//fcs:DataView[@type='facets'] != ''">        <xsl:for-each-group select="sru:record" group-by=".//fcs:DataView[@type='facets']/text()">
+                <h4><xsl:value-of select="current-grouping-key()"/></h4>
+                <div class="xsl-resource-group">
+                    <xsl:for-each select="current-group()">    
+                        <xsl:apply-templates select="." mode="list"/>
+                    </xsl:for-each>
+                </div>
+            </xsl:for-each-group>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="sru:record" mode="list"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="sru:record" mode="list">
-        <xsl:variable name="curr_record" select="."/>
-        <!--<xsl:variable name="fields">
+        <xsl:variable name="curr_record" select="."/><!--<xsl:variable name="fields">
             <div>
                 <xsl:apply-templates select="*" mode="record-data"/>
             </div>
         </xsl:variable>-->
-        <div class="record resource">
-<!--            <xsl:call-template name="getTitle"></xsl:call-template>           -->
+        <div class="record resource"><!--            <xsl:call-template name="getTitle"></xsl:call-template>           -->
             <xsl:apply-templates select=".//fcs:Resource" mode="record-data"/>
             <div class="div-after"/>
         </div>
     </xsl:template>
     <xsl:template match="fcs:Resource" mode="record-data">
         <div class="header">
-            <h4>
-                <!--<xsl:value-of select=".//sourceDesc/bibl[@type='short']"/>-->
+            <h4><!--<xsl:value-of select=".//sourceDesc/bibl[@type='short']"/>-->
                 <xsl:call-template name="getTitle"/>
             </h4>
             <xsl:call-template name="links"/>
-        </div>
-            <!--        <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data"/>-->
-            <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data">
-                <xsl:with-param name="linkTo" select="concat($base_url_public,'/',$cr_project,'/get/',@pid)"/>
-            </xsl:apply-templates>
-            <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
+        </div><!--        <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data"/>-->
+        <xsl:apply-templates select=".//fcs:DataView[@type='image']" mode="record-data">
+            <xsl:with-param name="linkTo" select="concat($base_url_public,'/',$cr_project,'/get/',@pid)"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
         <xsl:apply-templates select=".//fcs:DataView[@type='cite']" mode="record-data"/>
     </xsl:template>
     <xsl:template match="tei:teiHeader" mode="record-data">
         <p>
             <xsl:apply-templates select=".//tei:sourceDesc/tei:bibl[@type='transcript']" mode="record-data"/>
-        </p>
-<!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
+        </p><!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
         <xsl:apply-templates select=".//tei:sourceDesc//tei:msDesc" mode="record-data"/>
     </xsl:template>
-    <xsl:template match="tei:gap" mode="record-data"> [...] </xsl:template>
-    
-<!--    <xsl:template match="fcs:DataView[@type='image']" mode="record-data" />-->
+    <xsl:template match="tei:gap" mode="record-data"> [...] </xsl:template><!--    <xsl:template match="fcs:DataView[@type='image']" mode="record-data" />-->
     <xsl:template name="links">
         <xsl:variable name="resource-id" select="(.//fcs:Resource/data(@pid),ancestor-or-self::fcs:Resource/data(@pid))[1]"/>
         <xsl:variable name="toc-link">
@@ -149,21 +149,17 @@
                 <xsl:with-param name="q" select="$resource-id"/>
             </xsl:call-template>
         </xsl:variable>
-        <div class="links">
-            <!--<span>base_url:<xsl:value-of select="$base_url"/>
+        <div class="links"><!--<span>base_url:<xsl:value-of select="$base_url"/>
             </span>-->
             <a class="link-info" href="#">
                 <xsl:value-of select="utils:dict('About')"/>
             </a>
             <a class="toc" href="{$toc-link}">
                 <xsl:value-of select="utils:dict('Contents')"/>
-            </a>
-<!--            <a class="data" href="{$link-data-tei}">Data (TEI)</a>-->
+            </a><!--            <a class="data" href="{$link-data-tei}">Data (TEI)</a>-->
             <a class="metadata" href="{$md-link-cmdi}">
                 <xsl:value-of select="utils:dict('Metadata')"/>
-            </a>            
-<!--            <a class="tei" href="TODO">Search</a>-->
-<!--            <a class="tei" href="./fcs">FCS</a>-->
+            </a><!--            <a class="tei" href="TODO">Search</a>--><!--            <a class="tei" href="./fcs">FCS</a>-->
         </div>
         <div class="context-detail"/>
         <div class="div-after"/>
@@ -171,15 +167,10 @@
     <xsl:template match="cmd:CMD" mode="record-data">
         <p>
             <xsl:apply-templates select=".//cmd:sourceDesc/cmd:bibl" mode="record-data"/>
-        </p>
-        <!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
-        <xsl:apply-templates select=".//cmd:sourceDesc//cmd:msDesc" mode="record-data"/>
-        
-<!--        <xsl:apply-templates select=".//cmd:TotalSize" mode="record-data"/>-->
+        </p><!--        <xsl:apply-templates select=".//sourceDesc//imprint" mode="record-data"/>-->
+        <xsl:apply-templates select=".//cmd:sourceDesc//cmd:msDesc" mode="record-data"/><!--        <xsl:apply-templates select=".//cmd:TotalSize" mode="record-data"/>-->
         <div class="div-after"/>
-    </xsl:template>
-    
-    <!-- first tried to generate cite string in xsl, but then rather moved to xquery, @see resource:cite()
+    </xsl:template><!-- first tried to generate cite string in xsl, but then rather moved to xquery, @see resource:cite()
     <xsl:template match="*" mode="cite">
       <xsl:apply-templates select="*" mode="cite"/>        
     </xsl:template>
