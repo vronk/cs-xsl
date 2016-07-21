@@ -140,7 +140,6 @@
                 <xsl:with-param name="format" select="$format"/>
                 <xsl:with-param name="x-context" select="$resource-id"/>
                 <xsl:with-param name="scanClause" select="'fcs.toc'"/>
-                <xsl:with-param name="maximumTerms" select="800"/>
             </xsl:call-template>
         </xsl:variable>
         <xsl:variable name="md-link-cmdi">
