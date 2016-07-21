@@ -54,12 +54,17 @@
                         <xsl:value-of select="@TYPE"/>
                     </cr:type>
                 </xsl:if>
-                <sru:terms>
-                    <xsl:apply-templates select="mets:div"/>
-                </sru:terms>
-                <!--<fcs:countTerms>
-                    <xsl:value-of select="count(mets:div)"/>
-                </fcs:countTerms>-->
+                <xsl:if test="count(mets:div) > 0">
+                    <sru:terms>
+                        <xsl:apply-templates select="mets:div"/>
+                    </sru:terms>
+                    <fcs:countTerms>
+                        <xsl:value-of select="count(mets:div)"/>
+                    </fcs:countTerms>
+                </xsl:if>
+                <fcs:position>
+                    <xsl:value-of select="count(preceding-sibling::mets:div)+1"/>
+                </fcs:position>               
             </sru:extraTermData>
         </sru:term>
     </xsl:template>
