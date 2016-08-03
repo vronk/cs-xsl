@@ -21,10 +21,10 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    
+
     <xd:doc>
         <xd:desc>Generate a valid XHTML 1 DOCTYPE and handle some HTML cornercasees.
-            <xd:p>Note: method="xhtml" is saxon-specific! prevents collapsing empty &lt;script> tags, that makes browsers choke (eg. not loading that script), but collapses &lt;br> tags which might otherwise be interpreted as two.</xd:p>
+            <xd:p>Note: method="xhtml" is saxon-specific! prevents collapsing empty &lt;script&gt; tags, that makes browsers choke (eg. not loading that script), but collapses &lt;br&gt; tags which might otherwise be interpreted as two.</xd:p>
             <xd:p>Note: saxon checks the namespace of the script and br tags so to make this magic work it's essential the tags to have xmlns="http://www.w3.org/1999/xhtml".
                 This might be achieved by setting this as the default namespace like in this script or otherwise.
             </xd:p>
@@ -33,7 +33,7 @@
     <xsl:output method="xhtml" media-type="text/html" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
     <xsl:include href="../commons_v2.xsl"/>
     <xsl:include href="data2view_v2.xsl"/>
-    
+
     <xd:doc>
         <xd:desc>Inserts the JavaScript funtions needed for displaying the representation
         of the unknown parts of the TEI encoding.</xd:desc>

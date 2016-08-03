@@ -47,7 +47,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    
+
     <xd:doc>
         <xd:desc>Entry point called from commons_v1.xsl
         <xd:p>
@@ -72,25 +72,24 @@
             <xsl:apply-templates select="." mode="format-xmlelem"/>
         </div>-->
     </xsl:template>
-    
     <xsl:template match="sru:version" mode="verbose">
         <div class="sru-version">
             SRU version: <xsl:value-of select="."/>
-        </div>        
+        </div>
     </xsl:template>
-    
+
     <xsl:template match="sru:recordPacking" mode="verbose">
         <div class="sru-recordPacking">
             Default record packing: <xsl:value-of select="."/>
         </div>
     </xsl:template>
-    
+
     <xsl:template match="sru:recordSchema" mode="verbose">
         <div class="sru-recordSchema">
             Record schema: <xsl:value-of select="."/>
         </div>
     </xsl:template>
-    
+
     <xsl:template match="zr:serverInfo" mode="verbose">
         <div class="zr-serverInfo">
             <p>Host: <xsl:value-of select="zr:host"/>:<xsl:value-of select="zr:port"/>
@@ -99,12 +98,12 @@
             </p>
         </div>
     </xsl:template>
-    
+
     <xsl:template match="zr:schemaInfo" mode="verbose">
         <p>Schema info available in XML.</p>
         <xsl:apply-templates mode="verbose"/>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Fetches the database's name and the descreption if available</xd:desc>
     </xd:doc>
@@ -116,7 +115,7 @@
             <xsl:value-of select="zr:description[@lang=$lang]"/>
         </div>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Generates a heading and stars the list of possible indexes</xd:desc>
     </xd:doc>
@@ -126,7 +125,7 @@
             <xsl:apply-templates select="zr:index"/>
         </ul>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Generate a list item that links to a scan for every known index</xd:desc>
     </xd:doc>
@@ -154,7 +153,7 @@
     <xsl:template match="*[@lang]" >
         
     </xsl:template>-->
-    
+
     <xd:doc>
         <xd:desc>In verbose mode first display the list and then the 
             items only generated in this mode</xd:desc>
@@ -163,7 +162,7 @@
         <xsl:apply-templates/>
         <xsl:apply-templates mode="verbose"/>
     </xsl:template>
-    
+
     <xsl:template match="zr:configInfo" mode="verbose">
         <div class="zr-serverInfo">
             <p>Default number of records: <xsl:value-of select="zr:default[@type='numberOfRecords']"/>
@@ -172,7 +171,7 @@
             </p>
         </div>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>In verbose mode even give hints to unprocessed nodes by including
         their text as comment</xd:desc>
@@ -184,9 +183,9 @@
             </xsl:comment>
         </xsl:if>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Normally zap any text not beloging to processed nodes</xd:desc>
     </xd:doc>
-    <xsl:template match="text()"/>        
+    <xsl:template match="text()"/>
 </xsl:stylesheet>

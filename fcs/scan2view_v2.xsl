@@ -61,7 +61,7 @@
     <xsl:param name="index" select="$scanClause-array[1]"/>
     <xsl:param name="start-term" select="$scanClause-array[2]"/>
     <xsl:template name="continue-root">
-        <div class="scan-index-{translate($index,'.','-')}"> <!-- class="cmds-ui-block  init-show" -->
+        <div class="scan-index-{translate($index,'.','-')}"><!-- class="cmds-ui-block  init-show" -->
             <xsl:if test="contains($format, 'page') or $parts='header'">
                 <xsl:call-template name="header"/>
             </xsl:if>
@@ -233,16 +233,13 @@ sample data:
             <xsl:otherwise>
                 <li>
                     <xsl:sequence select="$link"/>
-                    <xsl:if test="number(sru:numberOfRecords) >= 1">
-                    <span class="note" data-content="recordcount">
-                        <span class="recordcountDelimiter"> |</span>
-                        <xsl:value-of select="sru:numberOfRecords"/>
-                        <span class="recordcountDelimiter">|</span>
-                    </span>
-                    </xsl:if>
-                    <!--DEBUG:<xsl:value-of select="exists(sru:extraTermData/sru:terms/sru:term)" />-->
-                    <xsl:if test="sru:extraTermData/sru:terms/sru:term">
-                    </xsl:if>
+                    <xsl:if test="number(sru:numberOfRecords) &gt;= 1">
+                        <span class="note" data-content="recordcount">
+                            <span class="recordcountDelimiter"> |</span>
+                            <xsl:value-of select="sru:numberOfRecords"/>
+                            <span class="recordcountDelimiter">|</span>
+                        </span>
+                    </xsl:if><!--DEBUG:<xsl:value-of select="exists(sru:extraTermData/sru:terms/sru:term)" />-->
                     <xsl:if test="sru:extraTermData/sru:terms/sru:term">
                         <ul>
                             <xsl:if test="sru:extraTermData/cr:type">
