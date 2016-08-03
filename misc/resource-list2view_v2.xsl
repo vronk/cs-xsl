@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:saxon="http://saxon.sf.net/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cmd="http://www.clarin.eu/cmd/" version="2.0" exclude-result-prefixes="#all">
     <xd:doc scope="stylesheet">
         <xd:desc>Generate html view of a sru-result-set  (eventually in various formats)
@@ -78,14 +79,15 @@
     </xsl:template>
     <xsl:template match="sru:records" mode="list">
         <xsl:choose>
-            <xsl:when test="//fcs:DataView[@type='facets'] != ''">        <xsl:for-each-group select="sru:record" group-by=".//fcs:DataView[@type='facets']/text()">
-                <h4><xsl:value-of select="current-grouping-key()"/></h4>
-                <div class="xsl-resource-group">
-                    <xsl:for-each select="current-group()">    
-                        <xsl:apply-templates select="." mode="list"/>
-                    </xsl:for-each>
-                </div>
-            </xsl:for-each-group>
+            <xsl:when test="//fcs:DataView[@type='facets'] != ''">
+                <xsl:for-each-group select="sru:record" group-by=".//fcs:DataView[@type='facets']/text()">
+                    <h4><xsl:value-of select="current-grouping-key()"/></h4>
+                    <div class="xsl-resource-group">
+                        <xsl:for-each select="current-group()">
+                            <xsl:apply-templates select="." mode="list"/>
+                        </xsl:for-each>
+                    </div>
+                </xsl:for-each-group>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="sru:record" mode="list"/>
