@@ -37,7 +37,7 @@ Also "tei"-elements in CMD namespace to cover for teiHeader CMDI-Profile </xd:p>
 <!--        <xsl:call-template name="inline"/>-->
         <xsl:apply-templates mode="record-data"/>
     </xsl:template>
-    
+
     <xsl:template match="msDesc/additional | tei:msDesc/tei:additional | cmd:msDesc/cmd:additional" mode="record-data"/>
-    
+
 </xsl:stylesheet>
