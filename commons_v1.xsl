@@ -1,4 +1,5 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:cr="http://aac.ac.at/content_repository" version="1.0" extension-element-prefixes="diag sru fcs exsl cr xd">
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling.
             <xd:p>History:
@@ -22,8 +23,12 @@
     <xsl:variable name="dict">
         <xsl:variable name="dict_loaded" select="document($dict_file)"/>
         <xsl:choose>
-            <xsl:when test="$dict_loaded/dict"><xsl:copy-of select="$dict_loaded/dict"/></xsl:when>
-            <xsl:otherwise><dict/></xsl:otherwise>
+            <xsl:when test="$dict_loaded/dict">
+                <xsl:copy-of select="$dict_loaded/dict"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <dict/>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
     <xd:doc>
@@ -129,7 +134,7 @@
                 <title>
                     <xsl:value-of select="$title"/>
                 </title>
-                <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet"/>				
+                <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet"/>
 				<!-- <xsl:call-template name="callback-header"/> -->
             </head>
             <xsl:call-template name="page-header"/>
@@ -299,7 +304,6 @@
                 <xsl:value-of select="concat('&amp;x-filter=',$x-filter)"/>
             </xsl:if>
         </xsl:variable>
-        
         <xsl:choose>
             <xsl:when test="$action='get-data'">
                 <xsl:value-of select="concat($base_url, 'get/', $q, '/data', translate($param_format,'&amp;','?'), $XDEBUG_SESSION_START)"/>
@@ -542,9 +546,8 @@
                     <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                 </xsl:call-template>
             </xsl:otherwise>
-        </xsl:choose>     
+        </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
