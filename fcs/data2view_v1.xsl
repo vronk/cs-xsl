@@ -131,7 +131,7 @@
         <xsl:param name="linkTo" select="@ref"/>
         <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
             <xsl:choose><!-- ends-with in XPath 1.0) see http://stackoverflow.com/questions/11848780/use-ends-with-in-xslt-v1-0 -->
-                <xsl:when test="substring(@ref, string-length(@ref) - string-length('.m4a') + 1)">
+                <xsl:when test="substring(@ref, string-length(@ref) - string-length('.m4a') + 1) = '.m4a'">
                     <xsl:call-template name="generateAudioHTMLTags">
                         <xsl:with-param name="ref" select="$linkTo"/>
                         <xsl:with-param name="sourceType" select="''"/>
