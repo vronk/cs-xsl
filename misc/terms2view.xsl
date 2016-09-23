@@ -58,8 +58,8 @@
                 <xsl:when test="$format='terms2htmlselect'">
                     <select id="terms-select">
                         <xsl:apply-templates select=".//Termset" mode="select"/>
-                    </select>
-<!--                    <a href="{my:formURL('terms','htmlpage','all')}">overview</a>-->
+                    </select><!--
+                    <a href="{my:formURL('terms','htmlpage','all')}">overview</a>-->
                     <a href="TODO:terms">overview</a>
                 </xsl:when>
                 <xsl:otherwise>
@@ -466,16 +466,14 @@ sample
 									<xsl:value-of select="."/>,
 								</xsl:for-each>
 						</td>
-						-->
-                    </tr>
+						--></tr>
                 </xsl:for-each-group>
             </tbody>
         </table>
     </xsl:template>
-    <xsl:template name="callback-header">
-<!--        <link href="{$scripts_url}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>-->
-        <link href="{$scripts_url}/style/jquery/treetable/jquery.treeTable.css" rel="stylesheet"/>
-<!--        <link href="{$scripts_url}/style/jquery/jquery-autocomplete/jquery-ui.css" rel="stylesheet" type="text/css"/>-->
+    <xsl:template name="callback-header"><!--
+        <link href="{$scripts_url}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>-->
+        <link href="{$scripts_url}/style/jquery/treetable/jquery.treeTable.css" rel="stylesheet"/><!--        <link href="{$scripts_url}/style/jquery/jquery-autocomplete/jquery-ui.css" rel="stylesheet" type="text/css"/>-->
         <script src="{$scripts_url}/js/jquery.min.js" type="text/javascript"/>
         <script src="{$scripts_url}/js/jquery-ui.min.js" type="text/javascript"/>
         <script src="{$scripts_url}/js/jquery-treeTable/jquery.treeTable.js" type="text/javascript"/>
@@ -499,4 +497,27 @@ sample
 				});
 				
 			/* $("a.value-caller").click(function(event) {
-					event.preventDefau
+					event.preventDefault();
+					handleValueCaller($(this));
+				});		
+			$(".terms-tree").find('.treecol').find(".cmd_columns").click(function(event) {
+					event.preventDefault();
+					handleIndexSelection($(this));
+			}); */	
+    });
+    
+    /* from:
+http://stackoverflow.com/questions/5864109/how-to-add-and-expand-all-collapse-all-to-a-jquery-treetable-in-an-apache-wick 
+*/
+$.fn.expandAll = function() {
+    $(this).find("tr").removeClass("collapsed").addClass("expanded").each(function(){
+        $(this).expand();
+        });
+    };
+
+
+	
+
+		]]></script>
+    </xsl:template>
+</xsl:stylesheet>
