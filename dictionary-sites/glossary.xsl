@@ -31,7 +31,6 @@
    </xd:doc>
    <xsl:template name="continue-root">
       <div id="searchcontainer" class="container">
-         <input type="checkbox" value="unused" checked="checked" style="display: none;" id="exampleToggle"/>
          <xsl:call-template name="continue-root-base"/>
       </div>
    </xsl:template>

@@ -38,20 +38,22 @@
     <xsl:template name="html-head">
         <title>
             <xsl:value-of select="$title"/>
-        </title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
-        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
-        
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.js"/>
-        
-        <!--        <xsl:if test="contains($format,'htmljspage')">
-            <link href="{$base_dir}/style/jquery/jquery-treeview/jquery.treeview.css" rel="stylesheet"/>        
-            </xsl:if>-->
+        </title><xsl:text>&#xA;</xsl:text>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><xsl:text>&#xA;</xsl:text>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript">
+            var xcontext = "<xsl:value-of select="$x-context"/>";
+            // set everything that should not have its default falue here before param.js is loaded.
+            var switchURL = "<xsl:value-of select="$base_url_public"/>";
+            var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
+            var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
+        </script><xsl:text>&#xA;</xsl:text>
+        <script type="text/javascript" src="scripts/js/params.js"/><xsl:text>&#xA;</xsl:text>
     </xsl:template>
 
     <xd:doc>
@@ -96,9 +98,7 @@
             // set everything that should not have its default falue here before param.js is loaded.
             var switchURL = "<xsl:value-of select="$base_url_public"/>";
             var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
-			
-			
-			
+            var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
         </script><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/params.js"/><xsl:text>&#xA;</xsl:text>
         <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/><xsl:text>&#xA;</xsl:text>
@@ -310,6 +310,7 @@
             <li id="li-search"><a>Search</a></li>
             <li id="li-language"><a>Help</a></li>
             <li id="li-impressum"><a>Impressum</a></li>
+            <li id="li-settings"><a>Settings</a></li>
         </ul>
     </xsl:template>
 
@@ -321,11 +322,13 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="page-content">
+    <input type="checkbox" value="unused" checked="checked" style="display: none;" id="exampleToggle"/>
     <div id="main">
         <xsl:call-template name="front"/>
         <xsl:call-template name="continue-root"/>
         <xsl:call-template name="help"/>
         <xsl:call-template name="impressum"/>
+        <xsl:call-template name="settings"/>
     </div>     
     </xsl:template>
 
@@ -373,7 +376,7 @@
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
                     <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
                     </fieldset>
-                    <xsl:call-template name="additional-search-ui-controls"/>
+                    
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->
@@ -576,11 +579,14 @@
             <xsl:call-template name="getTEIHeader"/>
         </div>
     </xsl:template>
-
+    <xsl:template name="settings">
+        <div class="container" id="settings">
+            <xsl:call-template name="additional-search-ui-controls"/>
+        </div>
+    </xsl:template>
     <xsl:template name="front">
        <div class="container" id="front">
-           <xsl:call-template name="getTEIFrontPart"/>
+           <xsl:call-template name="getTEIFrontPart"/>           
         </div>
      </xsl:template>
-
 </xsl:stylesheet>
