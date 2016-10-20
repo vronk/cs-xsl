@@ -101,7 +101,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="continue-root">
-        <div> <!-- class="cmds-ui-block  init-show" -->
+        <div><!-- class="cmds-ui-block  init-show" -->
             <xsl:if test="contains($format, 'page')">
                 <xsl:call-template name="header"/>
             </xsl:if>

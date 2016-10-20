@@ -38,7 +38,7 @@
             <xd:p/>
         </xd:desc>
     </xd:doc>
-    
+
     <xsl:template match="*" mode="record-data">
         <!--<xsl:variable name="overrides">
             <xsl:apply-imports/>
@@ -120,15 +120,15 @@
             <div class="data-view {@type}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
                 <xsl:call-template name="dataview-full-contents"/>
                 <div class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></div>
-            </div>
+                </div>
         </xsl:if>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Supersede this to generate some sort of contents block as first element of the data view.</xd:desc>
     </xd:doc>
     <xsl:template name="dataview-full-contents"/>
-    
+
     <xd:doc>
         <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
         </xd:desc>
@@ -168,7 +168,7 @@
                         </xsl:call-template>
                     </a>
                 </xsl:when>
-            <xsl:otherwise>
+                <xsl:otherwise>
                     <xsl:call-template name="generateImg">
                         <xsl:with-param name="ref" select="@ref"/>
                     </xsl:call-template>
@@ -375,11 +375,11 @@
                         </xsl:with-param>
                     </xsl:call-template>
                 </span>
-            </xsl:if>          
+            </xsl:if>
             <xsl:copy-of select="$inline-elem"/>
         </span>
     </xsl:template>
-    
+
     <xsl:template name="join-attributes-with-space">
         <xsl:param name="nodes"/>
         <xsl:for-each select="$nodes/@*">
@@ -387,7 +387,7 @@
             <xsl:text> </xsl:text>
         </xsl:for-each>
     </xsl:template>
-    
+
     <xsl:template name="descendants-table">
         <xsl:param name="elem-name" select="name()"/>
         <table>
