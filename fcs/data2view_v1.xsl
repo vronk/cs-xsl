@@ -399,7 +399,7 @@
             <tr>
                 <td>
                     <xsl:if test="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
-                                        <table style="float:left">
+                        <table style="float:left">
                             <xsl:for-each select="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
                                 <tr>
                                     <td class="label">
