@@ -349,21 +349,28 @@
 
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
-                <xsl:variable name="q_protected">
+                <xsl:variable name="q_protect_hash">
                     <xsl:call-template name="replace-string">
                         <xsl:with-param name="text" select="$q"/>
                         <xsl:with-param name="replace" select="'#'"/>
                         <xsl:with-param name="with" select="'%23'"/>
                     </xsl:call-template>
                 </xsl:variable>
+                <xsl:variable name="q_protected">
+                    <xsl:call-template name="replace-string">
+                        <xsl:with-param name="text" select="$q_protect_hash"/>
+                        <xsl:with-param name="replace" select="'+'"/>
+                        <xsl:with-param name="with" select="'%2B'"/>
+                    </xsl:call-template>
+                </xsl:variable>
                 <xsl:choose>
-                    <xsl:when test="contains($q_protected, ' ')">
+                    <xsl:when test="contains($q_protected, ' ') and not(contains($q_protected, '%22'))">
                         <xsl:variable name="q_index" select="substring-before($q_protected, '%3D')"/>
                         <xsl:variable name="q_query" select="substring-after($q_protected, '%3D')"/>
-                        <xsl:value-of select="concat('&amp;query=', $q_index, '%3D&quot;', $q_query, '&quot;')"/>                       
+                        <xsl:value-of select="concat('&amp;query=', $q_index, '%3D&#34;', $q_query, '&#34;')"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="concat('&amp;query=', $q_protected)"/>                       
+                        <xsl:value-of select="concat('&amp;query=', $q_protected)"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:if>
@@ -378,8 +385,8 @@
                 <xsl:value-of select="concat('&amp;sort=',$sort)"/>
             </xsl:if>
         </xsl:variable>
-        <xsl:variable name="param_x-context">
-<!--            if action=explain, handle-q param as x-context-->
+        <xsl:variable name="param_x-context"><!--
+            if action=explain, handle-q param as x-context-->
             <xsl:choose>
                 <xsl:when test="$action='explain' and $q != ''">
                     <xsl:value-of select="concat('&amp;x-context=',$q)"/>
@@ -412,7 +419,7 @@
         </xsl:variable>
         <xsl:variable name="param_scanClause">
             <xsl:if test="$scanClause != ''">
-            <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
+                <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_x-dataview">
@@ -451,9 +458,8 @@
             <xsl:otherwise>
                 <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $param_queryType, $param_XDEBUG_SESSION_START)"/>
             </xsl:otherwise>
-        </xsl:choose>                
-         
-        <!--        <xsl:choose>
+        </xsl:choose><!--
+        <xsl:choose>
             <xsl:when test="$action=''">
                 <xsl:value-of select="concat($base_dir, '?q=', $q, '&repository=', $repository)"/>
             </xsl:when>
@@ -481,14 +487,13 @@
         <xd:param name="elem">???</xd:param>
     </xd:doc>
     <xsl:template name="elem-link">
-        <xsl:param name="elem" select="exsl:node-set(.)"/>
-        
-        <!-- WATCHME: primitive matching on elem-name, let's see how far this gets us -->
-<!--        <xsl:variable name="index" select="$context-mapping//index[path = name($elem)][@link]"/>-->
-<!--   FIXME: temporarily deactivated due to problems with feeding context     -->
+        <xsl:param name="elem" select="exsl:node-set(.)"/><!--
+         WATCHME: primitive matching on elem-name, let's see how far this gets us --><!--
+        <xsl:variable name="index" select="$context-mapping//index[path = name($elem)][@link]"/>--><!--
+        FIXME: temporarily deactivated due to problems with feeding context     -->
         <xsl:variable name="index" select="/non-existent"/>
-        <xsl:if test="$index">
-            <!-- we would need a dynamic evaluation to get the specific piece of data from the $elem 
+        <xsl:if test="$index"><!--
+                we would need a dynamic evaluation to get the specific piece of data from the $elem 
                 but let's try with some more trivial means -->
             <xsl:variable name="linking-value">
                 <xsl:choose>
@@ -540,8 +545,8 @@
         </xd:desc>
     </xd:doc>
     <xsl:template name="format-value">
-        <xsl:param name="value" select="."/>
-		<!-- cnt_value:<xsl:value-of select="count($value)" />  -->
+        <xsl:param name="value" select="."/><!--
+        cnt_value:<xsl:value-of select="count($value)" />  -->
         <xsl:choose>
             <xsl:when test="starts-with($value[1], 'http:') or starts-with($value[1], 'https:')">
                 <a target="_blank" class="external" href="{$value}">
@@ -559,8 +564,8 @@
         <xd:param name="strict">xs:boolean: Stay in mode format-xmlelem mode (or try to go back to mode=record-data)</xd:param>
     </xd:doc>
     <xsl:template match="*" mode="format-xmlelem">
-        <xsl:param name="strict"/>
-<!--        <xsl:message>strict:<xsl:value-of select="$strict"/></xsl:message>        -->
+        <xsl:param name="strict"/><!--
+        <xsl:message>strict:<xsl:value-of select="$strict"/></xsl:message>        -->
         <xsl:if test=".//text() or @*">
             <xsl:variable name="has_text">
                 <xsl:choose>
@@ -581,10 +586,15 @@
                     <xsl:otherwise>inline label</xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
+            <xsl:variable name="local-name-translated">
+                <xsl:call-template name="dict">
+                    <xsl:with-param name="key" select="local-name()"/>
+                </xsl:call-template>
+            </xsl:variable>
             <span class="cmds-xmlelem wrapper">
                 <div class="cmds-xmlelem {$has_children} value-{$has_text}">
                     <span class="{$label-class}">
-                        <xsl:value-of select="local-name()"/>
+                        <xsl:value-of select="$local-name-translated"/>
                     </span>
                     <xsl:if test="@*">
                         <span class="attributes">
@@ -661,35 +671,34 @@
     </xd:doc>
     <xsl:template name="generateLinkInScanResults">
         <xsl:param name="format" select="$format"/>
-        <xsl:param name="index" select="''"/>
-        <!--                        special handling for special index -->
+        <xsl:param name="index" select="''"/><!--
+                        special handling for special index -->
         <xsl:choose>
-            <xsl:when test="$scanClause = 'fcs.resource'">
-                <!--                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
+            <xsl:when test="$scanClause = 'fcs.resource'"><!--
+                    <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>-->
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="action">explain</xsl:with-param>
                     <xsl:with-param name="format" select="$format"/>
                     <xsl:with-param name="q" select="sru:value"/>
                 </xsl:call-template>
-            </xsl:when>
-            <!-- TODO: special handling for cmd.collection? -->
-            <!--<xsl:when test="$index = 'cmd.collection'">
+            </xsl:when><!--
+            TODO: special handling for cmd.collection? --><!--
+            <xsl:when test="$index = 'cmd.collection'">
                     <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
                 </xsl:when>-->
-            <xsl:otherwise>
-                <!--                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
+            <xsl:otherwise><!--
+                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="action">searchRetrieve</xsl:with-param>
                     <xsl:with-param name="format" select="$format"/>
-                    <xsl:with-param name="q" select="concat($index, '%3D', sru:value)"/>
-<!--                    according to the specs an exact search for a search term looks like this but cr-xq doesn't support this yet-->
-<!--                    <xsl:with-param name="q" select="concat($index, '%3D%3D%22', sru:value, '%22')"></xsl:with-param>-->
+                    <xsl:with-param name="q" select="concat($index, '%3D', sru:value)"/><!--
+                    according to the specs an exact search for a search term looks like this but cr-xq doesn't support this yet--><!--
+                    <xsl:with-param name="q" select="concat($index, '%3D%3D%22', sru:value, '%22')"></xsl:with-param>-->
                     <xsl:with-param name="dataview">kwic,title</xsl:with-param>
                 </xsl:call-template>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
     <xd:doc>
         <xd:desc>Forces generation of one (!) emtpty &lt;br/&gt; tag
             <xd:p>br tags tend not to be collapse which is interpreted as two brs by browsers.</xd:p>
@@ -737,7 +746,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>tokenize function replacement
             <xd:p>Note: result needs exsl:node-set!</xd:p>
@@ -746,15 +754,16 @@
     <xsl:template name="tokenize">
         <xsl:param name="text"/>
         <xsl:param name="delimiter"/>
-        <xsl:if test="string-length($text)>0">
-            <lang><xsl:value-of select="substring-before(concat($text, $delimiter), $delimiter)"/></lang>            
+        <xsl:if test="string-length($text)&gt;0">
+            <lang>
+                <xsl:value-of select="substring-before(concat($text, $delimiter), $delimiter)"/>
+            </lang>
             <xsl:call-template name="tokenize">
                 <xsl:with-param name="text" select="substring-after($text, $delimiter)"/>
                 <xsl:with-param name="delimiter" select="$delimiter"/>
             </xsl:call-template>
         </xsl:if>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>String replacement for XSL 1.0
             <xd:p>Found on stackoverflow: http://stackoverflow.com/questions/7520762/xslt-1-0-string-replace-function</xd:p>
@@ -802,7 +811,7 @@
     
     <xsl:template name="_linebreak_next_space">
         <xsl:param name="text"/>
-        <xsl:value-of select="substring-before($text, ' ')"/><xsl:text>
+        <xsl:value-of select="substring-before($text, ' ')"/><xsl:text xml:space="preserve">
 </xsl:text><xsl:call-template name="_linebreak-80">
     <xsl:with-param name="text" select="substring-after($text, ' ')"/>
 </xsl:call-template>
