@@ -268,7 +268,7 @@ sample data:
             </xsl:choose>-->
             </xsl:variable>
             <xsl:variable name="first_real_term" select="if (//fcs:countTerms[@level='top'] = 1) then 2 else 1"/>
-            <xsl:variable name="prev_scanClause" select="concat($index, '=', replace((//sru:term)[$first_real_term]/sru:value,'\s+','%20'))"/>
+            <xsl:variable name="prev_scanClause" select="concat($index, '=%22', replace((//sru:term)[$first_real_term]/sru:value,'\s+','%20'), '%22')"/>
             <xsl:variable name="link_prev">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="responsePosition" select="$prev_responsePosition"/>
@@ -278,7 +278,7 @@ sample data:
             <xsl:variable name="prev-disabled">
                 <xsl:if test="number((//sru:term[1]/sru:extraTermData/fcs:position)[last()]) = 1">disabled</xsl:if>
             </xsl:variable>
-            <xsl:variable name="next_scanClause" select="concat($index, '=', replace((//sru:term)[last()]/sru:value,'\s+','%20'))"/>
+            <xsl:variable name="next_scanClause" select="concat($index, '=%22', replace((//sru:term)[last()]/sru:value,'\s+','%20'), '%22')"/>
             <xsl:variable name="link_next">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="responsePosition" select="'0'"/>
