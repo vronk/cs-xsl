@@ -19,7 +19,7 @@
     <xd:doc>
         <xd:desc/>
     </xd:doc>
-    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/> 
+    <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
     <xsl:param name="lang" select="'en'"/>
     <xd:doc>
         <xd:desc>Set this to a CSS class that should be included in the output's outer most element by superseding this</xd:desc>
@@ -63,12 +63,13 @@
             <xsl:when test="contains($format, 'page')">
                 <xsl:apply-templates mode="verbose"/>
             </xsl:when>
-            <xsl:otherwise>
-                <xsl:apply-templates/>
+            <xsl:otherwise>        
+                <div class="wrapper">
+                    <xsl:apply-templates/>
+                </div>
             </xsl:otherwise>
-        </xsl:choose>
-        
-        <!--<div class="explain-view">
+        </xsl:choose><!--
+        <div class="explain-view">
             <xsl:apply-templates select="." mode="format-xmlelem"/>
         </div>-->
     </xsl:template>
@@ -84,10 +85,8 @@
     
     <xsl:template match="sru:recordData">
         <!-- jQuery ajax does not match clases at the root level -->
-        <div class="wrapper">
-            <div class="content explain {$x-context}{$style-type}">
-                <xsl:apply-templates/>
-            </div>
+        <div class="content explain {$x-context}{$style-type}">
+            <xsl:apply-templates/>
         </div>
     </xsl:template>
     <xsl:template match="sru:recordData" mode="verbose">
@@ -123,12 +122,16 @@
     </xsl:template>
     
     <xsl:template match="zr:description[@lang]">
-        <xsl:value-of select="zr:description[@lang=$lang]"/><xsl:call-template name="br"/>
-        <a class="value-caller"><xsl:attribute name="href"><xsl:call-template name="formURL">
-            <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-            <xsl:with-param name="dataview">metadata</xsl:with-param>
-            <xsl:with-param name="q" select="' '"/>
-        </xsl:call-template></xsl:attribute>More info about this database</a>
+        <xsl:value-of select="zr:description[@lang=$lang]"/>
+        <xsl:call-template name="br"/>
+        <a class="value-caller">
+            <xsl:attribute name="href">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="action">searchRetrieve</xsl:with-param>
+                    <xsl:with-param name="dataview">metadata</xsl:with-param>
+                    <xsl:with-param name="q" select="' '"/>
+                </xsl:call-template>
+            </xsl:attribute>More info about this database</a>
     </xsl:template>
    
     <xd:doc>
@@ -151,8 +154,8 @@
                     <xsl:call-template name="scan-clause-string"/>
                 </xsl:with-param>
                 <xsl:with-param name="maximumTerms" select="10"/>
-                <xsl:with-param name="contextset">
-<!--                    <xsl:if test="zr:map/zr:name/@set">
+                <xsl:with-param name="contextset"><!--
+                        <xsl:if test="zr:map/zr:name/@set">
                         <xsl:value-of select="concat(zr:map/zr:name/@set, '.')"/>
                     </xsl:if>-->
                     <xsl:if test="zr:map/zr:name = 'resource'">
@@ -165,7 +168,7 @@
         </xsl:variable>
         <xsl:variable name="search-query">
             <xsl:variable name="default-query-string">
-                <xsl:call-template name="default-query-string"/>              
+                <xsl:call-template name="default-query-string"/>
             </xsl:variable>
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'searchRetrieve'"/>
@@ -174,7 +177,7 @@
         </xsl:variable>
         <xsl:variable name="native-search-query">
             <xsl:variable name="native-query-string">
-                <xsl:call-template name="native-query-string"/>              
+                <xsl:call-template name="native-query-string"/>
             </xsl:variable>
             <xsl:call-template name="formURL">
                 <xsl:with-param name="action" select="'searchRetrieve'"/>
@@ -183,17 +186,19 @@
             </xsl:call-template>
         </xsl:variable>
         <dt>
-            <xsl:attribute name="class"><xsl:value-of select="concat('zr-index ', translate(zr:map/zr:name, '.', '-'))"/></xsl:attribute>
-            <xsl:choose>              
-                <xsl:when test="zr:title[@lang=$lang]" >                        
+            <xsl:attribute name="class">
+                <xsl:value-of select="concat('zr-index ', translate(zr:map/zr:name, '.', '-'))"/>
+            </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test="zr:title[@lang=$lang]">
                     <xsl:call-template name="dict">
                         <xsl:with-param name="key" select="zr:title[@lang=$lang]"/>
-                    </xsl:call-template>                        
+                    </xsl:call-template>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:call-template name="dict">
                         <xsl:with-param name="key" select="zr:title"/>
-                    </xsl:call-template>   
+                    </xsl:call-template>
                 </xsl:otherwise>
             </xsl:choose>
         </dt>
@@ -204,21 +209,21 @@
                 </xsl:call-template>
             </a>
             <xsl:choose>
-                <xsl:when test=".//zr:name='fcs.resource'"></xsl:when>
+                <xsl:when test=".//zr:name='fcs.resource'"/>
                 <xsl:otherwise>
-                    <xsl:text> </xsl:text>
+                    <xsl:text xml:space="preserve"> </xsl:text>
                     <a href="{$search-query}" class="search-caller">
                         <xsl:call-template name="dict">
                             <xsl:with-param name="key">Search</xsl:with-param>
                         </xsl:call-template>
                     </a>
                     <xsl:if test="@native='true'">
-                        <xsl:text> </xsl:text>
+                        <xsl:text xml:space="preserve"> </xsl:text>
                         <a href="{$native-search-query}" class="search-caller">
                             <xsl:call-template name="dict">
                                 <xsl:with-param name="key">Native Search</xsl:with-param>
                             </xsl:call-template>
-                        </a>                        
+                        </a>
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
@@ -239,9 +244,8 @@
         <xd:desc>Supersede this template to generate scan clauses that suite your endpoints needs</xd:desc>
     </xd:doc>
     <xsl:template name="scan-clause-string">
-        <xsl:value-of  select="zr:map/zr:name"/>
-    </xsl:template>
-    <!--
+        <xsl:value-of select="zr:map/zr:name"/>
+    </xsl:template><!--
     <xsl:template match="*[@lang]" >
         
     </xsl:template>-->
