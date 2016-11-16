@@ -813,7 +813,6 @@
         <xsl:param name="text"/>
         <xsl:value-of select="substring-before($text, ' ')"/><xsl:text xml:space="preserve">
 </xsl:text><xsl:call-template name="_linebreak-80">
-        <xsl:call-template name="_linebreak-80">
             <xsl:with-param name="text" select="substring-after($text, ' ')"/>
         </xsl:call-template>
     </xsl:template>
