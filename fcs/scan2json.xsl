@@ -21,7 +21,7 @@
 </xd:pre>
             <xd:p>Sample input</xd:p>
             <xd:pre>
-&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/"&gt;
+&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cr="http://aac.ac.at/content_repository" xmlns:fcs="http://clarin.eu/fcs/1.0/"&gt;
 &lt;sru:version&gt;1.2&lt;/sru:version&gt;
    &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)"&gt;
         &lt;sru:term&gt;
