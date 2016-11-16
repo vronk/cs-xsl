@@ -23,9 +23,8 @@
     <xd:doc>
         <xd:desc>This also inludes params.xls</xd:desc>
     </xd:doc>
-    <xsl:include href="html_snippets.xsl"/>
-
-<!-- <xsl:param name="mode" select="'html'" /> -->
+    <xsl:include href="html_snippets.xsl"/><!--
+    <xsl:param name="mode" select="'html'" /> -->
     <xd:doc>
         <xd:desc>Read the content of the dict.xml file into this variable
         <xd:p>If the file is not structured as expected an empty list is returned.</xd:p>
@@ -37,14 +36,14 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]">
-                <xsl:copy-of select="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]"/>
-<!-- switch.php is set up to throw an exception on any error or _warning_ so this kills the transform right now -->
-<!--                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message> -->
+                <xsl:copy-of select="exsl:node-set($dict_file_content)/dict/list[@xml:lang = $dict_lang]"/><!--
+                switch.php is set up to throw an exception on any error or _warning_ so this kills the transform right now --><!--
+                <xsl:message>Reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/></xsl:message> -->
             </xsl:when>
             <xsl:otherwise>
                 <xsl:message>Problem reading <xsl:value-of select="$dict_lang"/> from dict_file <xsl:value-of select="$dict_file"/>
                     <xsl:copy-of select="$dict_file_content"/>.. Please check!</xsl:message>
-                 <list xmlns=""/>
+                <list xmlns=""/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
@@ -70,10 +69,10 @@
 	        </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="/">
-<!--		<xsl:message>root_document-uri:<xsl:value-of select="$root_uri"/>
-			</xsl:message>-->
-<!--			<xsl:message>format:<xsl:value-of select="$format"/>
+    <xsl:template match="/"><!--
+		<xsl:message>root_document-uri:<xsl:value-of select="$root_uri"/>
+			</xsl:message>--><!--
+			<xsl:message>format:<xsl:value-of select="$format"/>
 			</xsl:message>-->
         <xsl:choose>
             <xsl:when test="contains($format, 'htmlbootstrap')">
@@ -104,11 +103,11 @@
             </head>
             <body>
                 <xsl:call-template name="page-header-bootstrap"/>
-				<xsl:call-template name="page-content"/>
+                <xsl:call-template name="page-content"/>
                 <h1>
                     <xsl:value-of select="$title"/>
                 </h1>
-                <xsl:apply-templates select="//sru:diagnostics"/>          
+                <xsl:apply-templates select="//sru:diagnostics"/>
             </body>
         </html>
     </xsl:template>
@@ -152,7 +151,7 @@
                 <xsl:call-template name="detail-space"/>
                 <xsl:call-template name="public-space"/>
                 <xsl:call-template name="user-space"/>
-				<xsl:call-template name="continue-root"/>
+                <xsl:call-template name="continue-root"/>
             </body>
         </html>
     </xsl:template>
@@ -168,12 +167,12 @@
             <head>
                 <title>
                     <xsl:value-of select="$title"/>
-                </title>			
-				<!-- <xsl:call-template name="callback-header"/> -->
+                </title><!--
+                <xsl:call-template name="callback-header"/> -->
             </head>
             <xsl:call-template name="page-header"/>
-            <body>                
-				<!-- <h1><xsl:value-of select="$title"/></h1> -->
+            <body><!--
+                <h1><xsl:value-of select="$title"/></h1> -->
                 <xsl:apply-templates select="diagnostics"/>
                 <xsl:call-template name="continue-root"/>
             </body>
@@ -226,14 +225,12 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
     <xd:doc>
         <xd:desc>All contexts as XML</xd:desc>
     </xd:doc>
     <xsl:variable name="contexts">
         <xsl:call-template name="contexts-doc"/>
     </xsl:variable>
-    
     <xd:doc>
         <xd:desc>Fetches the explaination for the current endpoint
             <xd:p>
@@ -258,20 +255,17 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>All indexes as XML</xd:desc>
     </xd:doc>
     <xsl:variable name="indexes">
         <xsl:call-template name="indexes-doc"/>
     </xsl:variable>
-
     <xd:doc>
         <xd:desc>Generates an HTML select-option list of available contexts</xd:desc>
     </xd:doc>
-    <xsl:template name="contexts-select">
-        
-<!--            DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
+    <xsl:template name="contexts-select"><!--
+        DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
         DEBUG: base_url:<xsl:value-of select="$base_url" />
         DEBUG: contexts:<xsl:copy-of select="$contexts" /> -->
         <select name="x-context">
@@ -292,13 +286,11 @@
             </xsl:if>
         </select>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Generates an HTML select-option list of available indexes</xd:desc>
     </xd:doc>
-    <xsl:template name="indexes-select">
-        
-        <!--            DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
+    <xsl:template name="indexes-select"><!--
+        DEBUG: contexts_url:<xsl:copy-of select="resolve-uri($contexts_url)" />
         DEBUG: base_url:<xsl:value-of select="$base_url" />
         DEBUG: contexts:<xsl:copy-of select="$contexts" /> -->
         <select name="indexes">
@@ -314,7 +306,6 @@
             </xsl:if>
         </select>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Shall be usable to form consistently all urls within xsl</xd:desc>
         <xd:param name="action">Same meaning as <xd:ref name="operation" type="parameter">$operation</xd:ref>.
@@ -346,21 +337,11 @@
         <xsl:param name="scanClause" select="$scanClause"/>
         <xsl:param name="fcs_prefix" select="$fcs_prefix"/>
         <xsl:param name="base_url" select="$base_url_public"/>
-
         <xsl:variable name="param_q">
             <xsl:if test="$q != ''">
-                <xsl:variable name="q_protect_hash">
-                    <xsl:call-template name="replace-string">
-                        <xsl:with-param name="text" select="$q"/>
-                        <xsl:with-param name="replace" select="'#'"/>
-                        <xsl:with-param name="with" select="'%23'"/>
-                    </xsl:call-template>
-                </xsl:variable>
                 <xsl:variable name="q_protected">
-                    <xsl:call-template name="replace-string">
-                        <xsl:with-param name="text" select="$q_protect_hash"/>
-                        <xsl:with-param name="replace" select="'+'"/>
-                        <xsl:with-param name="with" select="'%2B'"/>
+                    <xsl:call-template name="url-protect-special-characters">
+                        <xsl:with-param name="in" select="$q"/>
                     </xsl:call-template>
                 </xsl:variable>
                 <xsl:choose>
@@ -419,7 +400,12 @@
         </xsl:variable>
         <xsl:variable name="param_scanClause">
             <xsl:if test="$scanClause != ''">
-                <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause)"/>
+                <xsl:variable name="scanClause_protected">
+                    <xsl:call-template name="url-protect-special-characters">
+                        <xsl:with-param name="in" select="$scanClause"/>
+                    </xsl:call-template>
+                </xsl:variable>
+                <xsl:value-of select="concat('&amp;scanClause=',$contextset,$scanClause_protected)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_x-dataview">
@@ -479,6 +465,24 @@
         </xsl:choose>
 -->
     </xsl:template>
+    <xsl:template name="url-protect-special-characters">
+        <xsl:param name="in" select="''"/>
+        <xsl:variable name="protect_hash">
+            <xsl:call-template name="replace-string">
+                <xsl:with-param name="text" select="$in"/>
+                <xsl:with-param name="replace" select="'#'"/>
+                <xsl:with-param name="with" select="'%23'"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="protected_plus">
+            <xsl:call-template name="replace-string">
+                <xsl:with-param name="text" select="$protect_hash"/>
+                <xsl:with-param name="replace" select="'+'"/>
+                <xsl:with-param name="with" select="'%2B'"/>
+            </xsl:call-template>
+        </xsl:variable>
+        <xsl:value-of select="$protected_plus"/>
+    </xsl:template>
     <xd:doc>
         <xd:desc>Add link to more information to a link using information from mappings and some XML attribute key</xd:desc>
         <xd:p>
@@ -488,7 +492,7 @@
     </xd:doc>
     <xsl:template name="elem-link">
         <xsl:param name="elem" select="exsl:node-set(.)"/><!--
-         WATCHME: primitive matching on elem-name, let's see how far this gets us --><!--
+        WATCHME: primitive matching on elem-name, let's see how far this gets us --><!--
         <xsl:variable name="index" select="$context-mapping//index[path = name($elem)][@link]"/>--><!--
         FIXME: temporarily deactivated due to problems with feeding context     -->
         <xsl:variable name="index" select="/non-existent"/>
@@ -687,7 +691,7 @@
                     <xsl:value-of select="utils:formURL('explain', $format, sru:value)"/>
                 </xsl:when>-->
             <xsl:otherwise><!--
-                    <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
+                <xsl:value-of select="utils:formURL('searchRetrieve', $format, concat($index, '%3D%22', sru:value, '%22'))"/>-->
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="action">searchRetrieve</xsl:with-param>
                     <xsl:with-param name="format" select="$format"/>
@@ -778,8 +782,7 @@
                 <xsl:value-of select="substring-before($text,$replace)"/>
                 <xsl:value-of select="$with"/>
                 <xsl:call-template name="replace-string">
-                    <xsl:with-param name="text"
-                        select="substring-after($text,$replace)"/>
+                    <xsl:with-param name="text" select="substring-after($text,$replace)"/>
                     <xsl:with-param name="replace" select="$replace"/>
                     <xsl:with-param name="with" select="$with"/>
                 </xsl:call-template>
@@ -789,13 +792,11 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
     <xsl:template name="linebreak-80">
         <xsl:call-template name="_linebreak-80">
             <xsl:with-param name="text" select="."/>
         </xsl:call-template>
     </xsl:template>
-    
     <xsl:template name="_linebreak-80">
         <xsl:param name="text"/>
         <xsl:choose>
@@ -808,13 +809,12 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
     <xsl:template name="_linebreak_next_space">
         <xsl:param name="text"/>
         <xsl:value-of select="substring-before($text, ' ')"/><xsl:text xml:space="preserve">
 </xsl:text><xsl:call-template name="_linebreak-80">
-    <xsl:with-param name="text" select="substring-after($text, ' ')"/>
-</xsl:call-template>
+        <xsl:call-template name="_linebreak-80">
+            <xsl:with-param name="text" select="substring-after($text, ' ')"/>
+        </xsl:call-template>
     </xsl:template>
-    
 </xsl:stylesheet>
