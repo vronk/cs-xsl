@@ -413,14 +413,14 @@
                 <xsl:value-of select="concat('&amp;x-dataview=', $dataview)"/>
             </xsl:if>
         </xsl:variable>
-        <xsl:variable name="XDEBUG_SESSION_START">
-            <xsl:if test="$XDEBUG_SESSION_START">
-                <xsl:value-of select="concat('&amp;XDEBUG_SESSION_START=', $XDEBUG_SESSION_START)"/>
-            </xsl:if>
-        </xsl:variable>
         <xsl:variable name="param_queryType">
             <xsl:if test="$queryType != ''">
                 <xsl:value-of select="concat('&amp;queryType=', $queryType)"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:variable name="param_filter">
+            <xsl:if test="$x-filter != ''">
+                <xsl:value-of select="concat('&amp;x-filter=',$x-filter)"/>
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="param_XDEBUG_SESSION_START">
@@ -430,16 +430,16 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$action='get-data'">
-                <xsl:value-of select="concat($base_url_public, 'get/', $q, '/data', translate($param_format,'&amp;','?'), $XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url_public, 'get/', $q, '/data', translate($param_format,'&amp;','?'), $param_XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='get-metadata'">
-                <xsl:value-of select="concat($base_url_public, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'), $XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url_public, 'get/', $q, '/metadata/', $md-format, translate($param_format,'&amp;','?'), $param_XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='explain'">
                 <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_x-context, $param_format, $param_x-dataview, $param_XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:when test="$action='scan'">
-                <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_x-context, $param_format, $param_x-dataview, $param_sort, $param_maximumTerms, $param_responsePosition, $param_XDEBUG_SESSION_START)"/>
+                <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_scanClause, $param_filter, $param_x-context, $param_format, $param_x-dataview, $param_sort, $param_maximumTerms, $param_responsePosition, $param_XDEBUG_SESSION_START)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat($base_url_public, $fcs_prefix, '?version=1.2&amp;operation=',$action, $param_q, $param_x-context, $param_startRecord, $param_maximumRecords, $param_format, $param_x-dataview, $param_queryType, $param_XDEBUG_SESSION_START)"/>
