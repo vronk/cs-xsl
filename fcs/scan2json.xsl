@@ -50,7 +50,6 @@
     </xd:doc>
     <xsl:output indent="no" method="text" media-type="application/json" encoding="UTF-8"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-
     <xd:doc>
         <xd:desc/>
     </xd:doc>
@@ -70,7 +69,7 @@
         <xsl:value-of select="$countTerms"/>
         <xsl:text>", "countReturned":"</xsl:text>
         <xsl:value-of select="$countReturned"/>
-        <xsl:text>", </xsl:text>
+        <xsl:text>"</xsl:text>
         <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>
         <xsl:text>}</xsl:text>
     </xsl:template>
@@ -88,14 +87,13 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="sru:terms">
-        <xsl:text>
-"terms": [
-</xsl:text>
-        <!-- flatten ( => dont go deeper ) -->
+        <xsl:text xml:space="preserve">
+, "terms": [
+</xsl:text><!--
+        flatten ( => dont go deeper ) -->
         <xsl:apply-templates select=".//sru:term"/>
         <xsl:text>]</xsl:text>
     </xsl:template>
-    
     <xsl:template match="sru:term">
         <xsl:variable name="index">
             <xsl:choose>
@@ -136,7 +134,7 @@
                 <xsl:value-of select="concat(sru:extraTermData/cr:type, '=', translate(normalize-space(sru:value),'&#34;',''))"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="translate(normalize-space(sru:value),'&#34;','')"/>                
+                <xsl:value-of select="translate(normalize-space(sru:value),'&#34;','')"/>
             </xsl:otherwise>
         </xsl:choose>
         <xsl:text>", </xsl:text>
@@ -152,14 +150,13 @@
         <xsl:text>"count": "</xsl:text>
         <xsl:value-of select="sru:numberOfRecords"/>
         <xsl:text>"}</xsl:text>
-        <xsl:if test="not(position()=last())"><xsl:text>,
-</xsl:text></xsl:if>
-        
-        <!-- dont go deeper, because flattened <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
+        <xsl:if test="not(position()=last())">
+            <xsl:text xml:space="preserve">,
+</xsl:text>
+        </xsl:if><!-- dont go deeper, because flattened <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>Unused for json, needed for compilation</xd:desc>
     </xd:doc>
-    <xsl:template name="continue-root"></xsl:template>
+    <xsl:template name="continue-root"/>
 </xsl:stylesheet>
