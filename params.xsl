@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" exclude-result-prefixes="xs" version="1.0">
+<xsl:stylesheet xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="1.0">
     <xd:doc scope="stylesheet">
         <xd:desc>Central definition of all parameters the style sheets take
             <xd:p>
@@ -220,6 +219,18 @@
         </xd:desc>
     </xd:doc>
     <xsl:param name="q" select="/sru:searchRetrieveResponse/sru:echoedSearchRetrieveRequest/sru:query"/>
+    <xd:doc>
+        <xd:desc>The query sent by the client
+            <xd:p>
+                Defaults to empty.
+                Possible values:
+                <xd:ul>
+                    <xd:li>native</xd:li>
+                </xd:ul>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="queryType"/>
     <xd:doc>
         <xd:desc>The x-context (x-cmd-context) the client specified
             <xd:p>
