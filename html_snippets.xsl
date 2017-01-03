@@ -243,7 +243,6 @@
                        -->
                     <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
                     <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
-                    </fieldset>
                     
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
