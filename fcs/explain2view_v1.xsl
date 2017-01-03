@@ -19,12 +19,6 @@
     </xd:doc>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
     <xsl:param name="lang" select="'en'"/>
-    <xsl:import href="../commons_v1.xsl"/>
-    <xsl:output method="html"/>
-    <xsl:param name="lang" select="'de'"/>
-    <xsl:import href="../commons_v1.xsl"/>
-    <xsl:output method="html"/>
-    <xsl:param name="lang" select="'de'"/>
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xd:doc>
         <xd:desc>Called from common_v1.xsl to present a title string
