@@ -261,6 +261,7 @@ sample data:
         </xd:desc>
     </xd:doc>
     <xsl:template name="prev-next-terms">
+        <xsl:param name="generate-disabled" as="xs:boolean" select="true()"/>
         <xsl:if test="(//fcs:countTerms[@level='top'] = 1) or (not(//sru:term//sru:term) or not(exists(//sru:term)))">
             <xsl:variable name="prev_responsePosition" select="if (string(number($maximumTerms)) ne 'NaN') then $maximumTerms + 1 else 0">
             <!--<xsl:choose>
@@ -294,12 +295,16 @@ sample data:
                 <xsl:if test="number((//sru:term[last()]/sru:extraTermData/fcs:position)[last()]) &gt;= (number(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total']) - /sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='top'])">disabled</xsl:if>
             </xsl:variable>
             <span class="result-navigation prev-next">
-                <a class="internal prev {$prev-disabled}" href="{$link_prev}">
-                    <span class="cmd cmd_prev">prev</span>
-                </a>
-                <a class="internal next {$next-disabled}" href="{$link_next}">
-                    <span class="cmd cmd_next">next</span>
-                </a>
+                <xsl:if test="$generate-disabled or $prev-disabled ne 'disabled'">
+                    <a class="internal prev {$prev-disabled}" href="{$link_prev}">
+                        <span class="cmd cmd_prev">prev</span>
+                    </a>
+                </xsl:if>
+                <xsl:if test="$generate-disabled or $next-disabled ne 'disabled'">
+                    <a class="internal next {$next-disabled}" href="{$link_next}">
+                        <span class="cmd cmd_next">next</span>
+                    </a>
+                </xsl:if>
             </span>
         </xsl:if>
     </xsl:template>
