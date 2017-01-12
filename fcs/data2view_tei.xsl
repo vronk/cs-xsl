@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet 
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:aac="urn:general"
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:sru="http://www.loc.gov/zing/srw/"
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:aac="urn:general"
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
     xmlns:exist="http://exist.sourceforge.net/NS/exist"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    version="1.0" 
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="1.0"
     exclude-result-prefixes="xsl aac tei sru exist xd">
 
     <xd:doc scope="stylesheet">
         <xd:desc>
-            <xd:p>Stylesheet for formatting TEI-elements  inside a FCS/SRU-result.
-the TEI-elements are expected without namespace (!) (just local names)
-This is not nice, but is currently in results like that.</xd:p>
-            <xd:p>
-The templates are sorted by TEI-elements they match.
-if the same transformation applies to multiple elements,
-it is extracted into own named-template and called from the matching templates.
-the named templates are at the bottom.</xd:p>
+            <xd:p>Stylesheet for formatting TEI-elements inside a FCS/SRU-result. the TEI-elements
+                are expected without namespace (!) (just local names) This is not nice, but is
+                currently in results like that.</xd:p>
+            <xd:p> The templates are sorted by TEI-elements they match. if the same transformation
+                applies to multiple elements, it is extracted into own named-template and called
+                from the matching templates. the named templates are at the bottom.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:include href="data2view_teiHeader.xsl"/>
     <xd:doc scope="component">
         <xd:desc>
-            <xd:p>This template generates the CSS classes from any element following the convention:</xd:p>
+            <xd:p>This template generates the CSS classes from any element following the
+                convention:</xd:p>
             <xd:ul>
                 <xd:li>namespace prefix (tei) + local name</xd:li>
                 <xd:li>if present: namespace prefix + "type" + value of @type</xd:li>
@@ -33,7 +28,8 @@ the named templates are at the bottom.</xd:p>
                 <xd:li>if present: namespace prefix + "place" + value of @place</xd:li>
                 <xd:li>if present: namespace unit + @unit name + value of @unit</xd:li>
             </xd:ul>
-            <xd:p>The various parts of a name are concatenated with hyphens. Blanks in @rend are replaced by underscores.</xd:p>
+            <xd:p>The various parts of a name are concatenated with hyphens. Blanks in @rend are
+                replaced by underscores.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="classnames">
@@ -62,7 +58,9 @@ the named templates are at the bottom.</xd:p>
         <div class="{$class}">
             <xsl:attribute name="class">
                 <xsl:choose>
-                    <xsl:when test="@xml:id"><xsl:value-of select="concat('tei-TEI ', @xml:id)"/></xsl:when>
+                    <xsl:when test="@xml:id">
+                        <xsl:value-of select="concat('tei-TEI ', @xml:id)"/>
+                    </xsl:when>
                     <xsl:otherwise>tei-TEI</xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
@@ -75,7 +73,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </div>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Put TEI Header content into a div</xd:desc>
     </xd:doc>
@@ -136,35 +134,26 @@ the named templates are at the bottom.</xd:p>
         </div>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Presents monographs
-            <xd:p>
-                Convention used is:
-            </xd:p>
-            <xd:p>
-                Author, Author, ... : Title, Title, ...
-            </xd:p>
+        <xd:desc>Presents monographs <xd:p> Convention used is: </xd:p>
+            <xd:p> Author, Author, ... : Title, Title, ... </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="tei:monogr" mode="record-data">
         <span class="tei-authors"><xsl:apply-templates mode="record-data" select="tei:author"
-        /></span><span class="xsl-separator tei-title tei-author">: </span><span class="tei-titles"><xsl:apply-templates mode="record-data"
-                select="tei:title"/></span>.<xsl:apply-templates mode="record-data"
-            select="tei:imprint"/>
+            /></span><span class="xsl-separator tei-title tei-author">: </span><span
+            class="tei-titles"><xsl:apply-templates mode="record-data" select="tei:title"
+            /></span>.<xsl:apply-templates mode="record-data" select="tei:imprint"/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Presents dependent publications
-            <xd:p>
-                Convention used is:
-            </xd:p>
-            <xd:p>
-                Author, Author, ... : Title, Title, ... in -&gt; monogr
-            </xd:p>
+        <xd:desc>Presents dependent publications <xd:p> Convention used is: </xd:p>
+            <xd:p> Author, Author, ... : Title, Title, ... in -&gt; monogr </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="tei:analytic" mode="record-data">
         <span class="tei-authors"><xsl:apply-templates mode="record-data" select="tei:author"
-        /></span><span class="xsl-separator tei-title-tei-author-sep">: </span><span class="tei-titles"><xsl:apply-templates mode="record-data"
-                select="tei:title"/></span> in </xsl:template>
+            /></span><span class="xsl-separator tei-title-tei-author-sep">: </span><span
+            class="tei-titles"><xsl:apply-templates mode="record-data" select="tei:title"/></span>
+        in </xsl:template>
 
     <xd:doc>
         <xd:desc>Return text and spacer if needed</xd:desc>
@@ -176,7 +165,8 @@ the named templates are at the bottom.</xd:p>
         <span class="{$class}">
             <xsl:value-of select="."/>
         </span>
-        <xsl:if test="following-sibling::tei:author"><span class="xsl-separator tei-author-sep">, </span>
+        <xsl:if test="following-sibling::tei:author">
+            <span class="xsl-separator tei-author-sep">, </span>
         </xsl:if>
     </xsl:template>
     <xd:doc>
@@ -201,7 +191,9 @@ the named templates are at the bottom.</xd:p>
         <span class="{$class}">
             <xsl:value-of select="."/>
         </span>
-        <xsl:if test="following-sibling::tei:title"><span class="xsl-separator tei-title-sep">, </span></xsl:if>
+        <xsl:if test="following-sibling::tei:title">
+            <span class="xsl-separator tei-title-sep">, </span>
+        </xsl:if>
     </xsl:template>
     <xd:doc>
         <xd:desc>TEI Imprint as imprint span</xd:desc>
@@ -212,8 +204,7 @@ the named templates are at the bottom.</xd:p>
         </xsl:variable>
         <span class="{$class}">
             <xsl:apply-templates mode="record-data"/>
-        </span>.
-    </xsl:template>
+        </span>. </xsl:template>
     <xd:doc>
         <xd:desc>TEI pubPlace as pubPlace span</xd:desc>
     </xd:doc>
@@ -305,9 +296,7 @@ the named templates are at the bottom.</xd:p>
         <xd:desc/>
     </xd:doc>
     <xsl:template match="tei:series" mode="record-data">
-        <div class="cs-xsl-error">
-            TODO!
-        </div>
+        <div class="cs-xsl-error"> TODO! </div>
     </xsl:template>
     <xd:doc>
         <xd:desc>Notes in biblStruct are used to specify index terms</xd:desc>
@@ -363,10 +352,8 @@ the named templates are at the bottom.</xd:p>
         </div>
     </xsl:template>
     <xd:doc>
-        <xd:desc>A head section is assumed to contain a number of headings
-        <xd:p>
-            To generate HTML headings from these we use another mode.
-        </xd:p>
+        <xd:desc>A head section is assumed to contain a number of headings <xd:p> To generate HTML
+                headings from these we use another mode. </xd:p>
         </xd:desc>
     </xd:doc>
     <!--there is already a template for head
@@ -383,36 +370,39 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </h2>
     </xsl:template>-->
-    <xsl:template match="tei:ref[contains(@target, '.JPG') or                                   contains(@target, '.jpg') or                                  contains(@target, '.PNG') or                                  contains(@target, '.PNG')]" mode="record-data"><!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
+    <xsl:template
+        match="tei:ref[contains(@target, '.JPG') or                                   contains(@target, '.jpg') or                                  contains(@target, '.PNG') or                                  contains(@target, '.PNG')]"
+        mode="record-data">
+        <!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
         <xsl:call-template name="generateImg"/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>some special elements retained in data, due to missing correspondencies in tei 
-            if it will get more, we should move to separate file</xd:desc>
+        <xd:desc>some special elements retained in data, due to missing correspondencies in tei if
+            it will get more, we should move to separate file</xd:desc>
     </xd:doc>
     <xsl:template match="aac_HYPH1 | aac:HYPH1" mode="record-data">
         <xsl:apply-templates/>
         <xsl:text/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>some special elements retained in data, due to missing correspondencies in tei 
-            if it will get more, we should move to separate file</xd:desc>
+        <xd:desc>some special elements retained in data, due to missing correspondencies in tei if
+            it will get more, we should move to separate file</xd:desc>
     </xd:doc>
     <xsl:template match="aac_HYPH2  | aac:HYPH2" mode="record-data">
         <xsl:apply-templates/>
         <xsl:text/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>some special elements retained in data, due to missing correspondencies in tei 
-            if it will get more, we should move to separate file</xd:desc>
+        <xd:desc>some special elements retained in data, due to missing correspondencies in tei if
+            it will get more, we should move to separate file</xd:desc>
     </xd:doc>
     <xsl:template match="aac_HYPH3  | aac:HYPH3" mode="record-data">
         <xsl:apply-templates/>
         <xsl:text/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:address elements are mapped to html:address (???) elements
-            <xd:p>Suche elements occur in ... </xd:p>
+        <xd:desc>tei:address elements are mapped to html:address (???) elements <xd:p>Suche elements
+                occur in ... </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="address | tei:address" mode="record-data">
@@ -436,10 +426,10 @@ the named templates are at the bottom.</xd:p>
         </address>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:bibl elements are (???)
-        <xd:p>moved to data2view_teiHeader.xsl</xd:p>
+        <xd:desc>tei:bibl elements are (???) <xd:p>moved to data2view_teiHeader.xsl</xd:p>
         </xd:desc>
-    </xd:doc><!--<xsl:template match="bibl | tei:bibl" mode="record-data">
+    </xd:doc>
+    <!--<xsl:template match="bibl | tei:bibl" mode="record-data">
         <xsl:call-template name="inline"/>
     </xsl:template>-->
     <xsl:template match="tei:birth" mode="record-data">
@@ -481,7 +471,9 @@ the named templates are at the bottom.</xd:p>
         </xsl:variable>
         <span class="{$class}">
             <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                <xsl:with-param name="insertTrailingBlank"
+                    select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"
+                />
             </xsl:call-template>
         </span>
     </xsl:template>
@@ -501,7 +493,9 @@ the named templates are at the bottom.</xd:p>
             <sup>
                 <xsl:text>[</xsl:text>
                 <xsl:call-template name="inline">
-                    <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                    <xsl:with-param name="insertTrailingBlank"
+                        select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"
+                    />
                 </xsl:call-template>
                 <xsl:text>]</xsl:text>
             </sup>
@@ -515,7 +509,9 @@ the named templates are at the bottom.</xd:p>
             <sup>
                 <xsl:text>〈</xsl:text>
                 <xsl:call-template name="inline">
-                    <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                    <xsl:with-param name="insertTrailingBlank"
+                        select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"
+                    />
                 </xsl:call-template>
                 <xsl:text>〉</xsl:text>
             </sup>
@@ -529,23 +525,20 @@ the named templates are at the bottom.</xd:p>
             <sup>
                 <xsl:text>[</xsl:text>
                 <xsl:call-template name="inline">
-                    <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                    <xsl:with-param name="insertTrailingBlank"
+                        select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"
+                    />
                 </xsl:call-template>
                 <xsl:text>]</xsl:text>
             </sup>
         </span>
     </xsl:template>
-    <xsl:template match="orig | tei:orig | tei:sic | sic" mode="record-data">
-        <xsl:call-template name="inline">
-            <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
-        </xsl:call-template>
-    </xsl:template>
 
     <xsl:template match="tei:ref|ref|tei:ptr|ptr" mode="record-data"/>
-    
+
     <xd:doc>
-        <xd:desc>tei:cit elements are mapped to html:quote elements
-            <xd:p>Suche elements occur in ... </xd:p>
+        <xd:desc>tei:cit elements are mapped to html:quote elements <xd:p>Suche elements occur in
+                ... </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="cit | tei:cit" mode="record-data">
@@ -556,17 +549,17 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </quote>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>Audio media tags are transformed to html audio tags</xd:desc>
     </xd:doc>
     <xsl:template match="tei:media[contains(@mimeType, 'audio/')]" mode="record-data">
-       <xsl:call-template name="generateAudioHTMLTags">
-           <xsl:with-param name="mimeType" select="@mimeType"/>
-           <xsl:with-param name="ref" select="@url"/>
-       </xsl:call-template> 
+        <xsl:call-template name="generateAudioHTMLTags">
+            <xsl:with-param name="mimeType" select="@mimeType"/>
+            <xsl:with-param name="ref" select="@url"/>
+        </xsl:call-template>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>tei:data elements are formatted as spans with an apropriate class <xd:p>Suche
                 elements occur in ... </xd:p>
@@ -592,8 +585,8 @@ the named templates are at the bottom.</xd:p>
         </span>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:div elements are mapped to html:div elements
-            <xd:p>Note: html:div elements are defined even fuzzier than tei:div elements.</xd:p>
+        <xd:desc>tei:div elements are mapped to html:div elements <xd:p>Note: html:div elements are
+                defined even fuzzier than tei:div elements.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="div|tei:div" mode="record-data">
@@ -605,7 +598,10 @@ the named templates are at the bottom.</xd:p>
         </div>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:p elements are mapped to html:p elements unless they reside inside another tei:p element (e.g. in the construct tei:p/tei:figure/tei:p). <xd:b>This does not use the <xd:ref>classnames</xd:ref> template to produce CSS class names when a @rend attribute is present.</xd:b>
+        <xd:desc>tei:p elements are mapped to html:p elements unless they reside inside another
+            tei:p element (e.g. in the construct tei:p/tei:figure/tei:p). <xd:b>This does not use
+                the <xd:ref>classnames</xd:ref> template to produce CSS class names when a @rend
+                attribute is present.</xd:b>
         </xd:desc>
     </xd:doc>
     <xsl:template match="p | tei:p" mode="record-data">
@@ -653,17 +649,16 @@ the named templates are at the bottom.</xd:p>
         </xsl:element>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:table elements are mapped to html:table elements
-            <xd:p>Note: These elements are found eg. in the mecmua transkription.</xd:p>
-            <xd:p>There is a class attribute "tei-table" so it is possible to format these
-            tables differently form eg. blind tables used elsewhere.</xd:p>
+        <xd:desc>tei:table elements are mapped to html:table elements <xd:p>Note: These elements are
+                found eg. in the mecmua transkription.</xd:p>
+            <xd:p>There is a class attribute "tei-table" so it is possible to format these tables
+                differently form eg. blind tables used elsewhere.</xd:p>
         </xd:desc>
     </xd:doc>
-    
+
     <xd:doc>
-        <xd:desc>Special handling of target declarations that point to other resources
-            <xd:p> Note: You most likely have
-                to supply you're own logic by superseding this. </xd:p>
+        <xd:desc>Special handling of target declarations that point to other resources <xd:p> Note:
+                You most likely have to supply you're own logic by superseding this. </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateTarget">
@@ -703,13 +698,14 @@ the named templates are at the bottom.</xd:p>
                     <xsl:value-of select="$linkText"/>
                 </a>
             </xsl:otherwise>
-            
-        </xsl:choose>        
+
+        </xsl:choose>
     </xsl:template>
-    
+
     <xd:doc>
-        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by the facs data view.
-        <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
+        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by
+            the facs data view. <xd:p>Supersede this if you want to change the default lookup path
+                for example.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateImgHTMLTags">
@@ -719,18 +715,21 @@ the named templates are at the bottom.</xd:p>
             <xsl:when test="$ref">
                 <img src="{$ref}" alt="{$ref}"/>
             </xsl:when>
-            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
+            <xsl:when
+                test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
                 <img src="{@target}" alt="{$altText}"/>
             </xsl:when>
             <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in your project's XSL customization!</span>                
+                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in
+                    your project's XSL customization!</span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
     <xd:doc>
-        <xd:desc>Generates audio tags from ref or ptr. Generic handler for audio file references passed by the facs data view.
-            <xd:p>Supersede this if you want to change the default lookup path for example.</xd:p>
+        <xd:desc>Generates audio tags from ref or ptr. Generic handler for audio file references
+            passed by the facs data view. <xd:p>Supersede this if you want to change the default
+                lookup path for example.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateAudioHTMLTags">
@@ -739,7 +738,7 @@ the named templates are at the bottom.</xd:p>
         <xsl:param name="mimeType" select="'audio/mp4'"/>
         <span>
             <xsl:attribute name="class">
-                <xsl:value-of select="concat('xsl-audio xsl-outer ', $sourceType)"/>    
+                <xsl:value-of select="concat('xsl-audio xsl-outer ', $sourceType)"/>
             </xsl:attribute>
             <div class="xsl-audio xsl-inner">
                 <audio controls="controls" preload="none">
@@ -749,7 +748,7 @@ the named templates are at the bottom.</xd:p>
             </div>
         </span>
     </xsl:template>
-    
+
     <xd:doc>
         <xd:desc>tei:table elements are mapped to html:table elements <xd:p>Note: These elements are
                 found eg. in the mecmua transkription.</xd:p>
@@ -757,7 +756,7 @@ the named templates are at the bottom.</xd:p>
                 differently form eg. blind tables used elsewhere.</xd:p>
         </xd:desc>
     </xd:doc>
-    
+
     <xsl:template match="table|tei:table" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
@@ -767,8 +766,7 @@ the named templates are at the bottom.</xd:p>
         </table>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:row elements are mapped to html:tr elements
-        </xd:desc>
+        <xd:desc>tei:row elements are mapped to html:tr elements </xd:desc>
     </xd:doc>
     <xsl:template match="row|tei:row" mode="record-data">
         <tr>
@@ -776,8 +774,7 @@ the named templates are at the bottom.</xd:p>
         </tr>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:cell elements are mapped to html:td elements
-        </xd:desc>
+        <xd:desc>tei:cell elements are mapped to html:td elements </xd:desc>
     </xd:doc>
     <xsl:template match="cell|tei:cell" mode="record-data">
         <td>
@@ -786,24 +783,24 @@ the named templates are at the bottom.</xd:p>
                     <xsl:value-of select="./@cols"/>
                 </xsl:attribute>
             </xsl:if>
-                <xsl:choose>
-                    <xsl:when test="@style">
-                        <xsl:choose>
-                            <xsl:when test="contains(@style, ':')">
-                                <xsl:attribute name="class">tei-cell</xsl:attribute>
-                                <xsl:attribute name="style">
-                                    <xsl:value-of select="@style"/>
-                                </xsl:attribute>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:attribute name="class">tei-cell <xsl:value-of select="@style"/>
-                                </xsl:attribute>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:when>
-                    <xsl:when test="@rend">
-                        <xsl:attribute name="class">tei-cell <xsl:call-template
-                                name="rend-without-color">
+            <xsl:choose>
+                <xsl:when test="@style">
+                    <xsl:choose>
+                        <xsl:when test="contains(@style, ':')">
+                            <xsl:attribute name="class">tei-cell</xsl:attribute>
+                            <xsl:attribute name="style">
+                                <xsl:value-of select="@style"/>
+                            </xsl:attribute>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="class">tei-cell <xsl:value-of select="@style"/>
+                            </xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:when test="@rend">
+                    <xsl:attribute name="class">tei-cell <xsl:call-template
+                            name="rend-without-color">
                             <xsl:with-param name="rend-text" select="@rend"/>
                         </xsl:call-template>
                     </xsl:attribute>
@@ -823,7 +820,7 @@ the named templates are at the bottom.</xd:p>
             <xsl:apply-templates mode="record-data"/>
         </td>
     </xsl:template>
-<!--    <xd:doc>
+    <!--    <xd:doc>
         <xd:desc>tei:hi is mapped to html:span and @rend is mapped to @class</xd:desc>
         <xd:p>Note these elements are found eg. in the mecmua transkription</xd:p>
     </xd:doc>    
@@ -846,11 +843,9 @@ the named templates are at the bottom.</xd:p>
     </xsl:template> -->
 
     <xd:doc>
-        <xd:desc>tei:entry elements are the base elements for any lexicographical definitions
-            <xd:p>
-     TODO: this has to be broken down to individual children-elements.
-     the styles should be moved to CSS and referenced by classes 
-            </xd:p>
+        <xd:desc>tei:entry elements are the base elements for any lexicographical definitions <xd:p>
+                TODO: this has to be broken down to individual children-elements. the styles should
+                be moved to CSS and referenced by classes </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="entry | tei:entry" mode="record-data">
@@ -859,12 +854,16 @@ the named templates are at the bottom.</xd:p>
                 <b>
                     <xsl:value-of select="form[@type='lemma']/orth[contains(@xml:lang,'Trans')]"/>
                     <xsl:if test="form[@type='lemma']/orth[contains(@xml:lang,'arabic')]">
-                        <xsl:text> </xsl:text>(<xsl:value-of select="form[@type='lemma']/orth[contains(@xml:lang,'arabic')]"/>)</xsl:if>
+                        <xsl:text xml:space="preserve"> </xsl:text>(<xsl:value-of
+                            select="form[@type='lemma']/orth[contains(@xml:lang,'arabic')]"
+                        />)</xsl:if>
                 </b>
                 <xsl:if test="gramGrp/gram[@type='pos']">
                     <span style="color:rgb(0,64,0)">
-                        <xsl:text>           </xsl:text>[<xsl:value-of select="gramGrp/gram[@type='pos']"/>
-                        <xsl:if test="gramGrp/gram[@type='subc']">; <xsl:value-of select="gramGrp/gram[@type='subc']"/>
+                        <xsl:text xml:space="preserve">           </xsl:text>[<xsl:value-of
+                            select="gramGrp/gram[@type='pos']"/>
+                        <xsl:if test="gramGrp/gram[@type='subc']">; <xsl:value-of
+                                select="gramGrp/gram[@type='subc']"/>
                         </xsl:if>]</span>
                 </xsl:if>
                 <xsl:for-each select="form[@type='inflected']">
@@ -875,7 +874,7 @@ the named templates are at the bottom.</xd:p>
                                     <i>(f) </i>
                                 </b>
                             </xsl:when>
-                <!-- FIXME This is a temporary hack to allow initial Caps, we need to adjust the "inline" template -->
+                            <!-- FIXME This is a temporary hack to allow initial Caps, we need to adjust the "inline" template -->
                             <xsl:when test="@rend='initialCapital'">
                                 <span class="initialCapital">
                                     <xsl:value-of select="substring(normalize-space(.),1,1)"/>
@@ -909,8 +908,9 @@ the named templates are at the bottom.</xd:p>
                             </xsl:when>
                         </xsl:choose>
                         <xsl:apply-templates mode="record-data"/>
-                        <xsl:if test="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])">
-                <xsl:text> </xsl:text>
+                        <xsl:if
+                            test="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])">
+                            <xsl:text xml:space="preserve"> </xsl:text>
                         </xsl:if>
                     </div>
                 </xsl:for-each>
@@ -919,24 +919,27 @@ the named templates are at the bottom.</xd:p>
     </xsl:template>
 
     <xd:doc>
-        <xd:desc>Lemma form
-        <xd:p>
-            Default priority="0.5"
-            We do enforce latin before arabic script.
-        </xd:p>
+        <xd:desc>Lemma form <xd:p> Default priority="0.5" We do enforce latin before arabic script.
+            </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="tei:form[@type='lemma' or @type='multiWordUnit']" mode="record-data">
         <span class="tei-form-{@type}">
-            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/><xsl:text> </xsl:text>
-            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]"
+                mode="record-data"/>
+            <xsl:text xml:space="preserve"> </xsl:text>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]"
+                mode="record-data"/>
             <xsl:apply-templates select="*[not(name() = 'orth')]" mode="record-data"/>
         </span>
     </xsl:template>
     <xsl:template match="tei:form[@type='inflected']" mode="record-data">
         <span class="tei-form-inflected">
-            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]" mode="record-data"/><xsl:text> </xsl:text>
-            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data"/>
+            <xsl:apply-templates select="tei:orth[not(contains(@xml:lang, '-arabic'))]"
+                mode="record-data"/>
+            <xsl:text xml:space="preserve"> </xsl:text>
+            <xsl:apply-templates select="tei:orth[contains(@xml:lang, '-arabic')]"
+                mode="record-data"/>
             <span class="tei-form-ana">
                 <xsl:choose>
                     <xsl:when test="@ana='#adj_f'">f</xsl:when>
@@ -949,7 +952,9 @@ the named templates are at the bottom.</xd:p>
         </span>
     </xsl:template>
 
-    <xsl:template match="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[contains(@xml:lang, '-arabic')]" mode="record-data">
+    <xsl:template
+        match="tei:orth[contains(@xml:lang, '-vicav')]|tei:orth[contains(@xml:lang, '-arabic')]"
+        mode="record-data">
         <span class="tei-orth {@xml:lang}">
             <xsl:apply-templates mode="record-data"/>
         </span>
@@ -978,7 +983,8 @@ the named templates are at the bottom.</xd:p>
                 <div class="tei-defs">
                     <xsl:apply-templates select="tei:def[@xml:lang='en']" mode="record-data"/>
                     <xsl:apply-templates select="tei:def[@xml:lang='de']" mode="record-data"/>
-                    <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]" mode="record-data"/>
+                    <xsl:apply-templates select="tei:def[not(@xml:lang='en' or @xml:lang='de')]"
+                        mode="record-data"/>
                 </div>
                 <xsl:for-each select="sense">
                     <xsl:if test="def">
@@ -987,19 +993,24 @@ the named templates are at the bottom.</xd:p>
                                 <xsl:value-of select="def[@xml:lang='en']"/>
                             </xsl:if>
                             <xsl:if test="def[@xml:lang='de']">
-                                <xsl:text> </xsl:text>
-                                <span style="color:rgb(126,126,126); font-style: italic">(<xsl:value-of select="def[@xml:lang='de']"/>)</span>
+                                <xsl:text xml:space="preserve"> </xsl:text>
+                                <span style="color:rgb(126,126,126); font-style: italic"
+                                        >(<xsl:value-of select="def[@xml:lang='de']"/>)</span>
                             </xsl:if>
                         </div>
                     </xsl:if>
                     <xsl:if test="cit[@type='translation']">
                         <div style="margin-top: 5px; border-top:0.5px dotted grey;">
                             <xsl:if test="cit[(@type='translation')and(@xml:lang='en')]">
-                                <xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"/>
+                                <xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"
+                                />
                             </xsl:if>
                             <xsl:if test="cit[(@type='translation')and(@xml:lang='de')]">
-                                <xsl:text> </xsl:text>
-                                <span style="color:rgb(126,126,126); font-style: italic">(<xsl:value-of select="cit[(@type='translation')and(@xml:lang='de')]"/>)</span>
+                                <xsl:text xml:space="preserve"> </xsl:text>
+                                <span style="color:rgb(126,126,126); font-style: italic"
+                                        >(<xsl:value-of
+                                        select="cit[(@type='translation')and(@xml:lang='de')]"
+                                    />)</span>
                             </xsl:if>
                         </div>
                     </xsl:if>
@@ -1007,11 +1018,15 @@ the named templates are at the bottom.</xd:p>
                         <div style="margin-left:30px">
                             <xsl:value-of select="quote[contains(@xml:lang,'Trans')]"/>
                             <i>
-                                <xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"/>
+                                <xsl:value-of select="cit[(@type='translation')and(@xml:lang='en')]"
+                                />
                             </i>
                             <xsl:if test="cit[(@type='translation')and(@xml:lang='de')]">
-                                <xsl:text> </xsl:text>
-                                <span style="color:rgb(126,126,126); font-style: italic">(<xsl:value-of select="cit[(@type='translation')and(@xml:lang='de')]"/>)</span>
+                                <xsl:text xml:space="preserve"> </xsl:text>
+                                <span style="color:rgb(126,126,126); font-style: italic"
+                                        >(<xsl:value-of
+                                        select="cit[(@type='translation')and(@xml:lang='de')]"
+                                    />)</span>
                             </xsl:if>
                         </div>
                     </xsl:for-each>
@@ -1021,7 +1036,7 @@ the named templates are at the bottom.</xd:p>
     </xsl:template>
     <xd:doc>
         <xd:desc>tei:foreign elements are formatted as divs with an apropriate language class
-            <xd:p>Suche elements occur in ... </xd:p>
+                <xd:p>Suche elements occur in ... </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="foreign | tei:foreign" mode="record-data">
@@ -1046,7 +1061,9 @@ the named templates are at the bottom.</xd:p>
         </xsl:variable>
         <span class="{$class}">
             <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                <xsl:with-param name="insertTrailingBlank"
+                    select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"
+                />
             </xsl:call-template>
         </span>
     </xsl:template>
@@ -1068,7 +1085,9 @@ the named templates are at the bottom.</xd:p>
         </xsl:variable>
         <span class="{$class}">
             <xsl:call-template name="inline">
-                <xsl:with-param name="insertTrailingBlank" select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                <xsl:with-param name="insertTrailingBlank"
+                    select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"
+                />
             </xsl:call-template>
         </span>
     </xsl:template>
@@ -1085,14 +1104,18 @@ the named templates are at the bottom.</xd:p>
             <xsl:when test="@rend or @rendition or @style">
                 <span class="{$wrapper-class} {$class}">
                     <xsl:call-template name="inline">
-                        <xsl:with-param name="insertTrailingBlank" select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                        <xsl:with-param name="insertTrailingBlank"
+                            select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"
+                        />
                     </xsl:call-template>
                 </span>
             </xsl:when>
             <xsl:otherwise>
                 <span class="{$class}">
                     <xsl:call-template name="inline">
-                        <xsl:with-param name="insertTrailingBlank" select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                        <xsl:with-param name="insertTrailingBlank"
+                            select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"
+                        />
                     </xsl:call-template>
                 </span>
             </xsl:otherwise>
@@ -1111,7 +1134,8 @@ the named templates are at the bottom.</xd:p>
         <br/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>lb elements may also be used to mark up horizontal rules of various types. These are distinguished by values in the @rend attribute</xd:desc>
+        <xd:desc>lb elements may also be used to mark up horizontal rules of various types. These
+            are distinguished by values in the @rend attribute</xd:desc>
     </xd:doc>
     <xsl:template match="lb | tei:lb" mode="record-data">
         <xsl:variable name="class">
@@ -1139,7 +1163,9 @@ the named templates are at the bottom.</xd:p>
     </xsl:template>
 
     <xd:doc>
-        <xd:desc>although they are block level elements, tei:lg are transformed into html:spans, because they may reside inside a tei:p (html:p) element, e.g. in tei:p/tei:figure/tei:lg - block level rendering has to be done with CSS styling.</xd:desc>
+        <xd:desc>although they are block level elements, tei:lg are transformed into html:spans,
+            because they may reside inside a tei:p (html:p) element, e.g. in tei:p/tei:figure/tei:lg
+            - block level rendering has to be done with CSS styling.</xd:desc>
     </xd:doc>
     <xsl:template match="lg | tei:lg" mode="record-data">
         <xsl:variable name="class">
@@ -1167,12 +1193,14 @@ the named templates are at the bottom.</xd:p>
         <xsl:choose>
             <xsl:when test="@type[.='hr'] and @rend[.='line']">
                 <span class="{$class}">&#160;</span>
-                <span style="color:red;">[usage of <code>milestone type="hr"</code> is deprecated, use tei:lb instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="hr"</code> is deprecated,
+                    use tei:lb instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='hr'] and @rend[.='high']">
                 <!--<span><hr class="hr-high"/></span>-->
                 <span class="{$class}">&#160;</span>
-                <span style="color:red;">[usage of <code>milestone type="hr"</code> is deprecated, use tei:lb instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="hr"</code> is deprecated,
+                    use tei:lb instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='hr'] and @rend[.='dotted']">
                 <span class="{$class}">&#160;</span>
@@ -1192,47 +1220,66 @@ the named templates are at the bottom.</xd:p>
             <xsl:when test="@type[.='separator'] and @rend[.='asterismDown']">
                 <p style="text-align:center">*&#160;&#160;<sub>*</sub>&#160;&#160;*</p>
             </xsl:when>
-            <xsl:when test="@type[.='separator'] and (@rend[.='undefined'] or @unit[.='undetermined'])">
+            <xsl:when
+                test="@type[.='separator'] and (@rend[.='undefined'] or @unit[.='undetermined'])">
                 <p class="{$class}">⌫⌦</p>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='blEtc']">રc.</xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='brackets' or .='bracketsTC']">
-                <xsl:if test="preceding-sibling::*[1]/*[self::milestone or self::tei:milestone]/@rend[.='brackets' or .='bracketsTC']">
+                <xsl:if
+                    test="preceding-sibling::*[1]/*[self::milestone or self::tei:milestone]/@rend[.='brackets' or .='bracketsTC']">
                     <xsl:text>&#160;</xsl:text>
                 </xsl:if>
                 <span class="{$class}" style="font-size:18pt;">)(</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="brackets"</code> is deprecated, use g element with @ref='#brackets' instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol"
+                        rend="brackets"</code> is deprecated, use g element with @ref='#brackets'
+                    instead]</span>
             </xsl:when>
-            <xsl:when test="@type[.='symbol'] and @rend[.='flower']">✾
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="flower"</code> is deprecated, use appropriate unicode character instead]</span>
+            <xsl:when test="@type[.='symbol'] and @rend[.='flower']">✾ <span style="color:red;"
+                    >[usage of <code>milestone type="symbol" rend="flower"</code> is deprecated, use
+                    appropriate unicode character instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='footerDots']">
-                <span class="{$class}">.&#160;<sup style="font-size: inherit;position: relative;top: -5px;">.</sup>&#160;.</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="footerDots"</code> is deprecated, use <code>&lt;g ref=#footerdots&gt;</code> instead]</span>
+                <span class="{$class}">.&#160;<sup
+                        style="font-size: inherit;position: relative;top: -5px;"
+                    >.</sup>&#160;.</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol"
+                        rend="footerDots"</code> is deprecated, use <code>&lt;g
+                        ref=#footerdots&gt;</code> instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='Aquarius']">
                 <span style="font-size:14pt;">♒</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Aquarius"</code> is deprecated, use appropriate unicode character instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol"
+                        rend="Aquarius"</code> is deprecated, use appropriate unicode character
+                    instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='Mars']">
                 <span style="font-size:14pt;">♂</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Mars"</code> is deprecated, use appropriate unicode character instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Mars"</code>
+                    is deprecated, use appropriate unicode character instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='Saturn']">
                 <span style="font-size:14pt;">♄</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Saturn"</code> is deprecated, use appropriate unicode character instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol"
+                        rend="Saturn"</code> is deprecated, use appropriate unicode character
+                    instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='Jupiter']">
                 <span style="font-size:14pt;">♃</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Jupiter"</code> is deprecated, use appropriate unicode character instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol"
+                        rend="Jupiter"</code> is deprecated, use appropriate unicode character
+                    instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='Merkur']">
                 <span style="font-size:14pt;">☿</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Merkur"</code> is deprecated, use appropriate unicode character instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol"
+                        rend="Merkur"</code> is deprecated, use appropriate unicode character
+                    instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='Virgo']">
                 <span style="font-size:14pt;">♍</span>
-                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Virgo"</code> is deprecated, use appropriate unicode character instead]</span>
+                <span style="color:red;">[usage of <code>milestone type="symbol" rend="Virgo"</code>
+                    is deprecated, use appropriate unicode character instead]</span>
             </xsl:when>
             <xsl:when test="@type[.='symbol'] and @rend[.='undefined']">
                 <b>☉</b>
@@ -1275,7 +1322,8 @@ the named templates are at the bottom.</xd:p>
     </xsl:template>-->
     <xsl:template match="pc | tei:pc" mode="record-data">
         <xsl:call-template name="inline">
-            <xsl:with-param name="insertTrailingBlank" select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+            <xsl:with-param name="insertTrailingBlank"
+                select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
         </xsl:call-template>
     </xsl:template>
     <xsl:template match="place | tei:place" mode="record-data">
@@ -1284,34 +1332,41 @@ the named templates are at the bottom.</xd:p>
         </xsl:copy>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:persName, tei:placeName etc. elements are mapped to spans optionally as link to more information.</xd:desc>
+        <xd:desc>tei:persName, tei:placeName etc. elements are mapped to spans optionally as link to
+            more information.</xd:desc>
     </xd:doc>
-    <xsl:template match="name | persName | placeName | tei:name | tei:persName | tei:placeName" mode="record-data">
+    <xsl:template match="name | persName | placeName | tei:name | tei:persName | tei:placeName"
+        mode="record-data">
         <xsl:call-template name="inline">
             <xsl:with-param name="additional-style" select="string(../@rend)"/>
-            <xsl:with-param name="insertTrailingBlank" select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+            <xsl:with-param name="insertTrailingBlank"
+                select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
             <xsl:with-param name="descendants-to-ignore" select="'fw'"/>
         </xsl:call-template>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:quote elements are mapped to spans optionally as link to more information.</xd:desc>
+        <xd:desc>tei:quote elements are mapped to spans optionally as link to more
+            information.</xd:desc>
     </xd:doc>
     <xsl:template match="quote | tei:quote" mode="record-data">
         <xsl:call-template name="inline">
-            <xsl:with-param name="insertTrailingBlank" select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+            <xsl:with-param name="insertTrailingBlank"
+                select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
         </xsl:call-template>
     </xsl:template>
     <xd:doc>
-        <xd:desc>tei:rs elements are mapped to spans optionally as link to more information.</xd:desc>
+        <xd:desc>tei:rs elements are mapped to spans optionally as link to more
+            information.</xd:desc>
     </xd:doc>
     <xsl:template match="rs | tei:rs" mode="record-data">
         <xsl:call-template name="inline">
-            <xsl:with-param name="insertTrailingBlank" select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+            <xsl:with-param name="insertTrailingBlank"
+                select="not(//*[local-name(.) = 'seg' and @type='whitespace'])"/>
         </xsl:call-template>
     </xsl:template>
     <xd:doc>
         <xd:desc>tei:seg elements are mapped to spans optionally as link to more information.
-        <xd:p>Note: These may not make sense in a particular project eg. STB.</xd:p>
+                <xd:p>Note: These may not make sense in a particular project eg. STB.</xd:p>
         </xd:desc>
     </xd:doc>
     <!-- for STB: dont want seg -->
@@ -1333,7 +1388,7 @@ the named templates are at the bottom.</xd:p>
                     <xsl:apply-templates mode="record-data"/>
                 </xsl:otherwise>
             </xsl:choose>
-        </span>      
+        </span>
     </xsl:template>
 
     <!-- handing over to aac:stand.xsl -->
@@ -1351,8 +1406,7 @@ the named templates are at the bottom.</xd:p>
     <xd:doc>
         <xd:desc>
             <xd:p>a rather sloppy section optimized for result from aacnames listPerson/tei:person
-                this should occur only in lists, not in text
-            </xd:p>
+                this should occur only in lists, not in text </xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="tei:person" mode="record-data">
@@ -1375,16 +1429,16 @@ the named templates are at the bottom.</xd:p>
         </div>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Suppressed. Already used as a title.
-        </xd:desc>
+        <xd:desc>Suppressed. Already used as a title. </xd:desc>
     </xd:doc>
     <xsl:template match="tei:person/tei:persName" mode="record-data"/>
     <xd:doc>
-        <xd:desc>Suppressed. Not directly usable for output.
-        </xd:desc>
+        <xd:desc>Suppressed. Not directly usable for output. </xd:desc>
     </xd:doc>
     <xsl:template match="tei:sex" mode="record-data"/>
-    <xsl:template match="tei:docTitle | tei:titlePart | tei:docImprint | tei:pubPlace | tei:docAuthor | tei:docDate | docTitle | titlePart | docImprint | pubPlace | docAuthor | docDate" mode="record-data">
+    <xsl:template
+        match="tei:docTitle | tei:titlePart | tei:docImprint | tei:pubPlace | tei:docAuthor | tei:docDate | docTitle | titlePart | docImprint | pubPlace | docAuthor | docDate"
+        mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
@@ -1425,17 +1479,22 @@ the named templates are at the bottom.</xd:p>
                     </span>
                 </xsl:when>
                 <xsl:when test="@ref='#footerDots'">
-                    <span class="{$class}">.&#160;<sup style="font-size: inherit;position: relative;top: -5px;">.</sup>&#160;.</span>
+                    <span class="{$class}">.&#160;<sup
+                            style="font-size: inherit;position: relative;top: -5px;"
+                        >.</sup>&#160;.</span>
                 </xsl:when>
                 <xsl:when test="@ref='#brackets'">
-                    <xsl:if test="preceding-sibling::*[1]/*[self::g or self::tei:g][@rend = 'brackets']">
+                    <xsl:if
+                        test="preceding-sibling::*[1]/*[self::g or self::tei:g][@rend = 'brackets']">
                         <xsl:text>&#160;</xsl:text>
                     </xsl:if>
                     <span class="{$class}" style="font-size:18pt;">)(</span>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:call-template name="inline">
-                        <xsl:with-param name="insertTrailingBlank" select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"/>
+                        <xsl:with-param name="insertTrailingBlank"
+                            select="not(ancestor::*[local-name(.) = 'TEI']//*[local-name(.) = 'seg' and @type='whitespace'])"
+                        />
                     </xsl:call-template>
                 </xsl:otherwise>
             </xsl:choose>
@@ -1446,12 +1505,12 @@ the named templates are at the bottom.</xd:p>
         <xsl:choose>
             <xsl:when test="tei:fs/tei:f[@name='wordform']">
                 <!-- Special handling for notations like those used in sample texts -->
-        <!-- XPath 1.0 if trick: from http://stackoverflow.com/questions/971067/is-there-an-if-then-else-statement-in-xpath and
+                <!-- XPath 1.0 if trick: from http://stackoverflow.com/questions/971067/is-there-an-if-then-else-statement-in-xpath and
         http://www.tkachenko.com/blog/archives/000156.html Becker's method, relies on substring start argument bigger than string lenght
         returns empty string and number(false) = 0, number(true) = 1. -->
-        <!-- XPath 2.0:  if (tei:fs/tei:f[@name = 'pos']) then 'pos ' else '' -->
-        <xsl:variable name="pos"
-            select="concat(substring('pos ', number(not(tei:fs/tei:f[@name = 'pos'])) * string-length('pos ') + 1),
+                <!-- XPath 2.0:  if (tei:fs/tei:f[@name = 'pos']) then 'pos ' else '' -->
+                <xsl:variable name="pos"
+                    select="concat(substring('pos ', number(not(tei:fs/tei:f[@name = 'pos'])) * string-length('pos ') + 1),
             substring('', number(tei:fs/tei:f[@name = 'pos']) * string-length('') + 1))"/>
                 <span class="tei-w {$pos}{tei:fs/tei:f[@name = 'pos']}">
                     <xsl:if test="(tei:fs/tei:f[@name='wordform'])[@xml:lang]">
@@ -1462,69 +1521,72 @@ the named templates are at the bottom.</xd:p>
                     <xsl:value-of select="tei:fs/tei:f[@name='wordform']"/>
                     <xsl:apply-templates mode="record-data"/>
                 </span>
-                </xsl:when>
-                <xsl:otherwise>
+            </xsl:when>
+            <xsl:otherwise>
                 <xsl:call-template name="inline">
-                        <xsl:with-param name="insertTrailingBlank"
-                            select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"
-                        />
+                    <xsl:with-param name="insertTrailingBlank"
+                        select="not((ancestor::tei:TEI|ancestor::TEI)//*[local-name(.) = 'seg' and @type='whitespace'])"
+                    />
                 </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
 
     </xsl:template>
     <xd:doc>
-        <xd:desc>Get the "argument" of color() used in @rend attributes and return it as html inline style attribute.
-            <xd:p>Note: assumes only one color().</xd:p>
+        <xd:desc>Get the "argument" of color() used in @rend attributes and return it as html inline
+            style attribute. <xd:p>Note: assumes only one color().</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="rend-color-as-html-style">
         <xsl:param name="rend-text"/>
         <xsl:choose>
-            <xsl:when test="substring-after(string($rend-text), 'color(')">color: #<xsl:value-of select="substring-before(substring-after(string($rend-text), 'color('), ')')"/>;</xsl:when>
+            <xsl:when test="substring-after(string($rend-text), 'color(')">color: #<xsl:value-of
+                    select="substring-before(substring-after(string($rend-text), 'color('), ')')"
+                />;</xsl:when>
             <xsl:otherwise>
                 <!-- there is nothing that could be returened, is there? -->
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Get everything but the color() part in @rend attributes
-            <xd:p>Note: assumes only one color().</xd:p>
+        <xd:desc>Get everything but the color() part in @rend attributes <xd:p>Note: assumes only
+                one color().</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="rend-without-color">
         <xsl:param name="rend-text"/>
         <xsl:choose>
             <xsl:when test="substring-after(string($rend-text), 'color(')">
-                <xsl:value-of select="substring-after(substring-before(string($rend-text), 'color('), ')')"/>
+                <xsl:value-of
+                    select="substring-after(substring-before(string($rend-text), 'color('), ')')"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="string($rend-text)"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
     <xsl:template match="cb[@type='start'] | tei:cb[@type='start']" mode="record-data">
         <xsl:variable name="class">
             <xsl:call-template name="classnames"/>
         </xsl:variable>
-        <span class="{$class}"/>        
+        <span class="{$class}"/>
     </xsl:template>
-        
-        <xsl:template name="clone">
-            <xsl:param name="content"/>
-            <xsl:choose>
-                <xsl:when test="./self::text()">
-                    <xsl:value-of select="$content"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:copy>
-                        <xsl:copy-of select="@*"/>
-                        <xsl:call-template name="clone">
-                            <xsl:with-param name="content" select="$content"/>
-                        </xsl:call-template>
-                    </xsl:copy>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:template>
+
+    <xsl:template name="clone">
+        <xsl:param name="content"/>
+        <xsl:choose>
+            <xsl:when test="./self::text()">
+                <xsl:value-of select="$content"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:copy-of select="@*"/>
+                    <xsl:call-template name="clone">
+                        <xsl:with-param name="content" select="$content"/>
+                    </xsl:call-template>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 </xsl:stylesheet>
