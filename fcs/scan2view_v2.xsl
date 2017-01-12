@@ -101,13 +101,13 @@
             </xsl:variable>-->
             <div class="hilight">
                 <xsl:value-of select="(//sru:term[1]/sru:extraTermData/fcs:position)[last()]"/>
-                <span class=""> - </span>
+                <span class="" xml:space="preserve"> - </span>
                 <xsl:value-of select="(//sru:term[last()]/sru:extraTermData/fcs:position)[last()]"/>
-                <span class=""> (</span>
+                <span class="" xml:space="preserve"> (</span>
                 <xsl:value-of select="(count(//sru:terms/sru:term) - /sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='top'])"/>
-                <span class="">) / </span><!--                <a class="internal show-all" href="{$show_all-link}" title="Show all">-->
+                <span class="" xml:space="preserve">) / </span><!--                <a class="internal show-all" href="{$show_all-link}" title="Show all">-->
                 <xsl:value-of select="$countTerms"/><!--                </a> -->
-                <xsl:text/>
+                <xsl:text xml:space="preserve"> </xsl:text>
                 <xsl:value-of select="/sru:scanResponse/sru:extraResponseData/fcs:indexLabel"/>
             </div>
         </div>
