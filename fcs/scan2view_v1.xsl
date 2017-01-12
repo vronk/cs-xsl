@@ -105,8 +105,8 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:param name="filter" select="substring-after($scanClause,'=')"/>
-
+    <xsl:param name="startTerm" select="substring-after($scanClause,'=')"/>
+    <xsl:param name="filter" select="''"/>
     <xd:doc>
         <xd:desc>Standard callback from / template
         <xd:p>
