@@ -139,11 +139,20 @@ media-type="text/xhtml"
                 <!--table { border-collapse:collapse;  border:1px solid grey }
         td {padding: 3px; border:1px solid grey}-->
                 <style type="text/css">
-        
-        div.infovis-wrapper {border: 1px solid grey; margin: 20px; padding: 5px; height:350px; width:800px;}
-        .infovis {height: 90%; width: 100%;}
-        .value { text-align: right; }
-        </style> 
+                    div.infovis-wrapper{
+                        border: 1px solid grey;
+                        margin: 20px;
+                        padding: 5px;
+                        height: 350px;
+                        width: 800px;
+                    }
+                    .infovis{
+                        height: 90%;
+                        width: 100%;
+                    }
+                    .value{
+                        text-align: right;
+                    }</style> 
            
                 <script type="text/javascript" src="{concat($scripts-dir, 'js/jquery/jquery.min.js')}"></script>
                 <script type="text/javascript" src="{concat($scripts-dir, 'js/jquery/jquery-ui.min.js')}"></script>
@@ -184,13 +193,13 @@ media-type="text/xhtml"
                 
             <!-- displaying chart-data passed to dataset2view -->
                 <xsl:for-each select="$chart-data">
-                                <xsl:call-template name="continue-root"></xsl:call-template>
+                                <xsl:call-template name="continue-root"/>
                 </xsl:for-each>
                 
                 <xsl:if test="contains($parts,'hits') and exists(/*/result/doc)" >
 <!--                    <xsl:for-each select="//result[@name='response']">-->
                         <xsl:call-template name="hits">
-                            <xsl:with-param name="data" select="$solr-result-preprocessed/*"></xsl:with-param>
+                            <xsl:with-param name="data" select="$solr-result-preprocessed/*"/>
                         </xsl:call-template>
                 </xsl:if>                    
 
