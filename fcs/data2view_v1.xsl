@@ -1,19 +1,12 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
-                xmlns:cr="http://aac.ac.at/content_repository" 
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:tei="http://www.tei-c.org/ns/1.0"
-                xmlns:sru="http://www.loc.gov/zing/srw/"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:fcs="http://clarin.eu/fcs/1.0"
-                xmlns:exist="http://exist.sourceforge.net/NS/exist"
-                xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-                xmlns:exsl="http://exslt.org/common"
-                version="1.0" exclude-result-prefixes="cr kwic xsl tei sru xs fcs exist xd exsl">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:kwic="http://clarin.eu/fcs/1.0/kwic"
+    xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:sru="http://www.loc.gov/zing/srw/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0"
+    xmlns:exist="http://exist.sourceforge.net/NS/exist"
+    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common"
+    version="1.0" exclude-result-prefixes="cr kwic xsl tei sru xs fcs exist xd exsl">
     <xd:doc scope="stylesheet">
-        <xd:desc>Provides more specific handling of sru-result-set recordData
-            <xd:p>History:
-                <xd:ul>
+        <xd:desc>Provides more specific handling of sru-result-set recordData <xd:p>History: <xd:ul>
                     <xd:li>2013-04-17: created by: "m": </xd:li>
                     <xd:li>2011-11-14: created by: "vr": based on cmdi/scripts/xml2view.xsl</xd:li>
                 </xd:ul>
@@ -22,20 +15,19 @@
         </xd:desc>
     </xd:doc>
     <xsl:include href="data2view_cmd.xsl"/>
-<!--    <xsl:import href="../amc/dataset2view.xsl"/>-->
+    <!--    <xsl:import href="../amc/dataset2view.xsl"/>-->
     <xsl:include href="data2view_tei.xsl"/>
-<!--    <xsl:include href="../stand_weiss.xsl"/>-->
+    <!--    <xsl:include href="../stand_weiss.xsl"/>-->
     <xd:doc>
-        <xd:desc>Default starting-point
-            <xd:p>In mode record-data this this and all included style sheets define the transformation.</xd:p>
+        <xd:desc>Default starting-point <xd:p>In mode record-data this this and all included style
+                sheets define the transformation.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="sru:recordData" mode="record-data">
         <xsl:apply-templates select="*" mode="record-data"/>
     </xsl:template>
     <xd:doc>
-        <xd:desc>default fallback: display the xml-structure
-            <xd:p/>
+        <xd:desc>default fallback: display the xml-structure <xd:p/>
         </xd:desc>
     </xd:doc>
 
@@ -54,7 +46,7 @@
         <xsl:apply-templates select="." mode="format-xmlelem"/>
     </xsl:template>
 
- <!-- hide meta-information about the record from output-->
+    <!-- hide meta-information about the record from output-->
     <xd:doc>
         <xd:desc>
             <xd:p/>
@@ -72,9 +64,10 @@
             <xd:p>Remove administrative attributes</xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="@cr:project-id|@cr:resource-pid|@cr:id|@xml:id|@xml:space" mode="format-attr"/>
-    
-<!-- kwic match -->
+    <xsl:template match="@cr:project-id|@cr:resource-pid|@cr:id|@xml:id|@xml:space"
+        mode="format-attr"/>
+
+    <!-- kwic match -->
     <xd:doc>
         <xd:desc>
             <xd:p/>
@@ -87,9 +80,9 @@
         </span>
     </xsl:template>
 
-    
 
-<!-- FCS-wrap -->
+
+    <!-- FCS-wrap -->
     <xd:doc>
         <xd:desc>
             <xd:p/>
@@ -109,34 +102,40 @@
         </xsl:apply-templates>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
-        </xd:desc>
+        <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with
+            appropriate classes </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView" mode="record-data">
         <xsl:param name="resource-pid"/>
         <xsl:variable name="resourcefragment-pid" select="parent::fcs:ResourceFragment/@pid"/>
-           <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
-        <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
-            <div class="data-view {@type}" data-resource-pid="{$resource-pid}" data-resourcefragment-pid="{$resourcefragment-pid}">
+        <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
+        <xsl:if
+            test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
+            <div class="data-view {@type}" data-resource-pid="{$resource-pid}"
+                data-resourcefragment-pid="{$resourcefragment-pid}">
                 <xsl:call-template name="dataview-full-contents"/>
-                <div class="wrapper {@type}"><xsl:apply-templates mode="record-data"/></div>
+                <div class="wrapper {@type}">
+                    <xsl:apply-templates mode="record-data"/>
                 </div>
+            </div>
         </xsl:if>
     </xsl:template>
 
     <xd:doc>
-        <xd:desc>Supersede this to generate some sort of contents block as first element of the data view.</xd:desc>
+        <xd:desc>Supersede this to generate some sort of contents block as first element of the data
+            view.</xd:desc>
     </xd:doc>
     <xsl:template name="dataview-full-contents"/>
 
     <xd:doc>
-        <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with appropriate classes
-        </xd:desc>
+        <xd:desc>Handle DataViews other than full (eg. xmlescaped, facs) by creating a div with
+            appropriate classes </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView[contains(@type, 'xmlescaped')]" mode="record-data">
         <xsl:param name="resource-pid"/>
         <!-- don't show full view if, there is kwic, title-view is called separately, and  -->
-        <xsl:if test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
+        <xsl:if
+            test="not((contains(@type,'full') and parent::*/fcs:DataView[contains(@type, 'kwic')]) or contains(@type, 'title') or contains(@type, 'facs'))">
             <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
                 <textarea rows="25" cols="80">
                     <xsl:apply-templates mode="record-data"/>
@@ -145,8 +144,8 @@
         </xsl:if>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Handle DataViews that have a non-empty @ref by creating a div with appropriate classes
-        </xd:desc>
+        <xd:desc>Handle DataViews that have a non-empty @ref by creating a div with appropriate
+            classes </xd:desc>
     </xd:doc>
     <xsl:template match="fcs:DataView[@ref][not(@ref='')]" mode="record-data">
         <xsl:param name="resource-pid"/>
@@ -156,12 +155,15 @@
             </a>
         </div>
     </xsl:template>
-    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]" mode="record-data" priority="10">
+    <xsl:template match="fcs:DataView[@ref][contains(@type, 'facs') or contains(@type, 'image')]"
+        mode="record-data" priority="10">
         <xsl:param name="resource-pid"/>
         <xsl:param name="linkTo"/>
         <div class="data-view {@type}" data-resource-pid="{$resource-pid}">
-            <xsl:choose><!-- ends-with in XPath 1.0) see http://stackoverflow.com/questions/11848780/use-ends-with-in-xslt-v1-0 -->
-                <xsl:when test="substring(@ref, string-length(@ref) - string-length('.m4a') + 1) = '.m4a'">
+            <xsl:choose>
+                <!-- ends-with in XPath 1.0) see http://stackoverflow.com/questions/11848780/use-ends-with-in-xslt-v1-0 -->
+                <xsl:when
+                    test="substring(@ref, string-length(@ref) - string-length('.m4a') + 1) = '.m4a'">
                     <xsl:call-template name="generateAudioHTMLTags">
                         <xsl:with-param name="ref" select="$linkTo"/>
                         <xsl:with-param name="sourceType" select="''"/>
@@ -176,8 +178,9 @@
         </div>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Generic handler for image references passed by the facs data view
-        <xd:p>Note: You most likely will have to supersed this if you want eg. to supplie an absolute path to the images!</xd:p>
+        <xd:desc>Generic handler for image references passed by the facs data view <xd:p>Note: You
+                most likely will have to supersed this if you want eg. to supplie an absolute path
+                to the images!</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="generateImg">
@@ -186,15 +189,16 @@
                 <img src="{@ref}" alt="{@ref}"/>
             </xsl:when>
             <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the generateImg template in your project's XSL customization!</span>
+                <span class="cs-xsl-error">You need to supersede the generateImg template in your
+                    project's XSL customization!</span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
- <!-- better hide the fullview (the default view is too much)
+
+    <!-- better hide the fullview (the default view is too much)
         TODO: some more condensed view -->
-<!--    <xsl:template match="fcs:DataView[@type='full']" mode="record-data"/>-->
-<!--  this would be to use, if including a stylesheet without mode=record-data (like aac:stand.xsl)       
+    <!--    <xsl:template match="fcs:DataView[@type='full']" mode="record-data"/>-->
+    <!--  this would be to use, if including a stylesheet without mode=record-data (like aac:stand.xsl)       
     <xsl:template match="fcs:DataView[@type='full']/*" mode="record-data">
         <xsl:apply-templates></xsl:apply-templates>
     </xsl:template>
@@ -219,9 +223,9 @@
             <xsl:value-of select="$link-text"/>
         </a>
     </xsl:template>
-    
 
- <!-- handle generic metadata-fields -->
+
+    <!-- handle generic metadata-fields -->
     <xd:doc>
         <xd:desc>
             <xd:p/>
@@ -232,8 +236,7 @@
             <xsl:value-of select="@key"/>: </span>
         <span class="value">
             <xsl:value-of select="."/>
-        </span>; 
-    </xsl:template>
+        </span>; </xsl:template>
     <xd:doc>
         <xd:desc>
             <xd:p/>
@@ -243,9 +246,9 @@
         <div class="kwic-line">
             <xsl:apply-templates mode="record-data"/>
         </div>
-    </xsl:template>        
-    
- <!--
+    </xsl:template>
+
+    <!--
      handle KWIC-DataView:
      <c type="left"></c><kw></kw><c type="right"></c>
      WATCHME: temporarily accepting both version (fcs and kwic namespacEe)
@@ -269,20 +272,22 @@
         </xd:desc>
     </xd:doc>
     <xsl:template match="kwic:kw|fcs:kw" mode="record-data">
-        <xsl:text> </xsl:text>
+        <xsl:text xml:space="preserve"> </xsl:text>
         <span class="kw hilight">
             <xsl:apply-templates mode="record-data"/>
         </span>
-        <xsl:text> </xsl:text>
+        <xsl:text xml:space="preserve"> </xsl:text>
     </xsl:template>
-    
-    
+
+
     <!-- ************************ -->
     <!-- named templates starting -->
     <xd:doc>
         <xd:desc>
-            <xd:p>get the title for the shown piece of data (i.e. normally the title of the shown resource fragment )</xd:p>
-            <xd:p>expected to be delivered in the input xml in fcs:DataView[@type='title'] (needs index=title in mappings and contains(x-dataview,'title')</xd:p>
+            <xd:p>get the title for the shown piece of data (i.e. normally the title of the shown
+                resource fragment )</xd:p>
+            <xd:p>expected to be delivered in the input xml in fcs:DataView[@type='title'] (needs
+                index=title in mappings and contains(x-dataview,'title')</xd:p>
             <xd:p>Can be be overridden in your project's XSL customization!</xd:p>
         </xd:desc>
     </xd:doc>
@@ -298,15 +303,18 @@
                 <xsl:value-of select=".//tei:persName"/>
             </xsl:when>
             <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the getTitle template in your project's XSL customization!</span>
+                <span class="cs-xsl-error">You need to supersede the getTitle template in your
+                    project's XSL customization!</span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xd:doc>
         <xd:desc>Common template to insert a TEI element as a span with an appropriate class.
-            <xd:p>XSL 1.0 port.</xd:p>
-            <xd:p>If there is a known way to link to more information the span is placed inside a link.</xd:p>
-            <xd:p>Advanced functionality is available with XSL 2.0 using features. See data2view_v2.xsl</xd:p>
+                <xd:p>XSL 1.0 port.</xd:p>
+            <xd:p>If there is a known way to link to more information the span is placed inside a
+                link.</xd:p>
+            <xd:p>Advanced functionality is available with XSL 2.0 using features. See
+                data2view_v2.xsl</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template name="inline">
@@ -315,16 +323,16 @@
             <xsl:call-template name="elem-link"/>
         </xsl:variable>
         <xsl:variable name="inline-content">
-<!-- moved from .//text() to node(), because otherwise all the descendants got flattened -->
+            <!-- moved from .//text() to node(), because otherwise all the descendants got flattened -->
             <xsl:for-each select="node()">
                 <xsl:choose>
-<!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
+                    <!--                Handled like a tei: tag so don't create an infinite loop. Check exist:match match before changing this!    
                     <xsl:when test="parent::exist:match">
                         <xsl:apply-templates select="parent::exist:match" mode="record-data"/>
                     </xsl:when>-->
                     <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
-                        <xsl:text> </xsl:text>
+                        <xsl:text xml:space="preserve"> </xsl:text>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:apply-templates mode="record-data"/>
@@ -383,7 +391,7 @@
         <xsl:param name="nodes"/>
         <xsl:for-each select="$nodes/@*">
             <xsl:value-of select="."/>
-            <xsl:text> </xsl:text>
+            <xsl:text xml:space="preserve"> </xsl:text>
         </xsl:for-each>
     </xsl:template>
 
@@ -397,9 +405,11 @@
             </tr>
             <tr>
                 <td>
-                    <xsl:if test="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
+                    <xsl:if
+                        test="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
                         <table style="float:left">
-                            <xsl:for-each select="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
+                            <xsl:for-each
+                                select="./@*[not((local-name() = 'id') or (local-name() = 'rend') or (local-name() = 'style'))]">
                                 <tr>
                                     <td class="label">
                                         <xsl:value-of select="concat('@', name())"/>
