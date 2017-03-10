@@ -112,7 +112,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>-->
-    </xsl:function>        
+    </xsl:function>
   
    <!--
     convenience wrapper function to xml-context-template;

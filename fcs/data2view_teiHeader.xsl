@@ -38,11 +38,11 @@ Also "tei"-elements in CMD namespace to cover for teiHeader CMDI-Profile </xd:p>
             <xsl:text>)</xsl:text>
         </div>
     </xsl:template>
-    <xsl:template match="bibl | tei:bibl | cmd:bibl" mode="record-data">
-<!--        <xsl:call-template name="inline"/>-->
+    <xsl:template match="bibl | tei:bibl | cmd:bibl" mode="record-data"><!--        <xsl:call-template name="inline"/>-->
         <xsl:apply-templates mode="record-data"/>
     </xsl:template>
-    
+    <xsl:template match="xhtml:*" mode="record-data">
+        <xsl:sequence select="."/>
+    </xsl:template>
     <xsl:template match="msDesc/additional | tei:msDesc/tei:additional | cmd:msDesc/cmd:additional" mode="record-data"/>
-    
 </xsl:stylesheet>

@@ -167,8 +167,9 @@
             <head>
                 <title>
                     <xsl:value-of select="$title"/>
-                </title><!--
-                <xsl:call-template name="callback-header"/> -->
+                </title>
+                <link href="{$scripts_url}style/cmds-ui.css" type="text/css" rel="stylesheet"/>
+				<!-- <xsl:call-template name="callback-header"/> -->
             </head>
             <xsl:call-template name="page-header"/>
             <body><!--

@@ -46,9 +46,6 @@
     <xd:doc>
         <xd:desc>Main entry point. Called by commons_v1.xsl's / matching template.
             <xd:p>
-                
-            </xd:p>
-            <xd:p>
                 TODO: Finish switching to different modes depending on the $format parameter.
             </xd:p>
         </xd:desc>
@@ -178,7 +175,6 @@
     <xsl:template match="sru:records" mode="table">
         <xsl:call-template name="multiple-results-table"/>
     </xsl:template>
-
     <xsl:template name="multiple-results-table">
         <div class="result-body scrollable-content-box">
             <table class="show">

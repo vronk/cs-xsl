@@ -36,7 +36,7 @@
                     <xsl:when test="self::text()">
                         <xsl:value-of select="."/>
                         <xsl:if test="$insertTrailingBlank">
-                            <xsl:text> </xsl:text>
+                            <xsl:text xml:space="preserve"> </xsl:text>
                         </xsl:if>
                     </xsl:when>
                     <xsl:otherwise>

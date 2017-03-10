@@ -22,30 +22,30 @@
             </xd:p>
             <xd:p>
                 <xd:pre>
-&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/">
-&lt;sru:version>1.2&lt;/sru:version>
-   &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)">
-        &lt;sru:term>
-        &lt;sru:value>1903-01&lt;/sru:value>
-        &lt;sru:numberOfRecords>30&lt;/sru:numberOfRecords>
-        &lt;/sru:term>
-        &lt;sru:term>
-        &lt;sru:value>1903-02&lt;/sru:value>
-        &lt;sru:numberOfRecords>28&lt;/sru:numberOfRecords>
-        &lt;/sru:term>
-        &lt;sru:term>
-        &lt;sru:value>1903-03&lt;/sru:value>
-        &lt;sru:numberOfRecords>31&lt;/sru:numberOfRecords>
-        &lt;/sru:term>
-   &lt;/sru:terms>
-   &lt;sru:extraResponseData>
-        &lt;fcs:countTerms>619&lt;/fcs:countTerms>
-    &lt;/sru:extraResponseData>
-    &lt;sru:echoedScanRequest>
-        &lt;sru:scanClause>diary-month&lt;/sru:scanClause>
-        &lt;sru:maximumTerms>100&lt;/sru:maximumTerms>
-    &lt;/sru:echoedScanRequest>        
- &lt;/sru:scanResponse>
+&lt;sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0/"&gt;
+&lt;sru:version&gt;1.2&lt;/sru:version&gt;
+   &lt;sru:terms path="//div[@type='diary-day']/p/date/substring(xs:string(@value),1,7)"&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-01&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;30&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-02&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;28&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+        &lt;sru:term&gt;
+        &lt;sru:value&gt;1903-03&lt;/sru:value&gt;
+        &lt;sru:numberOfRecords&gt;31&lt;/sru:numberOfRecords&gt;
+        &lt;/sru:term&gt;
+   &lt;/sru:terms&gt;
+   &lt;sru:extraResponseData&gt;
+        &lt;fcs:countTerms&gt;619&lt;/fcs:countTerms&gt;
+    &lt;/sru:extraResponseData&gt;
+    &lt;sru:echoedScanRequest&gt;
+        &lt;sru:scanClause&gt;diary-month&lt;/sru:scanClause&gt;
+        &lt;sru:maximumTerms&gt;100&lt;/sru:maximumTerms&gt;
+    &lt;/sru:echoedScanRequest&gt;        
+ &lt;/sru:scanResponse&gt;
 </xd:pre>
             </xd:p>
         </xd:desc>
@@ -69,7 +69,44 @@
 -->
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
 <!--    <xsl:param name="scanClause-array" select="tokenize($scanClause,'=')"/>-->
-    
+    <xd:doc>
+        <xd:desc>The index is defined as the part of the scanClause before the '='
+        <xd:p>
+            This is one possibility according to the
+            <xd:a href="http://www.loc.gov/standards/sru/specs/scan.html">SRU documentation</xd:a>.
+            The documentation states that scanClause can be "expressed as a complete index, relation, term clause in CQL". 
+        </xd:p>
+            <xd:p>
+            Note: for the special scan clause fcs.resource this is an empty string.
+            See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-before">.XPath language definition</xd:a>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="index">
+        <xsl:choose>
+            <xsl:when test="substring-before($scanClause,'=')">
+                <xsl:value-of select="substring-before($scanClause,'=')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$scanClause"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
+    <xd:doc>
+        <xd:desc>The filter is defined as the part of the scanClause after the '='
+            <xd:p>
+                This is one possibility according to the
+                <xd:a href="http://www.loc.gov/standards/sru/specs/scan.html">SRU documentation</xd:a>.
+                The documentation states that scanClause can be "expressed as a complete index, relation, term clause in CQL". 
+            </xd:p>
+            <xd:p>
+                Note: for the special scan clause fcs.resource this is an empty string.
+                See <xd:a href="http://www.w3.org/TR/xpath/#function-substring-after">.XPath language definition</xd:a>
+            </xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:param name="startTerm" select="substring-after($scanClause,'=')"/>
+    <xsl:param name="filter" select="''"/>
     <xsl:template name="callback-header">
         <link href="/static/fonts/andika/Andika.css" type="text/css" rel="stylesheet"/>
         <style type="text/css">
@@ -84,9 +121,9 @@
         <link href="{$scripts_url}style/virtual-keyboard.css" type="text/css" rel="stylesheet"/>
         <script type="text/javascript">
             VirtualKeyboard.keys = {
-            "arz_eng_006": ["ʔ", "ā", "ḅ", "ʕ", "ḍ", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"],
-            "apc_eng_002": ["ʔ", "ā", "ḅ", "ʕ", "ḍ", "ḏ", "ē", "ǝ", "ᵊ", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"],
-            "aeb_eng_001__v001":["ʔ", "ā", "ḅ", "ʕ", "ḏ̣", "ḏ", "ē", "ġ", "ǧ", "ḥ", "ī", "ᴵ", "ḷ", "ṃ", "ō", "ṛ", "ṣ", "š", "ṭ", "ṯ", "ū", "ẓ", "ž"], 
+            "arz_eng_006": ["?", "a", "?", "?", "?", "?", "e", "g", "g", "?", "i", "?", "?", "?", "o", "?", "?", "�", "?", "?", "u", "?", "�"],
+            "apc_eng_002": ["?", "a", "?", "?", "?", "?", "e", "?", "?", "g", "g", "?", "i", "?", "?", "?", "o", "?", "?", "�", "?", "?", "u", "?", "�"],
+            "aeb_eng_001__v001":["?", "a", "?", "?", "??", "?", "e", "g", "g", "?", "i", "?", "?", "?", "o", "?", "?", "�", "?", "?", "u", "?", "�"], 
             }
             VirtualKeyboard.keys["aeb_eng_001__v001F"] = VirtualKeyboard.keys["aeb_eng_001__v001"]
             $(document).ready(function(){
@@ -99,7 +136,7 @@
     <xsl:template name="callback-header2"/>
     
     <xsl:template name="continue-root">
-        <div> <!-- class="cmds-ui-block  init-show" -->
+        <div><!-- class="cmds-ui-block  init-show" -->
             <xsl:if test="contains($format, 'page')">
                 <xsl:call-template name="header"/>
             </xsl:if>

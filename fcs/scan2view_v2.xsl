@@ -56,7 +56,7 @@
     <xsl:param name="index" select="$scanClause-array[1]"/>
     <xsl:param name="start-term" select="$scanClause-array[2]"/>
     <xsl:template name="continue-root">
-        <div class="scan-index-{translate($index,'.','-')}"> <!-- class="cmds-ui-block  init-show" -->
+        <div class="scan-index-{translate($index,'.','-')}"><!-- class="cmds-ui-block  init-show" -->
             <xsl:if test="contains($format, 'page') or $parts='header'">
                 <xsl:call-template name="header"/>
             </xsl:if>
@@ -96,13 +96,13 @@
             </xsl:variable>-->
             <div class="hilight">
                 <xsl:value-of select="(//sru:term[1]/sru:extraTermData/fcs:position)[last()]"/>
-                <span class=""> - </span>
+                <span class="" xml:space="preserve"> - </span>
                 <xsl:value-of select="(//sru:term[last()]/sru:extraTermData/fcs:position)[last()]"/>
-                <span class=""> (</span>
+                <span class="" xml:space="preserve"> (</span>
                 <xsl:value-of select="(count(//sru:terms/sru:term) - /sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='top'])"/>
-                <span class="">) / </span><!--                <a class="internal show-all" href="{$show_all-link}" title="Show all">-->
+                <span class="" xml:space="preserve">) / </span><!--                <a class="internal show-all" href="{$show_all-link}" title="Show all">-->
                 <xsl:value-of select="$countTerms"/><!--                </a> -->
-                <xsl:text/>
+                <xsl:text xml:space="preserve"> </xsl:text>
                 <xsl:value-of select="/sru:scanResponse/sru:extraResponseData/fcs:indexLabel"/>
             </div>
         </div>
@@ -256,6 +256,7 @@ sample data:
         </xd:desc>
     </xd:doc>
     <xsl:template name="prev-next-terms">
+        <xsl:param name="generate-disabled" as="xs:boolean" select="true()"/>
         <xsl:if test="(//fcs:countTerms[@level='top'] = 1) or (not(//sru:term//sru:term) or not(exists(//sru:term)))">
             <xsl:variable name="prev_responsePosition" select="if (string(number($maximumTerms)) ne 'NaN') then $maximumTerms + 1 else 0">
             <!--<xsl:choose>
@@ -268,7 +269,7 @@ sample data:
             </xsl:choose>-->
             </xsl:variable>
             <xsl:variable name="first_real_term" select="if (//fcs:countTerms[@level='top'] = 1) then 2 else 1"/>
-            <xsl:variable name="prev_scanClause" select="concat($index, '=%22', replace((//sru:term)[$first_real_term]/sru:value,'\s+','%20'), '%22')"/>
+            <xsl:variable name="prev_scanClause" select="concat($index, '=', replace((//sru:term)[$first_real_term]/sru:value,'\s+','%20'))"/>
             <xsl:variable name="link_prev">
                 <xsl:call-template name="formURL">
                     <xsl:with-param name="responsePosition" select="$prev_responsePosition"/>
@@ -289,12 +290,16 @@ sample data:
                 <xsl:if test="number((//sru:term[last()]/sru:extraTermData/fcs:position)[last()]) &gt;= (number(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total']) - /sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='top'])">disabled</xsl:if>
             </xsl:variable>
             <span class="result-navigation prev-next">
+                <xsl:if test="$generate-disabled or $prev-disabled ne 'disabled'">
                 <a class="internal prev {$prev-disabled}" href="{$link_prev}">
                     <span class="cmd cmd_prev">prev</span>
                 </a>
+                </xsl:if>
+                <xsl:if test="$generate-disabled or $next-disabled ne 'disabled'">
                 <a class="internal next {$next-disabled}" href="{$link_next}">
                     <span class="cmd cmd_next">next</span>
                 </a>
+                </xsl:if>
             </span>
         </xsl:if>
     </xsl:template>

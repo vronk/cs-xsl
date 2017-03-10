@@ -133,7 +133,7 @@
                 </xsl:call-template>
             </xsl:attribute>More info about this database</a>
     </xsl:template>
-   
+
     <xd:doc>
         <xd:desc>Generates a heading and stars the list of possible indexes</xd:desc>
     </xd:doc>

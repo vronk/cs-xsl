@@ -440,7 +440,7 @@
         </xd:desc>
     </xd:doc>
     <xsl:param name="x-filter" select="''"/>
-    
+
     <xd:doc>
         <xd:desc>A URL that returns any contexts an endpoint provides
             <xd:p>
@@ -471,7 +471,7 @@
         <xd:desc>A URL to a file where additional parameters can be specified</xd:desc>
     </xd:doc>
     <xsl:param name="mappings-file" select="''"/>
-    
+
     <xd:doc>
         <xd:desc>A comma separated list of languages the user knows.</xd:desc>
     </xd:doc>
@@ -490,7 +490,7 @@
         <xd:p>So as a service pass this parameter on by appending it to all generated links as is if it is present.</xd:p>
     </xd:doc>
     <xsl:param name="XDEBUG_SESSION_START" select="''"/>
-    
+
     <xd:doc>
         <xd:desc>A file containing translation strings
         <xd:p>

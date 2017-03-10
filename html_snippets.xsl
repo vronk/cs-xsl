@@ -38,24 +38,43 @@
     <xsl:template name="html-head">
         <title>
             <xsl:value-of select="$title"/>
-        </title><xsl:text>&#xA;</xsl:text>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><xsl:text>&#xA;</xsl:text>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:text>&#xA;</xsl:text>
-        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
-        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
-        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/><xsl:text>&#xA;</xsl:text>
+        </title>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
         <script type="text/javascript">
             var xcontext = "<xsl:value-of select="$x-context"/>";
             // set everything that should not have its default falue here before param.js is loaded.
             var switchURL = "<xsl:value-of select="$base_url_public"/>";
             var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
             var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
-        </script><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="scripts/js/params.js"/><xsl:text>&#xA;</xsl:text>
+        </script>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="scripts/js/params.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
     </xsl:template>
-
     <xd:doc>
         <xd:desc>Standard header for the html page
             <xd:p>
@@ -71,38 +90,86 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template name="html-head-bootstrap"><xsl:text>&#xA;</xsl:text>
+    <xsl:template name="html-head-bootstrap">
+        <xsl:text xml:space="preserve">
+</xsl:text>
         <title>
             <xsl:value-of select="$title"/>
-        </title><xsl:text>&#xA;</xsl:text>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><xsl:text>&#xA;</xsl:text>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:text>&#xA;</xsl:text>
-        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
-        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap.min.css"/><xsl:text>&#xA;</xsl:text>
-        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap-theme.min.css"/><xsl:text>&#xA;</xsl:text>
-        <link rel="stylesheet" href="{$scripts_url}style/awesome-bootstrap-checkbox.css"/><xsl:text>&#xA;</xsl:text>
-        <link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/><xsl:text>&#xA;</xsl:text>
-        <link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/><xsl:text>&#xA;</xsl:text>
-        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
-        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/><xsl:text>&#xA;</xsl:text>
-		<link rel="stylesheet" href="{$scripts_url}style/font-awesome-4.6.1/css/font-awesome.min.css"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"></script><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/URI.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.history.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-ui.min.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/><xsl:text>&#xA;</xsl:text>
+        </title>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link href="{$scripts_url}style/jquery/clarindotblue/jquery-ui-1.8.5.custom.css" type="text/css" rel="stylesheet"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap.min.css"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/bootstrap-3.3.6/css/bootstrap-theme.min.css"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/awesome-bootstrap-checkbox.css"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/virtual-keyboard.css"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link rel="stylesheet" href="{$scripts_url}style/dictionaries.css"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link href="{$scripts_url}style/corpusshell.css" type="text/css" rel="stylesheet"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <link href="{$scripts_url}style/cr.css" type="text/css" rel="stylesheet"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+		<link rel="stylesheet" href="{$scripts_url}style/font-awesome-4.6.1/css/font-awesome.min.css"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-1.11.2.min.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.tablesorter.min.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/URI.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.history.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery.selection.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/jquery/jquery-ui.min.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/bootstrap-3.3.6/js/bootstrap.min.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
         <script type="text/javascript">
             var xcontext = "<xsl:value-of select="$x-context"/>";
             // set everything that should not have its default falue here before param.js is loaded.
             var switchURL = "<xsl:value-of select="$base_url_public"/>";
             var templateLocation = "<xsl:value-of select="$scripts_url"/>/js/";
             var xsltParameters = <xsl:value-of select="$parameters_as_json"/>;
-        </script><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/params.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/><xsl:text>&#xA;</xsl:text>
-        <script type="text/javascript" src="{$scripts_url}js/dictionaries.js"/><xsl:text>&#xA;</xsl:text>
+        </script>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/params.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/virtual-keyboard.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
+        <script type="text/javascript" src="{$scripts_url}js/dictionaries.js"/>
+        <xsl:text xml:space="preserve">
+</xsl:text>
         <style>
 		
 		</style>
@@ -373,10 +440,12 @@
                        <!--     </td>
                             <td>
                        -->
-                    <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
-                    <div class="loader"><img src="{$scripts_url}/style/img/ajax-loader.gif"/></div>
+                        <input class="btn btn-default" type="submit" value="submit" id="submit-query"/>
+                        <div class="loader">
+                            <img src="{$scripts_url}/style/img/ajax-loader.gif"/>
+                        </div>
                     </fieldset>
-                    
+                    <xsl:call-template name="additional-search-ui-controls"/>
                     <!--<xsl:call-template name="br"/>-->
                                 <!--<span id="switch-input" class="cmd"/>
                                 <label>Complex query</label>-->

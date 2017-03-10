@@ -209,9 +209,8 @@
       <xsl:text> </xsl:text>
     </xsl:if>
   </xsl:template>
-  
+
   <xsl:template match="tei:kinesic" mode="record-data">
     <span class="tei-kinesic"><xsl:value-of select="tei:desc"/></span>
   </xsl:template>
-
 </xsl:stylesheet>

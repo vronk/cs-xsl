@@ -30,7 +30,7 @@
         </xsl:choose>
     </xsl:param>
     
-    <xsl:param name="audioListURl">http://minerva.arz.oeaw.ac.at/static/audio/words/aeb_eng_001__v001/Ines_Gabsi/list.xspf</xsl:param>
+    <xsl:param name="audioListURl">https://minerva.arz.oeaw.ac.at/static/audio/words/aeb_eng_001__v001/Ines_Gabsi/list.xspf</xsl:param>
     <xsl:variable name="audiolist" select="exsl:node-set(document($audioListURl))"/>
 
     <xsl:output indent="no" method="text" media-type="text/csv" encoding="UTF-8"/>
