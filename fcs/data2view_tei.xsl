@@ -654,11 +654,6 @@
         <h2>
             <xsl:apply-templates mode="record-data"/>
         </h2>
-    </xsl:template>--> <xsl:template
-        match="tei:ref[contains(@target, '.JPG') or contains(@target, '.jpg') or contains(@target, '.PNG') or contains(@target, '.PNG')]"
-        mode="record-data">
-        <!--    <xsl:template match="tei:ref[contains(@target, '.jpg')]" mode="record-data">-->
-        <xsl:call-template name="generateImg"/>
     </xsl:template>
     <xd:doc>
         <xd:desc>some special elements retained in data, due to missing correspondencies in tei if
@@ -1063,29 +1058,6 @@
             </xsl:otherwise> </xsl:choose>
     </xsl:template>
     <xd:doc>
-        <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by
-            the facs data view. <xd:p>Supersede this if you want to change the default lookup path
-                for example.</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="generateImgHTMLTags">
-        <xsl:param name="ref" select="@ref"/>
-        <xsl:param name="altText" select="@target"/>
-        <xsl:choose>
-            <xsl:when test="$ref">
-                <img src="{$ref}" alt="{$ref}"/>
-            </xsl:when>
-            <xsl:when
-                test="starts-with(@target, 'http://') or starts-with(@target, '/') or starts-with(@target, 'https://')">
-                <img src="{@target}" alt="{$altText}"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="cs-xsl-error">You need to supersede the generateImgHTMLTags template in
-                    your project's XSL customization!</span>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    <xd:doc>
         <xd:desc>Generates audio tags from ref or ptr. Generic handler for audio file references
             passed by the facs data view. <xd:p>Supersede this if you want to change the default
                 lookup path for example.</xd:p>
@@ -1115,49 +1087,6 @@
         </xd:desc>
     </xd:doc>
     <xd:doc>
-        <xd:desc>Special handling of target declarations that point to other resources <xd:p> Note:
-                You most likely have to supply you're own logic by superseding this. </xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="generateTarget">
-        <xsl:param name="linkText" select="'Click here'"/>
-        <xsl:choose>
-            <xsl:when test="starts-with(@target, 'http://') or starts-with(@target, 'https://')">
-                <a href="{@target}" target="_blank">
-                    <xsl:value-of select="$linkText"/>
-                </a>
-            </xsl:when>
-            <xsl:when test="starts-with(@target, '/')">
-                <a href="{@target}" class="value-caller">
-                    <xsl:value-of select="$linkText"/>
-                </a>
-            </xsl:when>
-            <xsl:when test="contains(@target, '|')">
-                <xsl:variable name="linkTarget">
-                    <xsl:call-template name="formURL">
-                        <xsl:with-param name="action">searchRetrieve</xsl:with-param>
-                        <xsl:with-param name="q" select="substring-after(@target, '|')"/>
-                        <xsl:with-param name="x-context" select="substring-before(@target, '|')"/>
-                    </xsl:call-template>
-                </xsl:variable>
-                <a href="{$linkTarget}" class="search-caller">
-                    <xsl:value-of select="$linkText"/>
-                </a>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:variable name="linkTarget">
-                    <xsl:call-template name="formURL">
-                        <xsl:with-param name="action">explain</xsl:with-param>
-                        <xsl:with-param name="x-context" select="@target"/>
-                        <xsl:with-param name="q" select="@target"/>
-                    </xsl:call-template>
-                </xsl:variable>
-                <a href="{$linkTarget}" class="value-caller">
-                    <xsl:value-of select="$linkText"/>
-                </a>
-            </xsl:otherwise> </xsl:choose>
-    </xsl:template>
-    <xd:doc>
         <xd:desc>Generates img tags from ref or ptr. Generic handler for image references passed by
             the facs data view. <xd:p>Supersede this if you want to change the default lookup path
                 for example.</xd:p>
@@ -1179,28 +1108,6 @@
                     your project's XSL customization!</span>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
-    <xd:doc>
-        <xd:desc>Generates audio tags from ref or ptr. Generic handler for audio file references
-            passed by the facs data view. <xd:p>Supersede this if you want to change the default
-                lookup path for example.</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template name="generateAudioHTMLTags">
-        <xsl:param name="ref" select="@ref"/>
-        <xsl:param name="sourceType" select="local-name(.)"/>
-        <xsl:param name="mimeType" select="'audio/mp4'"/>
-        <span>
-            <xsl:attribute name="class">
-                <xsl:value-of select="concat('xsl-audio xsl-outer ', $sourceType)"/>
-            </xsl:attribute>
-            <div class="xsl-audio xsl-inner">
-                <audio controls="controls" preload="none">
-                    <source src="{$ref}" type="{$mimeType}"/>
-                    <a href="{$ref}">Download</a>
-                </audio>
-            </div>
-        </span>
     </xsl:template>
     <xd:doc>
         <xd:desc>tei:table elements are mapped to html:table elements <xd:p>Note: These elements are

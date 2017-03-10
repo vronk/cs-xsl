@@ -4,7 +4,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0"
     xmlns:exist="http://exist.sourceforge.net/NS/exist"
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exsl="http://exslt.org/common"
-    version="1.0" exclude-result-prefixes="cr kwic xsl tei sru xs fcs exist xd exsl">
+    xmlns:hits="http://clarin.eu/fcs/dataview/hits"
+    version="1.0" exclude-result-prefixes="cr kwic xsl tei sru xs fcs exist xd exsl hits">
     <xd:doc scope="stylesheet">
         <xd:desc>Provides more specific handling of sru-result-set recordData <xd:p>History: <xd:ul>
                     <xd:li>2013-04-17: created by: "m": </xd:li>
