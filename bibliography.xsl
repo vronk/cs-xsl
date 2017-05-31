@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:html="http://www.w3.org/1999/xhtml"
@@ -10,7 +10,7 @@
   <xsl:import href="fcs/result2view_v1.xsl"/>
     <xsl:output method="html" media-type="text/xhtml" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
   <xsl:template name="getTitle">
-    <xsl:text>&#xa0;</xsl:text>
+    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
   </xsl:template>
   
   <xd:doc>
@@ -23,4 +23,15 @@
     <xsl:apply-templates select=".//fcs:DataView[not(@type='metadata')]" mode="record-data"/>
     <xsl:apply-templates select=".//fcs:DataView[@type='metadata']" mode="record-data"/>
   </xsl:template>
+  
+  <xsl:template match="sru:records[count(sru:record)]" mode="table">
+    <div class="result-body scrollable-content-box">
+      <table class="show">
+        <tbody>
+          <xsl:apply-templates select="sru:record" mode="table"/>
+        </tbody>
+      </table>
+    </div>
+  </xsl:template>
+  
 </xsl:stylesheet>

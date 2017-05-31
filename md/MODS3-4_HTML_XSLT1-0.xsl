@@ -101,13 +101,6 @@
                     </xsl:with-param>
                 </xsl:call-template>
             </xsl:for-each>
-            <xsl:if test="@edition"> Edition <xsl:value-of select="@edition"/>
-            </xsl:if>)</xsl:if>
-        <xsl:variable name="attrStr">
-            <xsl:for-each select="@*[local-name()!='edition' and local-name()!='type' and local-name()!='authority' and local-name()!='point']">
-                <xsl:value-of select="local-name()"/>="<xsl:value-of select="."/>", </xsl:for-each>
-        </xsl:variable>
-        <xsl:variable name="nattrStr" select="normalize-space($attrStr)"/>
-        <xsl:if test="string-length($nattrStr)"> (<xsl:value-of select="substring($nattrStr,1,string-length($nattrStr)-1)"/>)</xsl:if>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

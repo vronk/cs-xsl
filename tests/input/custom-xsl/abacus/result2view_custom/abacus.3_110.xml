@@ -1,0 +1,323 @@
+<sru:searchRetrieveResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>fcs.rf="abacus.5_234"</sru:query>
+        <fcs:x-context xmlns:fcs="http://clarin.eu/fcs/1.0">abacus</fcs:x-context>
+        <fcs:x-dataview xmlns:fcs="http://clarin.eu/fcs/1.0">title,cite,navigation,full,facs</fcs:x-dataview>
+        <sru:startRecord>1</sru:startRecord>
+        <sru:maximumRecords>10</sru:maximumRecords>
+        <sru:query>fcs.rf="abacus.5_234"</sru:query>
+        <sru:baseUrl/>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords xmlns:fcs="http://clarin.eu/fcs/1.0">1</fcs:returnedRecords>
+        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.01S PT0.17S</fcs:duration>
+        <fcs:transformedQuery xmlns:fcs="http://clarin.eu/fcs/1.0">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.5_234&lt;/phrase&gt;&lt;/query&gt;)]</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="abacus.5" ref="?operation=searchRetrieve&amp;query=fcs.resource=&#34;abacus.5&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="abacus.5_234" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_234&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d23e107047">
+                        <fcs:DataView type="title">Lösch Wienn, S. 210</fcs:DataView>
+                        <fcs:DataView type="cite">
+                            <bibl>
+                                <p>Zitation: <br/>Abraham â Sancta Clara: Lösch Wienn. Wien, 1680. (Digitale Ausgabe) S. 210. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;/abacus/get/abacus.5_234&gt; abgerufen am 19. 11. 2015</p>
+                            </bibl>
+                        </fcs:DataView>
+                        <fcs:DataView type="navigation">
+                            <fcs:ResourceFragment type="prev" pid="abacus.5_233" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_233&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus" label="S. 209"/>
+                            <fcs:ResourceFragment type="next" pid="abacus.5_235" ref="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_235&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus" label="S. 211"/>
+                        </fcs:DataView>
+                        <fcs:DataView type="full">
+                            <tei:TEI xmlns:cr="http://aac.ac.at/content_repository" xmlns:tei="http://www.tei-c.org/ns/1.0" cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e2">
+                                <tei:text cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e3" ana="#prose" type="book">
+                                    <tei:body cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e5700">
+                                        <tei:div cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e93711" n="Danck Der Verstorbnen Wien̅er." type="chapter">
+                                            <tei:p cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106868" rend="indent">
+                                                <tei:pb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106967" facs="Abraham-Loesch_Wienn_n0210.jpg" n="S. 210" xml:id="LW_n0210"/>
+                                                <tei:fw cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106968" type="header">
+                                                    <tei:fw cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106969" n="210" place="top_center" type="pageNum">
+                                                        <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106970" type="ornament">✾</tei:seg> 210 <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106973" type="ornament">✾</tei:seg>
+                                                    </tei:fw>
+                                                </tei:fw>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106975" rend="line"/>
+                                                <tei:persName cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106976" type="bibl" key="lucas">
+                                                    <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106977" rend="antiqua">
+                                                        <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106978" cr:w="23875" lemma="Lukas" type="NE" xml:id="LW_d1e108459" cr:wf="Lucas" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Lucas</tei:w>
+                                                    </tei:seg>
+                                                </tei:persName>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106980" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106982" cr:w="23876" lemma="schreiben" type="VVFIN" xml:id="LW_d1e108463" cr:wf="schreibt" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">schreibt</tei:w>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106984" cr:w="23877" type="final" xml:id="LW_d1e108466">:</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106986" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:ref cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106988" target="#note39" type="noteAnchor">
+                                                    <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106989" rend="antiqua">
+                                                        <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106990" cr:w="23878" type="internal" xml:id="LW_d1e108472">(</tei:pc>
+                                                        <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106992" cr:w="23879" lemma="f" type="XY" xml:id="LW_d1e108474" cr:wf="f" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">f</tei:w>
+                                                        <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106994" cr:w="23880" type="internal" xml:id="LW_d1e108476">)</tei:pc>
+                                                    </tei:seg>
+                                                </tei:ref>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106996" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e106999" cr:w="23881" lemma="ein" type="ART" xml:id="LW_d1e108480" cr:wf="Ein" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Ein</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107001" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107003" cr:w="23882" lemma="reich" type="ADJA" xml:id="LW_d1e108484" cr:wf="reicher" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">reicher</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107005" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107007"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107008" cr:w="23883" lemma="Herr" type="NN" xml:id="LW_d1e108489" cr:wf="Herr" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Herr</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107010" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107012" cr:w="23884" lemma="haben" type="VAFIN" xml:id="LW_d1e108494" cr:wf="hatte" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">hatte</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107014" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107016" cr:w="23885" lemma="ein" type="ART" xml:id="LW_d1e108498" cr:wf="einen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">einen</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107018" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107021" cr:w="23886" lemma="bedienen" type="NN" xml:id="LW_d1e108502" cr:wf="Bedienten" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Bedienten</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107023" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107025" cr:w="23887" lemma="und" type="KON" xml:id="LW_d1e108506" cr:wf="vnd" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">vnd</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107027" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107029"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107030" cr:w="23888" lemma="Verwalter" type="NN" xml:id="LW_d1e108511" cr:wf="Verwalter" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Verwalter</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107032" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107034" cr:w="23889" type="internal" xml:id="LW_d1e108516">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107036" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107038" cr:w="23890" lemma="d" type="PRELS" xml:id="LW_d1e108520" cr:wf="der" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">der</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107040" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107043" cr:w="23891" lemma="aber" type="ADV" xml:id="LW_d1e108524" cr:wf="aber" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">aber</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107045" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107047" cr:w="23892" lemma="gar" type="ADV" xml:id="LW_d1e108528" cr:wf="gar" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">
+                                                    <exist:match xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exist="http://exist.sourceforge.net/NS/exist">gar</exist:match>
+                                                </tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107049" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107051" cr:w="23893" lemma="ein" type="ART" xml:id="LW_d1e108532" cr:wf="ein" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">ein</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107053" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107055"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107056" cr:w="23894" lemma="schlecht" type="ADJA" xml:id="LW_d1e108538" cr:wf="schlechte" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">schlechte</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107058" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107060" cr:w="23895" lemma="Wirtschaft" type="NN" xml:id="LW_d1e108542" cr:wf="Wirthschafft" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Wirthschafft</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107062" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107065" cr:w="23896" lemma="führen" type="VVFIN" xml:id="LW_d1e108546" cr:wf="führte" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">führte</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107067" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107069" cr:w="23897" type="internal" xml:id="LW_d1e108550">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107071" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107073"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107074" cr:w="23898" lemma="und" type="KON" xml:id="LW_d1e108555" cr:wf="vnd" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">vnd</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107076" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107078" cr:w="23899" lemma="all" type="PIAT" xml:id="LW_d1e108560" cr:wf="allem" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">allem</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107080" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107082" cr:w="23900" lemma="Ansehen" type="NN" xml:id="LW_d1e108564" cr:wf="Ansehen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Ansehen</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107084" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107087" cr:w="23901" lemma="nach" type="APPO" xml:id="LW_d1e108568" cr:wf="nach" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">nach</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107089" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107091" cr:w="23902" lemma="tun" type="VVFIN" xml:id="LW_d1e108572" cr:wf="thäte" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">thäte</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107093" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107095" cr:w="23903" lemma="er" type="PPER" xml:id="LW_d1e108576" cr:wf="er" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">er</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107097" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107099"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107100" cr:w="23904" lemma="alles" type="PIS" xml:id="LW_d1e108582" cr:wf="alles" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">alles</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107102" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107104" cr:w="23905" lemma="durch" type="APPR" xml:id="LW_d1e108586" cr:wf="durch" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">durch</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107106" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107109" cr:w="23906" lemma="jausen" type="NN" xml:id="LW_d1e108590" cr:wf="Jausen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Jausen</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107111" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107113" cr:w="23907" type="internal" xml:id="LW_d1e108594">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107115" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107117" cr:w="23908" lemma="sausen" type="NN" xml:id="LW_d1e108598" cr:wf="Sausen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Sausen</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107119" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107121" cr:w="23909" type="internal" xml:id="LW_d1e108602">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107123" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107125" cr:w="23910" lemma="und" type="KON" xml:id="LW_d1e108607" cr:wf="vnd" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">vnd</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107127" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107129"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107131" cr:w="23911" lemma="schmausen" type="NN" xml:id="LW_d1e108612" cr:wf="Schmausen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Schmausen</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107133" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107135" cr:w="23912" lemma="verhausen" type="VVINF" xml:id="LW_d1e108616" cr:wf="verhaussen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">verhaussen</tei:w>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107137" cr:w="23913" type="final" xml:id="LW_d1e108618">;</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107139" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107141" cr:w="23914" lemma="wie" type="KOUS" xml:id="LW_d1e108622" cr:wf="Wie" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Wie</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107143" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107145"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107146" cr:w="23915" lemma="aber" type="ADV" xml:id="LW_d1e108628" cr:wf="aber" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">aber</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107148" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107150" cr:w="23916" lemma="solch" type="PIS" xml:id="LW_d1e108632" cr:wf="solches" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">solches</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107153" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107155" cr:w="23917" lemma="d" type="ART" xml:id="LW_d1e108636" cr:wf="dem" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">dem</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107157" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107159" cr:w="23918" lemma="Herr" type="NN" xml:id="LW_d1e108640" cr:wf="Herrn" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Herrn</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107161" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107163" cr:w="23919" lemma="zu" type="APPR" xml:id="LW_d1e108644" cr:wf="zu" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">zu</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107165" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107167" cr:w="23920" lemma="Ohr" type="NN" xml:id="LW_d1e108649" cr:wf="Ohren" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Oh<tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107169" break="no" type="d"/>ren</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107171" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107173" cr:w="23921" lemma="kommen" type="VVPP" xml:id="LW_d1e108656" cr:wf="kommen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">kommen</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107175" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107178" cr:w="23922" type="internal" xml:id="LW_d1e108660">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107180" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107182" cr:w="23923" lemma="anschaffen" type="VVFIN" xml:id="LW_d1e108664" cr:wf="schaffte" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">schaffte</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107184" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107186" cr:w="23924" lemma="er" type="PPER" xml:id="LW_d1e108668" cr:wf="er" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">er</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107188" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107190" cr:w="23925" lemma="gleich" type="ADV" xml:id="LW_d1e108673" cr:wf="gleich" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">gleich</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107192" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107194"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107195" cr:w="23926" lemma="an" type="PTKVZ" xml:id="LW_d1e108678" cr:wf="an" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">an</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107197" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107200" cr:w="23927" lemma="ein" type="ART" xml:id="LW_d1e108682" cr:wf="ein" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">ein</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107202" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107204" cr:w="23928" lemma="schleunig" type="ADJA" xml:id="LW_d1e108686" cr:wf="schleunige" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">schleunige</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107206" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107208" cr:w="23929" lemma="Reitung" type="NN" xml:id="LW_d1e108690" cr:wf="Raittung" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Raittung</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107210" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107212" cr:w="23930" type="internal" xml:id="LW_d1e108695">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107214" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107216" cr:w="23931" lemma="und" type="KON" xml:id="LW_d1e108699" cr:wf="vnd" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">vnd</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107218" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107220"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107222" cr:w="23932" lemma="nach" type="APPR" xml:id="LW_d1e108704" cr:wf="nach" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">nach</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107224" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107226" cr:w="23933" lemma="diese" type="PDS" xml:id="LW_d1e108708" cr:wf="diser" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">diser</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107228" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107230" cr:w="23934" lemma="d" type="ART" xml:id="LW_d1e108712" cr:wf="den" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">den</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107232" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107234" cr:w="23935" lemma="Abschied" type="NN" xml:id="LW_d1e108717" cr:wf="Abschied" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Abschied</tei:w>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107236" cr:w="23936" type="final" xml:id="LW_d1e108719">;</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107238" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107240" cr:w="23937" lemma="d" type="ART" xml:id="LW_d1e108723" cr:wf="der" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">der</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107242" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107245" cr:w="23938" lemma="gut" type="ADJA" xml:id="LW_d1e108727" cr:wf="gute" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">gute</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107247" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107249"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107250" cr:w="23939" lemma="Tropf" type="NN" xml:id="LW_d1e108732" cr:wf="Tropff" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Tropff</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107252" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107254" cr:w="23940" lemma="kratzen" type="VVFIN" xml:id="LW_d1e108737" cr:wf="kratzte" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">kratzte</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107256" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107258" cr:w="23941" lemma="er" type="PRF" xml:id="LW_d1e108741" cr:wf="sich" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">sich</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107260" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107262" cr:w="23942" lemma="dessenthalben" type="PAV" xml:id="LW_d1e108745" cr:wf="dessenthalben" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">dessenthalben</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107264" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107267"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107268" cr:w="23943" lemma="hinter" type="APPR" xml:id="LW_d1e108750" cr:wf="hinter" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">hinter</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107270" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107272" cr:w="23944" lemma="d" type="ART" xml:id="LW_d1e108754" cr:wf="den" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">den</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107274" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107276" cr:w="23945" lemma="Ohr" type="NN" xml:id="LW_d1e108759" cr:wf="Ohren" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Ohren</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107278" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107280" cr:w="23946" type="internal" xml:id="LW_d1e108763">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107282" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107284" cr:w="23947" lemma="machen" type="VVFIN" xml:id="LW_d1e108767" cr:wf="machte" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">machte</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107286" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107289" cr:w="23948" lemma="er" type="PRF" xml:id="LW_d1e108771" cr:wf="ihm" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">ihm</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107291" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107293"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107294" cr:w="23949" lemma="selbst" type="ADV" xml:id="LW_d1e108776" cr:wf="selbst" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">selbst</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107296" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107298" cr:w="23950" lemma="unterschiedlich" type="ADJA" xml:id="LW_d1e108781" cr:wf="vnterschidliche" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">vnterschidliche</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107300" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107302" cr:w="23951" lemma="Gedanke" type="NN" xml:id="LW_d1e108785" cr:wf="Gedancken" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Gedancken</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107304" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107306" cr:w="23952" type="internal" xml:id="LW_d1e108789">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107308" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107311"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107312" cr:w="23953" lemma="wie" type="PWAV" xml:id="LW_d1e108794" cr:wf="wie" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">wie</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107314" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107316" cr:w="23954" type="internal" xml:id="LW_d1e108798">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107318" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107320" cr:w="23955" lemma="wo" type="PWAV" xml:id="LW_d1e108803" cr:wf="wo" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">wo</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107322" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107324" cr:w="23956" type="internal" xml:id="LW_d1e108807">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107326" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107328" cr:w="23957" lemma="wann" type="PWAV" xml:id="LW_d1e108811" cr:wf="wann" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">wann</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107330" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107333" cr:w="23958" type="internal" xml:id="LW_d1e108815">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107335" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107337" cr:w="23959" lemma="was" type="PWS" xml:id="LW_d1e108819" cr:wf="was" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">was</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107339" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107341" cr:w="23960" lemma="er" type="PPER" xml:id="LW_d1e108823" cr:wf="er" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">er</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107343" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107345" cr:w="23961" lemma="sollen" type="VMFIN" xml:id="LW_d1e108828" cr:wf="solle" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">solle</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107347" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107349"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107350" cr:w="23962" lemma="und" type="KON" xml:id="LW_d1e108833" cr:wf="vnd" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">vnd</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107352" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107355" cr:w="23963" lemma="wollen" type="VMFIN" xml:id="LW_d1e108837" cr:wf="wolle" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">wolle</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107357" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107359" cr:w="23964" lemma="anfangen" type="VVINF" xml:id="LW_d1e108841" cr:wf="anfangen" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">anfangen</tei:w>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107361" cr:w="23965" type="final" xml:id="LW_d1e108843">?</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107363" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107365" cr:w="23966" lemma="denn" type="KOUS" xml:id="LW_d1e108848" cr:wf="dann" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">dann</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107367" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107369" cr:w="23967" lemma="zu_betteln" type="PTKZU_VVINF" xml:id="LW_d1e108852" cr:wf="zubetlen" cr:posType="postax:cf2" cr:posSubtype="postax:cf2">zu<tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107371" break="no" type="d"/>betlen</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107373" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107375" cr:w="23968" lemma="schämen" type="VVFIN" xml:id="LW_d1e108859" cr:wf="schäme" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">schäme</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107377" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107380" cr:w="23969" lemma="er" type="PPER" xml:id="LW_d1e108863" cr:wf="er" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">er</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107382" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107384" cr:w="23970" lemma="er" type="PRF" xml:id="LW_d1e108867" cr:wf="sich" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">sich</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107386" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107388" cr:w="23971" type="internal" xml:id="LW_d1e108872">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107390" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107392" cr:w="23972" lemma="weil" type="KOUS" xml:id="LW_d1e108876" cr:wf="weil" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">weil</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107394" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107396" cr:w="23973" lemma="er" type="PPER" xml:id="LW_d1e108880" cr:wf="ihm" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">ihm</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107398" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107400"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107402" cr:w="23974" lemma="vorhero" type="ADV" xml:id="LW_d1e108885" cr:wf="vorhero" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">vorhero</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107404" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107406" cr:w="23975" lemma="d" type="ART" xml:id="LW_d1e108889" cr:wf="die" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">die</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107408" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107410" cr:w="23976" lemma="Bauer" type="NN" xml:id="LW_d1e108894" cr:wf="Bauren" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Bauren</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107412" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107414" cr:w="23977" lemma="ihr" type="PPOSAT" xml:id="LW_d1e108898" cr:wf="Jhr" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Jhr</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107416" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107418" cr:w="23978" lemma="Gestrenge" type="NN" xml:id="LW_d1e108902" cr:wf="Gestreng" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Gestreng</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107420" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107422"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107424" cr:w="23979" lemma="schelten" type="VVPP" xml:id="LW_d1e108907" cr:wf="gescholten" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">gescholten</tei:w>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107426" cr:w="23980" type="final" xml:id="LW_d1e108909">;</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107428" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107430" cr:w="23981" lemma="zum" type="APPRART" xml:id="LW_d1e108914" cr:wf="zum" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">zum</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107432" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107434" cr:w="23982" lemma="arbeiten" type="NN" xml:id="LW_d1e108918" cr:wf="arbeiten" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">arbeiten</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107436" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107438" cr:w="23983" lemma="taugen" type="VVFIN" xml:id="LW_d1e108922" cr:wf="taug" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">taug</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107440" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107442" cr:w="23984" lemma="er" type="PPER" xml:id="LW_d1e108926" cr:wf="er" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">er</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107444" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107447"/>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107448" cr:w="23985" lemma="nicht" type="PTKNEG" xml:id="LW_d1e108931" cr:wf="nicht" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">nicht</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107450" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:pc cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107452" cr:w="23986" type="internal" xml:id="LW_d1e108936">/</tei:pc>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107454" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107456" cr:w="23987" lemma="denn" type="KOUS" xml:id="LW_d1e108940" cr:wf="dann" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">dann</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107458" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107460" cr:w="23988" lemma="er" type="PPER" xml:id="LW_d1e108944" cr:wf="ihme" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">ihme</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107462" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107464" cr:w="23989" lemma="Blatter" type="NN" xml:id="LW_d1e108948" cr:wf="Blattern" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">Blattern</tei:w>
+                                                <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107466" type="whitespace" xml:space="preserve"> </tei:seg>
+                                                <tei:w cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107469" cr:w="23990" lemma="auffahren" type="VVFIN" xml:id="LW_d1e108952" cr:wf="auffahren" cr:posType="postax:stdstts" cr:posSubtype="postax:stdstts">auf<tei:lb cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107471" break="no" type="d"/>
+                                                    <tei:fw cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107472" place="bot_right" type="catch">fahren</tei:fw>
+                                                    <tei:note cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107474" place="bottom" type="footnote" xml:id="LW_note39">
+                                                        <tei:p cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107475" rend="indent">
+                                                            <tei:seg cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107476" rend="antiqua">(f) <tei:bibl cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107478">
+                                                                    <tei:persName cr:project-id="abacus" cr:resource-pid="abacus.5" cr:id="abacus.5.d23e107479" type="bibl" key="lucas">Luc.</tei:persName> 16.</tei:bibl>
+                                                            </tei:seg>
+                                                        </tei:p>
+                                                    </tei:note>
+                                                </tei:w>
+                                            </tei:p>
+                                        </tei:div>
+                                    </tei:body>
+                                </tei:text>
+                            </tei:TEI>
+                        </fcs:DataView>
+                        <fcs:DataView type="facs" ref="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_n0210.jpg"/>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="abacus.5_234"&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=abacus.5.d23e107047</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+</sru:searchRetrieveResponse>

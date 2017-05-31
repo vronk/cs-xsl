@@ -22,6 +22,9 @@
             <xsl:when test=".//zr:name='sense'">
                 =Wasser
             </xsl:when>
+            <xsl:when test=".//zr:name='unit'">
+                1
+            </xsl:when>
             <xsl:otherwise>
                 =water
             </xsl:otherwise>
@@ -46,7 +49,7 @@
                 <img src="{@target}" alt="{$altText}"/>
             </xsl:when>
             <xsl:otherwise>
-                <img src="http://corpus3.aac.ac.at/static/images/vicav/{@target}" alt="{@target}"/>
+                <img src="https://minerva.arz.oeaw.ac.at/static/images/vicav/{@target}" alt="{@target}"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -79,7 +82,7 @@
                     contains(@target, '.png')]/@target, ');')"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat('background-image:url(http://corpus3.aac.ac.at/static/images/vicav/', .//tei:front/tei:div/tei:ref[contains(@target, '.JPG') or 
+                <xsl:value-of select="concat('background-image:url(https://minerva.arz.oeaw.ac.at/static/images/vicav/', .//tei:front/tei:div/tei:ref[contains(@target, '.JPG') or 
                     contains(@target, '.jpg') or
                     contains(@target, '.PNG') or
                     contains(@target, '.png')]/@target, ');')"/>

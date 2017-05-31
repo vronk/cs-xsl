@@ -1,0 +1,1000 @@
+<sru:searchRetrieveResponse xmlns="http://www.tei-c.org/ns/1.0" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>98</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>ayy</sru:query>
+        <fcsm:x-context xmlns:fcsm="http://clarin.eu/fcs/1.0">aeb_eng_001__v001</fcsm:x-context>
+        <fcsm:x-dataview xmlns:fcsm="http://clarin.eu/fcs/1.0">kwic,title</fcsm:x-dataview>
+        <sru:baseUrl>http://127.0.0.1/vicav2/corpus_shell/modules/mysqlonsru/GlossaryOnSRU.php</sru:baseUrl>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcsm:returnedRecords xmlns:fcsm="http://clarin.eu/fcs/1.0">10</fcsm:returnedRecords>
+        <fcsm:numberOfMatches xmlns:fcsm="http://clarin.eu/fcs/1.0"/>
+        <fcsm:duration xmlns:fcsm="http://clarin.eu/fcs/1.0">0.0</fcsm:duration>
+        <fcsm:transformedQuery xmlns:fcsm="http://clarin.eu/fcs/1.0">SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM aeb_eng_001__v001 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM aeb_eng_001__v001_ndx AS tab INNER JOIN (SELECT inner.id FROM aeb_eng_001__v001_ndx AS `inner` WHERE inner.txt = 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id WHERE tab.txt != '-') AS ndx WHERE ndx.txt LIKE '%ayy%') AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcsm:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="ayy_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">ayy</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                </form>
+                                <form type="variant">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">īh</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">responseParticle</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">ʔy</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>yes</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>ja</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>oui</quote>
+                                    </cit>
+                                    <xr>
+                                        <bibl type="tunisCourse">2</bibl>
+                                    </xr>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_02_17"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_17"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="cayyish_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">ʕayyiš</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">verb</gram>
+                                    <gram type="subc">II</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">ʕyš</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#v_pres_sg_p3">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">yʕayyiš</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>to grant a long life (God)</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>ein langes Leben geben (Gott)</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>donner une longue vie (Dieu)</quote>
+                                    </cit>
+                                    <cit type="example">
+                                        <note type="tasks"/>
+                                        <quote xml:lang="ar-aeb-x-tunis-vicav">yʕayyšik</quote>
+                                        <bibl>Ritt-Benmimoun 2014</bibl>
+                                        <cit type="translation" xml:lang="en">
+                                            <quote>Thank you!</quote>
+                                        </cit>
+                                        <cit type="literalTranslation" lang="en">
+                                            <quote>May He (God) let you live.; May He give you a long life.</quote>
+                                        </cit>
+                                        <cit type="translation" xml:lang="de">
+                                            <quote>Danke!</quote>
+                                        </cit>
+                                        <cit type="literalTranslation" lang="de">
+                                            <quote>Er (Gott) lasse dich leben.; Er gebe dir ein langes Leben.</quote>
+                                        </cit>
+                                        <cit type="translation" xml:lang="fr">
+                                            <quote>Merci!</quote>
+                                        </cit>
+                                        <cit type="literalTranslation" lang="fr">
+                                            <quote>Qu’il (Dieu) te laisse vivre.; Qu’il te donne une longue vie.</quote>
+                                        </cit>
+                                        <fs type="create">
+                                            <f name="who">
+                                                <symbol value="stephan"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_06_17"/>
+                                            </f>
+                                            <f name="status">
+                                                <symbol value="released"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="stephan"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_06_17"/>
+                                            </f>
+                                            <f name="status">
+                                                <symbol value="released"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="inesd"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_06_23"/>
+                                            </f>
+                                            <f name="status">
+                                                <symbol value="released"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="inesd"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_06_24"/>
+                                            </f>
+                                            <f name="status">
+                                                <symbol value="released"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="inesd"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_11_05"/>
+                                            </f>
+                                        </fs>
+                                    </cit>
+                                    <cit type="example">
+                                        <quote xml:lang="ar-aeb-x-tunis-vicav">yʕayyiš wildi</quote>
+                                        <bibl>Ritt-Benmimoun 2014</bibl>
+                                        <cit type="translation" xml:lang="en">
+                                            <quote>Thank you, my dear!</quote>
+                                        </cit>
+                                        <cit type="literalTranslation" lang="en">
+                                            <quote>May He (God) grant a long life for my son.</quote>
+                                        </cit>
+                                        <cit type="translation" xml:lang="de">
+                                            <quote>Danke, mein Lieber!</quote>
+                                        </cit>
+                                        <cit type="literalTranslation" lang="de">
+                                            <quote>Er (Gott) lasse meinen Sohn lange leben.</quote>
+                                        </cit>
+                                        <cit type="translation" xml:lang="fr">
+                                            <quote>Merci, mon cher!</quote>
+                                        </cit>
+                                        <cit type="literalTranslation" lang="de">
+                                            <quote>Que Dieu donne une longue vie à mon fils.</quote>
+                                        </cit>
+                                        <fs type="create">
+                                            <f name="who">
+                                                <symbol value="stephan"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_06_17"/>
+                                            </f>
+                                            <f name="status">
+                                                <symbol value="released"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="stephan"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_06_17"/>
+                                            </f>
+                                            <f name="status">
+                                                <symbol value="released"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="inesd"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_06_24"/>
+                                            </f>
+                                            <f name="status">
+                                                <symbol value="released"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="inesd"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_10_24"/>
+                                            </f>
+                                        </fs>
+                                        <fs type="change">
+                                            <f name="who">
+                                                <symbol value="inesd"/>
+                                            </f>
+                                            <f name="when">
+                                                <symbol value="2014_11_05"/>
+                                            </f>
+                                        </fs>
+                                    </cit>
+                                </sense>
+                                <xr>
+                                    <bibl type="tunisCourse">1</bibl>
+                                </xr>
+                                <fs type="create">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_17"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_17"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_17"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_11_23"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>2</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="ay_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">ay</orth>
+                                    <form type="variant">
+                                        <orth xml:lang="ar-aeb-x-tunis-vicav">ayya</orth>
+                                    </form>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">adverb</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-vicav">ʔyy</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>right then, well; yes!</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>(na) dann, also; doch!</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>bon, alors; si (fait)!</quote>
+                                    </cit>
+                                    <xr>
+                                        <bibl type="tunisCourse">1</bibl>
+                                    </xr>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_10"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_07_02"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_07_23"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_07_23"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>3</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="bnayya_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bnayya</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">bnt</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bnāt</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>(little) girl</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>(kleines) Mädchen</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>fille, fillette</quote>
+                                    </cit>
+                                    <xr>
+                                        <bibl type="tunisCourse">2</bibl>
+                                    </xr>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_11_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="veronika"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_09_04"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_23"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_07_02"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>4</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="bayyac_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bayyaʕ</orth>
+                                    <bibl>Singer 1984, p.61</bibl>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">verb</gram>
+                                    <gram type="subc">II</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">byʕ</gram>
+                                </gramGrp>
+                                <form type="inflected" ana="#v_pres_sg_p3">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">ybayyaʕ</orth>
+                                </form>
+                                <sense>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>zum Verkauf veranlassen</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="create">
+                                    <f name="who">
+                                        <symbol value="ines2"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_01_29"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_10_15"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_12_02"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>5</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="bayyaac_001">
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bayyāʕ</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                    &gt;
+                                </form>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bayyāʕa</orth>
+                                </form>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bayyāʕīn</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-vicav">byʕ</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>seller, salesman</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Verkäufer</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>vendeur</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="charly"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2012_11_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_12"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_08_28"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>6</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="buu_001">
+                                <note type="tasks">[pl]</note>
+                                <form type="lemma">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bū</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                </form>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bwāt</orth>
+                                </form>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bayyāt</orth>
+                                </form>
+                                <form type="inflected" ana="#n_pl">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">bwāt</orth>
+                                </form>
+                                <gramGrp>
+                                    <gram type="pos">noun</gram>
+                                    <gram type="root" xml:lang="ar-aeb-x-vicav">ʔbw</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>father</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>Vater</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>père</quote>
+                                    </cit>
+                                    <xr>
+                                        <bibl type="tunisCourse">2</bibl>
+                                    </xr>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_05"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_23"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_24"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_24"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="*"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_08_26"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_24"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_10_31"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_11_23"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>7</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="b_ish_shwayya_001">
+                                <form type="multiWordUnit">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">b-iš-šwayya</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                    <form type="variant">
+                                        <orth xml:lang="ar-aeb-x-tunis-vicav">b-iš-šwayya b-iš-šwayya</orth>
+                                    </form>
+                                </form>
+                                <gramGrp>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">b šyʔ</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>slowly</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>langsam</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>lentement</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_08"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_08"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_08"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_29"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>8</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <entry xml:id="b_qaddaash_001">
+                                <form type="multiWordUnit">
+                                    <orth xml:lang="ar-aeb-x-tunis-vicav">b-qaddāš</orth>
+                                    <bibl>Ritt-Benmimoun 2014</bibl>
+                                </form>
+                                <gramGrp>
+                                    <gram type="root" xml:lang="ar-aeb-x-tunis-vicav">b qdr ʔayy šyʔ</gram>
+                                </gramGrp>
+                                <sense>
+                                    <cit type="translation" xml:lang="en">
+                                        <quote>(with) how much/many?; how much is...?</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="de">
+                                        <quote>(um) wieviel; (mit) wieviel; wie viel kostet...?</quote>
+                                    </cit>
+                                    <cit type="translation" xml:lang="fr">
+                                        <quote>(avec) combien; combien coûte...?</quote>
+                                    </cit>
+                                </sense>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_04_24"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="stephan"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_24"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                            </entry>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>9</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+        <sru:record>
+            <sru:recordSchema/>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcsm:Resource xmlns:fcsm="http://clarin.eu/fcs/1.0">
+                    <fcsm:ResourceFragment>
+                        <fcsm:DataView type="title">A Digital Dictionary of Tunis Arabic</fcsm:DataView>
+                        <fcsm:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
+                            <cit xml:id="haadhi_bnayya_haadhuuma_bnaat_001" type="example">
+                                <note type="tasks"/>
+                                <quote xml:lang="ar-aeb-x-tunis-vicav">hāḏi bnayya, hāḏūma bnāt</quote>
+                                <bibl>Ritt-Benmimoun 2014</bibl>
+                                <cit type="translation" xml:lang="en">
+                                    <quote>This is a girl, these are girls.</quote>
+                                </cit>
+                                <cit type="translation" xml:lang="de">
+                                    <quote>Das ist ein Mädchen, das sind Mädchen.</quote>
+                                </cit>
+                                <cit type="translation" xml:lang="fr">
+                                    <quote>C’est une fille, ce sont des filles.</quote>
+                                </cit>
+                                <fs type="create">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_16"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2013_08_16"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_17"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_24"/>
+                                    </f>
+                                    <f name="status">
+                                        <symbol value="released"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_06_26"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesd"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_08_07"/>
+                                    </f>
+                                </fs>
+                                <fs type="change">
+                                    <f name="who">
+                                        <symbol value="inesg"/>
+                                    </f>
+                                    <f name="when">
+                                        <symbol value="2014_09_04"/>
+                                    </f>
+                                </fs>
+                            </cit>
+                        </fcsm:DataView>
+                    </fcsm:ResourceFragment>
+                </fcsm:Resource>
+            </sru:recordData>
+            <sru:recordPosition>10</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=ayy&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=aeb_eng_001__v001&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+    <sru:res>1</sru:res>
+</sru:searchRetrieveResponse>

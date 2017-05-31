@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="xsl-1-transform" xmlns:if="ant:if" xmlns:unless="ant:unless">
+    <target name="c_s-xsl-1-transform">
+<!--        <xslt basedir="input/${test-base.dir}"
+            includes="**/*.xml"
+            destdir="output-actual/${test-base.dir}"
+            style="${xsl.file}" extension="${extension.string}"
+            classpath="./lib/xercesImpl.jar:./lib/xml-apis.jar:./lib/serializer.jar:./lib/xalan.jar">
+            <factory name="org.apache.xalan.processor.TransformerFactoryImpl">
+                <attribute name="http://xml.apache.org/xalan/features/optimize" value="true"/>
+            </factory>
+            <outputproperty name="indent" value="${transform.indent.yesno}"/>
+            <outputproperty name="encoding" value="${transform.encoding.string}"/>
+            <!\-\- Selects the other of two *Entities.properties files
+            (see contents of serializer.jar) that determine what characters are
+            replaced in the output. Default would by HTMLEntities for html output. 
+            <outputproperty name="{http://xml.apache.org/xalan}entities" value="org/apache/xml/serializer/XMLEntities"/>-->
+        <xslt basedir="${in.dir}"
+              includes="${includes.pattern}"
+              excludes="build.xml"
+              destdir="${out.dir}"
+              style="${xsl.file}" extension="${extension.string}"
+              classpath="./lib/saxon-jdom.jar:./lib/saxon-xml-apis.jar:./lib/saxon.jar">
+            <factory name="com.icl.saxon.TransformerFactoryImpl">
+            </factory>
+            <!-- Indents text nodes with line breaks otherwise which is the opposite of what libxslt does. Some indenting happens anyway.-->
+            <outputproperty if:set="transform.indent.yesno" name="indent" value="${transform.indent.yesno}"/>
+            <outputproperty if:set="transform.encoding.string" name="encoding" value="${transform.encoding.string}"/>
+            <outputproperty if:set="transform.method.string" name="method" value="${transform.method.string}"/>
+            <!-- See http://saxon.sourceforge.net/saxon6.5/extensions.html#output
+            saxon: translates to {http://icl.com/saxon} -->
+            <outputproperty name="{http://icl.com/saxon}character-representation" value="native;entity"/>
+            <param name="XDEBUG_SESSION_START" expression="${c_s-xsl-param.XDEBUG_SESSION_START}" type="STRING"/>
+            <param name="base_url" expression="${c_s-xsl-param.base_url}" type="STRING"/>
+            <param name="contexts_url" expression="${c_s-xsl-param.contexts_url}" type="STRING"/>
+            <param name="dict_file" expression="${c_s-xsl-param.dict_file}" type="STRING" if="c_s-xsl-param.dict_file"/>
+            <param name="dict_lang" expression="${c_s-xsl-param.dict_lang}" type="STRING" if="c_s-xsl-param.dict_lang"/>
+            <param name="fcs_prefix" expression="${c_s-xsl-param.fcs_prefix}" type="STRING"/>
+            <param name="format" expression="${c_s-xsl-param.format}" type="STRING"/>
+            <param name="mappings-file" expression="${c_s-xsl-param.mappings-file}" type="STRING"/>
+            <param name="maximumRecords" expression="${c_s-xsl-param.maximumRecords}" type="STRING" if="c_s-xsl-param.maximumRecords"/>
+            <param name="maximumTerms" expression="${c_s-xsl-param.maximumTerms}" type="STRING" if="c_s-xsl-param.maximumTerms"/>
+            <param name="mode" expression="${c_s-xsl-param.mode}" type="STRING"/>
+            <param name="numberOfMatches" expression="${c_s-xsl-param.numberOfMatches}" type="STRING" if="c_s-xsl-param.numberOfMatches"/>
+            <param name="numberOfRecords" expression="${c_s-xsl-param.numberOfRecords}" type="STRING" if="c_s-xsl-param.numberOfRecords"/>
+            <param name="operation" expression="${c_s-xsl-param.operation}" type="STRING"/>
+            <param name="q" expression="${c_s-xsl-param.q}" type="STRING" if="c_s-xsl-param.q"/>
+            <param name="queryType" expression="${c_s-xsl-param.queryType}" type="STRING"/>
+            <param name="rest_prefix" expression="${c_s-xsl-param.rest_prefix}" type="STRING"/>
+            <param name="scanClause" expression="${c_s-xsl-param.scanClause}" type="STRING"/>
+            <param name="scripts_pw" expression="${c_s-xsl-param.scripts_pw}" type="STRING"/>
+            <param name="scripts_url" expression="${c_s-xsl-param.scripts_url}" type="STRING"/>
+            <param name="scripts_user}" expression="${c_s-xsl-param.scripts_user}" type="STRING"/>
+            <param name="site_logo" expression="${c_s-xsl-param.site_logo}" type="STRING"/>
+            <param name="site_name" expression="${c_s-xsl-param.site_name}" type="STRING"/>
+            <param name="site_url" expression="${c_s-xsl-param.site_url}" type="STRING"/>
+            <param name="startRecord" expression="${c_s-xsl-param.startRecord}" type="STRING"/>
+            <param name="title" expression="${c_s-xsl-param.title}" type="STRING"/>
+            <param name="user" expression="${c_s-xsl-param.user}" type="STRING"/>
+            <param name="x-context" expression="${c_s-xsl-param.x-context}" type="STRING" if="c_s-xsl-param.x-context"/>
+            <param name="x-dataview" expression="${c_s-xsl-param.x-dataview}" type="STRING"/>
+        </xslt>
+    </target>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="c_s-xsl-fetch-input-expected/custom-xsl" xmlns:if="ant:if" xmlns:unless="ant:unless" default="fetch">    
+    <import file="../build.xml"/>
+    <dirname property="c_s-xsl-fetch-input-expected/custom-xsl.basedir"
+        file="${ant.file.c_s-xsl-fetch-input-expected/custom-xsl}"/>
+    <property file="fetch-urls.properties"/>
+    <property file="../fetch-urls.properties"/>
+    <property file="../../fetch-urls.properties"/>
+    <property file="../../../fetch-urls.properties"/>
+    <property file="../../../../fetch-urls.properties"/>
+    <property file="../../../../../fetch-urls.properties"/>
+</project>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:exsl="http://exslt.org/common" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    version="2.0"
+    exclude-result-prefixes="#all">
     <xsl:import href="commons_v1.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc>Generic functions for SRU-result handling
@@ -22,14 +24,13 @@
         </xsl:if>
         <xsl:copy-of select="if (doc-available(resolve-uri($contexts_url,$base_url))) then doc(resolve-uri($contexts_url,$base_url)) else ()"/>
     </xsl:template>
-    
     <xd:doc>
         <xd:desc>overrides the template with teh same name in commons_v1.xsl</xd:desc>
     </xd:doc>
     <xsl:template name="br">
         <br/>
     </xsl:template>
-    
+       
     <xsl:template name="html-with-data">
         <xsl:param name="payload">
             <xsl:call-template name="continue-root"/>
@@ -111,7 +112,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>-->
-    </xsl:function>        
+    </xsl:function>
   
    <!--
     convenience wrapper function to xml-context-template;

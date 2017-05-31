@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:searchRetrieveResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>10</sru:numberOfRecords>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="brown" ref="brown">
+                    <fcs:DataView type="application/x-clarin-fcs-kwic+xml">
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">tūnsi</kwic:c>
+                            <kwic:kw>tʕadda</kwic:kw>
+                            <kwic:c type="right">( bah ) . āka-hāw . nibdāu ? nibdāu ! bāh</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">tūnsi tʕadda ( bah ) . āka-hāw .</kwic:c>
+                            <kwic:kw>nibdāu</kwic:kw>
+                            <kwic:c type="right">? nibdāu ! bāh , ʕa - s - slāma šna ḥwāl</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">tūnsi tʕadda ( bah ) . āka-hāw . nibdāu ?</kwic:c>
+                            <kwic:kw>nibdāu</kwic:kw>
+                            <kwic:c type="right">! bāh , ʕa - s - slāma šna ḥwāl - ik ,</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">i ayyūb w - ʕumṛ i tlāṯa w - ʕišrīn snā</kwic:c>
+                            <kwic:kw>zāda</kwic:kw>
+                            <kwic:c type="right">. nitšaṛṛfu bī k . w - āh . ayy , fīn tuskun</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">ayyūb w - ʕumṛ i tlāṯa w - ʕišrīn snā zāda .</kwic:c>
+                            <kwic:kw>nitšaṛṛfu</kwic:kw>
+                            <kwic:c type="right">bī k . w - āh . ayy , fīn tuskun ? āna</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">zāda . nitšaṛṛfu bī k . w - āh . ayy , fīn</kwic:c>
+                            <kwic:kw>tuskun</kwic:kw>
+                            <kwic:c type="right">? āna nuskun fi - vyǟn . f - in - nimsa</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">nitšaṛṛfu bī k . w - āh . ayy , fīn tuskun ? āna</kwic:c>
+                            <kwic:kw>nuskun</kwic:kw>
+                            <kwic:c type="right">fi - vyǟn . f - in - nimsa , ʕāṣmit in</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">f - in - nimsa , ʕāṣmit in - nimsa . āna</kwic:c>
+                            <kwic:kw>nuskun</kwic:kw>
+                            <kwic:c type="right">fi - ottāwā , ʕāṣmit il - kanadā . īh .</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">fi - ottāwā , ʕāṣmit il - kanadā . īh .</kwic:c>
+                            <kwic:kw>fhimt</kwic:kw>
+                            <kwic:c type="right">? bʕīda ! bʕīda ayy . maʕnā ha par rappōṛ</kwic:c>
+                        </kwic:kwic>
+                        <kwic:kwic xmlns:kwic="http://clarin.eu/fcs/1.0/kwic">
+                            <kwic:c type="left">rappōṛ ʕa - l - buldān l - uxṛa . bʕīda</kwic:c>
+                            <kwic:kw>baṛša</kwic:kw>
+                            <kwic:c type="right">. āma ayy . titkallif xāṣṣatan bīyē davyȭ</kwic:c>
+                        </kwic:kwic>
+                    </fcs:DataView>
+                </fcs:Resource>
+            </sru:recordData>
+        </sru:record>
+    </sru:records>
+</sru:searchRetrieveResponse>

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:cr="http://aac.ac.at/content_repository" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" extension-element-prefixes="sru fcs utils xs xd">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cr="http://aac.ac.at/content_repository" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" extension-element-prefixes="sru fcs utils xs xd">
     <xsl:import href="scan2view_v1.xsl"/>
     <xsl:import href="../commons_v2.xsl"/>
-    <xd:doc>
+    <xsl:output method="xhtml" indent="yes" encoding="UTF-8"/>
+    <xd:doc scope="stylesheet">
         <xd:desc>generate a view for a values-list (index scan) 
             <xd:p>Note: This is called eg. from fsc:scan with mode "subsequence".</xd:p>
             <xd:p>
@@ -35,16 +35,14 @@
             </xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:output method="xhtml" indent="yes"/>
     
     <!-- <xsl:param name="size_lowerbound">0</xsl:param>
 <xsl:param name="max_depth">0</xsl:param>
 <xsl:param name="freq_limit">20</xsl:param>
 <xsl:param name="show">file</xsl:param> -->
-    <!-- s=size|n=name|t=time|x=default -->
     <xsl:param name="sort">x</xsl:param>
     <xsl:param name="list-mode"/> <!-- table -->
-    <xsl:param name="parts"/> <!-- header -->
+    <xsl:param name="parts">header</xsl:param> <!-- header -->
     
     <!-- <xsl:param name="mode" select="'htmldiv'" />     -->
     <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
@@ -53,16 +51,16 @@
 <xsl:param name="detail_uri_prefix"  select="'?q='"/> 
 -->
     <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
-    <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
+    <xsl:variable name="countTerms" select="(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total'], /sru:scanResponse/sru:extraResponseData/fcs:countTerms)[1]"/>
     <xsl:param name="scanClause-array" select="tokenize($scanClause,'=')"/>
     <xsl:param name="index" select="$scanClause-array[1]"/>
-    <xsl:param name="filter" select="$scanClause-array[2]"/>
+    <xsl:param name="start-term" select="$scanClause-array[2]"/>
     <xsl:template name="continue-root">
-        <div class="scan-index-{translate($index,'.','-')}"> <!-- class="cmds-ui-block  init-show" -->
+        <div class="scan-index-{translate($index,'.','-')}"><!-- class="cmds-ui-block  init-show" -->
             <xsl:if test="contains($format, 'page') or $parts='header'">
                 <xsl:call-template name="header"/>
             </xsl:if>
-            <div class="content">
+            <div class="content scan">
                 <xsl:apply-templates select="/sru:scanResponse/sru:terms"/>
             </div>
         </div>
@@ -76,24 +74,37 @@
         <sru:maximumTerms>100</sru:maximumTerms>        
         </sru:echoedScanRequest> -->
     <xsl:template name="header">
-        <xsl:variable name="countTerms" select="/sru:scanResponse/sru:extraResponseData/fcs:countTerms"/>
+        <xsl:variable name="countTerms" select="((/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total'] - /sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='top']), /sru:scanResponse/sru:extraResponseData/fcs:countTerms)[1]"/>
         <xsl:variable name="start-item" select="'TODO:start-item=?'"/>
         <xsl:variable name="maximum-items" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
         <div class="header">
             <xsl:attribute name="data-countTerms" select="$countTerms"/>
-            <xsl:attribute name="start-item" select="$start-item"/>
-            <xsl:attribute name="maximum-items" select="$maximum-items"/>
-            <!--<xsl:value-of select="$title"/>-->
+<!--            x-context:<xsl:value-of select="$x-context"/>-->
             <form>
-                <input type="text" name="index" value="{$index}"/>
-                <input type="text" name="scanClause" value="{$filter}"/>
+                <input type="hidden" name="index" value="{$index}"/>
+                <input class="scan-filter-text" type="text" name="x-filter" value="{$x-filter}"/>
                 <input type="hidden" name="operation" value="scan"/>
                 <input type="hidden" name="x-format" value="{$format}"/>
                 <input type="hidden" name="x-context" value="{$x-context}"/>
-                <input type="submit" value="suchen"/>
+                <input class="scan-filter-submit" type="submit" value="filter"/>
+                <xsl:call-template name="prev-next-terms"/>
             </form>
-            <xsl:value-of select="count(//sru:terms/sru:term)"/> out of <xsl:value-of select="$countTerms"/> Terms
-            
+            <!--<xsl:variable name="show_all-link">
+                    <xsl:call-template name="formURL">
+                        <xsl:with-param name="maximumTerms" select="$countTerms"/>                        
+                    </xsl:call-template>
+            </xsl:variable>-->
+            <div class="hilight">
+                <xsl:value-of select="(//sru:term[1]/sru:extraTermData/fcs:position)[last()]"/>
+                <span class="" xml:space="preserve"> - </span>
+                <xsl:value-of select="(//sru:term[last()]/sru:extraTermData/fcs:position)[last()]"/>
+                <span class="" xml:space="preserve"> (</span>
+                <xsl:value-of select="(count(//sru:terms/sru:term) - /sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='top'])"/>
+                <span class="" xml:space="preserve">) / </span><!--                <a class="internal show-all" href="{$show_all-link}" title="Show all">-->
+                <xsl:value-of select="$countTerms"/><!--                </a> -->
+                <xsl:text xml:space="preserve"> </xsl:text>
+                <xsl:value-of select="/sru:scanResponse/sru:extraResponseData/fcs:indexLabel"/>
+            </div>
         </div>
     </xsl:template>
     
@@ -116,6 +127,11 @@ sample data:
             </xsl:when>
             <xsl:otherwise>
                 <ul>
+                    <xsl:if test="../cr:type">
+                        <xsl:attribute name="class">
+                            <xsl:value-of select="../cr:type"/>
+                        </xsl:attribute>
+                    </xsl:if>
                     <xsl:apply-templates select="sru:term"/>
                 </ul>
             </xsl:otherwise>
@@ -165,14 +181,14 @@ sample data:
                     <xsl:variable name="q">
                         <xsl:choose>
                             <xsl:when test="sru:extraTermData/cr:type">
-                                <xsl:value-of select="concat(sru:extraTermData/cr:type, '%3D%22', sru:value, '%22')"/>
+                                <xsl:value-of select="concat(sru:extraTermData/cr:type, '%3D%3D%22', sru:value, '%22')"/>
                             </xsl:when>
                             <xsl:when test="ancestor::sru:term">
                                 <xsl:variable name="group-term" select="ancestor::sru:term[1]"/>
-                                <xsl:value-of select="concat($group-term/sru:extraTermData/cr:type, '%3D%22', $group-term/sru:value, '%22', ' and ', $index, '%3D%22', sru:value, '%22')"/>
+                                <xsl:value-of select="concat($group-term/sru:extraTermData/cr:type, '%3D%3D%22', $group-term/sru:value, '%22', ' and ', $index, '%3D%22', sru:value, '%22')"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="concat($index, '%3D%22', sru:value, '%22')"/>
+                                <xsl:value-of select="concat($index, '%3D%3D%22', sru:value, '%22')"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:variable>
@@ -198,7 +214,7 @@ sample data:
                     </xsl:attribute>
                 </xsl:if>
                 <!--                <xsl:value-of select="for $i in (1 to $depth) return '- '"/>-->
-                <a class="value-caller" href="{$href}">  <!--target="_blank"-->
+                <a class="search-caller" href="{$href}">  <!--target="_blank"-->
                     <xsl:value-of select="if (normalize-space((sru:displayTerm, sru:value)[1]) eq '') then '----------' else (sru:displayTerm, sru:value)[1]"/>
                 </a>
             </span>
@@ -219,22 +235,72 @@ sample data:
             <xsl:otherwise>
                 <li>
                     <xsl:sequence select="$link"/>
-<!--                    <xsl:if test="number(sru:numberOfRecords) > 1">-->
-                        <span class="note"> |<xsl:value-of select="sru:numberOfRecords"/>|</span>
-<!--                    </xsl:if>-->
+                    <xsl:if test="number(sru:numberOfRecords) &gt;= 1">
+                        <span class="note" data-content="recordcount">
+                            <span class="recordcountDelimiter"> |</span>
+                            <xsl:value-of select="sru:numberOfRecords"/>
+                            <span class="recordcountDelimiter">|</span>
+                        </span>
+                    </xsl:if>
                     <!--DEBUG:<xsl:value-of select="exists(sru:extraTermData/sru:terms/sru:term)" />-->
                     <xsl:if test="sru:extraTermData/sru:terms/sru:term">
-                        <ul>
-                            <xsl:if test="sru:extraTermData/cr:type">
-                                <xsl:attribute name="class">
-                                    <xsl:value-of select="sru:extraTermData/cr:type"/>
-                                </xsl:attribute>
-                            </xsl:if>
-                            <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>
-                        </ul>
+                        <xsl:apply-templates select="sru:extraTermData/sru:terms"/>
                     </xsl:if>
                 </li>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>
+            <xd:p>currently we support paging only for flat scans</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template name="prev-next-terms">
+        <xsl:param name="generate-disabled" as="xs:boolean" select="true()"/>
+        <xsl:if test="(//fcs:countTerms[@level='top'] = 1) or (not(//sru:term//sru:term) or not(exists(//sru:term)))">
+            <xsl:variable name="prev_responsePosition" select="if (string(number($maximumTerms)) ne 'NaN') then $maximumTerms + 1 else 0">
+            <!--<xsl:choose>
+                <xsl:when test="number($responsePosition) - number($maximumTerms) > 0">
+                    <xsl:value-of select="format-number(number($responsePosition) - number($maximumTerms),'#')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="number($maximumTerms) - number($responsePosition)"/>
+                </xsl:otherwise>
+            </xsl:choose>-->
+            </xsl:variable>
+            <xsl:variable name="first_real_term" select="if (//fcs:countTerms[@level='top'] = 1) then 2 else 1"/>
+            <xsl:variable name="prev_scanClause" select="concat($index, '=', replace((//sru:term)[$first_real_term]/sru:value,'\s+','%20'))"/>
+            <xsl:variable name="link_prev">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="responsePosition" select="$prev_responsePosition"/>
+                    <xsl:with-param name="scanClause" select="$prev_scanClause"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="prev-disabled">
+                <xsl:if test="number((//sru:term[1]/sru:extraTermData/fcs:position)[last()]) = 1">disabled</xsl:if>
+            </xsl:variable>
+            <xsl:variable name="next_scanClause" select="concat($index, '=%22', replace((//sru:term)[last()]/sru:value,'\s+','%20'), '%22')"/>
+            <xsl:variable name="link_next">
+                <xsl:call-template name="formURL">
+                    <xsl:with-param name="responsePosition" select="'0'"/>
+                    <xsl:with-param name="scanClause" select="$next_scanClause"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <xsl:variable name="next-disabled">
+                <xsl:if test="number((//sru:term[last()]/sru:extraTermData/fcs:position)[last()]) &gt;= (number(/sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='total']) - /sru:scanResponse/sru:extraResponseData/fcs:countTerms[@level='top'])">disabled</xsl:if>
+            </xsl:variable>
+            <span class="result-navigation prev-next">
+                <xsl:if test="$generate-disabled or $prev-disabled ne 'disabled'">
+                <a class="internal prev {$prev-disabled}" href="{$link_prev}">
+                    <span class="cmd cmd_prev">prev</span>
+                </a>
+                </xsl:if>
+                <xsl:if test="$generate-disabled or $next-disabled ne 'disabled'">
+                <a class="internal next {$next-disabled}" href="{$link_next}">
+                    <span class="cmd cmd_next">next</span>
+                </a>
+                </xsl:if>
+            </span>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

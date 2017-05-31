@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:scanResponse xmlns:sru="http://www.loc.gov/zing/srw/" xmlns:diag="http://www.loc.gov/zing/srw/diagnostic/" xmlns:fcs="http://clarin.eu/fcs/1.0">
+    <sru:version>1.2</sru:version>
+    <sru:terms>
+        <sru:term>
+            <sru:value>Dictionary Encoding Guidelines</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>1</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+        <sru:term>
+            <sru:value>Tools for Arabic NLP</sru:value>
+            <sru:numberOfRecords>1</sru:numberOfRecords>
+            <sru:extraTermData>
+                <fcs:position>2</fcs:position>
+            </sru:extraTermData>
+        </sru:term>
+    </sru:terms>
+    <sru:extraResponseData>
+        <fcs:countTerms>2</fcs:countTerms>
+        <fcs:transformedQuery>SELECT DISTINCT lemma, id, sid, COUNT(*) FROM vicav_tools_001 WHERE lemma NOT LIKE '[%]' GROUP BY lemma</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:echoedScanRequest>
+        <sru:version>1.2</sru:version>
+        <sru:scanClause>toolsText</sru:scanClause>
+        <sru:maximumTerms>100</sru:maximumTerms>
+    </sru:echoedScanRequest>
+</sru:scanResponse>

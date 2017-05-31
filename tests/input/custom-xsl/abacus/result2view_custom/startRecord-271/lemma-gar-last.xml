@@ -1,0 +1,11 @@
+<sru:searchRetrieveResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>0</sru:numberOfRecords>
+    <diagnostics>
+        <diagnostic xmlns="http://www.loc.gov/zing/srw/diagnostic/" key="unsupported-param-value">
+            <uri>info:srw/diagnostic/1/6</uri>
+            <details>maximumRecords</details>
+            <message>Unsupported parameter value</message>
+        </diagnostic>
+    </diagnostics>
+</sru:searchRetrieveResponse>

@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="mods xlink xd utils">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fcs="http://clarin.eu/fcs/1.0" xmlns:cmd="http://www.clarin.eu/cmd/" xmlns:utils="http://aac.ac.at/content_repository/utils" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" version="2.0" exclude-result-prefixes="mods xlink xd utils">
     <xsl:import href="../commons_v2.xsl"/>
     <xsl:include href="../fcs/data2view_v2.xsl"/>
     <xd:doc scope="stylesheet">
         <xd:desc> generate a generic html-view for individual parts of the project-mets file:  mods:projectDmd mets:structMap                
-        </xd:desc>
+            </xd:desc>
     </xd:doc>
     <xsl:output method="xhtml" indent="yes"/>
-    
-    
-    <xd:doc>
-        <xd:desc>
-            <xd:p>preferred language to select for description etc.</xd:p>
-            <xd:p>fallback to any available language</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:param name="lang" select="'de'"/>
     <xsl:variable name="title" select="''"/>
     <xsl:variable name="internal-structure" select="//mets:structMap[@TYPE='internal']"/>
     <xsl:key name="mets-div" match="mets:div" use="@ID"/>
     <xsl:template name="continue-root">
-        <!--    <xsl:template match="/">-->
+<!--    <xsl:template match="/">-->
         <xsl:apply-templates>
             <xsl:with-param name="strict" select="true()"/>
         </xsl:apply-templates>
@@ -50,19 +41,13 @@
                     <a class="link-info" href="#">Info</a>
                     <a class="link-cmdi" href="{$md-link-cmdi}">CMD</a>
                     <a class="link-explain" href="{$link-explain}">Register</a>                    
-                    <!--                    <div class="div-after"/>-->
+<!--                    <div class="div-after"/>-->
                 </div>
             </div>
             <div class="data-view metadata">
-                <xsl:choose>
-                    <xsl:when test="exists(.//cmd:Description[@xml:lang=$lang])">
-                        <xsl:apply-templates select=".//cmd:Description[@xml:lang=$lang]"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:apply-templates select="(.//cmd:Description)[1]"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-                
+                <p>
+                    <xsl:apply-templates select="(.//cmd:Description)[1]"/>
+                </p>
                 <p>
                     <xsl:apply-templates select=".//cmd:License" mode="record-data">
                         <xsl:with-param name="strict" select="true()"/>

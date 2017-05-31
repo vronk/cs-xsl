@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:record>
+        <sru:recordPacking>XML</sru:recordPacking>
+        <sru:recordSchema>http://explain.z3950.org/dtd/2.0/</sru:recordSchema>
+        <sru:recordData>
+            <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.0/">
+                <zr:serverInfo protocol="SRU" version="1.1" transport="http" method="GET">
+                    <zr:host>127.0.0.1</zr:host>
+                    <zr:port>80</zr:port>
+                    <zr:database>vicav-bib</zr:database>
+                </zr:serverInfo>
+                <zr:databaseInfo>
+                    <zr:title lang="en" primary="true">A machine-readable bibliography of Arabic dialects</zr:title>
+                    <zr:description>
+                        <teiHeader xmlns="http://www.tei-c.org/ns/1.0">
+                            <fileDesc>
+                                <author>Procházka, Stephan</author>
+                                <author>Moerth, Charly</author>
+                                <titleStmt>
+                                    <title>A machine-readable bibliography of Arabic dialects</title>
+                                </titleStmt>
+                                <publicationStmt>
+                                    <pubPlace>Vienna</pubPlace>
+                                    <date when="2011-2014"/>
+                                    <availability status="restricted">
+                                        <p>
+                                            <ref type="license" target="http://creativecommons.org/licenses/by-nc-sa/3.0/"/>
+                                        </p>
+                                    </availability>
+                                </publicationStmt>
+                                <editionStmt>
+                                    <edition>1.0 (Alpha)</edition>
+                                </editionStmt>
+                                <sourceDesc>
+                                    <p>This is an original digital text</p>
+                                </sourceDesc>
+                            </fileDesc>
+                        </teiHeader>
+                    </zr:description>
+                    <zr:author>Procházka, Stephan; Moerth, Charly</zr:author>
+                    <zr:restrictions lang="en">http://creativecommons.org/licenses/by-nc-sa/3.0/</zr:restrictions>
+                </zr:databaseInfo>
+                <zr:indexInfo>
+                    <zr:set identifier="clarin.eu/fcs" name="fcs">
+                        <zr:title>CLARIN - Federated Content Search</zr:title>
+                    </zr:set>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">cql.serverChoice</zr:title>
+                        <zr:map>
+                            <zr:name set="cql">cql.serverChoice</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">VICAV Bibliography</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">id</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">VICAV Bibliography by VICAV Taxonomy</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">vicavTaxonomy</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">VICAV Bibliography by author</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">author</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">VICAV Bibliography by date published</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">imprintDate</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">Resource Fragement PID</zr:title>
+                        <zr:map>
+                            <zr:name set="fcs">rfpid</zr:name>
+                        </zr:map>
+                    </zr:index>
+                    <!--                    <zr:index search="true" scan="true" sort="false">
+                        <zr:title lang="en">CQL All</zr:title>
+                        <zr:map>
+                            <zr:name set="cql">all</zr:name>
+                        </zr:map>
+                    </zr:index>-->
+                </zr:indexInfo>
+                <zr:schemaInfo>
+                    <zr:schema identifier="http://www.loc.gov/zing/srw/dcschema/v1.0/" location="http://www.loc.gov/zing/srw/dc.xsd" name="dc" retrieve="true">
+                        <zr:title lang="en">Dublin Core</zr:title>
+                    </zr:schema>
+                    <zr:schema identifier="clarin.eu/schema/ccs-v1.0" location="" name="ccs" retrieve="true">
+                        <zr:title lang="en">CLARIN Content Search</zr:title>
+                    </zr:schema>
+                </zr:schemaInfo>
+                <zr:configInfo>
+                    <zr:default type="numberOfRecords">10</zr:default>
+                    <zr:setting type="maximumRecords">100</zr:setting>
+                    <zr:setting type="resultSetTTL">100</zr:setting>
+                </zr:configInfo>
+            </zr:explain>
+        </sru:recordData>
+    </sru:record>
+</sru:explainResponse>

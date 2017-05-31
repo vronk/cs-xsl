@@ -1,0 +1,272 @@
+<div xmlns="http://www.w3.org/1999/xhtml" class="searchresults">
+    <div class="abacus">
+        <div class="result-header" data-numberOfRecords="1"><a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.9_74&#34;&amp;x-context=abacus&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
+            <div class="note debug"><span class="label">sru:version: </span><span class="value">1.2</span>;
+                    <span class="label">sru:query: </span><span class="value">fcs.rf="abacus.9_74"</span>;
+                    <span class="label">fcs:x-context: </span><span class="value">abacus</span>;
+                    <span class="label">fcs:x-dataview: </span><span class="value">title,cite,navigation,full,facs</span>;
+                    <span class="label">sru:startRecord: </span><span class="value">1</span>;
+                    <span class="label">sru:maximumRecords: </span><span class="value">10</span>;
+                    <span class="label">sru:query: </span><span class="value">fcs.rf="abacus.9_74"</span>;
+                    <span class="label">sru:baseUrl: </span><span class="value"></span>;
+                    <span class="label">fcs:returnedRecords: </span><span class="value">1</span>;
+                    <span class="label">fcs:duration: </span><span class="value">PT0.014S PT0.159S</span>;
+                    <span class="label">fcs:transformedQuery: </span><span class="value">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.9_74&lt;/phrase&gt;&lt;/query&gt;)]</span>;
+                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
+        </div>
+        <div class="title"><a class="xsl-rec-uri value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.9_74&#34;&amp;x-context=abacus&amp;x-dataview=title,full&amp;version=1.2&amp;x-format=html">Augustini Feuriges Hertz, S. 68, Abb.</a>
+        </div>
+        <div class="data-view cite" data-resource-pid="abacus.9" data-resourcefragment-pid="abacus.9_74">
+            <div class="wrapper cite">
+                <p class="tei-p">Zitation: Abraham â Sancta Clara: Augustini Feuriges Hertz. Salzburg, 1693. (Digitale Ausgabe) S. 68, Abb.. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;/abacus/get/abacus.9_74&gt; abgerufen am 19. 11. 2015</p>
+            </div>
+        </div>
+        <div class="data-view navigation" data-resource-pid="abacus.9" data-resourcefragment-pid="abacus.9_74">
+            <div class="wrapper navigation"><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.9_73&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus&amp;x-format=html" rel="prev" class="prev" title="S. 67">S. 67</a><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.9_75&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus&amp;x-format=html" rel="next" class="next" title="S. 69">S. 69</a>
+            </div>
+        </div>
+        <div class="data-view full" data-resource-pid="abacus.9" data-resourcefragment-pid="abacus.9_74">
+            <div class="wrapper full">
+                <div class="tei-TEI">
+                    <div class="tei-body"><span class="tei-fw tei-type-header"><span class="tei-fw tei-type-pageNum tei-place-top_center"><span class="fw pageNum"><span class="tei-seg tei-type-ornament">✾</span>(68)<span class="tei-seg tei-type-ornament">✾</span></span></span></span><span class="tei-lb tei-rend-line">&#160;</span>
+                        <div class="tei-div tei-type-chapter"><span class="tei-figure"></span><span class="tei-head"><span class="head"><span class="tei-foreign" xml:lang="la"><span class="tei-seg tei-rend-antiqua"><span class="tei-seg tei-rend-bold"><span class="inline-wrap"><span class="attributes" style="display:none;">solvo<br />FM</span><span class="w FM">Solvendo</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">salvo<br />FM</span><span class="w FM">salvabimur</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">omnis<br />FM</span><span class="w FM">omnes</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$.</span><span class="pc final">.</span></span></span></span></span></span></span>
+                            <p class="tei-p">
+                                <quote class="tei-cit"><span class="quote"><span class="tei-foreign" xml:lang="la"><span class="tei-seg tei-rend-antiqua"><span class="inline-wrap"><span class="attributes" style="display:none;">scio<br />FM</span><span class="tei-hi tei-rend-initialCapital">S</span><span class="tei-w  tei-type-FM">Cio</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">misericors<br />FM</span><span class="w FM">misericorditer</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">operor<br />FM</span><span class="w FM">operatám</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">(</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">mater<br />FM</span><span class="w FM">Matrem</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">meus<br />FM</span><span class="w FM">me-<br />am</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">)</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">et<br />FM</span><span class="w FM">&amp;</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">ex<br />FM</span><span class="w FM">ex</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">cor<br />FM</span><span class="w FM">corde</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">dimitto<br />FM</span><span class="w FM">dimisisse</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">debitum<br />FM</span><span class="w FM">debita</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">debitor<br />FM</span><span class="w FM">debitori-<br />bus</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">suus<br />FM</span><span class="w FM">suis</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$,</span><span class="pc comma">,</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">dimitto<br />FM</span><span class="w FM">dimitte</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">ille<br />FM</span><span class="w FM">illi</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">et<br />FM</span><span class="w FM">&amp;</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">tu<br />FM</span><span class="w FM">tu</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">debitum<br />FM</span><span class="w FM">debita</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">suus<br />FM</span><span class="w FM">sua</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$,</span><span class="pc comma">,</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">si<br />FM</span><span class="w FM">si</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">qui<br />FM</span><span class="w FM">qua</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">etiam<br />FM</span><span class="w FM">eti-<br />am</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">contraho<br />FM</span><span class="w FM">contraxit</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">per<br />FM</span><span class="w FM">per</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">totus<br />FM</span><span class="w FM">tot</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">annus<br />FM</span><span class="w FM">annos</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">post<br />FM</span><span class="w FM">post</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">aqua<br />FM</span><span class="w FM">aquam</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">salus<br />FM</span><span class="w FM">salu-<br />tis</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$.</span><span class="pc final">.</span></span></span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span></span><span class="tei-foreign" xml:lang="la"><span class="tei-seg tei-rend-antiqua"><span class="tei-seg tei-rend-italicised"><span class="inline-wrap"><span class="attributes" style="display:none;">sanctus<br />FM</span><span class="w FM">S</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">.</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">pater<br />FM</span><span class="w FM">P</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">.</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="persName hist" style=""><span class="inline-wrap"><span class="attributes" style="display:none;">Augustinus<br />NE</span><span class="w NE">August</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">.</span></span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">liber<br />FM</span><span class="w FM">lib</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">.</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">10<br />CARD</span><span class="w CARD">10</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">.</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">confessio<br />FM</span><span class="w FM">Confess</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">.</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">capitulum<br />FM</span><span class="w FM">c</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">.</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">13<br />CARD</span><span class="w CARD">13</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$.</span><span class="pc final">.</span></span></span></span></span>
+                                </quote>
+                            </p>
+                            <p class="tei-p tei-rend-indent indent"><span class="inline-wrap"><span class="attributes" style="display:none;">ich<br />PPER</span><span class="w PPER">Jch</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">wissen<br />VVFIN</span><span class="w VVFIN">weiß</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">wohl<br />ADV</span><span class="w ADV">wohl</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">/</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">dass<br />KOUS</span><span class="w KOUS">daß</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">sie<br />PPER</span><span class="w PPER">sie</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">(</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">mein<br />PPOSAT</span><span class="w PPOSAT">mein</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">Mutter<br />NN</span><span class="w NN">Mut=<br />ter</span></span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">)</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">sie<br />PRF</span><span class="w PRF">sich</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">sehr<br />ADV</span><span class="w ADV">sehr</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">barmherzig<br />ADJD</span><span class="w ADJD">barmhertzig</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">gegen<br />APPR</span><span class="w APPR">gegen</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">jedermann<br />PIS</span><span class="w PIS">jederman</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><br /><span class="inline-wrap"><span class="attributes" style="display:none;">verhalten<br />VVPP</span><span class="w VVPP">verhalten</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">/</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">und<br />KON</span><span class="w KON">vnd</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">ihr<br />PPOSAT</span><span class="w PPOSAT">ihren</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">Schuldner<br />NN</span><span class="w NN">Schuldnern</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">d<br />ART</span><span class="w ART">die</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><br /><span class="inline-wrap"><span class="attributes" style="display:none;">Schuld<br />NN</span><span class="w NN">Schuld</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">nachlassen<br />VVPP</span><span class="w VVPP">nachgelassen</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">haben<br />VAFIN</span><span class="w VAFIN">habe</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">/</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">derohalben<br />PAV</span><span class="w PAV">derohalben</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><br /><span class="inline-wrap"><span class="attributes" style="display:none;">oh<br />ITJ</span><span class="w ITJ">O</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">Gott<br />NN</span><span class="w NN">GOtt</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">vergeben<br />VVIMP</span><span class="w VVIMP">vergib</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">dieselbe<br />PDS</span><span class="w PDS">derselben</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">gleichfalls<br />ADV</span><span class="w ADV">gleichfalls</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">ihr<br />PPOSAT</span><span class="w PPOSAT">ihre</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><br /><span class="inline-wrap"><span class="attributes" style="display:none;">Schuld<br />NN</span><span class="w NN">Schulden</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">$(</span><span class="pc internal">/</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">d<br />PRELS</span><span class="w PRELS">die</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">sie<br />PPER</span><span class="w PPER">sie</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">nach<br />APPR</span><span class="w APPR">nach</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">d<br />ART</span><span class="w ART">dem</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">heilig<br />ADJA</span><span class="w ADJA">heiligen</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><span class="inline-wrap"><span class="attributes" style="display:none;">Taufe<br />NN</span><span class="w NN">Tauff</span></span><span class="tei-seg tei-type-whitespace">
+                    
+                     
+                </span><br /><span class="tei-fw tei-type-catch tei-place-bot_right"><span class="fw catch">von</span></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="data-view facs" data-resource-pid="abacus.9"><img src="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.9/default/Abraham-Augustini_feuriges_Hertz_n0068.jpg" alt="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.9/default/Abraham-Augustini_feuriges_Hertz_n0068.jpg" />
+        </div>
+    </div>
+</div>

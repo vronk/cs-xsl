@@ -1,0 +1,919 @@
+<div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="scan-index-fcs-toc">
+    <div class="header" data-countTerms="439">
+        <form><input type="hidden" name="index" value="fcs.toc" /><input class="scan-filter-text" type="text" name="x-filter" value="" /><input type="hidden" name="operation" value="scan" /><input type="hidden" name="x-format" value="html" /><input type="hidden" name="x-context" value="abacus.1" /><input class="scan-filter-submit" type="submit" value="filter" />
+        </form>
+        <div class="hilight">439 / 439 </div>
+    </div>
+    <div class="content">
+        <ul>
+            <li><span class="resource"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1_toc%22&amp;x-context=abacus.1&amp;x-format=html">Mercks Wienn</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                <ul class="resource">
+                    <li><span class="front"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e4%22&amp;x-context=abacus.1&amp;x-format=html">Titelei</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="front">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_1%22&amp;x-context=abacus.1&amp;x-format=html">v. Umschlag recto</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_2%22&amp;x-context=abacus.1&amp;x-format=html">v. Umschlag verso</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_3%22&amp;x-context=abacus.1&amp;x-format=html">v. fliegendes Vorsatzblatt recto</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_4%22&amp;x-context=abacus.1&amp;x-format=html">v. fliegendes Vorsatzblatt verso</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_5%22&amp;x-context=abacus.1&amp;x-format=html">Abb. vor Titel recto</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_6%22&amp;x-context=abacus.1&amp;x-format=html">Leerseite</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_7%22&amp;x-context=abacus.1&amp;x-format=html">Titel recto</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_8%22&amp;x-context=abacus.1&amp;x-format=html">Titel verso</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_9%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 1]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_10%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 2]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_11%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 3]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_12%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 4]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_13%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 5]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_14%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 6]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_15%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 7]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_16%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 8]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_17%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 9]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_18%22&amp;x-context=abacus.1&amp;x-format=html">Widmung [S. 10]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_19%22&amp;x-context=abacus.1&amp;x-format=html">Imprimatur</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_20%22&amp;x-context=abacus.1&amp;x-format=html">Leerseite</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e5166%22&amp;x-context=abacus.1&amp;x-format=html">Lieber Leser</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_21%22&amp;x-context=abacus.1&amp;x-format=html"> 1</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_22%22&amp;x-context=abacus.1&amp;x-format=html"> 2</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_23%22&amp;x-context=abacus.1&amp;x-format=html"> 3</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_24%22&amp;x-context=abacus.1&amp;x-format=html"> 4</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_25%22&amp;x-context=abacus.1&amp;x-format=html"> 5</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_26%22&amp;x-context=abacus.1&amp;x-format=html"> 6</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_27%22&amp;x-context=abacus.1&amp;x-format=html"> 7</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_28%22&amp;x-context=abacus.1&amp;x-format=html"> 8</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_29%22&amp;x-context=abacus.1&amp;x-format=html"> 9</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_30%22&amp;x-context=abacus.1&amp;x-format=html"> 10</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_31%22&amp;x-context=abacus.1&amp;x-format=html"> 11</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_32%22&amp;x-context=abacus.1&amp;x-format=html"> 12</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e12185%22&amp;x-context=abacus.1&amp;x-format=html">Entwurf des sterblichen Lebens</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_33%22&amp;x-context=abacus.1&amp;x-format=html"> 13, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_34%22&amp;x-context=abacus.1&amp;x-format=html"> 14</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_35%22&amp;x-context=abacus.1&amp;x-format=html"> 15</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_36%22&amp;x-context=abacus.1&amp;x-format=html"> 16</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_37%22&amp;x-context=abacus.1&amp;x-format=html"> 17</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_38%22&amp;x-context=abacus.1&amp;x-format=html"> 18</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_39%22&amp;x-context=abacus.1&amp;x-format=html"> 19</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_40%22&amp;x-context=abacus.1&amp;x-format=html"> 20</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_41%22&amp;x-context=abacus.1&amp;x-format=html"> 21</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_42%22&amp;x-context=abacus.1&amp;x-format=html"> 22</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_43%22&amp;x-context=abacus.1&amp;x-format=html"> 23</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_44%22&amp;x-context=abacus.1&amp;x-format=html"> 24</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_45%22&amp;x-context=abacus.1&amp;x-format=html"> 25</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_46%22&amp;x-context=abacus.1&amp;x-format=html"> 26</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_47%22&amp;x-context=abacus.1&amp;x-format=html"> 27</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_48%22&amp;x-context=abacus.1&amp;x-format=html"> 28</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_49%22&amp;x-context=abacus.1&amp;x-format=html"> 29</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_50%22&amp;x-context=abacus.1&amp;x-format=html"> 30</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_51%22&amp;x-context=abacus.1&amp;x-format=html"> 31</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_52%22&amp;x-context=abacus.1&amp;x-format=html"> 32</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_53%22&amp;x-context=abacus.1&amp;x-format=html"> 33</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_54%22&amp;x-context=abacus.1&amp;x-format=html"> 34</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_55%22&amp;x-context=abacus.1&amp;x-format=html"> 35</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_56%22&amp;x-context=abacus.1&amp;x-format=html"> 36</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_57%22&amp;x-context=abacus.1&amp;x-format=html"> 37</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_58%22&amp;x-context=abacus.1&amp;x-format=html"> 38</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_59%22&amp;x-context=abacus.1&amp;x-format=html"> 39</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_60%22&amp;x-context=abacus.1&amp;x-format=html"> 40</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_61%22&amp;x-context=abacus.1&amp;x-format=html"> 41</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_62%22&amp;x-context=abacus.1&amp;x-format=html"> 42</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_63%22&amp;x-context=abacus.1&amp;x-format=html"> 43</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_64%22&amp;x-context=abacus.1&amp;x-format=html"> 44</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_65%22&amp;x-context=abacus.1&amp;x-format=html"> 45</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_66%22&amp;x-context=abacus.1&amp;x-format=html"> 46</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_67%22&amp;x-context=abacus.1&amp;x-format=html"> 47</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_68%22&amp;x-context=abacus.1&amp;x-format=html"> 48</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_69%22&amp;x-context=abacus.1&amp;x-format=html"> 49</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_70%22&amp;x-context=abacus.1&amp;x-format=html"> 50</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_71%22&amp;x-context=abacus.1&amp;x-format=html"> 51</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_72%22&amp;x-context=abacus.1&amp;x-format=html"> 52</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_73%22&amp;x-context=abacus.1&amp;x-format=html"> 53</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_74%22&amp;x-context=abacus.1&amp;x-format=html"> 54</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_75%22&amp;x-context=abacus.1&amp;x-format=html"> 55</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_76%22&amp;x-context=abacus.1&amp;x-format=html"> 56</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e40346%22&amp;x-context=abacus.1&amp;x-format=html">Tod | Geistliche</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_77%22&amp;x-context=abacus.1&amp;x-format=html"> 57, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_78%22&amp;x-context=abacus.1&amp;x-format=html"> 58</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_79%22&amp;x-context=abacus.1&amp;x-format=html"> 59</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_80%22&amp;x-context=abacus.1&amp;x-format=html"> 60</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_81%22&amp;x-context=abacus.1&amp;x-format=html"> 61</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_82%22&amp;x-context=abacus.1&amp;x-format=html"> 62</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_83%22&amp;x-context=abacus.1&amp;x-format=html"> 63</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_84%22&amp;x-context=abacus.1&amp;x-format=html"> 64</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_85%22&amp;x-context=abacus.1&amp;x-format=html"> 65</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_86%22&amp;x-context=abacus.1&amp;x-format=html"> 66</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_87%22&amp;x-context=abacus.1&amp;x-format=html"> 67</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_88%22&amp;x-context=abacus.1&amp;x-format=html"> 68</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_89%22&amp;x-context=abacus.1&amp;x-format=html"> 69</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_90%22&amp;x-context=abacus.1&amp;x-format=html"> 70</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_91%22&amp;x-context=abacus.1&amp;x-format=html"> 71</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_92%22&amp;x-context=abacus.1&amp;x-format=html"> 72</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_93%22&amp;x-context=abacus.1&amp;x-format=html"> 73</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_94%22&amp;x-context=abacus.1&amp;x-format=html"> 74</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_95%22&amp;x-context=abacus.1&amp;x-format=html"> 75</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_96%22&amp;x-context=abacus.1&amp;x-format=html"> 76</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_97%22&amp;x-context=abacus.1&amp;x-format=html"> 77</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_98%22&amp;x-context=abacus.1&amp;x-format=html"> 78</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_99%22&amp;x-context=abacus.1&amp;x-format=html"> 79</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_100%22&amp;x-context=abacus.1&amp;x-format=html"> 80</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_101%22&amp;x-context=abacus.1&amp;x-format=html"> 81</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_102%22&amp;x-context=abacus.1&amp;x-format=html"> 82</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_103%22&amp;x-context=abacus.1&amp;x-format=html"> 83</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_104%22&amp;x-context=abacus.1&amp;x-format=html"> 84</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_105%22&amp;x-context=abacus.1&amp;x-format=html"> 85</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_106%22&amp;x-context=abacus.1&amp;x-format=html"> 86</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_107%22&amp;x-context=abacus.1&amp;x-format=html"> 87</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_108%22&amp;x-context=abacus.1&amp;x-format=html"> 88</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_109%22&amp;x-context=abacus.1&amp;x-format=html"> 89</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_110%22&amp;x-context=abacus.1&amp;x-format=html"> 90</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_111%22&amp;x-context=abacus.1&amp;x-format=html"> 91</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_112%22&amp;x-context=abacus.1&amp;x-format=html"> 92</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_113%22&amp;x-context=abacus.1&amp;x-format=html"> 93</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_114%22&amp;x-context=abacus.1&amp;x-format=html"> 94</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_115%22&amp;x-context=abacus.1&amp;x-format=html"> 95</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_116%22&amp;x-context=abacus.1&amp;x-format=html"> 96</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_117%22&amp;x-context=abacus.1&amp;x-format=html"> 97</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_118%22&amp;x-context=abacus.1&amp;x-format=html"> 98</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_119%22&amp;x-context=abacus.1&amp;x-format=html"> 99</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_120%22&amp;x-context=abacus.1&amp;x-format=html"> 100</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_121%22&amp;x-context=abacus.1&amp;x-format=html"> 101</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e70178%22&amp;x-context=abacus.1&amp;x-format=html">Tod | Frauen</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_122%22&amp;x-context=abacus.1&amp;x-format=html"> 102, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_123%22&amp;x-context=abacus.1&amp;x-format=html"> 103</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_124%22&amp;x-context=abacus.1&amp;x-format=html"> 104</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_125%22&amp;x-context=abacus.1&amp;x-format=html"> 105</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_126%22&amp;x-context=abacus.1&amp;x-format=html"> 106</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_127%22&amp;x-context=abacus.1&amp;x-format=html"> 107</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_128%22&amp;x-context=abacus.1&amp;x-format=html"> 108</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_129%22&amp;x-context=abacus.1&amp;x-format=html"> 109</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_130%22&amp;x-context=abacus.1&amp;x-format=html"> 110</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_131%22&amp;x-context=abacus.1&amp;x-format=html"> 111</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_132%22&amp;x-context=abacus.1&amp;x-format=html"> 112</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_133%22&amp;x-context=abacus.1&amp;x-format=html"> 113</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_134%22&amp;x-context=abacus.1&amp;x-format=html"> 114</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_135%22&amp;x-context=abacus.1&amp;x-format=html"> 115</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_136%22&amp;x-context=abacus.1&amp;x-format=html"> 116</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_137%22&amp;x-context=abacus.1&amp;x-format=html"> 117</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_138%22&amp;x-context=abacus.1&amp;x-format=html"> 118</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_139%22&amp;x-context=abacus.1&amp;x-format=html"> 119</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_140%22&amp;x-context=abacus.1&amp;x-format=html"> 120</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_141%22&amp;x-context=abacus.1&amp;x-format=html"> 121</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_142%22&amp;x-context=abacus.1&amp;x-format=html"> 122</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_143%22&amp;x-context=abacus.1&amp;x-format=html"> 123</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_144%22&amp;x-context=abacus.1&amp;x-format=html"> 124</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_145%22&amp;x-context=abacus.1&amp;x-format=html"> 125</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_146%22&amp;x-context=abacus.1&amp;x-format=html"> 126</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_147%22&amp;x-context=abacus.1&amp;x-format=html"> 127</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_148%22&amp;x-context=abacus.1&amp;x-format=html"> 128</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_149%22&amp;x-context=abacus.1&amp;x-format=html"> 129</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_150%22&amp;x-context=abacus.1&amp;x-format=html"> 130</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e89394%22&amp;x-context=abacus.1&amp;x-format=html">Tod | Reiche</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_151%22&amp;x-context=abacus.1&amp;x-format=html"> 131, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_152%22&amp;x-context=abacus.1&amp;x-format=html"> 132</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_153%22&amp;x-context=abacus.1&amp;x-format=html"> 133</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_154%22&amp;x-context=abacus.1&amp;x-format=html"> 134</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_155%22&amp;x-context=abacus.1&amp;x-format=html"> 135</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_156%22&amp;x-context=abacus.1&amp;x-format=html"> 136</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_157%22&amp;x-context=abacus.1&amp;x-format=html"> 137</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_158%22&amp;x-context=abacus.1&amp;x-format=html"> 138</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_159%22&amp;x-context=abacus.1&amp;x-format=html"> 139</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_160%22&amp;x-context=abacus.1&amp;x-format=html"> 140</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_161%22&amp;x-context=abacus.1&amp;x-format=html"> 141</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_162%22&amp;x-context=abacus.1&amp;x-format=html"> 142</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_163%22&amp;x-context=abacus.1&amp;x-format=html"> 143</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_164%22&amp;x-context=abacus.1&amp;x-format=html"> 144</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_165%22&amp;x-context=abacus.1&amp;x-format=html"> 145</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_166%22&amp;x-context=abacus.1&amp;x-format=html"> 146</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_167%22&amp;x-context=abacus.1&amp;x-format=html"> 147</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_168%22&amp;x-context=abacus.1&amp;x-format=html"> 148</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_169%22&amp;x-context=abacus.1&amp;x-format=html"> 149</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_170%22&amp;x-context=abacus.1&amp;x-format=html"> 150</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_171%22&amp;x-context=abacus.1&amp;x-format=html"> 151</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_172%22&amp;x-context=abacus.1&amp;x-format=html"> 152</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_173%22&amp;x-context=abacus.1&amp;x-format=html"> 153</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_174%22&amp;x-context=abacus.1&amp;x-format=html"> 154</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_175%22&amp;x-context=abacus.1&amp;x-format=html"> 155</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_176%22&amp;x-context=abacus.1&amp;x-format=html"> 156</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_177%22&amp;x-context=abacus.1&amp;x-format=html"> 157</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_178%22&amp;x-context=abacus.1&amp;x-format=html"> 158</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_179%22&amp;x-context=abacus.1&amp;x-format=html"> 159</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_180%22&amp;x-context=abacus.1&amp;x-format=html"> 160</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_181%22&amp;x-context=abacus.1&amp;x-format=html"> 161</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_182%22&amp;x-context=abacus.1&amp;x-format=html"> 162</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_183%22&amp;x-context=abacus.1&amp;x-format=html"> 163</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_184%22&amp;x-context=abacus.1&amp;x-format=html"> 164</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_185%22&amp;x-context=abacus.1&amp;x-format=html"> 165</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e112154%22&amp;x-context=abacus.1&amp;x-format=html">Tod | Gelehrte</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_186%22&amp;x-context=abacus.1&amp;x-format=html"> 166, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_187%22&amp;x-context=abacus.1&amp;x-format=html"> 167</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_188%22&amp;x-context=abacus.1&amp;x-format=html"> 168</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_189%22&amp;x-context=abacus.1&amp;x-format=html"> 169</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_190%22&amp;x-context=abacus.1&amp;x-format=html"> 170</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_191%22&amp;x-context=abacus.1&amp;x-format=html"> 171</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_192%22&amp;x-context=abacus.1&amp;x-format=html"> 172</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_193%22&amp;x-context=abacus.1&amp;x-format=html"> 173</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_194%22&amp;x-context=abacus.1&amp;x-format=html"> 174</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_195%22&amp;x-context=abacus.1&amp;x-format=html"> 175</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_196%22&amp;x-context=abacus.1&amp;x-format=html"> 176</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_197%22&amp;x-context=abacus.1&amp;x-format=html"> 177</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_198%22&amp;x-context=abacus.1&amp;x-format=html"> 178</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_199%22&amp;x-context=abacus.1&amp;x-format=html"> 179</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_200%22&amp;x-context=abacus.1&amp;x-format=html"> 180</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_201%22&amp;x-context=abacus.1&amp;x-format=html"> 181</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_202%22&amp;x-context=abacus.1&amp;x-format=html"> 182</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_203%22&amp;x-context=abacus.1&amp;x-format=html"> 183</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_204%22&amp;x-context=abacus.1&amp;x-format=html"> 184</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_205%22&amp;x-context=abacus.1&amp;x-format=html"> 185</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_206%22&amp;x-context=abacus.1&amp;x-format=html"> 186</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_207%22&amp;x-context=abacus.1&amp;x-format=html"> 187</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_208%22&amp;x-context=abacus.1&amp;x-format=html"> 188</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_209%22&amp;x-context=abacus.1&amp;x-format=html"> 189</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_210%22&amp;x-context=abacus.1&amp;x-format=html"> 190</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_211%22&amp;x-context=abacus.1&amp;x-format=html"> 191</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_212%22&amp;x-context=abacus.1&amp;x-format=html"> 192</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_213%22&amp;x-context=abacus.1&amp;x-format=html"> 193</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_214%22&amp;x-context=abacus.1&amp;x-format=html"> 194</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_215%22&amp;x-context=abacus.1&amp;x-format=html"> 195</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_216%22&amp;x-context=abacus.1&amp;x-format=html"> 196</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_217%22&amp;x-context=abacus.1&amp;x-format=html"> 197</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_218%22&amp;x-context=abacus.1&amp;x-format=html"> 198</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_219%22&amp;x-context=abacus.1&amp;x-format=html"> 199</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_220%22&amp;x-context=abacus.1&amp;x-format=html"> 200</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_221%22&amp;x-context=abacus.1&amp;x-format=html"> 201</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_222%22&amp;x-context=abacus.1&amp;x-format=html"> 202</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_223%22&amp;x-context=abacus.1&amp;x-format=html"> 203</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_224%22&amp;x-context=abacus.1&amp;x-format=html"> 204</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_225%22&amp;x-context=abacus.1&amp;x-format=html"> 205</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_226%22&amp;x-context=abacus.1&amp;x-format=html"> 206</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_227%22&amp;x-context=abacus.1&amp;x-format=html"> 207</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_228%22&amp;x-context=abacus.1&amp;x-format=html"> 208</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_229%22&amp;x-context=abacus.1&amp;x-format=html"> 209</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_230%22&amp;x-context=abacus.1&amp;x-format=html"> 210</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_231%22&amp;x-context=abacus.1&amp;x-format=html"> 211</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_232%22&amp;x-context=abacus.1&amp;x-format=html"> 212</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_233%22&amp;x-context=abacus.1&amp;x-format=html"> 213</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e143271%22&amp;x-context=abacus.1&amp;x-format=html">Tod | Eheleute</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_234%22&amp;x-context=abacus.1&amp;x-format=html"> 214, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_235%22&amp;x-context=abacus.1&amp;x-format=html"> 215</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_236%22&amp;x-context=abacus.1&amp;x-format=html"> 216</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_237%22&amp;x-context=abacus.1&amp;x-format=html"> 217</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_238%22&amp;x-context=abacus.1&amp;x-format=html"> 218</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_239%22&amp;x-context=abacus.1&amp;x-format=html"> 219</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_240%22&amp;x-context=abacus.1&amp;x-format=html"> 220</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_241%22&amp;x-context=abacus.1&amp;x-format=html"> 221</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_242%22&amp;x-context=abacus.1&amp;x-format=html"> 222</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_243%22&amp;x-context=abacus.1&amp;x-format=html"> 223</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_244%22&amp;x-context=abacus.1&amp;x-format=html"> 224</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_245%22&amp;x-context=abacus.1&amp;x-format=html"> 225</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_246%22&amp;x-context=abacus.1&amp;x-format=html"> 226</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_247%22&amp;x-context=abacus.1&amp;x-format=html"> 227</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_248%22&amp;x-context=abacus.1&amp;x-format=html"> 228</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_249%22&amp;x-context=abacus.1&amp;x-format=html"> 229</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_250%22&amp;x-context=abacus.1&amp;x-format=html"> 230</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_251%22&amp;x-context=abacus.1&amp;x-format=html"> 231</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_252%22&amp;x-context=abacus.1&amp;x-format=html"> 232</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_253%22&amp;x-context=abacus.1&amp;x-format=html"> 233</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_254%22&amp;x-context=abacus.1&amp;x-format=html"> 234</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_255%22&amp;x-context=abacus.1&amp;x-format=html"> 235</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_256%22&amp;x-context=abacus.1&amp;x-format=html"> 236</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_257%22&amp;x-context=abacus.1&amp;x-format=html"> 237</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_258%22&amp;x-context=abacus.1&amp;x-format=html"> 238</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_259%22&amp;x-context=abacus.1&amp;x-format=html"> 239</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_260%22&amp;x-context=abacus.1&amp;x-format=html"> 240</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_261%22&amp;x-context=abacus.1&amp;x-format=html"> 241</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_262%22&amp;x-context=abacus.1&amp;x-format=html"> 242</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_263%22&amp;x-context=abacus.1&amp;x-format=html"> 243</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_264%22&amp;x-context=abacus.1&amp;x-format=html"> 244</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_265%22&amp;x-context=abacus.1&amp;x-format=html"> 245</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_266%22&amp;x-context=abacus.1&amp;x-format=html"> 246</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_267%22&amp;x-context=abacus.1&amp;x-format=html"> 247</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_268%22&amp;x-context=abacus.1&amp;x-format=html"> 248</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_269%22&amp;x-context=abacus.1&amp;x-format=html"> 249</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_270%22&amp;x-context=abacus.1&amp;x-format=html"> 250</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_271%22&amp;x-context=abacus.1&amp;x-format=html"> 251</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_272%22&amp;x-context=abacus.1&amp;x-format=html"> 252</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e168848%22&amp;x-context=abacus.1&amp;x-format=html">Tod | Soldaten</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_273%22&amp;x-context=abacus.1&amp;x-format=html"> 253, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_274%22&amp;x-context=abacus.1&amp;x-format=html"> 254</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_275%22&amp;x-context=abacus.1&amp;x-format=html"> 255</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_276%22&amp;x-context=abacus.1&amp;x-format=html"> 256</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_277%22&amp;x-context=abacus.1&amp;x-format=html"> 257</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_278%22&amp;x-context=abacus.1&amp;x-format=html"> 258</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_279%22&amp;x-context=abacus.1&amp;x-format=html"> 259</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_280%22&amp;x-context=abacus.1&amp;x-format=html"> 260</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_281%22&amp;x-context=abacus.1&amp;x-format=html"> 261</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_282%22&amp;x-context=abacus.1&amp;x-format=html"> 262</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_283%22&amp;x-context=abacus.1&amp;x-format=html"> 263</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_284%22&amp;x-context=abacus.1&amp;x-format=html"> 264</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_285%22&amp;x-context=abacus.1&amp;x-format=html"> 265</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_286%22&amp;x-context=abacus.1&amp;x-format=html"> 266</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_287%22&amp;x-context=abacus.1&amp;x-format=html"> 267</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_288%22&amp;x-context=abacus.1&amp;x-format=html"> 268</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_289%22&amp;x-context=abacus.1&amp;x-format=html"> 269</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_290%22&amp;x-context=abacus.1&amp;x-format=html"> 270</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_291%22&amp;x-context=abacus.1&amp;x-format=html"> 271</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_292%22&amp;x-context=abacus.1&amp;x-format=html"> 272</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_293%22&amp;x-context=abacus.1&amp;x-format=html"> 273</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_294%22&amp;x-context=abacus.1&amp;x-format=html"> 274</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_295%22&amp;x-context=abacus.1&amp;x-format=html"> 275</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_296%22&amp;x-context=abacus.1&amp;x-format=html"> 276</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_297%22&amp;x-context=abacus.1&amp;x-format=html"> 277</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_298%22&amp;x-context=abacus.1&amp;x-format=html"> 278</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_299%22&amp;x-context=abacus.1&amp;x-format=html"> 279</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_300%22&amp;x-context=abacus.1&amp;x-format=html"> 280</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_301%22&amp;x-context=abacus.1&amp;x-format=html"> 281</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_302%22&amp;x-context=abacus.1&amp;x-format=html"> 282</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_303%22&amp;x-context=abacus.1&amp;x-format=html"> 283</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_304%22&amp;x-context=abacus.1&amp;x-format=html"> 284</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_305%22&amp;x-context=abacus.1&amp;x-format=html"> 285</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_306%22&amp;x-context=abacus.1&amp;x-format=html"> 286</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e192078%22&amp;x-context=abacus.1&amp;x-format=html">Ursachen der Pest</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_307%22&amp;x-context=abacus.1&amp;x-format=html"> 287, Abb.</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_308%22&amp;x-context=abacus.1&amp;x-format=html"> 288</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_309%22&amp;x-context=abacus.1&amp;x-format=html"> 289</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_310%22&amp;x-context=abacus.1&amp;x-format=html"> 290</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_311%22&amp;x-context=abacus.1&amp;x-format=html"> 291</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_312%22&amp;x-context=abacus.1&amp;x-format=html"> 292</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_313%22&amp;x-context=abacus.1&amp;x-format=html"> 293</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_314%22&amp;x-context=abacus.1&amp;x-format=html"> 294</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_315%22&amp;x-context=abacus.1&amp;x-format=html"> 295</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_316%22&amp;x-context=abacus.1&amp;x-format=html"> 296</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_317%22&amp;x-context=abacus.1&amp;x-format=html"> 297</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_318%22&amp;x-context=abacus.1&amp;x-format=html"> 298</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_319%22&amp;x-context=abacus.1&amp;x-format=html"> 299</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_320%22&amp;x-context=abacus.1&amp;x-format=html"> 300</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_321%22&amp;x-context=abacus.1&amp;x-format=html"> 301</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_322%22&amp;x-context=abacus.1&amp;x-format=html"> 302</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_323%22&amp;x-context=abacus.1&amp;x-format=html"> 303</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_324%22&amp;x-context=abacus.1&amp;x-format=html"> 304</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_325%22&amp;x-context=abacus.1&amp;x-format=html"> 305</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_326%22&amp;x-context=abacus.1&amp;x-format=html"> 306</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_327%22&amp;x-context=abacus.1&amp;x-format=html"> 307</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_328%22&amp;x-context=abacus.1&amp;x-format=html"> 308</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_329%22&amp;x-context=abacus.1&amp;x-format=html"> 309</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_330%22&amp;x-context=abacus.1&amp;x-format=html"> 310</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_331%22&amp;x-context=abacus.1&amp;x-format=html"> 311</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_332%22&amp;x-context=abacus.1&amp;x-format=html"> 312</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_333%22&amp;x-context=abacus.1&amp;x-format=html"> 313</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_334%22&amp;x-context=abacus.1&amp;x-format=html"> 314</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_335%22&amp;x-context=abacus.1&amp;x-format=html"> 315</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_336%22&amp;x-context=abacus.1&amp;x-format=html"> 316</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_337%22&amp;x-context=abacus.1&amp;x-format=html"> 317</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_338%22&amp;x-context=abacus.1&amp;x-format=html"> 318</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_339%22&amp;x-context=abacus.1&amp;x-format=html"> 319</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_340%22&amp;x-context=abacus.1&amp;x-format=html"> 320</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e214984%22&amp;x-context=abacus.1&amp;x-format=html">Anzahl der Pestopfer in Wien</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_341%22&amp;x-context=abacus.1&amp;x-format=html"> 321</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_342%22&amp;x-context=abacus.1&amp;x-format=html"> 322</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_343%22&amp;x-context=abacus.1&amp;x-format=html"> 323</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_344%22&amp;x-context=abacus.1&amp;x-format=html"> 324</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_345%22&amp;x-context=abacus.1&amp;x-format=html"> 325</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_346%22&amp;x-context=abacus.1&amp;x-format=html"> 326</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_347%22&amp;x-context=abacus.1&amp;x-format=html"> 327</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_348%22&amp;x-context=abacus.1&amp;x-format=html"> 328</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_349%22&amp;x-context=abacus.1&amp;x-format=html"> 329</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_350%22&amp;x-context=abacus.1&amp;x-format=html"> 330</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_351%22&amp;x-context=abacus.1&amp;x-format=html"> 331</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_352%22&amp;x-context=abacus.1&amp;x-format=html"> 332</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_353%22&amp;x-context=abacus.1&amp;x-format=html"> 333</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_354%22&amp;x-context=abacus.1&amp;x-format=html"> 334</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_355%22&amp;x-context=abacus.1&amp;x-format=html"> 335</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_356%22&amp;x-context=abacus.1&amp;x-format=html"> 336</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_357%22&amp;x-context=abacus.1&amp;x-format=html"> 337</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_358%22&amp;x-context=abacus.1&amp;x-format=html"> 338</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_359%22&amp;x-context=abacus.1&amp;x-format=html"> 339</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_360%22&amp;x-context=abacus.1&amp;x-format=html"> 340</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_361%22&amp;x-context=abacus.1&amp;x-format=html"> 341</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_362%22&amp;x-context=abacus.1&amp;x-format=html"> 342</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_363%22&amp;x-context=abacus.1&amp;x-format=html"> 343</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_364%22&amp;x-context=abacus.1&amp;x-format=html"> 344</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_365%22&amp;x-context=abacus.1&amp;x-format=html"> 345</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e231435%22&amp;x-context=abacus.1&amp;x-format=html">Versorgung der Pestopfer</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_366%22&amp;x-context=abacus.1&amp;x-format=html"> 346</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_367%22&amp;x-context=abacus.1&amp;x-format=html"> 347</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_368%22&amp;x-context=abacus.1&amp;x-format=html"> 348</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_369%22&amp;x-context=abacus.1&amp;x-format=html"> 349</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_370%22&amp;x-context=abacus.1&amp;x-format=html"> 350</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_371%22&amp;x-context=abacus.1&amp;x-format=html"> 351</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_372%22&amp;x-context=abacus.1&amp;x-format=html"> 352</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_373%22&amp;x-context=abacus.1&amp;x-format=html"> 353</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_374%22&amp;x-context=abacus.1&amp;x-format=html"> 354</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_375%22&amp;x-context=abacus.1&amp;x-format=html"> 355</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_376%22&amp;x-context=abacus.1&amp;x-format=html"> 356</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_377%22&amp;x-context=abacus.1&amp;x-format=html"> 357</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_378%22&amp;x-context=abacus.1&amp;x-format=html"> 358</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_379%22&amp;x-context=abacus.1&amp;x-format=html"> 359</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_380%22&amp;x-context=abacus.1&amp;x-format=html"> 360</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_381%22&amp;x-context=abacus.1&amp;x-format=html"> 361</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_382%22&amp;x-context=abacus.1&amp;x-format=html"> 362</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_383%22&amp;x-context=abacus.1&amp;x-format=html"> 363</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_384%22&amp;x-context=abacus.1&amp;x-format=html"> 364</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_385%22&amp;x-context=abacus.1&amp;x-format=html"> 365</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_386%22&amp;x-context=abacus.1&amp;x-format=html"> 366</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_387%22&amp;x-context=abacus.1&amp;x-format=html"> 367</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_388%22&amp;x-context=abacus.1&amp;x-format=html"> 368</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_389%22&amp;x-context=abacus.1&amp;x-format=html"> 369</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_390%22&amp;x-context=abacus.1&amp;x-format=html"> 370</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_391%22&amp;x-context=abacus.1&amp;x-format=html"> 371</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_392%22&amp;x-context=abacus.1&amp;x-format=html"> 372</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_393%22&amp;x-context=abacus.1&amp;x-format=html"> 373</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="chapter"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e247570%22&amp;x-context=abacus.1&amp;x-format=html">Ermahnung an die Wiener</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="chapter">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_394%22&amp;x-context=abacus.1&amp;x-format=html"> 374</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_395%22&amp;x-context=abacus.1&amp;x-format=html"> 375</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_396%22&amp;x-context=abacus.1&amp;x-format=html"> 376</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_397%22&amp;x-context=abacus.1&amp;x-format=html"> 377</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_398%22&amp;x-context=abacus.1&amp;x-format=html"> 378</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_399%22&amp;x-context=abacus.1&amp;x-format=html"> 379</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_400%22&amp;x-context=abacus.1&amp;x-format=html"> 380</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_401%22&amp;x-context=abacus.1&amp;x-format=html"> 381</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_402%22&amp;x-context=abacus.1&amp;x-format=html"> 382</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_403%22&amp;x-context=abacus.1&amp;x-format=html"> 383</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_404%22&amp;x-context=abacus.1&amp;x-format=html"> 384</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_405%22&amp;x-context=abacus.1&amp;x-format=html"> 385</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_406%22&amp;x-context=abacus.1&amp;x-format=html"> 386</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_407%22&amp;x-context=abacus.1&amp;x-format=html"> 387</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_408%22&amp;x-context=abacus.1&amp;x-format=html"> 388</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_409%22&amp;x-context=abacus.1&amp;x-format=html"> 389</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_410%22&amp;x-context=abacus.1&amp;x-format=html"> 390</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_411%22&amp;x-context=abacus.1&amp;x-format=html"> 391</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_412%22&amp;x-context=abacus.1&amp;x-format=html"> 392</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_413%22&amp;x-context=abacus.1&amp;x-format=html"> 393</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="back"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.toc%3D%22abacus.1.d3e260575%22&amp;x-context=abacus.1&amp;x-format=html">Anhang</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                        <ul class="back">
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_414%22&amp;x-context=abacus.1&amp;x-format=html">Register [S. 1]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_415%22&amp;x-context=abacus.1&amp;x-format=html">Register [S. 2]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_416%22&amp;x-context=abacus.1&amp;x-format=html">Register [S. 3]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_417%22&amp;x-context=abacus.1&amp;x-format=html">Register [S. 4]</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_418%22&amp;x-context=abacus.1&amp;x-format=html">Leerseite</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_419%22&amp;x-context=abacus.1&amp;x-format=html">Leerseite</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_420%22&amp;x-context=abacus.1&amp;x-format=html">Leerseite</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_421%22&amp;x-context=abacus.1&amp;x-format=html">h. fliegendes Vorsatzblatt recto</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_422%22&amp;x-context=abacus.1&amp;x-format=html">h. fliegendes Vorsatzblatt verso</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_423%22&amp;x-context=abacus.1&amp;x-format=html">h. Umschlag recto</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                            <li><span class="resourcefragment"><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf%3D%22abacus.1_424%22&amp;x-context=abacus.1&amp;x-format=html">h. Umschlag verso</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span><span class="recordcountDelimiter">|</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

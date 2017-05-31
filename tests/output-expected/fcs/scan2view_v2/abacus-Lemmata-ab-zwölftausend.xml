@@ -1,0 +1,17 @@
+<div xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.w3.org/1999/xhtml" class="scan-index-lemma">
+    <div class="header" data-countTerms="13503">
+        <form><input type="hidden" name="index" value="lemma" /><input class="scan-filter-text" type="text" name="x-filter" value="" /><input type="hidden" name="operation" value="scan" /><input type="hidden" name="x-format" value="html" /><input type="hidden" name="x-context" value="abacus" /><input class="scan-filter-submit" type="submit" value="filter" /><span class="result-navigation prev-next"><a class="internal prev " href="./fcs?version=1.2&amp;operation=scan&amp;scanClause=lemma=zwölftausend&amp;x-context=abacus&amp;x-format=html&amp;sort=x&amp;maximumTerms=50&amp;responsePosition=50"><span class="cmd cmd_prev">prev</span></a><a class="internal next disabled" href="./fcs?version=1.2&amp;operation=scan&amp;scanClause=lemma=Z’diarsky&amp;x-context=abacus&amp;x-format=html&amp;sort=x&amp;maximumTerms=50&amp;responsePosition=1"><span class="cmd cmd_next">next</span></a></span>
+        </form>
+        <div class="hilight">3 / 13503 Lemmata</div>
+    </div>
+    <div class="content">
+        <ul>
+            <li><span><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma%3D%22zwölftausend%22&amp;x-context=abacus&amp;x-format=html">zwölftausend</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span>2<span class="recordcountDelimiter">|</span></span>
+            </li>
+            <li><span><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma%3D%22Zypern%22&amp;x-context=abacus&amp;x-format=html">Zypern</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span>1<span class="recordcountDelimiter">|</span></span>
+            </li>
+            <li><span><a class="value-caller" href="?version=1.2&amp;operation=searchRetrieve&amp;query=lemma%3D%22Z’diarsky%22&amp;x-context=abacus&amp;x-format=html">Z’diarsky</a></span><span class="note" data-content="recordcount"><span class="recordcountDelimiter"> |</span>1<span class="recordcountDelimiter">|</span></span>
+            </li>
+        </ul>
+    </div>
+</div>

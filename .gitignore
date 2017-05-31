@@ -1,0 +1,11 @@
+/tests/nbproject/private/
+
+*.norm
+/tests/output-actual/
+/tests/build-tests.properties
+
+/tests/output-actual/*
+/tests/scripts/*
+/tests/failed.txt
+/tests/success.txt
+/tests/nbproject/private/

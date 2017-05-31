@@ -82,6 +82,7 @@
     <xsl:param name="sort">x</xsl:param>
     <!-- s=size|n=name|t=time|x=default -->
     <xsl:param name="title" select="concat('scan: ', $scanClause )"/>
+    <xsl:decimal-format name="european" decimal-separator="," grouping-separator="."/>
     <xsl:param name="scanClause" select="/sru:scanResponse/sru:echoedScanRequest/sru:scanClause"/>
     <xsl:param name="index" select="$scanClause"/>
     <xsl:template match="/">
@@ -149,34 +150,25 @@
         <xsl:text>", </xsl:text>
         <xsl:text>"sort": "</xsl:text>
         <xsl:value-of select="@sort"/>
-        <xsl:text>"}</xsl:text>
-        <xsl:if test="not(position()=last())">, </xsl:if>
-        
-        <!--<xsl:text>{"title": "</xsl:text>
-        <xsl:value-of select="translate(sru:value,'"','')"/>
         <xsl:text>", </xsl:text>
-        <xsl:text>"label": "</xsl:text>
-        <xsl:value-of select="translate((sru:displayTerm, sru:value)[1],'"','')"/> |<xsl:value-of select="sru:numberOfRecords"/>
-        <xsl:text>|", </xsl:text>
-        <xsl:text>"count": "</xsl:text>
-        <xsl:value-of select="sru:numberOfRecords"/>
+        <xsl:text>"name": "</xsl:text>
+        <xsl:value-of select=".//zr:name[@set='fcs']"/>
         <xsl:text>"}</xsl:text>
         <xsl:if test="not(position()=last())">, </xsl:if>
-        <xsl:apply-templates select="sru:extraTermData/sru:terms/sru:term"/>-->
     </xsl:template>
     
     <xsl:template match="zr:description">
         <xsl:text>
     "description": {</xsl:text>
         <xsl:apply-templates select="//tei:titleStmt/tei:title"/>
-        <xsl:apply-templates select="//tei:encodingDesc"/>
-        <xsl:text>
-    }</xsl:text>
+        <xsl:if test="//tei:encodingDesc"><xsl:text>,
+</xsl:text></xsl:if>
+        <xsl:apply-templates select="//tei:encodingDesc"/><xsl:text> }</xsl:text>
     </xsl:template>
     
     <xsl:template match="tei:title">
         <xsl:text>
-        "title": "</xsl:text><xsl:value-of select="text()"/>"<xsl:text>,</xsl:text>        
+        "title": "</xsl:text><xsl:value-of select="text()"/>"      
     </xsl:template>
     
     <xsl:template match="tei:charDecl">

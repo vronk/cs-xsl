@@ -1,0 +1,37 @@
+<div xmlns="http://www.w3.org/1999/xhtml" class="searchresults">
+    <div class="abacus.5">
+        <div class="result-header" data-numberOfRecords="1"><a class="xml-link debug" href="?version=1.2&amp;operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_1&#34;&amp;x-context=abacus.5&amp;startRecord=1&amp;maximumRecords=10&amp;x-format=xml">XML</a>
+            <div class="note debug"><span class="label">sru:version: </span><span class="value">1.2</span>;
+                    <span class="label">sru:query: </span><span class="value">fcs.rf="abacus.5_1"</span>;
+                    <span class="label">fcs:x-context: </span><span class="value">abacus.5</span>;
+                    <span class="label">fcs:x-dataview: </span><span class="value">title,cite,navigation,full,facs</span>;
+                    <span class="label">sru:startRecord: </span><span class="value">1</span>;
+                    <span class="label">sru:maximumRecords: </span><span class="value">10</span>;
+                    <span class="label">sru:query: </span><span class="value">fcs.rf="abacus.5_1"</span>;
+                    <span class="label">sru:baseUrl: </span><span class="value"></span>;
+                    <span class="label">fcs:returnedRecords: </span><span class="value">1</span>;
+                    <span class="label">fcs:duration: </span><span class="value">PT0.012S PT0.142S</span>;
+                    <span class="label">fcs:transformedQuery: </span><span class="value">descendant-or-self::fcs:resourceFragment[ft:query(@resourcefragment-pid,&lt;query&gt;&lt;phrase&gt;abacus.5_1&lt;/phrase&gt;&lt;/query&gt;)]</span>;
+                    </div><span xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" class="result-navigation prev-next"><span class="result-pager value hilight">1 - 1</span></span>
+        </div>
+        <div class="title"><a class="xsl-rec-uri value-caller" href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_1&#34;&amp;x-context=abacus.5&amp;x-dataview=title,full&amp;version=1.2&amp;x-format=html">Lösch Wienn, v. Umschlag recto</a>
+        </div>
+        <div class="data-view cite" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_1">
+            <div class="wrapper cite">
+                <p class="tei-p">Zitation: Abraham â Sancta Clara: Lösch Wienn. Wien, 1680. (Digitale Ausgabe) v. Umschlag recto. In: ABaC:us – Austrian Baroque Corpus. Hrsg. von Claudia Resch und Ulrike Czeitschner. &lt;/abacus/get/abacus.5_1&gt; abgerufen am 19. 11. 2015</p>
+            </div>
+        </div>
+        <div class="data-view navigation" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_1">
+            <div class="wrapper navigation"><a href="&amp;x-format=html" rel="prev" class="prev" title=""></a><a href="?operation=searchRetrieve&amp;query=fcs.rf=&#34;abacus.5_2&#34;&amp;x-dataview=full&amp;x-dataview=navigation&amp;x-context=abacus.5&amp;x-format=html" rel="next" class="next" title="v. Umschlag verso">v. Umschlag verso</a>
+            </div>
+        </div>
+        <div class="data-view full" data-resource-pid="abacus.5" data-resourcefragment-pid="abacus.5_1">
+            <div class="wrapper full">&#160;<div class="tei-TEI">
+                    <div class="tei-front"></div>
+                </div>
+            </div>
+        </div>
+        <div class="data-view facs" data-resource-pid="abacus.5"><img src="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_a0001.jpg" alt="proxy.xql?url=http://clarin.oeaw.ac.at/cr-images/abacus/abacus.5/default/Abraham-Loesch_Wienn_a0001.jpg" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,428 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:egXML="http://www.tei-c.org/ns/Examples" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:fcs="http://clarin.eu/fcs/1.0"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><style type="text/css">
+                    .vicav_tools_001 h1{
+                        border:1px solid rgb(0, 0, 198);
+                        background:rgb(147, 147, 147);
+                        padding-left:5px;
+                        padding-bottom:2px;
+                        color:rgb(0, 0, 206);
+                    }
+                    .vicav_tools_001 h2{
+                        border:1px solid rgb(0, 0, 206);
+                        background:rgb(192, 192, 192);
+                        padding-left:5px;
+                        padding-bottom:2px;
+                        color:rgb(0, 0, 206);
+                    }
+                    .vicav_tools_001 h3{
+                        border:1px solid rgb(0, 84, 168);
+                        background:rgb(218, 218, 218);
+                        padding-left:5px;
+                        padding-bottom:2px;
+                        margin-left:20px;
+                        color:rgb(0, 0, 206);
+                    }
+                    .vicav_tools_001 p{
+                        margin-left:20px;
+                        padding-left: initial;
+                    }
+                    
+                    .vicav_tools_001 .tocEntry{
+                        margin: 0;
+                    }
+                    
+                    .vicav_tools_001 table{
+                        width: initial;
+                        margin-left:20px;
+                        border-collapse:collapse;
+                    }
+                    .vicav_tools_001 td{
+                        border:1px solid black;
+                        background:rgb(245, 245, 245);
+                        vertical-align:middle;
+                        padding-left:3px;
+                        padding-right:3px;
+                    }
+                    .vicav_tools_001 td.tdLabel{
+                        background:rgb(218, 218, 218);
+                    }
+                    
+                    .vicav_tools_001 .aGoTocontents{
+                        font-size:8pt;
+                    }
+                    .vicav_tools_001 .aH2Contents{
+                        text-decoration:none;
+                        border:1px dotted black;
+                        width:400px;
+                        margin-left:20px;
+                        display:block;
+                        font-weight:bold;
+                        padding-left:5px;
+                    }
+                    .vicav_tools_001 .aH3Contents{
+                        text-decoration:none;
+                        border:1px dotted black;
+                        width:380px;
+                        margin-left:40px;
+                        display:block;
+                        padding-left:5px;
+                    }
+                    .vicav_tools_001 .preBox{
+                        border:1px solid black;
+                        padding-left:5px;
+                        background:rgb(221, 221, 221);
+                        margin-left:20px;
+		          margin-right: initial;
+			   white-space: pre;
+                    }
+                    .vicav_tools_001 .spAttrName{
+                        color:rgb(0, 102, 0);
+                        font-weight:bold;
+                    }
+                    .vicav_tools_001 .spEquals{
+                        color:blue
+                    }
+                    .vicav_tools_001 .spQuotes{
+                        color:rgb(79, 0, 39);
+                    }
+                    .vicav_tools_001 .spValue{
+                        color:rgb(0, 0, 160);
+                    }
+                    .vicav_tools_001 .spRed{
+                        color:red;
+                    }</style></head><body><div style="display: none;" class="result-header" data-numberofrecords="1"></div><div class="vicav_tools_001"><h1>VICAV Dictionary Encoding Guidelines</h1><p><i>Charly Moerth, Stephan Procházka</i></p><p><i>Vienna 2014</i></p><h2 id="contents">Contents</h2><p class="tocEntry"><a class="aH2Contents" href="#generalities">1 Introduction</a></p><p class="tocEntry"><a class="aH2Contents" href="#basicStructure">2 Basic dictionary structure</a></p><p class="tocEntry"><a class="aH2Contents" href="#characterEncoding">3 Character encoding</a></p><p class="tocEntry"><a class="aH2Contents" href="#dictEntries">4 Dictionary entries</a></p><p class="tocEntry"><a class="aH3Contents" href="#entryTypes">4.1 Lemmas and MWUs</a></p><p class="tocEntry"><a class="aH3Contents" href="#ids">4.2 Identifiers (IDs)</a></p><p class="tocEntry"><a class="aH3Contents" href="#examples1">4.3 Examples</a></p><p class="tocEntry"><a class="aH3Contents" href="#proverbs">4.4 Proverbs</a></p><p class="tocEntry"><a class="aH2Contents" href="#transEquivs">5 Translation equivalents</a></p><p class="tocEntry"><a class="aH3Contents" href="#transEquivsLemmasMWUs">5.1 Translating lemmas and multi word units</a></p><p class="tocEntry"><a class="aH3Contents" href="#examples2">5.2 Translating examples</a></p><p class="tocEntry"><a class="aH3Contents" href="#transEquivsExplanations">5.3 Explanations</a></p><p class="tocEntry"><a class="aH2Contents" href="#inflectedWFs">6 Inflected word forms</a></p><p class="tocEntry"><a class="aH3Contents" href="#morphoAnots">6.1 Morphosyntactic annotations</a></p><p class="tocEntry"><a class="aH3Contents" href="#variants">6.2 Variants</a></p><p class="tocEntry"><a class="aH2Contents" href="#shortened">7 Shortened for test purpose</a></p><p class="tocEntry"><a class="aH2Contents" href="#openIssues">8 Open issues</a></p><p class="tocEntry"><a class="aH2Contents" href="#biblio">9 References</a></p><div class="dvContents" id="#contents"></div>
+                     
+<p>
+   <p>
+      
+         
+         
+
+         
+
+         
+            
+            
+            
+               <p>
+                  
+               </p>
+            
+         
+
+         
+         
+      
+      
+   </p>
+
+   <p>
+      <p>
+         
+            
+
+            
+               <h2 id="generalities">1 Introduction <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+               <p>The examples in the following guidelines are mainly taken from two dictionaries both 
+               of which are part of the VICAV dictionaries: <i>A Machine-readable Dictionary of Egyptian Arabic</i> and <i>A Digital Dictionary of Tunis Arabic</i>.</p>
+            
+
+            
+               <h2 id="basicStructure">2 Basic dictionary structure <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+               <p>The VICAV dictionaries are encoded according to the Guidelines of the 
+               Text Encoding Initiative (P5). Such dictionaries are conceptualised as a specific 
+               type of text and are therefore encoded with <i>text</i> elements. 
+               Each dictionary starts with a <i>teiHeader</i> element which contains 
+               the metadata of the dictionary. The dictionary entries are placed in a 
+               <i>body</i> element. Thus, our TEI dictionaries basically look like this:</p>
+               <pre class="preBox">
+<span><span class="spRed">&lt;TEI</span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;teiHeader</span><span class="spRed">&gt;</span>
+   ...
+   <span class="spRed">&lt;/teiHeader&gt;</span></span>
+   <span><span class="spRed">&lt;text</span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;body</span><span class="spRed">&gt;</span>
+         <span><span class="spRed">&lt;entry</span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/entry&gt;</span></span>
+         <span><span class="spRed">&lt;entry</span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/entry&gt;</span></span>
+         <span><span class="spRed">&lt;entry</span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/entry&gt;</span></span>
+         ...
+         ...
+         ...
+      <span class="spRed">&lt;/body&gt;</span></span>
+   <span class="spRed">&lt;/text&gt;</span></span>
+<span class="spRed">&lt;/TEI&gt;</span></span></pre>
+               <p>The <i>body</i> of the VICAV dictionaries can contain one 
+               more element construct: <i>cit/quote</i>. This is used to 
+               represent example sentences are treated as independent 
+               entries. This allows the dictionary writers 
+               to reuse them in different parts of the dictionary (See below: Examples 
+               and Creating examples).</p>
+               <pre class="preBox">
+      <span><span class="spRed">&lt;body</span><span class="spRed">&gt;</span>
+         <span><span class="spRed">&lt;entry</span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/entry&gt;</span></span>
+         <span><span class="spRed">&lt;entry</span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/entry&gt;</span></span>
+         <span><span class="spRed">&lt;entry</span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/entry&gt;</span></span>
+         <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">example</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/cit&gt;</span></span>
+         <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">example</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/cit&gt;</span></span>
+         <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">example</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>...<span class="spRed">&lt;/cit&gt;</span></span>
+         ...
+         ...
+         ...
+      <span class="spRed">&lt;/body&gt;</span></span></pre>
+            
+
+            
+               <h2 id="characterEncoding">3 Character encoding <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+               <p>tbd</p>
+            
+
+            
+               <h2 id="dictEntries">4 Dictionary entries <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+                  <p>There are three types of entries: lemmas and multi-word units (MWUs) and examples.</p>
+
+               
+                  <h3 id="entryTypes">4.1 Lemmas and MWUs <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>Lemmas and MWUs basically have the same structure.</p>
+                  <pre class="preBox">
+<span><span class="spRed">&lt;entry</span><span> <span class="spAttrName">id</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">kitaab_001</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">lemma</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>kit&#257;b<span class="spRed">&lt;/orth&gt;</span></span>
+   <span class="spRed">&lt;/form&gt;</span></span>
+   ...
+<span class="spRed">&lt;/entry&gt;</span></span></pre>
+
+                  <pre class="preBox">
+<span><span class="spRed">&lt;entry</span><span> <span class="spAttrName">id</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">fi_0</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">multiWordUnit</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>fi ba&#7717;r<span class="spRed">&lt;/orth&gt;</span></span>
+   <span class="spRed">&lt;/form&gt;</span></span>
+   ...
+<span class="spRed">&lt;/entry&gt;</span></span></pre>
+               
+
+               
+                  <h3 id="ids">4.2 Identifiers (IDs) <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>As can be seen in the examples above, entries are assigned a unique identifier. 
+                  In the VICAV dictionaries, these are made up of characters that are restricted 
+                  to letters in the ASCII range. Usually, the IDs are created by pressing 
+                  <i>Ctrl + I</i>. If VLE (the editor tool) creates an ID already 
+                  existing in the database, the entry can not be saved. In such cases, the user 
+                  has to modify the ID manually by e.g. increasing the number at the end of 
+                  the ID.</p>
+               
+               
+               
+                  <h3 id="examples1">4.3 Examples <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>Examples are encoded making use of a <i>cit/quote</i> construction.</p>
+               <pre class="preBox">
+<span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">id</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">yibqa_ustaz_001</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">example</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;quote</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>&#7717;ayib&#660;a ust&#257;z in &#353;&#257;&#660; all&#257;h.<span class="spRed">&lt;/quote&gt;</span></span>
+   ...
+<span class="spRed">&lt;/cit&gt;</span></span></pre>
+                     <p>Ideally, examples should consist in complete sentences. Single examples 
+                     should be concise, but can also contain several sentences. If dialogical models 
+                     are involved, sentences are to be separated by a dash.</p>
+                  <pre class="preBox">
+<span><span class="spRed">&lt;quote</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>tislam id&#275;ki. - &#660;a&#7735;&#7735;&#257;h yisallimak.<span class="spRed">&lt;/quote&gt;</span></span></pre>
+               
+
+               
+                  <h3 id="proverbs">4.4 Proverbs <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>Proverbs are a subtype of example.</p>
+                  <pre class="preBox">
+<span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">id</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">il_cagala_min_ish_shitaan_001</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">example</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">subc</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">proverb</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;quote</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>il-&#661;agala min i&#353;-&#353;i&#7789;&#257;n.<span class="spRed">&lt;/quote&gt;</span></span>
+
+   <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">en</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>Haste makes waste.<span class="spRed">&lt;/quote&gt;</span></span>
+   <span class="spRed">&lt;/cit&gt;</span></span>
+<span class="spRed">&lt;/cit&gt;</span></span></pre>
+               
+            
+            
+            
+               <h2 id="transEquivs">5 Translation equivalents <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+               
+                  <h3 id="transEquivsLemmasMWUs">5.1 Translating lemmas and multi word units <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>Translations of lemmas and MWUs are given in <i>sense</i> elements.</p>
+                  <pre class="preBox">
+<span><span class="spRed">&lt;entry</span><span> <span class="spAttrName">id</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">bard_0</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">lemma</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>bard<span class="spRed">&lt;/orth&gt;</span></span>
+   <span class="spRed">&lt;/form&gt;</span></span>
+   ...
+   <span><span class="spRed">&lt;sense</span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">en</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+         <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>coldness<span class="spRed">&lt;/quote&gt;</span></span>
+      <span class="spRed">&lt;/cit&gt;</span></span>
+      <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">de</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+         <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>Kälte<span class="spRed">&lt;/quote&gt;</span></span>
+      <span class="spRed">&lt;/cit&gt;</span></span>
+   <span class="spRed">&lt;/sense&gt;</span></span>
+   ...
+<span class="spRed">&lt;/entry&gt;</span></span></pre>
+
+                  <p>Semantically unrelated homophones or items with clearly differing semantics 
+                  have to be documented with several <i>sense</i> elements. The lemma <i>balad</i> has two senses.</p>
+                  <pre class="preBox">
+...
+<span><span class="spRed">&lt;sense</span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">en</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>country, land<span class="spRed">&lt;/quote&gt;</span></span>
+   <span class="spRed">&lt;/cit&gt;</span></span>
+   ...
+<span class="spRed">&lt;/sense&gt;</span></span>
+<span><span class="spRed">&lt;sense</span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">en</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>city, town<span class="spRed">&lt;/quote&gt;</span></span>
+   <span class="spRed">&lt;/cit&gt;</span></span>
+   ...
+<span class="spRed">&lt;/sense&gt;</span></span>
+...</pre>
+
+                  <p>Another example is <i>r&#257;s</i>:</p>
+                  <pre class="preBox">
+...
+<span><span class="spRed">&lt;sense</span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">de</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>Kopf<span class="spRed">&lt;/quote&gt;</span></span>
+   <span class="spRed">&lt;/cit&gt;</span></span>
+<span class="spRed">&lt;/sense&gt;</span></span>
+
+<span><span class="spRed">&lt;sense</span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">de</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>Anfang<span class="spRed">&lt;/quote&gt;</span></span>
+   <span class="spRed">&lt;/cit&gt;</span></span>
+<span class="spRed">&lt;/sense&gt;</span></span>
+...</pre>
+               
+               
+               
+                  <h3 id="examples2">5.2 Translating examples <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>Translation equivalents of examples are indicated in <i>cit/quote</i> constructions.</p>
+                  <pre class="preBox">
+<span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">id</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">tislam_ideeki__001</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">example</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;quote</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>tislam id&#275;ki! - &#660;a&#7735;&#7735;&#257;h yisallimak.<span class="spRed">&lt;/quote&gt;</span></span>
+
+   <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">en</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>Thank you! - Not at all.<span class="spRed">&lt;/quote&gt;</span></span>
+   <span class="spRed">&lt;/cit&gt;</span></span>
+
+<span class="spRed">&lt;/cit&gt;</span></span></pre>
+               
+               
+               
+                  <h3 id="transEquivsExplanations">5.3 Explanations <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>When the translation of a term is not very common or easily understandable 
+                  in the target language, it is common practise to explain the item instead of or 
+                  in addition to the translation. Explanations can be understood as same language 
+                  "translations". In TEI they are indicated in <i>def</i> &#8220;definition&#8221; elements.</p> 
+                  <pre class="preBox">
+<span><span class="spRed">&lt;sense</span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;def</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">en</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>a sweet dessert made of semolina, butter, sugar and rosewater<span class="spRed">&lt;/def&gt;</span></span>
+   <span><span class="spRed">&lt;def</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">de</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>Süßigkeit aus Gries, Butter, Zucker und Rosenwasser<span class="spRed">&lt;/def&gt;</span></span>
+
+   <span><span class="spRed">&lt;cit</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">translation</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">en</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;quote</span><span class="spRed">&gt;</span>Basbusa<span class="spRed">&lt;/quote&gt;</span></span>
+   <span class="spRed">&lt;/cit&gt;</span></span>
+<span class="spRed">&lt;/sense&gt;</span></span></pre>
+               
+            
+
+
+               <h2 id="inflectedWFs">6 Inflected word forms <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+               <p>There are two inflected forms that should be added on a regular basis: plurals of nominals and the third person singular present tense of verbs.</p>
+               <pre class="preBox">
+<span><span class="spRed">&lt;entry</span><span> <span class="spAttrName">id</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">balad_0</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">lemma</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>balad<span class="spRed">&lt;/orth&gt;</span></span>
+   <span class="spRed">&lt;/form&gt;</span></span>
+   
+   ...
+   
+   <span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">inflected</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">ana</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">#n_pl</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-arz-x-cairo-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>bil&#257;d<span class="spRed">&lt;/orth&gt;</span></span>
+   <span class="spRed">&lt;/form&gt;</span></span>
+   ...
+<span class="spRed">&lt;/entry&gt;</span></span></pre>
+               
+                  <h3 id="morphoAnots">6.1 Morphosyntactic annotations <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>The different forms are indicated in the <i>ana</i> &#8220;analytic&#8221; attribute.</p>
+                  <table>
+                     <tr><td><b>Value</b></td><td><b>Meaning</b></td></tr>
+                     <tr><td>#n_pl</td><td>plural of a noun</td></tr>
+                     <tr><td>#adj_pl</td><td>plural of an adjective</td></tr>
+                     <tr><td>#v_pres_sg_p3</td><td>3rd person singular present tense</td></tr>
+                  </table>
+
+                  <p>An example with a verb:</p>
+                  <pre class="preBox">
+...
+<span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">inflected</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">ana</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">#v_pres_sg_p3</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-apc-x-damascus-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>y&#477;&#7779;al<span class="spRed">&lt;/orth&gt;</span></span>
+<span class="spRed">&lt;/form&gt;</span></span>
+
+<span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">inflected</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">ana</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">#v_pres_sg_p3</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-apc-x-damascus-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>y&#363;&#7779;al<span class="spRed">&lt;/orth&gt;</span></span>
+<span class="spRed">&lt;/form&gt;</span></span>
+...</pre>
+               
+               
+               
+                  <h3 id="variants">6.2 Variants <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go
+                    to contents)</a></h3>
+                  <p>Only headwords may have variants. These are encoded as typed forms 
+                  nested in the top-level form of the entry.</p>
+                  <pre class="preBox">
+...
+<span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">lemma</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-apc-x-damascus-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>t&#382;awwaz<span class="spRed">&lt;/orth&gt;</span></span>
+
+   <span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">variant</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+      <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-apc-x-damascus-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>dzawwa&#382;&#8206;<span class="spRed">&lt;/orth&gt;</span></span>
+   <span class="spRed">&lt;/form&gt;</span></span>
+<span class="spRed">&lt;/form&gt;</span></span>
+...</pre>
+                  <p>This is the only position where the <i>form</i> element may have the 
+                  <i>type="variant"</i> attribute. All other variants are simply listed but 
+                  not classified. Variants can be assigned usage labels indicating e.g. a particular register.
+                  Generally, it is assumed that the more frequent variant is listed first.</p>
+                  <pre class="preBox">
+...
+<span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">inflected</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">ana</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">#n_pl</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-apc-x-damascus-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>k&#477;naz<span class="spRed">&lt;/orth&gt;</span></span>
+<span class="spRed">&lt;/form&gt;</span></span>
+
+<span><span class="spRed">&lt;form</span><span> <span class="spAttrName">type</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">inflected</span><span class="spQuotes">"</span></span><span> <span class="spAttrName">ana</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">#n_pl</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>
+   <span><span class="spRed">&lt;orth</span><span> <span class="spAttrName">lang</span><span class="spEquals">=</span><span class="spQuotes">"</span><span class="spValue">ar-apc-x-damascus-vicavTrans</span><span class="spQuotes">"</span></span><span class="spRed">&gt;</span>kanz&#257;t<span class="spRed">&lt;/orth&gt;</span></span>
+<span class="spRed">&lt;/form&gt;</span></span>
+...</pre>
+               
+
+            
+			
+			   <h2 id="shortened">7 Shortened for test purpose <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+			   <p></p>
+			
+            
+               <h2 id="openIssues">8 Open issues <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+               <p>How do we deal with word initial hamza?</p>
+            
+            
+            
+               <h2 id="biblio">9 References <a class="aGoTocontents" title="CONTENTS" href="#contents">(Go to contents)</a></h2>
+               <p></p>
+            
+
+      
+   </p>
+   </p>
+</p>
+                  </div></body></html>

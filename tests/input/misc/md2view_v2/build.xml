@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="fetch">
+    <import file="../build.xml" as="parent"/>
+    <property file="fetch-urls.properties"/>
+    <property file="../fetch-urls.properties"/>
+    <property file="../../fetch-urls.properties"/>
+    <property file="../../../fetch-urls.properties"/>
+    <property file="../../../../fetch-urls.properties"/>
+    <property file="../../../../../fetch-urls.properties"/>
+</project>

@@ -13,7 +13,7 @@
         <fcs:returnedRecords>4</fcs:returnedRecords>
         <fcs:numberOfMatches/>
         <fcs:duration>0.0</fcs:duration>
-        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM (SELECT base.* FROM vicav_bibl_002 AS base INNER JOIN vicav_bibl_002_ndx AS prefilter ON base.id=prefilter.id WHERE prefilter.xpath LIKE  '%-change-f-status-' AND prefilter.txt = 'released') AS base INNER JOIN vicav_bibl_002_ndx AS ndx ON base.id = ndx.id WHERE ndx.xpath LIKE '%-index-term-vicavTaxonomy-' AND ndx.txt LIKE '%Sousse%' GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
+        <fcs:transformedQuery>SELECT ndx.txt, base.entry, base.sid, COUNT(*) FROM vicav_bibl_002 AS base INNER JOIN (SELECT ndx.id, ndx.txt FROM (SELECT tab.id, tab.xpath, tab.txt FROM vicav_bibl_002_ndx AS tab INNER JOIN (SELECT inner.id FROM vicav_bibl_002_ndx AS `inner` WHERE inner.txt = 'released' AND inner.xpath LIKE '%-change-f-status-') AS prefid ON tab.id = prefid.id ) AS ndx WHERE (ndx.txt LIKE '%Sousse%') AND ((ndx.xpath LIKE '%-index-term-vicavTaxonomy-')) GROUP BY ndx.id) AS ndx ON base.id = ndx.id  GROUP BY base.sid LIMIT 0, 10</fcs:transformedQuery>
     </sru:extraResponseData>
     <sru:records>
         <sru:record>
@@ -24,6 +24,9 @@
                     <fcs:ResourceFragment>
                         <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
                         <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
                             <biblStruct xml:id="saada_1956a">
                                 <analytic>
                                     <author>Saada, Lucienne</author>
@@ -73,7 +76,7 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>1</sru:recordPosition>
-            <sru:recordIdentifier>?x-context=vicav_bibl_002&amp;operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -83,6 +86,9 @@
                     <fcs:ResourceFragment>
                         <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
                         <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
                             <biblStruct xml:id="talmoudi_1980a">
                                 <monogr>
                                     <author>Talmoudi, Fathi</author>
@@ -130,7 +136,7 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>2</sru:recordPosition>
-            <sru:recordIdentifier>?x-context=vicav_bibl_002&amp;operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -140,6 +146,9 @@
                     <fcs:ResourceFragment>
                         <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
                         <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
                             <biblStruct xml:id="talmoudi_1981a">
                                 <monogr>
                                     <author>Talmoudi, Fathi</author>
@@ -189,7 +198,7 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>3</sru:recordPosition>
-            <sru:recordIdentifier>?x-context=vicav_bibl_002&amp;operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
         <sru:record>
             <sru:recordSchema/>
@@ -199,6 +208,9 @@
                     <fcs:ResourceFragment>
                         <fcs:DataView type="title">A machine-readable bibliography of Arabic dialects</fcs:DataView>
                         <fcs:DataView type="full">
+                            <!-- Please note that it is necessary for white space preserving XSLT to have the TEI
+indented exactly as the author put it into the database. Therefore the indentation
+is not used for the content variable. (e. g. egXML) -->
                             <biblStruct xml:id="talmoudi_1986a">
                                 <monogr>
                                     <author>Talmoudi, Fathi</author>
@@ -248,7 +260,7 @@
                 </fcs:Resource>
             </sru:recordData>
             <sru:recordPosition>4</sru:recordPosition>
-            <sru:recordIdentifier>?x-context=vicav_bibl_002&amp;operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-dataview=kwic%2Ctitle&amp;x-format=xml</sru:recordIdentifier>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;version=1.2&amp;query=vicavTaxonomy%3DSousse&amp;startRecord=1&amp;maximumRecords=10&amp;recordPacking=xml&amp;x-context=vicav_bibl_002&amp;x-dataview=kwic%2Ctitle</sru:recordIdentifier>
         </sru:record>
     </sru:records>
     <sru:res>1</sru:res>

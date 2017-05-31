@@ -1,0 +1,24 @@
+
+# This is the template properties file for tests-build
+
+# Values stated here as comments are the defaults, set in the build file itself.
+# Copy the file to build-tests.props and adapt parameters to your needs. 
+# They will override the defaults.
+ 
+# see README about required dependencies
+
+# the base directory of the xsl-stylesheets to be tested
+# it could be the xsl folder in the corpus_shell, 
+# but the xsl-suite is actually maintained as separated repo: cs-xsl @ https://github.com/vronk/cs-xsl
+
+# path to webscripts (css, js) passed as parameter scripts-dir and scripts_url (FIXME: inconsistent) into the tested stylesheets
+#webscripts.url=../../scripts/
+
+# file to write successful tests to
+#successful-tests.file=success.txt
+
+# file to write failed tests to
+#failed-tests.file=failed.txt
+
+# directories for searching for .xsl files
+tests=../custom-xsl/abacus:../custom-xsl/tunico

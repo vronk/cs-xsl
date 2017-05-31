@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<sru:searchRetrieveResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+    <sru:version>1.2</sru:version>
+    <sru:numberOfRecords>1</sru:numberOfRecords>
+    <sru:echoedSearchRetrieveRequest>
+        <sru:version>1.2</sru:version>
+        <sru:query>wid=wid_00209</sru:query>
+        <fcs:x-context xmlns:fcs="http://clarin.eu/fcs/1.0">tunico</fcs:x-context>
+        <fcs:x-dataview xmlns:fcs="http://clarin.eu/fcs/1.0">full</fcs:x-dataview>
+        <sru:startRecord>1</sru:startRecord>
+        <sru:maximumRecords>10</sru:maximumRecords>
+        <sru:query>wid=wid_00209</sru:query>
+        <sru:baseUrl/>
+    </sru:echoedSearchRetrieveRequest>
+    <sru:extraResponseData>
+        <fcs:returnedRecords xmlns:fcs="http://clarin.eu/fcs/1.0">1</fcs:returnedRecords>
+        <fcs:numberOfMatches xmlns:fcs="http://clarin.eu/fcs/1.0"/>
+        <fcs:duration xmlns:fcs="http://clarin.eu/fcs/1.0">PT0.01S PT0.045S</fcs:duration>
+        <fcs:transformedQuery xmlns:fcs="http://clarin.eu/fcs/1.0">descendant-or-self::tei:w[@xml:id='wid_00209']</fcs:transformedQuery>
+    </sru:extraResponseData>
+    <sru:records>
+        <sru:record>
+            <sru:recordSchema>http://clarin.eu/fcs/1.0/Resource.xsd</sru:recordSchema>
+            <sru:recordPacking>xml</sru:recordPacking>
+            <sru:recordData>
+                <fcs:Resource xmlns:fcs="http://clarin.eu/fcs/1.0" pid="tunico.1" ref="?operation=searchRetrieve&amp;query=fcs.resource=&quot;tunico.1&quot;&amp;x-context=tunico&amp;x-dataview=title,full&amp;version=1.2">
+                    <fcs:ResourceFragment pid="tunico.1_26" ref="?operation=searchRetrieve&amp;query=fcs.rf=&quot;tunico.1_26&quot;&amp;x-context=tunico&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=tunico.1.d1e593">
+                        <fcs:DataView type="full">
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e344" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e345" ana="adjective" lemma="b&#x295;&#x12B;d" lemmaRef="bciid_001" xml:id="wid_00117">b&#x295;&#x12B;da</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e347" xml:id="wid_00118">!</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e351" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e352" ana="adjective" lemma="b&#x295;&#x12B;d" lemmaRef="bciid_001" xml:id="wid_00119">b&#x295;&#x12B;da</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e355" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00120">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e357" xml:id="wid_00121">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e360" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e361" ana="#macnaa_001" xml:id="wid_00122">ma&#x295;n&#x101;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e363" xml:id="wid_00123">ha</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e366" cr:w="4" type="FM" xml:id="wid_00124">par</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e369" cr:w="5" type="FM" xml:id="wid_00125">rapp&#x14D;&#x1E5B;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e372" ana="preposition" lemma="&#x295;l&#x101;" lemmaRef="claa_001" xml:id="wid_00126">&#x295;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e374" xml:id="wid_00127">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e376" xml:id="wid_00128">l</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e378" xml:id="wid_00129">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e381" ana="noun" lemma="bl&#x101;d" lemmaRef="blaad_001" xml:id="wid_00130">buld&#x101;n</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e384" xml:id="wid_00131">l</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e386" xml:id="wid_00132">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e388" ana="adjective" lemma="&#x101;xa&#x1E5B;" lemmaRef="aaxar_001" xml:id="wid_00133">ux&#x1E5B;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e390" xml:id="wid_00134">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e393" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e394" ana="adjective" lemma="b&#x295;&#x12B;d" lemmaRef="bciid_001" xml:id="wid_00135">b&#x295;&#x12B;da</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e397" ana="adverb" lemma="ba&#x1E5B;&#x161;a" lemmaRef="barsha_001" xml:id="wid_00136">ba&#x1E5B;&#x161;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e399" xml:id="wid_00137">.</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e402" ana="conjunction" lemma="amma" lemmaRef="aama_002" xml:id="wid_00138">&#x101;ma</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e405" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00139">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e407" xml:id="wid_00140">.</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e410" ana="verb" lemma="tkallif" lemmaRef="tkallif_001" xml:id="wid_00141">titkallif</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e414" ana="adverb" lemma="x&#x101;&#x1E63;&#x1E63;atan" lemmaRef="xaassatan_001" xml:id="wid_00142">x&#x101;&#x1E63;&#x1E63;atan</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e417" cr:w="6" type="FM" xml:id="wid_00143">b&#x12B;y&#x113;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e420" cr:w="7" type="FM" xml:id="wid_00144">davy&#x22D;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e423" ana="conjunction" lemma="b&#x101;&#x161;" lemmaRef="baash_001" xml:id="wid_00145">b&#x101;&#x161;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e426" ana="verb" lemma="hba&#x1E6D;" lemmaRef="hbat_001" xml:id="wid_00146">tahba&#x1E6D;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e429" xml:id="wid_00147">la</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e432" xml:id="wid_00148">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e434" ana="adverb" lemma="hn&#x101;" lemmaRef="hnaa_001" xml:id="wid_00149">hn&#x101;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e436" xml:id="wid_00150">.</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e439" lemma="" lemmaRef="hakka_claash_001" xml:id="wid_00151">hakka &#x295;l&#x101;&#x161;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e442" ana="verb" lemma="q&#x295;ad" lemmaRef="qcad_001" xml:id="wid_00152">q&#x295;adt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e445" ana="numeral" lemma="tl&#x101;&#x1E6F;a" lemmaRef="tlaata_001" xml:id="wid_00153">tl&#x101;&#x1E6F;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e448" ana="noun" lemma="sn&#x101;" lemmaRef="snaa_001" xml:id="wid_00154">sn&#x12B;n</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e452" xml:id="wid_00155">m&#x101;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e454" xml:id="wid_00156">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e456" ana="verb" lemma="&#x1E5B;awwa&#x1E25;" lemmaRef="rawwah_001" xml:id="wid_00157">&#x1E5B;awwa&#x1E25;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e458" xml:id="wid_00158">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e460" xml:id="wid_00159">&#x161;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e463" xml:id="wid_00160">&#x1D4A;l</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e465" xml:id="wid_00161">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e467" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00162">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e470" ana="personalPronoun" lemma="&#x101;na" lemmaRef="aana_001" xml:id="wid_00163">&#x101;na</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e473" xml:id="wid_00164">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e476" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e477" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00165">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e479" xml:id="wid_00166">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e482" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e483" ana="verb" lemma="q&#x1E5B;&#x101;" lemmaRef="qraa_001" xml:id="wid_00167">qr&#x12B;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e486" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00168">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e488" xml:id="wid_00169">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e490" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00170">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e492" xml:id="wid_00171">,</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e495" ana="verb" lemma="&#x295;&#x101;&#x161;" lemmaRef="caash_001" xml:id="wid_00172">&#x295;i&#x161;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e498" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00173">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e500" xml:id="wid_00174">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e503" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00175">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e506" cr:w="8" type="FM" xml:id="wid_00176">&#x17E;&#xFC;sk&#x101;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e509" cr:w="9" type="FM" xml:id="wid_00177">v&#x1E4F;nt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e512" cr:w="10" type="FM" xml:id="wid_00178">&#x22D;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e514" xml:id="wid_00179">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e517" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e518" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00180">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e521" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00181">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e523" xml:id="wid_00182">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e527" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e528" ana="conjunction" lemma="w-" lemmaRef="w_001" xml:id="wid_00183">w</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e530" xml:id="wid_00184">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e532" xml:id="wid_00185">&#x101;h</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e534" xml:id="wid_00186">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e537" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e538" ana="adverb" lemma="d&#x12B;ma" lemmaRef="diima_001" xml:id="wid_00187">d&#x12B;ma</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e541" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00188">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e543" xml:id="wid_00189">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e545" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00190">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e547" xml:id="wid_00191">?</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e550" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e551" xml:id="wid_00192">hm</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e553" xml:id="wid_00193">?</w>
+                            </u>
+                            <u xmlns:cr="http://aac.ac.at/content_repository" xmlns="http://www.tei-c.org/ns/1.0" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e556" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e557" ana="adverb" lemma="d&#x12B;ma" lemmaRef="diima_001" xml:id="wid_00194">d&#x12B;ma</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e560" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00195">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e562" xml:id="wid_00196">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e564" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00197">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e567" ana="conjunction" lemma="walla" lemmaRef="walla_001" xml:id="wid_00198">walla</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e570" ana="verb" lemma="&#x1E25;awwil" lemmaRef="hawwil_001" xml:id="wid_00199">&#x1E25;awwilt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e572" xml:id="wid_00200">,</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e576" xml:id="wid_00201">m&#x101;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e578" xml:id="wid_00202">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e580" ana="verb" lemma="&#x295;&#x1E5B;af" lemmaRef="craf_001" xml:id="wid_00203">na&#x295;&#x1E5B;af</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e582" xml:id="wid_00204">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e584" xml:id="wid_00205">&#x161;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e586" xml:id="wid_00206">,</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e589" xml:id="wid_00207">&#x1D4A;l</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e591" xml:id="wid_00208">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e593" ana="noun" lemma="bl&#x101;&#x1E63;a" lemmaRef="blaasa_001" xml:id="wid_00209">
+                                    <exist:match xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:exist="http://exist.sourceforge.net/NS/exist">bl&#x101;yi&#x1E63;</exist:match>
+                                </w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e597" ana="adjective" lemma="&#x101;xa&#x1E5B;" lemmaRef="aaxar_001" xml:id="wid_00210">ux&#x1E5B;&#x12B;n</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e599" xml:id="wid_00211">?</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e602" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e603" ana="verb" lemma="k&#x101;n" lemmaRef="kaan_001" xml:id="wid_00212">kunt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e606" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00213">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e608" xml:id="wid_00214">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e610" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00215">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e612" xml:id="wid_00216">,</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e615" ana="verb" lemma="k&#x101;n" lemmaRef="kaan_001" xml:id="wid_00217">kunt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e618" ana="verb" lemma="s&#x101;fir" lemmaRef="saafir_001" xml:id="wid_00218">ns&#x101;fir</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e622" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00219">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e624" xml:id="wid_00220">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e626" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00221">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e629" ana="adverb" lemma="ba&#x1E5B;&#x161;a" lemmaRef="barsha_001" xml:id="wid_00222">ba&#x1E5B;&#x161;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e631" xml:id="wid_00223">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e634" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e635" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00224">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e638" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00225">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e640" xml:id="wid_00226">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e644" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e645" ana="verb" lemma="k&#x101;n" lemmaRef="kaan_001" xml:id="wid_00227">kunt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e648" ana="verb" lemma="xdim" lemmaRef="xdim_001" xml:id="wid_00228">nixdim</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e651" xml:id="wid_00229">&#xE4;h</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e653" xml:id="wid_00230">,</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e656" cr:w="11" type="FM" xml:id="wid_00231">&#x1E4F;n&#x17E;eny&#x22B;&#x121;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e659" cr:w="12" type="FM" xml:id="wid_00232">d&#xF6;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e663" cr:w="13" type="FM" xml:id="wid_00233">s&#x22D;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e666" ana="preposition" lemma="m&#x295;&#x101;" lemmaRef="mcaa_001" xml:id="wid_00234">m&#x295;&#x101;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e669" cr:w="14" type="FM" xml:id="wid_00235">g&#x1E5B;&#x16B;p</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e672" ana="preposition" lemma="mt&#x101;&#x295;" lemmaRef="mtaac_001" xml:id="wid_00236">&#x1D4A;mt&#x101;&#x295;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e675" xml:id="wid_00237">m&#x16B;z&#x12B;ka</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e677" xml:id="wid_00238">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e680" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e682" cr:w="15" type="FM" xml:id="wid_00239">ok&#x113;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e684" xml:id="wid_00240">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e687" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e688" ana="verb" lemma="k&#x101;n" lemmaRef="kaan_001" xml:id="wid_00241">kunna</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e691" ana="verb" lemma="xdim" lemmaRef="xdim_001" xml:id="wid_00242">nixdmu</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e694" ana="preposition" lemma="&#x295;l&#x101;" lemmaRef="claa_001" xml:id="wid_00243">&#x295;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e696" xml:id="wid_00244">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e698" xml:id="wid_00245">l</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e700" xml:id="wid_00246">,</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e703" ana="preposition" lemma="&#x295;l&#x101;" lemmaRef="claa_001" xml:id="wid_00247">&#x295;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e705" xml:id="wid_00248">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e708" xml:id="wid_00249">l</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e710" xml:id="wid_00250">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e712" xml:id="wid_00251">.</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e715" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00252">f</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e717" xml:id="wid_00253">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e719" xml:id="wid_00254">il</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e721" xml:id="wid_00255">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e723" ana="noun" lemma="&#x16B;t&#x12B;l" lemmaRef="uutiil_001" xml:id="wid_00256">witla</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e726" ana="conjunction" lemma="w-" lemmaRef="w_001" xml:id="wid_00257">w</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e729" xml:id="wid_00258">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e731" xml:id="wid_00259">il</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e733" xml:id="wid_00260">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e735" ana="noun" lemma="b&#x101;&#x1E5B;" lemmaRef="baar_001" xml:id="wid_00261">b&#x12B;r&#x101;n</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e738" ana="preposition" lemma="&#x295;l&#x101;" lemmaRef="claa_001" xml:id="wid_00262">&#x295;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e740" xml:id="wid_00263">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e742" xml:id="wid_00264">&#x161;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e744" xml:id="wid_00265">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e746" ana="noun" lemma="&#x161;a&#x1E6D;&#x1E6D;" lemmaRef="shatt_001" xml:id="wid_00266">&#x161;a&#x1E6D;&#x1E6D;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e750" ana="#macnaa_001" xml:id="wid_00267">ma&#x295;n&#x101;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e752" xml:id="wid_00268">ha</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e755" ana="verb" lemma="k&#x101;n" lemmaRef="kaan_001" xml:id="wid_00269">kunt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e758" ana="verb" lemma="xdim" lemmaRef="xdim_001" xml:id="wid_00270">nixdim</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e761" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00271">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e763" xml:id="wid_00272">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e765" cr:w="16" type="FM" xml:id="wid_00273">l&#x113;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e769" cr:w="17" type="FM" xml:id="wid_00274">z&#x14D;n</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e772" cr:w="18" type="FM" xml:id="wid_00275">tu&#x121;ist&#x12B;k</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e774" xml:id="wid_00276">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e777" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e779" cr:w="19" type="FM" xml:id="wid_00277">ok&#x113;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e781" xml:id="wid_00278">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e784" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e785" ana="#macnaa_001" xml:id="wid_00279">ma&#x295;n&#x101;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e787" xml:id="wid_00280">ha</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e790" ana="verb" lemma="s&#x101;fir" lemmaRef="saafir_001" xml:id="wid_00281">s&#x101;firt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e793" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00282">fi</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e795" xml:id="wid_00283">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e797" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00284">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e800" ana="adverb" lemma="ba&#x1E5B;&#x161;a" lemmaRef="barsha_001" xml:id="wid_00285">ba&#x1E5B;&#x161;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e802" xml:id="wid_00286">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e805" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e806" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00287">&#x12B;h</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e809" cr:w="20" type="FM" xml:id="wid_00288">s&#x113;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e812" cr:w="21" type="FM" xml:id="wid_00289">by&#x1E4F;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e814" xml:id="wid_00290">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e818" who="Ayyoub">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e819" ana="conjunction" lemma="w-" lemmaRef="w_001" xml:id="wid_00291">w</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e821" xml:id="wid_00292">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e823" cr:w="22" type="FM" xml:id="wid_00293">il</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e825" cr:w="23" type="FM" xml:id="wid_00294">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e827" cr:w="24" type="FM" xml:id="wid_00295">v&#x14D;y&#x101;&#x17E;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e830" ana="verb" lemma="k&#x101;n" lemmaRef="kaan_001" xml:id="wid_00296">k&#x101;n</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e833" ana="#macnaa_001" xml:id="wid_00297">ma&#x295;n&#x101;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e835" xml:id="wid_00298">ha</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e839" ana="adverb" lemma="d&#x12B;ma" lemmaRef="diima_001" xml:id="wid_00299">d&#x12B;ma</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e842" ana="noun" lemma="&#x1E25;&#x101;&#x17E;a" lemmaRef="haazha_001" xml:id="wid_00300">&#x1E25;&#x101;&#x17E;a</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e845" ana="verb" lemma="&#x1E25;abb" lemmaRef="habb_001" xml:id="wid_00301">n&#x1E25;ibb</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e847" xml:id="wid_00302">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e849" xml:id="wid_00303">ha</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e851" xml:id="wid_00304">.</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e854" ana="conjunction" lemma="amma" lemmaRef="aama_002" xml:id="wid_00305">&#x101;ma</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e858" ana="preposition" lemma="qbal" lemmaRef="qbal_001" xml:id="wid_00306">qbal</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e861" ana="noun" lemma="&#x295;mu&#x1E5B;" lemmaRef="cmur_001" xml:id="wid_00307">&#x295;um&#x1E5B;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e863" xml:id="wid_00308">i</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e866" xml:id="wid_00309">m&#x101;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e868" xml:id="wid_00310">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e870" ana="adverb" lemma="hakka" lemmaRef="hakka_001" xml:id="wid_00311">hakk&#x101;ka</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e873" ana="verb" lemma="xammam" lemmaRef="xammam_001" xml:id="wid_00312">xammamt</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e877" ana="verb" lemma="x&#x1E5B;a&#x17E;" lemmaRef="xrazh_001" xml:id="wid_00313">nux&#x1E5B;u&#x17E;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e880" ana="preposition" lemma="min" lemmaRef="min_001" xml:id="wid_00314">min</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e882" xml:id="wid_00315">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e884" ana="toponym" lemma="t&#x16B;nis" lemmaRef="tuunis_001" xml:id="wid_00316">t&#x16B;nis</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e886" xml:id="wid_00317">.</w>
+                            </u>
+                            <u xmlns="http://www.tei-c.org/ns/1.0" xmlns:cr="http://aac.ac.at/content_repository" cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e889" who="IG">
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e890" ana="responseParticle" lemma="ayy" lemmaRef="ayy_001" xml:id="wid_00318">ayy</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e892" xml:id="wid_00319">.</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e895" ana="interrogative" lemma="waqt&#x101;&#x161;" lemmaRef="waqtaash_001" xml:id="wid_00320">waqt&#x101;&#x161;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e898" ana="adverb" lemma="mm&#x101;la" lemmaRef="mmaala_001" xml:id="wid_00321">m&#x101;la</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e901" ana="verb" lemma="bd&#x101;" lemmaRef="bdaa_001" xml:id="wid_00322">bd&#x12B;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e904" ana="preposition" lemma="fi-" lemmaRef="f_i_001" xml:id="wid_00323">f</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e906" xml:id="wid_00324">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e909" xml:id="wid_00325">it</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e911" xml:id="wid_00326">-</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e913" ana="noun" lemma="tuxm&#x101;m" lemmaRef="tuxmaam_001" xml:id="wid_00327">tuxm&#x101;m</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e915" xml:id="wid_00328">,</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e918" ana="interrogative" lemma="&#x295;l&#x101;&#x161;" lemmaRef="claash_001" xml:id="wid_00329">&#x295;l&#x101;&#x161;</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e921" ana="verb" lemma="x&#x1E5B;a&#x17E;" lemmaRef="xrazh_001" xml:id="wid_00330">x&#x1E5B;a&#x17E;t</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e924" ana="adverb" lemma="mm&#x101;la" lemmaRef="mmaala_001" xml:id="wid_00331">m&#x101;la</w>
+                                <w cr:project-id="tunico" cr:resource-pid="tunico.1" cr:id="tunico.1.d1e926" xml:id="wid_00332">?</w>
+                            </u>
+                        </fcs:DataView>
+                    </fcs:ResourceFragment>
+                </fcs:Resource>
+            </sru:recordData>
+            <sru:recordPosition>1</sru:recordPosition>
+            <sru:recordIdentifier>?operation=searchRetrieve&amp;query=fcs.rf="tunico.1_26"&amp;x-context=tunico&amp;x-dataview=title,full&amp;version=1.2&amp;x-highlight=tunico.1.d1e593</sru:recordIdentifier>
+        </sru:record>
+    </sru:records>
+</sru:searchRetrieveResponse>
