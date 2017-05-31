@@ -33,7 +33,7 @@
     
     <xsl:template name="getVICAVDictionariesAbout">
         <xsl:param name="teiDocument">
-            <xsl:variable name="base_url" select="'https://minerva.arz.oeaw.ac.at/vicav2/corpus_shell/modules/fcs-aggregator/switch.php'"/>
+            <xsl:variable name="base_url" select="'https://cs.acdh.oeaw.ac.at/modules/fcs-aggregator/switch.php'"/>
             <xsl:copy-of select="document(concat($base_url, '?version=1.2&amp;operation=searchRetrieve&amp;query=metaText==Dictionaries&amp;x-context=vicav_meta&amp;x-format=html&amp;x-realhostname=',$site_url))"/>
         </xsl:param>
         <xsl:copy-of select="exsl:node-set($teiDocument)//html:div[@class='tei-body']"/>

@@ -45,7 +45,6 @@
             <xsl:when test="contains($format, '-fcdeluxe')">
                 <xsl:text>*&#x9;name&#x9;Unit </xsl:text><xsl:value-of select="concat($unit, ' Vocabulary from ', normalize-space(//fcs:DataView[@type='title']))"/><xsl:text>&#xa;</xsl:text>
                 <xsl:text>*&#x9;font&#x9;* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf,* Andika-R.ttf&#xa;</xsl:text>
-                <xsl:text>*&#x9;deck-stats-1&#x9;&#xa;</xsl:text>
                 <xsl:text>Text 1&#x9;Text 2&#x9;Text 3&#x9;Text 4&#x9;Text 5</xsl:text><xsl:if 
                     test="contains($format, '-audio')"><xsl:text>&#x9;Sound 1&#x9;Sound 2&#x9;Sound 3&#x9;Sound 4&#x9;Sound 5</xsl:text></xsl:if><xsl:text>&#xa;</xsl:text>
                 <xsl:apply-templates select="//tei:entry"/>
